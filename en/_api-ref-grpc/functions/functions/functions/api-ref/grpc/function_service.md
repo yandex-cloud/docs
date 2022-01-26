@@ -293,6 +293,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources}
@@ -308,6 +309,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## GetFunctionVersion {#GetFunctionVersion}
@@ -343,6 +355,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret1)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources1}
@@ -358,6 +371,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## GetVersionByTag {#GetVersionByTag}
@@ -394,6 +418,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret2)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources2}
@@ -409,6 +434,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## GetFunctionVersionByTag {#GetFunctionVersionByTag}
@@ -445,6 +481,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret3)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources3}
@@ -460,6 +497,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## ListVersions {#ListVersions}
@@ -508,6 +556,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret4)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources4}
@@ -523,6 +572,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## ListFunctionVersions {#ListFunctionVersions}
@@ -571,6 +631,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret5)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources5}
@@ -586,6 +647,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## SetTag {#SetTag}
@@ -649,6 +721,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret6)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources6}
@@ -664,6 +737,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret6}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## RemoveTag {#RemoveTag}
@@ -727,6 +811,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret7)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources7}
@@ -742,6 +827,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret7}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## ListTagHistory {#ListTagHistory}
@@ -845,6 +941,7 @@ environment | **map<string,string>**<br>Environment settings for the version. Th
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
 connectivity | **[Connectivity](#Connectivity8)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret8)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources8}
@@ -869,6 +966,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret8}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ### Operation {#Operation5}
@@ -914,6 +1022,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity9)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret9)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources9}
@@ -929,6 +1038,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret9}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -960,6 +1080,7 @@ environment | **map<string,string>**<br>Environment settings for the version. Th
 tag[] | **string**<br>Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
 connectivity | **[Connectivity](#Connectivity10)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret10)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources10}
@@ -984,6 +1105,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret10}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ### Operation {#Operation6}
@@ -1029,6 +1161,7 @@ log_group_id | **string**<br>ID of the log group for the version.
 environment | **map<string,string>**<br>Environment settings for the version. 
 connectivity | **[Connectivity](#Connectivity11)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
+secrets[] | **[Secret](#Secret11)**<br>Lockbox secrets to be used by the version 
 
 
 ### Resources {#Resources11}
@@ -1044,6 +1177,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### Secret {#Secret11}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of lockbox secret 
+version_id | **string**<br>ID of secret version 
+key | **string**<br>Key in secret's payload, which value to be delivered into function environment 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered 
 
 
 ## ListRuntimes {#ListRuntimes}

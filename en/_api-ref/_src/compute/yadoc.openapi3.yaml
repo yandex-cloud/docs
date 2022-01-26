@@ -491,6 +491,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDiskOperationsResponse'
       x-y-navtitle: listOperations
+  /compute/v1/disks/{diskId}:move:
+    post:
+      tags:
+      - Disk
+      summary: Moves disk between folders.
+      operationId: DiskMove
+      parameters:
+      - name: diskId
+        in: path
+        description: |-
+          Required.
+          ID of the disk that is being moved.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveDiskRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveDiskMetadata'
+      x-y-operation-response: '[Disk](/docs/compute/api-ref/Disk#representation)'
   /compute/v1/diskTypes/{diskTypeId}:
     get:
       tags:
@@ -2037,6 +2071,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListInstanceOperationsResponse'
       x-y-navtitle: listOperations
+  /compute/v1/instances/{instanceId}:move:
+    post:
+      tags:
+      - Instance
+      summary: Moves the specified instance between folders
+      operationId: InstanceMove
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance that is being moved.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveInstanceMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
   /compute/v1/placementGroups/{placementGroupId}:
     get:
       tags:
@@ -4464,6 +4532,50 @@ components:
       enum:
       - RESTART
       - MIGRATE
+    MoveDiskMetadata:
+      type: object
+      properties:
+        diskId:
+          description: ID of the disk that is being moved.
+          type: string
+        sourceFolderId:
+          description: ID of the source folder.
+          type: string
+        destinationFolderId:
+          description: ID of the destination folder.
+          type: string
+    MoveDiskRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
+          type: string
+    MoveInstanceMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance that is being moved.
+          type: string
+        sourceFolderId:
+          description: ID of the source folder.
+          type: string
+        destinationFolderId:
+          description: ID of the destination folder.
+          type: string
+    MoveInstanceRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            ID of the destination folder.
+
+            The maximum string length in characters is 50.
+          type: string
     NetworkInterface:
       type: object
       properties:

@@ -250,7 +250,9 @@ clusterId | Required. ID of the ClickHouse Cluster resource to update. To get th
       "dataLens": true,
       "webSql": true,
       "metrika": true,
-      "serverless": true
+      "serverless": true,
+      "dataTransfer": true,
+      "yandexQuery": true
     },
     "cloudStorage": {
       "enabled": true
@@ -457,6 +459,8 @@ configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow to export
 configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex.Cloud management console.</p> <p>See <a href="/docs/managed-clickhouse/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
 configSpec.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow to import data from Yandex.Metrica and AppMetrica to the cluster.</p> <p>See <a href="https://appmetrica.yandex.com/docs/cloud/index.html">Export data to Yandex.Cloud</a> for more details.</p> 
 configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access to cluster for Serverless.</p> 
+configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer</p> 
+configSpec.<br>access.<br>yandexQuery | **boolean** (boolean)<br><p>Allow access for YandexQuery</p> 
 configSpec.<br>cloudStorage | **object**<br>
 configSpec.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to use Yandex Object Storage for storing ClickHouse data.</p> 
 configSpec.<br>sqlDatabaseManagement | **boolean** (boolean)<br><p>Whether database management through SQL commands is enabled.</p> 

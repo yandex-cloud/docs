@@ -68,7 +68,7 @@ audio_channel_count | **int64**<br>PCM channel count. Currently only single chan
 
 Field | Description
 --- | ---
-container_audio_type | enum **ContainerAudioType**<br>type of audio container <ul><ul/>
+container_audio_type | enum **ContainerAudioType**<br>type of audio container <ul><li>`MP3`: transcription only</li><ul/>
 
 
 ### TextNormalizationOptions {#TextNormalizationOptions}
@@ -76,7 +76,8 @@ container_audio_type | enum **ContainerAudioType**<br>type of audio container <u
 Field | Description
 --- | ---
 text_normalization | enum **TextNormalization**<br>Normalization <ul><li>`TEXT_NORMALIZATION_ENABLED`: Enable normalization</li><li>`TEXT_NORMALIZATION_DISABLED`: Disable normalization</li><ul/>
-profanity_filter | **bool**<br>Profanity filter 
+profanity_filter | **bool**<br>Filter profanity (default: false) 
+literature_text | **bool**<br>Rewrite text in literature style (default: false) 
 
 
 ### EouClassifierOptions {#EouClassifierOptions}

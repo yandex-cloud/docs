@@ -928,6 +928,11 @@ components:
             type: object
             additionalProperties:
               type: string
+          secrets:
+            description: Lockbox secrets to be used by the version
+            type: array
+            items:
+              $ref: '#/components/schemas/Secret'
       - title: package_source
         type: object
         maxProperties: 1
@@ -1317,6 +1322,29 @@ components:
             0 means no limit.
           type: string
           format: int64
+    Secret:
+      description: Secret for serverless function
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of lockbox secret
+            type: string
+          versionId:
+            description: ID of secret version
+            type: string
+          key:
+            description: Key in secret's payload, which value to be delivered into
+              function environment
+            type: string
+      - title: reference
+        type: object
+        maxProperties: 1
+        properties:
+          environmentVariable:
+            description: environment variable in which secret's value to be delivered
+            type: string
     SetAccessBindingsMetadata:
       type: object
       properties:
@@ -1553,6 +1581,11 @@ components:
           type: object
           additionalProperties:
             type: string
+        secrets:
+          description: Lockbox secrets to be used by the version
+          type: array
+          items:
+            $ref: '#/components/schemas/Secret'
     VersionStatus:
       description: |2-
          - CREATING: Version is being created.

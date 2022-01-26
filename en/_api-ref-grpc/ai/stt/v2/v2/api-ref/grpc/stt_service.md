@@ -41,7 +41,7 @@ folder_id | **string**<br>
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><ul/>
+audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><li>`MP3`: transcription only</li><ul/>
 sample_rate_hertz | **int64**<br>8000, 16000, 48000 only for pcm 
 language_code | **string**<br>code in BCP-47 
 profanity_filter | **bool**<br> 
@@ -50,6 +50,7 @@ partial_results | **bool**<br>If set true, tentative hypotheses may be returned 
 single_utterance | **bool**<br> 
 audio_channel_count | **int64**<br>Used only for long running recognize. 
 raw_results | **bool**<br>This mark allows disable normalization text 
+literature_text | **bool**<br>Rewrite text in literature style (default: false) 
 
 
 ### RecognitionAudio {#RecognitionAudio}
@@ -138,7 +139,7 @@ folder_id | **string**<br>
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><ul/>
+audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><li>`MP3`: transcription only</li><ul/>
 sample_rate_hertz | **int64**<br>8000, 16000, 48000 only for pcm 
 language_code | **string**<br>code in BCP-47 
 profanity_filter | **bool**<br> 
@@ -147,6 +148,7 @@ partial_results | **bool**<br>If set true, tentative hypotheses may be returned 
 single_utterance | **bool**<br> 
 audio_channel_count | **int64**<br>Used only for long running recognize. 
 raw_results | **bool**<br>This mark allows disable normalization text 
+literature_text | **bool**<br>Rewrite text in literature style (default: false) 
 
 
 ### StreamingRecognitionResponse {#StreamingRecognitionResponse}

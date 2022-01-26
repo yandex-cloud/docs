@@ -155,12 +155,19 @@ components:
           description: This mark allows disable normalization text
           type: boolean
           format: boolean
+        literatureText:
+          description: 'Rewrite text in literature style (default: false)'
+          type: boolean
+          format: boolean
     RecognitionSpecAudioEncoding:
-      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      description: |2-
+         - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)
+         - MP3: transcription only
       type: string
       enum:
       - LINEAR16_PCM
       - OGG_OPUS
+      - MP3
     SpeechRecognitionAlternative:
       type: object
       properties:
@@ -288,11 +295,18 @@ components:
           description: This mark allows disable normalization text
           type: boolean
           format: boolean
+        literatureText:
+          description: 'Rewrite text in literature style (default: false)'
+          type: boolean
+          format: boolean
     RecognitionSpecAudioEncoding_in_RecognitionSpec_audioEncoding:
-      description: ' - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)'
+      description: |2-
+         - LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)
+         - MP3: transcription only
       type: string
       enum:
       - LINEAR16_PCM
       - OGG_OPUS
+      - MP3
 tags:
 - name: Stt

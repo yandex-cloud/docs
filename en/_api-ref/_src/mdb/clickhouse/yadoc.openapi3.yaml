@@ -2276,6 +2276,14 @@ components:
           description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
+        dataTransfer:
+          description: Allow access for DataTransfer
+          type: boolean
+          format: boolean
+        yandexQuery:
+          description: Allow access for YandexQuery
+          type: boolean
+          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -6840,6 +6848,14 @@ components:
           description: Allow access to cluster for Serverless.
           type: boolean
           format: boolean
+        dataTransfer:
+          description: Allow access for DataTransfer
+          type: boolean
+          format: boolean
+        yandexQuery:
+          description: Allow access for YandexQuery
+          type: boolean
+          format: boolean
     CloudStorage_in_ClusterConfig_cloudStorage:
       type: object
       properties:
@@ -6970,6 +6986,14 @@ components:
           format: boolean
         serverless:
           description: Allow access to cluster for Serverless.
+          type: boolean
+          format: boolean
+        dataTransfer:
+          description: Allow access for DataTransfer
+          type: boolean
+          format: boolean
+        yandexQuery:
+          description: Allow access for YandexQuery
           type: boolean
           format: boolean
     CloudStorage_in_ConfigSpec_cloudStorage:

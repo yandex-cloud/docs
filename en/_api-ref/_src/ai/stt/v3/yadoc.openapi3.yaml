@@ -118,10 +118,12 @@ components:
         containerAudioType:
           $ref: '#/components/schemas/ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType'
     ContainerAudioContainerAudioType:
+      description: ' - MP3: transcription only'
       type: string
       enum:
       - WAV
       - OGG_OPUS
+      - MP3
     DefaultEouClassifier:
       type: object
       properties:
@@ -303,7 +305,11 @@ components:
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization'
         profanityFilter:
-          description: Profanity filter
+          description: 'Filter profanity (default: false)'
+          type: boolean
+          format: boolean
+        literatureText:
+          description: 'Rewrite text in literature style (default: false)'
           type: boolean
           format: boolean
     TextNormalizationOptionsTextNormalization:
@@ -332,11 +338,15 @@ components:
           type: string
           format: int64
     ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType:
-      description: type of audio container
+      description: |-
+        type of audio container
+
+         - MP3: transcription only
       type: string
       enum:
       - WAV
       - OGG_OPUS
+      - MP3
     DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type:
       description: EOU sensitivity.  Currently two levels, faster with more error
         and more conservative (our default)
@@ -376,7 +386,11 @@ components:
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization'
         profanityFilter:
-          description: Profanity filter
+          description: 'Filter profanity (default: false)'
+          type: boolean
+          format: boolean
+        literatureText:
+          description: 'Rewrite text in literature style (default: false)'
           type: boolean
           format: boolean
     CodeType_in_StatusCode_codeType:

@@ -2,65 +2,34 @@
 editable: false
 ---
 
-# Method longRunningRecognize
-
+# Method move
+Moves the specified instance between folders
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://stt.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:move
 ```
+ 
+## Path parameters {#path_params}
+ 
+Parameter | Description
+--- | ---
+instanceId | Required. ID of the instance that is being moved.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "config": {
-    "specification": {
-      "audioEncoding": "string",
-      "sampleRateHertz": "string",
-      "languageCode": "string",
-      "profanityFilter": true,
-      "model": "string",
-      "partialResults": true,
-      "singleUtterance": true,
-      "audioChannelCount": "string",
-      "rawResults": true,
-      "literatureText": true
-    },
-    "folderId": "string"
-  },
-  "audio": {
-
-    // `audio` includes only one of the fields `content`, `uri`
-    "content": "string",
-    "uri": "string",
-    // end of the list of possible fields`audio`
-
-  }
+  "destinationFolderId": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-config | **object**<br>
-config.<br>specification | **object**<br>
-config.<br>specification.<br>audioEncoding | **string**<br><ul> <li>LINEAR16_PCM: 16-bit signed little-endian (Linear PCM)</li> <li>MP3: transcription only</li> </ul> 
-config.<br>specification.<br>sampleRateHertz | **string** (int64)<br><p>8000, 16000, 48000 only for pcm</p> 
-config.<br>specification.<br>languageCode | **string**<br><p>code in BCP-47</p> 
-config.<br>specification.<br>profanityFilter | **boolean** (boolean)<br>
-config.<br>specification.<br>model | **string**<br>
-config.<br>specification.<br>partialResults | **boolean** (boolean)<br><p>If set true, tentative hypotheses may be returned as they become available (final=false flag) If false or omitted, only final=true result(s) are returned. Makes sense only for StreamingRecognize requests.</p> 
-config.<br>specification.<br>singleUtterance | **boolean** (boolean)<br>
-config.<br>specification.<br>audioChannelCount | **string** (int64)<br><p>Used only for long running recognize.</p> 
-config.<br>specification.<br>rawResults | **boolean** (boolean)<br><p>This mark allows disable normalization text</p> 
-config.<br>specification.<br>literatureText | **boolean** (boolean)<br><p>Rewrite text in literature style (default: false)</p> 
-config.<br>folderId | **string**<br>
-audio | **object**<br>
-audio.<br>content | **string** (byte) <br>`audio` includes only one of the fields `content`, `uri`<br><br>
-audio.<br>uri | **string** <br>`audio` includes only one of the fields `content`, `uri`<br><br>
+destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

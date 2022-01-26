@@ -532,6 +532,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AttachedDomain'
+        connectivity:
+          $ref: '#/components/schemas/Connectivity_in_ApiGateway_connectivity'
     ApiGatewayStatus:
       description: |2-
          - CREATING: API gateway is being created.
@@ -562,6 +564,22 @@ components:
         domain:
           description: Name of the domain.
           type: string
+    Connectivity:
+      description: Gateway connectivity specification.
+      type: object
+      properties:
+        networkId:
+          description: |-
+            Network the gateway will have access to.
+            It's essential to specify network with subnets in all availability zones.
+          type: string
+        subnetId:
+          description: |-
+            Complete list of subnets (from the same network) the gateway can be attached to.
+            It's essential to specify at least one subnet for each availability zones.
+          type: array
+          items:
+            type: string
     CreateApiGatewayMetadata:
       type: object
       properties:
@@ -605,6 +623,10 @@ components:
             type: object
             additionalProperties:
               type: string
+          connectivity:
+            $ref: '#/components/schemas/Connectivity'
+            description: Gateway connectivity. If specified the gateway will be attached
+              to specified network/subnet(s).
       - title: spec
         type: object
         maxProperties: 1
@@ -880,6 +902,10 @@ components:
             type: object
             additionalProperties:
               type: string
+          connectivity:
+            $ref: '#/components/schemas/Connectivity'
+            description: Gateway connectivity. If specified the gateway will be attached
+              to specified network/subnet(s).
       - title: spec
         type: object
         maxProperties: 1
@@ -982,6 +1008,25 @@ components:
       - DELETING
       - ERROR
       - UPDATING
+    Connectivity_in_ApiGateway_connectivity:
+      description: |-
+        Network access. If specified the gateway will be attached to specified network/subnet(s).
+
+        Gateway connectivity specification.
+      type: object
+      properties:
+        networkId:
+          description: |-
+            Network the gateway will have access to.
+            It's essential to specify network with subnets in all availability zones.
+          type: string
+        subnetId:
+          description: |-
+            Complete list of subnets (from the same network) the gateway can be attached to.
+            It's essential to specify at least one subnet for each availability zones.
+          type: array
+          items:
+            type: string
 tags:
 - name: ApiGateway
   description: A set of methods for managing API gateways.

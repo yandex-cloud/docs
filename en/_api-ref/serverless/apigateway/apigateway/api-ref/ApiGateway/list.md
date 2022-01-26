@@ -44,7 +44,13 @@ filter | A filter expression that filters functions listed in the response.  The
           "enabled": true,
           "domain": "string"
         }
-      ]
+      ],
+      "connectivity": {
+        "networkId": "string",
+        "subnetId": [
+          "string"
+        ]
+      }
     }
   ],
   "nextPageToken": "string"
@@ -69,4 +75,7 @@ apiGateways[].<br>attachedDomains[].<br>domainId | **string**<br><p>ID of the do
 apiGateways[].<br>attachedDomains[].<br>certificateId | **string**<br><p>ID of the domain certificate.</p> 
 apiGateways[].<br>attachedDomains[].<br>enabled | **boolean** (boolean)<br><p>Enabling flag.</p> 
 apiGateways[].<br>attachedDomains[].<br>domain | **string**<br><p>Name of the domain.</p> 
+apiGateways[].<br>connectivity | **object**<br><p>Network access. If specified the gateway will be attached to specified network/subnet(s).</p> <p>Gateway connectivity specification.</p> 
+apiGateways[].<br>connectivity.<br>networkId | **string**<br><p>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones.</p> 
+apiGateways[].<br>connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

@@ -102,9 +102,8 @@ paths:
     get:
       tags:
       - Cluster
-      summary: |-
-        Retrieves a list of Greenplum® clusters that belong
-        to the specified folder.
+      summary: Retrieves a list of Greenplum® clusters that belong to the specified
+        folder.
       operationId: ClusterList
       parameters:
       - name: folderId
@@ -446,7 +445,8 @@ paths:
           type: string
       - name: alwaysNextPageToken
         in: query
-        description: Always return `next_page_token`, even if current page is empty.
+        description: Always return `next_page_token`, even if the current page is
+          empty.
         schema:
           type: boolean
           format: boolean
@@ -481,16 +481,16 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allow data export from the cluster to Yandex DataLens.
+          description: Allows data export from the cluster to Yandex DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allow SQL queries to the cluster databases from the Yandex.Cloud
+          description: Allows SQL queries to the cluster databases from the Yandex.Cloud
             management console.
           type: boolean
           format: boolean
     AnytimeMaintenanceWindow:
-      description: A Greenplum® cluster any-time maintenance window.
+      description: An any-time maintenance window.
       type: object
       properties: {}
     Cluster:
@@ -499,8 +499,8 @@ components:
       properties:
         id:
           description: |-
-            ID of the Greenplum cluster.
-            This ID is assigned by Managed Service for Greenplum® at creation time.
+            ID of the Greenplum® cluster.
+            This ID is assigned by Yandex.Cloud at the time of cluster creation.
           type: string
         folderId:
           description: ID of the folder that the Greenplum® cluster belongs to.
@@ -575,7 +575,7 @@ components:
           description: Owner user name.
           type: string
         deletionProtection:
-          description: Deletion Protection inhibits deletion of the cluster.
+          description: Whether or not cluster is protected from being deleted.
           type: boolean
           format: boolean
         hostGroupIds:
@@ -596,9 +596,11 @@ components:
       - PRODUCTION
       - PRESTABLE
     ClusterHealth:
-      description: |2-
-         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive (`health` for every host in the cluster is ALIVE).
+      description: |-
+        Aggregated health of the cluster.
+
+         - HEALTH_UNKNOWN: Health of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is working normally (`health` for every host in the cluster is ALIVE).
          - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
          - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
          - UNBALANCED: Cluster is working below capacity (`health` for at least one host in the cluster is UNBALANCED).
@@ -611,11 +613,13 @@ components:
       - UNBALANCED
       default: HEALTH_UNKNOWN
     ClusterStatus:
-      description: |2-
+      description: |-
+        Current state of the cluster.
+
          - STATUS_UNKNOWN: Cluster state is unknown.
          - CREATING: Cluster is being created.
          - RUNNING: Cluster is running normally.
-         - ERROR: There is a problem with the cluster and it cannot operate.
+         - ERROR: Cluster has encountered a problem and cannot operate.
          - UPDATING: Cluster is being updated.
          - STOPPING: Cluster is stopping.
          - STOPPED: Cluster has stopped.
@@ -632,25 +636,27 @@ components:
       - STARTING
       default: STATUS_UNKNOWN
     ConnectionPoolerConfig:
-      description: Configuration of the connection pooler.
+      description: Route server configuration.
       type: object
       properties:
         mode:
           $ref: '#/components/schemas/ConnectionPoolerConfigPoolMode_in_ConnectionPoolerConfig_mode'
         size:
           description: |-
-            The number of servers in the pool. Clients are put in a wait queue, when all servers are busy.
+            The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
             Set to zero to disable the limit.
           type: integer
           format: int64
         clientIdleTimeout:
           description: |-
             Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration.
-            Set to zero to disable.
+            Set to zero to disable the limit.
           type: integer
           format: int64
     ConnectionPoolerConfigPoolMode:
-      description: |2-
+      description: |-
+        Route server pool mode.
+
          - SESSION: Assign server connection to a client until it disconnects. Default value.
          - TRANSACTION: Assign server connection to a client for a transaction processing.
       type: string
@@ -690,7 +696,7 @@ components:
         labels:
           description: |-
             Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
-            For example, "project": "mvp" or "source": "dictionary".
+            For example, "project":"mvp" or "source":"dictionary".
 
             No more than 64 per resource.
             The maximum string length in characters for each key is 63.
@@ -743,7 +749,7 @@ components:
           items:
             type: string
         deletionProtection:
-          description: Deletion Protection inhibits deletion of the cluster.
+          description: Whether or not cluster is protected from being deleted.
           type: boolean
           format: boolean
         hostGroupIds:
@@ -775,7 +781,7 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     GreenplumConfig:
-      description: Greenplum® cluster options.
+      description: Greenplum® cluster configuration.
       type: object
       properties:
         version:
@@ -787,29 +793,23 @@ components:
           $ref: '#/components/schemas/Access_in_GreenplumConfig_access'
         zoneId:
           description: |-
-            ID of the availability zone where the host resides.
+            ID of the availability zone the cluster belongs to.
             To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
 
             The maximum string length in characters is 50.
           type: string
         subnetId:
           description: |-
-            ID of the subnet that the host should belong to. This subnet should be a part
-            of the network that the cluster belongs to.
-            The ID of the network is set in the [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation) field.
+            ID of the subnet the cluster belongs to. This subnet should be a part
+            of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether the host should get a public IP address on creation.
+            Whether or not the cluster has a public IP address.
 
-            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
-
-            Possible values:
-            * false - don't assign a public IP to the master hosts.
-            * true - the master hosts should have a public IP address.
+            After the cluster has been created, this setting cannot be changed.
           type: boolean
           format: boolean
     GreenplumMasterConfig:
@@ -826,8 +826,8 @@ components:
           type: integer
           format: int64
         timezone:
-          description: The server's time zone to be used in DateTime fields conversions.
-            Specified as an IANA identifier.
+          description: The server time zone to be used in DateTime field conversions,
+            specified as an IANA identifier.
           type: string
         pool:
           $ref: '#/components/schemas/ConnectionPoolerConfig_in_GreenplumMasterConfig_pool'
@@ -886,14 +886,14 @@ components:
           $ref: '#/components/schemas/GreenplumMasterConfigLogStatement_in_GreenplumMasterConfig_logStatement'
         logDuration:
           description: |-
-            Causes the duration of every completed statement which satisfies log_statement to be logged.
+            Causes the duration of every completed statement which satisfies `logStatement` to be logged.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_duration).
           type: boolean
           format: boolean
         optimizerAnalyzeRootPartition:
           description: |-
-            For a partitioned table, controls whether the ROOTPARTITION keyword is required to collect root partition statistics
-            when the ANALYZE command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
+            For a partitioned table, controls whether the `ROOTPARTITION` keyword is required to collect root partition statistics
+            when the `ANALYZE` command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#optimizer_analyze_root_partition).
           type: boolean
           format: boolean
@@ -901,7 +901,7 @@ components:
           description: |-
             Sets the number of segments that will scan external table data during an external table operation,
             the purpose being not to overload the system with scanning data and take away resources from other concurrent operations.
-            This only applies to external tables that use the gpfdist:// protocol to access external table data.
+            This only applies to external tables that use the `gpfdist` protocol to access external table data.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_external_max_segs).
           type: integer
           format: int64
@@ -920,12 +920,15 @@ components:
         gpAutostatsModeInFunctions:
           $ref: '#/components/schemas/GreenplumMasterConfigAutostatsModeInFunctions_in_GreenplumMasterConfig_gpAutostatsModeInFunctions'
     GreenplumMasterConfigAutostatsModeInFunctions:
-      description: |2-
+      description: |-
+        Specifies the mode for triggering automatic statistics collection with `ANALYZE` for statements in procedural language functions.
+
+         - AUTOSTATS_MODE_IN_FUNCTIONS_UNSPECIFIED: The mode is not specified.
          - MODE_NONE: Disables statistics collection. Default value.
          - ON_CHANGE: Triggers statistics collection only when the number of rows affected exceeds the threshold defined by
-        gp_autostats_on_change_threshold (default is 2147483647). Operations in functions that can trigger automatic
-        statistics collection with on_change are: CREATE TABLE AS SELECT, UPDATE, DELETE, INSERT and COPY.
-         - ON_NO_STATS: Triggers statistics collection for CREATE TABLE AS SELECT, INSERT, or COPY operations
+        `gp_autostats_on_change_threshold` (default is 2147483647). Operations in functions that can trigger automatic
+        statistics collection with on_change are: `CREATE TABLE AS SELECT`, `UPDATE`, `DELETE`, `INSERT` and `COPY`.
+         - ON_NO_STATS: Triggers statistics collection for `CREATE TABLE AS SELECT`, `INSERT`, or `COPY` operations
         that are executed in functions on any table that has no existing statistics.
       type: string
       enum:
@@ -933,6 +936,16 @@ components:
       - ON_CHANGE
       - ON_NO_STATS
     GreenplumMasterConfigLogLevel:
+      description: |-
+        Controls which message levels are sent to the client. Each level includes all the levels that follow it.
+        The later the level, the fewer messages are sent.
+
+         - LOG_LEVEL_UNSPECIFIED: Level of detail is not specified.
+         - TRACE: Include tracing information.
+         - DEBUG: Include debugging information.
+         - INFORMATION: Include informative messages.
+         - WARNING: Include warning messages. Default value.
+         - ERROR: Only include error messages.
       type: string
       enum:
       - TRACE
@@ -941,6 +954,15 @@ components:
       - WARNING
       - ERROR
     GreenplumMasterConfigLogStatement:
+      description: |-
+        Controls which SQL statements are logged.
+
+         - LOG_STATEMENT_UNSPECIFIED: The statement log option is not specified.
+         - NONE: Don't log SQL statements.
+         - DDL: Log all data definition commands like `CREATE`, `ALTER`, and `DROP` commands. Default value.
+         - MOD: Log `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM` commands.
+        `PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command is of an appropriate type.
+         - ALL: Log all SQL statements.
       type: string
       enum:
       - NONE
@@ -972,21 +994,21 @@ components:
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specifies the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
+            Specifies the maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
             For details, see PostgreSQL [documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
             Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
             Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
@@ -995,7 +1017,7 @@ components:
             Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
             Spill files are created when executing a query that requires more memory than it is allocated.
             The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is 10000.
+            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is `10000`.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
@@ -1004,26 +1026,39 @@ components:
         gpResourceGroupCpuLimit:
           description: |-
             Identifies the maximum percentage of system CPU resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_cpu_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_cpu_limit).
           type: number
           format: float
         gpResourceGroupMemoryLimit:
           description: |-
             Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_memory_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_memory_limit).
           type: number
           format: float
     GreenplumSegmentConfigGPResourceManager:
-      description: |2-
-         - QUEUE: Resource queue-based resource management.
-         - GROUP: Resource group-based resource management. Default value.
+      description: |-
+        Resource management scheme currently enabled in the Greenplum® Database cluster.
+
+         - GP_RESOURCE_MANAGER_UNSPECIFIED: The management scheme is not specified.
+         - QUEUE: Resource queue-based management.
+         - GROUP: Resource group-based management. Default value.
       type: string
       enum:
       - QUEUE
       - GROUP
     GreenplumSegmentConfigLogLevel:
+      description: |-
+        Controls which message levels are sent to the client. Each level includes all the levels that follow it.
+        The later the level, the fewer messages are sent.
+
+         - LOG_LEVEL_UNSPECIFIED: Level of detail is not specified.
+         - TRACE: Include tracing information.
+         - DEBUG: Include debugging information.
+         - INFORMATION: Include informative messages.
+         - WARNING: Include warning messages. Default value.
+         - ERROR: Only include error messages.
       type: string
       enum:
       - TRACE
@@ -1048,7 +1083,7 @@ components:
         name:
           description: |-
             Required.
-            Name of the Greenplum® host. The host name is assigned by Managed Service for Greenplum® at creation time and cannot be changed.
+            Name of the Greenplum® host. The host name is assigned by Yandex.Cloud at creation time and cannot be changed.
             1-63 characters long.
 
             The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host.
@@ -1056,11 +1091,11 @@ components:
             The maximum string length in characters is 63.
           type: string
         clusterId:
-          description: ID of the Greenplum® cluster. The ID is assigned by MDB at
-            creation time.
+          description: ID of the Greenplum® cluster. The ID is assigned by Yandex.Cloud
+            at creation time.
           type: string
         zoneId:
-          description: ID of the availability zone where the Greenplum® host resides.
+          description: ID of the availability zone the Greenplum® host belongs to.
           type: string
         type:
           $ref: '#/components/schemas/HostType_in_Host_type'
@@ -1076,7 +1111,9 @@ components:
           type: boolean
           format: boolean
     HostHealth:
-      description: |2-
+      description: |-
+        Status code of the aggregated health of the host.
+
          - UNKNOWN: Health of the host is unknown.
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable and cannot perform any of its essential functions.
@@ -1091,10 +1128,13 @@ components:
       - UNBALANCED
       default: UNKNOWN
     HostType:
-      description: |2-
-         - MASTER: Greenplum® master host.
-         - REPLICA: Greenplum® master replica host.
-         - SEGMENT: Greenplum® segment host.
+      description: |-
+        Type of the host.
+
+         - TYPE_UNSPECIFIED: The type is not specified.
+         - MASTER: A Greenplum® master host.
+         - REPLICA: A Greenplum® master replica host.
+         - SEGMENT: A Greenplum® segment host.
       type: string
       enum:
       - MASTER
@@ -1116,7 +1156,10 @@ components:
             Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) to continue paging through the results.
           type: string
     ListClusterLogsRequestServiceType:
-      description: |2-
+      description: |-
+        Type of the service to request logs about.
+
+         - SERVICE_TYPE_UNSPECIFIED: Type is not specified.
          - GREENPLUM: Greenplum® activity logs.
          - GREENPLUM_POOLER: Greenplum® pooler logs.
       type: string
@@ -1185,18 +1228,25 @@ components:
           additionalProperties:
             type: string
     MaintenanceOperation:
+      description: The operation to perform during maintenance.
       type: object
       properties:
         info:
-          description: The maximum string length in characters is 256.
+          description: |-
+            The description of the operation, 1-256 characters long.
+
+            The maximum string length in characters is 256.
           type: string
         delayedUntil:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Delay time for the maintenance operation.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     MaintenanceWindow:
-      description: A Greenplum® cluster maintenance window.
+      description: A Greenplum® cluster maintenance window. Should be defined by either
+        one of the two options.
       type: object
       allOf:
       - title: policy
@@ -1205,8 +1255,10 @@ components:
         properties:
           anytime:
             $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: An any-time maintenance window.
           weeklyMaintenanceWindow:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: A weekly maintenance window.
     MasterSubclusterConfig:
       description: Configuration of the master subcluster.
       type: object
@@ -1294,26 +1346,21 @@ components:
               Any method that returns a long-running operation should document the response type, if any.
             type: object
     Resources:
-      description: A set of hardware resources available to a host.
+      description: A list of computational resources allocated to a host.
       type: object
       properties:
         resourcePresetId:
           description: |-
-            ID of the preset for computational resources available to a host (CPU, memory, etc.).
-            All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+            ID of the preset for computational resources allocated to a host.
+            Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage used by the host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: |-
-            Type of the storage environment for the host.
-
-            Possible values:
-            * `network-hdd`: network HDD drive,
-            * `network-ssd`: network SSD drive,
-            * `local-ssd`: local SSD storage.
+          description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
+            or `local-ssd`.'
           type: string
     SegmentSubclusterConfig:
       description: Configuration of the segment subcluster.
@@ -1390,7 +1437,7 @@ components:
         labels:
           description: |-
             Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
-            For example, "project": "mvp" or "source": "dictionary".
+            For example, "project":"mvp" or "source":"dictionary".
 
             The new set of labels will completely replace the old ones. To add a label, request the current
             set with the [get](/docs/managed-greenplum/api-ref/Cluster/get) method, then send an [update](/docs/managed-greenplum/api-ref/Cluster/update) request with the new label added to the set.
@@ -1424,18 +1471,18 @@ components:
           items:
             type: string
         deletionProtection:
-          description: Deletion Protection inhibits deletion of the cluster.
+          description: Whether or not cluster is protected from being deleted.
           type: boolean
           format: boolean
     WeeklyMaintenanceWindow:
-      description: A Greenplum® cluster weekly maintenance window.
+      description: A weekly maintenance window.
       type: object
       properties:
         day:
           $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
         hour:
           description: |-
-            Hour of the day in UTC.
+            Hour of the day in the UTC timezone.
 
             Acceptable values are 1 to 24, inclusive.
           type: string
@@ -1470,7 +1517,7 @@ components:
       description: |-
         Greenplum® cluster configuration.
 
-        Greenplum® cluster options.
+        Greenplum® cluster configuration.
       type: object
       properties:
         version:
@@ -1482,29 +1529,23 @@ components:
           $ref: '#/components/schemas/Access_in_GreenplumConfig_access'
         zoneId:
           description: |-
-            ID of the availability zone where the host resides.
+            ID of the availability zone the cluster belongs to.
             To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
 
             The maximum string length in characters is 50.
           type: string
         subnetId:
           description: |-
-            ID of the subnet that the host should belong to. This subnet should be a part
-            of the network that the cluster belongs to.
-            The ID of the network is set in the [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation) field.
+            ID of the subnet the cluster belongs to. This subnet should be a part
+            of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether the host should get a public IP address on creation.
+            Whether or not the cluster has a public IP address.
 
-            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
-
-            Possible values:
-            * false - don't assign a public IP to the master hosts.
-            * true - the master hosts should have a public IP address.
+            After the cluster has been created, this setting cannot be changed.
           type: boolean
           format: boolean
     ClusterEnvironment_in_Cluster_environment:
@@ -1547,8 +1588,10 @@ components:
       description: |-
         Aggregated cluster health.
 
-         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
-         - ALIVE: Cluster is alive (`health` for every host in the cluster is ALIVE).
+        Aggregated health of the cluster.
+
+         - HEALTH_UNKNOWN: Health of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is working normally (`health` for every host in the cluster is ALIVE).
          - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
          - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
          - UNBALANCED: Cluster is working below capacity (`health` for at least one host in the cluster is UNBALANCED).
@@ -1564,10 +1607,12 @@ components:
       description: |-
         Current state of the cluster.
 
+        Current state of the cluster.
+
          - STATUS_UNKNOWN: Cluster state is unknown.
          - CREATING: Cluster is being created.
          - RUNNING: Cluster is running normally.
-         - ERROR: There is a problem with the cluster and it cannot operate.
+         - ERROR: Cluster has encountered a problem and cannot operate.
          - UPDATING: Cluster is being updated.
          - STOPPING: Cluster is stopping.
          - STOPPED: Cluster has stopped.
@@ -1587,7 +1632,7 @@ components:
       description: |-
         Window of maintenance operations.
 
-        A Greenplum® cluster maintenance window.
+        A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
       type: object
       allOf:
       - title: policy
@@ -1596,23 +1641,35 @@ components:
         properties:
           anytime:
             $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: An any-time maintenance window.
           weeklyMaintenanceWindow:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: A weekly maintenance window.
     MaintenanceOperation_in_Cluster_plannedOperation:
-      description: Maintenance operation planned at nearest [maintenanceWindow](/docs/managed-greenplum/api-ref/Cluster#representation).
+      description: |-
+        Maintenance operation planned at nearest [maintenanceWindow](/docs/managed-greenplum/api-ref/Cluster#representation).
+
+        The operation to perform during maintenance.
       type: object
       properties:
         info:
-          description: The maximum string length in characters is 256.
+          description: |-
+            The description of the operation, 1-256 characters long.
+
+            The maximum string length in characters is 256.
           type: string
         delayedUntil:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Delay time for the maintenance operation.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     ConnectionPoolerConfigPoolMode_in_ConnectionPoolerConfig_mode:
       description: |-
-        Odyssey route server pool mode.
+        Route server pool mode.
+
+        Route server pool mode.
 
          - SESSION: Assign server connection to a client until it disconnects. Default value.
          - TRANSACTION: Assign server connection to a client for a transaction processing.
@@ -1639,7 +1696,7 @@ components:
       description: |-
         Greenplum® cluster configuration.
 
-        Greenplum® cluster options.
+        Greenplum® cluster configuration.
       type: object
       properties:
         version:
@@ -1651,29 +1708,23 @@ components:
           $ref: '#/components/schemas/Access_in_GreenplumConfig_access'
         zoneId:
           description: |-
-            ID of the availability zone where the host resides.
+            ID of the availability zone the cluster belongs to.
             To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
 
             The maximum string length in characters is 50.
           type: string
         subnetId:
           description: |-
-            ID of the subnet that the host should belong to. This subnet should be a part
-            of the network that the cluster belongs to.
-            The ID of the network is set in the [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation) field.
+            ID of the subnet the cluster belongs to. This subnet should be a part
+            of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether the host should get a public IP address on creation.
+            Whether or not the cluster has a public IP address.
 
-            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
-
-            Possible values:
-            * false - don't assign a public IP to the master hosts.
-            * true - the master hosts should have a public IP address.
+            After the cluster has been created, this setting cannot be changed.
           type: boolean
           format: boolean
     MasterSubclusterConfigSpec_in_CreateClusterRequest_masterConfig:
@@ -1702,7 +1753,7 @@ components:
       description: |-
         Window of maintenance operations.
 
-        A Greenplum® cluster maintenance window.
+        A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
       type: object
       allOf:
       - title: policy
@@ -1711,8 +1762,10 @@ components:
         properties:
           anytime:
             $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: An any-time maintenance window.
           weeklyMaintenanceWindow:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: A weekly maintenance window.
     TimeOfDay_in_GreenplumConfig_backupWindowStart:
       description: |-
         Time to start the daily backup, in the UTC timezone.
@@ -1750,17 +1803,27 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allow data export from the cluster to Yandex DataLens.
+          description: Allows data export from the cluster to Yandex DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allow SQL queries to the cluster databases from the Yandex.Cloud
+          description: Allows SQL queries to the cluster databases from the Yandex.Cloud
             management console.
           type: boolean
           format: boolean
     GreenplumMasterConfigLogLevel_in_GreenplumMasterConfig_logLevel:
-      description: 'Logging level for the Greenplum® master subcluster. Possible values:
-        `TRACE`, `DEBUG`, `INFORMATION`, `WARNING`, `ERROR`.'
+      description: |-
+        Controls which message levels in the master subcluster are sent to the client.
+
+        Controls which message levels are sent to the client. Each level includes all the levels that follow it.
+        The later the level, the fewer messages are sent.
+
+         - LOG_LEVEL_UNSPECIFIED: Level of detail is not specified.
+         - TRACE: Include tracing information.
+         - DEBUG: Include debugging information.
+         - INFORMATION: Include informative messages.
+         - WARNING: Include warning messages. Default value.
+         - ERROR: Only include error messages.
       type: string
       enum:
       - TRACE
@@ -1770,32 +1833,38 @@ components:
       - ERROR
     ConnectionPoolerConfig_in_GreenplumMasterConfig_pool:
       description: |-
-        Odyssey connection pooler settings.
+        Route server configuration.
 
-        Configuration of the connection pooler.
+        Route server configuration.
       type: object
       properties:
         mode:
           $ref: '#/components/schemas/ConnectionPoolerConfigPoolMode_in_ConnectionPoolerConfig_mode'
         size:
           description: |-
-            The number of servers in the pool. Clients are put in a wait queue, when all servers are busy.
+            The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
             Set to zero to disable the limit.
           type: integer
           format: int64
         clientIdleTimeout:
           description: |-
             Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration.
-            Set to zero to disable.
+            Set to zero to disable the limit.
           type: integer
           format: int64
     GreenplumMasterConfigLogStatement_in_GreenplumMasterConfig_logStatement:
       description: |-
-        Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
-        MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
-        PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
+        Controls which SQL statements are logged.
         For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement).
-        Default value is DDL.
+
+        Controls which SQL statements are logged.
+
+         - LOG_STATEMENT_UNSPECIFIED: The statement log option is not specified.
+         - NONE: Don't log SQL statements.
+         - DDL: Log all data definition commands like `CREATE`, `ALTER`, and `DROP` commands. Default value.
+         - MOD: Log `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM` commands.
+        `PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command is of an appropriate type.
+         - ALL: Log all SQL statements.
       type: string
       enum:
       - NONE
@@ -1804,14 +1873,17 @@ components:
       - ALL
     GreenplumMasterConfigAutostatsModeInFunctions_in_GreenplumMasterConfig_gpAutostatsModeInFunctions:
       description: |-
-        Specifies the mode for triggering automatic statistics collection with ANALYZE for statements in procedural language functions.
+        Specifies the mode for triggering automatic statistics collection with `ANALYZE` for statements in procedural language functions.
         For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_autostats_mode_in_functions).
 
+        Specifies the mode for triggering automatic statistics collection with `ANALYZE` for statements in procedural language functions.
+
+         - AUTOSTATS_MODE_IN_FUNCTIONS_UNSPECIFIED: The mode is not specified.
          - MODE_NONE: Disables statistics collection. Default value.
          - ON_CHANGE: Triggers statistics collection only when the number of rows affected exceeds the threshold defined by
-        gp_autostats_on_change_threshold (default is 2147483647). Operations in functions that can trigger automatic
-        statistics collection with on_change are: CREATE TABLE AS SELECT, UPDATE, DELETE, INSERT and COPY.
-         - ON_NO_STATS: Triggers statistics collection for CREATE TABLE AS SELECT, INSERT, or COPY operations
+        `gp_autostats_on_change_threshold` (default is 2147483647). Operations in functions that can trigger automatic
+        statistics collection with on_change are: `CREATE TABLE AS SELECT`, `UPDATE`, `DELETE`, `INSERT` and `COPY`.
+         - ON_NO_STATS: Triggers statistics collection for `CREATE TABLE AS SELECT`, `INSERT`, or `COPY` operations
         that are executed in functions on any table that has no existing statistics.
       type: string
       enum:
@@ -1836,8 +1908,8 @@ components:
           type: integer
           format: int64
         timezone:
-          description: The server's time zone to be used in DateTime fields conversions.
-            Specified as an IANA identifier.
+          description: The server time zone to be used in DateTime field conversions,
+            specified as an IANA identifier.
           type: string
         pool:
           $ref: '#/components/schemas/ConnectionPoolerConfig_in_GreenplumMasterConfig_pool'
@@ -1896,14 +1968,14 @@ components:
           $ref: '#/components/schemas/GreenplumMasterConfigLogStatement_in_GreenplumMasterConfig_logStatement'
         logDuration:
           description: |-
-            Causes the duration of every completed statement which satisfies log_statement to be logged.
+            Causes the duration of every completed statement which satisfies `logStatement` to be logged.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_duration).
           type: boolean
           format: boolean
         optimizerAnalyzeRootPartition:
           description: |-
-            For a partitioned table, controls whether the ROOTPARTITION keyword is required to collect root partition statistics
-            when the ANALYZE command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
+            For a partitioned table, controls whether the `ROOTPARTITION` keyword is required to collect root partition statistics
+            when the `ANALYZE` command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#optimizer_analyze_root_partition).
           type: boolean
           format: boolean
@@ -1911,7 +1983,7 @@ components:
           description: |-
             Sets the number of segments that will scan external table data during an external table operation,
             the purpose being not to overload the system with scanning data and take away resources from other concurrent operations.
-            This only applies to external tables that use the gpfdist:// protocol to access external table data.
+            This only applies to external tables that use the `gpfdist` protocol to access external table data.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_external_max_segs).
           type: integer
           format: int64
@@ -1945,8 +2017,8 @@ components:
           type: integer
           format: int64
         timezone:
-          description: The server's time zone to be used in DateTime fields conversions.
-            Specified as an IANA identifier.
+          description: The server time zone to be used in DateTime field conversions,
+            specified as an IANA identifier.
           type: string
         pool:
           $ref: '#/components/schemas/ConnectionPoolerConfig_in_GreenplumMasterConfig_pool'
@@ -2005,14 +2077,14 @@ components:
           $ref: '#/components/schemas/GreenplumMasterConfigLogStatement_in_GreenplumMasterConfig_logStatement'
         logDuration:
           description: |-
-            Causes the duration of every completed statement which satisfies log_statement to be logged.
+            Causes the duration of every completed statement which satisfies `logStatement` to be logged.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_duration).
           type: boolean
           format: boolean
         optimizerAnalyzeRootPartition:
           description: |-
-            For a partitioned table, controls whether the ROOTPARTITION keyword is required to collect root partition statistics
-            when the ANALYZE command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
+            For a partitioned table, controls whether the `ROOTPARTITION` keyword is required to collect root partition statistics
+            when the `ANALYZE` command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#optimizer_analyze_root_partition).
           type: boolean
           format: boolean
@@ -2020,7 +2092,7 @@ components:
           description: |-
             Sets the number of segments that will scan external table data during an external table operation,
             the purpose being not to overload the system with scanning data and take away resources from other concurrent operations.
-            This only applies to external tables that use the gpfdist:// protocol to access external table data.
+            This only applies to external tables that use the `gpfdist` protocol to access external table data.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_external_max_segs).
           type: integer
           format: int64
@@ -2054,8 +2126,8 @@ components:
           type: integer
           format: int64
         timezone:
-          description: The server's time zone to be used in DateTime fields conversions.
-            Specified as an IANA identifier.
+          description: The server time zone to be used in DateTime field conversions,
+            specified as an IANA identifier.
           type: string
         pool:
           $ref: '#/components/schemas/ConnectionPoolerConfig_in_GreenplumMasterConfig_pool'
@@ -2114,14 +2186,14 @@ components:
           $ref: '#/components/schemas/GreenplumMasterConfigLogStatement_in_GreenplumMasterConfig_logStatement'
         logDuration:
           description: |-
-            Causes the duration of every completed statement which satisfies log_statement to be logged.
+            Causes the duration of every completed statement which satisfies `logStatement` to be logged.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_duration).
           type: boolean
           format: boolean
         optimizerAnalyzeRootPartition:
           description: |-
-            For a partitioned table, controls whether the ROOTPARTITION keyword is required to collect root partition statistics
-            when the ANALYZE command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
+            For a partitioned table, controls whether the `ROOTPARTITION` keyword is required to collect root partition statistics
+            when the `ANALYZE` command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#optimizer_analyze_root_partition).
           type: boolean
           format: boolean
@@ -2129,7 +2201,7 @@ components:
           description: |-
             Sets the number of segments that will scan external table data during an external table operation,
             the purpose being not to overload the system with scanning data and take away resources from other concurrent operations.
-            This only applies to external tables that use the gpfdist:// protocol to access external table data.
+            This only applies to external tables that use the `gpfdist` protocol to access external table data.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_external_max_segs).
           type: integer
           format: int64
@@ -2148,8 +2220,18 @@ components:
         gpAutostatsModeInFunctions:
           $ref: '#/components/schemas/GreenplumMasterConfigAutostatsModeInFunctions_in_GreenplumMasterConfig_gpAutostatsModeInFunctions'
     GreenplumSegmentConfigLogLevel_in_GreenplumSegmentConfig_logLevel:
-      description: 'Logging level for the Greenplum® segment subcluster. Possible
-        values: TRACE, DEBUG, INFORMATION, WARNING, ERROR.'
+      description: |-
+        Controls which message levels in the segment subcluster are sent to the client.
+
+        Controls which message levels are sent to the client. Each level includes all the levels that follow it.
+        The later the level, the fewer messages are sent.
+
+         - LOG_LEVEL_UNSPECIFIED: Level of detail is not specified.
+         - TRACE: Include tracing information.
+         - DEBUG: Include debugging information.
+         - INFORMATION: Include informative messages.
+         - WARNING: Include warning messages. Default value.
+         - ERROR: Only include error messages.
       type: string
       enum:
       - TRACE
@@ -2162,8 +2244,11 @@ components:
         Identifies the resource management scheme currently enabled in the Greenplum® Database cluster.
         For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_manager).
 
-         - QUEUE: Resource queue-based resource management.
-         - GROUP: Resource group-based resource management. Default value.
+        Resource management scheme currently enabled in the Greenplum® Database cluster.
+
+         - GP_RESOURCE_MANAGER_UNSPECIFIED: The management scheme is not specified.
+         - QUEUE: Resource queue-based management.
+         - GROUP: Resource group-based management. Default value.
       type: string
       enum:
       - QUEUE
@@ -2187,21 +2272,21 @@ components:
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specifies the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
+            Specifies the maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
             For details, see PostgreSQL [documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
             Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
             Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
@@ -2210,7 +2295,7 @@ components:
             Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
             Spill files are created when executing a query that requires more memory than it is allocated.
             The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is 10000.
+            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is `10000`.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
@@ -2219,14 +2304,14 @@ components:
         gpResourceGroupCpuLimit:
           description: |-
             Identifies the maximum percentage of system CPU resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_cpu_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_cpu_limit).
           type: number
           format: float
         gpResourceGroupMemoryLimit:
           description: |-
             Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_memory_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_memory_limit).
           type: number
           format: float
@@ -2247,21 +2332,21 @@ components:
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specifies the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
+            Specifies the maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
             For details, see PostgreSQL [documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
             Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
             Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
@@ -2270,7 +2355,7 @@ components:
             Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
             Spill files are created when executing a query that requires more memory than it is allocated.
             The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is 10000.
+            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is `10000`.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
@@ -2279,14 +2364,14 @@ components:
         gpResourceGroupCpuLimit:
           description: |-
             Identifies the maximum percentage of system CPU resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_cpu_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_cpu_limit).
           type: number
           format: float
         gpResourceGroupMemoryLimit:
           description: |-
             Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_memory_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_memory_limit).
           type: number
           format: float
@@ -2307,21 +2392,21 @@ components:
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specifies the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
+            Specifies the maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
             For details, see PostgreSQL [documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
             Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
             Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
@@ -2330,7 +2415,7 @@ components:
             Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
             Spill files are created when executing a query that requires more memory than it is allocated.
             The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is 10000.
+            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is `10000`.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
@@ -2339,14 +2424,14 @@ components:
         gpResourceGroupCpuLimit:
           description: |-
             Identifies the maximum percentage of system CPU resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_cpu_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_cpu_limit).
           type: number
           format: float
         gpResourceGroupMemoryLimit:
           description: |-
             Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_memory_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_memory_limit).
           type: number
           format: float
@@ -2354,9 +2439,12 @@ components:
       description: |-
         Type of the host.
 
-         - MASTER: Greenplum® master host.
-         - REPLICA: Greenplum® master replica host.
-         - SEGMENT: Greenplum® segment host.
+        Type of the host.
+
+         - TYPE_UNSPECIFIED: The type is not specified.
+         - MASTER: A Greenplum® master host.
+         - REPLICA: A Greenplum® master replica host.
+         - SEGMENT: A Greenplum® segment host.
       type: string
       enum:
       - MASTER
@@ -2366,29 +2454,26 @@ components:
       description: |-
         Resources allocated to the Greenplum® host.
 
-        A set of hardware resources available to a host.
+        A list of computational resources allocated to a host.
       type: object
       properties:
         resourcePresetId:
           description: |-
-            ID of the preset for computational resources available to a host (CPU, memory, etc.).
-            All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+            ID of the preset for computational resources allocated to a host.
+            Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage used by the host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: |-
-            Type of the storage environment for the host.
-
-            Possible values:
-            * `network-hdd`: network HDD drive,
-            * `network-ssd`: network SSD drive,
-            * `local-ssd`: local SSD storage.
+          description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
+            or `local-ssd`.'
           type: string
     HostHealth_in_Host_health:
       description: |-
+        Status code of the aggregated health of the host.
+
         Status code of the aggregated health of the host.
 
          - UNKNOWN: Health of the host is unknown.
@@ -2406,28 +2491,23 @@ components:
       default: UNKNOWN
     Resources_in_MasterSubclusterConfig_resources:
       description: |-
-        Resources allocated to Greenplum® master subcluster hosts.
+        Computational resources allocated to Greenplum® master subcluster hosts.
 
-        A set of hardware resources available to a host.
+        A list of computational resources allocated to a host.
       type: object
       properties:
         resourcePresetId:
           description: |-
-            ID of the preset for computational resources available to a host (CPU, memory, etc.).
-            All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+            ID of the preset for computational resources allocated to a host.
+            Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage used by the host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: |-
-            Type of the storage environment for the host.
-
-            Possible values:
-            * `network-hdd`: network HDD drive,
-            * `network-ssd`: network SSD drive,
-            * `local-ssd`: local SSD storage.
+          description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
+            or `local-ssd`.'
           type: string
     GreenplumMasterConfigSet_in_MasterSubclusterConfig_config:
       description: |-
@@ -2446,26 +2526,21 @@ components:
       description: |-
         Resources allocated to Greenplum® master subcluster hosts.
 
-        A set of hardware resources available to a host.
+        A list of computational resources allocated to a host.
       type: object
       properties:
         resourcePresetId:
           description: |-
-            ID of the preset for computational resources available to a host (CPU, memory, etc.).
-            All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+            ID of the preset for computational resources allocated to a host.
+            Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage used by the host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: |-
-            Type of the storage environment for the host.
-
-            Possible values:
-            * `network-hdd`: network HDD drive,
-            * `network-ssd`: network SSD drive,
-            * `local-ssd`: local SSD storage.
+          description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
+            or `local-ssd`.'
           type: string
     GreenplumMasterConfig_in_MasterSubclusterConfigSpec_config:
       description: |-
@@ -2483,8 +2558,8 @@ components:
           type: integer
           format: int64
         timezone:
-          description: The server's time zone to be used in DateTime fields conversions.
-            Specified as an IANA identifier.
+          description: The server time zone to be used in DateTime field conversions,
+            specified as an IANA identifier.
           type: string
         pool:
           $ref: '#/components/schemas/ConnectionPoolerConfig_in_GreenplumMasterConfig_pool'
@@ -2543,14 +2618,14 @@ components:
           $ref: '#/components/schemas/GreenplumMasterConfigLogStatement_in_GreenplumMasterConfig_logStatement'
         logDuration:
           description: |-
-            Causes the duration of every completed statement which satisfies log_statement to be logged.
+            Causes the duration of every completed statement which satisfies `logStatement` to be logged.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_duration).
           type: boolean
           format: boolean
         optimizerAnalyzeRootPartition:
           description: |-
-            For a partitioned table, controls whether the ROOTPARTITION keyword is required to collect root partition statistics
-            when the ANALYZE command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
+            For a partitioned table, controls whether the `ROOTPARTITION` keyword is required to collect root partition statistics
+            when the `ANALYZE` command is run on the table. GPORCA uses the root partition statistics when generating a query plan.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#optimizer_analyze_root_partition).
           type: boolean
           format: boolean
@@ -2558,7 +2633,7 @@ components:
           description: |-
             Sets the number of segments that will scan external table data during an external table operation,
             the purpose being not to overload the system with scanning data and take away resources from other concurrent operations.
-            This only applies to external tables that use the gpfdist:// protocol to access external table data.
+            This only applies to external tables that use the `gpfdist` protocol to access external table data.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_external_max_segs).
           type: integer
           format: int64
@@ -2578,28 +2653,23 @@ components:
           $ref: '#/components/schemas/GreenplumMasterConfigAutostatsModeInFunctions_in_GreenplumMasterConfig_gpAutostatsModeInFunctions'
     Resources_in_SegmentSubclusterConfig_resources:
       description: |-
-        Resources allocated to Greenplum® segment subcluster hosts.
+        Computational resources allocated to Greenplum® segment subcluster hosts.
 
-        A set of hardware resources available to a host.
+        A list of computational resources allocated to a host.
       type: object
       properties:
         resourcePresetId:
           description: |-
-            ID of the preset for computational resources available to a host (CPU, memory, etc.).
-            All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+            ID of the preset for computational resources allocated to a host.
+            Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage used by the host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: |-
-            Type of the storage environment for the host.
-
-            Possible values:
-            * `network-hdd`: network HDD drive,
-            * `network-ssd`: network SSD drive,
-            * `local-ssd`: local SSD storage.
+          description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
+            or `local-ssd`.'
           type: string
     GreenplumSegmentConfigSet_in_SegmentSubclusterConfig_config:
       description: |-
@@ -2618,26 +2688,21 @@ components:
       description: |-
         Resources allocated to Greenplum® segment subcluster hosts.
 
-        A set of hardware resources available to a host.
+        A list of computational resources allocated to a host.
       type: object
       properties:
         resourcePresetId:
           description: |-
-            ID of the preset for computational resources available to a host (CPU, memory, etc.).
-            All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+            ID of the preset for computational resources allocated to a host.
+            Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage used by the host, in bytes.
           type: string
           format: int64
         diskTypeId:
-          description: |-
-            Type of the storage environment for the host.
-
-            Possible values:
-            * `network-hdd`: network HDD drive,
-            * `network-ssd`: network SSD drive,
-            * `local-ssd`: local SSD storage.
+          description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
+            or `local-ssd`.'
           type: string
     GreenplumSegmentConfig_in_SegmentSubclusterConfigSpec_config:
       description: |-
@@ -2656,21 +2721,21 @@ components:
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specifies the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
+            Specifies the maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
             For details, see PostgreSQL [documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
             Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
             Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
+            The default value is `0`, which means a limit is not enforced.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
@@ -2679,7 +2744,7 @@ components:
             Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
             Spill files are created when executing a query that requires more memory than it is allocated.
             The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is 10000.
+            Set the value to 0 (zero) to allow an unlimited number of spill files. Default value is `10000`.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
@@ -2688,14 +2753,14 @@ components:
         gpResourceGroupCpuLimit:
           description: |-
             Identifies the maximum percentage of system CPU resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_cpu_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_cpu_limit).
           type: number
           format: float
         gpResourceGroupMemoryLimit:
           description: |-
             Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum® Database segment node.
-            Note: The gp_resource_group_memory_limit server configuration parameter is enforced only when resource group-based resource management is active.
+            Note: This server configuration parameter is enforced only when resource group-based management is active.
             For details, see Greenplum® [documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_resource_group_memory_limit).
           type: number
           format: float
@@ -2716,7 +2781,7 @@ components:
       description: |-
         Greenplum® cluster configuration.
 
-        Greenplum® cluster options.
+        Greenplum® cluster configuration.
       type: object
       properties:
         version:
@@ -2728,29 +2793,23 @@ components:
           $ref: '#/components/schemas/Access_in_GreenplumConfig_access'
         zoneId:
           description: |-
-            ID of the availability zone where the host resides.
+            ID of the availability zone the cluster belongs to.
             To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
 
             The maximum string length in characters is 50.
           type: string
         subnetId:
           description: |-
-            ID of the subnet that the host should belong to. This subnet should be a part
-            of the network that the cluster belongs to.
-            The ID of the network is set in the [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation) field.
+            ID of the subnet the cluster belongs to. This subnet should be a part
+            of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether the host should get a public IP address on creation.
+            Whether or not the cluster has a public IP address.
 
-            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
-
-            Possible values:
-            * false - don't assign a public IP to the master hosts.
-            * true - the master hosts should have a public IP address.
+            After the cluster has been created, this setting cannot be changed.
           type: boolean
           format: boolean
     MasterSubclusterConfigSpec_in_UpdateClusterRequest_masterConfig:
@@ -2779,7 +2838,7 @@ components:
       description: |-
         Window of maintenance operations.
 
-        A Greenplum® cluster maintenance window.
+        A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
       type: object
       allOf:
       - title: policy
@@ -2788,8 +2847,10 @@ components:
         properties:
           anytime:
             $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: An any-time maintenance window.
           weeklyMaintenanceWindow:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: A weekly maintenance window.
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       description: Day of the week.
       type: string

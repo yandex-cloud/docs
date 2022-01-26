@@ -14,6 +14,7 @@ A set of methods for managing Disk resources.
 | [Update](#Update) | Updates the specified disk. |
 | [Delete](#Delete) | Deletes the specified disk. |
 | [ListOperations](#ListOperations) | Lists operations for the specified disk. |
+| [Move](#Move) | Moves disk between folders. |
 
 ## Calls DiskService {#calls}
 
@@ -362,5 +363,78 @@ metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffer
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**<br>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty). If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any. 
+
+
+## Move {#Move}
+
+Moves disk between folders.
+
+**rpc Move ([MoveDiskRequest](#MoveDiskRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveDiskMetadata](#MoveDiskMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Disk](#Disk4)<br>
+
+### MoveDiskRequest {#MoveDiskRequest}
+
+Field | Description
+--- | ---
+disk_id | **string**<br>Required. ID of the disk that is being moved. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveDiskMetadata](#MoveDiskMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Disk](#Disk4)>**<br>if operation finished successfully. 
+
+
+### MoveDiskMetadata {#MoveDiskMetadata}
+
+Field | Description
+--- | ---
+disk_id | **string**<br>ID of the disk that is being moved. 
+source_folder_id | **string**<br>ID of the source folder. 
+destination_folder_id | **string**<br>ID of the destination folder. 
+
+
+### Disk {#Disk4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the disk. 
+folder_id | **string**<br>ID of the folder that the disk belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br>Name of the disk. 1-63 characters long. 
+description | **string**<br>Description of the disk. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
+type_id | **string**<br>ID of the disk type. 
+zone_id | **string**<br>ID of the availability zone where the disk resides. 
+size | **int64**<br>Size of the disk, specified in bytes. 
+block_size | **int64**<br>Block size of the disk, specified in bytes. 
+product_ids[] | **string**<br>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine. <br>The correct license ID is generated by Yandex.Cloud. IDs are inherited by new resources created from this resource. <br>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/api-ref/grpc/image_service#Create) request. 
+status | enum **Status**<br>Current status of the disk. <ul><li>`CREATING`: Disk is being created.</li><li>`READY`: Disk is ready to use.</li><li>`ERROR`: Disk encountered a problem and cannot operate.</li><li>`DELETING`: Disk is being deleted.</li><ul/>
+source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
+&nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
+&nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 
+instance_ids[] | **string**<br>Array of instances to which the disk is attached. 
+disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy6)**<br>Placement policy configuration. 
+
+
+### DiskPlacementPolicy {#DiskPlacementPolicy6}
+
+Field | Description
+--- | ---
+placement_group_id | **string**<br>Placement group ID. 
 
 
