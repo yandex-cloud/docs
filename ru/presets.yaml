@@ -529,6 +529,8 @@ default:
   port-mrd: 6379
   port-ssh: 22
 
+  alb-ingress-version: 0.0.8
+
   __system:
     dislikeVariants:
       - 'Нет ответа на мой вопрос'
