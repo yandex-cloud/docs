@@ -31,12 +31,12 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     Result:
 
     ```
-    id: b09bhaokchn9pnbrlseb
-    folder_id: aoek49ghmknnpj1ll45e
+    id: b09bhaokchn9********
+    folder_id: aoek49ghmknn********
     created_at: "2019-06-14T10:03:37.475Z"
     name: bash-function
-    log_group_id: eolm8aoq9vcppsieej6h
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
+    log_group_id: eolm8aoq9vcp********
+    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -77,13 +77,13 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     1. Select `bash-function`.
     1. Under **Latest version**, click **Create in editor**.
     1. Set the version parameters:
-        - **Runtime environment:** `bash`.
-        - **Method:** ZIP archive.
-        - **File:** `hello-sh.zip`.
-        - **Entry point:** `hello.sh`.
-        - **Timeout, seconds:** 3.
-        - **RAM:** 128 MB.
-        - **Service account:** Not selected.
+        * **Runtime environment:** `bash`.
+        * **Method:** ZIP archive.
+        * **File:** `hello-sh.zip`.
+        * **Entry point:** `hello.sh`.
+        * **Timeout, seconds:** 3.
+        * **RAM:** 128 MB.
+        * **Service account:** Not selected.
     1. Click **Create version**.
 
 - CLI
@@ -96,12 +96,12 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
     ```
     yc serverless function version create \
-    --function-name=bash-function \
-    --runtime bash \
-    --entrypoint hello.sh \
-    --memory 128m \
-    --execution-timeout 3s \
-    --source-path ./hello-sh.zip
+      --function-name=bash-function \
+      --runtime bash \
+      --entrypoint hello.sh \
+      --memory 128m \
+      --execution-timeout 3s \
+      --source-path ./hello-sh.zip
     ```
 
     where:
@@ -116,8 +116,8 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
     ```
     done (1s)
-    id: d4evvn8obisajd51plaq
-    function_id: d4elpv8pft639ku7k0u6
+    id: d4evvn8obisa********
+    function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
     runtime: bash
     entrypoint: hello.sh
@@ -128,7 +128,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     status: ACTIVE
     tags:
     - $latest
-    log_group_id: ckg3qh8h363p40gmr9gn
+    log_group_id: ckg3qh8h363p********
     ```
 
 - API

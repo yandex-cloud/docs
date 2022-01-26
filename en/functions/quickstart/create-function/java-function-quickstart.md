@@ -1,6 +1,6 @@
-# Creating a function in Node.js
+# Creating a function in Java
 
-Create and execute a [function](../../concepts/function.md) in Node.js that welcomes the user.
+Create and execute a [function](../../concepts/function.md) in Java that welcomes the user.
 
 {% include [function-before-begin](../../../_includes/functions/function-before-begin.md) %}
 
@@ -13,7 +13,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
     1. Open **{{ sf-name }}**.
     1. Click **Create function**.
-    1. Enter a name for the function: `nodejs-function`.
+    1. Enter a name for the function: `java-function`.
     1. Click **Create**.
 
 - CLI
@@ -25,7 +25,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
     To create a function, run the command:
 
     ```
-    yc serverless function create --name=nodejs-function
+    yc serverless function create --name=java-function
     ```
 
     Result:
@@ -34,7 +34,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
     created_at: "2019-06-14T10:03:37.475Z"
-    name: nodejs-function
+    name: java-function
     log_group_id: eolm8aoq9vcp********
     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
     status: ACTIVE
@@ -54,40 +54,65 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
 {% include [create-version](../../../_includes/functions/create-version.md) %}
 
-### Prepare a ZIP archive with the function code {#create-js-zip}
+### Prepare a ZIP archive with the function code {#create-zip}
 
-1. Save the following code to a file named `hello.js`:
+1. Save the following code to a file named `Handler.java`:
 
-    ```js
-    exports.handler = async function (event, context) {
-        name = event.queryStringParameters.name
-        return {
-            'statusCode': 200,
-            'headers': {
-                'Content-Type': 'text/plain'
-            },
-            'isBase64Encoded': false,
-            'body': `Hello, ${name}!`
+    ```java
+    import java.util.HashMap;
+    import java.util.Map;
+    import java.util.function.Function;
+
+    class Request {
+        Map<String, String> queryStringParameters;
+    }
+
+    class Response {
+        private int statusCode;
+        private Map<String, String> headers;
+        private Boolean isBase64Encoded;
+        private String body;
+
+        public Response(int statusCode, Map<String, String> headers, Boolean isBase64Encoded, String body) {
+            this.statusCode = statusCode;
+            this.headers = headers;
+            this.isBase64Encoded = isBase64Encoded;
+            this.body = body;
         }
-    };
+    }
+
+    public class Handler implements Function<Request, Response> {
+        private Integer statusCode = 200;
+        private Boolean isBase64Encoded = false;
+
+        @Override
+        public Response apply(Request request) {
+            Map<String, String> headers = new HashMap<>();
+            headers.put("Content-Type", "text/plain");
+
+            String name = request.queryStringParameters.get("name");
+            return new Response(statusCode, headers, isBase64Encoded, String.format("Hello, %s!", name));
+        }
+    }
     ```
 
-1. Add the `hello.js` file to the `hello-js.zip` archive.
+1. Add the `Handler.java` file to the `hello-java.zip` archive.
 
 ### Create a function version {#create-version}
 
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Select **{{ sf-name }}**.
-    1. Select `nodejs-function`.
+    1. Select `java-function`.
     1. Under **Latest version**, click **Create in editor**.
     1. Set the version parameters:
-        * **Runtime environment:** `nodejs12`.
+        * **Runtime environment:** `java11`.
         * **Method:** ZIP archive.
-        * **File:** `hello-js.zip`.
-        * **Entry point:** `hello.handler`.
+        * **File:** `hello-java.zip`.
+        * **Entry point:** `Handler`.
         * **Timeout, seconds:** 3.
         * **RAM:** 128 MB.
         * **Service account:** Not selected.
@@ -103,18 +128,18 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
     ```
     yc serverless function version create \
-      --function-name=nodejs-function \
-      --runtime nodejs12 \
-      --entrypoint hello.handler \
+      --function-name=java-function \
+      --runtime java11 \
+      --entrypoint Handler \
       --memory 128m \
       --execution-timeout 3s \
-      --source-path ./hello-js.zip
+      --source-path ./hello-java.zip
     ```
 
     where:
     * `--function-name`: The name of the function you want to create a version of.
     * `--runtime`: The runtime environment.
-    * `--entrypoint`: The entry point specified in <function file name>.<handler name> format.
+    * `--entrypoint`: The entry point.
     * `--memory`: The amount of RAM.
     * `--execution-timeout`: The maximum function execution time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.
@@ -126,8 +151,8 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
-    runtime: nodejs12
-    entrypoint: hello.handler
+    runtime: java11
+    entrypoint: Handler
     resources:
         memory: "134217728"
     execution_timeout: 3s
