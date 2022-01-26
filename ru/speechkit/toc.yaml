@@ -21,13 +21,15 @@ items:
       href: stt/models.md
     - name: Расширение модели распознавания речи
       href: stt/additional-training.md
+    - name: Импорт данных для дообучения модели
+      href: stt/import-training-data.md
     - name: Разметка аудио
       href: stt/markup.md
     - name: Справочник API
       items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: API v1 REST
+      - name: API v1
         items:
         - name: API потокового распознавания
           href: stt/api/streaming-api.md
