@@ -152,7 +152,7 @@ To configure the widget, make these settings:
 
 ![image](../../_assets/tracker/widgets/note.png)
 
-Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [Wiki markup](wiki-markup.md).
+Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [Wiki markup](markup.md).
 
 
 {% if audience == "external" %}

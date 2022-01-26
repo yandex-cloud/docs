@@ -38,3 +38,27 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 
 1. Click **Add**.
 
+{% if audience == "internal" %}
+
+## Step 3. Configure form display on the issue creation page {#forms_display}
+
+You can also hide the standard form from users on the issue creation page if necessary:
+
+1. Go to the [{{ tracker-name }}]({{ link-tracker }}).
+
+1. Open the [queue page](../user/queue.md).
+
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+
+1. Go to **Basic settings** and click [**Show integration settings**](edit-queue-general.md).
+
+1. Select a value for the **Display the standard issue creation form** field:
+
+   * **Never** — never display the standard form on the issue creation page.
+
+   * **Always** — always display the standard form on the issue creation page.
+
+   * **Queue team only** — only display the standard form to [queue team](queue-team.md) members.
+
+{% endif %}
+

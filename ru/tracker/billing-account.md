@@ -58,7 +58,7 @@
 
    {% note info %}
 
-   Нажимая кнопку **Активировать**, вы принимаете [оферту Yandex.Cloud]({{ link-cloud-oferta }}).
+   Нажимая кнопку **Активировать**, вы принимаете [оферту {{yandex-cloud}}]({{ link-cloud-oferta }}).
 
    {% endnote %}
 

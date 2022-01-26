@@ -7,11 +7,11 @@ items:
   items:  
     - name: Get issue parameters
       href: concepts/issues/get-issue.md
-    - name: Edit an issue
+    - name: Editing an issue
       href: concepts/issues/patch-issue.md
-    - name: Create an issue
+    - name: Creating an issue
       href: concepts/issues/create-issue.md
-    - name: Move an issue to another queue
+    - name: Moving an issue to another queue
       href: concepts/issues/move-issue.md
     - name: Find out the number of issues
       href: concepts/issues/count-issues.md
@@ -27,14 +27,14 @@ items:
       href: concepts/issues/link-issue.md
     - name: Get transitions
       href: concepts/issues/get-transitions.md
-    - name: Make a transition to a new status
+    - name: Make a status transition
       href: concepts/issues/new-transition.md
     - name: Get the history of issue changes
       href: concepts/issues/get-changelog.md
 - name: Checklists
   items:
     - name: Create a checklist or add items to it
-      href: concepts/issues/add-checklist-item.md  
+      href: concepts/issues/add-checklist-item.md
     - name: Get checklist parameters
       href: concepts/issues/get-checklist.md
     - name: Edit a checklist
@@ -43,7 +43,7 @@ items:
       href: concepts/issues/delete-checklist.md
 - name: Projects
   items:
-    - name: Create a project
+    - name: Creating a project
       href: concepts/projects/create-project.md
     - name: Get project parameters
       href: concepts/projects/get-project.md
@@ -53,11 +53,11 @@ items:
       href: concepts/projects/get-project-queues.md
     - name: Edit a project
       href: concepts/projects/update-project.md
-    - name: Delete a project
+    - name: Deleting a project
       href: concepts/projects/delete-project.md
 - name: Comments
   items:
-    - name: Add a comment
+    - name: Add comment
       href: concepts/issues/add-comment.md
     - name: Get issue comments
       href: concepts/issues/get-comments.md
@@ -71,7 +71,7 @@ items:
       href: get-macroses.md
     - name: Get a macro
       href: get-macros.md
-    - name: Create a macro
+    - name: Creating a macro
       href: post-macros.md
     - name: Edit a macro
       href: patch-macros.md
@@ -95,7 +95,7 @@ items:
       href: concepts/issues/get-attachment.md
     - name: Download a thumbnail
       href: concepts/issues/get-attachment-preview.md
-    - name: Attach a file
+    - name: Attaching a file
       href: concepts/issues/post-attachment.md
     - name: Upload a temporary file
       href: concepts/issues/temp-attachment.md
@@ -103,7 +103,7 @@ items:
       href: concepts/issues/delete-attachment.md
 - name: Queues
   items:  
-    - name: Create a queue
+    - name: Creating a queue
       href: concepts/queues/create-queue.md
     - name: Get queue parameters
       href: concepts/queues/get-queue.md
@@ -113,7 +113,7 @@ items:
       href: concepts/queues/get-versions.md
     - name: Get required queue fields
       href: concepts/queues/get-fields.md
-    - name: Delete a queue
+    - name: Deleting a queue
       href: concepts/queues/delete-queue.md
       when: audience == "external"
     - name: Restore a queue
@@ -127,7 +127,7 @@ items:
       href: get-boards.md
     - name: Get board parameters
       href: get-board.md
-    - name: Create a board
+    - name: Creating a board
       href: post-board.md
     - name: Edit a board
       href: patch-board.md
@@ -167,7 +167,7 @@ items:
   items:
     - name: Perform a bulk move of issues to a different queue
       href: concepts/bulkchange/bulk-move-issues.md
-    - name: Make bulk changes to issues
+    - name: Bulk changes to issues
       href: concepts/bulkchange/bulk-update-issues.md
     - name: Make bulk changes to issue statuses
       href: concepts/bulkchange/bulk-transition.md
@@ -189,6 +189,8 @@ items:
   items:
 #    - name: Обзор
 #      href: extra-api-requests.md
+    - name: Get global issue fields
+      href: concepts/issues/get-global-fields.md
     - name: Create an issue field
       href: concepts/issues/create-field.md
       when: audience == "external"

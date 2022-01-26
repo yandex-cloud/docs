@@ -1,15 +1,15 @@
 # Configuring trigger actions
 
-Configure one or more actions under **Trigger actions** by clicking **Add new action**:
+Configure one or more actions under **Actions** by clicking **Add new action**:
 
 - [Change issue status](set-action.md#section_change_status)
 - [Change field values](set-action.md#section_mod_fields)
-- [Add comment](set-action.md#dlentry_xvj_wls_kgb)
+- [Add a comment](set-action.md#create-comment)
 - [Create checklist](set-action.md#create-checklist)
 - [Calculate value](set-action.md#section_calc_field)
 - [Move issue](set-action.md#sec_move)
 - [Create issue](set-action.md#sec_create_issue)
-- [HTTP request](set-action.md#dlentry_nbq_nms_kgb)
+- [HTTP request](set-action.md#create-http)
 
 ## Changing issue status {#section_change_status}
 
@@ -34,7 +34,7 @@ Set new values for one or more fields:
 
 1. Enter a new field value.
 
-## Add comment {#dlentry_xvj_wls_kgb}
+## Add comment {#create-comment}
 
 Enter the comment you wish to add to the issue.
 
@@ -67,8 +67,8 @@ To automatically calculate the value of a field:
 1. Add the trigger action **Calculate value**.
 
 1. Specify the formula to calculate the value by:
-    - Click **Add variable** to add a field formula with numeric values. The formula will include a sequence like `not_var{{issue.field_ID}}`.
-{% if audience == "external" %} If {{ tracker-name }} doesn't have the required field, you can [create one](create-param.md).{% endif %}
+    - Click **Add variable** and add a field formula with numeric values. The formula will include [a sequence](vars.md) like `not_var{{issue.field_ID}}`.
+{% if audience == "external" %}If the desired field is missing in {{ tracker-name }}, you can [create one](create-param.md).{% endif %}
     - You can use mathematical symbols for addition `+`, subtraction `-`, multiplication `*`, and division `/`.
     - Use brackets (parentheses) to prioritize certain operations over others.
 
@@ -76,11 +76,11 @@ To automatically calculate the value of a field:
 
     {% note info %}
 
-    The field value is rounded up to an integer.
+    If the selected field only supports integers, the value will be rounded off.
 
     {% endnote %}
 
-1. Set a condition that will trigger the calculation of the field value in the [**Trigger condition**](set-condition.md#section_set_condition) section. We recommend using the event **Formula fields changed**. You can also set any condition appropriate for your workflow.
+1. Set a condition that will trigger the calculation of the field value in the [**Trigger conditions**](set-condition.md#section_set_condition) section. We recommend using the event **Formula fields changed**. You can also set any condition appropriate for your workflow.
 
 ## Move issue {#sec_move}
 
@@ -108,7 +108,7 @@ To configure issue creation:
 
 1. If you want to link the issue that enabled the trigger to the issue created by that trigger, select **Link with initial issue**.
 
-## HTTP request{#dlentry_nbq_nms_kgb}
+## HTTP request {#create-http}
 
 If you want the trigger to send an HTTP request:
 
@@ -134,7 +134,7 @@ If you want the trigger to send an HTTP request:
 
 1. Enter request body.
 
-   You can insert field values and user variables in your request body (see below). To do this, click **{ }** to the right of the field and choose the field or variable name. The request body will include a sequence like `not_var{{variable_name}}`.
+   You can insert [field values](vars.md) and user variables in your request body. To do this, click **{ }** to the right of the field and choose the name for the field or value. The request body will include a sequence like `not_var{{variable_name}}`.
 
    {% note info %}
 

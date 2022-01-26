@@ -28,7 +28,7 @@ Issue pages are updated in real time. If someone edits or adds a comment to an i
 
 - Web interface
 
-  To the right of the issue description, click ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [wiki markup](wiki-markup.md) to format text. Click **Save** to save your changes.
+  To the right of the issue description, click ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [wiki markup](markup.md) to format text. Click **Save** to save your changes.
 
   If you close or refresh the page without saving your changes, the new description will still be stored in drafts. You can restore that description by clicking the edit icon ![](../../_assets/tracker/icon-edit.png), clicking ![](../../_assets/tracker/drafts.png) in the toolbar, and choosing the draft.
 
@@ -45,7 +45,7 @@ Issue pages are updated in real time. If someone edits or adds a comment to an i
 
 - Mobile app
 
-  To the right of the issue description, tap ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [wiki markup](wiki-markup.md) to format text. Click **Save** to save your changes.
+  To the right of the issue description, tap ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [wiki markup](markup.md) to format text. Click **Save** to save your changes.
 
   You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues. You'll see the linked issue on the **Related** tab.
 

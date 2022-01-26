@@ -16,7 +16,7 @@ To configure email forwarding for mailboxes hosted on your domain, connect the d
 
 1. Enter the name of your domain (such as `example.org`) and click **Add**.
 
-1. [Confirm]({{ support-forms-domains }}) domain ownership, but do not delegate it to Yandex servers.
+1. [Confirm]({{ support-connect-domains }}) domain ownership, but do not delegate it to Yandex servers.
 
 1. Wait for your domain to be verified and click **Make this the primary domain**. Now all emails sent to your company's mailbox in Yandex.Connect will be forwarded to the mailbox hosted on your domain.
 
