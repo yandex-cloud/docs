@@ -128,7 +128,9 @@ items:
     href: pricing.md
   - name: Релизы
     items:
-      - name: Релизы моделей синтеза
+      - name: Релизы распознавания
+        href: release-notes-stt.md
+      - name: Релизы синтеза
         href: release-notes-tts.md
       - name: Архив релизов
         href: release-notes.md
