@@ -3,8 +3,6 @@ sourcePath: overlay/reference/ydb-cli/commands/scheme-ls.md
 ---
 {% include [intro.md](_includes/scheme-ls/intro.md) %}
 
-{% if audience == "external" %}
-
 Результат:
 
 ```text
@@ -20,5 +18,3 @@ sourcePath: overlay/reference/ydb-cli/commands/scheme-ls.md
 | dir   |                         |          |                              |                               | .sys     |
 └───────┴─────────────────────────┴──────────┴──────────────────────────────┴───────────────────────────────┴──────────┘
 ```
-
-{% endif %}

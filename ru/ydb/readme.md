@@ -1,1 +1,0 @@
-This folder content is generated automatically from ../ydb-src.

@@ -4,12 +4,8 @@ items:
 # Header
 - name: Оглавление
   href: index.yaml
-- name: Как попробовать
-  href: quickstart.md
-  when: audience != "external"
 
 - name: Начало работы
-  when: audience == "external"
   items:
   - name: Обзор
     href: quickstart/index.md
@@ -27,47 +23,28 @@ items:
     include: { mode: link, path: quickstart/document-api/toc_i.yaml }
   - include: { mode: link, path: getting_started/toc_i.yaml }
 
-
-- name: Начало работы
-  when: audience != "external"
-  include: { mode: link, path: getting_started/toc_p.yaml }
-
 # Main
-- { name: Сценарии использования,                  include: { mode: link, path: solutions/toc_i.yaml },       when: audience == "external" }
+- { name: Сценарии использования,                  include: { mode: link, path: solutions/toc_i.yaml } }
 - { name: Концепции,                               include: { mode: link, path: concepts/toc_p.yaml } }
-- { name: Пошаговые инструкции,                    include: { mode: link, path: operations/toc_i.yaml },     when: audience == "external" }
+- { name: Пошаговые инструкции,                    include: { mode: link, path: operations/toc_i.yaml } }
 
 - name: Управление доступом
   href: security/start_auth.md
-  when: audience == "external"
 
 - { name: Рекомендации,                            include: { mode: link, path: best_practices/toc_p.yaml } }
 - { name: Обслуживание,                            include: { mode: link, path: maintenance/toc_p.yaml } }
 - { name: Диагностика,                             include: { mode: link, path: troubleshooting/toc_p.yaml } }
-- { name: Правила тарификации,                     include: { mode: link, path: pricing/toc_i.yaml },        when: audience == "external" }
-- { name: Правила тарификации,                     include: { mode: link, path: pricing/toc_i.yaml },        when: audience != "external", hidden: true }
+- { name: Правила тарификации,                     include: { mode: link, path: pricing/toc_i.yaml } }
 
 # References  
-- { name: "HTTP API, совместимый с Amazon DynamoDB", include: { mode: link, path: docapi/toc_i.yaml },       when: audience == "external" }
+- { name: "HTTP API, совместимый с Amazon DynamoDB", include: { mode: link, path: docapi/toc_i.yaml } }
 - { name: YQL,                                     include: { mode: link, path: yql/toc_i.yaml } }
 - { name: Работа с YDB CLI,                        include: { mode: link, path: reference/ydb-cli/toc_p.yaml } }
 - { name: Работа с YDB SDK,                        include: { mode: link, path: reference/ydb-sdk/toc_p.yaml } }
-
-# Tech
-- name: Безопасность
-  when: audience == "tech"
-  items:
-  - name: Сценарии взаимодействия компонентов
-    href: security/usecases.md
-  - name: Шифрование данных
-    href: security/data_encryption.md
-
-- { name: YDB API и справочник,                    include: { mode: link, path: api/toc_i.yaml },            when: audience == "tech" }
-- { name: Техническая документация,                include: { mode: link, path: internals/toc_i.yaml },      when: audience == "tech" }
   
 # Footer
 - { name: Вопросы и ответы,                        include: { mode: link, path: faq/toc_p.yaml } }
 
 - name: Публичные материалы
   href: public_talks.md
-  when: lang == "ru" or audience == "internal"
+  when: lang == "ru"

@@ -18,7 +18,7 @@ sourcePath: overlay/quickstart/yql-api/ydb-cli.md
 
 {% note info %}
 
-При использовании нестандартной конфигурации базы данных может потребоваться явное разрешение входящего трафика через порт `2135`. Убедитесь, что в назначенной {% if deploy != "arc" %}[группе безопасности](../../../vpc/concepts/security-groups.md){% else %}группе безопасности{% endif %} существует соответствующее правило, или добавьте его.
+При использовании нестандартной конфигурации базы данных может потребоваться явное разрешение входящего трафика через порт `2135`. Убедитесь, что в назначенной [группе безопасности](../../../vpc/concepts/security-groups.md) существует соответствующее правило, или добавьте его.
 
 {% endnote %}
 
@@ -158,12 +158,6 @@ ydb \
 
 В таблицу `series` будут добавлены новые записи. Чтобы посмотреть результат, [запросите](#select-data) данные из таблицы.
 
-{% if audience == "internal" %}
-
-![Table preview](../_assets/db_ui_table_preview.png)
-
-{% endif %}
-
 ### Обновление данных {#update-data}
 
 Обновите данные с помощью инструкции [UPDATE](../../yql/reference/syntax/update.md):
@@ -181,12 +175,6 @@ ydb \
 
 Чтобы посмотреть результат, [запросите](#select-data) данные из таблицы.
 
-{% if audience == "internal" %}
-
-![Update preview](../_assets/db_ui_run_update.png)
-
-{% endif %}
-
 ### Удаление данных {#delete-data}
 
 Удалите данные из таблицы с помощью инструкции [DELETE](../../yql/reference/syntax/delete.md):
@@ -203,12 +191,6 @@ ydb \
 ```
 
 Эта команда удалит записи, в которых значение `series_id` равно 3. Чтобы посмотреть результат, [запросите](#select-data) данные из таблицы.
-
-{% if audience == "internal" %}
-
-![Delete preview](../_assets/db_ui_run_delete.png)
-
-{% endif %}
 
 ### Запрос к данным {#select-data}
 
@@ -236,12 +218,6 @@ ydb \
 | 2         | "Silicon Valley" | "2014-04-06" |
 └───────────┴──────────────────┴──────────────┘
 ```
-
-{% if audience == "internal" %}
-
-![Select from table](../_assets/db_ui_run_select.png)
-
-{% endif %}
 
 ### Удаление таблицы {#drop-table}
 

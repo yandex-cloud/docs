@@ -35,12 +35,6 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
 
 {% endlist %}
 
-{% if audience == "internal" %}
-
-![Table preview](../../_assets/db_ui_table_preview.png)
-
-{% endif %}
-
 ## Измените данные {#update-data}
 
 Измените существующие данные в таблице, используя инструкцию [UPDATE](../../yql/reference/syntax/update.md):
@@ -52,12 +46,6 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
   {% include [update-data-via-console](../../_includes/update-data-via-console.md) %}
 
 {% endlist %}
-
-{% if audience == "internal" %}
-
-![Update preview](../../_assets/db_ui_run_update.png)
-
-{% endif %}
 
 ## Удалите данные {#delete-data}
 
@@ -71,12 +59,6 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
 
 {% endlist %}
 
-{% if audience == "internal" %}
-
-![Delete preview](../../_assets/db_ui_run_delete.png)
-
-{% endif %}
-
 ## Запросите данные {#select-data}
 
 Запросите данные из таблицы с помощью инструкции [SELECT](../../yql/reference/syntax/select.md):
@@ -88,12 +70,6 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
   {% include [select-data-via-console](../../_includes/select-data-via-console.md) %}
 
 {% endlist %}
-
-{% if audience == "internal" %}
-
-![Select from table](../../_assets/db_ui_run_select.png)
-
-{% endif %}
 
 ## Удалите таблицу {#drop-table}
 

@@ -2,8 +2,6 @@
 
 {% include [operation-index.md](_includes/operations-index/operation-index.md %}
 
-{% if audience == "external" %}
-
 Результат:
 
 ```text
@@ -14,13 +12,9 @@
 └───────────────────────────────────────┴───────┴────────┘
 ```
 
-{% endif %}
-
 {% include [operations-index-exp.md](_includes/operations-index/operations-index-exp.md) %}
 
 {% include [one-get.md](_includes/operations-index/one-get.md) %}
-
-{% if audience == "external" %}
 
 Результат:
 
@@ -34,11 +28,7 @@
 └──────────────────────────────────┴───────┴─────────┴───────┴──────────┴────────────────────────────────┴─────────────┘
 ```
 
-{% endif %}
-
 {% include [one-get-exp.md](_includes/operations-index/one-get-exp.md) %}
-
-{% if audience == "external" %}
 
 Результат:
 
@@ -57,11 +47,7 @@
 Next page token: 0
 ```
 
-{% endif %}
-
 {% include [all-get.md](_includes/operations-index/all-get.md) %}
-
-{% if audience == "external" %}
 
 ## Отмена операции построения индекса {#cancel}
 
@@ -76,7 +62,5 @@ Next page token: 0
 ```bash
 {{ ydb-cli }} operation forget ydb://buildindex/7?id=562950460138467
 ```
-
-{% endif %}
 
 {% include [delete-index.md](_includes/operations-index/delete-index.md) %}

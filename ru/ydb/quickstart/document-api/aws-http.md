@@ -11,7 +11,7 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
 
 ## Перед началом работы {#before-you-begin}
 
-1. {% if deploy != "arc" %} Если у вас еще нет интерфейса командной строки Yandex.Cloud, [установите и инициализируйте его](../../../cli/quickstart.md#install) {% else %} Установите YC CLI{% endif %}.
+1. Если у вас еще нет интерфейса командной строки Yandex.Cloud, [установите и инициализируйте его](../../../cli/quickstart.md#install).
 1. Подготовьте Document API эндпоинт [созданной БД](../create-db.md).
 
     {% cut "Как узнать Document API эндпоинт базы данных" %}

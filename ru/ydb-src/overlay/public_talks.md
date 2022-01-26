@@ -158,17 +158,3 @@
 * Тема: {{ ydb-name }} — как мы обеспечиваем отказоустойчивость.
   * [Запись трансляции](https://youtu.be/-GlRSxG4JQU?t=10779).
   * Описание: как {{ ydb-short-name }} хранит данные с избыточностью и как {{ ydb-short-name }} решает задачу распределенного консенсуса.
-
-{% if audience != "external" %}
-
-### 2019: HydraConf {#hydraconf}
-
-* Тема: {{ ydb-name }} — how we guarantee fault tolerance.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/Hydra_2019_Vladislav_Kuznetsov_Yandex_Database__kak_my_obespechivayem_otkazoustoychivost.pptx).
-  * [Запись трансляции](https://youtu.be/_7FAeeWAhT4).
-  * Описание: как {{ ydb-short-name }} хранит данные с избыточностью и как {{ ydb-short-name }} решает задачу распределенного консенсуса.
-* Тема: Distributed transactions in {{ ydb-short-name }}.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/Hydra_2019_Semen_Checherinda_Raspredelennyye_tranzaktsii_v_YDB%20(2).pptx).
-  * [Запись трансляции](https://youtu.be/85GIFpG3zx4).
-  * Описание: механизм выполнения распределенных транзакций в {{ ydb-short-name }}.
-{% endif %}

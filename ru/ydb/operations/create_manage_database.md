@@ -59,7 +59,7 @@ sourcePath: overlay/operations/create_manage_database.md
 
    1. В [консоли управления](https://console.cloud.yandex.ru/) выберите каталог, в котором нужно изменить настройки базы данных.
    1. В списке сервисов выберите **Yandex Database**.
-   1. Нажмите значок ![horizontal-ellipsis](../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
+   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
    1. Настройте параметры БД:
       1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](../concepts/databases.md#compute-units).
       1. В блоке **Группы хранения** выберите тип диска и количество [групп хранения](../concepts/databases.md#storage-groups), определяющее суммарный объем хранилища.
@@ -100,7 +100,7 @@ sourcePath: overlay/operations/create_manage_database.md
 
    1. В [консоли управления](https://console.cloud.yandex.ru/) выберите каталог, в котором нужно удалить базу данных.
    1. В списке сервисов выберите **Yandex Database**.
-   1. Нажмите значок ![horizontal-ellipsis](../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
    1. Подтвердите удаление.
 
 * CLI

@@ -1,7 +1,5 @@
 {% include [intro.md](_includes/discovery-list/intro.md) %}
 
-{% if audience == "external" %}
-
 Результат:
 
 ```text
@@ -9,5 +7,3 @@ grpcs://vm-etn03umae82ti1blr6in-ru-central1-a-odjg-ozyl.etn03umae82ti1blr6in.ydb
 ```
 
 Где `#table_service`, `#scripting`, `#discovery` и другие — это gRPC-сервисы, доступные на данном эндпоинте.
-
-{% endif %}

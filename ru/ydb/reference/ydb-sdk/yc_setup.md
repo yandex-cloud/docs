@@ -23,7 +23,7 @@ sourcePath: overlay/reference/ydb-sdk/yc_setup.md
 
     {% endnote %}
 
-1. Для аутентификации в базе данных {% if deploy != "arc" %}[создайте сервисный аккаунт](../../../iam/operations/sa/create.md){% else %}создайте сервисный аккаунт{% endif %} и {% if deploy != "arc" %}[назначьте](../../../iam/operations/sa/assign-role-for-sa.md){% else %}назначьте{% endif %} ему роли `viewer` и `editor`.
+1. Для аутентификации в базе данных [создайте сервисный аккаунт](../../../iam/operations/sa/create.md) и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роли `viewer` и `editor`.
 
 1. С помощью [YC CLI](../../../cli/quickstart.md#install) сохраните в файл авторизованный ключ сервисного аккаунта:
 

@@ -16,7 +16,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 
 ## Перед началом работы {#before-you-begin}
 
-1. {% if deploy != "arc" %}[Настройте окружение AWS](../aws-setup.md){% else %}Настройте окружение AWS{% endif %}.
+1. [Настройте окружение AWS](../aws-setup.md).
 1. Подготовьте Document API эндпоинт [созданной БД](../../create-db.md).
 
     {% cut "Как узнать Document API эндпоинт базы данных" %}

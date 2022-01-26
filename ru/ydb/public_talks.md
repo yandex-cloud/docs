@@ -161,17 +161,3 @@ sourcePath: overlay/public_talks.md
 * Тема: Yandex Database — как мы обеспечиваем отказоустойчивость.
   * [Запись трансляции](https://youtu.be/-GlRSxG4JQU?t=10779).
   * Описание: как YDB хранит данные с избыточностью и как YDB решает задачу распределенного консенсуса.
-
-{% if audience != "external" %}
-
-### 2019: HydraConf {#hydraconf}
-
-* Тема: Yandex Database — how we guarantee fault tolerance.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/Hydra_2019_Vladislav_Kuznetsov_Yandex_Database__kak_my_obespechivayem_otkazoustoychivost.pptx).
-  * [Запись трансляции](https://youtu.be/_7FAeeWAhT4).
-  * Описание: как YDB хранит данные с избыточностью и как YDB решает задачу распределенного консенсуса.
-* Тема: Distributed transactions in YDB.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/Hydra_2019_Semen_Checherinda_Raspredelennyye_tranzaktsii_v_YDB%20(2).pptx).
-  * [Запись трансляции](https://youtu.be/85GIFpG3zx4).
-  * Описание: механизм выполнения распределенных транзакций в YDB.
-{% endif %}

@@ -3,8 +3,6 @@ sourcePath: overlay/reference/ydb-cli/commands/scheme-mkdir.md
 ---
 {% include [intro.md](_includes/scheme-mkdir/intro.md) %}
 
-{% if audience == "external" %}
-
 Результат:
 
 ```text
@@ -16,5 +14,3 @@ sourcePath: overlay/reference/ydb-cli/commands/scheme-mkdir.md
 | dir  | aje1ok849pfu9jvnamh0@as |      |         |          | sub-directory2                  |
 └──────┴─────────────────────────┴──────┴─────────┴──────────┴─────────────────────────────────┘
 ```
-
-{% endif %}

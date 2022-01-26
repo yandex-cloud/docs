@@ -5,8 +5,6 @@ sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
 
 {% include [operation-index.md](_includes/operations-index/operation-index.md %}
 
-{% if audience == "external" %}
-
 Результат:
 
 ```text
@@ -17,13 +15,9 @@ sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
 └───────────────────────────────────────┴───────┴────────┘
 ```
 
-{% endif %}
-
 {% include [operations-index-exp.md](_includes/operations-index/operations-index-exp.md) %}
 
 {% include [one-get.md](_includes/operations-index/one-get.md) %}
-
-{% if audience == "external" %}
 
 Результат:
 
@@ -37,11 +31,7 @@ sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
 └──────────────────────────────────┴───────┴─────────┴───────┴──────────┴────────────────────────────────┴─────────────┘
 ```
 
-{% endif %}
-
 {% include [one-get-exp.md](_includes/operations-index/one-get-exp.md) %}
-
-{% if audience == "external" %}
 
 Результат:
 
@@ -60,11 +50,7 @@ sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
 Next page token: 0
 ```
 
-{% endif %}
-
 {% include [all-get.md](_includes/operations-index/all-get.md) %}
-
-{% if audience == "external" %}
 
 ## Отмена операции построения индекса {#cancel}
 
@@ -79,7 +65,5 @@ ydb operation cancel ydb://buildindex/7?id=562950460138467
 ```bash
 ydb operation forget ydb://buildindex/7?id=562950460138467
 ```
-
-{% endif %}
 
 {% include [delete-index.md](_includes/operations-index/delete-index.md) %}

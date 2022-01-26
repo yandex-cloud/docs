@@ -1,7 +1,5 @@
 {% include [list-and-get.md](_includes/list-and-get.md) %}
 
-{% if audience == "external" %}
-
 Результат:
 
 ```text
@@ -9,5 +7,3 @@
   database: /ru-central1/b1gia87mbaomkfvscrus/etn02j1mlm4vgjhij03e
   use-metadata-credentials
 ```
-
-{% endif %}

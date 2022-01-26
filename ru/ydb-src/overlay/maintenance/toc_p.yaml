@@ -1,8 +1,4 @@
 items:
 - include: { mode: link, path: toc_i.yaml }
-- name: Мониторинг
-  href: monitoring.md
-  when: audience != "external"
 - name: Справочник метрик
   href: yc_metrics.md
-  when: audience == "external"

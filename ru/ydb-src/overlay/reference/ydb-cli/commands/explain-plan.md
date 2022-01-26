@@ -1,7 +1,5 @@
 {% include [intro.md](_includes/explain-plan/intro.md) %}
 
-{% if audience == "external" %}
-
 Результат:
 
 ```text
@@ -36,13 +34,9 @@ Query plan:
 }
 ```
 
-{% endif %}
-
 {% include [intro-exp.md](_includes/explain-plan/intro-exp.md) %}
 
 {% include [examples.md](_includes/explain-plan/examples.md) %}
-
-{% if audience == "external" %}
 
 Результат:
 
@@ -89,7 +83,5 @@ Query plan:
     ]
 }
 ```
-
-{% endif %}
 
 {% include [examples-exp.md](_includes/explain-plan/examples-exp.md) %}

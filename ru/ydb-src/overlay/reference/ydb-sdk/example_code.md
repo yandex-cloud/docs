@@ -10,7 +10,7 @@
 | NodeJS | [https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1](https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1) |
 | .NET | [https://github.com/ydb-platform/ydb-dotnet-examples/tree/main/src/BasicExample](https://github.com/ydb-platform/ydb-dotnet-examples/tree/main/src/BasicExample) |
 
-{% if audience == "external" %}Установка и запуск тестового приложения описаны в разделе [Установка YDB SDK](yc_setup.md).{% endif %}
+Установка и запуск тестового приложения описаны в разделе [Установка YDB SDK](yc_setup.md).
 
 После запуска и выполнения приложения в консоли отобразится следующий результат:
 

@@ -37,8 +37,3 @@ items:
     href: api-ref/actions/updateTimeToLive.md
 - name: Общие ошибки
   href: api-ref/common-errors.md
-- name: Рецепты
-  when: audience == "internal"
-  items:
-  - name: Обеспечение уникальности атрибутов
-    href: uniqueConstraint.md

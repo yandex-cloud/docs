@@ -1,53 +1,22 @@
 ---
 sourcePath: overlay/concepts/databases.md
 ---
-
 {% include [intro.md](_includes/databases/intro.md) %}
 
 {% include [database.md](_includes/databases/database.md) %}
-
-{% if audience == "external" %}
 
 В Yandex.Cloud БД привязывается к определенному каталогу в облаке, а также доступны Serverless базы данных на базе YDB, не требующие выделения ресурсов пользователям, и использующие совместно ресурсы БД YDB, в которой они обслуживаются.
 
 Описание порядка получения БД в Yandex.Cloud описано в разделе ["Создание БД"](../operations/create_manage_database.md)
 
-{% endif %}
-
 {% include [cluster.md](_includes/databases/cluster.md) %}
-
-{% if audience == "external" %}
 
 В Yandex.Cloud обслуживанием кластеров занимается команда облака, а разработчики приложений взаимодействуют напрямую с БД YDB.
 
-{% endif %}
-
-{% if audience == "tech" %}
-  {% include [base_hierarchy.md](_includes/databases/base_hierarchy.md) %}
-{% endif %}
-
 {% include [regions.md](_includes/databases/regions.md) %}
-
-{% if audience == "external" %}
 
 Облачные БД YDB в Yandex.Cloud предоставляются в геораспределенном регионе центральной России `ru-central1`, с тремя зонами доступности. Подробнее о регионах и зонах доступности Yandex.Cloud читайте в разделе [{#T}](../../overview/concepts/geo-scope.md).
 {% include [compute.md](_includes/databases/compute.md) %}
-
-{% endif %}
-
-{% if audience != "external" %}
-
-Для размещения внутренних БД в Yandex доступны однодатацентровые [кластеры](clusters.md), расположенные в датацентрах VLA (Владимир), MYT (Мытищи), MAN (Мянтсяля, Финляндия) и SAS (Сасово). Также доступны геораспределенные кластеры, каждый из которых расположен в трех датацентрах — VLA-SAS-MAN и VLA-SAS-MYT. Если для проекта важно низкое время выполнения запросов на запись (латентности транзакций), то следует использовать однодатацентровые кластера. Для проектов с повышенными требованиями к надежности (при необходимости выдержать выход из строя одного из датацентров) следует использовать геораспределенные кластера. Одна БД целиком располагается на одном кластере. На одном кластере может быть расположено множество баз данных.
-
-{% note warning %}
-
-В текущей инсталляции YDB доступен кластер *ydb-ru*, расположенный в датацентрах VLA-SAS-MYT.
-
-{% endnote %}
-
-{% endif %}
-
-{% if audience == "external" %}
 
 ### БД YDB в Yandex.Cloud на выделенных ресурсах (Dedicated)
 
@@ -67,20 +36,6 @@ sourcePath: overlay/concepts/databases.md
 
 Вычислительные ресурсы для бессерверных БД YDB в Yandex.Cloud предоставляются автоматически для выполнения запросов к БД. Оплата производится на основании расчета фактически использованных CPU и операций ввода-вывода, потребовавшихся для исполнения запроса к БД. Дополнительно оплачивается объем хранимых в БД данных.
 
-{% endif %}
-
-{% if audience != "external" %}
-
-{% include [slots.md](_includes/databases/slots.md) %}
-
-Подробнее использование команды `discovery` описано в [документации по CLI](../getting_started/ydb_cli.md#discovery_list).
-
-{% endif %}
-
 {% include [storage_groups.md](_includes/databases/storage_groups.md) %}
 
-{% if audience == "external" %}
-
 В облачных БД YDB Yandex.Cloud используется по 3 диска в каждой из 3 зон доступности, как для БД на выделенных ресурсах, так и для бессерверных БД. Такая конфигурация гарантирует устойчивость при отказе одной из зон или отказе одного из дисков, а также обеспечивает избыточность с коэффициентом 3.
-
-{% endif %}
