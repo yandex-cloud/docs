@@ -17,8 +17,10 @@ items:
           href: operations/projects/install-dependencies.md
         - name: Управление вычислительными ресурсами
           href: operations/projects/control-compute-resources.md
-        - name: Управление потреблением
+        - name: Настроить ограничения вычислений для проекта
           href: operations/projects/custom-limits.md
+        - name: Настроить ограничения вычислений для каталога
+          href: operations/projects/set-ds-budget.md
         - name: Изменение размера хранилища проекта
           href: operations/projects/storage-resize.md
         - name: Изменение имени или описания
@@ -111,6 +113,8 @@ items:
         href: concepts/tensorboard.md
       - name: Распределенное обучение
         href: concepts/taas.md
+      - name: Управление расходами
+        href: concepts/budget.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Ранний доступ
