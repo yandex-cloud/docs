@@ -42,7 +42,7 @@ items:
       - name: Миграция базы данных в Managed Service for Microsoft SQL Server
         href: tutorials/data-migration.md
       - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
+        href: tutorials/monitoring.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

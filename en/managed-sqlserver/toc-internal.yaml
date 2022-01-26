@@ -29,6 +29,8 @@ items:
         href: operations/cluster-backups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+      - name: Database maintenance
+        href: operations/maintenance.md
   - name: Concepts
     items:
       - name: Relationship between service resources
