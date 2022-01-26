@@ -83,6 +83,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [operating-mode-with-data-source](../../_includes/datalens/qa/operating-mode-with-data-source.md) %}
 
+{% include [materialization-on-off](../../_includes/datalens/qa/materialization-on-off.md) %}
+
 ## Datasets {#datasets}
 
 {% include [incorrectly-identified-date-field](../../_includes/datalens/qa/incorrectly-identified-date-field.md) %}
