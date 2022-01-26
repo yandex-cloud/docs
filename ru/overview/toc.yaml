@@ -55,6 +55,8 @@ items:
             href: security/domains/network.md
           - name: Аутентификация и управление доступом
             href: security/domains/access.md
+          - name: Шифрование данных и управление ключами
+            href: security/domains/encryption.md
           - name: Безопасная конфигурация
             href: security/domains/secure-config.md
           - name: Управление уязвимостями
