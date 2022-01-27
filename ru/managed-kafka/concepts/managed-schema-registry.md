@@ -36,8 +36,8 @@
 
 Поддерживаются следующие форматы схем данных:
 
-* Avro
-* JSON Schema
+* [Avro](https://avro.apache.org/),
+* [JSON Schema](https://json-schema.org/),
 
 Сведения о схемах помещаются в [служебный топик](./topics.md#service-topics) `_schemas`. В этот топик нельзя писать данные стандартными средствами.
 
