@@ -14,6 +14,12 @@
 
 - [{#T}](#change-sg-set).
 
+{% note info %}
+
+О том, как изменить версию {{ RD }} кластера, читайте в разделе [{#T}](cluster-version-update.md).
+
+{% endnote %}
+
 ## Изменить имя и описание кластера {#change-name-and-description}
 
 {% list tabs %}
@@ -35,14 +41,14 @@
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
-     ```
-     $ {{ yc-mdb-rd }} cluster update --help
+     ```bash
+     {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Укажите новые имя и описание в команде изменения кластера:
 
-     ```
-     $ {{ yc-mdb-rd }} cluster update <имя кластера> \
+     ```bash
+     {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
           --cluster-name <новое имя кластера> \
           --description <новое описание кластера>
      ```
@@ -112,8 +118,8 @@
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
-     ```
-     $ {{ yc-mdb-rd }} cluster update --help
+     ```bash
+     {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
@@ -121,8 +127,10 @@
      {% if audience != "internal" %}
 
      ```bash
-     $ {{ yc-mdb-rd }} resource-preset list
+     {{ yc-mdb-rd }} resource-preset list
+     ```
 
+     ```text
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
      +-------------+--------------------------------+----------+
@@ -140,16 +148,16 @@
      {% else %}
 
      ```bash
-     $ {{ yc-mdb-rd }} resource-preset list
+     {{ yc-mdb-rd }} resource-preset list
      ```
 
      {% endif %}
 
   1. Укажите нужный класс в команде изменения кластера:
 
-     ```
-     $ {{ yc-mdb-rd }} cluster update <имя кластера>
-          --resource-preset <ID класса>
+     ```bash
+     {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
+         --resource-preset <идентификатор класса хостов>
      ```
 
      {{ mrd-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -301,7 +309,7 @@
             password         = "<пароль>"
             timeout          = <время в секундах перед отключением неактивных клиентов>
             maxmemory_policy = "<политика управления памятью при ее дефиците>"
-            version          = "<версия Redis: 5.0 или 6.0>"
+            ...
           }
         }
         ```
@@ -353,7 +361,7 @@
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <имя кластера> \
+        {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
             --backup-window-start <время начала резервного копирования> \
             --maintenance-window type=<weekly или anytime> \
             --deletion-protection=<защита от удаления кластера: true или fasle>
@@ -398,7 +406,7 @@
     1. Укажите нужные группы безопасности в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <имя кластера> \
+        {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
            --security-group-ids <список групп безопасности>
         ```
 

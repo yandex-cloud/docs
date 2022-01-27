@@ -24,6 +24,8 @@ items:
             href: operations/connect/sharded.md
       - name: Остановка и запуск кластера
         href: operations/cluster-stop.md
+      - name: Обновление версии Redis
+        href: operations/cluster-version-update.md
       - name: Управление хостами кластера
         href: operations/hosts.md
       - name: Управление шардами
