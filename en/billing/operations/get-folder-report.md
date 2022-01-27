@@ -95,4 +95,3 @@ The table contains the following columns:
 ##### See also
 
 * [View usage details for the cloud](check-charges.md)
-

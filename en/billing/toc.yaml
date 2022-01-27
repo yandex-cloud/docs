@@ -66,7 +66,7 @@ items:
         href: concepts/bonus-account.md
       - name: Committed volume of services (CVoS)
         href: concepts/cvos.md
-      - name: Serverless ecosystem Free Tier
+      - name: Free tier of serverless ecosystem
         href: concepts/serverless-free-tier.md
       - name: Budget
         href: concepts/budget.md
@@ -115,7 +115,7 @@ items:
             href: concepts/edo.md
       - name: Payment currency
         href: payment/currency.md
-  - name: Access control
+  - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md

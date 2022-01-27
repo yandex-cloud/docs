@@ -1,4 +1,4 @@
-A committed volume of services (CVoS) is an agreement to receive a guaranteed discount for using a certain volume of Yandex.Cloud services for 1 or 3 years.
+A committed volume of services (CVoS) is an agreement to receive a guaranteed discount for consuming a certain amount of {{ yandex-cloud }} services within 1 or 3 years.
 
-If you are confident in the predicted and stable use of Yandex.Cloud services in the future, you can purchase a CVoS and reduce your expenses on the resources you need.
+If you are sure that your consumption of the {{ yandex-cloud }} services is going to be stable and predictable, you can purchase a CVoS and save on your resource expenses.
 

@@ -4,4 +4,3 @@ Access to the Billing service is provided to users with a registered Yandex or Y
 - If you use a social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
 
 Your phone number must be linked to this account. For detailed instructions, see the Help for [Yandex ID](https://yandex.com/support/passport/authorization/registration.html) and [Yandex.Connect](https://yandex.com/support/connect/org-structure.html).
-
