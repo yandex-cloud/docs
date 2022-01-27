@@ -59,7 +59,7 @@ ORDER BY city, number LIMIT $limit;
 ## Примеры реализации постраничного вывода
 
 {% if oss %}
-* [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/examples/pagination)
+* [C++](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/public/sdk/cpp/examples/pagination)
 {% endif %}
 * [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/pagination)
 * [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/pagination)

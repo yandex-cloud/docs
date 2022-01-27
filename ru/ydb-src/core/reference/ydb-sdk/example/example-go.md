@@ -1,1 +1,2 @@
-{% include [example-go.md](_includes/example-go.md) %}
+{% include [example-java.md](_includes/example-go.md) %}
+

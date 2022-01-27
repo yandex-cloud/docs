@@ -4,7 +4,7 @@
 
 {% if oss == true %}
 
-Пример реализации загрузки данных на [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/examples/batch_upload).
+Пример реализации загрузки данных на [C++](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/public/sdk/cpp/examples/batch_upload).
 
 {% endif %}
 

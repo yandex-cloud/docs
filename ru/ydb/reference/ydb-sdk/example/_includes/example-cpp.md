@@ -3,7 +3,7 @@ sourcePath: core/reference/ydb-sdk/example/_includes/example-cpp.md
 ---
 # Приложение на C++
 
-На этой странице подробно разбирается код [тестового приложения](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/examples/basic_example), доступного в составе [C++ SDK](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp) YDB.
+На этой странице подробно разбирается код [тестового приложения](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/public/sdk/cpp/examples/basic_example), доступного в составе [C++ SDK](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/public/sdk/cpp) YDB.
 
 {% include [init.md](steps/01_init.md) %}
 

@@ -47,9 +47,9 @@ description: 'Значение operation_timeout определяет время
 - С++
 
   ```cpp
-  #include <kikimr/public/sdk/cpp/client/ydb.h>
-  #include <kikimr/public/sdk/cpp/client/ydb_table.h>
-  #include <kikimr/public/sdk/cpp/client/ydb_value.h>
+  #include <ydb/public/sdk/cpp/client/ydb.h>
+  #include <ydb/public/sdk/cpp/client/ydb_table.h>
+  #include <ydb/public/sdk/cpp/client/ydb_value.h>
 
   using namespace NYdb;
   using namespace NYdb::NTable;

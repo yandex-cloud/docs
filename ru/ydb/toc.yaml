@@ -116,6 +116,9 @@ items:
         href: concepts/scan_query.md
       - name: Ограничения базы данных
         href: concepts/limits-ydb.md
+      - name: Дисковая подсистема кластера
+        href: concepts/distributed_storage.md
+        when: audience == "tech"
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Пошаговые инструкции
@@ -267,56 +270,38 @@ items:
                 href: yql/reference/syntax/lexer.md
               - name: Выражения
                 href: yql/reference/syntax/expressions.md
-              - name: USE
-                href: yql/reference/syntax/use.md
-                when: feature_mapreduce
-              - name: SELECT
-                href: yql/reference/syntax/select.md
-              - name: VALUES
-                href: yql/reference/syntax/values.md
-              - name: SELECT STREAM
-                href: yql/reference/syntax/select_stream.md
-                when: feature_mapreduce and process_command == "PROCESS STREAM"
-              - name: CREATE TABLE
-                href: yql/reference/syntax/create_table.md
+              - name: ACTION
+                href: yql/reference/syntax/action.md
               - name: ALTER TABLE
                 href: yql/reference/syntax/alter_table.md
                 when: feature_map_tables
-              - name: DROP TABLE
-                href: yql/reference/syntax/drop_table.md
-              - name: INSERT
-                href: yql/reference/syntax/insert_into.md
-              - name: UPDATE
-                href: yql/reference/syntax/update.md
-                when: feature_map_tables
+              - name: CREATE TABLE
+                href: yql/reference/syntax/create_table.md
+              - name: DECLARE
+                href: yql/reference/syntax/declare.md
               - name: DELETE
                 href: yql/reference/syntax/delete.md
                 when: feature_map_tables
-              - name: REPLACE
-                href: yql/reference/syntax/replace_into.md
-                when: feature_replace
-              - name: UPSERT
-                href: yql/reference/syntax/upsert_into.md
-                when: feature_upsert
+              - name: DISCARD
+                href: yql/reference/syntax/discard.md
+              - name: DROP TABLE
+                href: yql/reference/syntax/drop_table.md
               - name: GROUP BY
                 href: yql/reference/syntax/group_by.md
+              - name: EXPORT и IMPORT
+                href: yql/reference/syntax/export_import.md
+                when: feature_mapreduce
+              - name: FLATTEN
+                href: yql/reference/syntax/flatten.md
+              - name: INSERT
+                href: yql/reference/syntax/insert_into.md
+              - name: INTO RESULT
+                href: yql/reference/syntax/into_result.md
               - name: JOIN
                 href: yql/reference/syntax/join.md
                 when: feature_join
-              - name: WINDOW
-                href: yql/reference/syntax/window.md
-                when: feature_window_functions
-              - name: FLATTEN
-                href: yql/reference/syntax/flatten.md
-              - name: ACTION
-                href: yql/reference/syntax/action.md
-              - name: SUBQUERY
-                href: yql/reference/syntax/subquery.md
-                when: feature_subquery
-              - name: DISCARD
-                href: yql/reference/syntax/discard.md
-              - name: INTO RESULT
-                href: yql/reference/syntax/into_result.md
+              - name: PRAGMA
+                href: yql/reference/syntax/pragma.md
               - name: PROCESS STREAM
                 href: yql/reference/syntax/process.md
                 when: feature_mapreduce and process_command == "PROCESS STREAM"
@@ -326,13 +311,31 @@ items:
               - name: REDUCE
                 href: yql/reference/syntax/reduce.md
                 when: feature_mapreduce and reduce_command == "REDUCE"
-              - name: PRAGMA
-                href: yql/reference/syntax/pragma.md
-              - name: DECLARE
-                href: yql/reference/syntax/declare.md
-              - name: EXPORT и IMPORT
-                href: yql/reference/syntax/export_import.md
+              - name: REPLACE
+                href: yql/reference/syntax/replace_into.md
+                when: feature_replace
+              - name: SELECT
+                href: yql/reference/syntax/select.md
+              - name: SELECT STREAM
+                href: yql/reference/syntax/select_stream.md
+                when: feature_mapreduce and process_command == "PROCESS STREAM"
+              - name: SUBQUERY
+                href: yql/reference/syntax/subquery.md
+                when: feature_subquery
+              - name: UPDATE
+                href: yql/reference/syntax/update.md
+                when: feature_map_tables
+              - name: UPSERT
+                href: yql/reference/syntax/upsert_into.md
+                when: feature_upsert
+              - name: USE
+                href: yql/reference/syntax/use.md
                 when: feature_mapreduce
+              - name: VALUES
+                href: yql/reference/syntax/values.md
+              - name: WINDOW
+                href: yql/reference/syntax/window.md
+                when: feature_window_functions
               - name: Неподдерживаемые конструкции
                 href: yql/reference/syntax/not_yet_supported.md
           - name: Встроенные функции
@@ -490,6 +493,12 @@ items:
             href: reference/ydb-sdk/example/example-php.md
           - name: Python
             href: reference/ydb-sdk/example/example-python.md
+          - name: Архив
+            items:
+              - name: Go v1
+                href: reference/ydb-sdk/example/archive/example-go-v1.md
+              - name: Go v2
+                href: reference/ydb-sdk/example/archive/example-go-v2.md
       - name: Обработка ошибок в API
         href: reference/ydb-sdk/error_handling.md
       - name: Установка и конфигурация
