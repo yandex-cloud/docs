@@ -50,6 +50,8 @@
 {% if audience == "internal" %} - [{#T}](chart/create-alert.md){% endif %}
 {% if audience != "internal" %} - [{#T}](chart/publish.md) {% endif %}
 - [{#T}](chart/manage-access.md)
+{% if audience == "internal" %} - [{#T}](chart/add-parameters.md) {% endif %}
+- [{#T}](chart/add-guid.md)
 
 ## Работа с дашбордами {#working-with-dashboards}
 
@@ -60,3 +62,4 @@
 - [{#T}](dashboard/edit-alias.md)
 {% if audience != "internal" %} - [{#T}](dashboard/publish.md) {% endif %}
 - [{#T}](dashboard/manage-access.md)
+{% if audience == "internal" %} - [{#T}](dashboard/add-parameters.md) {% endif %}

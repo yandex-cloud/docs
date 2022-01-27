@@ -202,6 +202,11 @@ items:
             href: operations/chart/publish.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
+          - name: Добавление параметров в настройках чарта на дашборде
+            when: audience == "internal"
+            href: operations/chart/add-parameters.md
+          - name: Добавление guid в качестве параметра
+            href: operations/chart/add-guid.md   
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда
@@ -219,6 +224,8 @@ items:
             href: operations/dashboard/publish.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
+          - name: Добавление параметров на дашборд
+            href: operations/dashboard/add-parameters.md
       - name: Работа с правами доступа
         when: audience == "external"
         items:
