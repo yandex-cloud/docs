@@ -1,13 +1,14 @@
-| A — E | F — L | L — S | S — U |
+| A — E | F — K | L — R | S — U |
 | ----- | ----- | ----- | ----- |
-| Armenia | Finland | Lithuania | Slovakia |
-| Austria | France | Luxembourg | Slovenia |
-| Azerbaijan | Georgia | Malta | South Korea |
-| Belarus | Germany | Moldova | Spain |
-| Belgium | Iceland | Montenegro | Sweden |
-| Bulgaria | Ireland | Netherlands | Tajikistan |
-| Croatia | Israel | Norway | Turkey |
-| Cyprus | Italy | Poland | Turkmenistan |
-| Czechia | Kazakhstan | Portugal | United Kingdom |
-| Denmark | Kyrgyzstan | Russia | Uzbekistan |
-| Estonia | Latvia | Serbia |   |
+| Armenia | Finland | Latvia | Serbia |
+| Austria | France | Lithuania | Slovakia |
+| Azerbaijan | Georgia | Luxembourg | Slovenia |
+| Belarus | Germany | Malta | South Korea |
+| Belgium | Great Britain | Moldova | Spain |
+| Bulgaria | Iceland | Montenegro | Sweden |
+| Croatia | Ireland | Netherlands | Tajikistan |
+| Cyprus | Israel | Norway | Turkey |
+| Czech Republic | Italy | Poland | Turkmenistan |
+| Denmark | Kazakhstan | Portugal | Uzbekistan |
+| Estonia | Kyrgyzstan | Russia |   |
+

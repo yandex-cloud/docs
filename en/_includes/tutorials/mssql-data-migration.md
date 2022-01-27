@@ -1,4 +1,4 @@
-You can transfer data from an {{ MS }} cluster to a {{ mms-name }} cluster with minimal downtime using [transactional replicatio](https://docs.microsoft.com/en-us/sql/relational-databases/replication/transactional/transactional-replication). This type of replication is supported starting from {{ MS }} 2016 and lets you migrate data to newer versions of SQL Server in {{ mms-name }} clusters.
+You can transfer data from an {{ MS }} cluster to a {{ mms-name }} cluster with minimal downtime using [transactional replication](https://docs.microsoft.com/en-us/sql/relational-databases/replication/transactional/transactional-replication). This type of replication is supported starting from {{ MS }} 2016 and lets you migrate data to newer versions of SQL Server in {{ mms-name }} clusters.
 
 When replicating transactions:
 

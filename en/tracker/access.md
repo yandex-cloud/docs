@@ -54,9 +54,9 @@ If you already have a billing account in {{ yandex-cloud }}, you can link it to 
 
    If you're planning to pay for the service as an individual, link your bank card.
 
-1. Click **Activate**.
+1. Click the **Enable** button.
 
-To check your billing account balance or view your payment history, on the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
+To learn more about creating billing accounts, go to the [{#T}](billing-account.md) section.
 
 ## <q>Read only</q> mode {#readonly}
 
@@ -72,9 +72,9 @@ Access to the following features is restricted in <q>Read only</q> mode:
 
 However, you can still do everything related to viewing {{ tracker-name }} issues, such as:
 
-- View issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
+- Viewing issues, [dashboards](user/dashboard.md), and [issue boards](manager/agile.md#sec_boards).
 
-- Search for issues using the [filter builder](user/create-filter.md) and [query language](user/query-filter.md).
+- Searching for issues using the [filter builder](user/create-filter.md) and the [query language](user/query-filter.md).
 
 - View [queue pages](manager/quick-filters.md), [statistics](manager/statistics.md), and more.
 

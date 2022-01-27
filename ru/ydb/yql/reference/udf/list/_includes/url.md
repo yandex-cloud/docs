@@ -157,3 +157,42 @@ SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
 ```sql
 SELECT Url::PunycodeToHostName("xn--d1acpjx3f.xn--p1ai"); -- "яндекс.рф"
 ```
+
+## ...Query... {#query}
+
+Преобразования [Query](https://docs.python.org/3/library/urllib.parse.html).
+
+**Список функций**
+
+```sql
+Url::QueryStringToList(String{Flag:AutoMap}, [
+  KeepBlankValues:Bool?,  -- пустые значения в percent-encoded запросах интерпретируются как пустыe строки; по умолчанию false
+  Strict:Bool?,           -- если false - ошибки парсинга игнорируются, ошибочные поля пропускаются; по умолчанию true
+  MaxFields:Uint32?,      -- максимальное количество полей, при превышении кидается исключение; по умолчанию Max<Uint32>
+  Separator:String?       -- разделитель пар ключ-значение; по умолчанию '&'
+]) -> List<Tuple<String, String>>
+Url::QueryStringToDict(String{Flag:AutoMap}, [
+  KeepBlankValues:Bool?,  -- пустые значения в percent-encoded запросах интерпретируются как пустыe строки; по умолчанию false
+  Strict:Bool?,           -- если false - ошибки парсинга игнорируются, ошибочные поля пропускаются; по умолчанию true
+  MaxFields:Uint32?,      -- максимальное количество полей, при превышении кидается исключение; по умолчанию Max<Uint32>
+  Separator:String?       -- разделитель пар ключ-значение; по умолчанию '&'
+]) -> Dict<String, List<String>>
+Url::BuildQueryString(Dict<String, List<String>>{Flag:AutoMap}, [
+  Separator:String?       -- разделитель пар ключ-значение; по умолчанию '&'
+]) -> String
+Url::BuildQueryString(Dict<String, String>{Flag:AutoMap}, [
+  Separator:String?       -- разделитель пар ключ-значение; по умолчанию '&'
+]) -> String
+Url::BuildQueryString(List<Tuple<String, String>>{Flag:AutoMap}, [
+  Separator:String?       -- разделитель пар ключ-значение; по умолчанию '&'
+]) -> String
+```
+
+**Примеры**
+```sql
+SELECT Url::QueryStringToList("a=1&b=2&a=3");                       -- [("a", "1"), ("b", "2"), ("a", "3")]
+SELECT Url::QueryStringToDict("a=1&b=2&a=3");                       -- {"b" : ["2"], "a" : ["1", "3"]}
+SELECT Url::BuildQueryString([("a", "1"), ("a", "3"), ("b", "2")]); -- "a=1&a=3&b=2"
+SELECT Url::BuildQueryString({"a" : "1", "b" : "2"});               -- "b=2&a=1"
+SELECT Url::BuildQueryString({"a" : ["1", "3"], "b" : ["2", "4"]}); -- "b=2&b=4&a=1&a=3"
+```

@@ -1,11 +1,9 @@
 ---
 sourcePath: overlay/concepts/databases.md
 ---
-
 {% include [intro.md](_includes/databases/intro.md) %}
 
 {% include [database.md](_includes/databases/database.md) %}
-
 
 В Yandex.Cloud БД привязывается к определенному каталогу в облаке, а также доступны Serverless базы данных на базе YDB, не требующие выделения ресурсов пользователям, и использующие совместно ресурсы БД YDB, в которой они обслуживаются.
 
@@ -13,17 +11,12 @@ sourcePath: overlay/concepts/databases.md
 
 {% include [cluster.md](_includes/databases/cluster.md) %}
 
-
 В Yandex.Cloud обслуживанием кластеров занимается команда облака, а разработчики приложений взаимодействуют напрямую с БД YDB.
-
 
 {% include [regions.md](_includes/databases/regions.md) %}
 
-
 Облачные БД YDB в Yandex.Cloud предоставляются в геораспределенном регионе центральной России `ru-central1`, с тремя зонами доступности. Подробнее о регионах и зонах доступности Yandex.Cloud читайте в разделе [{#T}](../../overview/concepts/geo-scope.md).
 {% include [compute.md](_includes/databases/compute.md) %}
-
-
 
 ### БД YDB в Yandex.Cloud на выделенных ресурсах (Dedicated)
 
@@ -43,8 +36,6 @@ sourcePath: overlay/concepts/databases.md
 
 Вычислительные ресурсы для бессерверных БД YDB в Yandex.Cloud предоставляются автоматически для выполнения запросов к БД. Оплата производится на основании расчета фактически использованных CPU и операций ввода-вывода, потребовавшихся для исполнения запроса к БД. Дополнительно оплачивается объем хранимых в БД данных.
 
-
 {% include [storage_groups.md](_includes/databases/storage_groups.md) %}
-
 
 В облачных БД YDB Yandex.Cloud используется по 3 диска в каждой из 3 зон доступности, как для БД на выделенных ресурсах, так и для бессерверных БД. Такая конфигурация гарантирует устойчивость при отказе одной из зон или отказе одного из дисков, а также обеспечивает избыточность с коэффициентом 3.

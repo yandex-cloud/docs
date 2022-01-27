@@ -3,7 +3,6 @@ sourcePath: overlay/reference/ydb-cli/profile/list-and-get.md
 ---
 {% include [list-and-get.md](_includes/list-and-get.md) %}
 
-
 Результат:
 
 ```text

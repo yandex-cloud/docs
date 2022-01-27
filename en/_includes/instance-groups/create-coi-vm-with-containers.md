@@ -2,7 +2,7 @@
 
 You can create an instance group built on a [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside.
 
-Docker containers are created based on the [Docker Compose specification](../../cos/concepts/index.md#compose-spec).
+Docker containers are created based on the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
 
 {% include [warning.md](warning.md) %}
 
@@ -109,7 +109,6 @@ Docker containers are created based on the [Docker Compose specification](../..
    - API
 
      1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the resource `Networks`.
-
      1. Create a subnet in the `ru-central1-a` availability zone using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
 
    {% endlist %}
@@ -257,7 +256,7 @@ Docker containers are created based on the [Docker Compose specification](../..
 
      ```bash
      Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
-     
+
       * Documentation:  https://help.ubuntu.com
       * Management:     https://landscape.canonical.com
       * Support:        https://ubuntu.com/advantage

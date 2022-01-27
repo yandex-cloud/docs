@@ -4,7 +4,6 @@ sourcePath: overlay/troubleshooting/system_views.md
 
 {% include [intro.md](_includes/system_views/intro.md) %}
 
-
 В настоящее время доступ к системным таблицам возможен через веб-интерфейс.
 
 {% include [partitions.md](_includes/system_views/partitions.md) %}

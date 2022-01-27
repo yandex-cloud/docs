@@ -42,7 +42,13 @@ apiGatewayId | Required. ID of the API gateway to return.  To get a API gateway 
       "enabled": true,
       "domain": "string"
     }
-  ]
+  ],
+  "connectivity": {
+    "networkId": "string",
+    "subnetId": [
+      "string"
+    ]
+  }
 }
 ```
 
@@ -63,3 +69,6 @@ attachedDomains[].<br>domainId | **string**<br><p>ID of the domain.</p>
 attachedDomains[].<br>certificateId | **string**<br><p>ID of the domain certificate.</p> 
 attachedDomains[].<br>enabled | **boolean** (boolean)<br><p>Enabling flag.</p> 
 attachedDomains[].<br>domain | **string**<br><p>Name of the domain.</p> 
+connectivity | **object**<br><p>Network access. If specified the gateway will be attached to specified network/subnet(s).</p> <p>Gateway connectivity specification.</p> 
+connectivity.<br>networkId | **string**<br><p>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones.</p> 
+connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 

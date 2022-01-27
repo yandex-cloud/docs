@@ -62,7 +62,7 @@ Let's set up a trigger that automatically picks an assignee for our issue:
 1. Save your trigger.
 To see if you trigger works, pick any issue from the queue with the added trigger and change the issue's status or components.
 
-## Inviting assignees automatically {#summon_ticket}
+## Invite assignees automatically {#summon_ticket}
 
 After completing an issue, the assignee may forget to specify some important information, such as time spent. In this case, you can configure a trigger that will automatically invite the assignee if the issue is closed and the time spent is not specified:
 
@@ -145,7 +145,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. If users aren't your organization's employees:
 
-    1. [Allow receiving emails from external addresses](queue-mail.md#mail_tasks).
+    1. [Allow accepting emails from external addresses](queue-mail.md#mail_tasks).
 
     1. [Allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
 
@@ -177,7 +177,7 @@ Set up a trigger that automatically notifies users by mail when a new issue is c
 
     1. In the **To** field, add the variable with the address of the user who sent the request. To do this, select the **To** field, click **Add variable**, and choose **Email** → **From**.
 
-    1. Write the email. You can add issue fields to your message by clicking **Add variable**.
+    1. Write the email. You can add [issue parameters](../user/vars.md) to the email by clicking the **Add variable** button.
 
     ![](../../_assets/tracker/trigger-example-mail-action.png)
 
@@ -185,7 +185,7 @@ Set up a trigger that automatically notifies users by mail when a new issue is c
 
     To see if the trigger works, send an email to the queue address.
 
-## Sending a notification when an issue is created based on a form {#notify_form}
+## Send a notification when an issue is created based on a form {#notify_form}
 
 Let's say the support team is processing user requests in {{ tracker-name }}. Users contact the support team via a feedback form created in [{{ forms-full-name }}]({{ link-forms }}). A {{ tracker-name }} issue is then created based on that form.
 
@@ -195,15 +195,15 @@ Let's set up a trigger that automatically sends an email to the user telling the
 
 You need to set up email integration if you want to send emails from {{ tracker-name }}:
 
-1. [Set up an email address for the queue](queue-mail.md#section_gwv_hqb_hgb) that will create issues from user requests.
+1. [Set up an email address for the queue](queue-mail.md#section_gwv_hqb_hgb) to store issues created based on user requests.
 
    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex 360 for Business]({{ support-business-domain }}).
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
-1. If the users aren't employees of your organization, [allow sending email from issue pages to external addresses](queue-mail.md#send_outside).
+1. If the users aren't your company's employees, [allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
 
-#### Step 2. Set up a form to register requests
+#### Step 2. Set up a form to record requests
 
 To create issues from requests sent through forms:
 
@@ -221,7 +221,7 @@ To create issues from requests sent through forms:
 
     1. Use the **Issue description** field to add answers to the questions included in your form.
 
-    1. To save the user's email address in the issue settings, add the **From** field and select **Variables** → **Answer to question** → **Email**.
+    1. If you want to save a user's email address in your issue parameters, add the **From** field and choose **Variables** → **Answer** → **Email**.
 
     1. Save your integration settings.
 
@@ -255,7 +255,7 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 
     1. In the **To** field, add the variable with the address of the user who sent the request. To do this, select the **To** field, click **Add variable**, and choose **Email** → **From**.
 
-    1. Write the email. You can add issue fields to your message by clicking **Add variable**.
+    1. Write the email. You can add [issue parameters](../user/vars.md) to the email by clicking the **Add variable** button.
 
     ![](../../_assets/tracker/trigger-example-mail-action.png)
 
@@ -263,9 +263,9 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 
     To see if your trigger works, fill out the form you integrated with {{ tracker-name }}.
 
-## Automatically adding a form to the issue comments {#insert_form}
+## Automatically add a form to the issue comments {#insert_form}
 
-Using a trigger, you can add a form with auto-prefilled fields to the issue comments. To do this, add a special code with a link to the form in the comment text. Values can be passed to the form fields via [GET parameters](../../forms/get-params.md). For example, you can pass the issue parameters using variables that are available in the trigger.
+Using a trigger, you can add a form with auto-prefilled fields to the issue comments. To do this, add a special code with a link to the form in the comment text. Values can be passed to the form fields via [GET parameters](../../forms/get-params.md). For example, you can send issue parameters via [variables](../user/vars.md) available in triggers.
 
 Let's set up a trigger that adds a feedback form to the comments and invites an assignee after the issue is closed:
 
@@ -279,7 +279,7 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
 
 1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
-1. Set the trigger to fire when the issue is closed:
+1. Set the trigger to react when the issue is closed:
 
     1. Choose **Conditions to be met** → **All**.
 
@@ -302,7 +302,7 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
 
     - `<value>` is the value to populate the form field.
 
-      To transfer issue parameters to the form, use variables as values: at the bottom of the window, click **Add variable** and choose the issue parameter. Then replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
+      To transfer issue parameters to the form, use [variables](../user/vars.md) as values: click **Add variable** and choose your issue parameter. Then replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
 
       For example, to pass an issue key, use the `<%issue.key%>` value. To pass the username of an assignee, use the `<%issue.assignee.login%>` value.
 

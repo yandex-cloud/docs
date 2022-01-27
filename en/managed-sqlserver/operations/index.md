@@ -12,5 +12,4 @@
 - [{#T}](grant.md)
 - [{#T}](cluster-delete.md)
 - [{#T}](performance-diagnostics.md)
-- [{#T}](monitoring.md)
-
+- [{#T}](maintenance.md)

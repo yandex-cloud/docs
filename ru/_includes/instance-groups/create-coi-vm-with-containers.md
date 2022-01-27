@@ -2,7 +2,7 @@
 
 Вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../cos/concepts/index.md) с несколькими Docker-контейнерами внутри.
 
-Для создания Docker-контейнеров будет использоваться [Docker Compose спецификация](../../cos/concepts/index.md#compose-spec).
+Для создания Docker-контейнеров будет использоваться [Docker Compose спецификация](../../cos/concepts/coi-specifications.md#compose-spec).
 
 {% include [warning.md](warning.md) %}
 

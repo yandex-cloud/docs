@@ -127,6 +127,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage}
@@ -259,6 +261,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage1}
@@ -366,6 +370,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage2}
@@ -615,6 +621,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage3}
@@ -718,6 +726,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage4}
@@ -841,6 +851,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage5}
@@ -1029,6 +1041,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage6}
@@ -1177,6 +1191,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage7}
@@ -1328,6 +1344,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage8}
@@ -1498,6 +1516,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage9}
@@ -1646,6 +1666,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage10}
@@ -1751,6 +1773,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage11}
@@ -1865,6 +1889,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage12}
@@ -2016,6 +2042,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage13}
@@ -2980,6 +3008,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage14}
@@ -3129,6 +3159,8 @@ data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
 metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
+data_transfer | **bool**<br>Allow access for DataTransfer 
+yandex_query | **bool**<br>Allow access for YandexQuery 
 
 
 ### CloudStorage {#CloudStorage15}

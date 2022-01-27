@@ -116,7 +116,7 @@ To attach a note to a column, do the following:
 
 1. Select ![](../../_assets/tracker/icon-dots.png) → **Add note** at the top of the column.
 
-1. Enter the text for your note. To format the text, use [wiki markup](wiki-markup.md).
+1. Enter the text for your note. To format the text, use [wiki markup](markup.md).
 
 1. Save the changes.
 

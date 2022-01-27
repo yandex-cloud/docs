@@ -28,7 +28,7 @@ Each queue can have its own [set of issue types](../manager/add-ticket-type.md).
 
     1. Enter a title in the **Summary** field.
 
-    1. Fill in the **Description** field. Use [wiki markup](wiki-markup.md) to format text.
+    1. Fill in the **Description** field. Use [wiki markup](markup.md) to format text.
 
     1. Click **Choose files** to attach files or images to the issue.
 To insert images into the text, click ![](../../_assets/tracker/add-image.png).
@@ -71,7 +71,7 @@ You can also leave this field empty to assign someone later.
 
     1. [Edit](edit-ticket.md) the issue details:
 
-        - Go to the **Description** tab and specify general parameters: add a description, select the issue type and priority, specify the assignee, and set the deadline. Use [wiki markup](wiki-markup.md) to format text.
+        - Go to the **Description** tab and specify general parameters: add a description, select the issue type and priority, specify the assignee, and set the deadline. Use [wiki markup](markup.md) to format text.
 
         - On the **Parameters** tab, specify [additional settings](create-param.md#section_ymd_ycj_1gb) for the issue.
 

@@ -2,7 +2,7 @@ Funds are automatically debited from the bank card linked to the billing account
 
 {% note info %}
 
-Yandex.Cloud reserves the right to automatically debit funds during the current reporting period if your account balance exceeds the [credit limit](../concepts/credit-limit.md) set.
+{{ yandex-cloud }} reserves the right to automatically debit funds during the current reporting period if your account balance exceeds the established [credit limit](../concepts/credit-limit.md).
 
 {% endnote %}
 

@@ -5,7 +5,6 @@ sourcePath: overlay/reference/ydb-cli/commands/commands.md
 
 {% include [all.md](_includes/commands/all.md) %}
 
-
 {% include [all-output.md](_includes/commands/all-output.md) %}
 
 {% include [one.md](_includes/commands/one.md) %}

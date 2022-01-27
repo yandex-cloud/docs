@@ -5,6 +5,4 @@ sourcePath: overlay/concepts/datamodel.md
 
 {% include [Table](_includes/datamodel/table.md) %}
 
-
 {% include [Folder](_includes/datamodel/folder.md) %}
-

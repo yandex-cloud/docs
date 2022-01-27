@@ -5,7 +5,6 @@ sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
 
 {% include [operation-index.md](_includes/operations-index/operation-index.md %}
 
-
 Результат:
 
 ```text
@@ -20,7 +19,6 @@ sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
 
 {% include [one-get.md](_includes/operations-index/one-get.md) %}
 
-
 Результат:
 
 ```bash
@@ -34,7 +32,6 @@ sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
 ```
 
 {% include [one-get-exp.md](_includes/operations-index/one-get-exp.md) %}
-
 
 Результат:
 
@@ -54,7 +51,6 @@ Next page token: 0
 ```
 
 {% include [all-get.md](_includes/operations-index/all-get.md) %}
-
 
 ## Отмена операции построения индекса {#cancel}
 

@@ -28,6 +28,12 @@ apiGatewayId | Required. ID of the API gateway to update.  To get a API gateway 
   "name": "string",
   "description": "string",
   "labels": "object",
+  "connectivity": {
+    "networkId": "string",
+    "subnetId": [
+      "string"
+    ]
+  },
   "openapiSpec": "string"
 }
 ```
@@ -39,6 +45,9 @@ updateMask | **string**<br>Field mask that specifies which attributes of the API
 name | **string**<br><p>New name for the API gateway. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>New description for the API gateway.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>API gateway labels as ``key:value`` pairs.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a <a href="/docs/functions/api-gateway/api-ref/ApiGateway/get">get</a> request.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+connectivity | **object**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s).<br><p>Gateway connectivity specification.</p> 
+connectivity.<br>networkId | **string**<br><p>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones.</p> 
+connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
 openapiSpec | **string**<br><p>The text of specification, JSON or YAML.</p> 
  
 ## Response {#responses}

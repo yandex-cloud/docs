@@ -1,4 +1,4 @@
-Для запуска нескольких экземпляров сервиса в Docker-контейнерах вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../cos/concepts/index.md). В такой группе обновлять Docker-контейнер можно с помощью метаданных ВМ используя [COI или Docker Compose спецификацию](../../cos/concepts/index.md#coi-specifications).
+Для запуска нескольких экземпляров сервиса в Docker-контейнерах вы можете создать группу виртуальных машин на базе образа [{{ coi }}](../../cos/concepts/index.md). В такой группе обновлять Docker-контейнер можно с помощью метаданных ВМ используя [COI или Docker Compose спецификацию](../../cos/concepts/coi-specifications.md).
 
 {% include [warning.md](warning.md) %}
 
@@ -57,7 +57,7 @@
 
 1. Опишите в YAML-файле `specification.yaml`, который вы создали:
 
-   - Общую информацию о группе:
+   * Общую информацию о группе:
 
      ```yaml
      name: container-optimized-group
@@ -70,7 +70,7 @@
      * `service_account_id` — идентификатор сервисного аккаунта.
      * `description` — произвольное описание группы ВМ.
 
-   - [Шаблон ВМ](../../compute/concepts/instance-groups/instance-template.md):
+   * [Шаблон ВМ](../../compute/concepts/instance-groups/instance-template.md):
 
      ```yaml
      instance_template:
@@ -105,16 +105,16 @@
      * `platform_id` — идентификатор платформы.
      * `memory` — количество памяти (RAM).
      * `cores` — количество ядер процессора (vCPU).
-     * `mode` — режим доступа к диску.<br>- `READ_ONLY` — доступ на чтение.<br>- `READ_WRITE` — доступ на чтение и запись.
+     * `mode` — режим доступа к диску.<br>* `READ_ONLY` — доступ на чтение.<br>* `READ_WRITE` — доступ на чтение и запись.
      * `image_id` — идентификатор публичного образа {{ coi }}.
      * `type_id` — тип диска.
      * `size` — размер диска.
      * `network_id` — идентификатор сети `default-net`.
      * `primary_v4_address_spec` — спецификация версии интернет протокола IPv4. На данный момент доступен только протокол IPv4. Вы можете [предоставить публичный доступ к ВМ группы](../../compute/concepts/instance-groups/instance-template.md#instance-template), указав версию IP для публичного IP-адреса.
      * `metadata` — значения, которые будут переданы в метаданные ВМ.
-     * `docker-container-declaration` — ключ в метаданных ВМ, при котором используется [COI спецификация Docker-контейнера](../../cos/concepts/index.md#coi-specifications). Вы можете использовать в метаданных [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec), для этого вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
+     * `docker-container-declaration` — ключ в метаданных ВМ, при котором используется [COI спецификация Docker-контейнера](../../cos/concepts/coi-specifications.md). Вы можете использовать в метаданных [Docker Compose спецификацию](../../cos/concepts/coi-specifications.md#compose-spec), для этого вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
 
-   - [Политики](../../compute/concepts/instance-groups/policies/index.md):
+   * [Политики](../../compute/concepts/instance-groups/policies/index.md):
 
      ```yaml
      deploy_policy:
@@ -176,8 +176,8 @@
      ```
 
      {% note info %}
-        
-     Чтобы использовать в `specification.yaml` [Docker Compose спецификацию](../../cos/concepts/index.md#compose-spec),  вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
+
+     Чтобы использовать в `specification.yaml` [Docker Compose спецификацию](../../cos/concepts/coi-specifications.md#compose-spec),  вместо ключа `docker-container-declaration` укажите ключ `docker-compose`.
 
      {% endnote %}
 
@@ -194,10 +194,10 @@
      Команда создаст группу из трех однотипных ВМ со следующими характеристиками:
      * С именем `container-optimized-group`.
      * Из последней версии публичного образа {{ coi }}.
-     *  С запущенным Docker-контейнером на основе `cr.yandex/mirror/nginx:1.17.4-alpine`.
-     *  В сети `default-net`.
-     *  В зоне доступности `ru-central1-a`.
-     *  С 2 vCPU и 2 ГБ RAM.
-     *  С сетевым HDD-диском объемом 32 ГБ.
+     * С запущенным Docker-контейнером на основе `cr.yandex/mirror/nginx:1.17.4-alpine`.
+     * В сети `default-net`.
+     * В зоне доступности `ru-central1-a`.
+     * С 2 vCPU и 2 ГБ RAM.
+     * С сетевым HDD-диском объемом 32 ГБ.
 
    {% endlist %}

@@ -17,6 +17,7 @@ sourcePath: yql/reference/yql-docs-core-2/udf/list/datetime.md
 * TimezoneId (16 бит);
 * DayOfYear (9 бит) — день от начала года;
 * WeekOfYear (6 бит) — неделя от начала года, 1 января всегда относится к первой неделе;
+* WeekOfYearIso8601 (6 бит) — неделя года согласно ISO 8601 (первой неделей считается та, в которой 4 января)
 * DayOfWeek (3 бита) — день недели.
 
 Если таймзона не GMT, то в компонентах хранится локальное время в соответствующей таймзоне.
@@ -74,6 +75,7 @@ SELECT
 * ```DateTime::GetMonth(Resource<TM>{Flags:AutoMap}) -> Uint8```
 * ```DateTime::GetMonthName(Resource<TM>{Flags:AutoMap}) -> String```
 * ```DateTime::GetWeekOfYear(Resource<TM>{Flags:AutoMap}) -> Uint8```
+* ```DateTime::GetWeekOfYearIso8601(Resource<TM>{Flags:AutoMap}) -> Uint8```
 * ```DateTime::GetDayOfMonth(Resource<TM>{Flags:AutoMap}) -> Uint8```
 * ```DateTime::GetDayOfWeek(Resource<TM>{Flags:AutoMap}) -> Uint8```
 * ```DateTime::GetDayOfWeekName(Resource<TM>{Flags:AutoMap}) -> String```
