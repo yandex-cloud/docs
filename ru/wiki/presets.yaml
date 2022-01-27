@@ -56,3 +56,8 @@ internal:
   link-wiki: https://wiki.yandex-team.ru/  
   wiki-host-name: wiki.yandex-team.ru
   link-tracker: https://st.yandex-team.ru/
+  link-homepage: https://wiki.yandex-team.ru/homepage/
+  link-homepage-access: https://wiki.yandex-team.ru/homepage/.access
+  wiki-username: wiki.yandex-team.ru/users/имяПользователя
+  wiki-notes: wiki.yandex-team.ru/users/имяПользователя/notes
+  example-link-mail: "[Почта Олега](mailto:oleg@yandex-team.ru)"
