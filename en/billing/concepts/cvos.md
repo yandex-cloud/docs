@@ -10,7 +10,7 @@ The agreement only provides for a discount on a certain volume of services withi
 
 ## Discount amount {#amount}
 
-The amount of the guaranteed discount depends on the amount of service resources that you plan to use and the CVoS validity period. The longer the CVoS validity period, the greater the discount. For more information about pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page.
+The amount of the guaranteed discount depends on the amount of service resources that you plan to use and the CVoS validity period. The longer the CVoS validity period, the greater the discount. For more information about pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page. If you have any questions, we'll help you calculate the benefits of committing to a certain volume of resources. Email us at [cloud-sales@yandex-team.ru](mailto:cloud-sales@yandex-team.ru).
 
 ## Purchase and validity period {#how-to-enable}
 
@@ -18,10 +18,10 @@ You can view the available offers and purchase a CVoS in the management console 
 
 When [purchasing a CVoS](../operations/purchase-cvos.md), you choose the following on your own:
 
-- Validity period: 1 or 3 years.
-- Start date: The next calendar day or desired date.
+* Validity period: 1 or 3 years.
+* Start date: The next calendar day or desired date.
 
-Once the CVoS is purchased and the offer is accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. You can learn more about the terms of the agreement in the section [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
+Once the CVoS is purchased and the offer is accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. You can learn more about the terms and conditions of the agreement in [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
 
 Information about CVoS usage and its expiration is displayed in the management console.
 
@@ -35,7 +35,7 @@ Standard prices apply to {{ yandex-cloud }} services that aren't covered by the 
 
 After purchasing the CVoS, the discount on the use of services is applied automatically.
 
-During the selected validity period, you must pay for the CVoS even if you don't use any {{ yandex-cloud }} services. [The payment method](../payment/payment-methods.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+During the selected validity period, you must pay for the CVoS even if you don't use any {{ yandex-cloud }} services. The [payment method](../payment/payment-methods.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
 See details of using and paying for your CVoS below.
 
@@ -98,4 +98,5 @@ Prices for services that you can purchase a CVoS for:
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)
 * [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
+* [{{ mkf-name }}](../../managed-kafka/pricing.md#cvos)
 
