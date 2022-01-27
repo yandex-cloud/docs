@@ -264,44 +264,44 @@ items:
                 href: yql/reference/syntax/lexer.md
               - name: Выражения
                 href: yql/reference/syntax/expressions.md
-              - name: SELECT
-                href: yql/reference/syntax/select.md
-              - name: VALUES
-                href: yql/reference/syntax/values.md
-              - name: CREATE TABLE
-                href: yql/reference/syntax/create_table.md
-              - name: ALTER TABLE
-                href: yql/reference/syntax/alter_table.md
-              - name: DROP TABLE
-                href: yql/reference/syntax/drop_table.md
-              - name: INSERT
-                href: yql/reference/syntax/insert_into.md
-              - name: UPDATE
-                href: yql/reference/syntax/update.md
-              - name: DELETE
-                href: yql/reference/syntax/delete.md
-              - name: REPLACE
-                href: yql/reference/syntax/replace_into.md
-              - name: UPSERT
-                href: yql/reference/syntax/upsert_into.md
-              - name: GROUP BY
-                href: yql/reference/syntax/group_by.md
-              - name: JOIN
-                href: yql/reference/syntax/join.md
-              - name: WINDOW
-                href: yql/reference/syntax/window.md
-              - name: FLATTEN
-                href: yql/reference/syntax/flatten.md
               - name: ACTION
                 href: yql/reference/syntax/action.md
-              - name: DISCARD
-                href: yql/reference/syntax/discard.md
-              - name: INTO RESULT
-                href: yql/reference/syntax/into_result.md
-              - name: PRAGMA
-                href: yql/reference/syntax/pragma.md
+              - name: ALTER TABLE
+                href: yql/reference/syntax/alter_table.md
+              - name: CREATE TABLE
+                href: yql/reference/syntax/create_table.md
               - name: DECLARE
                 href: yql/reference/syntax/declare.md
+              - name: DELETE
+                href: yql/reference/syntax/delete.md
+              - name: DISCARD
+                href: yql/reference/syntax/discard.md
+              - name: DROP TABLE
+                href: yql/reference/syntax/drop_table.md
+              - name: FLATTEN
+                href: yql/reference/syntax/flatten.md
+              - name: GROUP BY
+                href: yql/reference/syntax/group_by.md
+              - name: INSERT
+                href: yql/reference/syntax/insert_into.md
+              - name: INTO RESULT
+                href: yql/reference/syntax/into_result.md
+              - name: JOIN
+                href: yql/reference/syntax/join.md
+              - name: PRAGMA
+                href: yql/reference/syntax/pragma.md
+              - name: REPLACE
+                href: yql/reference/syntax/replace_into.md
+              - name: SELECT
+                href: yql/reference/syntax/select.md
+              - name: UPDATE
+                href: yql/reference/syntax/update.md
+              - name: UPSERT
+                href: yql/reference/syntax/upsert_into.md
+              - name: VALUES
+                href: yql/reference/syntax/values.md
+              - name: WINDOW
+                href: yql/reference/syntax/window.md
               - name: Неподдерживаемые конструкции
                 href: yql/reference/syntax/not_yet_supported.md
           - name: Встроенные функции
