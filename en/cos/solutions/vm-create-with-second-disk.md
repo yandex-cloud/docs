@@ -4,7 +4,7 @@ In this tutorial, you'll create a virtual machine from a [{{ coi }}](../concepts
 
 ## Before you start {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
+If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
 
 ## Create a VM from a {{ coi }} with an additional volume for a Docker container {#create-vm}
 
@@ -22,7 +22,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      yc compute instance create-with-container --help
      ```
 
-  1. Prepare the [Docker Compose specification](../concepts/index.md#compose-spec). Save the following data to a file named `docker-compose.yaml`:
+  1. Prepare the [Docker Compose specification](../concepts/coi-specifications.md#compose-spec). Save the following data to a file named `docker-compose.yaml`:
 
      ```yaml
      version: '3.4'
@@ -67,15 +67,13 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      Once the VM is created, it appears in the list of VMs under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
 
   1. Check the results.
-
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
-
      1. Get the ID of the running Docker container:
 
         ```bash
         sudo docker ps -a
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-        1f71192ded4c        mongo:latest        "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        27017/tcp           container-name
+        CONTAINER ID  IMAGE         COMMAND                 CREATED        STATUS        PORTS      NAMES
+        1f71192ded4c  mongo:latest  "docker-entrypoint.s…"  5 minutes ago  Up 5 minutes  27017/tcp  container-name
         ```
 
      1. Connect to the running Docker container:
@@ -88,16 +86,16 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 
         ```bash
         df -H
-        Filesystem      Size  Used Avail Use% Mounted on
-        overlay          32G  4.0G   27G  14% /
-        tmpfs            68M     0   68M   0% /dev
-        tmpfs           1.1G     0  1.1G   0% /sys/fs/cgroup
-        /dev/vdb         11G   24M  9.9G   1% /data
-        /dev/vda2        11G  3.1G  7.0G  31% /data/db
-        shm              68M     0   68M   0% /dev/shm
-        tmpfs           1.1G     0  1.1G   0% /proc/acpi
-        tmpfs           1.1G     0  1.1G   0% /proc/scsi
-        tmpfs           1.1G     0  1.1G   0% /sys/firmware
+        Filesystem  Size  Used  Avail  Use%  Mounted on
+        overlay      32G  4.0G    27G   14%  /
+        tmpfs        68M     0    68M    0%  /dev
+        tmpfs       1.1G     0   1.1G    0%  /sys/fs/cgroup
+        /dev/vdb     11G   24M   9.9G    1%  /data
+        /dev/vda2    11G  3.1G   7.0G   31%  /data/db
+        shm          68M     0    68M    0%  /dev/shm
+        tmpfs       1.1G     0   1.1G    0%  /proc/acpi
+        tmpfs       1.1G     0   1.1G    0%  /proc/scsi
+        tmpfs       1.1G     0   1.1G    0%  /sys/firmware
         ```
 
 {% endlist %}
