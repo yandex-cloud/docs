@@ -1,6 +1,6 @@
 # Организация сине-зеленого и канареечного развертывания версий веб-сервиса
 
-В этом сценарии вы настроите архитектуру веб-сервиса, которая позволит переключаться между версиями по распространенным схемам развертывания: с помощью [сине-зеленого развертывания](https://martinfowler.com/bliki/BlueGreenDeployment.html) (blue-green deployment) и [канареечного развертывания](https://martinfowler.com/bliki/CanaryRelease.html) (canary deployment). 
+Настройте архитектуру веб-сервиса, которая позволит переключаться между версиями по распространенным схемам развертывания: с помощью [сине-зеленого развертывания](https://martinfowler.com/bliki/BlueGreenDeployment.html) (blue-green deployment) и [канареечного развертывания](https://martinfowler.com/bliki/CanaryRelease.html) (canary deployment). 
 
 Обе схемы используют пару бэкендов: «синий» и «зеленый». Сначала на одном из бэкендов (например, на «синем») размещается стабильная версия, доступная пользователям, а другой («зеленый») используется для тестирования следующей версии. Когда тестирование окончено, бэкенды меняются ролями: 
 
@@ -9,11 +9,11 @@
 
 После этого основным становится «зеленый» бэкенд, а на «синем» бэкенде можно тестировать следующую версию сервиса. Также, пока на «синем» бэкенде остается предыдущая версия, на нее можно откатить сервис, снова поменяв бэкенды ролями.
 
-В сценарии в качестве бэкендов используются бакеты {{ objstorage-full-name }}, а за переключение между ними отвечает L7-балансировщик {{ alb-full-name }}. Запросы пользователей передаются балансировщику через сеть распространения контента {{ cdn-full-name }}, чтобы сократить время доставки контента.   
+В данном руководстве в качестве бэкендов используются бакеты {{ objstorage-full-name }}, а за переключение между ними отвечает L7-балансировщик {{ alb-full-name }}. Запросы пользователей передаются балансировщику через сеть распространения контента {{ cdn-full-name }}, чтобы сократить время доставки контента.
 
-В качестве примеров в сценарии будут использованы доменные имена `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example`.
+В качестве примеров будут использованы доменные имена `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example`.
 
-Для выполнения сценария нужно использовать [поддерживаемые инструменты](#supported-tools).
+Для выполнения шагов можно использовать различные [поддерживаемые инструменты](#supported-tools).
 
 Чтобы построить архитектуру для сине-зеленого и канареечного развертывания:
 
@@ -32,24 +32,21 @@
 
 ## Поддерживаемые инструменты {#supported-tools}
 
-Бо́льшую часть шагов сценария можно выполнить с помощью любого из стандартных инструментов: [консоли управления]({{ link-console-main }}), интерфейсов командной строки (CLI) [{{ yandex-cloud }}](../cli/index.yaml) и [AWS](../storage/tools/aws-cli.md), Terraform и [API {{ yandex-cloud }}](../api-design-guide). В каждом шаге перечислены поддерживаемые для него инструменты.
+Бо́льшую часть шагов можно выполнить с помощью любого из стандартных инструментов: [консоли управления]({{ link-console-main }}), интерфейсов командной строки (CLI) [{{ yandex-cloud }}](../cli/index.yaml) и [AWS](../storage/tools/aws-cli.md), Terraform и [API {{ yandex-cloud }}](../api-design-guide). В каждом шаге перечислены поддерживаемые для него инструменты.
 
 Некоторые инструменты поддерживаются не для всех шагов:
 
 * Через CLI и Terraform сейчас нельзя:
-
   * [создать группу бэкендов в {{ alb-name }} с бакетами в качестве бэкендов](#create-l7backend);
-  * [создать CDN-ресурс](#create-cdn-resource);
   * получить доменное имя CDN-балансировщика при [настройке DNS для сервиса](#configure-dns);
   * отключать и включать кеширование CDN-ресурса при [проверке работы сервиса и переключения между версиями](#check).
-  
 * Через API сейчас нельзя получить доменное имя CDN-балансировщика при [настройке DNS для сервиса](#configure-dns).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../solutions/_solutions_includes/before-you-begin.md) %}
 
-В качестве примера в сценарии будет использоваться каталог с именем `example-folder`.
+В качестве примера будет использоваться каталог с именем `example-folder`.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -62,7 +59,7 @@
 
 ## Создайте облачную сеть и подсети {#create-network}
 
-Все ресурсы, созданные в сценарии, будут относиться к одной [облачной сети](../vpc/concepts/network.md).
+Все ресурсы будут относиться к одной [облачной сети](../vpc/concepts/network.md).
 
 Чтобы создать сеть и подсети:
 
@@ -89,7 +86,7 @@
      yc vpc network create canary-network
      ```
      
-     Результат выполнения команды:
+     Результат:
        
      ```
      id: enptrcle5q3d3ktd33hj
@@ -112,7 +109,7 @@
          --range 10.1.0.0/16
        ```
      
-       Результат выполнения команды:
+       Результат:
       
        ``` 
        id: e9bnnssj8sc8mjhat9qk
@@ -134,7 +131,7 @@
          --range 10.2.0.0/16
        ```
      
-       Результат выполнения команды:
+       Результат:
       
        ``` 
        id: e2lghukd9iqo4haidjbt
@@ -156,7 +153,7 @@
          --range 10.3.0.0/16
        ```
      
-       Результат выполнения команды:
+       Результат:
       
        ``` 
        id: b0c3pte4o2kn4v12o05p
@@ -171,6 +168,7 @@
        
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/subnet/create.md).
        
+
 - Terraform
 
   Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -226,12 +224,12 @@
         ```
 
      1. Подтвердите создание ресурсов.
-          
+
 - API
 
   1. Создайте сеть `canary-network` с помощью вызова gRPC API [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../vpc/api-ref/Network/create.md).
   1. Создайте подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-c` в трех зонах доступности с помощью вызова gRPC API [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../vpc/api-ref/Subnet/create.md).
-   
+
 {% endlist %}
 
 ## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
@@ -262,7 +260,7 @@
        s3 mb s3://canary-bucket-blue
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      make_bucket: s3://canary-bucket-blue
@@ -278,7 +276,7 @@
      ```
      
   1. Аналогично создайте бакет `canary-bucket-green` и включите публичный доступ к нему.
-  
+
 - Terraform
 
   1. Добавьте в конфигурационный файл параметры бакетов `canary-bucket-blue` и `canary-bucket-green`:
@@ -319,11 +317,11 @@
         ```
 
      1. Подтвердите создание ресурсов.
-     
+
 - API
 
   Используйте метод REST API [create](../storage/s3/api-ref/bucket/create.md).
-       
+
 {% endlist %}
 
 ## Загрузите файлы сервиса в бакеты {#upload-files}
@@ -383,7 +381,7 @@
           s3 cp v1/index.html s3://canary-bucket-blue/index.html
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         upload: v1/index.html to s3://canary-bucket-blue/index.html
@@ -396,12 +394,12 @@
           s3 cp v2/index.html s3://canary-bucket-green/index.html
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         upload: v2/index.html to s3://canary-bucket-green/index.html
         ```
-  
+
    - Terraform
    
      1. Добавьте в конфигурационный файл параметры файлов `v1/index.html` и `v2/index.html`, загружаемых в бакеты `canary-bucket-blue` и `canary-bucket-green` соответственно:
@@ -444,11 +442,11 @@
            ```
    
         1. Подтвердите создание ресурсов.
-          
+
    - API
    
      Используйте метод REST API [upload](../storage/s3/api-ref/object/upload.md).
-               
+
    {% endlist %}
 
 ## Создайте группу безопасности {#create-security-group}
@@ -503,7 +501,7 @@
     --rule direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]
   ```
   
-  Результат выполнения команды:
+  Результат:
   
   ```
   id: enpd133ngcnrgc8475cc
@@ -554,7 +552,7 @@
   ```
 
   Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/security-group/create.md).
-  
+
 - Terraform
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `canary-sg`:
@@ -616,7 +614,7 @@
 - API
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../vpc/api-ref/SecurityGroup/create.md).
-     
+
 {% endlist %}
 
 ## Создайте группы бэкендов в {{ alb-name }} {#create-l7backend}
@@ -689,7 +687,7 @@
      yc alb http-router create canary-router
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      id: ds7qd0vj01djuu3c6f8q
@@ -708,7 +706,7 @@
        --authority cdn.yandexcloud.example
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      done (1s)
@@ -729,7 +727,7 @@
        --backend-group-name canary-bg-production
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      done (1s)
@@ -756,7 +754,7 @@
        --authority cdn-staging.yandexcloud.example
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      done (1s)
@@ -775,7 +773,7 @@
        --backend-group-name canary-bg-staging
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      done (1s)
@@ -861,7 +859,7 @@
 
   1. Создайте HTTP-роутер `canary-router` с помощью вызова gRPC API [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/HttpRouter/create.md).
   1. Создайте виртуальные хосты `canary-vh-production` и `canary-vh-staging`, привязанные к роутеру, и их маршруты с помощью вызова gRPC API [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/VirtualHost/create.md).
-           
+
 {% endlist %}
 
 ## Создайте L7-балансировщик {#create-balancer}
@@ -898,7 +896,7 @@
      yc vpc network list-subnets canary-network
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
@@ -918,7 +916,7 @@
      yc vpc security-group get canary-sg | grep "^id"
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      id: enpd133ngcnrgc8475cc
@@ -937,7 +935,7 @@
        --location zone=ru-central1-c,subnet-id=<идентификатор подсети canary-subnet-ru-central1-c>
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      done (3m0s)
@@ -973,7 +971,7 @@
        --http-router-name canary-router
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      done (43s)
@@ -1083,7 +1081,7 @@
 - API
 
   Используйте вызов gRPC API [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/LoadBalancer/create.md).
-          
+
 {% endlist %}
 
 ## Создайте CDN-ресурс {#create-cdn-resource}
@@ -1094,7 +1092,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ cdn-name }}**.
-  1. Если провайдер CDN еще не активирован, нажмите кнопку **Подключиться к провайдеру**.
+  1. Если CDN-провайдер ещё не активирован, нажмите кнопку **Подключиться к провайдеру**.
   1. Создайте CDN-ресурс:
   
      1. На вкладке **CDN-ресурсы** нажмите кнопку **Создать ресурс**.
@@ -1128,11 +1126,125 @@
         1. Нажмите кнопку **Редактировать**.
         1. Включите опцию **Кеширование в CDN**.
         1. Нажмите кнопку **Сохранить**.
+
+- CLI
+
+  1. Если CDN-провайдер ещё не активирован, выполните команду:
+      ```
+      yc cdn provider activate --folder-id <идентификатор каталога> --type gcore
+      ```
+
+  1. Создайте группу источников `canary-origin-group`, указав IP-адрес балансировщика:
+      ```bash
+      yc cdn origin-group create --name "canary-origin-group" \
+        --origin source=<IP-адрес балансировщика>:80,enabled=true
+      ```
+
+      Результат:
+      ```
+      id: "90748"
+      folder_id: b1geoelk7fldts6chmjq
+      name: canary-origin-group
+      use_next: true
+      origins:
+      - id: "562449"
+        origin_group_id: "90748"
+        source: 51.250.10.216:80
+        enabled: true
+      ```
+
+      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/origin-group/create.md).
+
+
+  1. Скопируйте идентификатор группы источников `origin_group_id` из предыдушего шага и создайте CDN-ресурс, выполнив команду:
   
+      ```bash
+      yc cdn resource create \
+        --cname cdn.yandexcloud.example \
+        --origin-group-id <идентификатор группы источников> \
+        --secondary-hostnames cdn-staging.yandexcloud.example \
+        --origin-protocol http \
+        --redirect-http-to-https \
+        --forward-host-header
+      ```
+
+      Результат:
+      ```
+      id: bc843k2yinvq5fhgvuvc
+      folder_id: b1ge1elk72ldts6chmjq
+      cname: cdn.yandexcloud.example
+      ...
+      active: true
+      ...
+      ...
+      secondary_hostnames:
+      - cdn-staging.yandexcloud.example
+      ...
+      ```
+
+      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/resource/create.md).
+
+- Terraform
+
+  1. Добавьте в конфигурационный файл параметры CDN-ресурсов:
+      ```hcl
+      ...
+
+      resource "yandex_cdn_origin_group" "my_group" {
+        name     = "canary-origin-group"
+        use_next = true
+        origin {
+         source = "<IP-адрес балансировщика>:80"
+         backup = false
+        }
+      }
+      
+      resource "yandex_cdn_resource" "my_resource" {
+      
+          cname               = "cdn.yandexcloud.example"
+          active              = true
+          origin_protocol     = "http"
+          secondary_hostnames = ["cdn-staging.yandexcloud.example"]
+          origin_group_id     = yandex_cdn_origin_group.my_group.id
+          options {
+              edge_cache_settings    = "345600"
+              browser_cache_settings = "1800"
+              ignore_cookie          = true
+              ignore_query_params    = false
+          }
+      
+      }
+      ```
+
+      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group) и [yandex_cdn_resource](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource) в документации провайдера Terraform.
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Разверните облачные ресурсы.
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
 - API
 
   Используйте вызов gRPC API [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) или метод REST API [create](../cdn/api-ref/Resource/create.md).
-  
+
 {% endlist %}
 
 ## Настройте DNS для сервиса {#configure-dns}
@@ -1201,7 +1313,7 @@
           --public-visibility
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         id: dns4rq4tadddth4h20qm
@@ -1275,13 +1387,12 @@
            ```
    
         1. Подтвердите создание ресурсов.
-   
-   
+
    - API
     
      1. Создайте DNS-зону `canary-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../dns/api-ref/DnsZone/create.md).
      1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `cl-....gcdn.co` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md).
-        
+
    {% endlist %}
    
    {% endcut %}
@@ -1318,7 +1429,7 @@
         yc cdn resource list
         ```
      
-        Результат выполнения команды:
+        Результат:
      
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
@@ -1341,6 +1452,8 @@
         |                      |                          |                                |                                |        | value:"OPTIONS"}                          |
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
         ```
+
+        Подробнее о команде `yc cdn resource list` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/resource/list.md).
         
      1. Удалите файл из кеша:
      
@@ -1349,7 +1462,9 @@
           --resource-id <идентификатор CDN-ресурса> \
           --path "/index.html"
         ```
-     
+        
+        Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/cache/purge.md).
+
    - API
    
      1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
@@ -1370,7 +1485,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ cdn-name }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
-     1. Перейдите на вкладку **Кеширование**
+     1. Перейдите на вкладку **Кеширование**.
      1. Нажмите кнопку **Редактировать**.
      1. Отключите опцию **Кеширование в CDN**.
      1. Нажмите кнопку **Сохранить**.
@@ -1405,7 +1520,7 @@
         yc cdn resource list
         ```
      
-        Результат выполнения команды:
+        Результат:
      
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
@@ -1473,7 +1588,7 @@
           --weight 80
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         done (1s)
@@ -1500,7 +1615,7 @@
           --weight 20
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         done (1s)
@@ -1596,7 +1711,7 @@
         yc cdn resource list
         ```
      
-        Результат выполнения команды:
+        Результат:
      
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
@@ -1664,7 +1779,7 @@
           --weight 100
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         done (1s)
@@ -1689,7 +1804,7 @@
           --weight 0
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         done (1s)
@@ -1734,7 +1849,7 @@
      
    {% endlist %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
