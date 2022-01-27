@@ -52,6 +52,7 @@ status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API g
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain)**<br>List of domains attached to API gateway. 
+connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
 
 
 ### AttachedDomain {#AttachedDomain}
@@ -62,6 +63,14 @@ domain_id | **string**<br>ID of the domain.
 certificate_id | **string**<br>ID of the domain certificate. 
 enabled | **bool**<br>Enabling flag. 
 domain | **string**<br>Name of the domain. 
+
+
+### Connectivity {#Connectivity}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
 
 
 ## List {#List}
@@ -102,6 +111,7 @@ status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API g
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain1)**<br>List of domains attached to API gateway. 
+connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
 
 
 ### AttachedDomain {#AttachedDomain1}
@@ -112,6 +122,14 @@ domain_id | **string**<br>ID of the domain.
 certificate_id | **string**<br>ID of the domain certificate. 
 enabled | **bool**<br>Enabling flag. 
 domain | **string**<br>Name of the domain. 
+
+
+### Connectivity {#Connectivity1}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
 
 
 ## Create {#Create}
@@ -134,6 +152,15 @@ description | **string**<br>Description of the API gateway. The maximum string l
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 spec | **oneof:** `openapi_spec`<br>OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
+connectivity | **[Connectivity](#Connectivity2)**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s). 
+
+
+### Connectivity {#Connectivity2}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
 
 
 ### Operation {#Operation}
@@ -173,6 +200,7 @@ status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API g
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain2)**<br>List of domains attached to API gateway. 
+connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
 
 
 ### AttachedDomain {#AttachedDomain2}
@@ -183,6 +211,14 @@ domain_id | **string**<br>ID of the domain.
 certificate_id | **string**<br>ID of the domain certificate. 
 enabled | **bool**<br>Enabling flag. 
 domain | **string**<br>Name of the domain. 
+
+
+### Connectivity {#Connectivity3}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
 
 
 ## Update {#Update}
@@ -206,6 +242,15 @@ description | **string**<br>New description for the API gateway. The maximum str
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ApiGatewayService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 spec | **oneof:** `openapi_spec`<br>New OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
+connectivity | **[Connectivity](#Connectivity4)**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s). 
+
+
+### Connectivity {#Connectivity4}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
 
 
 ### Operation {#Operation1}
@@ -245,6 +290,7 @@ status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API g
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain3)**<br>List of domains attached to API gateway. 
+connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
 
 
 ### AttachedDomain {#AttachedDomain3}
@@ -255,6 +301,14 @@ domain_id | **string**<br>ID of the domain.
 certificate_id | **string**<br>ID of the domain certificate. 
 enabled | **bool**<br>Enabling flag. 
 domain | **string**<br>Name of the domain. 
+
+
+### Connectivity {#Connectivity5}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
 
 
 ## Delete {#Delete}

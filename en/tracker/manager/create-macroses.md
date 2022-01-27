@@ -21,12 +21,12 @@ Each {{ tracker-name }} queue has its own set of macros. To create a new queue m
 1. Set up your macro parameters:
     - **Macro name**.
     - **Message**: Message body (comment) created when executing a macro. If you don't want your macro to create any messages, leave this field empty.
-You can insert field values into your comments. To do this, click **Add variable** and select one or more values. The **Message** field will show a sequence like `not_var{{issue.fieldKey}}`.
+You can insert [issue field values into your messages](../user/vars.md). To do this, click **Add variable** and select one or more values. The **Message** field will show a sequence like `not_var{{issue.fieldKey}}`.
     - **Actions**: Choose issue fields a macro should change and specify their values after the change.
 
 1. Click **Create macro**.
 
-## Editing and deleting macros {#section_swl_sdb_x2b}
+## Edit and delete macros {#section_swl_sdb_x2b}
 
 {% note warning %}
 

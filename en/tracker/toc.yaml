@@ -67,13 +67,13 @@ items:
             href: support-process-group.md
           - name: Tracking the time it takes to process a request
             href: support-process-sla.md
-          - name: Collecting request statistics
+          - name: Collect requests statistics
             href: support-process-dashboards.md
           - name: Configuring integration with third-party platforms
             href: support-process-integration.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Yandex Tracker overview
         href: about-tracker.md
       - name: Concepts
         href: glossary.md
@@ -95,7 +95,7 @@ items:
             href: manager/workflow.md
           - name: Configuring issue types
             href: manager/add-ticket-type.md
-          - name: Creating a workflow
+          - name: Create a workflow
             href: manager/add-workflow.md
           - name: Setting up statuses
             href: manager/workflow-status-edit.md
@@ -146,8 +146,8 @@ items:
           - name: Attaching images and files to an issue
             href: user/attach-file.md
           - name: Formatting text in issues
-            href: user/wiki-markup.md
-          - name: Running a macro
+            href: user/markup.md
+          - name: Executing macros
             href: user/macroses.md
           - name: Voting for an issue
             href: user/votes.md
@@ -187,7 +187,7 @@ items:
         href: manager/create-agile-board.md
       - name: Working with an agile board
         href: user/agile.md
-      - name: Editing and deleting a board
+      - name: Editing or deleting a board
         href: manager/edit-agile-board.md
       - name: Sprints
         href: manager/create-agile-sprint.md
@@ -197,15 +197,15 @@ items:
         href: manager/planning-poker.md
       - name: Burn down charts
         href: manager/burndown.md
-  - name: Searching for issues
+  - name: Searching issues
     items:
       - name: Overview
         href: user/filters.md
-      - name: Searching for issues by key or name
+      - name: Finding issues by key or name
         href: user/search-task.md
       - name: Searching for my issues
         href: user/default-filters.md
-      - name: Searching for issues in queues
+      - name: Finding issues in queues
         href: manager/quick-filters.md
       - name: Creating an issue filter
         href: user/create-filter.md
@@ -291,6 +291,8 @@ items:
             href: user/delete-template.md
           - name: Using shared templates
             href: user/share-template.md
+      - name: Variables
+        href: user/vars.md
       - name: Using a form as a template for creating issues
         href: manager/attach-form.md
   - name: Configuring an SLA for issues
@@ -303,7 +305,7 @@ items:
         href: manager/schedule.md
   - name: Integration with other services
     items:
-      - name: Email
+      - name: Mail
         href: manager/queue-mail.md
       - name: Yandex Forms
         href: manager/forms-integration.md
@@ -336,7 +338,15 @@ items:
       - name: Connecting repositories
         href: manager/add-repository.md
   - name: Pricing policy
-    href: pricing.md
+    items:
+      - name: Pricing
+        href: pricing.md
+      - name: Setting up a billing account
+        href: billing-account.md
+      - name: Topping up your personal account
+        href: pay-the-bill.md
+      - name: Viewing service detalization
+        href: check-charges.md
   - name: API reference
     items:
       - name: Overview
@@ -347,11 +357,11 @@ items:
         items:
           - name: Get issue parameters
             href: concepts/issues/get-issue.md
-          - name: Edit an issue
+          - name: Editing an issue
             href: concepts/issues/patch-issue.md
-          - name: Create an issue
+          - name: Creating an issue
             href: concepts/issues/create-issue.md
-          - name: Move an issue to another queue
+          - name: Moving an issue to another queue
             href: concepts/issues/move-issue.md
           - name: Find out the number of issues
             href: concepts/issues/count-issues.md
@@ -367,7 +377,7 @@ items:
             href: concepts/issues/link-issue.md
           - name: Get transitions
             href: concepts/issues/get-transitions.md
-          - name: Make a transition to a new status
+          - name: Make a status transition
             href: concepts/issues/new-transition.md
           - name: Get the history of issue changes
             href: concepts/issues/get-changelog.md
@@ -383,7 +393,7 @@ items:
             href: concepts/issues/delete-checklist.md
       - name: Projects
         items:
-          - name: Create a project
+          - name: Creating a project
             href: concepts/projects/create-project.md
           - name: Get project parameters
             href: concepts/projects/get-project.md
@@ -393,11 +403,11 @@ items:
             href: concepts/projects/get-project-queues.md
           - name: Edit a project
             href: concepts/projects/update-project.md
-          - name: Delete a project
+          - name: Deleting a project
             href: concepts/projects/delete-project.md
       - name: Comments
         items:
-          - name: Add a comment
+          - name: Add comment
             href: concepts/issues/add-comment.md
           - name: Get issue comments
             href: concepts/issues/get-comments.md
@@ -411,7 +421,7 @@ items:
             href: get-macroses.md
           - name: Get a macro
             href: get-macros.md
-          - name: Create a macro
+          - name: Creating a macro
             href: post-macros.md
           - name: Edit a macro
             href: patch-macros.md
@@ -435,7 +445,7 @@ items:
             href: concepts/issues/get-attachment.md
           - name: Download a thumbnail
             href: concepts/issues/get-attachment-preview.md
-          - name: Attach a file
+          - name: Attaching a file
             href: concepts/issues/post-attachment.md
           - name: Upload a temporary file
             href: concepts/issues/temp-attachment.md
@@ -443,7 +453,7 @@ items:
             href: concepts/issues/delete-attachment.md
       - name: Queues
         items:
-          - name: Create a queue
+          - name: Creating a queue
             href: concepts/queues/create-queue.md
           - name: Get queue parameters
             href: concepts/queues/get-queue.md
@@ -453,7 +463,7 @@ items:
             href: concepts/queues/get-versions.md
           - name: Get required queue fields
             href: concepts/queues/get-fields.md
-          - name: Delete a queue
+          - name: Deleting a queue
             href: concepts/queues/delete-queue.md
           - name: Restore a queue
             href: concepts/queues/restore-queue.md
@@ -465,7 +475,7 @@ items:
             href: get-boards.md
           - name: Get board parameters
             href: get-board.md
-          - name: Create a board
+          - name: Creating a board
             href: post-board.md
           - name: Edit a board
             href: patch-board.md
@@ -505,7 +515,7 @@ items:
         items:
           - name: Perform a bulk move of issues to a different queue
             href: concepts/bulkchange/bulk-move-issues.md
-          - name: Make bulk changes to issues
+          - name: Bulk changes to issues
             href: concepts/bulkchange/bulk-update-issues.md
           - name: Make bulk changes to issue statuses
             href: concepts/bulkchange/bulk-transition.md
@@ -525,6 +535,8 @@ items:
                 href: concepts/issues/get-worklog.md
       - name: Issue fields
         items:
+          - name: Get global issue fields
+            href: concepts/issues/get-global-fields.md
           - name: Create an issue field
             href: concepts/issues/create-field.md
           - name: Get issue field parameters
@@ -549,7 +561,7 @@ items:
         href: get-user-info.md
       - name: Possible response codes
         href: error-codes.md
-  - name: Questions and answers
+  - name: FAQ
     href: faq.md
   - name: Support
     href: troubleshooting.md

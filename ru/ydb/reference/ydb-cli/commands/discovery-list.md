@@ -3,7 +3,6 @@ sourcePath: overlay/reference/ydb-cli/commands/discovery-list.md
 ---
 {% include [intro.md](_includes/discovery-list/intro.md) %}
 
-
 Результат:
 
 ```text

@@ -35,7 +35,6 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
 
 {% endlist %}
 
-
 ## Измените данные {#update-data}
 
 Измените существующие данные в таблице, используя инструкцию [UPDATE](../../yql/reference/syntax/update.md):
@@ -47,7 +46,6 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
   {% include [update-data-via-console](../../_includes/update-data-via-console.md) %}
 
 {% endlist %}
-
 
 ## Удалите данные {#delete-data}
 
@@ -61,7 +59,6 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
 
 {% endlist %}
 
-
 ## Запросите данные {#select-data}
 
 Запросите данные из таблицы с помощью инструкции [SELECT](../../yql/reference/syntax/select.md):
@@ -73,7 +70,6 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
   {% include [select-data-via-console](../../_includes/select-data-via-console.md) %}
 
 {% endlist %}
-
 
 ## Удалите таблицу {#drop-table}
 

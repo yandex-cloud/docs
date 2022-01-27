@@ -1,10 +1,10 @@
 # Creating a VM from a {{ coi }} with multiple Docker containers
 
-In this tutorial, you'll create a VM that contains multiple Docker containers from a [{{ coi }}](../concepts/index.md). A VM is created based on the [Docker Compose specification](../concepts/index.md#compose-spec).
+In this tutorial, you'll create a VM that contains multiple Docker containers from a [{{ coi }}](../concepts/index.md). A VM is created based on the [Docker Compose specification](../concepts/coi-specifications.md#compose-spec).
 
 ## Before you start {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
+If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
 
 ## Create a VM with multiple Docker containers {#docker-compose}
 
@@ -17,6 +17,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create a VM with multiple Docker containers from a {{ coi }}.
+
   1. View a description of the CLI command to create a VM from a {{ coi }}:
 
      ```bash

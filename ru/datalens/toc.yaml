@@ -113,6 +113,10 @@ items:
         items:
           - name: Создание датасета
             href: operations/dataset/create.md
+          - name: Объединение данных из нескольких таблиц
+            href: operations/dataset/join-data.md
+          - name: Объединение данных из нескольких CSV-подключений
+            href: operations/dataset/join-data-csv.md
           - name: Создание поля данных
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
@@ -167,6 +171,8 @@ items:
             href: operations/chart/publish.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
+          - name: Добавление guid в качестве параметра
+            href: operations/chart/add-guid.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда
@@ -183,6 +189,8 @@ items:
             href: operations/dashboard/publish.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
+          - name: Добавление параметров на дашборд
+            href: operations/dashboard/add-parameters.md
       - name: Работа с правами доступа
         items:
           - name: Назначение прав доступа

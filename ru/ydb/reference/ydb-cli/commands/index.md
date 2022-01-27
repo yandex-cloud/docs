@@ -3,7 +3,6 @@ sourcePath: overlay/reference/ydb-cli/commands/index.md
 ---
 {% include [index.md](_includes/index.md) %}
 
-
 Перед выполнением примеров:
 
 1. [Создайте](../../../operations/create_manage_database.md#create-db) базу данных.

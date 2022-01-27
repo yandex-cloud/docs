@@ -158,17 +158,19 @@ description: "Вы можете отслеживать состояние кла
 * **Network Bytes** — скорость обмена данными по сети (байт/с).
 * **Network Packets** — интенсивность обмена данными по сети (пакетов/с).
 
-## Состояния кластера и хостов
-Для просмотра детальной информации о состоянии кластера {{ mch-name }}:
+## Состояние и статус кластера {#cluster-health-and-status}
 
-1. Перейдите на страницу каталога и выберите **{{ mch-name }}**.
-2. Выберите нужный кластер из списка.
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-### Состояния кластера
+Для просмотра состояния и статуса кластера:
 
-{% include [monitoring-cluster-state](../../_includes/mdb/monitoring-cluster-state.md) %}
+1. Перейдите на страницу каталога и выберите **{{ mrd-name }}**.
+1. Наведите курсор на индикатор в столбце **Статус** в строке нужного кластера.
 
+### Состояния кластера {#cluster-health}
 
-### Статусы кластера
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 
-{% include notitle [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+### Статусы кластера {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

@@ -11,4 +11,3 @@ sourcePath: overlay/concepts/index.md
 Для сервиса действует [соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla). Уровень обслуживания сервиса определен в документе [Уровень обслуживания Yandex Database](https://yandex.ru/legal/cloud_sla_ydb).
 
 {% include [concepts/index/when_use.md](_includes/index/when_use.md) %}
-

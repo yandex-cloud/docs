@@ -1,10 +1,10 @@
 # Создание ВМ с {{ coi }} и несколькими Docker-контейнерами
 
-В этой инструкции вы создадите виртуальную машину из образа [{{ coi }}](../concepts/index.md) с несколькими Docker-контейнерами внутри. Для создания ВМ будет использована [Docker Compose спецификация](../concepts/index.md#compose-spec).
+В этой инструкции вы создадите виртуальную машину из образа [{{ coi }}](../concepts/index.md) с несколькими Docker-контейнерами внутри. Для создания ВМ будет использована [Docker Compose спецификация](../concepts/coi-specifications.md#compose-spec).
 
 ## Перед началом работы {#before-you-begin}
 
-Если нужный Docker-образ загружен в {{ container-registry-name }}, то создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на используемый реестр. От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
+Если нужный Docker-образ загружен в {{ container-registry-full-name }}, то создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на используемый реестр. От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
 
 ## Создайте ВМ с несколькими Docker-контейнерами {#docker-compose}
 
@@ -58,7 +58,7 @@
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--network-interface` — сетевые настройки ВМ.
      * `--service-account-name` — имя сервисного аккаунта.
-     * `--docker-compose-file` — YAML-файл со спецификацией контенеров.
+     * `--docker-compose-file` — YAML-файл со спецификацией контейнеров.
 
      После создания ВМ появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}).
 
@@ -66,11 +66,16 @@
      1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
      1. Посмотрите список запущенных Docker-контейнеров:
 
-        ```
+        ```bash
         sudo docker ps -a
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
-        c79b1cdc5a3a        nginx               "nginx -g 'daemon of…"   16 seconds ago      Up 14 seconds       0.0.0.0:80->80/tcp   nginx
-        3ac5a9844a5d        redis               "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        6379/tcp             redis
+        ```
+
+        Результат выполнения команды:
+
+        ```
+        CONTAINER ID  IMAGE  COMMAND                 CREATED         STATUS         PORTS               NAMES
+        c79b1cdc5a3a  nginx  "nginx -g 'daemon of…"  16 seconds ago  Up 14 seconds  0.0.0.0:80->80/tcp  nginx
+        3ac5a9844a5d  redis  "docker-entrypoint.s…"  2 minutes ago   Up 2 minutes   6379/tcp            redis
         ```
 
 {% endlist %}

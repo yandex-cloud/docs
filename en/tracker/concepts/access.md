@@ -39,7 +39,7 @@ The token permissions correspond to the permissions for the {{ tracker-name }} a
 
 An IAM token is a unique sequence of characters issued to a user after authentication. The user needs this token for authorization in the {{ api-name }} and to access resources. Read more about this authentication method in the [documentation of the identification and access control service](../../iam/concepts/authorization/iam-token.md).
 
-The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by the cookie lifetime for the [federation](../../organization/add-federation.md) documentation. After the lifetime expires, the `401 Unauthorized` error is returned.
+The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by the cookie lifetime for the [federation](../../organization/add-federation.md). After the lifetime expires, the `401 Unauthorized` error is returned.
 
 ### Get an IAM token for a Yandex account {#iam-token-yandex-account}
 
@@ -51,9 +51,9 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
 
   1. Get an IAM token:
 
-    ```
-    $ yc iam create-token
-    ```
+     ```
+     $ yc iam create-token
+     ```
 
 - API
 
@@ -62,7 +62,7 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
   1. Exchange the received token for an IAM token. To do this, use an HTTP `POST` request:
 
      ```json
-      POST https://iam.api.cloud.yandex.net/iam/v1/tokens
+     POST https://iam.api.cloud.yandex.net/iam/v1/tokens
      
        {
           "yandexPassportOauthToken": "<OAUTH-token>"
@@ -72,13 +72,13 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
   1. The API returns a response. The response body contains information in JSON format. The value you need is in the **iamToken** attribute.
 
   > Sample response:
-
-```
- {
-   "iamToken": "t1.9euelZqYksrMiYrGiY-TmpGUnZPHz-3rnpWay4-SjJCKnp7KlouMjJ3Kncrl9PcSLTl0-e8rTxrv3fT3Uls2dPnvK08a7w.vqGV8pzV84HGSmX9eLmvKaIBpRx9HDbKWEwN6ryIQ",
-   "expiresAt": "2021-10-22T05:54:53.035215444Z"
- }
-```
+  >
+  >```
+  >{
+  >  "iamToken": "t1.9euelZqYksrMiYrGiY-TmpGUnZPHz-3rnpWay4-SjJCKnp7KlouMjJ3Kncrl9PcSLTl0-e8rTxrv3fT3Uls2dPnvK08a7w.vqGV8pzV84HGSmX9eLmvKaIBpRx9HDbKWEwN6ryIQ",
+  >  "expiresAt": "2021-10-22T05:54:53.035215444Z"
+  >}
+  >```
 
 {% endlist %}
 
@@ -106,9 +106,9 @@ When developing applications in Python, you can use the [yandex_tracker_client](
 
 To start using the client:
 
-1. Download and install the latest Python version from [https://www.python.org/downloads/](https://www.python.org/downloads/).
+1. Download and install the newest version of Python from [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
-1. From your OS command line, run:
+1. Run the following command in your OS command line:
 
     
     ```
@@ -116,16 +116,16 @@ To start using the client:
     ```
 
 
-1. Get an OAuth token and your organization ID to access the API. For more information about how to do this, see the [API reference](../concepts/access.md).
+1. Receive your OAuth token and organization ID to access the API. To learn more, see the [API reference](../concepts/access.md).
 
-1. Initialize the client in your program code:
+1. Initialize the client in your program's code:
 
     ```
     from yandex_tracker_client import TrackerClient
     client = TrackerClient(token=<token>, org_id=<org_id>)
     ```
 
-    Here, `<token>` is your OAuth token and `<org_id>` is your organization ID.
+    Here `<token>` is your OAuth token, and `<org_id>` is your organization ID.
 
 In the client, use the same data format as in the {{ tracker-name }} API.
 

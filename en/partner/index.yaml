@@ -1,7 +1,7 @@
 title: Yandex.Cloud partner program
 description:
   - >-
-    On the <a href="https://partners.cloud.yandex.ru">partner portal</a>, you
+    On the <a href="https://partners.cloud.yandex.ru">partner portal</a> you
     can:
   - '- Register customers who use Yandex.Cloud with your help.'
   - '- Manage customer resources and monitor how they use Yandex.Cloud services.'
@@ -13,3 +13,9 @@ links:
   - title: Referral program
     description: Learn how to attract customers via referral links
     href: program/referral
+  - title: VAR program
+    description: Learn how to sell Yandex.Cloud services and get a partner bonus
+    href: program/var
+  - title: Questions and answers
+    description: Answers to frequently asked questions
+    href: qa/all

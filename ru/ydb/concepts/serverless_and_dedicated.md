@@ -3,8 +3,8 @@ sourcePath: overlay/concepts/serverless_and_dedicated.md
 ---
 {% include [intro.md](_includes/serverless_and_dedicated/01_intro.md) %}
 
-
 Дополнительная информация о тарификации и ценах Yandex.Cloud:
+
 * Для [_Serverless_ базы данных](../pricing/serverless.md)
 * Для [_Dedicated_ базы данных](../pricing/dedicated.md)
 
@@ -13,4 +13,3 @@ sourcePath: overlay/concepts/serverless_and_dedicated.md
 {% include [intro.md](_includes/serverless_and_dedicated/02_sls_pars.md) %}
 
 {% include [arch_diff.md](_includes/serverless_and_dedicated/10_arch_diff.md) %}
-

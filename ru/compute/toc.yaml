@@ -405,6 +405,8 @@ items:
                 href: api-ref/Disk/list.md
               - name: listOperations
                 href: api-ref/Disk/listOperations.md
+              - name: move
+                href: api-ref/Disk/move.md
               - name: update
                 href: api-ref/Disk/update.md
           - name: DiskType
@@ -503,6 +505,8 @@ items:
                 href: api-ref/Instance/list.md
               - name: listOperations
                 href: api-ref/Instance/listOperations.md
+              - name: move
+                href: api-ref/Instance/move.md
               - name: removeOneToOneNat
                 href: api-ref/Instance/removeOneToOneNat.md
               - name: restart

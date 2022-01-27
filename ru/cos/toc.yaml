@@ -35,6 +35,16 @@ items:
     items:
       - name: Образ Container Optimized Image
         href: concepts/index.md
+      - name: Особенности работы с загрузочным диском
+        href: concepts/boot-disk.md
+      - name: Особенности работы с сетью
+        href: concepts/network.md
+      - name: Docker-образ
+        href: concepts/docker-image.md
+      - name: Политики перезапуска Docker-контейнера
+        href: concepts/restart-policy.md
+      - name: Спецификации Docker-контейнера
+        href: concepts/coi-specifications.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Релизы COI

@@ -22,7 +22,7 @@
      yc compute instance create-with-container --help
      ```
 
-  1. Подготовьте [спецификацию Docker Compose](../concepts/index.md#compose-spec). Сохраните следующие данные в файл `docker-compose.yaml`:
+  1. Подготовьте [спецификацию Docker Compose](../concepts/coi-specifications.md#compose-spec). Сохраните следующие данные в файл `docker-compose.yaml`:
 
      ```yaml
      version: '3.4'

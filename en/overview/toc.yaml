@@ -53,6 +53,8 @@ items:
             href: security/domains/network.md
           - name: Authentication and access control
             href: security/domains/access.md
+          - name: Data encryption and key management
+            href: security/domains/encryption.md
           - name: Secure configuration
             href: security/domains/secure-config.md
           - name: Audit logs

@@ -4,7 +4,7 @@ Create a VM from a [{{ coi }}](../concepts/index.md) and run a Docker container 
 
 ## Before you start {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
+If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the registry in use. A VM with a {{ coi }} pulls the Docker image from the registry on behalf of this account.
 
 ## Create a VM with a Docker container built on a {{ coi }} {#create-vm}
 
@@ -22,11 +22,11 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
        * The length can be from 3 to 63 characters.
        * It may contain Latin letters, numbers, and hyphens.
        * The first character must be a letter. The last character can't be a hyphen.
-     * Specify the [**Docker image**](../concepts/index.md#docker-image) used to launch the Docker container on the VM.
+     * Specify the [**Docker image**](../concepts/docker-image.md) used to launch the Docker container on the VM.
      * (optional) In the **Command** field, specify the executable file to run when the Docker container starts.
      * (optional) Specify **Command arguments**.
      * (optional) Specify **Environment variables** in `key:value` format, which are available in the Docker container.
-     * Select the [**Restart policy**](../concepts/index.md#restart-policy) field value for the Docker container:
+     * Select the [**Restart policy**](../concepts/restart-policy.md) field value for the Docker container:
        * **Always**: Always restart the Docker container when it's stopped.
        * **Never**: Don't restart the Docker container automatically.
        * **On-Failure**: Restart the Docker container only if it shut down with a non-zero return code.
@@ -101,7 +101,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a VM and set Docker container parameters using a [specification file](../concepts/index.md#coi-specification):
+  To create a VM and set Docker container parameters using a [specification file](../concepts/coi-specifications.md#coi-spec):
   1. View a description of the command:
 
      ```bash
@@ -136,7 +136,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      ```
 
      Where:
-     * `--coi-spec-file` is the path to the Docker container [specification file](../concepts/index.md#coi-specification).
+     * `--coi-spec-file` is the path to the Docker container [specification file](../concepts/coi-specifications.md#coi-spec).
      * `--name`: VM name.
      * `--zone`: Availability zone.
      * `--ssh-key`: Contents of the [public key file](../../compute/quickstart/quick-create-linux.md#create-ssh).

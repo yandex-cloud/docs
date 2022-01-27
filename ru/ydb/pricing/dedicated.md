@@ -59,7 +59,6 @@ sourcePath: overlay/pricing/dedicated.md
 
 {% endnote %}
 
-
 ## Цены {#prices}
 
 Все цены указаны с включением НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
@@ -89,3 +88,5 @@ sourcePath: overlay/pricing/dedicated.md
 
 
 {% include notitle [rub-dedicated.md](../../_pricing/ydb/rub-dedicated.md) %}
+
+

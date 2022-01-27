@@ -9,16 +9,18 @@ items:
         items:
           - name: Overview
             href: quickstart/create-function/index.md
-          - name: Python
-            href: quickstart/create-function/python-function-quickstart.md
           - name: Node.js
             href: quickstart/create-function/node-function-quickstart.md
-          - name: PHP
-            href: quickstart/create-function/php-function-quickstart.md
+          - name: Python
+            href: quickstart/create-function/python-function-quickstart.md
           - name: Go
             href: quickstart/create-function/go-function-quickstart.md
+          - name: PHP
+            href: quickstart/create-function/php-function-quickstart.md
           - name: Bash
             href: quickstart/create-function/bash-function-quickstart.md
+          - name: Java
+            href: quickstart/create-function/java-function-quickstart.md
       - name: Creating a trigger
         items:
           - name: Overview

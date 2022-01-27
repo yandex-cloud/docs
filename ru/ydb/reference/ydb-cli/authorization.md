@@ -14,7 +14,6 @@ sourcePath: overlay/reference/ydb-cli/authorization.md
 
 - OAuth-токен
 
-  
   Получите OAuth-токен с помощью [запроса](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и сохраните его в файл. При запуске команды YDB CLI в параметре `--yc-token-file` укажите путь к файлу, в котором содержится ваш OAuth-токен.
 
   Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YC_TOKEN` или [настройте профиль](profile/create.md) YDB CLI.

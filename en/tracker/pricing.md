@@ -40,11 +40,11 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 
 > For example, these rates were in effect in January:
 >
->- The subscription fee for the first 100 users: {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }}.
+>- The subscription fee for the first 100 users: {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }}.
 >
->- The subscription fee for next 150 users: {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }}.
+>- The subscription fee for next 150 users: {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }}.
 >
->- The subscription fee for all users beyond 250 persons mentioned above: {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}.
+>- The subscription fee for all users beyond 250 persons mentioned above: {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}.
 >
 >The number of employees who had full access to {{ tracker-name }} changed in January:
 >
@@ -58,6 +58,13 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 >
 >That means the following formula will be used to calculate the subscription fee for 270 users:
 >
->```
->100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}
->```
+> 
+> 
+> 
+> 
+> > 
+> ```
+> 100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
+> ```
+> 
+>

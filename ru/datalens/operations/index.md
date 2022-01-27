@@ -19,6 +19,8 @@
 ## Работа с датасетом {#working-with-datasets}
 
 - [{#T}](dataset/create.md)
+- [{#T}](dataset/join-data.md)
+- [{#T}](dataset/join-data-csv.md)
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)
@@ -48,6 +50,7 @@
 - [{#T}](chart/config-chart-navigator.md)
 - [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md)
+- [{#T}](chart/add-guid.md)
 
 ## Работа с дашбордами {#working-with-dashboards}
 

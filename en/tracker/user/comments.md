@@ -14,7 +14,7 @@ If you keep all your discussions about an issue in the comments section, you wil
 
 - Web interface
 
-    To comment on an issue, enter your text in the box at the bottom of the page and click **Submit**. In the comments section, you can use [wiki markup](wiki-markup.md) and attach images and files.
+    To comment on an issue, enter your text in the box at the bottom of the page and click **Submit**. In the comments section, you can use [wiki markup](markup.md) and attach images and files.
 
     You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically links the issue.
 
@@ -23,7 +23,7 @@ If you keep all your discussions about an issue in the comments section, you wil
 
 - Mobile app
 
-    To comment on an issue, enter your text in the **Write a comment** box at the bottom of the screen and tap ![](../../_assets/tracker/send.png). In the comments section, you can use [wiki markup](wiki-markup.md) and [attach images and files](#sec_file). To expand the comment box to full screen, tap ![](../../_assets/tracker/open-text.png).
+    To comment on an issue, enter your text in the **Write a comment** box at the bottom of the screen and tap ![](../../_assets/tracker/send.png). In the comments section, you can use [wiki markup](markup.md) and [attach images and files](#sec_file). To expand the comment box to full screen, tap ![](../../_assets/tracker/open-text.png).
 
     You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically [links](ticket-links.md#add-link) the issue.
 

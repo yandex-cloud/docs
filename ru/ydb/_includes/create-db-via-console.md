@@ -12,7 +12,6 @@ sourcePath: overlay/_includes/create-db-via-console.md
   1. Нажмите кнопку **Создать базу данных**.
   1. Введите **Имя** базы. Требования к имени:
 
-      
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. В блоке **Тип базы данных** выберите опцию **Serverless**.
@@ -28,7 +27,6 @@ sourcePath: overlay/_includes/create-db-via-console.md
   1. Нажмите кнопку **Создать базу данных**.
   1. Введите **Имя** базы. Требования к имени:
 
-      
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. В блоке **Тип базы данных** выберите опцию **Dedicated**.
@@ -37,7 +35,6 @@ sourcePath: overlay/_includes/create-db-via-console.md
   1. В блоке **Сеть** настройте параметры сети:
       1. (опционально) В блоке **Публичные IP-адреса** выберите опцию **Присвоить**, если вы планируете отправлять запросы к базе не только из сети Yandex.Cloud, но и через интернет.
 
-          
           {% include  [traffic_metering](../_includes/traffic_metering.md) %}
 
       1. Выберите существующую сеть из списка **Облачная сеть** или создайте новую:

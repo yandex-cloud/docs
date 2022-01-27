@@ -3,7 +3,7 @@
 Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в кластере {{ managed-k8s-name }}, необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 Чтобы настроить доступ к запущенным в кластере приложениям через {{ alb-name }}:
-1. [{#T}](#create-namespace-and-secret).
+1. [{#T}](#create-namespace).
 1. [{#T}](#install-alb).
 1. [{#T}](#create-ingress-and-apps).
 1. [{#T}](#verify-setup).
@@ -43,23 +43,13 @@
    kubectl cluster-info
    ```
 
-## Создайте пространство имен и секрет для {{ alb-name }} Ingress-контроллера {#create-namespace-and-secret}
+## Создайте пространство имен для {{ alb-name }} Ingress-контроллера {#create-namespace}
 
-1. Создайте [пространство имен](../concepts/index.md#namespace):
+Чтобы создать [пространство имен](../concepts/index.md#namespace), выполните следующую команду:
 
-   ```bash
-   kubectl create namespace yc-alb-ingress
-   ```
-
-1. Создайте секрет:
-
-   ```bash
-   kubectl create secret generic yc-alb-ingress-controller-sa-key \
-     --namespace yc-alb-ingress \
-     --from-file=sa-key.json
-   ```
-
-   Подробнее о секретах см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/configuration/secret/).
+```bash
+kubectl create namespace yc-alb-ingress
+```
 
 ## Установите {{ alb-name }} Ingress-контроллер {#install-alb}
 
@@ -68,8 +58,8 @@
 ```bash
 export HELM_EXPERIMENTAL_OCI=1 && \
 cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-helm pull oci://cr.yandex/crpsjg1coh47p81vh2lc/yc-alb-ingress-controller-chart \
-     --version=v0.0.7 \
+helm pull oci://cr.yandex/yc/yc-alb-ingress-controller-chart \
+     --version=v{{ alb-ingress-version }} \
      --untar && \
 helm install \
      --namespace yc-alb-ingress \
@@ -146,7 +136,7 @@ yc certificate-manager certificate list
                    service:
                      name: alb-demo-2
                      port:
-                       number: 80
+                       name: http
      ```
 
      Где:
