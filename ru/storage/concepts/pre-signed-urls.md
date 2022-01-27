@@ -49,7 +49,7 @@ https://{{ s3-storage-host }}/<имя бакета>/<ключ объекта>?
     2. Вычислите подпись с помощью [алгоритма подписи строк](../s3/signing-requests.md).
 2. [Составить подписанный URL](#composing-signed-url) для своего запроса.
 
-Для составления подписанного URL необходимо владеть [статическими ключами](../../iam/operations/sa/create-access-key.md) доступа. 
+Для составления подписанного URL необходимо владеть {% if audience != "internal" %}[статическими ключами](../../iam/operations/sa/create-access-key.md){% else %}статическими ключами{% endif %} доступа. 
 
 ### Строка для подписи {#composing-string-to-sign}
 

@@ -1,3 +1,3 @@
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте нужную роль сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md). Подробнее о ролях см. в [документации {{ iam-name }}](../../iam/concepts/access-control/roles.md).
-1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md).
+1. {% if audience != "internal" %}[Создайте сервисный аккаунт](../../iam/operations/sa/create.md){% else %}Создайте сервисный аккаунт{% endif %}.
+1. {% if audience != "internal" %}[Назначьте нужную роль сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md){% else %}Назначьте нужную роль сервисному аккаунту{% endif %}. Подробнее о ролях см. в {% if audience != "internal" %}[документации {{ iam-name }}](../../iam/concepts/access-control/roles.md){% else %}документации {{ iam-name }}{% endif %}.
+1. {% if audience != "internal" %}[Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md){% else %}Создайте статический ключ доступа{% endif %}.

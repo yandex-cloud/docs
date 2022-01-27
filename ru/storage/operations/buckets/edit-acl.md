@@ -1,6 +1,6 @@
 # Редактирование ACL бакета
 
-Помимо [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-name }} поддерживает управление доступом с помощью [ACL](../../concepts/acl.md).
+Помимо {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/index.yaml){% else %}{{ iam-short-name }}{% endif %}, {{ objstorage-name }} поддерживает управление доступом с помощью [ACL](../../concepts/acl.md).
 
 {% list tabs %}
 
@@ -16,9 +16,9 @@
   
 - Terraform
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
 
-  Перед началом работы, получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Перед началом работы, получите {% if audience != "internal" %}[статические ключи доступа](../../../iam/operations/sa/create-access-key.md){% else %}статические ключи доступа{% endif %} — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 

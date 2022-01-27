@@ -43,7 +43,7 @@ HEAD /{bucket}/{key} HTTP/2
 `x-amz-meta-*` | Пользовательские метаданные объекта, сохраненные вместе объектом.
 `x-amz-storage-class` | Класс хранения объекта.<br/>Имеет значение `COLD`, если объект находится в Холодном хранилище.<br/><br/>Если объект сохранен в Стандартном хранилище, то заголовка не будет.
 `x-amz-server-side-encryption` | Алгоритм шифрования, которым был зашифрован объект. Возвращается, если объект был загружен с включенным [шифрованием](../../../operations/buckets/encrypt.md).
-`x-amz-server-side-encryption-aws-kms-key-id` | Идентификатор [ключа {{ kms-short-name }}](../../../../kms/concepts/key.md). Возвращается, если объект был загружен с включенным [шифрованием](../../../operations/buckets/encrypt.md).
+`x-amz-server-side-encryption-aws-kms-key-id` | Идентификатор {% if audience != "internal" %}[ключа {{ kms-short-name }}](../../../../kms/concepts/key.md){% else %}ключа {{ kms-short-name }}{% endif %}. Возвращается, если объект был загружен с включенным [шифрованием](../../../operations/buckets/encrypt.md).
 
 ### Коды ответов {#response-codes}
 

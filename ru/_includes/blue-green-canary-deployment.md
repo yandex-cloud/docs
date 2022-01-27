@@ -53,13 +53,13 @@
 В стоимость поддержки инфраструктуры входят:
 
 * плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../storage/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../application-load-balancer/pricing.md));
-* плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../cdn/pricing.md));
-* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. [тарифы {{ dns-name }}](../dns/pricing.md)).
+* плата за использование вычислительных ресурсов L7-балансировщика (см. {% if audience != "internal" %}[тарифы {{ alb-name }}](../application-load-balancer/pricing.md){% else %}тарифы {{ alb-name }}{% endif %});
+* плата за исходящий трафик с CDN-серверов (см. {% if audience != "internal" %}[тарифы {{ cdn-name }}](../cdn/pricing.md){% else %}тарифы {{ cdn-name }}{% endif %});
+* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. {% if audience != "internal" %}[тарифы {{ dns-name }}](../dns/pricing.md){% else %}тарифы {{ dns-name }}{% endif %}).
 
 ## Создайте облачную сеть и подсети {#create-network}
 
-Все ресурсы будут относиться к одной [облачной сети](../vpc/concepts/network.md).
+Все ресурсы будут относиться к одной {% if audience != "internal" %}[облачной сети](../vpc/concepts/network.md){% else %}облачной сети{% endif %}.
 
 Чтобы создать сеть и подсети:
 
@@ -171,7 +171,7 @@
 
 - Terraform
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../solutions/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
   
   1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-c`:
   
@@ -227,9 +227,8 @@
 
 - API
 
-  1. Создайте сеть `canary-network` с помощью вызова gRPC API [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../vpc/api-ref/Network/create.md).
-  1. Создайте подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-c` в трех зонах доступности с помощью вызова gRPC API [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../vpc/api-ref/Subnet/create.md).
-
+  1. Создайте сеть `canary-network` с помощью вызова gRPC API {% if audience != "internal" %}[NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create){% else %}NetworkService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Network/create.md){% else %}create{% endif %}.
+  1. Создайте подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-c` в трех зонах доступности с помощью вызова gRPC API {% if audience != "internal" %}[SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create){% else %}SubnetService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Subnet/create.md){% else %}create{% endif %}.
 {% endlist %}
 
 ## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
@@ -453,7 +452,7 @@
 
 {% include [security-groups-note](../application-load-balancer/_includes_service/security-groups-note.md) %}
 
-[Группы безопасности](../vpc/concepts/security-groups.md) содержат правила, которые разрешают L7-балансировщику получать входящий трафик и отправлять его на бакеты-бэкенды.
+{% if audience != "internal" %}[Группы безопасности](../vpc/concepts/security-groups.md){% else %}Группы безопасности{% endif %} содержат правила, которые разрешают L7-балансировщику получать входящий трафик и отправлять его на бакеты-бэкенды.
 
 Чтобы создать группы безопасности:
 
@@ -613,8 +612,8 @@
 
 - API
 
-  Используйте вызов gRPC API [SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../vpc/api-ref/SecurityGroup/create.md).
-
+  Используйте вызов gRPC API {% if audience != "internal" %}[SecurityGroupService/Create](../vpc/api-ref/grpc/security_group_service.md#Create){% else %}SecurityGroupService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../vpc/api-ref/SecurityGroup/create.md){% else %}create{% endif %}.
+     
 {% endlist %}
 
 ## Создайте группы бэкендов в {{ alb-name }} {#create-l7backend}
@@ -642,7 +641,7 @@
 
 - API
 
-  Используйте вызов gRPC API [BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/BackendGroup/create.md).
+  Используйте вызов gRPC API {% if audience != "internal" %}[BackendGroupService/Create](../application-load-balancer/api-ref/grpc/backend_group_service.md#Create){% else %}BackendGroupService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../application-load-balancer/api-ref/BackendGroup/create.md){% else %}create{% endif %}.
      
 {% endlist %} 
 
@@ -857,9 +856,9 @@
 
 - API
 
-  1. Создайте HTTP-роутер `canary-router` с помощью вызова gRPC API [HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/HttpRouter/create.md).
-  1. Создайте виртуальные хосты `canary-vh-production` и `canary-vh-staging`, привязанные к роутеру, и их маршруты с помощью вызова gRPC API [VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create) или метода REST API [create](../application-load-balancer/api-ref/VirtualHost/create.md).
-
+  1. Создайте HTTP-роутер `canary-router` с помощью вызова gRPC API {% if audience != "internal" %}[HttpRouterService/Create](../application-load-balancer/api-ref/grpc/http_router_service.md#Create){% else %}HttpRouterService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../application-load-balancer/api-ref/HttpRouter/create.md){% else %}create{% endif %}.
+  1. Создайте виртуальные хосты `canary-vh-production` и `canary-vh-staging`, привязанные к роутеру, и их маршруты с помощью вызова gRPC API {% if audience != "internal" %}[VirtualHostService/Create](../application-load-balancer/api-ref/grpc/virtual_host_service.md#Create){% else %}VirtualHostService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../application-load-balancer/api-ref/VirtualHost/create.md){% else %}create{% endif %}.
+           
 {% endlist %}
 
 ## Создайте L7-балансировщик {#create-balancer}
@@ -1080,8 +1079,8 @@
 
 - API
 
-  Используйте вызов gRPC API [LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create) или метод REST API [create](../application-load-balancer/api-ref/LoadBalancer/create.md).
-
+  Используйте вызов gRPC API {% if audience != "internal" %}[LoadBalancerService/Create](../application-load-balancer/api-ref/grpc/load_balancer_service.md#Create){% else %}LoadBalancerService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../application-load-balancer/api-ref/LoadBalancer/create.md){% else %}create{% endif %}.
+          
 {% endlist %}
 
 ## Создайте CDN-ресурс {#create-cdn-resource}
@@ -1243,8 +1242,8 @@
 
 - API
 
-  Используйте вызов gRPC API [ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create) или метод REST API [create](../cdn/api-ref/Resource/create.md).
-
+  Используйте вызов gRPC API {% if audience != "internal" %}[ResourceService/Create](../cdn/api-ref/grpc/resource_service.md#Create){% else %}ResourceService/Create{% endif %} или метод REST API {% if audience != "internal" %}[create](../cdn/api-ref/Resource/create.md){% else %}create{% endif %}.
+  
 {% endlist %}
 
 ## Настройте DNS для сервиса {#configure-dns}
@@ -1390,9 +1389,9 @@
 
    - API
     
-     1. Создайте DNS-зону `canary-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) или метода REST API [create](../dns/api-ref/DnsZone/create.md).
-     1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `cl-....gcdn.co` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) или метода REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md).
-
+     1. Создайте DNS-зону `canary-dns-zone` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create){% else %}DnsZoneService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../dns/api-ref/DnsZone/create.md){% else %}create{% endif %}.
+     1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `cl-....gcdn.co` с помощью вызова gRPC API {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} или метода REST API {% if audience != "internal" %}[updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %}.
+        
    {% endlist %}
    
    {% endcut %}
@@ -1467,8 +1466,8 @@
 
    - API
    
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List){% else %}ResourceService/List{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/list.md){% else %}list{% endif %}.
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API {% if audience != "internal" %}[CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge){% else %}CacheService/Purge{% endif %} или метода {% if audience != "internal" %}[purge](../cdn/api-ref/Cache/purge.md){% else %}purge{% endif %}. 
      
    {% endlist %}
 
@@ -1492,8 +1491,8 @@
      
    - API
    
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List){% else %}ResourceService/List{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/list.md){% else %}list{% endif %}.
+     1. Отключите кеширование с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update){% else %}ResourceService/Update{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/update.md){% else %}list{% endif %}. 
      
    {% endlist %}
 
@@ -1554,8 +1553,8 @@
      
    - API
    
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List){% else %}ResourceService/List{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/list.md){% else %}list{% endif %}.
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API {% if audience != "internal" %}[CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge){% else %}CacheService/Purge{% endif %} или метода {% if audience != "internal" %}[purge](../cdn/api-ref/Cache/purge.md){% else %}purge{% endif %}. 
      
    {% endlist %}
 
@@ -1633,7 +1632,7 @@
    
    - API
    
-     Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).
+     Используйте вызов gRPC API {% if audience != "internal" %}[BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend){% else %}BackendGroupService/UpdateBackend{% endif %} или метод REST API {% if audience != "internal" %}[updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md){% else %}updateBackend{% endif %}.
            
    {% endlist %}
    
@@ -1660,8 +1659,8 @@
      
    - API
    
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md).
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List){% else %}ResourceService/List{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/list.md){% else %}list{% endif %}.
+     1. Включите кеширование с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update){% else %}ResourceService/Update{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/update.md){% else %}list{% endif %}.
      
    {% endlist %}
    
@@ -1683,8 +1682,8 @@
      
    - API
    
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Отключите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List){% else %}ResourceService/List{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/list.md){% else %}list{% endif %}.
+     1. Отключите кеширование с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update){% else %}ResourceService/Update{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/update.md){% else %}list{% endif %}. 
      
    {% endlist %}
 
@@ -1745,8 +1744,8 @@
      
    - API
    
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API [CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge) или метода [purge](../cdn/api-ref/Cache/purge.md). 
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List){% else %}ResourceService/List{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/list.md){% else %}list{% endif %}.
+     1. Удалите файл `index.html` из кеша с помощью вызова gRPC API {% if audience != "internal" %}[CacheService/Purge](../cdn/api-ref/grpc/cache_service#Purge){% else %}CacheService/Purge{% endif %} или метода {% if audience != "internal" %}[purge](../cdn/api-ref/Cache/purge.md){% else %}purge{% endif %}. 
      
    {% endlist %}
 
@@ -1822,7 +1821,7 @@
         
    - API
    
-     Используйте вызов gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) или метод REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md).   
+     Используйте вызов gRPC API {% if audience != "internal" %}[BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend){% else %}BackendGroupService/UpdateBackend{% endif %} или метод REST API {% if audience != "internal" %}[updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md){% else %}updateBackend{% endif %}.   
    
    {% endlist %}
    
@@ -1844,8 +1843,8 @@
      
    - API
    
-     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API [ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List) или метода REST API [list](../cdn/api-ref/Resource/list.md).
-     1. Включите кеширование с помощью вызова gRPC API [ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update) или метода REST API [list](../cdn/api-ref/Resource/update.md).
+     1. Получите идентификатор созданного CDN-ресурса с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/List](../cdn/api-ref/grpc/resource_service.md#List){% else %}ResourceService/List{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/list.md){% else %}list{% endif %}.
+     1. Включите кеширование с помощью вызова gRPC API {% if audience != "internal" %}[ResourceService/Update](../cdn/api-ref/grpc/resource_service.md#Update){% else %}ResourceService/Update{% endif %} или метода REST API {% if audience != "internal" %}[list](../cdn/api-ref/Resource/update.md){% else %}list{% endif %}.
      
    {% endlist %}
 
@@ -1853,10 +1852,10 @@
 
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
-1. Если вы настраивали CNAME-записи в {{ dns-name }}, [удалите](../dns/operations/zone-delete.md) зону DNS `canary-dns-zone`.
-1. [Удалите](../cdn/operations/resources/delete-resource.md) CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
-1. [Удалите](../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `canary-balancer`.
+1. Если вы настраивали CNAME-записи в {{ dns-name }}, {% if audience != "internal" %}[удалите](../dns/operations/zone-delete.md){% else %}удалите{% endif %} зону DNS `canary-dns-zone`.
+1. {% if audience != "internal" %}[Удалите](../cdn/operations/resources/delete-resource.md){% else %}Удалите{% endif %} CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
+1. {% if audience != "internal" %}[Удалите](../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Удалите{% endif %} L7-балансировщик `canary-balancer`.
 1. [Удалите](../storage/operations/objects/delete.md) все объекты из бакетов `canary-bucket-blue` и `canary-bucket-green`.
 1. [Удалите](../storage/operations/buckets/delete.md) бакеты `canary-bucket-blue` и `canary-bucket-green`.
-1. [Удалите](../vpc/operations/subnet-delete.md) подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-c`.
-1. [Удалите](../vpc/operations/network-delete.md) сеть `canary-network`.
+1. {% if audience != "internal" %}[Удалите](../vpc/operations/subnet-delete.md){% else %}Удалите{% endif %} подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-c`.
+1. {% if audience != "internal" %}[Удалите](../vpc/operations/network-delete.md){% else %}Удалите{% endif %} сеть `canary-network`.

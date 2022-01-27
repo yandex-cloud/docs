@@ -10,7 +10,7 @@ keywords:
 # Список управления доступом (ACL)
 
 В {{ yandex-cloud }} используются два независимых друг от друга механизма управления доступами к ресурсам {{ objstorage-name }}:
-* [{{ iam-name }}](../../iam/concepts/index.md).
+* {% if audience != "internal" %}[{{ iam-name }}](../../iam/concepts/index.md){% else %}{{ iam-name }}{% endif %}.
 * ACL {{ objstorage-name }} — список разрешений для каждого объекта и бакета, хранящийся непосредственно в {{ objstorage-name }}.
 
 При получении запроса к бакету или объекту {{ objstorage-name }} проверяет доступы с помощью обоих механизмов. Если необходимый доступ открыт хотя бы одним из способов, {{ objstorage-name }} выполняет запрос. Разрешения, выданные на бакет, распространяются на все находящиеся в нем объекты. ACL позволяет расширить доступы к отдельному объекту.
@@ -31,7 +31,7 @@ keywords:
 
 {% note info %}
 
-ACL, загруженный для объектов, применяется мгновенно. ACL, загруженный для бакетов, и доступы, измененные в {{ iam-short-name }}, применяются с задержкой. Подробнее про задержки читайте в [документации {{ iam-short-name }}](../../iam/concepts/access-control/index.md).
+ACL, загруженный для объектов, применяется мгновенно. ACL, загруженный для бакетов, и доступы, измененные в {{ iam-short-name }}, применяются с задержкой. Подробнее про задержки читайте в {% if audience != "internal" %}[документации {{ iam-short-name }}](../../iam/concepts/access-control/index.md){% else %}документации {{ iam-short-name }}{% endif %}.
 
 {% endnote %}
 
@@ -41,8 +41,8 @@ ACL, загруженный для объектов, применяется мг
 
   Идентификатор можно получить:
   * В разделе [IAM]({{ link-console-access-management }}) консоли управления.
-  * С помощью [CLI или API {{ iam-short-name }}](../../iam/operations/users/get.md).
-* [Сервисный аккаунт](../../iam/concepts/users/service-accounts)
+  * С помощью {% if audience != "internal" %}[CLI или API {{ iam-short-name }}](../../iam/operations/users/get.md){% else %}CLI или API {{ iam-short-name }}{% endif %}.
+* {% if audience != "internal" %}[Сервисный аккаунт](../../iam/concepts/users/service-accounts){% else %}Сервисный аккаунт{% endif %}
 
   Для получения идентификатора перейдите в раздел **Сервисные аккаунты** консоли управления.
 
@@ -120,7 +120,7 @@ ACL | Описание
 
 {% note warning %}
 
-Назначение ролей [системным группам](../../iam/concepts/access-control/system-group.md) `allUsers` и `allAuthenticatedUsers` на каталог или облако, которым принадлежит бакет, эквивалентно выдаче **публичного доступа** к бакету:
+Назначение ролей {% if audience != "internal" %}[системным группам](../../iam/concepts/access-control/system-group.md){% else %}системным группам{% endif %} `allUsers` и `allAuthenticatedUsers` на каталог или облако, которым принадлежит бакет, эквивалентно выдаче **публичного доступа** к бакету:
 * `allAuthenticatedUsers` — доступ к бакету получат все аутентифицированные пользователи {{ yandex-cloud }}: как из вашего облака, так и из облаков других пользователей.
 * `allUsers` — доступ получат все пользователи.
 

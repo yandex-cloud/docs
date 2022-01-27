@@ -43,7 +43,7 @@
     
         {% note info %}
         
-        Если у вас еще нет ни одного сертификата в {{ certificate-manager-full-name }}, нажмите кнопку **Перейти в {{ certificate-manager-name }}** и воспользуйтесь [инструкцией](../../../certificate-manager/quickstart/index.md), чтобы создать свой первый сертификат.  
+        Если у вас еще нет ни одного сертификата в {{ certificate-manager-full-name }}, нажмите кнопку **Перейти в {{ certificate-manager-name }}** и воспользуйтесь {% if audience != "internal" %}[инструкцией](../../../certificate-manager/quickstart/index.md){% else %}инструкцией{% endif %}, чтобы создать свой первый сертификат.  
         
         {% endnote %}
 

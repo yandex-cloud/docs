@@ -126,7 +126,6 @@ items:
     when: audience == "external"
   - name: Object Storage
     href: storage/index.yaml
-    when: audience == "external"
   - name: Техническая поддержка Yandex.Cloud
     href: support/index.yaml
     when: audience == "external"

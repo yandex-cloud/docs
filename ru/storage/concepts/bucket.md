@@ -60,13 +60,13 @@ keywords:
 - Загрузить [конфигурацию CORS](cors.md) для бакета.
 - Включить [шифрование бакета](../operations/buckets/encrypt.md).
 
-    Объекты, добавляемые в этот бакет, будут по умолчанию шифроваться указанным [ключом {{ kms-short-name }}](../../kms/concepts/key.md).
+    Объекты, добавляемые в этот бакет, будут по умолчанию шифроваться указанным {% if audience != "internal" %}[ключом {{ kms-short-name }}](../../kms/concepts/key.md){% else %}ключом {{ kms-short-name }}{% endif %}.
     
 - Настроить [жизненные циклы объектов](lifecycles.md).
 
 ## Доступ к бакетам {#bucket-access}
 
-По умолчанию бакеты создаются с ограниченным доступом, который определяется настройками в [IAM](../../iam/concepts/index.md). С помощью консоли управления вы можете [открыть публичный доступ](../operations/buckets/bucket-availability.md):
+По умолчанию бакеты создаются с ограниченным доступом, который определяется настройками в {% if audience != "internal" %}[IAM](../../iam/concepts/index.md){% else %}IAM{% endif %}. С помощью консоли управления вы можете [открыть публичный доступ](../operations/buckets/bucket-availability.md):
 
 {% include [storage-public-operations](../_includes_service/storage-public-operations.md) %}
 

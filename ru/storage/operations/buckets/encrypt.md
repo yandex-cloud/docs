@@ -1,12 +1,12 @@
 # Шифрование бакета
 
-В {{ objstorage-short-name }} есть возможность шифровать объекты в бакете с помощью [ключей {{ kms-short-name }}](../../../kms/concepts/key.md):
+В {{ objstorage-short-name }} есть возможность шифровать объекты в бакете с помощью {% if audience != "internal" %}[ключей {{ kms-short-name }}](../../../kms/concepts/key.md){% else %}ключей {{ kms-short-name }}{% endif %}:
 * [Добавьте шифрование бакету](#add), чтобы все новые объекты шифровались указанным ключом.
 * Указывайте ключ шифрования при [загрузке объекта через API](../../s3/api-ref/object/upload.md).
 
 {% note alert %}
 
-Данные в {{ objstorage-short-name }} шифруются по схеме [envelope encryption](../../../kms/concepts/envelope.md). Удаление ключа равносильно уничтожению зашифрованных им данных.
+Данные в {{ objstorage-short-name }} шифруются по схеме {% if audience != "internal" %}[envelope encryption](../../../kms/concepts/envelope.md){% else %}envelope encryption{% endif %}. Удаление ключа равносильно уничтожению зашифрованных им данных.
 
 {% endnote %}
 
@@ -24,15 +24,15 @@
 
 - Terraform
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
 
-  Перед началом работы, [получите IAM-токен](../../../iam/operations/iam-token/create-for-sa.md#via-cli) для сервисного аккаунта и запишите его в файл.
+  Перед началом работы, {% if audience != "internal" %}[получите IAM-токен](../../../iam/operations/iam-token/create-for-sa.md#via-cli){% else %}получите IAM-токен{% endif %} для сервисного аккаунта и запишите его в файл.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      * `service_account_key_file` — путь к файлу, содержащему IAM-токен для сервисного аккаунта (или содержимое файла).
-     * `default_algorithm` — алгоритм шифрования, который будет использоваться с новой [версией ключа](../../../kms/concepts/version.md) генерируется при следующей ротации ключа. Значение по умолчанию `AES_128`.
-     * `rotation_period` — [период ротации](../../../kms/concepts/version.md#rotate-key). Чтобы отключить автоматическую ротацию, не указывайте этот параметр.
+     * `default_algorithm` — алгоритм шифрования, который будет использоваться с новой {% if audience != "internal" %}[версией ключа](../../../kms/concepts/version.md){% else %}версией ключа{% endif %} генерируется при следующей ротации ключа. Значение по умолчанию `AES_128`.
+     * `rotation_period` — {% if audience != "internal" %}[период ротации](../../../kms/concepts/version.md#rotate-key){% else %}период ротации{% endif %}. Чтобы отключить автоматическую ротацию, не указывайте этот параметр.
      * `apply_server_side_encryption_by_default` — параметры шифрования по умолчанию на стороне сервера:
 
        * `kms_master_key_id` — идентификатор мастер ключа KMS, используемый для шифрования.

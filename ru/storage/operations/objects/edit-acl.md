@@ -1,6 +1,6 @@
 # Редактирование ACL объекта
 
-Помимо [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-name }} поддерживает управление доступом с помощью [ACL](../../concepts/acl.md).
+Помимо {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/index.yaml){% else %}{{ iam-short-name }}{% endif %}, {{ objstorage-name }} поддерживает управление доступом с помощью [ACL](../../concepts/acl.md).
 
 {% list tabs %}
 

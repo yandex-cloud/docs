@@ -67,9 +67,9 @@
 
 ## Аутентификация {#authentication}
 
-GeeseFS использует [статический ключ доступа](../../iam/concepts/authorization/access-key.md) к {{ objstorage-name }}, хранящийся в файле `.aws/credentials`. Также можно поместить ключ в переменные окружения `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY`.
+GeeseFS использует {% if audience != "internal" %}[статический ключ доступа](../../iam/concepts/authorization/access-key.md){% else %}статический ключ доступа{% endif %} к {{ objstorage-name }}, хранящийся в файле `.aws/credentials`. Также можно поместить ключ в переменные окружения `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY`.
 
-При работе с GeeseFS на виртуальной машине {{ compute-name }}, к которой [привязан сервисный аккаунт](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), вы можете включить упрощенную аутентификацию, без статического ключа доступа. Для этого при монтировании бакета используйте опцию `--iam`.
+При работе с GeeseFS на виртуальной машине {{ compute-name }}, к которой {% if audience != "internal" %}[привязан сервисный аккаунт](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance){% else %}привязан сервисный аккаунт{% endif %}, вы можете включить упрощенную аутентификацию, без статического ключа доступа. Для этого при монтировании бакета используйте опцию `--iam`.
 
 ## Монтирование бакета {#bucket-mounting}
 

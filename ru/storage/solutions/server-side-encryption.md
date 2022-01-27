@@ -1,6 +1,6 @@
 # Шифрование на стороне сервера
 
-В этом сценарии вы включите шифрование для бакета. В качестве ключа симметричного шифрования будет использоваться [ключ {{ kms-full-name }}](../../kms/concepts/key.md). Все новые объекты в бакете будут шифроваться указанным ключом по схеме [envelope encryption](../../kms/concepts/envelope.md).
+В этом сценарии вы включите шифрование для бакета. В качестве ключа симметричного шифрования будет использоваться {% if audience != "internal" %}[ключ {{ kms-full-name }}](../../kms/concepts/key.md){% else %}ключ {{ kms-full-name }}{% endif %}. Все новые объекты в бакете будут шифроваться указанным ключом по схеме {% if audience != "internal" %}[envelope encryption](../../kms/concepts/envelope.md){% else %}envelope encryption{% endif %}.
 
 Чтобы включить шифрование бакета на стороне сервера:
 
@@ -17,7 +17,7 @@
 
 {% include [prepare-register-billing](../../_includes/tutorials/includes/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака]({{ link-console-cloud }}) и выберите или создайте каталог, в котором вы хотите создать бакет. [Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака]({{ link-console-cloud }}) и выберите или создайте каталог, в котором вы хотите создать бакет. {% if audience != "internal" %}[Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md){% else %}Подробнее об иерархии ресурсов {{ yandex-cloud }}{% endif %}.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -25,7 +25,7 @@
 
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../pricing.md#prices-storage));
 * плата за операции с данными (см. [тарифы {{ objstorage-name }}](../pricing.md#prices-operations));
-* плата за использование ключей KMS (см. [тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
+* плата за использование ключей KMS (см. {% if audience != "internal" %}[тарифы {{ kms-name }}](../../kms/pricing.md#prices){% else %}тарифы {{ kms-name }}{% endif %}).
 
 ## Создайте бакет {#create-bucket}
 
@@ -49,7 +49,7 @@
 
 - Terraform
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
@@ -172,7 +172,7 @@
 
       * Имя и опциональное описание в свободной форме, например, `key-1` и `bucket-key`.
       * Алгоритм шифрования, например `AES-256`.
-      * Период [ротации](../../kms/concepts/version.md#rotate-key), например, `7 дней`.
+      * Период {% if audience != "internal" %}[ротации](../../kms/concepts/version.md#rotate-key){% else %}ротации{% endif %}, например, `7 дней`.
       * Нажмите кнопку **Создать**.
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
@@ -298,7 +298,7 @@
 
 - API
 
-  Воспользуйтесь методом [create](../../kms/api-ref/SymmetricKey/create.md) для ресурса `SymmetricKey`.
+  Воспользуйтесь методом {% if audience != "internal" %}[create](../../kms/api-ref/SymmetricKey/create.md){% else %}create{% endif %} для ресурса `SymmetricKey`.
 
 {% endlist %}
 
@@ -456,7 +456,7 @@
 
 {% note alert %}
 
-После отключения шифрования уже загруженные объекты будут храниться зашифрованными. Данные в {{ objstorage-name }} шифруются по схеме [envelope encryption](../../kms/concepts/envelope.md). Удаление ключа равносильно уничтожению зашифрованных им данных.
+После отключения шифрования уже загруженные объекты будут храниться зашифрованными. Данные в {{ objstorage-name }} шифруются по схеме {% if audience != "internal" %}[envelope encryption](../../kms/concepts/envelope.md){% else %}envelope encryption{% endif %}. Удаление ключа равносильно уничтожению зашифрованных им данных.
 
 {% endnote %}
 

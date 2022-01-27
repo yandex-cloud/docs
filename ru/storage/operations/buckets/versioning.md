@@ -25,7 +25,7 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
   
-    Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+    Получите {% if audience != "internal" %}[статические ключи доступа](../../../iam/operations/sa/create-access-key.md){% else %}статические ключи доступа{% endif %} — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
   Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
   * `bucket` — имя бакета. Обязательный параметр.

@@ -77,7 +77,7 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Получите {% if audience != "internal" %}[статические ключи доступа](../../../iam/operations/sa/create-access-key.md){% else %}статические ключи доступа{% endif %} — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
      * `access_key` — идентификатор статического ключа доступа.
@@ -210,7 +210,7 @@
 
 - Terraform
 
-  Подробнее о Terraform в [документации](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о Terraform в {% if audience != "internal" %}[документации](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}документации{% endif %}.
 
   Если вы применили политику доступа к бакету при помощи Terraform, вы можете удалить её:
 
