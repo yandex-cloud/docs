@@ -1,14 +1,8 @@
 ---
 title: "GPU and vGPU - Graphics Accelerators"
 description: "GPU is a graphics processor unit that handles certain types of data much more efficiently than vCPU can be used for complex calculations. Compute Cloud provides graphics accelerators (GPU) and virtual graphics accelerators (vGPU) as part of the graphics card."
-keywords:
-  - gpu
-  - graphics processor
-  - graphics cards 
-  - графический процессор
-  - графические карты
-  - видео карты
 ---
+
 # Graphics accelerators (GPUs and vGPUs)
 
 {{ compute-short-name }} provides graphics accelerators (GPUs) and virtual graphics accelerators (vGPUs) as part of graphics cards. GPUs outperform vCPUs in processing certain types of data and can be used for complex computing.
@@ -46,26 +40,29 @@ Available configurations of computing resources:
 
 * {{ v100-broadwell }} (`gpu-standard-v1`):
 
-  | Number of GPUs | Number of vCPUs | RAM, GB |
-  | --- | --- | --- |
-  | 1 | 8 | 96 |
-  | 2 | 16 | 192 |
-  | 4 | 32 | 384 |
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
+  --- |  ---  |  ---  | ---
+  1   |  32   |  8    | 96
+  2   |  64   |  16   | 192
+  4   |  128  |  32   | 384
 
 * {{ v100-cascade-lake }} (`gpu-standard-v2`):
 
-  | Number of GPUs | Number of vCPUs | RAM, GB |
-  | --- | --- | --- |
-  | 1 | 8 | 48 |
-  | 2 | 16 | 96 |
-  | 4 | 32 | 192 |
-  | 8 | 64 | 384 |
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
+  --- |  ---  |  ---  | ---
+  1   |  32   |  8    | 48
+  2   |  64   |  16   | 96
+  4   |  128  |  32   | 192
+  8   |  256  |  64   | 384
 
 * {{ a100-epyc }} (`gpu-standard-v3`):
 
-  | Number of GPUs | Number of vCPUs | RAM, GB |
-  | --- | --- | --- |
-  | 8 | 224 | 952 |
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
+  --- | --- | --- | ---
+  1   | 80  | 28  | 119
+  2   | 160 | 56  | 238
+  4   | 320 | 112 | 476
+  8   | 640 | 224 | 952
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
 
@@ -84,9 +81,9 @@ NVIDIA® vGPU software lets you use cards with GPUs for both graphics and comput
 To use vGPU technology, you need:
 
 * A VM running on the [platform](vm-platforms.md) `vgpu-standard-v1` with one of the following images:
-  * [Ubuntu 18.04 lts vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}.
+  * [Ubuntu 18.04 LTS vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}.
   * [Windows Server 2019 Datacenter vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}.
-* [NVIDIA® RTX vWS](https://www.nvidia.com/en-us/design-visualization/virtual-workstation/) license to use [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf) technology.
+* The [NVIDIA® RTX vWS]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/design-visualization/virtual-workstation/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/design-visualization/virtual-workstation/){% endif %} license to use [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf) technology.
 * [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 
 To work with the license, you can:
@@ -100,9 +97,9 @@ For information about how to install and configure the license server, see the [
 
 VMs with vGPUs can use the following configuration on {{ v100-broadwell }} 8G (`vgpu-standard-v1`):
 
-| Number of vGPUs | Number of vCPUs | RAM, GB | GPU RAM, GB |
-| --- | --- | --- | --- |
-| 1 | 4 | 12 | 8 |
+Number of vGPUs | Number of vCPUs | RAM, GB | GPU RAM, GB
+--- | --- | --- | ---
+1 | 4 | 12 | 8
 
 ## GPU vs. vGPU comparison
 
@@ -113,4 +110,3 @@ VMs with vGPUs can use the following configuration on {{ v100-broadwell }} 8G (`
 * [{#T}](../operations/vm-create/create-vm-with-gpu.md).
 * Learn how to [add a GPU to an existing VM](../operations/vm-control/vm-update-resources.md#add-gpu).
 * Learn how to [change the number of GPUs](../operations/vm-control/vm-update-resources.md#update-gpu).
-
