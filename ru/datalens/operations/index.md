@@ -20,6 +20,8 @@
 ## Работа с датасетом {#working-with-datasets}
 
 - [{#T}](dataset/create.md)
+- [{#T}](dataset/join-data.md)
+- [{#T}](dataset/join-data-csv.md)
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)

@@ -143,6 +143,10 @@ items:
         items:
           - name: Создание датасета
             href: operations/dataset/create.md
+          - name: Объединение данных из нескольких таблиц
+            href: operations/dataset/join-data.md
+          - name: Объединение данных из нескольких CSV-подключений
+            href: operations/dataset/join-data-csv.md
           - name: Создание поля данных
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
