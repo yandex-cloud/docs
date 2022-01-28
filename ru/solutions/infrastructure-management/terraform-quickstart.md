@@ -2,15 +2,17 @@
 
 {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-Чтобы создать первую конфигурацию Terraform:
+Чтобы создать вашу первую инфраструктуру в {{ yandex-cloud }} с помощью Terraform:
 
-1. [Установите Terraform](#install-terraform)
-1. [Создайте файл конфигурации Terraform](#configure-terraform)
-1. [Настройте провайдер](#configure-provider)
-1. [Подготовьте план инфраструктуры](#prepare-plan)
-1. [Проверьте и отформатируйте файлы конфигурации](#check-resources)
-1. [Создайте ресурсы](#create-resources)
-1. [Удалите ресурсы](#delete-resources)
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Установите Terraform](#install-terraform).
+1. [Создайте файл конфигурации Terraform](#configure-terraform).
+1. [Настройте провайдер](#configure-provider).
+1. [Подготовьте план инфраструктуры](#prepare-plan).
+1. [Проверьте и отформатируйте файлы конфигурации](#check-resources).
+1. [Создайте ресурсы](#create-resources).
+
+Если ресурсы больше вам не нужны, [удалите их](#delete-resources).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -116,6 +118,8 @@ resource "yandex_compute_instance" "vm-1" {
 
 {% include [create-resources](../../_includes/solutions/terraform-create-resources.md) %}
 
-## Удалите ресурсы {#delete-resources}
+## Как удалить созданные ресурсы {#delete-resources}
 
 {% include [delete-resources](../../_includes/solutions/terraform-delete-resources.md) %}
+
+Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).

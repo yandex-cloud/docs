@@ -22,18 +22,22 @@
 
 Для описания правил политик используется JSON-подобный язык.
 
-Чтобы по политике не запретить доступ к бакету через консоль управления {{ yandex-cloud }}, можно добавить следующее правило в секцию `Statement`:
+## Доступ к бакету через консоль управления {#console-access}
+
+Если для бакета настроена политика доступа, то по умолчанию доступ к бакету через консоль управления {{ yandex-cloud }} запрещен. Чтобы разрешить доступ к бакету, нужно добавить в секцию `Statement` политики доступа правило, разрешающее любые запросы к ресурсам `<имя бакета>/*` и `<имя бакета>` через консоль управления.
+
+Пример правила для конкретного пользователя {{ yandex-cloud }}:
 
 ```json
 {
   "Effect": "Allow",
   "Principal": {
-  "CanonicalUser": "ajeyourusernameid"
+    "CanonicalUser": "<идентификатор пользователя>"
   },
   "Action": "*",
   "Resource": [
-    "arn:aws:s3:::your-bucket-name/*",
-    "arn:aws:s3:::your-bucket-name"
+    "arn:aws:s3:::<имя бакета>/*",
+    "arn:aws:s3:::<имя бакета>"
   ],
   "Condition": {
     "StringLike": {
@@ -43,13 +47,15 @@
 }
 ```
 
+Идентификатор пользователя можно получить по [инструкции](../../iam/operations/users/get.md) в документации {{ iam-full-name }}.
+
 ## Примеры конфигурации {#config-examples}
 
 * Политика, которая разрешает анонимному пользователю чтение объектов бакета `samplebucket` по зашифрованному подключению:
 
 ```json
 {
-  "Id": "epd4limdp3dgec7enpq5"
+  "Id": "epd4limdp3dgec7enpq5",
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -57,7 +63,7 @@
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::samplebucket/*",
+      "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "Bool": {
           "aws:SecureTransport": "true"
@@ -78,7 +84,7 @@
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::samplebucket/*",
+      "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
           "aws:SourceIp": "100.101.102.128/30"
@@ -99,13 +105,13 @@
       "Effect": "Allow",
       "Principal": "*",
       "Action": "*",
-      "Resource": "arn:aws:s3:::samplebucket/*"
+      "Resource": "arn:aws:s3:::<имя бакета>/*"
     },
     {
       "Effect": "Deny",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::samplebucket/*",
+      "Resource": "arn:aws:s3:::<имя бакета>/*",
       "Condition": {
         "IpAddress": {
           "aws:SourceIp": "100.101.102.103"
@@ -126,19 +132,19 @@
       "Sid":"User1PermissionsResource",
       "Effect":"Allow",
       "Principal": {
-        "CanonicalUser": "ajeanexampleusername"
+        "CanonicalUser": "<идентификатор пользователя>"
       },
       "Action": "*",
-      "Resource":["arn:aws:s3:::common-bucket/user1path/*"]
+      "Resource":["arn:aws:s3:::<имя бакета>/user1path/*"]
     },
     {
       "Sid":"User1PermissionsPrefix",
       "Effect":"Allow",
       "Principal": {
-          "CanonicalUser": "ajeanexampleusername"
+          "CanonicalUser": "<идентификатор пользователя>"
       },
       "Action": "s3:ListBucket",
-      "Resource":["arn:aws:s3:::common-bucket"],
+      "Resource":["arn:aws:s3:::<имя бакета>"],
       "Condition": {
         "StringLike": {
           "s3:prefix": "user1path/*"
@@ -149,19 +155,19 @@
       "Sid":"User2PermissionsResource",
       "Effect":"Allow",
       "Principal": {
-        "CanonicalUser": "ajesomeotherusername"
+        "CanonicalUser": "<идентификатор пользователя>"
       },
       "Action": "*",
-      "Resource":["arn:aws:s3:::common-bucket/user2path/*"]
+      "Resource":["arn:aws:s3:::<имя бакета>/user2path/*"]
     },
     {
       "Sid":"User2PermissionsPrefix",
       "Effect":"Allow",
       "Principal": {
-        "CanonicalUser": "ajesomeotherusername"
+        "CanonicalUser": "<идентификатор пользователя>"
       },
       "Action": "s3:ListBucket",
-      "Resource":["arn:aws:s3:::common-bucket"],
+      "Resource":["arn:aws:s3:::<имя бакета>"],
       "Condition": {
         "StringLike": {
           "s3:prefix": "user2path/*"
