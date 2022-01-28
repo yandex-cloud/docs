@@ -425,6 +425,7 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
     * New values of [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) in the parameter:
         * `configSpec.kafka.kafkaConfig_2_1` if you use {{ KF }} `2.1`.
         * `configSpec.kafka.kafkaConfig_2_6` if you use {{ KF }} `2.6`.
+        * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`.
 
 {% endif %}
 

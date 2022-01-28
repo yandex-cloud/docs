@@ -119,7 +119,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
       {{ yc-mdb-kf }} cluster create \
          --name <cluster name> \
          --environment <prestable or production> \
-         --version <2.1 or 2.6> \
+         --version <2.1, 2.6 or 2.8> \
          --network-name <network name> \
          --brokers-count <number of brokers in the zone> \
          --resource-preset <host class> \
@@ -190,7 +190,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
           config {
             assign_public_ip = "<public access to the cluster: true or false>"
             brokers_count    = <number of brokers>
-            version          = "<Apache Kafka version: 2.1 or 2.6>"
+            version          = "<Apache Kafka version: 2.1, 2.6 or 2.8>"
             kafka {
               resources {
                 disk_size          = <storage size in GB>
