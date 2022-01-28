@@ -2,6 +2,10 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/overview/security-bulletins/cve-2022-0185.md) %}
+
+{% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/overview/security-bulletins/cve-2021-4034-polkit.md) %}
+
 ## 29.12.2021 — CVE-2021-45105, CVE-2021-44832 — Denial of Service and Remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
 
 ### Description
