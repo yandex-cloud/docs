@@ -7,5 +7,6 @@
 * [{#T}](joomla-postgresql.md)
 * [{#T}](wordpress.md)
 * [{#T}](wordpress-mysql.md)
+* [{#T}](wordpress-transfer.md)
 * [{#T}](bitrix-website.md)
 * [{#T}](blue-green-canary-deployment.md)

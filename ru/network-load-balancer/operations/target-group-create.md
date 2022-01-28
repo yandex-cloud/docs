@@ -25,13 +25,18 @@
   1. Посмотрите описание команды CLI для создания целевой группы:
   
      ```
-     $ yc load-balancer target-group create --help
+     yc load-balancer target-group create --help
      ```
   
   1. Получите список виртуальных машин:
   
      ```
-     $ yc compute instance list
+     yc compute instance list
+     ```
+
+     Результат:
+     
+     ```
      +----------------------+------------+---------------+---------+
      |          ID          |    NAME    |    ZONE ID    | STATUS  |
      +----------------------+------------+---------------+---------+
@@ -45,7 +50,7 @@
   1. Выберите `ID` виртуальной машины, которую следует добавить в целевую группу, и получите о ней сведения:
   
      ```
-     $ yc compute instance get fhmajnpl7cvhl6v1s12i
+     yc compute instance get fhmajnpl7cvhl6v1s12i
        ...
        subnet_id: e9bhjah6j3k7e6v8t5fa
        primary_v4_address:
@@ -56,16 +61,78 @@
   1. Создайте целевую группу и добавьте в нее нужную виртуальную машину в качестве целевого ресурса, указав `subnet-id` и `address` виртуальной машины во флаге `--target`:
   
      ```
-     $ yc load-balancer target-group create \
-     --region-id ru-central1 \
-     --name test-tg-1 \
-     --target subnet-id=e9bhjah6j3k7e6v8t5fa,address=192.168.0.3
+     yc load-balancer target-group create \
+       --region-id ru-central1 \
+       --name test-tg-1 \
+       --target subnet-id=<идентификатор подсети>,address=<внутренний IP-адрес ресурса>
      ```
   
+
+
 - API
   
   Создать новую целевую группу можно с помощью метода API [create](../api-ref/TargetGroup/create.md).
   
   После создания целевой группы следует добавить в нее целевые ресурсы, по которым будет распределяться нагрузка. Целевые ресурсы добавляются в группу с помощью метода [addTargets](../api-ref/TargetGroup/addTargets).
-  
+
+- Terraform
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+     * `name` — имя целевой группы.
+     * блок `target` — описание целевого ресурса:
+        * `subnet_id` — идентификатор подсети, к которой подключены целевые объекты. Все целевые объекты в целевой группе должны быть подключены к одной и той же подсети в пределах одной зоны доступности. Обязательный параметр.
+        * `address` — внутренний IP-адрес ресурса. Обязательный параметр.
+
+     ```hcl
+     provider "yandex" {
+       token     = "<OAuth>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "ru-central1-a"
+     }
+     
+     resource "yandex_lb_target_group" "foo" {
+       name      = "my-target-group"
+     
+       target {
+         subnet_id = "<идентификатор подсети>"
+         address   = "<внутренний IP-адрес ресурса>"
+       }
+     
+       target {
+         subnet_id = "<идентификатор подсети>"
+         address   = "<внутренний IP-адрес ресурса 2>"
+       }
+     
+     }
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_lb_target_group` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/lb_target_group).
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+
+  1. Разверните облачные ресурсы.
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
 {% endlist %}

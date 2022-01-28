@@ -8,14 +8,14 @@ Depending on your service plan, you can [contact support]({{ link-console-suppor
 
 {% include [support-channels](../_includes/support/channels.md) %}
 
-Requests pertaining to errors in infrastructure production environments are given _critical_ priority.
+If there is a problem with your infrastructure's production environment, specify _Critical issue_ as your request type.
 
-The maximum time it takes the support team to respond to your request is given in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
+The expected support specialist response time is shown in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
 
 | Channel | Basic | Standard | Business | Premium |
 | ----- | ----- | ----- | ----- | ----- |
 |  | For personal and research projects | For development and pilot projects | For professional projects |  |
-| Request in console | 24 hours | Standard: 8 hours<br/>Critical: 2 hours | Standard: 4 hours<br/>Critical: 30 minutes | Standard: 2 hours<br/>Critical: 15 minutes |
+| Request in console | Normal: 24 hours<br/>Increase quotas: 30 minutes | Normal: 8 hours<br/>Critical: 2 hours<br/>Increase quotas: 30 minutes | Normal: 4 hours<br/>Critical: 30 minutes<br/>Increase quotas: 30 minutes | Normal: 2 hours<br/>Critical: 15 minutes<br/>Increase quotas: 30 minutes |
 | Chat | - | 15 minutes | 5 minutes | immediate |
 | Phone | - | - | on additional request | on additional request |
 
