@@ -23,6 +23,8 @@ items:
         href: web/wordpress.md
       - name: Сайт на WordPress с БД MySQL
         href: web/wordpress-mysql.md
+      - name: Перенос WordPress сайта с хостинга в Yandex.Cloud
+        href: web/wordpress-transfer.md
       - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
