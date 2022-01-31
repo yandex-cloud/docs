@@ -1,2 +1,0 @@
-items:
-- include: { mode: merge, path: yql-docs-core-2/toc_m.yaml }

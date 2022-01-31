@@ -109,6 +109,8 @@ default:
   yql-short-name: YQL
   PG: PostgreSQL
   oss: false
+
+  # Роли
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
@@ -116,21 +118,45 @@ default:
   roles-ydb-editor: ydb.editor
   roles-ydb-viewer: ydb.viewer
   roles-ydb-admin: ydb.admin
+
+
+  # Ссылки
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-main: https://console.cloud.yandex.ru/
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
-  tech: false
+
+  # YQL:
+  tech: false # Include technical info for developers of services supporting YQL (like YDB), not for users of those services. For instance, debug pragmas.
   backend_name: YDB
   backend_name_lower: ydb
   ydb: true
   example_cluster: ydbtest
-  feature_secondary_index: true
+  feature_secondary_index: true 
   feature_replace: true
   feature_upsert: true
   feature_join: true
   feature_map_tables: true
   feature_group_by_rollup_cube: true
   feature_window_functions: true
+
+tech:
+  audience: tech
+  ydb-cli: ya ydb
+  objstorage-name: MDS
+  s3-storage-host: mds.yandex.ru
+  deploy: arc
+  oss: true
+  k8s: Kubernetes
+internal:
+  audience: internal
+  ydb-cli: ya ydb
+  objstorage-name: MDS
+  s3-storage-host: mds.yandex.ru
+  k8s: Kubernetes
+  deploy: arc
+  oss: true
+  concept_secondary_index: http://ydb.yandex-team.ru/docs/concepts/secondary_indexes
+  concept_table: http://ydb.yandex-team.ru/docs/concepts/datamodel#table
 external:
   audience: external
   deploy: arc
@@ -138,3 +164,4 @@ external:
   oss: false
   concept_secondary_index: ../../../../concepts/secondary_indexes
   concept_table: ../../../../concepts/datamodel#table
+

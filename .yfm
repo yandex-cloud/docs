@@ -9,7 +9,8 @@ ignore:
   - "en/mdb/*"
   - "ru/tracker/api-ref/*"
   - "en/tracker/api-ref/*"
-  - "ru/ydb-src/*"
+  - "ru/ydb/ydb-docs-core/ru/toc.yaml"
+  - "ru/ydb/ydb-docs-core/en/toc.yaml"
 
 connector:
     type: github
