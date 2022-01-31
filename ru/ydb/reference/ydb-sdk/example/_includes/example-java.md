@@ -1,9 +1,9 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/example-java.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/example-java.md
 ---
 # Приложение на Java
 
-На этой странице подробно разбирается код [тестового приложения](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/maven_project), доступного в составе [Java SDK](https://github.com/yandex-cloud/ydb-java-sdk) YDB.
+На этой странице подробно разбирается код [тестового приложения](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/maven_project), доступного в составе [Java SDK](https://github.com/yandex-cloud/ydb-java-sdk) {{ ydb-short-name }}.
 
 {% include [init.md](steps/01_init.md) %}
 

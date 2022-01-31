@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: core/troubleshooting/monitoring.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/monitoring.md
 ---
 
 

@@ -1,9 +1,9 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/archive/example-go-v1.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/archive/example-go-v1.md
 ---
 # Приложение на Go (архивная версия v1)
 
-На этой странице подробно разбирается код [тестового приложения](https://github.com/yandex-cloud/ydb-go-sdk/tree/v1.5.1/example/basic_example_v1), доступного в составе [v1 Go SDK](https://github.com/yandex-cloud/ydb-go-sdk/tree/v1.5.1) YDB.
+На этой странице подробно разбирается код [тестового приложения](https://github.com/yandex-cloud/ydb-go-sdk/tree/v1.5.1/example/basic_example_v1), доступного в составе [v1 Go SDK](https://github.com/yandex-cloud/ydb-go-sdk/tree/v1.5.1) {{ ydb-short-name }}.
 
 {% include [init.md](../_includes/steps/01_init.md) %}
 

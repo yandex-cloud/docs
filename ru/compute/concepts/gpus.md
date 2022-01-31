@@ -11,6 +11,7 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 * [NVIDIA® Tesla® V100](https://www.nvidia.com/ru-ru/data-center/tesla-v100/) с 32 ГБ памяти HBM2 (High Bandwidth Memory).
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/ru-ru/data-center/a100/) с 80 ГБ памяти HBM2.
+* [NVIDIA® Tesla® T4](https://www.nvidia.com/ru-ru/data-center/tesla-t4/) с 16 ГБ памяти GDDR6.
 
 {% note warning %}
 
@@ -32,7 +33,10 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 ### NVIDIA® Ampere® A100 {#a100}
 
-NVIDIA® A100, построенная на базе микроархитектуры [Ampere®](https://www.nvidia.com/ru-ru/data-center/ampere-architecture/), использует тензорные ядра третьего поколения и предоставляет 80 ГБ памяти HBM2 с пропускной способностью до 2 ТБ/с. 
+NVIDIA® A100, построенная на базе микроархитектуры [Ampere®](https://www.nvidia.com/ru-ru/data-center/ampere-architecture/), использует тензорные ядра третьего поколения и предоставляет 80 ГБ памяти HBM2 с пропускной способностью до 2 ТБ/с.
+
+### NVIDIA® Tesla® T4 {#tesla-t4}
+NVIDIA® Tesla® T4, построенная на базе архитектуры [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf), использует тензорные ядра Turing и новые ядра RT, предоставляет 16 ГБ памяти GDDR6 с [пропускной способностью 300 ГБ/с](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
 ### Конфигурации виртуальных машин {#config}
 
@@ -63,6 +67,12 @@ NVIDIA® A100, построенная на базе микроархитекту
   2   | 160 | 56  | 238
   4   | 320 | 112 | 476
   8   | 640 | 224 | 952
+
+* Платформа {{ t4-ice-lake }} (`gpu-standard-v3-t4`):
+
+  Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
+  --- | --- | --- | ---
+  1   | 16  | 32  | 128
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
 

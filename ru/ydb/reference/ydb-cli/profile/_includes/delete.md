@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-cli/profile/_includes/delete.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/profile/_includes/delete.md
 ---
 # Удаление профиля
 
@@ -8,7 +8,7 @@ sourcePath: core/reference/ydb-cli/profile/_includes/delete.md
 Удалите профиль `example`:
 
 ```bash
-ydb config profile delete example
+{{ ydb-cli }} config profile delete example
 ```
 
 Результат:

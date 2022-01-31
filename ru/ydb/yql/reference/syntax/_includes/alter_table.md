@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/alter_table.md
-sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/alter_table.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/alter_table.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/alter_table.md
 ---
 
 # ALTER TABLE
@@ -15,7 +15,7 @@ ALTER TABLE table_name action1, action2, ..., actionN;
 
 ## Изменение состава колонок {#columns}
 
-YDB поддерживает возможность добавлять столбцы в таблицу, а также удалять неключевые колонки из таблицы.
+{{ backend_name }} поддерживает возможность добавлять столбцы в таблицу, а также удалять неключевые колонки из таблицы.
 
 ```ADD COLUMN``` — добавляет столбец с указанными именем и типом. Приведенный ниже код добавит к таблице ```episodes``` столбец ```is_deleted``` с типом данных ```Bool```.
 

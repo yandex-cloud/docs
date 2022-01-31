@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/reference/ydb-cli/commands/scheme-ls.md
+sourcePath: ru/ydb/overlay/reference/ydb-cli/commands/scheme-ls.md
 ---
 {% include [intro.md](_includes/scheme-ls/intro.md) %}
 

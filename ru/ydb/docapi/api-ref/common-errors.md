@@ -1,9 +1,9 @@
 ---
-sourcePath: overlay/docapi/api-ref/common-errors.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/common-errors.md
 ---
 # Общие ошибки
 
-Ошибки, которые являются общими для всех методов Yandex Database.
+Ошибки, которые являются общими для всех методов {{ ydb-name }}.
 
 Код ошибки | Описание ошибки | Код состояния HTTP
 ----- | ----- | -----

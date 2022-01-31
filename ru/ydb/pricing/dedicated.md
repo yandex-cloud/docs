@@ -1,10 +1,10 @@
 ---
 editable: false
-sourcePath: overlay/pricing/dedicated.md
+sourcePath: ru/ydb/overlay/pricing/dedicated.md
 ---
 
 
-# Правила тарификации для режима Yandex Database с выделенными инстансами
+# Правила тарификации для режима {{ ydb-name }} с выделенными инстансами
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -12,15 +12,15 @@ sourcePath: overlay/pricing/dedicated.md
 
 ## Из чего складывается стоимость использования YDB {#rules}
 
-При работе Yandex Database в режиме с выделенными инстансами вы оплачиваете:
+При работе {{ ydb-name }} в режиме с выделенными инстансами вы оплачиваете:
 
 * тип и размер [групп хранения](../concepts/databases.md#storage-groups), выделенных для базы данных;
 * вычислительные ресурсы, выделенные базе данных.
 
 Дополнительно оплачиваются иные потребляемые ресурсы:
 
-* место, занятое в сервисе Object Storage для хранения резервных копий по требованию;
-* объем исходящего трафика из Yandex.Cloud в интернет.
+* место, занятое в сервисе {{ objstorage-name }} для хранения резервных копий по требованию;
+* объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
@@ -37,7 +37,7 @@ sourcePath: overlay/pricing/dedicated.md
 
 * Объем хранилища, выделенный для групп хранения базы данных.
 
-* Объем, занимаемый резервными копиями баз данных по требованию, сохраненными в сервисе Object Storage.
+* Объем, занимаемый резервными копиями баз данных по требованию, сохраненными в сервисе {{ objstorage-name }}.
 
    {% note info %}
 

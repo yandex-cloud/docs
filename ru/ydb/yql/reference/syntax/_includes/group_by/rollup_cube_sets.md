@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/rollup_cube_sets.md
-sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/group_by/rollup_cube_sets.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/rollup_cube_sets.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/group_by/rollup_cube_sets.md
 ---
 
 ## ROLLUP, CUBE и GROUPING SETS {#rollup}

@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/doc-tables-only.md
+sourcePath: ru/ydb/overlay/_includes/doc-tables-only.md
 ---
 {% note warning %}
 

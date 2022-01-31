@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/named-nodes.md
-sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/named-nodes.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/named-nodes.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/named-nodes.md
 ---
 
 ## Именованные выражения {#named-nodes}

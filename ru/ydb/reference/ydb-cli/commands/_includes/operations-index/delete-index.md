@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/operations-index/delete-index.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/operations-index/delete-index.md
 ---
 ## Удаление индекса {#delete-index}
 
@@ -8,5 +8,5 @@ sourcePath: core/reference/ydb-cli/commands/_includes/operations-index/delete-in
 Удалите индекс:
 
 ```bash
-ydb table index drop --index-name title_index series
+{{ ydb-cli }} table index drop --index-name title_index series
 ```

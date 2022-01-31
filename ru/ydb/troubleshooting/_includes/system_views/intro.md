@@ -1,5 +1,5 @@
 ---
-sourcePath: core/troubleshooting/_includes/system_views/intro.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/_includes/system_views/intro.md
 ---
 # Системные таблицы
 

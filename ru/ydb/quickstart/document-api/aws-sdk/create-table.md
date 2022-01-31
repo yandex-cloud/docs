@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-sdk/create-table.md
 ---
 # Создание таблицы
 

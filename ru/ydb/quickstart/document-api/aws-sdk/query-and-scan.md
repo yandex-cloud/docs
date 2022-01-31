@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 ---
 # Поиск и извлечение данных
 

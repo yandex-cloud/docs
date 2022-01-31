@@ -1,5 +1,5 @@
 ---
-sourcePath: core/best_practices/_includes/paging.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/_includes/paging.md
 ---
 # Постраничный вывод
 

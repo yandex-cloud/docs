@@ -1,14 +1,14 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/scan-query.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/scan-query.md
 ---
 # Выполнение скан запросов
 
-Запуск запроса через [Scan Queries](../../../../concepts/scan_query.md) посредством YDB CLI осуществляется добавлением флага `-t scan` в команду `ydb table query execute`.
+Запуск запроса через [Scan Queries](../../../../concepts/scan_query.md) посредством {{ ydb-short-name }} CLI осуществляется добавлением флага `-t scan` в команду `{{ ydb-cli }} table query execute`.
 
 Выполните запрос к данным:
 
 ```bash
-ydb table query execute -t scan \
+{{ ydb-cli }} table query execute -t scan \
   --query "SELECT season_id, episode_id, title \
   FROM episodes \
   WHERE series_id = 1 AND season_id > 1 \

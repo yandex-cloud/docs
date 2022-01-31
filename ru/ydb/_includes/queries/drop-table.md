@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/queries/drop-table.md
+sourcePath: ru/ydb/overlay/_includes/queries/drop-table.md
 ---
 ```sql
 DROP TABLE series;

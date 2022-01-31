@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/queries/update-data.md
+sourcePath: ru/ydb/overlay/_includes/queries/update-data.md
 ---
 ```sql
 UPDATE series

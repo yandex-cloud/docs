@@ -1,12 +1,12 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/scheme-describe.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/scheme-describe.md
 ---
 # Получение информации об объекте схемы
 
 Получите информацию об объекте схемы:
 
 ```bash
-ydb scheme describe episodes --stats
+{{ ydb-cli }} scheme describe episodes --stats
 ```
 
 Результат:

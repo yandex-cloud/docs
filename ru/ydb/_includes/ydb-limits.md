@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/ydb-limits.md
+sourcePath: ru/ydb/overlay/_includes/ydb-limits.md
 ---
 <!-- This file is referenced as include by Yandex.Cloud overview page -->
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: core/concepts/_includes/datamodel/table.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/datamodel/table.md
 ---
 ## Таблица {#table}
 Таблица в YDB — это [реляционная таблица](https://en.wikipedia.org/wiki/Table_(database)), содержащая набор связанных данных, состоящий из строк и столбцов. каждая из строк представляет собой набор ячеек, предназначенных для хранения значений определенных типов в соответствии со схемой данных. Схема данных определяет имена (names) и типы (types) столбцов таблицы. Пример схемы данных показан на рисунке ниже.

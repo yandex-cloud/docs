@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/steps/09_multistep_transactions.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/steps/09_multistep_transactions.md
 ---
 ## Многошаговые транзакции с промежуточной обработкой данных на стороне клиента {#multistep-transactions}
 

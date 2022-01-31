@@ -1,9 +1,9 @@
 ---
-sourcePath: core/getting_started/_includes/ydb_docker/03_start.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/_includes/ydb_docker/03_start.md
 ---
 ## Запустите Docker-контейнер YDB {#start}
 
-Запустите YDB Docker-контейнер и смонтируйте нужные директории:
+Запустите {{ ydb-short-name }} Docker-контейнер и смонтируйте нужные директории:
 
 ```bash
 docker run -d \
@@ -32,8 +32,8 @@ docker run -d \
 
 {% endnote %}
 
-Docker-контейнер YDB поддерживает дополнительные опции, которые можно задать через переменные окружения:
+Docker-контейнер {{ ydb-short-name }} поддерживает дополнительные опции, которые можно задать через переменные окружения:
 
 * `YDB_LOCAL_SURVIVE_RESTART=true` — задает перезапуск контейнера без потери данных.
-* `YDB_USE_IN_MEMORY_PDISKS=true` — включает возможность хранения данных целиком в памяти. В случае если данная опция включена, рестарт контейнера с локальной YDB приведет к полной потере данных.
+* `YDB_USE_IN_MEMORY_PDISKS=true` — включает возможность хранения данных целиком в памяти. В случае если данная опция включена, рестарт контейнера с локальной {{ ydb-short-name }} приведет к полной потере данных.
 * `YDB_DEFAULT_LOG_LEVEL=<уровень>` — задает уровень логирования. Доступные значения уровней: `CRIT`, `ERROR`, `WARN`, `NOTICE`, `INFO`.

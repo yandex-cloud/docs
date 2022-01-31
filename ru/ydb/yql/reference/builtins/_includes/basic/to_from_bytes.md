@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/to_from_bytes.md
-sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/to_from_bytes.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/to_from_bytes.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/to_from_bytes.md
 ---
 
 ## ToBytes и FromBytes {#to-from-bytes}

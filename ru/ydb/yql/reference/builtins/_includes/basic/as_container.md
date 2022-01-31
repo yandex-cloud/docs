@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/as_container.md
-sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/as_container.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/as_container.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/as_container.md
 ---
 
 ## AsTuple, AsStruct, AsList, AsDict, AsSet, AsListStrict, AsDictStrict и AsSetStrict {#as-container}

@@ -1,5 +1,5 @@
 ---
-sourcePath: core/best_practices/_includes/table_sharding.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/_includes/table_sharding.md
 ---
 # Рекомендации по партицированию таблиц
 

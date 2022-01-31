@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/maintenance/backup_and_recovery.md
+sourcePath: ru/ydb/overlay/maintenance/backup_and_recovery.md
 ---
 {% include [intro.md](_includes/backup_and_recovery/01_intro.md) %}
 
@@ -13,11 +13,11 @@ sourcePath: overlay/maintenance/backup_and_recovery.md
 
 {% include [s3_header.md](_includes/backup_and_recovery/06_s3_1_header.md) %}
 
-В этом разделе в качестве системы назначения используется [Yandex Object Storage](../../storage/).
+В этом разделе в качестве системы назначения используется [{{ objstorage-full-name }}](../../storage/).
 
 {% include [s3_prerequisites.md](_includes/backup_and_recovery/06_s3_2_prerequisites.md) %}
 
-При работе с [Yandex Object Storage](https://cloud.yandex.ru/services/storage) используется [бакет Yandex.Cloud Object Storage](https://cloud.yandex.ru/docs/storage/concepts/bucket).
+При работе с [{{ objstorage-full-name }}](https://cloud.yandex.ru/services/storage) используется [бакет Yandex.Cloud Object Storage](https://cloud.yandex.ru/docs/storage/concepts/bucket).
 
 {% include [s3_access_keys.md](_includes/backup_and_recovery/06_s3_3_access_keys.md) %}
 

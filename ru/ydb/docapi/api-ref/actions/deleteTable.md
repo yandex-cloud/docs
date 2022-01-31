@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/docapi/api-ref/actions/deleteTable.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/actions/deleteTable.md
 ---
 # Метод DeleteTable
 
@@ -9,7 +9,7 @@ sourcePath: overlay/docapi/api-ref/actions/deleteTable.md
 
 Это асинхронный метод.
 Это значит, что метод переводит таблицу в состояние `DELETING` и сразу возвращает результат. Но по факту таблица будет удаляться в фоне. Если таблица уже находится в состоянии `DELETING`, то метод не вернет ошибки.
-Пока таблица находится в состоянии `DELETING`, Yandex Database может продолжать принимать запросы на чтение и запись данных, вроде [GetItem](./getItem) и [PutItem](./putItem).
+Пока таблица находится в состоянии `DELETING`, {{ ydb-name }} может продолжать принимать запросы на чтение и запись данных, вроде [GetItem](./getItem) и [PutItem](./putItem).
 
 ## Запрос
 

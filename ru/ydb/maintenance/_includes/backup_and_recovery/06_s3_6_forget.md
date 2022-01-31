@@ -1,5 +1,5 @@
 ---
-sourcePath: core/maintenance/_includes/backup_and_recovery/06_s3_6_forget.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/maintenance/_includes/backup_and_recovery/06_s3_6_forget.md
 ---
 ### Завершение операции резервного копирования {#s3_forget}
 
@@ -8,5 +8,5 @@ sourcePath: core/maintenance/_includes/backup_and_recovery/06_s3_6_forget.md
 Чтобы удалить созданные копии таблиц из базы и завершённую операцию из списка операций, нужно выполнить команду
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH operation forget 'ydb://export/6?id=283824558378666&kind=s3'
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH operation forget 'ydb://export/6?id=283824558378666&kind=s3'
 ```

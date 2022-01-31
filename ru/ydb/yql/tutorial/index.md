@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/yql/tutorial/index.md
+sourcePath: ru/ydb/overlay/yql/tutorial/index.md
 ---
 {% include [intro.md](_includes/index/intro.md) %}
 

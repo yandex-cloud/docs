@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/docapi/api-ref/actions/updateItem.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/actions/updateItem.md
 ---
 # Метод UpdateItem
 
@@ -203,7 +203,7 @@ sourcePath: overlay/docapi/api-ref/actions/updateItem.md
 ----- | -----
 `ConditionalCheckFailedException` | Невозможно проверить условие, указанное в операции.<br/><br/> **Код состояния HTTP**: 400
 `InternalServerError` | Произошла внутренняя ошибка на стороне сервера.<br/><br/>**Код состояния HTTP**: 500
-`ProvisionedThroughputExceededException` | Вы слишком часто отправляете запросы. Попробуйте увеличить интервалы между запросами.<br/>Если таких запросов будет не слишком много, Yandex Database постарается обработать их все.<br/><br/>**Код состояния HTTP**: 400
+`ProvisionedThroughputExceededException` | Вы слишком часто отправляете запросы. Попробуйте увеличить интервалы между запросами.<br/>Если таких запросов будет не слишком много, {{ ydb-name }} постарается обработать их все.<br/><br/>**Код состояния HTTP**: 400
 `RequestLimitExceeded` | Пропускная способность превышает квоту.<br/><br/>**Код состояния HTTP**: 400
 `ResourceNotFoundException` | Указанная таблица не существует, или находится в состоянии не 'ACTIVE'.<br/><br/>**Код состояния HTTP**: 400
 `TransactionConflictException` | Операция отклонена, так как для элемента выполняется другая транзакция.<br/><br/>**Код состояния HTTP**: 400

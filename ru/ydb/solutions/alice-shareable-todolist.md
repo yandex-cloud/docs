@@ -1,4 +1,4 @@
 ---
-sourcePath: overlay/solutions/alice-shareable-todolist.md
+sourcePath: ru/ydb/overlay/solutions/alice-shareable-todolist.md
 ---
 {% include [alice-shareable-todolist](../../_includes/alice-shareable-todolist.md) %}

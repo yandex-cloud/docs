@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/queries/delete-data.md
+sourcePath: ru/ydb/overlay/_includes/queries/delete-data.md
 ---
 ```sql
 DELETE

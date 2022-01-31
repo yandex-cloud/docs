@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/max_min.md
-sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/max_min.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/max_min.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/max_min.md
 ---
 
 ## MAX_OF, MIN_OF, GREATEST и LEAST {#max-min}

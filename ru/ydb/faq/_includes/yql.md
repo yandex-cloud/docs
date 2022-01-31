@@ -1,5 +1,5 @@
 ---
-sourcePath: core/faq/_includes/yql.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/_includes/yql.md
 ---
 # YQL
 
@@ -74,7 +74,7 @@ WHERE t.Key IS NULL;
 
 #### Есть ли особенности в работе операции Join? {#join-operations}
 
-Операция Join в YDB выполняется одним из двух способов:
+Операция Join в {{ ydb-short-name }} выполняется одним из двух способов:
 * Common Join
 * Index Lookup Join
 

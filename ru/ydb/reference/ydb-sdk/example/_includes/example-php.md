@@ -1,9 +1,9 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/example-php.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/example-php.md
 ---
 # Приложение на PHP
 
-На этой странице подробно разбирается код тестового приложения, доступного в составе [PHP SDK](https://github.com/yandex-cloud/ydb-php-sdk) YDB.
+На этой странице подробно разбирается код тестового приложения, доступного в составе [PHP SDK](https://github.com/yandex-cloud/ydb-php-sdk) {{ ydb-short-name }}.
 
 {% include [addition.md](auxilary/addition.md) %}
 

@@ -114,7 +114,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
     where:
     * `--function-name`: The name of the function you want to create a version of.
     * `--runtime`: The runtime environment.
-    * `--entrypoint`: The entry point specified in <function file name>.<handler name> format.
+    * `--entrypoint`: The entry point specified in `<function file name>.<handler name>` format.
     * `--memory`: The amount of RAM.
     * `--execution-timeout`: The maximum function execution time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.

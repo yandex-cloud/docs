@@ -1,9 +1,9 @@
 ---
-sourcePath: core/getting_started/_includes/ydb_docker/04_request.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/_includes/ydb_docker/04_request.md
 ---
 ## Выполните запрос к базе данных {#request}
 
-Выполните запрос к базе данных YDB в Docker-контейнере:
+Выполните запрос к базе данных {{ ydb-short-name }} в Docker-контейнере:
 
 ```bash
 ydb \

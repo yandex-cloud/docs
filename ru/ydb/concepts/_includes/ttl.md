@@ -1,5 +1,5 @@
 ---
-sourcePath: core/concepts/_includes/ttl.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/ttl.md
 ---
 # Time to Live (TTL)
 
@@ -7,7 +7,7 @@ sourcePath: core/concepts/_includes/ttl.md
 
 ## Принцип работы {#how-it-works}
 
-YDB позволяет указать для таблицы колонку (TTL-колонка), значения которой будут использоваться для определения времени жизни строк. TTL автоматически удаляет из таблицы строки, когда проходит указанное количество секунд от времени, записанного в TTL-колонку.
+{{ ydb-short-name }} позволяет указать для таблицы колонку (TTL-колонка), значения которой будут использоваться для определения времени жизни строк. TTL автоматически удаляет из таблицы строки, когда проходит указанное количество секунд от времени, записанного в TTL-колонку.
 
 {% note warning %}
 
@@ -63,8 +63,8 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 Управление настройками TTL в настоящий момент возможно с использованием:
 
 * [YQL](../../yql/reference/index.md)
-* [Консольного клиента YDB](../../quickstart/yql-api/ydb-cli.md).
-* YDB   Python [SDK](../../reference/ydb-sdk/index.md)
+* [Консольного клиента {{ ydb-short-name }}](../../quickstart/yql-api/ydb-cli.md).
+* {{ ydb-short-name }}   Python [SDK](../../reference/ydb-sdk/index.md)
 
 {% note info %}
 
@@ -85,7 +85,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 - CLI
   ```bash
-  $ ydb -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
+  $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
   ```
 
 
@@ -145,7 +145,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 - CLI
   ```bash
-  $ ydb -e <endpoint> -d <database> table ttl drop mytable
+  $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl drop mytable
   ```
 
 
@@ -164,7 +164,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 - CLI
   ```bash
-  $ ydb -e <endpoint> -d <database> scheme describe mytable
+  $ {{ ydb-cli }} -e <endpoint> -d <database> scheme describe mytable
   ```
 
 

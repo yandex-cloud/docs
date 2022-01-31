@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/readtable.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/readtable.md
 ---
 # Потоковое чтение таблицы
 
@@ -8,7 +8,7 @@ sourcePath: core/reference/ydb-cli/commands/_includes/readtable.md
 Прочитайте данные:
 
 ```bash
-ydb table readtable episodes \
+{{ ydb-cli }} table readtable episodes \
   --ordered \
   --limit 5 \
   --columns series_id,season_id,episode_id,title
@@ -41,7 +41,7 @@ ydb table readtable episodes \
 Если вам нужно получить только количество прочитанных записей, используйте параметр `--count-only`:
 
 ```bash
-ydb table readtable episodes \
+{{ ydb-cli }} table readtable episodes \
   --columns series_id \
   --count-only
 ```

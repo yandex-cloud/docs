@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_by.md
-sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_by.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_by.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_by.md
 ---
 
 # FLATTEN
@@ -25,7 +25,7 @@ sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_by.md
   |d|2|
 
 
-В таблицах YDB не поддерживаются контейнерные типы, поэтому функция FLATTEN BY может применяться только над переменными табличных типов, создаваемых в рамках YQL запроса.
+В таблицах {{ backend_name }} не поддерживаются контейнерные типы, поэтому функция FLATTEN BY может применяться только над переменными табличных типов, создаваемых в рамках YQL запроса.
 
 **Пример**
 ```(sql)

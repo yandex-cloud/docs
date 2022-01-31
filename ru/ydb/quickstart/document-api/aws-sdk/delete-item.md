@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-sdk/delete-item.md
 ---
 # Удаление записи
 

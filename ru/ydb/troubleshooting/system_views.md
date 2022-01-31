@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/troubleshooting/system_views.md
+sourcePath: ru/ydb/overlay/troubleshooting/system_views.md
 ---
 
 {% include [intro.md](_includes/system_views/intro.md) %}

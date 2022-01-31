@@ -27,19 +27,20 @@ Returns the sign of the number `number`:
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-SIGN(-115) = -1
-```
 
-```
-SIGN(0) = 0
-```
 
-```
-SIGN(78) = 1
-```
+| **[value]**   | **SIGN([value])**   |
+|:--------------|:--------------------|
+| `1.00`        | `1`                 |
+| `0.10`        | `1`                 |
+| `-2.00`       | `-1`                |
+| `50.50`       | `1`                 |
+| `0.00`        | `0`                 |
+| `-3.50`       | `-1`                |
+
+
 
 
 #### Data source support {#data-source-support}

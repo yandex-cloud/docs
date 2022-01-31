@@ -1,5 +1,5 @@
 ---
-sourcePath: core/getting_started/_includes/ydb_docker/06_license.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/_includes/ydb_docker/06_license.md
 ---
 ## Лицензия и используемые компоненты {#license}
 

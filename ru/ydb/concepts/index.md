@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/concepts/index.md
+sourcePath: ru/ydb/overlay/concepts/index.md
 ---
 
 {% include [concepts/index/intro.md](_includes/index/intro.md) %}

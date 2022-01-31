@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/builtins/aggregation.md
-sourcePath: yql/reference/yql-docs-core-2/builtins/aggregation.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/aggregation.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/aggregation.md
 ---
 
 {% include [x](_includes/aggregation/simple.md) %}

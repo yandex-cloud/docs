@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/update.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/update.md
 ---
 # Обновление данных с помощью UPDATE
 

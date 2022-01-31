@@ -1,9 +1,9 @@
 ---
-sourcePath: core/deploy/orchestrated/yc_managed_kubernetes.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/deploy/orchestrated/yc_managed_kubernetes.md
 ---
-# Развертывание Yandex Database в Managed Service for Kubernetes
+# Развертывание {{ ydb-name }} в {{ managed-k8s-name }}
 
-Чтобы с помощью [{{ k8s }}](https://kubernetes.io/) создать кластер [Yandex Database](https://cloud.yandex.ru/docs/ydb/), выполните следующие действия.
+Чтобы с помощью [{{ k8s }}](https://kubernetes.io/) создать кластер [{{ ydb-name }}](https://cloud.yandex.ru/docs/ydb/), выполните следующие действия.
 
 ## Перед началом работы {#before-begin}
 
@@ -20,7 +20,7 @@ sourcePath: core/deploy/orchestrated/yc_managed_kubernetes.md
 1. Установите {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl).
 1. [Настройте](https://cloud.yandex.ru/docs/managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials) конфигурацию kubectl.
 1. Установите менеджер пакетов {{ k8s }} [Нelm 3](https://helm.sh/docs/intro/install/).
-1. Добавьте в Helm репозиторий для Yandex.Cloud:
+1. Добавьте в Helm репозиторий для {{ yandex-cloud }}:
 
     {% list tabs %}
 

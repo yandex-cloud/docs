@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/join_tables.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/join_tables.md
 ---
 # Объединение таблиц с помощью JOIN
 

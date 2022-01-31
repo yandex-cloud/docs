@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/operations/_includes/secondary_indexes.md
+sourcePath: ru/ydb/overlay/operations/_includes/secondary_indexes.md
 ---
 # Работа со вторичными индексами
 

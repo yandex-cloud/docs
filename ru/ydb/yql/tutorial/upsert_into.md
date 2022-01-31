@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/upsert_into.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/upsert_into.md
 ---
 # Вставка и модификация данных с помощью UPSERT
 

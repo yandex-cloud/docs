@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
+sourcePath: ru/ydb/overlay/reference/ydb-cli/commands/operations-index.md
 ---
 {% include [intro.md](_includes/operations-index/intro.md) %}
 
@@ -57,13 +57,13 @@ Next page token: 0
 Отмените операцию построения индекса:
 
 ```bash
-ydb operation cancel ydb://buildindex/7?id=562950460138467
+{{ ydb-cli }} operation cancel ydb://buildindex/7?id=562950460138467
 ```
 
 После того как операция завершена или отменена, удалите ее из базы:
 
 ```bash
-ydb operation forget ydb://buildindex/7?id=562950460138467
+{{ ydb-cli }} operation forget ydb://buildindex/7?id=562950460138467
 ```
 
 {% include [delete-index.md](_includes/operations-index/delete-index.md) %}

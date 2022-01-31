@@ -1,7 +1,7 @@
 ---
 title: Использование таймаутов в Yandex Database (YDB)
 description: 'Значение operation_timeout определяет время, в течение которого результат запроса интересен пользователю. Если за данное время операция не выполнилась, сервер возвращает ошибку c кодом Timeout и попытается прекратить выполнение запроса, однако отмена запроса не гарантируется. Всегда рекомендуется устанавливать и таймаут на операцию, и транспортный таймаут. '
-sourcePath: core/best_practices/_includes/timeouts.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/_includes/timeouts.md
 ---
 
 

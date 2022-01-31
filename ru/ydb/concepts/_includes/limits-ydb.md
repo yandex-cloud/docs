@@ -1,5 +1,5 @@
 ---
-sourcePath: core/concepts/_includes/limits-ydb.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/limits-ydb.md
 ---
 # Ограничения базы данных
 

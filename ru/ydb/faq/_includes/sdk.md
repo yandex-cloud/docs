@@ -1,5 +1,5 @@
 ---
-sourcePath: core/faq/_includes/sdk.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/_includes/sdk.md
 ---
 # SDK
 

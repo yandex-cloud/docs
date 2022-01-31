@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/column_order.md
-sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/column_order.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/column_order.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/column_order.md
 ---
 
 ## Порядок колонок в YQL {#orderedcolumns}

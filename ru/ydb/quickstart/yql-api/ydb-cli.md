@@ -1,13 +1,13 @@
 ---
-sourcePath: overlay/quickstart/yql-api/ydb-cli.md
+sourcePath: ru/ydb/overlay/quickstart/yql-api/ydb-cli.md
 ---
-# Работа с YDB CLI
+# Работа с {{ ydb-short-name }} CLI
 
-В этом разделе описана работа с БД при помощи интерфейса командной строки YDB CLI. Вы узнаете, что нужно для начала работы с консольным клиентом, как его установить и как с его помощью выполнить ряд основных запросов.
+В этом разделе описана работа с БД при помощи интерфейса командной строки {{ ydb-short-name }} CLI. Вы узнаете, что нужно для начала работы с консольным клиентом, как его установить и как с его помощью выполнить ряд основных запросов.
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Установите](../../../cli/quickstart.md#install) и [инициализируйте](../../../cli/quickstart.md#initialize) интерфейс командной строки Yandex.Cloud.
+1. [Установите](../../../cli/quickstart.md#install) и [инициализируйте](../../../cli/quickstart.md#initialize) интерфейс командной строки {{ yandex-cloud }}.
 1. Получите YDB эндпоинт и полный путь к [созданной БД](../create-db.md).
 
 {% cut "Как получить YDB эндпоинт и путь к БД" %}
@@ -22,13 +22,13 @@ sourcePath: overlay/quickstart/yql-api/ydb-cli.md
 
 {% endnote %}
 
-## Установка YDB CLI {#how-to-install}
+## Установка {{ ydb-short-name }} CLI {#how-to-install}
 
 {% include [ydb-cli-install](../../reference/ydb-cli/install.md) %}
 
 ## Настройка авторизации {#iam}
 
-В этой инструкции для авторизации в YDB используется [IAM-токен](../../../iam/concepts/authorization/iam-token.md). О других способах авторизации читайте в разделе [{#T}](../../reference/ydb-cli/authorization.md).
+В этой инструкции для авторизации в {{ ydb-short-name }} используется [IAM-токен](../../../iam/concepts/authorization/iam-token.md). О других способах авторизации читайте в разделе [{#T}](../../reference/ydb-cli/authorization.md).
 
 1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md):
 
@@ -47,7 +47,7 @@ sourcePath: overlay/quickstart/yql-api/ydb-cli.md
 1. Проверьте корректность авторизации, запросив информацию о пользователе:
 
     ```bash
-    ydb \
+    {{ ydb-cli }} \
       --endpoint <эндпоинт> \
       --database <база_данных> \
       --iam-token-file <путь> \
@@ -63,7 +63,7 @@ sourcePath: overlay/quickstart/yql-api/ydb-cli.md
     Пример команды:
 
     ```bash
-    ydb \
+    {{ ydb-cli }} \
       --endpoint ydb.serverless.yandexcloud.net:2135 \
       --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
       --iam-token-file iam-token.txt \
@@ -81,14 +81,14 @@ sourcePath: overlay/quickstart/yql-api/ydb-cli.md
 
 ## Примеры использования {#examples}
 
-Чтобы не указывать эндпоинт, полный путь к базе данных и параметры авторизации при каждом вызове команд YDB CLI, настройте [профиль](../../reference//ydb-cli/profile/create.md) YDB CLI.
+Чтобы не указывать эндпоинт, полный путь к базе данных и параметры авторизации при каждом вызове команд {{ ydb-short-name }} CLI, настройте [профиль](../../reference//ydb-cli/profile/create.md) {{ ydb-short-name }} CLI.
 
 ### Создание таблицы {#create-table}
 
 Добавьте данные в таблицу с помощью инструкции [CREATE TABLE](../../yql/reference/syntax/create_table.md):
 
 ```bash
-ydb \
+{{ ydb-cli }} \
   --endpoint ydb.serverless.yandexcloud.net:2135 \
   --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
   --iam-token-file iam-token.txt \
@@ -106,7 +106,7 @@ ydb \
 Посмотрите результат:
 
 ```bash
-ydb \
+{{ ydb-cli }} \
   --endpoint ydb.serverless.yandexcloud.net:2135 \
   --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
   --iam-token-file iam-token.txt \
@@ -129,7 +129,7 @@ ydb \
 Добавьте данные в таблицу с помощью инструкции [REPLACE INTO](../../yql/reference/syntax/replace_into.md):
 
 ```bash
-ydb \
+{{ ydb-cli }} \
   --endpoint ydb.serverless.yandexcloud.net:2135 \
   --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
   --iam-token-file iam-token.txt \
@@ -163,7 +163,7 @@ ydb \
 Обновите данные с помощью инструкции [UPDATE](../../yql/reference/syntax/update.md):
 
 ```bash
-ydb \
+{{ ydb-cli }} \
   --endpoint ydb.serverless.yandexcloud.net:2135 \
   --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
   --iam-token-file iam-token.txt \
@@ -180,7 +180,7 @@ ydb \
 Удалите данные из таблицы с помощью инструкции [DELETE](../../yql/reference/syntax/delete.md):
 
 ```bash
-ydb \
+{{ ydb-cli }} \
   --endpoint ydb.serverless.yandexcloud.net:2135 \
   --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
   --iam-token-file iam-token.txt \
@@ -197,7 +197,7 @@ ydb \
 Запросите данные из таблицы с помощью инструкции [SELECT](../../yql/reference/syntax/select.md):
 
 ```bash
-ydb \
+{{ ydb-cli }} \
   --endpoint ydb.serverless.yandexcloud.net:2135 \
   --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
   --iam-token-file iam-token.txt \
@@ -224,7 +224,7 @@ ydb \
 Удалите таблицу с помощью инструкции [DROP TABLE](../../yql/reference/syntax/drop_table.md):
 
 ```bash
-ydb \
+{{ ydb-cli }} \
   --endpoint ydb.serverless.yandexcloud.net:2135 \
   --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
   --iam-token-file iam-token.txt \

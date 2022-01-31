@@ -5,7 +5,7 @@ keywords:
   - yql
   - что такое yql
   - Yandex Query Language
-sourcePath: core/yql/reference/_includes/index/intro.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/_includes/index/intro.md
 ---
 
 

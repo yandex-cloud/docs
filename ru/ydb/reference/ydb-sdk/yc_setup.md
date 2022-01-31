@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/reference/ydb-sdk/yc_setup.md
+sourcePath: ru/ydb/overlay/reference/ydb-sdk/yc_setup.md
 ---
 # Установка YDB SDK
 
@@ -17,7 +17,7 @@ sourcePath: overlay/reference/ydb-sdk/yc_setup.md
 
     {% note info %}
 
-    Если ваша база данных не имеет публичного эндпоинта, [создайте](../../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину для доступа к БД в Yandex.Cloud.
+    Если ваша база данных не имеет публичного эндпоинта, [создайте](../../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину для доступа к БД в {{ yandex-cloud }}.
 
     Дальнейшую настройку выполняйте в созданной виртуальной машине.
 
@@ -57,7 +57,7 @@ sourcePath: overlay/reference/ydb-sdk/yc_setup.md
 
       {% note info %}
 
-      Чтобы подключиться к YDB Dedicated БД, получите сертификат и сохраните путь файла сертификата в переменную окружения:
+      Чтобы подключиться к {{ ydb-short-name }} Dedicated БД, получите сертификат и сохраните путь файла сертификата в переменную окружения:
 
       ```bash
       wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/CA.pem
@@ -99,7 +99,7 @@ sourcePath: overlay/reference/ydb-sdk/yc_setup.md
 
       {% note info %}
 
-      Чтобы подключиться к YDB Dedicated БД, получите сертификат и сохраните путь файла сертификата в переменную окружения:
+      Чтобы подключиться к {{ ydb-short-name }} Dedicated БД, получите сертификат и сохраните путь файла сертификата в переменную окружения:
 
       ```bash
       wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/CA.pem

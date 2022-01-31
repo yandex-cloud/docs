@@ -1,8 +1,8 @@
 ---
-sourcePath: core/concepts/_includes/serverless_and_dedicated/10_arch_diff.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/serverless_and_dedicated/10_arch_diff.md
 ---
 
-## Архитектура YDB в разных режимах работы
+## Архитектура {{ ydb-short-name }} в разных режимах работы
 
 ### Разделение compute и storage слоев {#separate-layers}
 

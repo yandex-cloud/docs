@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/pricing/pricing-status.md
+sourcePath: ru/ydb/overlay/_includes/pricing/pricing-status.md
 ---
 ## Статус кластера {#running-stopped}
 

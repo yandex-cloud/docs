@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/alter_table.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/alter_table.md
 ---
 # Добавление и удаление колонок
 

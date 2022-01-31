@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/insert_into.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/insert_into.md
 ---
 # Вставка данных с помощью INSERT
 

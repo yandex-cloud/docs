@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/pricing/request_units_special.md
+sourcePath: ru/ydb/overlay/pricing/request_units_special.md
 ---
 #  Правила оценки стоимости запросов к YDB через специализированные API 
 

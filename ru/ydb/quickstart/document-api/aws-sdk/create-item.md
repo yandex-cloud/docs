@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-sdk/create-item.md
 ---
 # Добавление записи
 

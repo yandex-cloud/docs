@@ -1,5 +1,5 @@
 ---
-sourcePath: core/faq/common.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/common.md
 ---
 
 {% include [common.md](_includes/common.md) %}

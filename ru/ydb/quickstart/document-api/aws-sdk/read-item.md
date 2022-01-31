@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-sdk/read-item.md
 ---
 # Чтение записи
 

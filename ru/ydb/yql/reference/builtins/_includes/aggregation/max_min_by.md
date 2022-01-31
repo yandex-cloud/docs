@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min_by.md
-sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min_by.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min_by.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min_by.md
 ---
 
 ## MAX_BY и MIN_BY {#max-min-by}
@@ -12,7 +12,7 @@ sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min
 * Если N не указано — будет возвращено значение одной из строк, а остальные отбрасываются.
 * Если N указано — будет возвращен список со всеми значениями, но не более N, все значения после достижения указанного числа отбрасываются.
 
-При выборе значения N рекомендуется не превышать порядка сотен или тысяч, чтобы не возникало проблем с ограниченной доступной памятью на кластерах YDB.
+При выборе значения N рекомендуется не превышать порядка сотен или тысяч, чтобы не возникало проблем с ограниченной доступной памятью на кластерах {{ backend_name }}.
 
 Если для задачи обязательно нужны все значения, и их количество может измеряться десятками тысяч и больше, то вместо данных агрегационных функций следует использовать `JOIN` исходной таблицы с подзапросом, где по ней же сделан `GROUP BY + MIN/MAX` на интересующих вас колонках.
 

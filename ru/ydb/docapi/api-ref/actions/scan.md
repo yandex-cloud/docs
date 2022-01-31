@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/docapi/api-ref/actions/scan.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/actions/scan.md
 ---
 # Метод Scan
 
@@ -196,7 +196,7 @@ sourcePath: overlay/docapi/api-ref/actions/scan.md
 Параметр | Описание
 ----- | -----
 `InternalServerError` | Произошла внутренняя ошибка на стороне сервера.<br/><br/>**Код состояния HTTP**: 500<br/>
-`ProvisionedThroughputExceededException` | Вы слишком часто отправляете запросы. Попробуйте увеличить интервалы между запросами.<br/>Если таких запросов будет не слишком много, Yandex Database постарается обработать их все.<br/><br/>**Код состояния HTTP**: 400
+`ProvisionedThroughputExceededException` | Вы слишком часто отправляете запросы. Попробуйте увеличить интервалы между запросами.<br/>Если таких запросов будет не слишком много, {{ ydb-name }} постарается обработать их все.<br/><br/>**Код состояния HTTP**: 400
 `RequestLimitExceeded` | Пропускная способность превышает квоту.<br/><br/>**Код состояния HTTP**: 400
 `ResourceNotFoundException` | Указанная таблица не существует.<br/><br/>**Код состояния HTTP**: 400
 

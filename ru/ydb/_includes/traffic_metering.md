@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/traffic_metering.md
+sourcePath: ru/ydb/overlay/_includes/traffic_metering.md
 ---
 {% note warning %}
 

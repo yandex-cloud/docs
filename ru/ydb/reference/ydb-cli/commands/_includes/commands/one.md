@@ -1,12 +1,12 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/commands/one.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/commands/one.md
 ---
-## Получение детальной информации о подкомандах YDB CLI {#one}
+## Получение детальной информации о подкомандах {{ ydb-short-name }} CLI {#one}
 
 Для любой подкоманды также можно получить более подробное описание со списком доступных параметров:
 
 ```bash
-ydb discovery whoami --help
+{{ ydb-cli }} discovery whoami --help
 ```
 
 Результат:

@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-cli/get-item.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-cli/get-item.md
 ---
 # Чтение данных из таблицы
 
