@@ -34,6 +34,77 @@
 
   1. Нажмите кнопку **Сохранить**.
 
+- CLI
+  
+  {% include [include](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  
+  1. Посмотрите описание команды CLI для редактирования ресурсов:
+  
+      ```bash
+      yc cdn resource update --help
+      ```
+
+  1. Получите список всех ресурсов в каталоге по умолчанию:
+
+      ```bash
+      yc cdn resource list --format yaml
+      ```
+  
+      Результат:
+
+      ```bash
+      id: someidkfjqjfl325fw
+      folder_id: somefolder7p3l5eobbd
+      cname: testexample.com
+      created_at: "2022-01-19T09:23:57.921365Z"
+      updated_at: "2022-01-19T10:55:30.305141Z"
+      active: true
+      options:
+        edge_cache_settings:
+          enabled: true
+          default value: "345600"
+        cache_http_headers:
+          enabled: true
+          value:
+          - content-type
+          - content-length
+          - connection
+          - server
+          - date
+          - test
+        stale:
+          enabled: true
+          value:
+          - error
+          - updating
+        allowed_http_methods:
+          value:
+          - GET
+          - POST
+          - HEAD
+          - OPTIONS
+      origin_group_id: "89783"
+      origin_group_name: My origins group
+      origin_protocol: HTTP
+      ssl_certificate:
+        type: DONT_USE
+        status: READY
+      ```
+
+  1. Чтобы добавить заголовки, выполните:
+
+      ```bash
+      yc cdn resource update <идентификатор ресурса> \
+        --static-request-headers <ключ=значение> \
+        --static-headers <ключ=значение>
+      ```
+
+      * `--static-request-headers` добавляет заголовки запроса к источнику. Удалить их можно с помощью флага `--clear-static-request-headers`.
+      * `--static-headers` добавляет заголовки ответа клиента. Удалить их можно с помощью флага `--clear-static-headers`.
+
+      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
 - Terraform
 

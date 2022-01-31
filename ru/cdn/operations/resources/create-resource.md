@@ -43,6 +43,75 @@
 
   1. Нажмите кнопку **Создать**.
 
+- CLI
+  
+  {% include [include](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  
+  1. Если вы создаете первый ресурс, сначала подключитесь к провайдеру:
+
+      ```bash
+      yc cdn provider activate --type gcore
+      ```
+  
+  1. Посмотрите описание команды CLI для создания ресурсов:
+  
+      ```bash
+      yc cdn resource create --help
+      ```
+
+  1. Получите список групп источников в каталоге:
+
+      ```bash
+      yc cdn origin-group list --format yaml
+      ```
+  
+      Результат:
+
+      ```bash
+      - id: "90209"
+        folder_id: somefolder7p3l5eobbd
+        name: test-group-1
+        use_next: true
+        origins:
+        - id: "561547"
+          origin_group_id: "90209"
+          source: www.example2.com
+          enabled: true
+          backup: true
+        - id: "561546"
+          origin_group_id: "90209"
+          source: www.example1.com
+          enabled: true
+      - id: "90208"
+        folder_id: b1g86q4m5vej8lkljme5
+        name: test-group
+        use_next: true
+        origins:
+        - id: "561545"
+          origin_group_id: "90208"
+          source: www.a2.com
+          enabled: true
+          backup: true
+        - id: "561544"
+          origin_group_id: "90208"
+          source: www.a1.com
+          enabled: true
+        ```      
+
+  1. Создайте ресурс:
+  
+      ```bash
+      yc cdn resource create <доменное имя ресурса> \
+        --origin-group-id <идентификатор группы источников> \
+        --origin-protocol <протокол для источников>
+      ```
+
+      * Вместо группы источников `--origin-group-id` можно указать доменное имя источника, используя флаг `--origin-custom-source`.
+      * Для `--origin-protocol` доступны значения `HTTP`, `HTTPS` и `MATCH` (как у клиента).
+
+      Подробнее о команде `yc cdn resource create`  см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
 - Terraform
 
@@ -129,6 +198,43 @@
 
 {% note info %}
 
-Чтобы остановить работу созданного ресурса, [отключите доступ](disable-resource.md) конечных пользователей к контенту. Удаление ресурса через консоль управления пока невозможно — для этого нужно [обратиться в техническую поддержку](../../../support/overview.md).
+Чтобы остановить работу созданного ресурса, [отключите доступ](disable-resource.md) конечных пользователей к контенту.
 
 {% endnote %}
+
+
+## Примеры {#examples}
+
+{% list tabs %}
+
+- CLI
+  
+  Создайте ресурс с протоколом HTTP:
+
+    ```bash
+    yc cdn resource create testexample.com \
+      --origin-group-id 90209 \
+      --origin-protocol HTTP
+    ```
+
+  Результат:
+
+    ```bash
+    id: someidkfjqjfl325fw
+
+    ...
+
+    cname: testexample.com
+    active: true
+
+    ...
+
+    origin_group_id: "90209"
+    origin_group_name: test-group-1
+    origin_protocol: HTTP
+    ssl_certificate:
+    type: DONT_USE
+    status: READY
+    ```
+
+{% endlist %}
