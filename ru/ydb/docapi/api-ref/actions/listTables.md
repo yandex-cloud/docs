@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/docapi/api-ref/actions/listTables.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/actions/listTables.md
 ---
 # Метод ListTables
 

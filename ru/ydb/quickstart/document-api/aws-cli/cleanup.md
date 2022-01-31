@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-cli/cleanup.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-cli/cleanup.md
 ---
 # Удаление созданных ресурсов
 

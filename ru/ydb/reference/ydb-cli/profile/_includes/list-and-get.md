@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-cli/profile/_includes/list-and-get.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/profile/_includes/list-and-get.md
 ---
 # Получение информации о профиле
 
@@ -10,7 +10,7 @@ sourcePath: core/reference/ydb-cli/profile/_includes/list-and-get.md
 Получите список профилей:
 
 ```bash
-ydb config profile list
+{{ ydb-cli }} config profile list
 ```
 
 Результат:
@@ -24,5 +24,5 @@ example (active)
 Получите подробную информацию о профиле с именем `example`:
 
 ```bash
-ydb config profile get example
+{{ ydb-cli }} config profile get example
 ```

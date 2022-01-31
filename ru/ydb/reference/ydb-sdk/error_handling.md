@@ -1,4 +1,4 @@
 ---
-sourcePath: core/reference/ydb-sdk/error_handling.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/error_handling.md
 ---
 {% include [error_handling.md](_includes/error_handling.md) %}

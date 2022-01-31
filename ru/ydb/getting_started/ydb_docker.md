@@ -1,5 +1,5 @@
 ---
-sourcePath: core/getting_started/ydb_docker.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/ydb_docker.md
 ---
 
 {% include [intro.md](_includes/ydb_docker/01_intro.md) %}

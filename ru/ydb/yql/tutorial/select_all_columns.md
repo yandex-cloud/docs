@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/select_all_columns.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/select_all_columns.md
 ---
 # Выборка данных из всех колонок
 

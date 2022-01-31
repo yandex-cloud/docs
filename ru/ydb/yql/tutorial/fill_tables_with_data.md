@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/fill_tables_with_data.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/fill_tables_with_data.md
 ---
 # Добавление данных в таблицу
 

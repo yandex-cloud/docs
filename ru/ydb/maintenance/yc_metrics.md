@@ -1,6 +1,6 @@
 ---
-sourcePath: overlay/maintenance/yc_metrics.md
+sourcePath: ru/ydb/overlay/maintenance/yc_metrics.md
 ---
-# Справочник метрик YDB
+# Справочник метрик {{ ydb-short-name }}
 
 {% include [sensors.md](../_includes/monitoring_sensors.md) %}

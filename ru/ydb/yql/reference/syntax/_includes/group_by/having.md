@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/having.md
-sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/group_by/having.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/having.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/group_by/having.md
 ---
 
 ## HAVING {#having}

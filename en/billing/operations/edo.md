@@ -34,4 +34,5 @@ The originals of the documents generated before you sign the agreement are only 
 
 You can find the details of the receiving party's signatories of the agreement in your profile on the operator's website. If no information is available, contact the operator's technical support.
 
-{{ yandex-cloud }} does not handle issues reported through user profiles on the operator's website. If you have any questions, send an email to [ops_tasks@yandex-team.ru](mailto:ops_tasks@yandex-team.ru). We'll reply within 3-5 business days.
+{{ yandex-cloud }} does not handle issues reported through user profiles on the operator's website. If you have a question, please contact [technical support]({{ link-console-support }}).
+

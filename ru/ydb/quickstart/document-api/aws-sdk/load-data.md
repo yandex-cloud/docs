@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-sdk/load-data.md
 ---
 # Загрузка данных в таблицу
 
@@ -355,7 +355,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       ?>
       ```
 
-      Класс `Marshaler` включает методы преобразования JSON-документов и PHP-массивов в формат YDB. В этом коде `$marshaler->marshalJson($json)` принимает данные в формате JSON и преобразует их в запись YDB.
+      Класс `Marshaler` включает методы преобразования JSON-документов и PHP-массивов в формат {{ ydb-short-name }}. В этом коде `$marshaler->marshalJson($json)` принимает данные в формате JSON и преобразует их в запись {{ ydb-short-name }}.
 
   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 

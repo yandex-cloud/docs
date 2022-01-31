@@ -1,5 +1,5 @@
 ---
-sourcePath: core/concepts/_includes/datamodel/intro.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/datamodel/intro.md
 ---
 # Модель данных и схема
 

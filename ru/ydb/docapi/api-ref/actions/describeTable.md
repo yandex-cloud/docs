@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/docapi/api-ref/actions/describeTable.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/actions/describeTable.md
 ---
 # Метод DescribeTable
 

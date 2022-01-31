@@ -6,13 +6,13 @@ keywords:
   - serverless
   - dedicated
 editable: false
-sourcePath: core/concepts/_includes/serverless_and_dedicated/01_intro.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/serverless_and_dedicated/01_intro.md
 ---
 
 
-# Serverless и Dedicated режимы работы Yandex Database
+# Serverless и Dedicated режимы работы {{ ydb-full-name }}
 
-Вы можете создать и использовать множество баз данных YDB. Для каждой БД при создании выбирается один из двух режимов работы: Serverless или Dedicated. В дальнейшем он не может быть изменен.
+Вы можете создать и использовать множество баз данных {{ ydb-short-name }}. Для каждой БД при создании выбирается один из двух режимов работы: Serverless или Dedicated. В дальнейшем он не может быть изменен.
 
 * _Serverless_ — база данных, не требующая от вас какого-либо конфигурирования, администрирования, отслеживания загрузки и управления ресурсами. Для ее создания достаточно указать имя, и вы получите URL для соединения. Оплата берется за исполнение запросов и фактический объем хранимых данных.
 

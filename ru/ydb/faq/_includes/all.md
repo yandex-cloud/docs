@@ -1,5 +1,5 @@
 ---
-sourcePath: core/faq/_includes/all.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/_includes/all.md
 ---
 # Все вопросы на одной странице
 

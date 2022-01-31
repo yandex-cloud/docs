@@ -1,7 +1,7 @@
 ---
-sourcePath: core/getting_started/_includes/ydb_docker/02_install.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/_includes/ydb_docker/02_install.md
 ---
-## Выгрузите Docker-образ YDB {#install}
+## Выгрузите Docker-образ {{ ydb-short-name }} {#install}
 
 Выгрузите актуальную публичную версию Docker-образа:
 

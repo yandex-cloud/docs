@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-cli/profile/_includes/activate.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/profile/_includes/activate.md
 ---
 # Активация профиля
 
@@ -8,7 +8,7 @@ sourcePath: core/reference/ydb-cli/profile/_includes/activate.md
 Активируйте профиль с именем `example`:
 
 ```bash
-ydb config profile activate example
+{{ ydb-cli }} config profile activate example
 ```
 
 Результат:

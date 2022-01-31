@@ -1,12 +1,12 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/query.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/query.md
 ---
 # Выполнение запроса к данным
 
 Выполните запрос к данным:
 
 ```bash
-ydb table query execute \
+{{ ydb-cli }} table query execute \
   --query "SELECT season_id, episode_id, title \
   FROM episodes \
   WHERE series_id = 1 AND season_id > 1 \

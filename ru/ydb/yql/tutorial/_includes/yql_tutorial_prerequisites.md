@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/_includes/yql_tutorial_prerequisites.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/_includes/yql_tutorial_prerequisites.md
 ---
 {% note info %}
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/index.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/index.md
 ---
 # Тестовое приложение
 

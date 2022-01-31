@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/reference/ydb-cli/commands/scheme-mkdir.md
+sourcePath: ru/ydb/overlay/reference/ydb-cli/commands/scheme-mkdir.md
 ---
 {% include [intro.md](_includes/scheme-mkdir/intro.md) %}
 

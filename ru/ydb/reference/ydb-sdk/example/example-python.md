@@ -1,4 +1,4 @@
 ---
-sourcePath: overlay/reference/ydb-sdk/example/example-python.md
+sourcePath: ru/ydb/overlay/reference/ydb-sdk/example/example-python.md
 ---
 {% include [example-python.md](_includes/example-python.md) %}

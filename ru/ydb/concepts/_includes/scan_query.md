@@ -1,5 +1,5 @@
 ---
-sourcePath: core/concepts/_includes/scan_query.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/scan_query.md
 ---
 # Скан запросы (Scan Query) в Yandex Database
 
@@ -37,5 +37,5 @@ sourcePath: core/concepts/_includes/scan_query.md
 
 ## Как воспользоваться
 
-Как и другие виды запросов, *Scan Queries* доступны через [консоль управления](https://console.cloud.yandex.ru/)(В запросе требуется указать прагму `PRAGMA Kikimr.ScanQuery = "true";`), [CLI](../../reference/ydb-cli/commands/scan-query.md) и [SDK](../../reference/ydb-sdk/index.md).
+Как и другие виды запросов, *Scan Queries* доступны через [консоль управления]({{ link-console-main }})(В запросе требуется указать прагму `PRAGMA Kikimr.ScanQuery = "true";`), [CLI](../../reference/ydb-cli/commands/scan-query.md) и [SDK](../../reference/ydb-sdk/index.md).
 

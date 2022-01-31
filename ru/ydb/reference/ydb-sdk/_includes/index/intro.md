@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-sdk/_includes/index/intro.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/_includes/index/intro.md
 ---
 # YDB SDK
 

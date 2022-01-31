@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/solutions/slack-bot-serverless.md
+sourcePath: ru/ydb/overlay/solutions/slack-bot-serverless.md
 ---
 # Разработка Slack-бота
 

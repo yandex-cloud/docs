@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/pricing/request_units_docapi.md
+sourcePath: ru/ydb/overlay/pricing/request_units_docapi.md
 ---
 # Правила оценки стоимости запросов к YDB через Document API
 

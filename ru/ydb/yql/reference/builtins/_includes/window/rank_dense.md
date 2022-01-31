@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/window/rank_dense.md
-sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/window/rank_dense.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/window/rank_dense.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/window/rank_dense.md
 ---
 
 ## RANK / DENSE_RANK {#rank}

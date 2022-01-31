@@ -1,7 +1,7 @@
 ---
-title: "Термины и определения Yandex Database"
-description: "База данных (БД) Yandex Database — это изолированное согласованное множество данных, доступ к которому осуществляется через сервис Yandex Database, обеспечивающий масштабируемость, отказоустойчивость, и автоматическую репликацию данных."
-sourcePath: core/concepts/_includes/databases/intro.md
+title: "Термины и определения {{ ydb-full-name }}"
+description: "База данных (БД) {{ ydb-full-name }} — это изолированное согласованное множество данных, доступ к которому осуществляется через сервис {{ ydb-full-name }}, обеспечивающий масштабируемость, отказоустойчивость, и автоматическую репликацию данных."
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/databases/intro.md
 ---
 
 

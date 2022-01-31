@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/create_demo_tables.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/create_demo_tables.md
 ---
 # Создание таблицы
 

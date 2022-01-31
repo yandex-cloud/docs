@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/basic_filter_and_sort.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/basic_filter_and_sort.md
 ---
 # Сортировка и фильтрация
 

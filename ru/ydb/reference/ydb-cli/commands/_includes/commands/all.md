@@ -1,10 +1,10 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/commands/all.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/commands/all.md
 ---
-## Получение общей информации обо всех подкомандах YDB CLI {#all}
+## Получение общей информации обо всех подкомандах {{ ydb-short-name }} CLI {#all}
 
-Получите список всех доступных подкоманд YDB CLI с кратким описанием:
+Получите список всех доступных подкоманд {{ ydb-short-name }} CLI с кратким описанием:
 
 ```bash
-ydb --help
+{{ ydb-cli }} --help
 ```

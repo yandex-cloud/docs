@@ -1,5 +1,5 @@
 ---
-sourcePath: core/maintenance/embedded_monitoring/interconnect_overview.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/maintenance/embedded_monitoring/interconnect_overview.md
 ---
 # Interconnect Overview
 

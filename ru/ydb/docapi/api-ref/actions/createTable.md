@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/docapi/api-ref/actions/createTable.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/actions/createTable.md
 ---
 # Метод CreateTable
 

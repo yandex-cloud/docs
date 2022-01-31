@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/udf/list/_includes/index/list.md
-sourcePath: yql/reference/yql-docs-core-2/udf/list/_includes/index/list.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/udf/list/_includes/index/list.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/index/list.md
 ---
 
 * [Hyperscan](../../hyperscan.md)

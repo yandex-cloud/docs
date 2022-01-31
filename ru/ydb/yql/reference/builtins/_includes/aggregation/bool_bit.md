@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/bool_bit.md
-sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/bool_bit.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/bool_bit.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/bool_bit.md
 ---
 
 ## BOOL_AND, BOOL_OR и BOOL_XOR {#bool-and-or-xor}

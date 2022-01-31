@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/_includes/index/steps.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/_includes/index/steps.md
 ---
 Туториал состоит из 15 шагов:
 

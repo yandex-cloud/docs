@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/reference/ydb-sdk/index.md
+sourcePath: ru/ydb/overlay/reference/ydb-sdk/index.md
 ---
 {% include [intro.md](_includes/index/intro.md) %}
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: core/maintenance/_includes/backup_and_recovery/06_s3_1_header.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/maintenance/_includes/backup_and_recovery/06_s3_1_header.md
 ---
 ## Резервное копирование в S3-совместимые хранилища {#s3_backup}
 

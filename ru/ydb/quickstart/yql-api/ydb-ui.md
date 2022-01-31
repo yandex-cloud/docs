@@ -1,9 +1,9 @@
 ---
-sourcePath: overlay/quickstart/yql-api/ydb-ui.md
+sourcePath: ru/ydb/overlay/quickstart/yql-api/ydb-ui.md
 ---
 # Работа с данными через консоль управления
 
-После [создания базы данных](../create-db.md) выполните базовые YQL-запросы используя консоль управления Yandex.Cloud.
+После [создания базы данных](../create-db.md) выполните базовые YQL-запросы используя консоль управления {{ yandex-cloud }}.
 
 {% note tip %}
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/operations/_includes/get-query-plan.md
+sourcePath: ru/ydb/overlay/operations/_includes/get-query-plan.md
 ---
 # Использование плана запроса
 

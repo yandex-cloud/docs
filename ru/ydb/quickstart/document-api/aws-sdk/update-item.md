@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-sdk/update-item.md
 ---
 # Обновление записи
 
@@ -179,7 +179,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       Этот код использует `UpdateExpression` для описания обновлений, которые нужно выполнить для указанной записи.
 
-      Параметр `ReturnValues` предписывает YDB возвращать только обновленные атрибуты (`UPDATED_NEW`).
+      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
 
   1. Соберите проект:
 
@@ -258,9 +258,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       Для обновления записи используется метод `update_item`. С помощью него можно обновить значения атрибутов, добавить или удалить атрибуты.
 
-      В параметре `UpdateExpression` метода `update_item` передаются все обновления, которые применяются к указанной записи. Параметр `ReturnValues` указывает YDB возвращать только обновленные атрибуты (`UPDATED_NEW`).
+      В параметре `UpdateExpression` метода `update_item` передаются все обновления, которые применяются к указанной записи. Параметр `ReturnValues` указывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
 
-      В SDK Boto 3 для хранения числовых значений YDB используется класс `Decimal`.
+      В SDK Boto 3 для хранения числовых значений {{ ydb-short-name }} используется класс `Decimal`.
 
   1. Запустите программу:
 
@@ -365,7 +365,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
       Этот код использует `UpdateExpression` для описания обновлений, которые нужно выполнить для указанной записи.
 
-      Параметр `ReturnValues` предписывает YDB возвращать только обновленные атрибуты (`UPDATED_NEW`).
+      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты (`UPDATED_NEW`).
 
   1. Запустите программу:
 
@@ -452,7 +452,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
   
       Для обновления атрибутов существующей записи используется метод `update`. Выражением `UpdateExpression` описываются все обновления, которые вы хотите выполнить для указанного элемента.
 
-      Параметр `ReturnValues` предписывает YDB возвращать только обновленные атрибуты `UPDATED_NEW`.
+      Параметр `ReturnValues` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты `UPDATED_NEW`.
 
   1. Запустите программу:
 
@@ -552,7 +552,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
   
       Эта программа использует выражение `update_expression` для описания всех обновлений, которые вы хотите выполнить для указанного элемента.
 
-      Параметр `return_values` предписывает YDB возвращать только обновленные атрибуты `UPDATED_NEW`.
+      Параметр `return_values` предписывает {{ ydb-short-name }} возвращать только обновленные атрибуты `UPDATED_NEW`.
   
   1. Запустите программу:
 
@@ -575,7 +575,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 
 ## Увеличение атомарного счетчика {#increment-ac}
 
-YDB поддерживает атомарные счетчики.
+{{ ydb-short-name }} поддерживает атомарные счетчики.
 
 Чтобы увеличить атомарный счетчик `rating` для сериала:
 

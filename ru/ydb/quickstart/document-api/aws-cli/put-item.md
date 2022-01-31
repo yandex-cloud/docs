@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-cli/put-item.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-cli/put-item.md
 ---
 # Добавление данных в таблицу
 

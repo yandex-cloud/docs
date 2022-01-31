@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/is-distinct-from.md
-sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/is-distinct-from.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/is-distinct-from.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/is-distinct-from.md
 ---
 
 ## IS \[NOT\] DISTINCT FROM {#is-distinct-from}

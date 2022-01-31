@@ -1,9 +1,9 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/example-python.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/example-python.md
 ---
 # Приложение на Python
 
-На этой странице подробно разбирается код [тестового приложения](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/basic_example_v1), доступного в составе [Python SDK](https://github.com/yandex-cloud/ydb-python-sdk) YDB.
+На этой странице подробно разбирается код [тестового приложения](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/basic_example_v1), доступного в составе [Python SDK](https://github.com/yandex-cloud/ydb-python-sdk) {{ ydb-short-name }}.
 
 {% include [init.md](steps/01_init.md) %}
 

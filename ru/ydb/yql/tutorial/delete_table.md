@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/delete_table.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/delete_table.md
 ---
 # Удаление таблицы
 

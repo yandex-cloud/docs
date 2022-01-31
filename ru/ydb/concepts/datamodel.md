@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/concepts/datamodel.md
+sourcePath: ru/ydb/overlay/concepts/datamodel.md
 ---
 {% include [Introduction](_includes/datamodel/intro.md) %}
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: core/concepts/_includes/index/when_use.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/index/when_use.md
 ---
 ## Сценарии применения
 

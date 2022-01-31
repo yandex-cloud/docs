@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/operations-index/one-get-exp.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/operations-index/one-get-exp.md
 ---
 Где:
 

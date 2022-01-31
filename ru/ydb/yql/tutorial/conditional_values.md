@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/conditional_values.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/conditional_values.md
 ---
 # Дополнительные условия выборки
 

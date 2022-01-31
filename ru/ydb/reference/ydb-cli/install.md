@@ -1,19 +1,19 @@
 ---
-sourcePath: overlay/reference/ydb-cli/install.md
+sourcePath: ru/ydb/overlay/reference/ydb-cli/install.md
 ---
-# Установка YDB CLI
+# Установка {{ ydb-short-name }} CLI
 
 {% list tabs %}
 
 - Linux
   
-    Чтобы установить YDB CLI, выполните команду:
+    Чтобы установить {{ ydb-short-name }} CLI, выполните команду:
 
     ```bash
     curl https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
     ```
 
-    Скрипт установит YDB CLI и добавит путь к исполняемому файлу в переменную окружения `PATH`.
+    Скрипт установит {{ ydb-short-name }} CLI и добавит путь к исполняемому файлу в переменную окружения `PATH`.
 
     {% note info %}
 
@@ -25,19 +25,19 @@ sourcePath: overlay/reference/ydb-cli/install.md
 
 - macOS
 
-    Чтобы установить YDB CLI, выполните команду:
+    Чтобы установить {{ ydb-short-name }} CLI, выполните команду:
 
     ```bash
     curl https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
     ```
 
-    Скрипт установит YDB CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
+    Скрипт установит {{ ydb-short-name }} CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
 
     Чтобы обновить переменные окружения, перезапустите командную оболочку.
 
 - Windows
 
-    YDB CLI можно установить с помощью:
+    {{ ydb-short-name }} CLI можно установить с помощью:
 
     * PowerShell. Для этого выполните команду:
 
@@ -67,7 +67,7 @@ sourcePath: overlay/reference/ydb-cli/install.md
 
     {% note info %}
 
-    YDB CLI использует символы Юникода в выводе некоторых команд. При некорректном отображении таких символов в консоли Windows, переключите кодировку на UTF-8:
+    {{ ydb-short-name }} CLI использует символы Юникода в выводе некоторых команд. При некорректном отображении таких символов в консоли Windows, переключите кодировку на UTF-8:
 
     ```cmd
     chcp 65001

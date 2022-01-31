@@ -1,6 +1,6 @@
 ---
-sourcePath: core/concepts/_includes/databases/compute.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/databases/compute.md
 ---
 ## Вычислительные ресурсы {#compute-resources}
 
-Кластер YDB может быть развернут на bare metal, виртуальных машинах, или в среде контейнерной виртуализации. 
+Кластер {{ ydb-short-name }} может быть развернут на bare metal, виртуальных машинах, или в среде контейнерной виртуализации. 

@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/docapi/api-ref/actions/describeTimeToLive.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/actions/describeTimeToLive.md
 ---
 # Метод DescribeTimeToLive
 

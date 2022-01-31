@@ -1,9 +1,9 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/example-go.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/example-go.md
 ---
 # Приложение на Go
 
-На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-go-examples/tree/master/cmd/basic), использующего [Go SDK](https://github.com/ydb-platform/ydb-go-sdk/v3) YDB.
+На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-go-examples/tree/master/cmd/basic), использующего [Go SDK](https://github.com/ydb-platform/ydb-go-sdk/v3) {{ ydb-short-name }}.
 
 {% include [addition.md](auxilary/addition.md) %}
 

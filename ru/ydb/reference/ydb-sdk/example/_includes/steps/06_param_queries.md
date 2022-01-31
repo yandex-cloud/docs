@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/steps/06_param_queries.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/steps/06_param_queries.md
 ---
 ## Параметризованные запросы {#param-queries}
 

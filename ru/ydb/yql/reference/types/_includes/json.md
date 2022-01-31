@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/json.md
-sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/types/_includes/json.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/json.md
 ---
 
 # Представление данных в формате JSON
@@ -10,7 +10,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Логическое значение.
 
 * Тип в JSON — `bool`.
-* Пример значения YDB — `true`.
+* Пример значения {{ backend_name }} — `true`.
 * Пример значения JSON — `true`.
 
 ## Int8, Int16, Int32, Int64 {#int}
@@ -18,7 +18,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Целочисленные знаковые типы.
 
 * Тип в JSON — `number`.
-* Пример значения YDB — `123456`, `-123456`.
+* Пример значения {{ backend_name }} — `123456`, `-123456`.
 * Пример значения JSON — `123456`, `-123456`.
 
 ## Uint8, Uint16, Uint32, Uint64 {#uint}
@@ -26,7 +26,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Целочисленные беззнаковые типы.
 
 * Тип в JSON — `number`.
-* Пример значения YDB — `123456`.
+* Пример значения {{ backend_name }} — `123456`.
 * Пример значения JSON — `123456`.
 
 ## Float {#float}
@@ -34,7 +34,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Вещественное 4-байтное число.
 
 * Тип в JSON — `number`.
-* Пример значения YDB — `0.12345679`.
+* Пример значения {{ backend_name }} — `0.12345679`.
 * Пример значения JSON — `0.12345679`.
 
 ## Double {#double}
@@ -42,7 +42,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Вещественное 8-байтное число.
 
 * Тип в JSON — `number`.
-* Пример значения YDB — `0.12345678901234568`.
+* Пример значения {{ backend_name }} — `0.12345678901234568`.
 * Пример значения JSON — `0.12345678901234568`.
 
 ## Decimal {#decimal}
@@ -50,7 +50,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Число с фиксированной точностью. Поддерживается только Decimal(22, 9).
 
 * Тип в JSON — `string`.
-* Пример значения YDB — `-320.789`.
+* Пример значения {{ backend_name }} — `-320.789`.
 * Пример значения JSON — `"-320.789"`.
 
 ## String {#string}
@@ -64,7 +64,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 При декодировании происходит обратный процесс. Коды символов в `\u00XX` более 255 не допускаются.
 
 * Тип в JSON — `string`.
-* Пример значения YDB — последовательность из 4 байт:
+* Пример значения {{ backend_name }} — последовательность из 4 байт:
   * 5 `0x05` - управляющий символ;
   * 10 `0x0a` - перенос строки `\n`;
   * 107 `0x6b` - символ `k`;
@@ -76,7 +76,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Строковые типы в utf-8. Такие строки представляются в JSON строками с escaping'ом JSON-символов: `\\`, `\"`, `\n`, `\r`, `\t`, `\f`.
 
 * Тип в JSON — `string`.
-* Пример значения YDB — код на С++:
+* Пример значения {{ backend_name }} — код на С++:
 
   ```c++
   "Escaped characters: "
@@ -92,7 +92,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Дата. Uint64, количество дней unix time.
 
 * Тип в JSON — `string`.
-* Пример значения YDB — `18367`.
+* Пример значения {{ backend_name }} — `18367`.
 * Пример значения JSON — `"2020-04-15"`.
 
 ## Datetime {#datetime}
@@ -100,7 +100,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Дата и время. Uint64, количество секунд unix time.
 
 * Тип в JSON — `string`.
-* Пример значения YDB — `1586966302`.
+* Пример значения {{ backend_name }} — `1586966302`.
 * Пример значения JSON — `"2020-04-15T15:58:22Z"`.
 
 ## Timestamp {#timestamp}
@@ -108,7 +108,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Дата и время. Uint64, количество микросекунд unix time.
 
 * Тип в JSON — `string`.
-* Пример значения YDB — `1586966302504185`.
+* Пример значения {{ backend_name }} — `1586966302504185`.
 * Пример значения JSON — `"2020-04-15T15:58:22.504185Z"`.
 
 ## Interval {#interval}
@@ -116,7 +116,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Временной интервал. Int64, точность до микросекунд, допустимы значения интервалов - не более 24 часов.
 
 * Тип в JSON — `number`.
-* Пример значения YDB — `123456`, `-123456`.
+* Пример значения {{ backend_name }} — `123456`, `-123456`.
 * Пример значения JSON — `123456`, `-123456`.
 
 ## Optional {#optional}
@@ -124,7 +124,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Означает, что значение может быть `null`. Если значение `null`, то в JSON также будет `null`. Если значение не `null`, то в JSON значение запишется так же, как если бы тип был не `Optional`.
 
 * Тип в JSON — отсутствует.
-* Пример значения YDB — `null`.
+* Пример значения {{ backend_name }} — `null`.
 * Пример значения JSON — `null`.
 
 ## List {#list}
@@ -132,7 +132,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Список. Упорядоченный набор значений заданного типа.
 
 * Тип в JSON — `array`.
-* Пример значения YDB:
+* Пример значения {{ backend_name }}:
   * тип — `List<Int32>`;
   * значение — `1, 10, 100`.
 * Пример значения JSON — `[1,10,100]`.
@@ -142,7 +142,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Поток. Однопроходной итератор по значениям одного типа.
 
 * Тип в JSON — `array`.
-* Пример значения YDB:
+* Пример значения {{ backend_name }}:
   * тип — `Stream<Int32>`;
   * значение — `1, 10, 100`.
 * Пример значения JSON — `[1,10,100]`.
@@ -152,7 +152,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Структура. Неупорядоченный набор значений с заданными именами и типом.
 
 * Тип в JSON — `object`.
-* Пример значения YDB:
+* Пример значения {{ backend_name }}:
   * тип — `Struct<'Id':Uint32,'Name':String,'Value':Int32,'Description':Utf8?>`;
   * значение — `"Id":1,"Name":"Anna","Value":-100,"Description":null`.
 * Пример значения JSON — `{"Id":1,"Name":"Anna","Value":-100,"Description":null}`.
@@ -162,7 +162,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Кортеж. Упорядоченный набор значений заданных типов.
 
 * Тип в JSON — `array`.
-* Пример значения YDB:
+* Пример значения {{ backend_name }}:
   * тип — `Tuple<Int32??,Int64???,String??,Utf8???>`;
   * значение — `10,-1,null,"Some string"`.
 * Пример значения JSON — `[10,-1,null,"Some string"]`.
@@ -172,7 +172,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 Словарь. Неупорядоченный набор пар ключ-значение. И для ключа, и для значения задан тип. В json записывается в массив массивов, состоящих из двух элементов.
 
 * Тип в JSON — `array`.
-* Пример значения YDB:
+* Пример значения {{ backend_name }}:
   * тип — `Dict<Int64,String>`;
   * значение — `1:"Value1",2:"Value2"`.
 * Пример значения JSON — `[[1,"Value1"],[2,"Value2"]]`.

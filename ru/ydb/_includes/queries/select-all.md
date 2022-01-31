@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/queries/select-all.md
+sourcePath: ru/ydb/overlay/_includes/queries/select-all.md
 ---
 ```sql
 SELECT

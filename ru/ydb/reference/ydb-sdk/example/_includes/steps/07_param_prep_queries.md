@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/steps/07_param_prep_queries.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/steps/07_param_prep_queries.md
 ---
 ## Параметризованные подготовленные запросы {#param-prepared-queries}
 

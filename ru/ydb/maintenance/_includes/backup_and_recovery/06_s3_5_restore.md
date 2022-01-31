@@ -1,5 +1,5 @@
 ---
-sourcePath: core/maintenance/_includes/backup_and_recovery/06_s3_5_restore.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/maintenance/_includes/backup_and_recovery/06_s3_5_restore.md
 ---
 ### Восстановление из S3-совместимых хранилищ {#s3_restore}
 

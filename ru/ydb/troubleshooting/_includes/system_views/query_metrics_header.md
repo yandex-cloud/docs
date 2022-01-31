@@ -1,5 +1,5 @@
 ---
-sourcePath: core/troubleshooting/_includes/system_views/query_metrics_header.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/_includes/system_views/query_metrics_header.md
 ---
 ## Подробная информация о запросах
 

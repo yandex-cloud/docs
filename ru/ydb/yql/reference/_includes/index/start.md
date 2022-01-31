@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/reference/_includes/index/start.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/_includes/index/start.md
 ---
 Начать работать с YQL можно после создания базы данных. 
 

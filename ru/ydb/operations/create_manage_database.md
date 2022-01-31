@@ -1,7 +1,7 @@
 ---
-sourcePath: overlay/operations/create_manage_database.md
+sourcePath: ru/ydb/overlay/operations/create_manage_database.md
 ---
-# Управление базами данных в Yandex Database
+# Управление базами данных в {{ ydb-name }}
 
 В этом разделе описано, как:
 
@@ -22,8 +22,8 @@ sourcePath: overlay/operations/create_manage_database.md
 
 * Консоль управления
 
-   1. В [консоли управления](https://console.cloud.yandex.ru/) выберите каталог, для которого нужно получить список баз данных.
-   1. В списке сервисов выберите **Yandex Database**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, для которого нужно получить список баз данных.
+   1. В списке сервисов выберите **{{ ydb-name }}**.
 
 * CLI
 
@@ -34,13 +34,13 @@ sourcePath: overlay/operations/create_manage_database.md
    1. Посмотрите описание команды CLI для получения списка БД:
 
       ```bash
-      yc ydb database list --help
+      {{ yc-ydb }} database list --help
       ```
 
    1. Чтобы получить список баз данных в каталоге по умолчанию, выполните команду:
 
       ```bash
-      yc ydb database list
+      {{ yc-ydb }} database list
       ```
 
 {% endlist %}
@@ -57,8 +57,8 @@ sourcePath: overlay/operations/create_manage_database.md
 
 * Консоль управления
 
-   1. В [консоли управления](https://console.cloud.yandex.ru/) выберите каталог, в котором нужно изменить настройки базы данных.
-   1. В списке сервисов выберите **Yandex Database**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить настройки базы данных.
+   1. В списке сервисов выберите **{{ ydb-name }}**.
    1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
    1. Настройте параметры БД:
       1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](../concepts/databases.md#compute-units).
@@ -76,13 +76,13 @@ sourcePath: overlay/operations/create_manage_database.md
    1. Посмотрите описание команды CLI для изменения параметров БД:
 
       ```bash
-      yc ydb database update --help
+      {{ yc-ydb }} database update --help
       ```
 
    1. Выполните команду вида:
 
       ```bash
-      yc ydb database update <имя БД> \
+      {{ yc-ydb }} database update <имя БД> \
                      --new-name <новое имя БД> \
                      --description <новое описание БД> \
                      --resource-preset <ID класса> \
@@ -98,8 +98,8 @@ sourcePath: overlay/operations/create_manage_database.md
 
 * Консоль управления
 
-   1. В [консоли управления](https://console.cloud.yandex.ru/) выберите каталог, в котором нужно удалить базу данных.
-   1. В списке сервисов выберите **Yandex Database**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить базу данных.
+   1. В списке сервисов выберите **{{ ydb-name }}**.
    1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
    1. Подтвердите удаление.
 
@@ -112,13 +112,13 @@ sourcePath: overlay/operations/create_manage_database.md
    1. Посмотрите описание команды CLI для удаления БД:
 
       ```bash
-      yc ydb database delete --help
+      {{ yc-ydb }} database delete --help
       ```
 
    1. Чтобы удалить базу данных, выполните команду:
 
       ```bash
-      yc ydb database delete <имя базы данных>
+      {{ yc-ydb }} database delete <имя базы данных>
       ```
 
 {% endlist %}

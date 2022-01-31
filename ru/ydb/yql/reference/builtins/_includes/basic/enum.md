@@ -1,6 +1,6 @@
 ---
-sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
-sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
 ---
 
 ## Enum, AsEnum {#enum}

@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/queries/create-new-table-short.md
+sourcePath: ru/ydb/overlay/_includes/queries/create-new-table-short.md
 ---
 ```sql
 CREATE TABLE series

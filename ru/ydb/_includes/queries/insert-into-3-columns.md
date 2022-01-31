@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/_includes/queries/insert-into-3-columns.md
+sourcePath: ru/ydb/overlay/_includes/queries/insert-into-3-columns.md
 ---
 ```sql
 INSERT INTO episodes

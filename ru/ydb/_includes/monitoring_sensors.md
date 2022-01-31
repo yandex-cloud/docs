@@ -1,8 +1,8 @@
 ---
-sourcePath: overlay/_includes/monitoring_sensors.md
+sourcePath: ru/ydb/overlay/_includes/monitoring_sensors.md
 ---
 <!-- This file is referenced as include from /ru/monitoring/metrics-ref/index.md -->
-## Сервис Yandex Database {#ydb}
+## Сервис {{ ydb-full-name }} {#ydb}
 
 ### Метрики использования ресурсов {#resources}
 
@@ -22,7 +22,7 @@ sourcePath: overlay/_includes/monitoring_sensors.md
 `api.grpc.response.bytes`<br/>`RATE`, байты | Размер ответов, которые отправлены базой данный в определенный период времени.<br/>Метки:<br/>- _api_service_ – название сервиса gRPC API, например `table`.<br/>- _method_ – название метода сервиса gRPC API, например `ExecuteDataQuery`.
 `api.grpc.response.count`<br/>`RATE`, штуки | Количество ответов, которые отправлены базой в определенный период времени.<br/>Метки:<br/>- _api_service_ – название сервиса gRPC API, например `table`.<br/>- _method_ – название метода сервиса gRPC API, например `ExecuteDataQuery`.<br/>- _status_ – статус выполнения запроса, подробнее статусы описаны в разделе [Обработка ошибок](https://cloud.yandex.ru/docs/ydb/oss/public/reference/ydb-sdk/error_handling).
 `api.grpc.response.dropped_count`<br/>`RATE`, штуки | Количество ответов, отправка которых была прекращена на на транспортном (gRPC) уровне из-за ошибки.<br/>Метки:<br/>- _api_service_ – название сервиса gRPC API, например `table`.<br/>- _method_ – название метода сервиса gRPC API, например `ExecuteDataQuery`.
-`api.grpc.response.issues`<br/>`RATE`, штуки | Количество ошибок определенного типа, возникших при выполнении запросов в определенный период времени.<br/>Метки:<br/>- _issue_type_ – тип ошибки, единственное значение – `optimistic_locks_invalidation`, подробнее инвалидация блокировок описана в разделе [Транзакции и запросы к YDB](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transactions).
+`api.grpc.response.issues`<br/>`RATE`, штуки | Количество ошибок определенного типа, возникших при выполнении запросов в определенный период времени.<br/>Метки:<br/>- _issue_type_ – тип ошибки, единственное значение – `optimistic_locks_invalidation`, подробнее инвалидация блокировок описана в разделе [Транзакции и запросы к {{ ydb-short-name }}](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transactions).
 
 ### Метрики сессий {#sessions}
 

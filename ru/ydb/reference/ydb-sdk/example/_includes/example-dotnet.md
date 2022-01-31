@@ -1,9 +1,9 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/example-dotnet.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/example-dotnet.md
 ---
 # Приложение на C# (.NET)
 
-На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-dotnet-examples), доступного в составе [C# (.NET) SDK](https://github.com/ydb-platform/ydb-dotnet-sdk) YDB.
+На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-dotnet-examples), доступного в составе [C# (.NET) SDK](https://github.com/ydb-platform/ydb-dotnet-sdk) {{ ydb-short-name }}.
 
 {% include [addition.md](auxilary/addition.md) %}
 

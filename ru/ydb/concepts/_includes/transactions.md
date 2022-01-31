@@ -1,5 +1,5 @@
 ---
-sourcePath: core/concepts/_includes/transactions.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/transactions.md
 ---
 # Транзакции и запросы к YDB
 

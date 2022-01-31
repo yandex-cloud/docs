@@ -1,4 +1,4 @@
 ---
-sourcePath: overlay/operations/index.md
+sourcePath: ru/ydb/overlay/operations/index.md
 ---
-В данном разделе собраны пошаговые инструкции по операциям с YDB.
+В данном разделе собраны пошаговые инструкции по операциям с {{ ydb-short-name }}.

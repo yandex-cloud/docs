@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-setup.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-setup.md
 ---
 # Настройка инструментов AWS
 
@@ -125,7 +125,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
     ```
 
     В результате будут созданы файлы `~/.aws/credentials` и `~/.aws/config` (`C:\Users\USERNAME\.aws\credentials` и `C:\Users\USERNAME\.aws\config` в Windows).
-1. Проверьте корректность настройки, запустив команду листинга таблиц в [созданной](../create-db.md) ранее БД. В качестве значения `--endpoint` укажите Document API эндпоинт, доступный на вкладке **Обзор** вашей базы данных в [консоли управления](https://console.cloud.yandex.ru/).
+1. Проверьте корректность настройки, запустив команду листинга таблиц в [созданной](../create-db.md) ранее БД. В качестве значения `--endpoint` укажите Document API эндпоинт, доступный на вкладке **Обзор** вашей базы данных в [консоли управления]({{ link-console-main }}).
 
     ```bash
     aws dynamodb list-tables \

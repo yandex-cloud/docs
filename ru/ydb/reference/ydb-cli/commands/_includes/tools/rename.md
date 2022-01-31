@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/tools/rename.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/tools/rename.md
 ---
 # Переименование таблицы
 
@@ -36,7 +36,7 @@ ydb tools rename --help
 Переименуйте таблицы:
 
 ```bash
-ydb tools rename \
+{{ ydb-cli }} tools rename \
   --item source=new-project/main_table,destination=new-project/episodes \
   --item source=new-project/second_table,destination=new-project/seasons \
   --item source=new-project/third_table,destination=new-project/series
@@ -61,13 +61,13 @@ episodes  seasons  series
 Создайте директорию:
 
 ```bash
-ydb scheme mkdir cinema
+{{ ydb-cli }} scheme mkdir cinema
 ```
 
 Переименуйте таблицы и переместите их в созданную директорию:
 
 ```bash
-ydb tools rename \
+{{ ydb-cli }} tools rename \
   --item source=new-project/main_table,destination=cinema/episodes \
   --item source=new-project/second_table,destination=cinema/seasons \
   --item source=new-project/third_table,destination=cinema/series
@@ -92,7 +92,7 @@ episodes  seasons  series
 Замените таблицу `main_table` директории `prod-project` одноименной таблицей директории `pre-prod-project`:
 
 ```bash
-ydb tools rename \
+{{ ydb-cli }} tools rename \
   --item replace=True,source=pre-prod-project/main_table,destination=prod-project/main_table
 ```
 
@@ -130,7 +130,7 @@ other_table
 
 ```bash
 
-ydb tools rename \
+{{ ydb-cli }} tools rename \
   --item source=prod-project/main_table,destination=prod-project/main_table.backup \
   --item source=pre-prod-project/main_table,destination=prod-project/main_table
 ```

@@ -1,13 +1,13 @@
 ---
-sourcePath: core/maintenance/_includes/backup_and_recovery/06_s3_4_export.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/maintenance/_includes/backup_and_recovery/06_s3_4_export.md
 ---
 ### Запуск операции экспорта в S3 {#s3_export}
 
 Команды в примерах ниже составлены из расчёта, что данные ключей доступа сохранены в файл `~/.aws/credentials`.
 
-Запуск операции операции экспорта данных из таблиц `$YDB_DB_PATH/backup/episodes`, `$YDB_DB_PATH/backup/seasons`, `$YDB_DB_PATH/backup/series` в YDB в базе `$YDB_DB_PATH` в файлы с префиксом `20200601/` в бакете `testdbbackups` в Object Storage.
+Запуск операции операции экспорта данных из таблиц `$YDB_DB_PATH/backup/episodes`, `$YDB_DB_PATH/backup/seasons`, `$YDB_DB_PATH/backup/series` в YDB в базе `$YDB_DB_PATH` в файлы с префиксом `20200601/` в бакете `testdbbackups` в {{ objstorage-name }}.
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 --s3-endpoint storage.yandexcloud.net  --bucket testdbbackups\
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 --s3-endpoint {{ s3-storage-host }}  --bucket testdbbackups\
 --item source=$YDB_DB_PATH/backup/episodes,destination=20200601/episodes\
 --item source=$YDB_DB_PATH/backup/seasons,destination=20200601/seasons\
 --item source=$YDB_DB_PATH/backup/series,destination=20200601/series
@@ -45,7 +45,7 @@ ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 --s3-endpoint storage.yandexcloud
 В результате выполнения с помощью AWS CLI приведённой ниже команды на экран будет выведен список префиксов, созданных в результате бекапа в бакете `testdbbackup`.
 
 ```
-aws --endpoint-url=https://storage.yandexcloud.net s3 ls testdbbackups/20200601/
+aws --endpoint-url=https://{{ s3-storage-host }} s3 ls testdbbackups/20200601/
                            PRE episodes/
                            PRE seasons/
                            PRE series/
@@ -56,8 +56,8 @@ aws --endpoint-url=https://storage.yandexcloud.net s3 ls testdbbackups/20200601/
 Чтобы сделать резервную копию всех таблиц в директории YDB, следует указать путь до директории в качестве источника.
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 \
---s3-endpoint storage.yandexcloud.net \
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 \
+--s3-endpoint {{ s3-storage-host }} \
 --bucket testdbbackups \
 --item source=$YDB_DB_PATH/backup,destination=20200601/
 ```
@@ -66,7 +66,7 @@ ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 \
 
 вывести на экран текущее состояние запущенной ранее операции экспорта можно приведённой ниже командой.
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH operation get 'ydb://export/6?id=846776181822113&kind=s3'
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH operation get 'ydb://export/6?id=846776181822113&kind=s3'
 ┌───────────────────────────────────────────┬───────┬─────────┬───────────────┬───────────────────┬───────────────┐
 | id                                        | ready | status  | progress      | endpoint          | bucket        |
 ├───────────────────────────────────────────┼───────┼─────────┼───────────────┼───────────────────┼───────────────┤

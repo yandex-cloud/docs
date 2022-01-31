@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/quickstart/document-api/aws-cli/update-item.md
+sourcePath: ru/ydb/overlay/quickstart/document-api/aws-cli/update-item.md
 ---
 # Обновление данных
 

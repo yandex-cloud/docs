@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/faq/index.md
+sourcePath: ru/ydb/overlay/faq/index.md
 ---
 
 {% include [index.md](_includes/index.md) %}

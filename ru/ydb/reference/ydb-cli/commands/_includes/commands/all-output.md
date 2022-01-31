@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-cli/commands/_includes/commands/all-output.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/commands/all-output.md
 ---
 ```text
 YDB client

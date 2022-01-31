@@ -1,5 +1,5 @@
 ---
-sourcePath: core/yql/tutorial/basic_aggregation.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/basic_aggregation.md
 ---
 # Агрегирование данных
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/docapi/api-ref/actions/updateTimeToLive.md
+sourcePath: ru/ydb/overlay/docapi/api-ref/actions/updateTimeToLive.md
 ---
 # Метод UpdateTimeToLive
 

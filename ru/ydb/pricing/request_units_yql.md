@@ -1,5 +1,5 @@
 ---
-sourcePath: overlay/pricing/request_units_yql.md
+sourcePath: ru/ydb/overlay/pricing/request_units_yql.md
 ---
 # Правила оценки стоимости YQL-запросов к YDB
 

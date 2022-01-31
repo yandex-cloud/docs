@@ -1,19 +1,19 @@
 ---
 title: Начало работы с Yandex Database (YDB). Обзор
 description: 'Чтобы начать работу с YDB, воспользуйтесь следующими инструкциями. Создание базы данных, работа с данными через консоль управления, работа YDB CLI, работа с YDB SDK, настройка инструментов AWS, работа с данными через HTTP-интерфейс, работа с AWS CLI, работа с AWS SDK.'
-sourcePath: overlay/quickstart/index.md
+sourcePath: ru/ydb/overlay/quickstart/index.md
 ---
 
 
-# Начало работы с Yandex Database
+# Начало работы с {{ ydb-name }}
 
-Для знакомства с YDB воспользуйтесь следующими инструкциями:
+Для знакомства с {{ ydb-short-name }} воспользуйтесь следующими инструкциями:
 
 * [{#T}](create-db.md) — создайте вашу первую БД.
 * YQL API:
-  * [{#T}](yql-api/ydb-ui.md) — выполняйте запросы с помощью консоли Yandex.Cloud.
-  * [{#T}](yql-api/ydb-cli.md) — настройте консольный клиент YDB, посмотрите примеры использования.
-  * [YDB SDK](../reference/ydb-sdk/index.md) — познакомьтесь с YDB SDK для Python, Go, Node.js, PHP или Java.
+  * [{#T}](yql-api/ydb-ui.md) — выполняйте запросы с помощью консоли {{ yandex-cloud }}.
+  * [{#T}](yql-api/ydb-cli.md) — настройте консольный клиент {{ ydb-short-name }}, посмотрите примеры использования.
+  * [YDB SDK](../reference/ydb-sdk/index.md) — познакомьтесь с {{ ydb-short-name }} SDK для Python, Go, Node.js, PHP или Java.
 * Document API:
   * [{#T}](document-api/aws-setup.md) — подготовьте окружение для работы в режиме совместимости с AWS DynamoDB.
   * [{#T}](document-api/aws-http.md) — управляйте данными с помощью HTTP API.

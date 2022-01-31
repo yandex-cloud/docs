@@ -1,5 +1,5 @@
 ---
-sourcePath: core/maintenance/embedded_monitoring/overview.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/maintenance/embedded_monitoring/overview.md
 ---
 # Обзор средств интроспекции
 

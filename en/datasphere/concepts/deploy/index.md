@@ -14,6 +14,8 @@ API requests can change the state of the node's interpreter. You can't revert to
 
 Read more about creating a node from a cell with Python code in [{#T}](../../operations/node-cell.md).
 
+By default, instances use standard system Docker images and don't copy user-installed libraries. If your microservice requires packages that are not included in the [pre-installed software](../preinstalled-packages.md), configure the Docker image for [deployment of the node environment](../../operations/node-customization.md).
+
 ## Statuses of nodes and their instances {#statuses}
 
 Node instances can have one of the following statuses:
