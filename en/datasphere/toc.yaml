@@ -73,6 +73,8 @@ items:
         items:
           - name: Creating a node from a Python code cell
             href: operations/node-cell.md
+          - name: Configuring the node environment
+            href: operations/node-customization.md
           - name: Queries to nodes
             href: operations/node-api.md
   - name: Concepts
