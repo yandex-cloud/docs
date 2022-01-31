@@ -293,6 +293,8 @@ items:
                 href: editor/controls/elements.md
           - name: Дриллдаун
             href: editor/drilldown.md
+          - name: Уведомления
+            href: editor/notifications.md
       - name: Источники данных
         items:
           - name: Обзор
