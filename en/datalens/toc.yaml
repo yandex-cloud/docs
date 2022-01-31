@@ -187,6 +187,14 @@ items:
             href: operations/permission/revoke.md
           - name: Request permissions
             href: operations/permission/request.md
+      - name: Working with DataLens Marketplace
+        items:
+          - name: Adding a product from Marketplace
+            href: operations/marketplace/add-marketplace-product.md
+          - name: Removing a product from Marketplace
+            href: operations/marketplace/delete-marketplace-product.md
+          - name: Creating and using a connector (for partners)
+            href: operations/marketplace/create-connector-for-partners.md                                              
   - name: Access management
     items:
       - name: Managing access to DataLens
