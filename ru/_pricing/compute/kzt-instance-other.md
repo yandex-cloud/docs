@@ -8,6 +8,7 @@ RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram|string }}
 1 GPU | {{ sku|KZT|compute.vm.gpu.gpu-standard.v2|string }}
 RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram.v2|string }}
 **Intel Ice Lake** |
+1 GPU | {{ sku|KZT|compute.vm.gpu.standard.v3-t4|string }}
 RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram.v3|string }}
 **AMD EPYC™** |
 1 GPU | {{ sku|KZT|compute.vm.gpu.gpu-standard.v3|string }}

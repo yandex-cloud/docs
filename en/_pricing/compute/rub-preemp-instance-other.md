@@ -8,6 +8,7 @@ RAM (for 1 GB) | {{ sku|RUB|compute.vm.ram.preemptible|string }}
 1 GPU | {{ sku|RUB|compute.vm.gpu.gpu-standard.preemptible.v2|string }}
 RAM (for 1 GB) | {{ sku|RUB|compute.vm.ram.preemptible.v2|string }}
 **Intel Ice Lake** |
+1 GPU | {{ sku|RUB|compute.vm.gpu.standard.v3-t4.preemptible|string }}
 RAM (for 1 GB) | {{ sku|RUB|compute.vm.ram.preemptible.v3|string }}
 **AMD EPYC™** |
 1 GPU | {{ sku|RUB|compute.vm.gpu.gpu-standard.preemptible.v3|string }}
