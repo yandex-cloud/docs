@@ -17,7 +17,7 @@ STR( expression )
 Converts the `expression` expression to string type.
 
 **Argument types:**
-- `expression` — `Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
+- `expression` — `Array of fractional numbers | Array of integer numbers | Array of strings | Boolean | Date | Datetime | Fractional number | Geopoint | Geopolygon | Integer | String | UUID`
 
 
 **Return type**: `String`

@@ -31,12 +31,12 @@ Source data
 
 | **City**          | **Category**        | **Orders**   | **Profit**   |
 |:------------------|:--------------------|:-------------|:-------------|
-| `'London'`        | `'Office Supplies'` | `8`          | `    120.10` |
-| `'London'`        | `'Furniture'`       | `1`          | `    750.00` |
-| `'Moscow'`        | `'Furniture'`       | `2`          | `   1250.50` |
-| `'Moscow'`        | `'Office Supplies'` | `4`          | `     85.34` |
-| `'San Francisco'` | `'Office Supplies'` | `23`         | `    723.00` |
-| `'Detroit'`       | `'Furniture'`       | `5`          | `   6205.87` |
+| `'London'`        | `'Office Supplies'` | `8`          | `120.10`     |
+| `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'Moscow'`        | `'Office Supplies'` | `4`          | `85.34`      |
+| `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'Detroit'`       | `'Furniture'`       | `5`          | `6205.87`    |
 
 Grouped by `[City]`.
 
@@ -46,10 +46,10 @@ Result
 
 | **[City]**        | **SUM([Orders])**   | **SUM([Profit])**   |
 |:------------------|:--------------------|:--------------------|
-| `'Detroit'`       | `5`                 | `   6205.87`        |
-| `'London'`        | `9`                 | `    870.10`        |
-| `'Moscow'`        | `6`                 | `   1335.84`        |
-| `'San Francisco'` | `23`                | `    723.00`        |
+| `'Detroit'`       | `5`                 | `6205.87`           |
+| `'London'`        | `9`                 | `870.10`            |
+| `'Moscow'`        | `6`                 | `1335.84`           |
+| `'San Francisco'` | `23`                | `723.00`            |
 
 
 
