@@ -435,6 +435,10 @@ items:
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
+      - name: Access to clique <название клики> for user <логин пользователя> was denied
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE_ACCESS_DENIED.md
       - name: Access to table was denied
         when: audience == "internal"
         hidden: true
