@@ -37,8 +37,9 @@
 Кто получает данные| Компоненты одного приложения | Независимые приложения
 Гарантии | [At least once](https://www.cloudcomputingpatterns.org/at_least_once_delivery/) для обычной очереди, [exactly once](https://www.cloudcomputingpatterns.org/exactly_once_delivery/) для FIFO-очереди | At least once
 Порядок получения сообщений | Гарантируется для FIFO-очереди, не гарантируется для обычной очереди | Гарантируется
-Пропускная способность | Не ограничена для обычной очереди, до 30 сообщений в секунду для FIFO-очереди | Не ограничена, определяется числом сегментов
-Что тарифицируется | За каждое отдельное сообщение | За сегменты, их скорость и объем хранимых данных
+Пропускная способность | До 300 сообщений в секунду для обычной очереди, до 30 сообщений в секунду для FIFO-очереди | Не ограничена, определяется числом сегментов
+Что тарифицируется | За запросы на запись и чтение сообщений | За сегменты, их скорость и объем хранимых данных
 Поддерживаемый протокол | [Amazon SQS API](../../message-queue/api-ref/index.md) | [Amazon Kinesis Data Streams API](../../data-streams/kinesisapi/api-ref.md)
 С какими сервисами {{ yandex-cloud }} есть интеграция | [{{ sf-full-name }}](../../functions/index.yaml), [{{ api-gw-full-name }}](../../api-gateway/index.yaml) | [{{ sf-full-name }}](../../functions/index.yaml), [{{ api-gw-full-name }}](../../api-gateway/index.yaml), [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 Надежность | Данные хранятся во всех зонах доступности | Данные хранятся во всех зонах доступности
+Масштабируемость на чтение | Серверная | Клиентская ([KCL](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)). Поддерживаются версии KCL 1.x
