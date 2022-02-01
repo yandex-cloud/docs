@@ -47,7 +47,11 @@
 }
 ```
 
+{% if audience != "internal" %}
+
 Идентификатор пользователя можно получить по [инструкции](../../iam/operations/users/get.md) в документации {{ iam-full-name }}.
+
+{% endif %}
 
 ## Примеры конфигурации {#config-examples}
 
