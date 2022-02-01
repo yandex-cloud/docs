@@ -1,7 +1,12 @@
-
 # CHYT (ClickHouse over YT)
 
 ## Как работать с CHYT из ChartEditor {#working-from-charteditor}
+
+{% note alert %}
+
+Рекомендуем использовать [созданное подключение](../../operations/connection/chyt/create-chyt.md) {{ datalens-short-name }} вместо работы с CHYT через ChartEditor.
+
+{% endnote %}
 
 С помощью ChartEditor вы можете работать с данными из публичных кластеров.
 
@@ -23,6 +28,7 @@
 #### Пример {#working-from-charteditor-example}
 
 Вкладка **Urls**
+
 ```js
 const {buildSource} = require('libs/chyt/v1');
 

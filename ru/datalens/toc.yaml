@@ -299,6 +299,8 @@ items:
         items:
           - name: Обзор
             href: editor/sources/index.md
+          - name: Подключения
+            href: editor/sources/connections.md
           - name: Датасеты
             href: editor/sources/dataset.md
           - name: Статистика
