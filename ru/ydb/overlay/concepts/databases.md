@@ -13,6 +13,7 @@
 {% include [regions.md](_includes/databases/regions.md) %}
 
 Облачные БД {{ ydb-short-name }} в Yandex.Cloud предоставляются в геораспределенном регионе центральной России `ru-central1`, с тремя зонами доступности. Подробнее о регионах и зонах доступности Yandex.Cloud читайте в разделе [{#T}](../../overview/concepts/geo-scope.md).
+
 {% include [compute.md](_includes/databases/compute.md) %}
 
 ### БД {{ ydb-short-name }} в Yandex.Cloud на выделенных ресурсах (Dedicated)
