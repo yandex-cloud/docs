@@ -12,4 +12,5 @@ description: "В биллинге Yandex.Cloud используются след
 * [{#T}](personal-account.md)
 * [{#T}](billing-account.md)
 * [{#T}](promo-code.md)
+* [{#T}](trial-period.md)
 * [{#T}](cvos.md)

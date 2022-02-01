@@ -4,8 +4,6 @@ editable: false
 items:
   - name: Начало работы
     href: quickstart/index.md
-  - name: Пробный период
-    href: trial/activation.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -64,6 +62,8 @@ items:
         href: concepts/personal-account.md
       - name: Грант
         href: concepts/bonus-account.md
+      - name: Пробный период
+        href: concepts/trial-period.md
       - name: Резервируемое потребление (CVoS)
         href: concepts/cvos.md
       - name: Free tier экосистемы бессерверных вычислений
