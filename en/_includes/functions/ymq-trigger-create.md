@@ -43,7 +43,9 @@ You can use the same service account or different ones. If you don't have a serv
     1. Under **Message Queue settings**, select a message queue and a service account with rights to read messages from it.
     1. (optional) Under **Batch message settings**, specify:
         * Batch size. Values can be from 1 to 10. The default is 1.
-        * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified group size.
+        * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds.
+
+        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified group size.
     1. If the trigger launches:
         * A function, select one under **Function settings** and specify:
             * [Tag of the function version](../../functions/concepts/function.md#tag).

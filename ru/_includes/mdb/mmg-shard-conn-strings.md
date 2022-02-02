@@ -7,35 +7,35 @@
   **Подключение с использованием SSL-соединения для `mongo` версии 4.2 и выше:**
 
   ```bash
-  mongo --norc \
-        --tls \
-        --tlsCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
-        --username <имя пользователя БД> \
-        --password <пароль пользователя БД> \
-        <имя БД>
+  mongosh --norc \
+          --tls \
+          --tlsCAFile /home/<домашняя директория>/.mongodb/root.crt \
+          --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
+          --username <имя пользователя БД> \
+          --password <пароль пользователя БД> \
+          <имя БД>
   ```
 
   **Подключение с использованием SSL-соединения для более старых версий `mongo`:**
 
   ```bash
-  mongo --norc \
-        --ssl \
-        --sslCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
-        --username <имя пользователя БД> \
-        --password <пароль пользователя БД> \
-        <имя БД>
+  mongosh --norc \
+          --ssl \
+          --sslCAFile /home/<домашняя директория>/.mongodb/root.crt \
+          --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
+          --username <имя пользователя БД> \
+          --password <пароль пользователя БД> \
+          <имя БД>
   ```
 
   **Подключение без использования SSL-соединения:**
 
   ```bash
-  mongo --norc \
-        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
-        --username <имя пользователя БД> \
-        --password <пароль пользователя БД> \
-        <имя БД>
+  mongosh --norc \
+          --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
+          --username <имя пользователя БД> \
+          --password <пароль пользователя БД> \
+          <имя БД>
   ```
 
   После подключения выполните команду `db`.

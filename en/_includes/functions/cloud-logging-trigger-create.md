@@ -40,7 +40,9 @@ To create a trigger, you need:
         A trigger activates when records that match all the optional settings are added to the specified log group. If an optional setting is undefined, the trigger activates for any value of the setting.
     1. (optional) Under **Batch message settings**, specify:
         * Batch size. Valid values range from 1 to 100. The default is 1.
-        * Maximum wait time. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified group size.
+        * Maximum wait time. Valid values range from 1 to 60 seconds. The default is 1 second.
+
+        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified group size.
     1. If the trigger launches:
         * A function, select one under **Function settings** and specify:
             * [Tag of the function version](../../functions/concepts/function.md#tag).
@@ -66,6 +68,8 @@ To create a trigger, you need:
     yc serverless trigger create logging \
         --name <trigger name> \
         --log-group-name <log group name> \
+        --batch-size 1 \
+        --batch-cutoff 1s \
         --invoke-function-id <function ID> \
         --invoke-function-service-account-id <service account ID> \
         --retry-attempts 1 \

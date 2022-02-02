@@ -14,7 +14,6 @@ To get an IAM token:
      {% list tabs %}
 
      - Node.js
-
         1. Prepare a ZIP archive with the function code:
             1. Save the following code to a file named `index.js` to get the IAM token:
                 * From the handler context.
@@ -46,16 +45,24 @@ To get an IAM token:
                         };
                     };
                     ```
-            1. Add `index.js` to the `index-js.zip` archive.
+            1. If you get your IAM token using the API, save the following code to a file named `package.json`:
+                ```
+                {
+                    "name": "my-app",
+                    "dependencies": {
+                        "node-fetch": "2.x"
+                    }
+                }
+                ```
+            1. Add `index.js` and `package.json` (if you get your IAM token using the API) to a ZIP file called `index-js.zip`.
         1. [Create](../operations/function/version-manage.md#version-create) a function version. Indicate the following:
-            * Runtime environment: `nodejs12`.
+            * Runtime environment: `nodejs16`.
             * Code upload method: `ZIP archive`.
             * File: `index-js.zip`.
             * Entry point: `index.main`.
             * The service account to get the IAM token for.
 
     - Python
-    
         1. Prepare a ZIP archive with the function code:
             1. Save the following code to a file named `index.py` to get the IAM token:
                 * From the handler context.

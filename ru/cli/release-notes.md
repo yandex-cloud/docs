@@ -366,7 +366,7 @@
 
 {{ org-name }} — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы {{ yandex-cloud }} и управлять доступом сотрудников к этим сервисам.
 
-Сервис {{ org-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../organization/).
+Сервис {{ org-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее про сервис читайте в [документации](../organization/).
 
 ##### {{ sf-name }} {#serverless-functions}
 
@@ -871,7 +871,7 @@
 
 Сертификаты можно использовать в сервисах {{ yandex-cloud }} для обеспечения безопасности соединений.
 
-Сервис {{ certificate-manager-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../certificate-manager/).
+Сервис {{ certificate-manager-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее про сервис читайте в [документации](../certificate-manager/).
 
 ### Версия 0.63.0 (28.08.20) {#version0.63.0}
 
@@ -983,7 +983,7 @@
 
 {{ api-gw-name }} — сервис для управления API-шлюзами, поддерживающий спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с другими облачными сервисами.
 
-Сервис {{ api-gw-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее о сервисе читайте в [документации](../api-gateway/).
+Сервис {{ api-gw-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее о сервисе читайте в [документации](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -1325,7 +1325,7 @@
 
 Используйте ключи, чтобы защитить секреты, личные данные и другую конфиденциальную информацию, которую вы храните в облаке.
 
-Сервис {{ kms-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../kms/).
+Сервис {{ kms-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее про сервис читайте в [документации](../kms/).
 
 ### Версия 0.48.0 (27.12.19) {#version0.48.0}
 
