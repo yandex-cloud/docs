@@ -35,6 +35,11 @@ You can use the same service account or different ones. If you don't have a serv
         * In the **Type** field, select **Data Streams**.
         * Choose what will fire a trigger — a function or a container.
     1. Under **Data Streams settings**, select a data stream and a service account with rights to read data from and write data to it.
+    1. (optional) Under **Batch message settings**, specify:
+        * Size of the message group in bytes. Valid values range from 1 B to 64 KB. The default is 1 B.
+        * Maximum wait time. Valid values range from 1 to 60 seconds. The default is 1 second.
+
+        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. The total amount of data passed to a function or container may exceed the specified group size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the group size.
     1. If the trigger launches:
         * A function, select one under **Function settings** and specify:
             * [Tag of the function version](../../functions/concepts/function.md#tag).
@@ -60,6 +65,8 @@ You can use the same service account or different ones. If you don't have a serv
     yc serverless trigger create yds \
         --name <trigger name> \
         --stream <data stream name> \
+        --batch-size 1b \
+        --batch-cutoff 1s \
         --stream-service-account-id <service account ID> \
         --invoke-function-id <function ID> \
         --invoke-function-service-account-id <service account ID> \
@@ -72,6 +79,8 @@ You can use the same service account or different ones. If you don't have a serv
     Where:
     * `--name`: Trigger name.
     * `--stream`: Data stream name.
+    * `--batch-size`: Message batch size. Optional. Valid values range from 1 B to 64 KB. The default is 1 B.
+    * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. The total amount of data passed to a function or container may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
     * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
     * `--invoke-function-id`: Function ID.
     * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.

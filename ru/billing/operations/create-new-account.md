@@ -10,9 +10,9 @@
 
    {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
-1. {% include [choose-balance-payer](../_includes/choose-balance-payer.md) %}
-
 1. {% include [choose-name-step](../_includes/choose-name-step.md) %}
+
+1. {% include [choose-balance-payer](../_includes/choose-balance-payer.md) %}
 
 1. {% include [choose-type-step](../_includes/choose-type-step.md) %}
 
@@ -22,7 +22,7 @@
 
     - Физическое лицо
 
-       Укажите ваши ФИО и привяжите банковскую карту:
+       Укажите ваши фамилию, имя, отчество и привяжите банковскую карту:
        
          {% include [pin-card-data](../_includes/pin-card-data.md) %}
 
@@ -51,9 +51,11 @@
 
    {% endlist %}
 
-   {% include [contacts-note](../_includes/contacts-note.md) %}
+   
 
-1. {% include [contract-step](../_includes/contract-step.md) %}
+1. Проверьте, что контактные данные заполнены корректно.
+
+    {% include [contacts-note](../_includes/contacts-note.md) %}
 
 1. {% include [activate-button-step](../_includes/activate-button-step.md) %}
 

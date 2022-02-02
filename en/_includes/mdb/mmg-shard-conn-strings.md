@@ -7,35 +7,35 @@
   **Connecting via SSL for `mongo` version 4.2 and higher:**
 
   ```bash
-  mongo --norc \
-        --tls \
-        --tlsCAFile /home//.mongodb/root.crt \
-        --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
-        --username <DB username> \
-        --password <DB user password> \
-        <DB name>
+  mongosh --norc \
+          --tls \
+          --tlsCAFile /home//.mongodb/root.crt \
+          --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
+          --username <DB username> \
+          --password <DB user password> \
+          <DB name>
   ```
 
   **Connecting via SSL for older `mongo` versions:**
 
   ```bash
-  mongo --norc \
-        --ssl \
-        --sslCAFile /home/<home directory>/.mongodb/root.crt \
-        --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
-        --username <DB username> \
-        --password <DB user password> \
-        <DB name>
+  mongosh --norc \
+          --ssl \
+          --sslCAFile /home/<home directory>/.mongodb/root.crt \
+          --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
+          --username <DB username> \
+          --password <DB user password> \
+          <DB name>
   ```
 
   **Connecting without SSL:**
 
   ```bash
-  mongo --norc \
-        --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
-        --username <DB username> \
-        --password <DB user password> \
-        <DB name>
+  mongosh --norc \
+          --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
+          --username <DB username> \
+          --password <DB user password> \
+          <DB name>
   ```
 
   After connecting, run the `db` command.

@@ -363,7 +363,7 @@
         "cr.yandex": "yc"
         ```
 
-     1. Docker готов к использованию, например, для [загрузки Docker-образов](../operations/docker-image/docker-image-push.md). При этом выполнять команду`docker login` не надо.
+     1. Docker готов к использованию, например, для [загрузки Docker-образов](../operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
 
    {% endlist %}
 
@@ -380,7 +380,7 @@
    docker build . -t cr.yandex/${REGISTRY_ID}/ubuntu:hello
    ```
 
-1. Загрузите собранный Docker-образ в Yandex Cloud Registry:
+1. Загрузите собранный Docker-образ в {{ container-registry-name }}:
 
    ```bash
    docker push cr.yandex/${REGISTRY_ID}/ubuntu:hello

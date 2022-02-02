@@ -384,7 +384,7 @@ This example describes the steps required to run a Docker image on a VM using a 
    docker build . -t cr.yandex/${REGISTRY_ID}/ubuntu:hello
    ```
 
-1. Push the created Docker image to Yandex Cloud Registry:
+1. Push the created Docker image to {{ container-registry-name }}:
 
    ```bash
    docker push cr.yandex/${REGISTRY_ID}/ubuntu:hello
