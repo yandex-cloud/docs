@@ -22,19 +22,19 @@ links:
     href: quickstart-legal-entity
   - title: How to use the free trial
     description: How to use Yandex.Cloud during the trial period and who can access it
-    href: concepts/quickstart
+    href: free-trial/concepts/quickstart
   - title: Trial period restrictions
     description: Usage limits during the trial period
-    href: concepts/limits
+    href: free-trial/concepts/limits
   - title: Grant terms of use
     description: How to use the initial grant during the trial period and who can use it
-    href: concepts/usage-grant
+    href: free-trial/concepts/usage-grant
   - title: Monitoring resource usage
     description: How to track resource usage during the trial period
-    href: concepts/usage-monitor
+    href: free-trial/concepts/usage-monitor
   - title: End of trial period
     description: What happens when the trial period ends
-    href: concepts/trial-ending
+    href: free-trial/concepts/trial-ending
   - title: Upgrading to the paid version
     description: How and when to upgrade to the paid version
-    href: concepts/upgrade-to-paid
+    href: free-trial/concepts/upgrade-to-paid
