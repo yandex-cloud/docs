@@ -44,6 +44,8 @@ items:
         href: operations/budgets.md
       - name: Подключиться к ЭДО
         href: operations/edo.md
+      - name: Скачать отчетные документы
+        href: operations/download-reporting-docs.md
   - name: Концепции
     items:
       - name: Все понятия

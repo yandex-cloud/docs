@@ -1,6 +1,7 @@
 Услуга | Цена за единицу тарификации,<br/>вкл. НДС
 ----- | -----
-[Распознавание коротких аудио](../../speechkit/pricing#rules-stt-short) | {{ sku|RUB|ai.speech.stt|string }}
-[Распознавание длинных аудио](../../speechkit/pricing#rules-stt-long) | {{ sku|RUB|ai.speech.stt_long_running|string }}
-[Распознавание длинных аудио](../../speechkit/pricing#rules-stt-long) моделью [deferred-general](../../speechkit/stt/models#new-versions) | {{ sku|RUB|ai.speech.stt_long_running_deferred.v1|string }}
+[Потоковое распознавание](../../speechkit/stt/streaming.md), API v2 | {{ sku|RUB|ai.speech.stt|string }}
+[Синхронное распознавание](../../speechkit/stt/request.md) | {{ sku|RUB|ai.speech.stt|string }}
+[Асинхронное распознавание](../../speechkit/stt/transcribation.md) | {{ sku|RUB|ai.speech.stt_long_running|string }}
+Асинхронное распознавание моделью [deferred-general](../../speechkit/stt/models#tags) | {{ sku|RUB|ai.speech.stt_long_running_deferred.v1|string }}
 [Разметка аудио](../../speechkit/stt/markup.md) | {{ sku|RUB|ai.speech.transcribe.human.v1|string }}
