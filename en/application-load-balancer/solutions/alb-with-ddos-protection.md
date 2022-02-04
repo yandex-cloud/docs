@@ -152,7 +152,7 @@ To create security groups:
     --rule "direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
     --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-    --rule "direction=ingress,port=30800,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]" \
+    --rule "direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]" \
     --network-name ddos-network
   ```
 

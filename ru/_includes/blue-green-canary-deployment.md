@@ -167,7 +167,6 @@
        ```
        
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../cli/cli-ref/managed-services/vpc/subnet/create.md).
-       
 
 - Terraform
 
@@ -229,6 +228,7 @@
 
   1. Создайте сеть `canary-network` с помощью вызова gRPC API {% if audience != "internal" %}[NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create){% else %}NetworkService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Network/create.md){% else %}create{% endif %}.
   1. Создайте подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-c` в трех зонах доступности с помощью вызова gRPC API {% if audience != "internal" %}[SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create){% else %}SubnetService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Subnet/create.md){% else %}create{% endif %}.
+
 {% endlist %}
 
 ## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
@@ -422,7 +422,7 @@
         Подробнее о ресурсе `yandex_storage_object` см. в [документации](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_object) провайдера Terraform.
         
      1. Проверьте корректность конфигурационных файлов.
-   
+
         1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
         1. Выполните проверку с помощью команды:
    
@@ -1119,7 +1119,7 @@
 
      1. Нажмите кнопку **Создать**.
      1. Включите кеширование в CDN:
-     
+
         1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
         1. Перейдите на вкладку **Кеширование**.
         1. Нажмите кнопку **Редактировать**.
@@ -1283,7 +1283,7 @@
    
      1. В [консоли управления]({{ link-console-main }}) откройте сервис **{{ dns-name }}**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
-   
+
         1. Нажмите кнопку **Создать зону**.
         1. В поле **Зона** укажите доменное имя сайта с точкой в конце: `yandexcloud.example.`
         1. Выберите **Тип** зоны — **Публичная**.
@@ -1291,7 +1291,7 @@
         1. Нажмите кнопку **Создать**.
       
      1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example`:
-   
+
         1. В списке зон нажмите на зону `canary-dns-zone`.
         1. Нажмите кнопку **Создать запись**.
         1. В поле **Имя** укажите `cdn`.
@@ -1367,7 +1367,7 @@
         Подробнее см. в описаниях ресурсов [yandex_dns_zone](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/dns_zone) и [yandex_dns_recordset](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/dns_recordset) в документации провайдера Terraform.
         
      1. Проверьте корректность конфигурационных файлов.
-   
+
         1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
         1. Выполните проверку с помощью команды:
    
@@ -1378,13 +1378,13 @@
         Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
    
      1. Разверните облачные ресурсы.
-     
+
         1. Если в конфигурации нет ошибок, выполните команду:
    
            ```bash
            terraform apply
            ```
-   
+
         1. Подтвердите создание ресурсов.
 
    - API
@@ -1568,11 +1568,11 @@
      1. В списке сервисов выберите **{{ alb-name }}** и перейдите на вкладку **Группы бэкендов**.
      1. В списке групп бэкендов выберите `canary-bg-production`.
      1. Для бэкенда `canary-backend-blue` установите вес 80 вместо 100:
-     
+
         1. В блоке **Бэкенды** найдите бэкенд `canary-backend-blue` и нажмите кнопку ![Три точки](../_assets/horizontal-ellipsis.svg) → **Редактировать**.
         1. В поле **Вес** укажите `80`.
         1. Нажмите кнопку **Сохранить**.
-        
+
      1. Аналогично для бэкенда `canary-backend-green` установите вес 20 вместо 0.
      1. Нажмите кнопку **Сохранить**.
      
@@ -1642,7 +1642,7 @@
    1. В группе бэкендов `canary-bg-production` — по 50% трафика на оба бэкенда.
    1. В группе бэкендов `canary-bg-production` — весь трафик на бэкенд `canary-backend-green`.
    1. В группе бэкендов `canary-bg-staging` (доменное имя `cdn-staging.yandexcloud.example`) — весь трафик на бэкенд `canary-backend-blue`.
-   
+
 1. Снова включите кеширование:
 
    {% list tabs %}
@@ -1759,7 +1759,7 @@
      1. В списке сервисов выберите **{{ alb-name }}** и перейдите на вкладку **Группы бэкендов**.
      1. В списке групп бэкендов выберите `canary-bg-production`.
      1. Для бэкенда `canary-backend-blue` установите вес 100 вместо 0:
-     
+
         1. В блоке **Бэкенды** найдите бэкенд `canary-backend-blue` и нажмите кнопку ![Три точки](../_assets/horizontal-ellipsis.svg) → **Редактировать**.
         1. В поле **Вес** укажите `100`.
         1. Нажмите кнопку **Сохранить**.

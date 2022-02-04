@@ -13,8 +13,6 @@ items:
             href: operations/resources/create-resource.md
           - name: Editing basic settings of a resource
             href: operations/resources/configure-basics.md
-          - name: Disabling a resource
-            href: operations/resources/disable-resource.md
           - name: Configuring resource caching
             href: operations/resources/configure-caching.md
           - name: Pre-loading files to CDN servers
@@ -31,6 +29,10 @@ items:
             href: operations/resources/enable-compression.md
           - name: Enabling file segmentation
             href: operations/resources/enable-segmentation.md
+          - name: Disabling a resource
+            href: operations/resources/disable-resource.md
+          - name: Deleting a resource
+            href: operations/resources/delete-resource.md
       - name: Origin groups
         items:
           - name: Creating an origin group
@@ -45,6 +47,8 @@ items:
     items:
       - name: Publishing game updates
         href: solutions/prefetch.md
+      - name: Blue-green and canary deployment
+        href: solutions/blue-green-canary-deployment.md
   - name: Concepts
     items:
       - name: Service overview
