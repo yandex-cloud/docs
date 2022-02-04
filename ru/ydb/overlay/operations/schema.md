@@ -169,7 +169,7 @@
 
    [YDB SDK](../reference/ydb-sdk/index.md) предоставляет методы создания, удаления, листинга и просмотра информации о директории. В таблице ниже приведены имена методов для разных языков программирования.
    
-   | Метод    | {% if oss %}С++ | {% endif %}Java | Python | Go |
+   | Метод    | {% if oss %}C++ | {% endif %}Java | Python | Go |
    | ---- | ---- | {% if oss %}---- | {% endif %}---- | ---- |
    | Создание директории | {% if oss %}```TClient::MakeDirectory``` | {% endif %}```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |
    | Удаление директории | {% if oss %}```TClient::RemoveDirectory``` | {% endif %}```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` | ```Client.RemoveDirectory``` |
