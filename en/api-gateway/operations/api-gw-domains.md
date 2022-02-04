@@ -26,8 +26,10 @@ To connect a domain to an API gateway:
 		1. Select the folder where the API gateway is located and in the list of services, **API Gateway**
 		1. Select the API gateway.
 		1. In the window that opens, go to **Overview**. You can see the service domain under **General information**.
-
-		{% endcut %}
+		
+        {% endcut %}
+        
+        Domain names must end in a dot.
 
 	1. In the [management console]({{ link-console-main }}), select the folder where the API gateway is located.
 
@@ -51,5 +53,5 @@ To connect a domain to an API gateway:
 		1. In the window that opens, go to **Domains**.
 		1. Click **Connect** and select the domain.
 
-	{% endlist %}
+{% endlist %}
 
