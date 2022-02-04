@@ -53,8 +53,8 @@
 
 В [Панчере](https://puncher.yandex-team.ru/) уже сделаны правила для доступа к кластерам MDB:
 
-- из [всех серверных сетей Яндекса](https://puncher.yandex-team.ru/tasks?id=5cb878a6d5626d264a13ff8a),
-- для [всех штатных разработчиков и администраторов](https://puncher.yandex-team.ru/tasks?id=5d0254aad89cb03fee5006d4).
+- из [всех серверных сетей Яндекса](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3),
+- для [всех штатных разработчиков и администраторов](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
 Поэтому в общем случае ковырять дырки не требуется.
 

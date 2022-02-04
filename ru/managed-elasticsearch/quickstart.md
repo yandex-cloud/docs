@@ -13,7 +13,7 @@
 
 ## Доступ к кластерам БД {#access}
 
-В [Панчере](https://puncher.yandex-team.ru/) уже сделаны правила для доступа к кластерам MDB: из [серверных сетей Яндекса](https://puncher.yandex-team.ru/tasks?id=5cb878a6d5626d264a13ff8a), и [для штатных разработчиков](https://puncher.yandex-team.ru/tasks?id=5d0254aad89cb03fee5006d4).
+В [Панчере](https://puncher.yandex-team.ru/) уже сделаны правила для доступа к кластерам MDB: из [серверных сетей Яндекса](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3), и [для штатных разработчиков](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
 Если этих правил не хватает, запросите доступ к макросу `_PGAASINTERNALNETS_`. Для подключения к {{ ES }} в заявке нужно указать порт 9200 (Elasticsearch) и/или порт 443 (Kibana).
 

@@ -11,7 +11,7 @@ For the internal MDB service, the [web interface]({{ console-link }}) is deploye
 
 ## Access to DB clusters {#access}
 
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/tasks?id=5cb878a6d5626d264a13ff8a) and [for developers](https://puncher.yandex-team.ru/tasks?id=5d0254aad89cb03fee5006d4).
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and [for developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ CH }} hosts, you need access to ports 8443 (HTTPS) and 9440 (native TLS-enabled protocol).
 
