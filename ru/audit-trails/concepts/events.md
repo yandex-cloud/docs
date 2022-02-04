@@ -80,12 +80,15 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateSnapshot` | Изменение снимка диска
 `instancegroup.CreateInstanceGroup` | Создание группы ВМ
 `instancegroup.DeleteInstanceGroup` | Удаление группы ВМ
+`instancegroup.DeleteInstanceGroupInstances` | Удаление ВМ из группы
 `instancegroup.PauseInstanceGroup` | Приостановка процессов управления группой ВМ
 `instancegroup.ResumeInstanceGroup` | Возобновление процессов управления группой ВМ
+`instancegroup.SetInstanceGroupAccessBindings` | Назначение ролей на группу ВМ
 `instancegroup.StartInstanceGroup` | Запуск группы ВМ
 `instancegroup.StopInstanceGroup` | Остановка группы ВМ
+`instancegroup.StopInstanceGroupInstances` | Остановка ВМ из группы
 `instancegroup.UpdateInstanceGroup` | Изменение группы ВМ
-`instancegroup.UpdateInstanceGroupAccessBindings` | Назначение роли на группу ВМ
+`instancegroup.UpdateInstanceGroupAccessBindings` | Обновление ролей для группы ВМ
 
 ## {{ iam-name }} {#iam}
 
@@ -98,7 +101,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `CreateApiKey` | Создание API-ключа
 `CreateCertificate` | Добавление сертификата для федерации
 `CreateFederation` | Создание федерации
-`CreateIamCookieForSubject` | Вход федеративного пользователя
+`CreateIamCookieForSubject` | Вход федеративного пользователя ^*^
 `CreateKey` | Создание пары ключей для сервисного аккаунта
 `CreateServiceAccount` | Создание сервисного аккаунта
 `DeleteAccessKey` | Удаление ключа доступа
@@ -114,6 +117,8 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateKey` | Обновление пары ключей
 `UpdateServiceAccount` | Обновление сервисного аккаунта
 `UpdateServiceAccountAccessBindings` | Обновление списка привязок прав доступа
+
+\* Событие попадает в аудитный лог, только если [область сбора аудитных логов](./trail.md#collecting-area) трейла — `Организация`.
 
 ## {{ kms-name }} {#kms}
 
@@ -185,9 +190,9 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `BucketPolicyUpdate` | Изменение политик доступа бакета
 `BucketUpdate` | Изменение бакета
 `BucketWebsiteUpdate` | Изменение конфигурации веб-сайта
-`ObjectCreate` | Создание объекта в бакете *
-`ObjectDelete` | Удаление объекта в бакете *
-`ObjectUpdate` | Изменение объекта в бакете *
+`ObjectCreate` | Создание объекта в бакете ^*^
+`ObjectDelete` | Удаление объекта в бакете ^*^
+`ObjectUpdate` | Изменение объекта в бакете ^*^
 
 \* Указанные события по умолчанию не входят в аудитный лог. Чтобы добавить эти события в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
 «Просьба включить запись событий data plane object storage в audit trail <id трейла>».
@@ -205,7 +210,9 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateCloud` | Изменение облака
 `UpdateCloudAccessBindings` | Обновление привязок прав доступа для облака
 `UpdateFolder` | Обновление каталога
-`UpdateFolderAccessBindings` | Обновление привязок прав доступа для каталога
+`UpdateFolderAccessBindings` | Обновление привязок прав доступа для каталога *
+
+\* Событие может не попадать в аудитный лог, если права сервисному аккаунту были назначены через [консоль]({{ link-console-main }}).
 
 ## {{ vpc-name }} {#vpc}
 

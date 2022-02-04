@@ -73,6 +73,8 @@ items:
         href: solutions/server-side-encryption.md
       - name: Сине-зеленое и канареечное развертывание
         href: solutions/blue-green-canary-deployment.md
+      - name: Анализ логов с использованием DataLens
+        href: solutions/storage-logs-analysis.md
   - name: Концепции
     items:
       - name: Обзор

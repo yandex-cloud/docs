@@ -37,7 +37,10 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
 ### Превратить текст в речь в формате OggOpus {#ogg}
 
-В этом примере текст "Hello World" синтезируется и записывается в аудиофайл.
+В этом примере синтезируется и записывается в аудиофайл следующий текст:
+>Я Яндекс Спичк+ит.
+Я могу превратить любой текст в речь.
+Теперь и в+ы - можете!
 
 По умолчанию данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).
 
@@ -46,13 +49,18 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 - cURL
 
   ```bash
-  $ export FOLDER_ID=b1gvmob95yysaplct532
-  $ export IAM_TOKEN=CggaATEVAgA...
-  $ curl -X POST \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       --data-urlencode "text=Hello World" \
-       -d "lang=en-US&folderId=${FOLDER_ID}" \
-       "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+  read -r -d '' TEXT << EOM
+  > Я Яндекс Спичк+ит.
+  > Я могу превратить любой текст в речь.
+  > Теперь и в+ы - можете!
+  > EOM
+  export FOLDER_ID=b1gvmob95yysaplct532
+  export IAM_TOKEN=CggaATEVAgA...
+  curl -X POST \
+     -H "Authorization: Bearer ${IAM_TOKEN}" \
+     --data-urlencode "text=${TEXT}" \
+     -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
+    "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
   ```
 
 - C#
@@ -82,8 +90,9 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
         client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
         var values = new Dictionary<string, string>
         {
-          { "text", "Hello World" },
-          { "lang", "en-US" },
+          { "text", "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!" },
+          { "lang", "ru-RU" },
+          { "voice", "filipp" },
           { "folderId", folderId }
         };
         var content = new FormUrlEncodedContent(values);
@@ -112,7 +121,8 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
           data = {
               'text': text,
-              'lang': 'en-US',
+              'lang': 'ru-RU',
+              'voice': 'filipp',
               'folderId': folder_id
           }
 
@@ -140,9 +150,9 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
   1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога, текст и имя файла для записи аудио:
 
       ```bash
-      $ export FOLDER_ID=b1gvmob95yysaplct532
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "Hello World"
+      export FOLDER_ID=b1gvmob95yysaplct532
+      export IAM_TOKEN=CggaATEVAgA...
+      python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!"
       ```
 
 - PHP
@@ -154,7 +164,7 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
   $folderId = "b1gvmob95yysaplct532"; # Идентификатор каталога
   $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
 
-  $post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}";
+  $post = "text=" . urlencode("Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!") . "&lang=ru-RU&voice=filipp&folderId=${folderId}";
   $headers = ['Authorization: Bearer ' . $token];
   $ch = curl_init();
 
@@ -198,14 +208,19 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
     - cURL
 
       ```bash
-      $ export FOLDER_ID=b1gvmob95yysaplct532
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -o speech.raw \
-          --data-urlencode "text=Hello World" \
-          -d "lang=en-US&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
-          https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+      read -r -d '' TEXT << EOM
+      > Я Яндекс Спичк+ит.
+      > Я могу превратить любой текст в речь.
+      > Теперь и в+ы - можете!
+      > EOM
+      export FOLDER_ID=b1gvmob95yysaplct532
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+        -H "Authorization: Bearer ${IAM_TOKEN}" \
+        -o speech.raw \
+        --data-urlencode "text=${TEXT}" \
+        -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
+        https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
       ```
 
     - C#
@@ -235,8 +250,9 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
             var values = new Dictionary<string, string>
             {
-              { "text", "Hello World" },
-              { "lang", "en-US" },
+              { "text", "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!" },
+              { "lang", "ru-RU" },
+              { "voice", "filipp" },
               { "folderId", folderId },
               { "format", "lpcm" },
               { "sampleRateHertz", "48000" }
@@ -267,7 +283,8 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
               data = {
                   'text': text,
-                  'lang': 'en-US',
+                  'lang': 'ru-RU',
+                  'voice': 'filipp',
                   'folderId': folder_id,
                   'format': 'lpcm',
                   'sampleRateHertz': 48000,
@@ -297,9 +314,9 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
       1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога, текст и имя файла для записи аудио:
 
           ```bash
-          $ export FOLDER_ID=b1gvmob95yysaplct532
-          $ export IAM_TOKEN=CggaATEVAgA...
-          $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "Hello World"
+          export FOLDER_ID=b1gvmob95yysaplct532
+          export IAM_TOKEN=CggaATEVAgA...
+          python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!"
           ```
 
     - PHP
@@ -313,7 +330,7 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
       $token = 'CggaATEVAgA...'; # IAM-токен
       $folderId = "b1gvmob95yysaplct532"; # Идентификатор каталога
       $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-      $post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
+      $post = "text=" . urlencode("Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!") . "&lang=ru-RU&voice=filipp&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
       $headers = ['Authorization: Bearer ' . $token];
       $ch = curl_init();
 
@@ -345,10 +362,10 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
     {% endlist %}
 
-2. Cконвертируйте полученный файл в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
+1. Cконвертируйте полученный файл в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
 
     ```bash
-    $ sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
+    sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
     ```
 
 ### Превратить текст в формате SSML в речь {#ssml}
@@ -365,12 +382,12 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 
         {% include [ssml-example](../../_includes/speechkit/ssml-example.md) %}
 
-    2. Отправьте запрос с текстом на сервер. Текст передайте в параметре `ssml`. В этом примере содержимое файла считывается с помощью утилиты [cat](https://en.wikipedia.org/wiki/Cat_(Unix)):
+    1. Отправьте запрос с текстом на сервер. Текст передайте в параметре `ssml`. В этом примере содержимое файла считывается с помощью утилиты [cat](https://en.wikipedia.org/wiki/Cat_(Unix)):
 
         ```bash
-        $ export FOLDER_ID=b1gvmob95yysaplct532
-        $ export IAM_TOKEN=CggaATEVAgA...
-        $ curl -X POST \
+        export FOLDER_ID=b1gvmob95yysaplct532
+        export IAM_TOKEN=CggaATEVAgA...
+        curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           --data-urlencode "ssml=`cat text.xml`" \
           -d "lang=ru-RU&folderId=${FOLDER_ID}" \
