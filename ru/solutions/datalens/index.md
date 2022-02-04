@@ -13,4 +13,5 @@
 - [Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)](data-from-podcasts.md)
 - [Визуализация данных с помощью SQL-чарта](data-from-ch-to-sql-chart.md)
 - [Анализ customer journey мобильного приложения на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
+- [Анализ логов Object Storage при помощи DataLens](storage-logs-analysis.md)
 

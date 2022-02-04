@@ -185,6 +185,8 @@ items:
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Анализ customer journey мобильного приложения на данных AppMetrica
         href: datalens/data-from-appmetrica-yc-visualization.md
+      - name: Анализ логов Object Storage при помощи DataLens
+        href: datalens/storage-logs-analysis.md
   - name: Интернет вещей
     items:
       - name: Сценарии работы с интернетом вещей

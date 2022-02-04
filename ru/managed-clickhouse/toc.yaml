@@ -69,6 +69,8 @@ items:
           Настройка {{ dns-full-name }} для доступа к кластеру из других
           облачных сетей
         href: tutorials/dns-peering.md
+      - name: Анализ логов Object Storage при помощи DataLens
+        href: tutorials/storage-logs-analysis.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

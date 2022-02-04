@@ -81,7 +81,7 @@ sourcePath: ru/ydb/overlay/quickstart/yql-api/ydb-cli.md
 
 ## Примеры использования {#examples}
 
-Чтобы не указывать эндпоинт, полный путь к базе данных и параметры авторизации при каждом вызове команд {{ ydb-short-name }} CLI, настройте [профиль](../../reference//ydb-cli/profile/create.md) {{ ydb-short-name }} CLI.
+Чтобы не указывать эндпоинт, полный путь к базе данных и параметры авторизации при каждом вызове команд {{ ydb-short-name }} CLI, настройте [профиль](../../reference/ydb-cli/profile/create.md) {{ ydb-short-name }} CLI.
 
 ### Создание таблицы {#create-table}
 
