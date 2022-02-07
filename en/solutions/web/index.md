@@ -1,4 +1,4 @@
-# Tutorials for creating Yandex.Cloud web services
+# Tutorials for creating {{ yandex-cloud }} web services
 
 * [{#T}](static.md)
 * [{#T}](lamp-lemp.md)
@@ -8,3 +8,4 @@
 * [{#T}](wordpress.md)
 * [{#T}](wordpress-mysql.md)
 * [{#T}](bitrix-website.md)
+* [{#T}](blue-green-canary-deployment.md)

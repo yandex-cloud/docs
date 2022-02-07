@@ -9,13 +9,11 @@ items:
         href: web/static.md
       - name: Website on LAMP or LEMP stack
         href: web/lamp-lemp.md
-      - name: >-
-          Fault-tolerant website with load balancing from Yandex Network Load
-          Balancer
+      - name: Fault-tolerant website with load balancing by Network Load Balancer
         href: web/load-balancer-website.md
       - name: Fault-tolerant website using DNS load balancing
         href: web/dns-load-balancer.md
-      - name: Joomla-based website with PostgreSQL
+      - name: Joomla website with PostgreSQL
         href: web/joomla-postgresql.md
       - name: WordPress website
         href: web/wordpress.md
@@ -23,6 +21,8 @@ items:
         href: web/wordpress-mysql.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
+      - name: Blue-green and canary deployment of service versions
+        href: web/blue-green-canary-deployment.md
   - name: Online stores
     items:
       - name: All use cases
@@ -73,7 +73,7 @@ items:
         href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
-      - name: VM images building automation using Jenkins
+      - name: Automating VM image builds using Jenkins
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using GitLab
         href: infrastructure-management/gitlab-containers.md
@@ -100,7 +100,7 @@ items:
       - name: Migrating databases to Managed Service for Microsoft SQL Server
         href: dataplatform/mssql-data-migration.md
       - name: >-
-          Configuring {{ dns-full-name }} for access to managed database
+          Configuring {{ dns-full-name }} for accessing managed database
           clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
   - name: Windows in Yandex.Cloud
@@ -153,6 +153,10 @@ items:
         href: datalens/data-from-ch-to-geolayers-visualization.md
       - name: Web analytics with a connection to Yandex.Metrica
         href: datalens/data-from-metrica-visualization.md
+      - name: >-
+          Web analytics with funnels and cohorts calculated based on
+          Yandex.Metrica data
+        href: datalens/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data
         href: datalens/data-from-appmetrica-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcast authors)
@@ -161,10 +165,6 @@ items:
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Mobile app customer journey analytics based on AppMetrica data
         href: datalens/data-from-appmetrica-yc-visualization.md
-      - name: >-
-          Web analytics with funnels and cohorts calculated based on
-          Yandex.Metrica data
-        href: datalens/data-from-metrica-yc-visualization.md
   - name: Internet of things
     items:
       - name: Use cases for the internet of things
