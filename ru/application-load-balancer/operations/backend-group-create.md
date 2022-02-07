@@ -66,7 +66,7 @@
      --weight <вес бэкенда> \
      --port <порт бэкенда> \
      --target-group-id=<идентификатор целевой группы> \
-     --panic-threshold 90
+     --panic-threshold 90 \
      --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
      timeout=10s,interval=2s,host=your-host.com,path=/ping
      ```

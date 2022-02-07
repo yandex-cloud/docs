@@ -149,8 +149,6 @@ items:
         href: concepts/dlq.md
       - name: Log groups
         href: concepts/log-group.md
-      - name: Monitoring
-        href: concepts/monitoring.md
       - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
@@ -313,6 +311,8 @@ items:
         href: solutions/telegram-bot-serverless.md
       - name: Connecting to a YDB database from a Python function
         href: solutions/connect-to-ydb.md
+      - name: Connecting to a YDB database from a function in Node.js
+        href: solutions/connect-to-ydb-nodejs.md
       - name: Converting a video to a GIF in Python
         href: solutions/video-converting-queue.md
   - name: Pricing policy

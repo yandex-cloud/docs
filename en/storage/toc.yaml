@@ -69,6 +69,8 @@ items:
         href: solutions/billing-resource-detailing.md
       - name: Server-side encryption
         href: solutions/server-side-encryption.md
+      - name: Blue-green and canary deployment
+        href: solutions/blue-green-canary-deployment.md
   - name: Concepts
     items:
       - name: Overview
@@ -93,7 +95,7 @@ items:
         href: concepts/acl.md
       - name: Bucket Policy
         href: concepts/policy.md
-      - name: Upload file via HTML form
+      - name: Uploading files via an HTML form
         href: concepts/presigned-post-forms.md
       - name: Storage class
         href: concepts/storage-class.md
