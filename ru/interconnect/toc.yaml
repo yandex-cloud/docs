@@ -11,5 +11,7 @@ items:
         href: concepts/user-metrics.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Как подключить Cloud Interconnect
+    href: manual.md
   - name: Правила тарификации
     href: pricing.md
