@@ -8,7 +8,7 @@ Syntax:
 
 `yc serverless api-gateway remove-domain <API-GATEWAY-NAME>|<API-GATEWAY-ID> --domain-id <DOMAIN-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--domain-id`|<b>`string`</b><br/>Id of detaching domain.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

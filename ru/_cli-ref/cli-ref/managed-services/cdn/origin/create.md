@@ -8,7 +8,7 @@ Syntax:
 
 `yc cdn origin create [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--meta-balancer-id`|<b>`string`</b><br/>Specifies meta balancer id.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

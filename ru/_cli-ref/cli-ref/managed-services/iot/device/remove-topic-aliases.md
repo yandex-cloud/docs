@@ -8,7 +8,7 @@ Syntax:
 
 `yc iot device remove-topic-aliases <DEVICE-NAME>|<DEVICE-ID> --aliases ALIAS[,ALIAS...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--topic-aliases`|<b>`value[,value]`</b><br/>Aliases to remove.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

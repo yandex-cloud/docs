@@ -8,7 +8,7 @@ Syntax:
 
 `yc config profile activate <PROFILE-NAME> [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

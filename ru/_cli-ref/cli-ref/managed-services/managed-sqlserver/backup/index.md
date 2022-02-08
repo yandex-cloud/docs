@@ -17,7 +17,7 @@ Aliases:
 - [yc managed-sqlserver backup get](get.md) — Show information about the specified SQLServer backup
 - [yc managed-sqlserver backup list](list.md) — List available backups
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

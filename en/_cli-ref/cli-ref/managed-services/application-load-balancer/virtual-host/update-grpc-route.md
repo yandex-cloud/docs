@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer virtual-host update-grpc-route <ROUTE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -29,7 +29,7 @@ Syntax:
 |`--clear-idle-timeout`| Clears route request idle timeout.|
 |`--clear-host-rewrite`| Clears route host rewrite.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

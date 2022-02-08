@@ -8,7 +8,7 @@ Syntax:
 
 `yc iam api-key create [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--service-account-name`|<b>`string`</b><br/>service account name.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of API key.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

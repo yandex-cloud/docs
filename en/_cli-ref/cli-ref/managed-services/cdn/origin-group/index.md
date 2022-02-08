@@ -16,7 +16,7 @@ Syntax:
 - [yc cdn origin-group update](update.md) — Update origin group
 - [yc cdn origin-group delete](delete.md) — Delete the specified origin group.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

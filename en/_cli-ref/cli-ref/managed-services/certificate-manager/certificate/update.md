@@ -8,7 +8,7 @@ Syntax:
 
 `yc certificate-manager certificate update <CERTIFICATE> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--chain`|<b>`string`</b><br/> Path to the PEM file with the new certificate chain. Only for imported certificates.|
 |`--key`|<b>`string`</b><br/> Path to the PEM file with the new private key. Only for imported certificates.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

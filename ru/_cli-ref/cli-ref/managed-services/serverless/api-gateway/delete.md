@@ -8,7 +8,7 @@ Syntax:
 
 `yc serverless api-gateway delete <API-GATEWAY-NAME>|<API-GATEWAY-ID> [<API-GATEWAY-NAME>|<API-GATEWAY-ID>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Api-gateway name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance delete <INSTANCE-NAME>|<INSTANCE-ID> [<INSTANCE-NAME>|<INSTANCE-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Instance name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

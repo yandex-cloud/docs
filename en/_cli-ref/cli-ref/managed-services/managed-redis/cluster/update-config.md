@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-redis cluster update-config <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--set`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/> Set Redis cluster parameters. Can be used multiple times. Acceptable keys: maxmemory_policy Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis [host class](/docs/managed-redis/concepts/instance-types).  All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).  timeout Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.  password Authentication password.  databases Number of database buckets on a single redis-server process.  slowlog_log_slower_than Threshold for logging slow requests to server in microseconds (log only slower than it).  slowlog_max_len Max slow requests number to log.  notify_keyspace_events String setting for pub\sub functionality; subset of KEg$lshzxeAt.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

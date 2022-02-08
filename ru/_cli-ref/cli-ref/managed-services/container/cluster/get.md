@@ -8,14 +8,14 @@ Syntax:
 
 `yc container cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the Kubernetes cluster.|
 |`--name`|<b>`string`</b><br/>Name of the Kubernetes cluster.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

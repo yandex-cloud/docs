@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-kafka user update <USER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--permission`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> New set of permissions for the user. Can be specified multiple times.  Possible property names:  topic Name of the topic that the permission grants access to. (required)  role Role in the topic. Possible values are: producer, consumer, admin. To grant multiple roles specify this property multiple times. (required)  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

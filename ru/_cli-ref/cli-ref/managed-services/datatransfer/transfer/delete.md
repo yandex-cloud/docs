@@ -8,7 +8,7 @@ Syntax:
 
 `yc datatransfer transfer delete <TRANSFER-ID> [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

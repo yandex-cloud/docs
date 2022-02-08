@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer load-balancer add-location <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Name of the Application load balancer.|
 |`--location`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of load balancer locations to add.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  zone Zone of the subnet.  traffic-disabled Disable traffic in zone.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

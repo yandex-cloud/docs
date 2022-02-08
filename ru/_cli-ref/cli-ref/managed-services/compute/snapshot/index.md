@@ -23,7 +23,7 @@ Aliases:
 - [yc compute snapshot delete](delete.md) — Delete the specified snapshot
 - [yc compute snapshot list-operations](list-operations.md) — List operations for the specified snapshot
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

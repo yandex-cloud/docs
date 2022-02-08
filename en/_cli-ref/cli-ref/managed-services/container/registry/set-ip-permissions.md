@@ -8,7 +8,7 @@ Syntax:
 
 `yc container registry set-ip-permissions <REGISTRY-NAME>|<REGISTRY-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--push`|<b>`value[,value]`</b><br/>Push ip permission to set. Can be used multiple times.|
 |`-y`,`--yes`|Automatic yes to prompts.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

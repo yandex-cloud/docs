@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance get-serial-port-output <INSTANCE-NAME>|<INSTANCE-ID> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Instance name.|
 |`--port`|<b>`int`</b><br/>Specifies which serial port to retrieve data from.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

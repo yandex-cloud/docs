@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mysql user create <USER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -24,7 +24,7 @@ Syntax:
 |`--max-connections-per-hour`|<b>`int`</b><br/> The maximum permitted number of simultaneous client connections per hour.|
 |`--max-user-connections`|<b>`int`</b><br/> The maximum number of simultaneous connections permitted to any given MySQL user account.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

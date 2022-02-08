@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse format-schema create <FORMAT-SCHEMA-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--type`|<b>`string`</b><br/>Type of format schema. Supported values: 'protobuf', 'capnproto'.|
 |`--uri`|<b>`string`</b><br/>URI to download a format schema|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

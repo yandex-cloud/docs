@@ -8,7 +8,7 @@ Syntax:
 
 `yc iam federation create <FEDERATION-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -23,7 +23,7 @@ Syntax:
 |`--case-insensitive-name-ids`|Controls whether federated users Name IDs should be case insensitive.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

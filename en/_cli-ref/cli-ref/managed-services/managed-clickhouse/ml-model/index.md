@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-clickhouse ml-model update](update.md) — Modify configuration or attributes of a ClickHouse machine learning model.
 - [yc managed-clickhouse ml-model delete](delete.md) — Delete ClickHouse machine learning model.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

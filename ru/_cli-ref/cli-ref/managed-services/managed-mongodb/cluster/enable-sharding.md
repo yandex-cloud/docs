@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mongodb cluster enable-sharding [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--mongos`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Configurations for Mongos hosts.  Possible property names:  resource-preset Resource preset for computational resources available to a mongo host (CPU, RAM etc.).  disk-size Volume of the storage available to a mongo host.  disk-type Storage type for a mongo host.  |
 |`--mongoinfra`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Configurations for MongoInfra hosts.  Possible property names:  resource-preset Resource preset for computational resources available to a mongo host (CPU, RAM etc.).  disk-size Volume of the storage available to a mongo host.  disk-type Storage type for a mongo host.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

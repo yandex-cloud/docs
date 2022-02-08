@@ -21,7 +21,7 @@ Aliases:
 - [yc organization-manager federation saml certificate delete](delete.md) — Delete the specified certificate
 - [yc organization-manager federation saml certificate list-operations](list-operations.md) — List operations for the specified certificate
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

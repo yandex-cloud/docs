@@ -13,7 +13,7 @@ Aliases:
 - `remove-http-sni`
 - `remove-stream-sni`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -23,7 +23,7 @@ Aliases:
 |`--listener-name`|<b>`string`</b><br/>Name of the listener to remove SNI match from.|
 |`--sni-name`|<b>`string`</b><br/>Name of the SNI match to remove.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

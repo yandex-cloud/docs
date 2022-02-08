@@ -13,7 +13,7 @@ Aliases:
 - `get-content`
 - `download`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Aliases:
 |`--chain`|<b>`string`</b><br/>Write certificate chain to the specified file in PEM format.|
 |`--key`|<b>`string`</b><br/>Write private key to the specified file in PEM format.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

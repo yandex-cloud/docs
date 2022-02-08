@@ -23,7 +23,7 @@ Aliases:
 - [yc iam federation list-user-accounts](list-user-accounts.md) — List user accounts of the specified federation
 - [yc iam federation list-operations](list-operations.md) — List operations for the specified federation
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

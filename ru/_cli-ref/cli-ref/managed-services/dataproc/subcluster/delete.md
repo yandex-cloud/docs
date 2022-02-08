@@ -8,7 +8,7 @@ Syntax:
 
 `yc dataproc subcluster delete <SUBCLUSTER-NAME>|<SUBCLUSTER-ID> [<SUBCLUSTER-NAME>|<SUBCLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--decommission-timeout`|<b>`int`</b><br/>Graceful decommission timeout in seconds.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

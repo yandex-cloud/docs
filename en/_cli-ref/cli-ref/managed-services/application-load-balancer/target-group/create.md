@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer target-group create <TARGET-GROUP-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of targets.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  ip-address IP Address.  private-ip-address Private IPv4 address.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

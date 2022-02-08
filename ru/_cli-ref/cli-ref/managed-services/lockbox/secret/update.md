@@ -8,7 +8,7 @@ Syntax:
 
 `yc lockbox secret update <SECRET-NAME>|<SECRET-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--deletion-protection`| Enable deletion protection for the secret.|
 |`--no-deletion-protection`| Disable deletion protection for the secret.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

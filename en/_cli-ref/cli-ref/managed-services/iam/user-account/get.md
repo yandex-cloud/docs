@@ -13,14 +13,14 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>user account id.|
 |`--login`|<b>`string`</b><br/>user yandex login.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

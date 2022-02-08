@@ -27,7 +27,7 @@ Aliases:
 - [yc vpc security-group update-rules](update-rules.md) — Update rules of a security group.
 - [yc vpc security-group update-rule-meta](update-rule-meta.md) — Update rule of a security group.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

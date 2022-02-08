@@ -12,7 +12,7 @@ Aliases:
 
 - `apply`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -43,7 +43,7 @@ Aliases:
 |`--template-service-account-id`|<b>`string`</b><br/> Service account ID for the instance.|
 |`--template-service-account-name`|<b>`string`</b><br/> Service account NAME for the instance.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -22,7 +22,7 @@ Aliases:
 - [yc managed-sqlserver user grant-permission](grant-permission.md) — Grant database access to the specified SQLServer user
 - [yc managed-sqlserver user revoke-permission](revoke-permission.md) — Revoke database access from the specified SQLServer user
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

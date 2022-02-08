@@ -24,7 +24,7 @@ Aliases:
 	- [yc datatransfer endpoint get](endpoint/get.md) — Get endpoint
 	- [yc datatransfer endpoint delete](endpoint/delete.md) — Delete endpoint
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse cluster set-compression <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--with`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Specify compression settings.  Possible property names:  method Compression method. Supported values: 'lz4', 'zstd'.  min-part-size Minimum size of a part of a table.  min-part-size-ratio Minimum ratio of a part to the size of the table.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

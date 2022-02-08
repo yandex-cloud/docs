@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute host-group update <HOST-GROUP-NAME>|<HOST-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--fixed-size`|<b>`int`</b><br/> Indicates the new size of the host group.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

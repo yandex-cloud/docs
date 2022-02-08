@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer virtual-host update-http-route <ROUTE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -48,7 +48,7 @@ Syntax:
 |`--clear-redirect-port`| Clears route redirect port rewrite.|
 |`--clear-redirect-path`| Clears route redirect path rewrite.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

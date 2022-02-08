@@ -12,7 +12,7 @@ Aliases:
 
 - `add-http-sni`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -28,7 +28,7 @@ Aliases:
 |`--http-router-id`|<b>`string`</b><br/> HTTP router id for the SNI match.|
 |`--http-router-name`|<b>`string`</b><br/> HTTP router name for the SNI match.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

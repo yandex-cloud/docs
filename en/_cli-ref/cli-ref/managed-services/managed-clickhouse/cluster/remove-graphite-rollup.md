@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse cluster remove-graphite-rollup <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--rollup-name`|<b>`string`</b><br/>Name of the graphite rollup configuration to remove.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

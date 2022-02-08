@@ -24,7 +24,7 @@ Aliases:
 - [yc compute disk-placement-group list-disks](list-disks.md) — List disks of the specified disk placement group
 - [yc compute disk-placement-group list-operations](list-operations.md) — List operations for the specified disk placement group
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

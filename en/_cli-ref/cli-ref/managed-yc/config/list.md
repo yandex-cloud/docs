@@ -8,7 +8,7 @@ Syntax:
 
 `yc config list [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse cluster list-logs <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--until`|<b>`timestamp`</b><br/>End timestamp for the logs request. Format: RFC-3339, HH:MM:SS, or a moment  of time relative to the current time. Examples: '2006-01-02T15:04:05Z', '15:04:05', '2h' or '3h30m ago'.|
 |`--follow`|Enable 'tail -f' semantics - load logs as they appear until interrupted. Exclusive with 'until' flag.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

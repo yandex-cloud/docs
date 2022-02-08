@@ -8,7 +8,7 @@ Syntax:
 
 `yc dataproc job cancel <JOB-ID>|<JOB-NAME> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>ID of the job.|
 |`--name`|<b>`string`</b><br/>Name of the job.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

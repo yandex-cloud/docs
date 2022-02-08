@@ -8,14 +8,14 @@ Syntax:
 
 `yc managed-mongodb database get <DATABASE_NAME> [<DATABASE_NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the MongoDB cluster.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

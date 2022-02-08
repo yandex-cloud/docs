@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-elasticsearch resource-preset get <RESOURCE-PRESET-ID> [<RESOURCE-PRESET-ID>...] [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

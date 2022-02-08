@@ -12,7 +12,7 @@ Aliases:
 
 - `token`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

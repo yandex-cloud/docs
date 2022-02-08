@@ -8,14 +8,14 @@ Syntax:
 
 `yc container repository lifecycle-policy delete <LIFECYCLE-POLICY-ID> [<LIFECYCLE-POLICY-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Lifecycle policy id.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|
