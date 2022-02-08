@@ -544,31 +544,40 @@ Converts the `expression` expression to database's native type `native_type`.
 
 The following type casts are supported:
 
-| Data source   | Data type           | Native data type    | Parameters for native type   | Comment                       |
-|:--------------|:--------------------|:--------------------|:-----------------------------|:------------------------------|
-| `ClickHouse`  | `Fractional number` | `Float32`           |                              |                               |
-| `ClickHouse`  | `Fractional number` | `Float64`           |                              |                               |
-| `ClickHouse`  | `Fractional number` | `Decimal`           | `Integer`, `Integer`         |                               |
-| `ClickHouse`  | `Integer`           | `Int8`              |                              |                               |
-| `ClickHouse`  | `Integer`           | `Int16`             |                              |                               |
-| `ClickHouse`  | `Integer`           | `Int32`             |                              |                               |
-| `ClickHouse`  | `Integer`           | `Int64`             |                              |                               |
-| `ClickHouse`  | `Integer`           | `UInt8`             |                              |                               |
-| `ClickHouse`  | `Integer`           | `UInt16`            |                              |                               |
-| `ClickHouse`  | `Integer`           | `UInt32`            |                              |                               |
-| `ClickHouse`  | `Integer`           | `UInt64`            |                              |                               |
-| `ClickHouse`  | `String`            | `String`            |                              |                               |
-| `PostgreSQL`  | `Fractional number` | `double precision`  |                              |                               |
-| `PostgreSQL`  | `Fractional number` | `real`              |                              |                               |
-| `PostgreSQL`  | `Fractional number` | `numeric`           | `Integer`, `Integer`         |                               |
-| `PostgreSQL`  | `Integer`           | `smallint`          |                              |                               |
-| `PostgreSQL`  | `Integer`           | `integer`           |                              |                               |
-| `PostgreSQL`  | `Integer`           | `bigint`            |                              |                               |
-| `PostgreSQL`  | `String`            | `text`              |                              |                               |
-| `PostgreSQL`  | `String`            | `character`         | `Integer`                    | Alias: `char`                 |
-| `PostgreSQL`  | `String`            | `character varying` | `Integer`                    | Alias: `varchar`              |
-| `PostgreSQL`  | `String`            | `char`              | `Integer`                    | Alias for `character`         |
-| `PostgreSQL`  | `String`            | `varchar`           | `Integer`                    | Alias for `character varying` |
+| Data source   | Data type                     | Native data type      | Parameters for native type   | Comment                       |
+|:--------------|:------------------------------|:----------------------|:-----------------------------|:------------------------------|
+| `ClickHouse`  | `Fractional number`           | `Float32`             |                              |                               |
+| `ClickHouse`  | `Fractional number`           | `Float64`             |                              |                               |
+| `ClickHouse`  | `Fractional number`           | `Decimal`             | `Integer`, `Integer`         |                               |
+| `ClickHouse`  | `Integer`                     | `Int8`                |                              |                               |
+| `ClickHouse`  | `Integer`                     | `Int16`               |                              |                               |
+| `ClickHouse`  | `Integer`                     | `Int32`               |                              |                               |
+| `ClickHouse`  | `Integer`                     | `Int64`               |                              |                               |
+| `ClickHouse`  | `Integer`                     | `UInt8`               |                              |                               |
+| `ClickHouse`  | `Integer`                     | `UInt16`              |                              |                               |
+| `ClickHouse`  | `Integer`                     | `UInt32`              |                              |                               |
+| `ClickHouse`  | `Integer`                     | `UInt64`              |                              |                               |
+| `ClickHouse`  | `String`                      | `String`              |                              |                               |
+| `PostgreSQL`  | `Array of fractional numbers` | `double precision[]`  |                              |                               |
+| `PostgreSQL`  | `Array of fractional numbers` | `real[]`              |                              |                               |
+| `PostgreSQL`  | `Array of fractional numbers` | `numeric[]`           | `Integer`, `Integer`         |                               |
+| `PostgreSQL`  | `Array of integers`           | `smallint[]`          |                              |                               |
+| `PostgreSQL`  | `Array of integers`           | `integer[]`           |                              |                               |
+| `PostgreSQL`  | `Array of integers`           | `bigint[]`            |                              |                               |
+| `PostgreSQL`  | `Array of strings`            | `text[]`              |                              |                               |
+| `PostgreSQL`  | `Array of strings`            | `character varying[]` |                              |                               |
+| `PostgreSQL`  | `Array of strings`            | `varchar[]`           |                              |                               |
+| `PostgreSQL`  | `Fractional number`           | `double precision`    |                              |                               |
+| `PostgreSQL`  | `Fractional number`           | `real`                |                              |                               |
+| `PostgreSQL`  | `Fractional number`           | `numeric`             | `Integer`, `Integer`         |                               |
+| `PostgreSQL`  | `Integer`                     | `smallint`            |                              |                               |
+| `PostgreSQL`  | `Integer`                     | `integer`             |                              |                               |
+| `PostgreSQL`  | `Integer`                     | `bigint`              |                              |                               |
+| `PostgreSQL`  | `String`                      | `text`                |                              |                               |
+| `PostgreSQL`  | `String`                      | `character`           | `Integer`                    | Alias: `char`                 |
+| `PostgreSQL`  | `String`                      | `character varying`   | `Integer`                    | Alias: `varchar`              |
+| `PostgreSQL`  | `String`                      | `char`                | `Integer`                    | Alias for `character`         |
+| `PostgreSQL`  | `String`                      | `varchar`             | `Integer`                    | Alias for `character varying` |
 
 
 
