@@ -1,13 +1,19 @@
+### Version 2.1.1 {#version2.1.1}
+
+* Added a rotation of Docker container logs using the `local` logging driver.
+* Disabled the `rpcbind` system service.
+* Fixed a network connection leak in the system when updating Docker Compose projects.
+
 ### Version 2.1.0 {#version2.1.0}
 
-* Added support for the XFS file system in the [Docker Compose specification](../../cos/concepts/index.md#compose-spec).
+* Added support for the XFS file system in the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
 * Added Docker container labels to identify automatically launched containers.
 * Added COI version information to Docker image descriptions.
 * Fixed the disk mount issue after VM restart when using the Docker Compose specification.
 
 ### Version 2.0.4 {#version2.0.4}
 
-* Added a Container Optimized Image with GPU support: `yc compute image get-latest-from-family coi-base-gpu --folder-id standard-images`.
+* Added a {{ coi }} with GPU support: `yc compute image get-latest-from-family coi-base-gpu --folder-id standard-images`.
 
 ### Version 2.0.3 {#version2.0.3}
 
@@ -50,7 +56,7 @@
 
 ### Version 1.1.1 {#version1.1.1}
 
-* Fixes in automatic launch of Docker containers:
+* Fixes in automatic launch of Docker containers.
 
 ### Version 1.1.0 {#version1.1.0}
 
