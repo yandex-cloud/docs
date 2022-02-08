@@ -7,7 +7,7 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Authentication in Yandex Container Registry
+      - name: Authenticating in Yandex Container Registry
         href: operations/authentication.md
       - name: Managing a Docker image
         items:
@@ -57,15 +57,15 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-dry-run.md
           - name: Deleting a lifecycle policy
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
-      - name: Scanning for vulnerabilities
+      - name: Scanning Docker images for vulnerabilities
         href: operations/scanning-docker-image.md
       - name: Working with roles
         items:
-          - name: Assign a role
+          - name: Assigning a role
             href: operations/roles/grant.md
           - name: Viewing assigned roles
             href: operations/roles/get-assigned-roles.md
-          - name: Revoke a role
+          - name: Revoking a role
             href: operations/roles/revoke.md
   - name: Yandex Container Solution
     href: ../cos/
@@ -75,6 +75,8 @@ items:
         href: solutions/index.md
       - name: Running a Docker image on a VM
         href: solutions/run-docker-on-vm.md
+      - name: Setting up automatic scanning of a Docker image
+        href: solutions/image-auto-scan.md
   - name: Concepts
     items:
       - name: Overview
@@ -85,7 +87,7 @@ items:
         href: concepts/registry.md
       - name: Repository
         href: concepts/repository.md
-      - name: Policies for automatically deleting Docker images
+      - name: Docker policies for automatically deleting Docker images
         href: concepts/lifecycle-policy.md
       - name: Vulnerability scanner
         href: concepts/vulnerability-scanner.md
