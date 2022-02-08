@@ -11,13 +11,13 @@ Syntax:
 
 `yc load-balancer network-load-balancer list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

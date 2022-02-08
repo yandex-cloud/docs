@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-sqlserver user revoke-permission <USER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--database`|<b>`string`</b><br/>Name of the database that user is permitted to connect to.|
 |`--roles`|<b>`value[,value]`</b><br/>User database access roles, possible values: DB_ACCESSADMIN,DB_BACKUPOPERATOR,DB_DATAREADER,DB_DATAWRITER,DB_DDLADMIN,DB_DENYDATAREADER,DB_DENYDATAWRITER,DB_OWNER,DB_SECURITYADMIN|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

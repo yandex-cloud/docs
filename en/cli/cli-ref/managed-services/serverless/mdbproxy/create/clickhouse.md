@@ -11,7 +11,7 @@ Syntax:
 
 `yc serverless mdbproxy create clickhouse <PROXY-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -25,7 +25,7 @@ Syntax:
 |`--database`|<b>`string`</b><br/> Clickhouse database name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

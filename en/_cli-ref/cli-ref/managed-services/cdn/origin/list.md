@@ -8,14 +8,14 @@ Syntax:
 
 `yc cdn origin list <ORIGIN-GROUP-ID> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Specifies the origin group ID.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -16,7 +16,7 @@ Syntax:
 - [yc datatransfer transfer activate](activate.md) — Activate transfer
 - [yc datatransfer transfer deactivate](deactivate.md) — Deactivate transfer
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

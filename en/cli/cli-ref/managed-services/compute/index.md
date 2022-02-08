@@ -139,7 +139,7 @@ Syntax:
 	- [yc compute filesystem add-labels](filesystem/add-labels.md) — Add labels to specified filesystem
 	- [yc compute filesystem remove-labels](filesystem/remove-labels.md) — Remove labels from specified filesystem
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

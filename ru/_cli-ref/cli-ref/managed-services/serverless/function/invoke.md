@@ -8,7 +8,7 @@ Syntax:
 
 `yc serverless function invoke <FUNCTION-NAME>|<FUNCTION-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--data-file`|<b>`string`</b><br/>Data (file location) to be sent|
 |`--data-stdin`|Await stdin for data to be sent|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

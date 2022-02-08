@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse cluster add-graphite-rollup <CLUSTER-NAME>|<CLUSTER-ID> --rollup-file-name YAML_FILE [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--rollup-file-name`|<b>`string`</b><br/>Name of the YAML file with the rollup configuration to apply to the cluster.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-redis resource-preset get](get.md) — Show information about the specified Redis resource preset
 - [yc managed-redis resource-preset list](list.md) — List available Redis resource presets
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

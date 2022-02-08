@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse format-schema get <FORMAT-SCHEMA-NAME> [<FORMAT-SCHEMA-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse format schema.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

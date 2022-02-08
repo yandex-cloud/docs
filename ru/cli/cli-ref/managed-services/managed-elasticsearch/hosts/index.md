@@ -21,7 +21,7 @@ Aliases:
 - [yc managed-elasticsearch hosts add](add.md) — Add new hosts to the cluster in specified availability zones.
 - [yc managed-elasticsearch hosts delete](delete.md) — Remove specified hosts from the cluster.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

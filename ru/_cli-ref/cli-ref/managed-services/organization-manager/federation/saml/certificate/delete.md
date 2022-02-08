@@ -8,7 +8,7 @@ Syntax:
 
 `yc organization-manager federation saml certificate delete <CERTIFICATE-NAME>|<CERTIFICATE-ID> [<CERTIFICATE-NAME>|<CERTIFICATE-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Name of the certificate.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

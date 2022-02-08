@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse shards add <SHARD-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -23,7 +23,7 @@ Syntax:
 |`--weight`|<b>`int`</b><br/> Weight of the host in the shard.|
 |`--copy-schema`| Copy schema from another shard|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

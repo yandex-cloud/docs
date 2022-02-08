@@ -93,7 +93,7 @@ Aliases:
 - [yc managed-clickhouse version](version/index.md) — Manage available ClickHouse versions.
 	- [yc managed-clickhouse version list](version/list.md) — List available ClickHouse versions.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

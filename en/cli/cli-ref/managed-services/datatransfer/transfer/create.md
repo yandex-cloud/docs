@@ -11,7 +11,7 @@ Syntax:
 
 `yc datatransfer transfer create [<TRANSFER-NAME>] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Transfer description|
 |`--type`|<b>`string`</b><br/>Transfer type. Possible values are: [snapshot-and-increment, snapshot-only, increment-only] Values: 'snapshot-and-increment', 'snapshot-only', 'increment-only'|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -13,14 +13,14 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>key id.|
 |`--full`|If set, public key field will be printed.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

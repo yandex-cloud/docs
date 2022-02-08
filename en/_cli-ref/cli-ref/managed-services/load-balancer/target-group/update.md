@@ -8,7 +8,7 @@ Syntax:
 
 `yc load-balancer target-group update <TARGET-GROUP-NAME>|<TARGET-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/> Specifies a textual description of the target group.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

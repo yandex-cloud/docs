@@ -36,7 +36,7 @@ Aliases:
 - [yc managed-mongodb cluster stop](stop.md) — Stop the specified MongoDB cluster
 - [yc managed-mongodb cluster enable-sharding](enable-sharding.md) — Enable sharding for MongoDB cluster.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

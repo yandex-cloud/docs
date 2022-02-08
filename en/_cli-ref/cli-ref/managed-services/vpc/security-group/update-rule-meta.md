@@ -8,7 +8,7 @@ Syntax:
 
 `yc vpc security-group update-rule-meta <SECURITY-GROUP-NAME>|<SECURITY-GROUP-ID> --rule-id VALUE [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/> New description for the security group rule.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the security group rule as key-value pairs. Existing set of labels will be completely overwritten.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

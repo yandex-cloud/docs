@@ -17,7 +17,7 @@ Aliases:
 - [yc dataproc resource-preset get](get.md) — Get information about a Data Proc resource preset.
 - [yc dataproc resource-preset list](list.md) — List available resource presets for Data Proc.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

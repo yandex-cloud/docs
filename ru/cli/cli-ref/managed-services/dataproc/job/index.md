@@ -28,7 +28,7 @@ Aliases:
 - [yc dataproc job create-hive](create-hive.md) — Create a Dataproc Hive job.
 - [yc dataproc job cancel](cancel.md) — Cancel Dataproc job.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

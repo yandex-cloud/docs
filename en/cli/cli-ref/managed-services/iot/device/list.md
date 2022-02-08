@@ -11,7 +11,7 @@ Syntax:
 
 `yc iot device list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--registry-id`|<b>`string`</b><br/>Registry id.|
 |`--registry-name`|<b>`string`</b><br/>Registry name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

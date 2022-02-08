@@ -11,7 +11,7 @@ Syntax:
 
 `yc help [command] [flags]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

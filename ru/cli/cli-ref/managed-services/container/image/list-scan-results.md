@@ -11,7 +11,7 @@ Syntax:
 
 `yc container image list-scan-results --image-id <IMAGE-ID>|--repository-id <REPOSITORY-ID>|--repository-name <REPOSITORY-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 |`--filter`|<b>`string`</b><br/>Filter by status.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

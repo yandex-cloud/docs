@@ -11,7 +11,7 @@ Syntax:
 
 `yc iam create-token`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

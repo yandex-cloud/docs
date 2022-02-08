@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute instance remove-one-to-one-nat <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--network-interface-index`|<b>`string`</b><br/> Index of interface to attach one-to-one NAT.|
 |`--internal-address`|<b>`string`</b><br/> Internal address of interface to attach one-to-one NAT.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

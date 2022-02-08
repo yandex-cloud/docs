@@ -8,7 +8,7 @@ Syntax:
 
 `yc datatransfer endpoint create mysql-target [<ENDPOINT-NAME>] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -27,7 +27,7 @@ Syntax:
 |`--skip-constraint-checks`|Use FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0|
 |`--timezone`|<b>`string`</b><br/>Used for parsing timestamps for saving target timezones. Accepts values from IANA timezone database. Defaults to the local timezone|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc cdn resource get-provider-cname [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -13,7 +13,7 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Aliases:
 |`--id`|<b>`string`</b><br/>ID of the certificate.|
 |`--name`|<b>`string`</b><br/>Name of the certificate.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

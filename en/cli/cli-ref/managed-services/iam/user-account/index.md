@@ -19,7 +19,7 @@ Aliases:
 
 - [yc iam user-account get](get.md) — Show information about the specified user account
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

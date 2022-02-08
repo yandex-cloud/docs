@@ -23,7 +23,7 @@ Aliases:
 - [yc application-load-balancer http-router update](update.md) — Update the specified http router
 - [yc application-load-balancer http-router delete](delete.md) — Delete the specified http router
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

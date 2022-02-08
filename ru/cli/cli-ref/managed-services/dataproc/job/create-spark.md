@@ -15,7 +15,7 @@ Aliases:
 
 - `submit-spark`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -34,7 +34,7 @@ Aliases:
 |`--args`|<b>`value[,value]`</b><br/> Arguments|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

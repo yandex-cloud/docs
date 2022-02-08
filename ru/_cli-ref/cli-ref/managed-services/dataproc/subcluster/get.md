@@ -8,7 +8,7 @@ Syntax:
 
 `yc dataproc subcluster get <SUBCLUSTER-NAME>|<SUBCLUSTER-ID> [<SUBCLUSTER-NAME>|<SUBCLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>ID of the subcluster.|
 |`--name`|<b>`string`</b><br/>Name of the subcluster.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

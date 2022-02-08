@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute disk resize <DISK-NAME>|<DISK-ID> --size <SIZE> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--size`|<b>`byteSize`</b><br/>Indicates the new size of the disk.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

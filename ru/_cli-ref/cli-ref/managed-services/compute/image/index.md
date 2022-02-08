@@ -24,7 +24,7 @@ Aliases:
 - [yc compute image delete](delete.md) — Delete the specified image
 - [yc compute image list-operations](list-operations.md) — List operations for the specified image
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

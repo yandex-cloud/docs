@@ -23,7 +23,7 @@ Aliases:
 - [yc managed-sqlserver database restore](restore.md) — Restore SQLServer database
 - [yc managed-sqlserver database delete](delete.md) — Delete the specified SQLServer database
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

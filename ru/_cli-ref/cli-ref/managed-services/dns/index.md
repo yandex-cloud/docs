@@ -28,7 +28,7 @@ Syntax:
 	- [yc dns zone add-access-binding](zone/add-access-binding.md) — Add access binding to the specified dns zone
 	- [yc dns zone remove-access-binding](zone/remove-access-binding.md) — Remove access binding from the specified dns zone
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

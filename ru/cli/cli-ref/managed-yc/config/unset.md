@@ -11,7 +11,7 @@ Syntax:
 
 `yc config unset <PROPERTY> [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

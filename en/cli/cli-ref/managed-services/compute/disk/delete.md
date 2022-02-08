@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute disk delete <DISK-NAME>|<DISK-ID> [<DISK-NAME>|<DISK-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Disk name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

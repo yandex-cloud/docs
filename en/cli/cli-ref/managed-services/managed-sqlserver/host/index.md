@@ -19,7 +19,7 @@ Aliases:
 
 - [yc managed-sqlserver host list](list.md) — List hosts for the specified SQLServer cluster
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

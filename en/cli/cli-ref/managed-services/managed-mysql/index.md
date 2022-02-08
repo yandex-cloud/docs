@@ -61,7 +61,7 @@ Aliases:
 	- [yc managed-mysql resource-preset get](resource-preset/get.md) — Show information about the specified MySQL resource preset
 	- [yc managed-mysql resource-preset list](resource-preset/list.md) — List available MySQL resource presets.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

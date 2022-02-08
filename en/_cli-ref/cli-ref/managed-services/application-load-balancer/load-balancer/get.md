@@ -13,14 +13,14 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the Application load balancer.|
 |`--name`|<b>`string`</b><br/>Name of the Application load balancer.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

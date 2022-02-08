@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance create <INSTANCE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -45,7 +45,7 @@ Syntax:
 |`--image-folder-id`|<b>`string`</b><br/> The folder ID against which all image and image family references will be resolved.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

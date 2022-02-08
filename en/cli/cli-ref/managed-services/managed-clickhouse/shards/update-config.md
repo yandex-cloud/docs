@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse shards update-config <SHARD-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Shard name.|
 |`--set`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/> Set parameters for a shard. Can be specified multiple times.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

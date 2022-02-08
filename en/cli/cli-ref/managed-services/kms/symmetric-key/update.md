@@ -11,7 +11,7 @@ Syntax:
 
 `yc kms symmetric-key update <SYMMETRIC-KEY> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -27,7 +27,7 @@ Syntax:
 |`--deletion-protection`| Inhibits deletion of a symmetric key.|
 |`--no-deletion-protection`| Allows deletion of a symmetric key.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

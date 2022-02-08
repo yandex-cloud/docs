@@ -12,7 +12,7 @@ Aliases:
 
 - `add-http-listener`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -31,7 +31,7 @@ Aliases:
 |`--http-router-name`|<b>`string`</b><br/> HTTP router name for new listener.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

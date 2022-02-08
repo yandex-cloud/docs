@@ -28,7 +28,7 @@ Aliases:
 - [yc managed-kubernetes node-group list-operations](list-operations.md) — List operations for the specified node group.
 - [yc managed-kubernetes node-group list-nodes](list-nodes.md) — List nodes for the specified node group.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

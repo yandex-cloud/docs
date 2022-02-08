@@ -11,7 +11,7 @@ Syntax:
 
 `yc logging read <LOG-GROUP-NAME>|<LOG-GROUP-ID>`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -26,7 +26,7 @@ Syntax:
 |`--filter`|<b>`string`</b><br/>Use this filter|
 |`--limit`|<b>`int`</b><br/>The maximum number of records to show.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

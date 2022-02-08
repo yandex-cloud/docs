@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-kubernetes node-group delete <NODE-GROUP-NAME>|<NODE-GROUP-ID> [<NODE-GROUP-NAME>|<NODE-GROUP-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Name of the node group.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

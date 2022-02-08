@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute disk-placement-group list-operations <DISK-PLACEMENT-GROUP-NAME>|<DISK-PLACEMENT-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Disk placement group name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

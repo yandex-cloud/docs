@@ -30,7 +30,7 @@ Aliases:
 - [yc application-load-balancer virtual-host insert-grpc-route](insert-grpc-route.md) — Removes grpc route from the specified virtual host of the http router
 - [yc application-load-balancer virtual-host update-grpc-route](update-grpc-route.md) — Updates grpc route in the specified virtual host of the http router
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

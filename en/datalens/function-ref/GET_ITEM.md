@@ -19,7 +19,7 @@ GET_ITEM( array, index )
 Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one.
 
 **Argument types:**
-- `array` — `Array of fractional numbers | Array of integer numbers | Array of strings`
+- `array` — `Array of fractional numbers | Array of integers | Array of strings`
 - `index` — `Integer`
 
 

@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-sqlserver database restore <DATABASE_NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>SQLServer cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

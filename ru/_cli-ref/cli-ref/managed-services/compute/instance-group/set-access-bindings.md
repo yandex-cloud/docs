@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance-group set-access-bindings <INSTANCE-GROUP-NAME>|<INSTANCE-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--access-binding`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Access binding to set. Can be used multiple times.  Possible property names:  role Binding role ID.  service-account-id Service account, whose access will be updated.  service-account-name Service account, whose access will be updated.  user-account-id User account, whose access will be updated.  user-yandex-login User account, whose access will be updated.  all-authenticated-users Access will be updated for all authenticated users  subject Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:<ID>, serviceAccount:<ID>, system:<ID>.  |
 |`-y`,`--yes`| Automatic yes to prompts.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

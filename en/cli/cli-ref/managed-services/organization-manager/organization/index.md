@@ -27,7 +27,7 @@ Aliases:
 - [yc organization-manager organization list-operations](list-operations.md) — List operations for the specified organization
 - [yc organization-manager organization leave](leave.md) — Remove user accounts from the specified organization. Operation is performed by the account that wants to leave.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

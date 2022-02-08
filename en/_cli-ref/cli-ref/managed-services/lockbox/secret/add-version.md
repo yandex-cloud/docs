@@ -8,7 +8,7 @@ Syntax:
 
 `yc lockbox secret add-version <SECRET-NAME>|<SECRET-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--payload`|<b>`string`</b><br/>YAML or JSON array defining how to change payload from the base version. Each item of the array must match the format: https://cloud.yandex.com/docs/lockbox/api-ref/grpc/secret_service#PayloadEntryChange For instance, to modify the value of "password" entry from the base version payload: [{"key": "username", "text_value": "alice"}, {"key": "password", "text_value": "p@$$w0rd"}] the following JSON can be passed: [{"key": "password", "text_value": "another-p@$$w0rd"}] so the resulting payload of the newly added version will be: [{"key": "username", "text_value": "alice"}, {"key": "password", "text_value": "another-p@$$w0rd"}] To remove the entry pass an item containing only the "key" field, e.g.: [..., {"key": "the-key-of-the-entry-to-remove"}, ...] Use - value to pass payload string via stdin.|
 |`--base-version-id`|<b>`string`</b><br/>Base version id. By default, the current one is used.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

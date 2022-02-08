@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-sqlserver cluster update <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -25,7 +25,7 @@ Syntax:
 |`--disk-type`|<b>`string`</b><br/> Type of the storage environment for a host|
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

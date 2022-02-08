@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mysql database create <DATABASE_NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>MySQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

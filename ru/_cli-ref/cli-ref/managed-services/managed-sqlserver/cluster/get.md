@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-sqlserver cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>SQLServer cluster name.|
 |`--full`|Also show default and effective sqlserver configs.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

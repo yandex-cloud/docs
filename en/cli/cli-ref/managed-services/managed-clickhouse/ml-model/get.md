@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse ml-model get <ML-MODEL-NAME> [<ML-MODEL-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse machine learning model.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

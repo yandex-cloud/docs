@@ -16,7 +16,7 @@ Syntax:
 - [yc ydb storage-type get](get.md) — Get information about the specified YDB storage type preset.
 - [yc ydb storage-type list](list.md) — List YDB storage types.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

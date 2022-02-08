@@ -11,7 +11,7 @@ Syntax:
 
 `yc ydb database create <DATABASE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -38,7 +38,7 @@ Syntax:
 |`--backup`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> YDB database backup config options.  Possible property names:  source Adds source path to backup.  exclude Exclude path from backup.  ttl Specify backup time to live. Example: '120m', '15m', '7200s'  name Specify backup settings name.  description Specify backup settings description.  daily-execute-time Time of day in UTC time zone, HH:MM 24-hour clock format, when daily backup should be executed. Example: '02:30  weekly-execute-time Time of day in UTC time zone, HH:MM 24-hour clock format, when weekly backup should be executed. Example: '02:30  weekly-days Specify days when weekly backup should be executed.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

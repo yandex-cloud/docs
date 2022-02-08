@@ -11,7 +11,7 @@ Syntax:
 
 `yc cdn resource create <СNAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -58,7 +58,7 @@ Syntax:
 |`--rewrite-body`|<b>`string`</b><br/> The pattern for Rewrite. At least one group should be specified. For Example: /rewrite_from/(.*) /rewrite_to/$1|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

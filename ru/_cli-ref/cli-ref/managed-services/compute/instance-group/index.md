@@ -36,7 +36,7 @@ Aliases:
 - [yc compute instance-group add-access-binding](add-access-binding.md) — Add access binding for the specified instance group
 - [yc compute instance-group remove-access-binding](remove-access-binding.md) — Remove access binding for the specified instance group
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

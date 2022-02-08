@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-postgresql resource-preset get](get.md) — Show information about the specified PostgreSQL resource preset
 - [yc managed-postgresql resource-preset list](list.md) — List available PostgreSQL resource presets.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

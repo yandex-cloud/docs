@@ -8,7 +8,7 @@ Syntax:
 
 `yc datatransfer endpoint create postgres-target [<ENDPOINT-NAME>] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -24,7 +24,7 @@ Syntax:
 |`--raw-password`|<b>`string`</b><br/>Raw password value (unsafe, consider --password-file)|
 |`--password-file`|<b>`string`</b><br/>Path to the file containing password|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

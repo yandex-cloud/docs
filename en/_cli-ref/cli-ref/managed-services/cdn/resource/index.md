@@ -17,7 +17,7 @@ Syntax:
 - [yc cdn resource get-provider-cname](get-provider-cname.md) — Get provider CNAME
 - [yc cdn resource delete](delete.md) — Delete resource.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

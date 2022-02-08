@@ -11,7 +11,7 @@ Syntax:
 
 `yc load-balancer target-group create <TARGET-GROUP-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Adds a target to the target group.  Possible property names:  subnet-name Specifies the subnet that the target will connect to.  subnet-id Specifies the ID of the subnet that the target will connect to.  address Specifies the IP address that the target will connect to  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

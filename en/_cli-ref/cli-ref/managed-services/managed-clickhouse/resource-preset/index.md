@@ -17,7 +17,7 @@ Aliases:
 - [yc managed-clickhouse resource-preset get](get.md) — Get information about a ClickHouse resource preset.
 - [yc managed-clickhouse resource-preset list](list.md) — List available resource presets for Managed Service for ClickHouse.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

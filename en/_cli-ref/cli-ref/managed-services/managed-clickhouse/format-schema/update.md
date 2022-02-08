@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse format-schema update <FORMAT-SCHEMA-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse format schema.|
 |`--uri`|<b>`string`</b><br/>URI to download a format schema|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

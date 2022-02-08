@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-kubernetes list-versions`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

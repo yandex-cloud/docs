@@ -11,7 +11,7 @@ Syntax:
 
 `yc datatransfer endpoint delete <ENDPOINT-ID> [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

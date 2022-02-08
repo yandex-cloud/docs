@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-mongodb cluster update <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -41,7 +41,7 @@ Syntax:
 |`--mongoinfra-disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to mongodb host with corresponding role.|
 |`--mongoinfra-disk-type`|<b>`string`</b><br/> Storage type for mongodb host with corresponding role.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-sqlserver user create <USER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--password`|<b>`string`</b><br/>Password of the SQLServer user.|
 |`--databases`|<b>`value[,value]`</b><br/>Names of the databases that user is permitted to connect to.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

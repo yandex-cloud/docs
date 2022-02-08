@@ -13,14 +13,14 @@ Aliases:
 - `show`
 - `describe`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Address id.|
 |`--name`|<b>`string`</b><br/>Address name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

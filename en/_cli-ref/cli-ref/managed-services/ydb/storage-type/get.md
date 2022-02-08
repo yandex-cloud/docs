@@ -8,13 +8,13 @@ Syntax:
 
 `yc ydb storage-type get <STORAGE-TYPE> [<STORAGE-TYPE>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>storage type id.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

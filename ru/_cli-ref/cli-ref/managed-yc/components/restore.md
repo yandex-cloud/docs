@@ -8,7 +8,7 @@ Syntax:
 
 `yc components restore`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

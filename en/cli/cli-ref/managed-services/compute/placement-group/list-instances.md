@@ -15,7 +15,7 @@ Aliases:
 
 - `instances`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -23,7 +23,7 @@ Aliases:
 |`--name`|<b>`string`</b><br/>Placement group name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

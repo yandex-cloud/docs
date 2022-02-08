@@ -11,7 +11,7 @@ Syntax:
 
 `yc dataproc cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -34,7 +34,7 @@ Syntax:
 |`--log-group-id`|<b>`string`</b><br/> Id of a log group to write cluster logs to.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

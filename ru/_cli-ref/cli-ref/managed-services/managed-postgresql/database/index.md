@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-postgresql database update](update.md) — Update the specified PostgreSQL database
 - [yc managed-postgresql database delete](delete.md) — Delete the specified PostgreSQL database
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

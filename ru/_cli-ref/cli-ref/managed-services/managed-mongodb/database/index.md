@@ -19,7 +19,7 @@ Aliases:
 - [yc managed-mongodb database create](create.md) — Create a database in a MongoDB cluster.
 - [yc managed-mongodb database delete](delete.md) — Delete a MongoDB database.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

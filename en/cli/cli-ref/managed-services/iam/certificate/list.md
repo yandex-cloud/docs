@@ -11,7 +11,7 @@ Syntax:
 
 `yc iam certificate list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--federation-id`|<b>`string`</b><br/>federation id.|
 |`--federation-name`|<b>`string`</b><br/>federation name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

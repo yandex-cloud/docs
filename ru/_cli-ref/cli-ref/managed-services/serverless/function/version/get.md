@@ -13,13 +13,13 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Function version id.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

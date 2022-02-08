@@ -50,7 +50,7 @@ Aliases:
 	- [yc managed-redis shards add](shards/add.md) — Create new shard for the cluster in the specified availability zones.
 	- [yc managed-redis shards delete](shards/delete.md) — Delete shard.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

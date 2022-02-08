@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer load-balancer add-stream-listener <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -24,7 +24,7 @@ Syntax:
 |`--backend-group-name`|<b>`string`</b><br/> Backend group name for new listener.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

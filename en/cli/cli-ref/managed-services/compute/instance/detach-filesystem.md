@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute instance detach-filesystem <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--filesystem-id`|<b>`string`</b><br/>An ID of the filesystem to detach from the instance.|
 |`--device-name`|<b>`string`</b><br/>An ID of the device to detach from the instance.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

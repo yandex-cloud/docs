@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer virtual-host prepend-http-route <ROUTE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -37,7 +37,7 @@ Syntax:
 |`--redirect-prefix`|<b>`string`</b><br/> Specifies path prefix to be appended to the request uri for the redirect.|
 |`--redirect-strip-query`| If specified, original request query will be stripped from redirect location for the route.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

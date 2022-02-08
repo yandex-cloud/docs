@@ -1,5 +1,4 @@
-## Version 2.1.1 {#latest-release}
+## Version 2.2.0 {#latest-release}
 
-* Added a rotation of Docker container logs using the `local` logging driver.
-* Disabled the `rpcbind` system service.
-* Fixed a network connection leak in the system when updating Docker Compose projects.
+* Added the `net.netfilter.nf_conntrack_tcp_be_liberal = 1` flag to the sysctl configuration.
+* Updated system components and packages.

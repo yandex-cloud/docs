@@ -11,7 +11,7 @@ Syntax:
 
 `yc container cluster update <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -35,7 +35,7 @@ Syntax:
 |`--daily-maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Allow maintenance everyday specified days of week in the specified time window.  Flag can be used multiple times, to define different time windows for different days of week.  Examples:  --daily-maintenance-window 'start=22:00,duration=10h  --daily-maintenance-window 'start=03:00,duration=8h30m  Possible property names:  start Time of day in UTC time zone, HH:MM 24-hour clock format, since when maintenance operations are allowed. Example: '02:30'  duration Maintenance window duration in interval [1h; 24h]. Example: '12h30m'  |
 |`--weekly-maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Allow maintenance on specified days of week in the specified time window.  Flag can be used multiple times, to define different time windows for different days of week.  Examples:  --weekly-maintenance-window 'days=[monday,tuesday],start=22:00,duration=10h  --weekly-maintenance-window 'days=weekend,start=03:00,duration=8h30m  Possible property names:  days List of days of the week on which maintenance is allowed in specified time window.  Allowed values: weekdays, weekend, monday, tuesday, wednesday, thursday, friday, saturday, sunday, mon, tue, wed, thu, fri, sat, sun, all.  Examples: 'weekend', '[weekdays,saturday]', '[monday,wednesday,friday]'  start Time of day in UTC time zone, HH:MM 24-hour clock format, since when maintenance operations are allowed. Example: '02:30'  duration Maintenance window duration in interval [1h; 24h]. Example: '12h30m'|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

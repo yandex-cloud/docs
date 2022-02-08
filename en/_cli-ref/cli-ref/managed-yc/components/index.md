@@ -13,7 +13,7 @@ Syntax:
 - [yc components update](update.md) — Ensure that the latest version of all installed components is installed
 - [yc components restore](restore.md) — Restore the installation to its previous state
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

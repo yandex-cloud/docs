@@ -8,7 +8,7 @@ Syntax:
 
 `yc kms symmetric-key list-access-bindings <SYMMETRIC-KEY> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Symmetric key name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

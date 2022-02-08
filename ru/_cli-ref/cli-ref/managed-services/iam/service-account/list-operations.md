@@ -8,7 +8,7 @@ Syntax:
 
 `yc iam service-account list-operations <SERVICE-ACCOUNT-NAME>|<SERVICE-ACCOUNT-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>service account name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

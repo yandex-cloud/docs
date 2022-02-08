@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-mysql hosts add [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Configurations for MySQL hosts that should be added to the cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  replication-source Name of the host to be used as the replication source for cascaded replication.  backup-priority Priority of the host as a backup source.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc components update`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-mongodb backup get](get.md) — Get information about the specified MongoDB backup.
 - [yc managed-mongodb backup list](list.md) — List MongoDB backups available in a folder.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

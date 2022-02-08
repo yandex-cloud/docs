@@ -8,14 +8,14 @@ Syntax:
 
 `yc init`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--federation-id`|<b>`string`</b><br/>Set the Federation ID to use for authentification.|
 |`--federation-endpoint`|<b>`string`</b><br/>Set the Federation endpoint to use for authentification.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

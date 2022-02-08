@@ -12,7 +12,7 @@ Aliases:
 
 - `states`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Aliases:
 |`--id`|<b>`string`</b><br/>Network load balancer id.|
 |`--name`|<b>`string`</b><br/>Network load balancer name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

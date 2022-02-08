@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse ml-model delete <ML-MODEL-NAME> [<ML-MODEL-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse machine learning model.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

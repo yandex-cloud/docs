@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance create-with-container <INSTANCE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -58,7 +58,7 @@ Syntax:
 |`--docker-compose-file`|<b>`string`</b><br/> Docker compose file.|
 |`--coi-spec-file`|<b>`string`</b><br/> Container optimized image YAML file.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

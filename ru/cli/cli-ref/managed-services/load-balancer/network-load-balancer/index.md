@@ -31,7 +31,7 @@ Aliases:
 - [yc load-balancer network-load-balancer remove-listener](remove-listener.md) — Removes the listener from the specified network load balancer.
 - [yc load-balancer network-load-balancer list-operations](list-operations.md) — List operations for the specified load balancer
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

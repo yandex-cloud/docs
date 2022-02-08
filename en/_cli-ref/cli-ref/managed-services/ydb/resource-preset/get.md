@@ -8,13 +8,13 @@ Syntax:
 
 `yc ydb resource-preset get <RESOURCE-PRESET> [<RESOURCE-PRESET>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>resource preset id.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

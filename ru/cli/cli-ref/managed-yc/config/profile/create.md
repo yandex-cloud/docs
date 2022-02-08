@@ -11,7 +11,7 @@ Syntax:
 
 `yc config profile create <PROFILE-NAME> [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

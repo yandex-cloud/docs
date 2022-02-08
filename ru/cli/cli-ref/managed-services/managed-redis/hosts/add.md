@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-redis hosts add [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Configurations for Redis hosts that should be added to the cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  shard-name Shard name host belong to.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

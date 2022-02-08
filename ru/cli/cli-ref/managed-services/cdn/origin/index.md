@@ -19,7 +19,7 @@ Syntax:
 - [yc cdn origin update](update.md) — Update origin. PUT behaviour - specify all parameters
 - [yc cdn origin delete](delete.md) — Delete the specified origin.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

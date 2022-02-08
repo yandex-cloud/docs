@@ -28,7 +28,7 @@ Aliases:
 - [yc vpc network list-operations](list-operations.md) — List operations for a network.
 - [yc vpc network move](move.md) — Move a network to another folder.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

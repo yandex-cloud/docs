@@ -39,7 +39,7 @@ Aliases:
 - [yc compute instance remove-one-to-one-nat](remove-one-to-one-nat.md) — Remove one-to-one NAT to the the specified network interface of virtual machine instance
 - [yc compute instance list-operations](list-operations.md) — List operations for the specified instance
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

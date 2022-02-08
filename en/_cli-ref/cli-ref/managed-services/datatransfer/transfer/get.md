@@ -8,13 +8,13 @@ Syntax:
 
 `yc datatransfer transfer get <TRANSFER-ID> [--full] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--full`|Show full source and target endpoints instead of their identifiers|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

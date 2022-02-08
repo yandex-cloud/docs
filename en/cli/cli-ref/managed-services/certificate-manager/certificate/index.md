@@ -30,7 +30,7 @@ Aliases:
 - [yc certificate-manager certificate add-access-binding](add-access-binding.md) — Add access binding for the specified certificate
 - [yc certificate-manager certificate remove-access-binding](remove-access-binding.md) — Remove access binding for the specified certificate
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

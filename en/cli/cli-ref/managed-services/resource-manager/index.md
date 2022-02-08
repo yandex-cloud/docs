@@ -40,7 +40,7 @@ Aliases:
 	- [yc resource-manager folder remove-access-binding](folder/remove-access-binding.md) — Remove access binding for the specified folder
 	- [yc resource-manager folder list-operations](folder/list-operations.md) — List operations for the specified folder
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

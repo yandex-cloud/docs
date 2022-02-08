@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-kafka cluster move <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--destination-folder-id`|<b>`string`</b><br/> Destination folder id.|
 |`--destination-folder-name`|<b>`string`</b><br/> Destination folder name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

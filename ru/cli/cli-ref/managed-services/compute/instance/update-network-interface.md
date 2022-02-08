@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute instance update-network-interface <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -28,7 +28,7 @@ Syntax:
 |`--security-group-id`|<b>`value[,value]`</b><br/> Security groups for the network interface, --security-group-id id1 --security-group-id=id2|
 |`--clear-security-groups`| Clear security groups for the network interface|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

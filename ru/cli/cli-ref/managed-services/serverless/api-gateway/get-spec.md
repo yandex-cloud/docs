@@ -11,14 +11,14 @@ Syntax:
 
 `yc serverless api-gateway get-spec <API-GATEWAY-NAME>|<API-GATEWAY-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Api-gateway id.|
 |`--name`|<b>`string`</b><br/>Api-gateway name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-kubernetes cluster get-credentials <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--external`|Use Kubernetes cluster external endpoint.|
 |`--force`|Overwrite context|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

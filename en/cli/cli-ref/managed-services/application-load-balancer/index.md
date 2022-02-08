@@ -84,7 +84,7 @@ Aliases:
 	- [yc application-load-balancer target-group add-targets](target-group/add-targets.md) — Add targets to the specified target group
 	- [yc application-load-balancer target-group remove-targets](target-group/remove-targets.md) — Remove targets from the specified target group
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

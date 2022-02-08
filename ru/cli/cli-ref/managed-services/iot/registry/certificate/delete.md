@@ -11,7 +11,7 @@ Syntax:
 
 `yc iot registry certificate delete [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--fingerprint`|<b>`string`</b><br/>Fingerprint of certificate to be deleted.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

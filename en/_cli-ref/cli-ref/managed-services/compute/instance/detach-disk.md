@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance detach-disk <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--disk-id`|<b>`string`</b><br/>An ID of the disk to detach from the instance.|
 |`--device-name`|<b>`string`</b><br/>An ID of the device to detach from the instance.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

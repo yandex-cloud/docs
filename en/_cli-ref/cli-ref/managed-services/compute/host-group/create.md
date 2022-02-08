@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute host-group create <HOST-GROUP-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--fixed-size`|<b>`int`</b><br/> Specifies the size of the host group to create.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

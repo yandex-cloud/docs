@@ -30,7 +30,7 @@ Aliases:
 - [yc vpc subnet list-used-addresses](list-used-addresses.md) — List used addresses in subnet.
 - [yc vpc subnet move](move.md) — Move a subnet to another folder.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

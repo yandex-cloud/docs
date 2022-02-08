@@ -35,7 +35,7 @@ Aliases:
 - [yc container registry remove-ip-permissions](remove-ip-permissions.md) — Remove ip permissions for the specified registry
 - [yc container registry configure-docker](configure-docker.md) — Configure docker to use Yandex.Cloud credential helper.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

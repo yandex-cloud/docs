@@ -11,7 +11,7 @@ Syntax:
 
 `yc serverless container revision deploy (--container-id <CONTAINER_ID>|--container-name <CONTAINER_NAME>) [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -30,7 +30,7 @@ Syntax:
 |`--command`|<b>`value[,value]`</b><br/>Comma-separated entrypoint for the container image. If not specified, the image's default ENTRYPOINT will be used. Pass an empty string to reset it to zero value.|
 |`--args`|<b>`value[,value]`</b><br/>Comma-separated list of arguments that are passed to the command, run by a container. If not specified, the image's default CMD will be used. Pass an empty string to reset it to zero value.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

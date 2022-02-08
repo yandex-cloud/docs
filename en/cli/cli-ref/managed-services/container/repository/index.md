@@ -35,7 +35,7 @@ Aliases:
 	- [yc container repository lifecycle-policy get-dry-run-result](lifecycle-policy/get-dry-run-result.md) — Get information about a dry run result for a lifecycle policy
 	- [yc container repository lifecycle-policy list-dry-run-affected-images](lifecycle-policy/list-dry-run-affected-images.md) — List images affected by dry run for a lifecycle policy.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

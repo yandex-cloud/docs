@@ -8,7 +8,7 @@ Syntax:
 
 `yc vpc route-table update <ROUTE-TABLE-NAME>|<ROUTE-TABLE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--clear-routes`| Clear all routes from a table.|
 |`--route`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> New list of static routes for table.  Possible property names:  destination Destination subnet in CIDR notation.  next-hop Next hop IP address.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

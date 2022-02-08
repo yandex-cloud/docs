@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-redis shards get <SHARD-NAME> [<SHARD-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>Redis cluster name.|
 |`--name`|<b>`string`</b><br/>Shard name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -15,7 +15,7 @@ Aliases:
 
 - `logs`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -26,7 +26,7 @@ Aliases:
 |`--since`|<b>`timestamp`</b><br/>Start timestamp for the event list. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|
 |`--until`|<b>`timestamp`</b><br/>End timestamp for the event list. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

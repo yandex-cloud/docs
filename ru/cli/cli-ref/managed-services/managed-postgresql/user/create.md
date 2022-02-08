@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-postgresql user create <USER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -30,7 +30,7 @@ Syntax:
 |`--synchronous-commit`|<b>`string`</b><br/> Synchronous commit. Values: 'synchronous-commit-on', 'synchronous-commit-off', 'synchronous-commit-local', 'synchronous-commit-remote-write', 'synchronous-commit-remote-apply'|
 |`--log-statement`|<b>`string`</b><br/> Log statement. Values: 'log-statement-none', 'log-statement-ddl', 'log-statement-mod', 'log-statement-all'|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

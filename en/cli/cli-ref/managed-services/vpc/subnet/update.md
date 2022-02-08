@@ -11,7 +11,7 @@ Syntax:
 
 `yc vpc subnet update <SUBNET-NAME>|<SUBNET-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -28,7 +28,7 @@ Syntax:
 |`--domain-name-server`|<b>`value[,value]`</b><br/> Domain name server for a subnet.|
 |`--ntp-server`|<b>`value[,value]`</b><br/> Ntp server for a subnet.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

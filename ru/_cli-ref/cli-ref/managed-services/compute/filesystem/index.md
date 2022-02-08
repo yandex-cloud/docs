@@ -23,7 +23,7 @@ Aliases:
 - [yc compute filesystem add-labels](add-labels.md) — Add labels to specified filesystem
 - [yc compute filesystem remove-labels](remove-labels.md) — Remove labels from specified filesystem
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

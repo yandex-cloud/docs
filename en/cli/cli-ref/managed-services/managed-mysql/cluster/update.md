@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-mysql cluster update <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -32,7 +32,7 @@ Syntax:
 |`--datalens-access`| Allow access for DataLens|
 |`--websql-access`| Allow access for Web SQL|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

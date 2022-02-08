@@ -8,7 +8,7 @@ Syntax:
 
 `yc serverless function tag-history <FUNCTION-NAME>|<FUNCTION-ID> --tag <TAG> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Function name.|
 |`--tag`|<b>`string`</b><br/>Tag.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

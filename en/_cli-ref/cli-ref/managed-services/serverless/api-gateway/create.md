@@ -8,7 +8,7 @@ Syntax:
 
 `yc serverless api-gateway create <API-GATEWAY-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--spec`|<b>`string`</b><br/> Api-gateway specification file name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

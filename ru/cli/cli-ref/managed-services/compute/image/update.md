@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute image update <IMAGE-NAME>|<IMAGE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/> Specifies a textual description of the image.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc application-load-balancer backend-group update <BACKEND_GROUP-NAME>|<BACKEND_GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/> A description of the backend group.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

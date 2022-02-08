@@ -19,7 +19,7 @@ UNNEST( array )
 Expands the `array` array expression to a set of rows.
 
 **Argument types:**
-- `array` — `Array of fractional numbers | Array of integer numbers | Array of strings`
+- `array` — `Array of fractional numbers | Array of integers | Array of strings`
 
 
 **Return type**: Depends on argument types

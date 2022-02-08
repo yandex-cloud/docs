@@ -36,7 +36,7 @@ Syntax:
 	- [yc iot mqtt publish](mqtt/publish.md) — Publish telemetry
 	- [yc iot mqtt subscribe](mqtt/subscribe.md) — Subscribe telemetry
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

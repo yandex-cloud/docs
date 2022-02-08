@@ -11,7 +11,7 @@ Syntax:
 
 `yc lockbox secret schedule-version-destruction <SECRET-NAME>|<SECRET-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--version-id`|<b>`string`</b><br/>Version to schedule destruction.|
 |`--pending-period`|<b>`duration`</b><br/>Pending period for destruction.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

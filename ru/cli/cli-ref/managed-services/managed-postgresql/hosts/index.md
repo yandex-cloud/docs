@@ -23,7 +23,7 @@ Aliases:
 - [yc managed-postgresql hosts delete](delete.md) — Delete the specified hosts
 - [yc managed-postgresql hosts update-config](update-config.md) — Updates PostgreSQL config for the specified hosts
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

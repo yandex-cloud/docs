@@ -11,14 +11,14 @@ Syntax:
 
 `yc container node-group get <NODE-GROUP-NAME>|<NODE-GROUP-ID> [<NODE-GROUP-NAME>|<NODE-GROUP-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the node group.|
 |`--name`|<b>`string`</b><br/>Name of the node group.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

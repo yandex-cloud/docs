@@ -11,14 +11,14 @@ Syntax:
 
 `yc container repository lifecycle-policy list-dry-run-results <LIFECYCLE-POLICY-ID> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Lifecycle policy id.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

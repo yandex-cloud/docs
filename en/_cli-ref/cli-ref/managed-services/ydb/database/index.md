@@ -26,7 +26,7 @@ Aliases:
 - [yc ydb database add-labels](add-labels.md) — Add labels to specified YDB database.
 - [yc ydb database remove-labels](remove-labels.md) — Remove labels from specified YDB database.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

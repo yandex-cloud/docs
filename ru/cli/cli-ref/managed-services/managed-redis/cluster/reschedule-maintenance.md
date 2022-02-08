@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-redis cluster reschedule-maintenance <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--reschedule-type`|<b>`string`</b><br/>Type of the reschedule of currently planned maintenance operation. Values: 'immediate', 'next-available-window', 'specific-time'|
 |`--delayed-until`|<b>`timestamp`</b><br/>New timestamp of currently maintenance operation when selected SPECIFIC_TIME reschedule type. Format: RFC-3339, HH:MM:SS, or a moment of time relative to the current time. Examples: '2006-01-02T15:04:05Z', '15:04:05', '2h' or '3h30m ago'.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mongodb user grant-permission <USER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--database`|<b>`string`</b><br/>Name of the database that the permission grants access to.|
 |`--role`|<b>`value[,value]`</b><br/>Role in the database to assign to the user. Can be specified multiple times.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

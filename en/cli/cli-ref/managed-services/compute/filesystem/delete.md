@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute filesystem delete <FILESYSTEM-NAME>|<FILESYSTEM-ID> [<FILESYSTEM-NAME>|<FILESYSTEM-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Filesystem name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

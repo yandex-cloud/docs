@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-mongodb backup get <BACKUP-ID> [<BACKUP-ID>...] [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

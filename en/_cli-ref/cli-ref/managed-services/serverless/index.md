@@ -82,7 +82,7 @@ Aliases:
 	- [yc serverless mdbproxy delete](mdbproxy/delete.md) — Delete the specified proxy
 	- [yc serverless mdbproxy list-operations](mdbproxy/list-operations.md) — Show history of the tag for the specified proxy
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

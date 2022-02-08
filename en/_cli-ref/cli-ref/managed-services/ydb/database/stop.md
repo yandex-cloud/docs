@@ -8,7 +8,7 @@ Syntax:
 
 `yc ydb database stop <DATABASE-NAME>|<DATABASE-ID> [<DATABASE-NAME>|<DATABASE-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Name of the YDB database.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

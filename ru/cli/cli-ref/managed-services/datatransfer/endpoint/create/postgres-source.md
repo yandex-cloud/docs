@@ -11,7 +11,7 @@ Syntax:
 
 `yc datatransfer endpoint create postgres-source [<ENDPOINT-NAME>] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -33,7 +33,7 @@ Syntax:
 |`-b`,`--transfer-before-data`|<b>`value[,value]`</b><br/> Schema objects to transfer before transferring data, one of [sequence, sequence_owned_by, table, primary_key, fk_constraint, default_values, constraint, index, view, function, trigger, type, rule, collation, policy, cast]|
 |`-a`,`--transfer-after-data`|<b>`value[,value]`</b><br/> Schema objects to transfer after transferring data, one of [sequence, sequence_owned_by, table, primary_key, fk_constraint, default_values, constraint, index, view, function, trigger, type, rule, collation, policy, cast]|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

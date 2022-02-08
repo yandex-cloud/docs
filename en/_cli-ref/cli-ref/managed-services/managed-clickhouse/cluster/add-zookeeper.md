@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse cluster add-zookeeper <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--disk-type`|<b>`string`</b><br/> Storage type for the host.|
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Configurations for ClickHouse Zookeeper hosts that should be added to the cluster.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

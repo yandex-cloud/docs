@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance remove-metadata <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--all`|This flag will delete whole Instance metadata.|
 |`--keys`|<b>`value[,value]`</b><br/>List of keys that will be deleted in Instance metadata.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

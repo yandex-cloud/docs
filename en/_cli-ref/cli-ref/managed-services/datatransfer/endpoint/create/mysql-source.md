@@ -8,7 +8,7 @@ Syntax:
 
 `yc datatransfer endpoint create mysql-source [<ENDPOINT-NAME>] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -29,7 +29,7 @@ Syntax:
 |`-b`,`--transfer-before-data`|<b>`value[,value]`</b><br/> Schema objects to transfer before transferring data, one of [view, routine, trigger]|
 |`-a`,`--transfer-after-data`|<b>`value[,value]`</b><br/> Schema objects to transfer after transferring data, one of [view, routine, trigger]|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

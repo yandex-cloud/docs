@@ -72,7 +72,7 @@ Syntax:
 	- [yc container node-group list-operations](node-group/list-operations.md) — List operations for the specified node group.
 	- [yc container node-group list-nodes](node-group/list-nodes.md) — List nodes for the specified node group.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

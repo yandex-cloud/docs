@@ -11,7 +11,7 @@ Syntax:
 
 `yc application-load-balancer load-balancer update-stream-sni <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -25,7 +25,7 @@ Syntax:
 |`--backend-group-id`|<b>`string`</b><br/>Backend group id for SNI match.|
 |`--backend-group-name`|<b>`string`</b><br/>Backend group name for SNI match.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

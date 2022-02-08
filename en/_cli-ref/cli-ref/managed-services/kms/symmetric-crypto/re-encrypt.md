@@ -8,7 +8,7 @@ Syntax:
 
 `yc kms symmetric-crypto re-encrypt <SYMMETRIC-KEY> [Flags][Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--source-ciphertext-file`|<b>`string`</b><br/> Required. Initial ciphertext file to re-encrypt.|
 |`--ciphertext-file`|<b>`string`</b><br/> Required. File to write re-encrypted ciphertext.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

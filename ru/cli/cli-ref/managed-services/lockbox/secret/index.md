@@ -30,7 +30,7 @@ Syntax:
 - [yc lockbox secret add-access-binding](add-access-binding.md) — Add access binding for the specified secret
 - [yc lockbox secret remove-access-binding](remove-access-binding.md) — Remove access binding for the specified secret
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc container repository list --registry-name <REGISTRY-NAME>|--registry-id <REGISTRY-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--registry-name`|<b>`string`</b><br/>Registry name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

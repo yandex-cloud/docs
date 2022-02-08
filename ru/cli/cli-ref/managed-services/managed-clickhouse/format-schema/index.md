@@ -23,7 +23,7 @@ Aliases:
 - [yc managed-clickhouse format-schema update](update.md) — Modify configuration or attributes of a ClickHouse format schema.
 - [yc managed-clickhouse format-schema delete](delete.md) — Delete ClickHouse format schema.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

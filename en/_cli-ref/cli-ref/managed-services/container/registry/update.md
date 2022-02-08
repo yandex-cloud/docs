@@ -8,7 +8,7 @@ Syntax:
 
 `yc container registry update <REGISTRY-NAME>|<REGISTRY-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/> A new name of the registry.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the registry as key-value pairs. Existing set of labels will be completely overwritten.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -18,7 +18,7 @@ Aliases:
 - [yc iot device certificate add](add.md) — Add new certificate to specified device
 - [yc iot device certificate delete](delete.md) — Delete specified certificate from device
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

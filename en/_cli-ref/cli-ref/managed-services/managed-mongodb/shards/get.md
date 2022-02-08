@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mongodb shards get <SHARD-NAME> [<SHARD-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>Name of the MongoDB cluster.|
 |`--name`|<b>`string`</b><br/>Shard name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

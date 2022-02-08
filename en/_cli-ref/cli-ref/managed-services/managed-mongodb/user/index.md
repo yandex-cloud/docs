@@ -22,7 +22,7 @@ Aliases:
 - [yc managed-mongodb user grant-permission](grant-permission.md) — Grant a permission to the specified MongoDB user.
 - [yc managed-mongodb user revoke-permission](revoke-permission.md) — Revoke a permission from the specified MongoDB user.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

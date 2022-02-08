@@ -24,7 +24,7 @@ Aliases:
 - [yc managed-clickhouse shards update-config](update-config.md) — Update the configurationg for a shard.
 - [yc managed-clickhouse shards delete](delete.md) — Delete a shard.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

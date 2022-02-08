@@ -25,7 +25,7 @@ Aliases:
 - [yc managed-postgresql user grant-permission](grant-permission.md) — Grant permission to the specified PostgreSQL user
 - [yc managed-postgresql user revoke-permission](revoke-permission.md) — Revoke permission from the specified PostgreSQL user
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

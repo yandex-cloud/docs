@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-elasticsearch cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -39,7 +39,7 @@ Syntax:
 |`--generate-admin-password`| Generate random password|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

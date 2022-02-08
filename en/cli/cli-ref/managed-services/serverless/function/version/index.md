@@ -21,7 +21,7 @@ Syntax:
 - [yc serverless function version get-by-tag](get-by-tag.md) — Get function version by tag
 - [yc serverless function version logs](logs.md) — Read function version logs
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

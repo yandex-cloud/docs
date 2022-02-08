@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance attach-filesystem <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--filesystem-name`|<b>`string`</b><br/>The filesystem to attach to the instance.|
 |`--filesystem-id`|<b>`string`</b><br/>An ID of the filesystem to attach to the instance.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc config set <PROPERTY> <VALUE> [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

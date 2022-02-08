@@ -27,7 +27,7 @@ Aliases:
 - [yc compute disk delete](delete.md) — Delete the specified disk
 - [yc compute disk list-operations](list-operations.md) — List operations for the specified disk
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

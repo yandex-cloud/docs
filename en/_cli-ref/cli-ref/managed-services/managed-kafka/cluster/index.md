@@ -27,7 +27,7 @@ Aliases:
 - [yc managed-kafka cluster move](move.md) — Move the specified Kafka cluster into the folder
 - [yc managed-kafka cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

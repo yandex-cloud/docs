@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mysql user revoke-permission <USER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--database`|<b>`string`</b><br/>Name of the database that the permission grants access to.|
 |`--permissions`|<b>`value[,value]`</b><br/>User database access roles, possible values: ALL,ALL_PRIVILEGES,ALTER,ALTER_ROUTINE,CREATE,CREATE_ROUTINE,CREATE_TEMPORARY_TABLES,CREATE_VIEW,DELETE,DROP,EVENT,EXECUTE,INDEX,INSERT,LOCK_TABLES,REFERENCES,SELECT,SHOW_VIEW,TRIGGER,UPDATE|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -19,7 +19,7 @@ Aliases:
 - [yc managed-mysql hosts update](update.md) — Update the specified hosts
 - [yc managed-mysql hosts delete](delete.md) — Delete the specified hosts
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

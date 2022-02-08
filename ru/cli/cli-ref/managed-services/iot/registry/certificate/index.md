@@ -21,7 +21,7 @@ Aliases:
 - [yc iot registry certificate add](add.md) — Add new certificate to specified registry
 - [yc iot registry certificate delete](delete.md) — Delete specified certificate from registry
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

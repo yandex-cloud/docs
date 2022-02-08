@@ -92,12 +92,12 @@ To create a node group with the necessary parameters, use the following command:
 
 ```bash
 yc managed-kubernetes node-group create \
-  --name <node_group_name> \
-  --cluster-name <{{ k8s }}_cluster_name> \
-  --fixed-size <number_of_nodes_in_the_group> \
-  --location zone=<availability_zone>,subnet-name=<subnet_name> \
+  --name <node group name> \
+  --cluster-name <{{ k8s }} cluster name> \
+  --fixed-size <number of nodes in the group> \
+  --location zone=<availability zone>,subnet-name=<subnet name> \
   --public-ip \
-  --metadata-from-file ssh-keys=<name_of_the_file_with_public_keys> \
+  --metadata-from-file ssh-keys=<name of the file with public keys>
 ```
 
 {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
@@ -109,7 +109,7 @@ To update the SSH keys of a node group, use the following command:
 ```bash
 yc managed-kubernetes node-group add-metadata \
   --name <node group name> \
-  --metadata-from-file ssh-keys=<name of the file with public keys> \
+  --metadata-from-file ssh-keys=<name of the file with public keys>
 ```
 
 ## Get the public IP address of the node {#node-public-ip}
@@ -129,9 +129,9 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
   Command execution result:
 
   ```bash
-  NAME                        STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-  cl17i6943n92sb98jifg-itif   Ready    <none>   31m   v1.13.3   10.0.0.27     84.201.145.251   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
-  cl17i6943n92sb98jifg-ovah   Ready    <none>   31m   v1.13.3   10.0.0.22     84.201.149.184   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
+  NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
+  cl17i6943n92sb98jifg-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+  cl17i6943n92sb98jifg-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
   ```
 
 - Management console

@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute disk-placement-group update <DISK-PLACEMENT-GROUP-NAME>|<DISK-PLACEMENT-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/> Specifies a textual description of the disk placement group.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

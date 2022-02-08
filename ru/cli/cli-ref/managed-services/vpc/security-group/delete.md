@@ -11,7 +11,7 @@ Syntax:
 
 `yc vpc security-group delete <SECURITY-GROUP-NAME>|<SECURITY-GROUP-ID> [<SECURITY-GROUP-NAME>|<SECURITY-GROUP-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Security group's name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

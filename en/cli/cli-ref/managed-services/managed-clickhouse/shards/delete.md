@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse shards delete <SHARD-NAME> [<SHARD-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--name`|<b>`string`</b><br/>Shard name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

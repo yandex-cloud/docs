@@ -11,7 +11,7 @@ Syntax:
 
 `yc iam key create [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the service account.|
 |`--algorithm`|<b>`string`</b><br/>Specifies key algorithm. Otherwise server default will be used. Values: 'rsa-2048', 'rsa-4096'|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

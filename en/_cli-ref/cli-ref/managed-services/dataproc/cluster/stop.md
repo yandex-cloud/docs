@@ -8,7 +8,7 @@ Syntax:
 
 `yc dataproc cluster stop <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--decommission-timeout`|<b>`int`</b><br/>Graceful decommission timeout in seconds.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

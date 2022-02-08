@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute connect-to-serial-port`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--port`|<b>`int`</b><br/>Serial port number.|
 |`--ssh-key`|<b>`string`</b><br/>Path to SSH private key.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

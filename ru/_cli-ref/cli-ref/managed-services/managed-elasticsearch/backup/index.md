@@ -17,7 +17,7 @@ Aliases:
 - [yc managed-elasticsearch backup get](get.md) — Get information about a Elasticsearch backup.
 - [yc managed-elasticsearch backup list](list.md) — List Elasticsearch backups available in a folder.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

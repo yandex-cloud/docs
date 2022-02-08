@@ -19,7 +19,7 @@ Aliases:
 - [yc managed-clickhouse database create](create.md) — Create a database in a ClickHouse cluster.
 - [yc managed-clickhouse database delete](delete.md) — Delete a ClickHouse database.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

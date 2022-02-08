@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer virtual-host update <VIRTUAL-HOST-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -23,7 +23,7 @@ Syntax:
 |`--clear-response-header-modifications`| Clears all response header modifications for the virtual host.|
 |`--clear-routes`| Clears all routes for the virtual host.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc organization-manager organization update <ORGANIZATION-NAME>|<ORGANIZATION-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the organization.|
 |`--title`|<b>`string`</b><br/>Specifies a display name of the organization.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

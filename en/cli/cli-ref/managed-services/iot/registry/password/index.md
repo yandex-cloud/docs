@@ -21,7 +21,7 @@ Aliases:
 - [yc iot registry password add](add.md) — Add new password to specified registry
 - [yc iot registry password delete](delete.md) — Delete specified password from specified registry
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

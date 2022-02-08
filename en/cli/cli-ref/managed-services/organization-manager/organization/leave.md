@@ -11,7 +11,7 @@ Syntax:
 
 `yc organization-manager organization leave <ORGANIZATION-NAME>|<ORGANIZATION-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`-y`,`--yes`|Automatic yes to prompts.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

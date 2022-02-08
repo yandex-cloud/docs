@@ -19,7 +19,7 @@ Aliases:
 - [yc iam key create](create.md) — Create an IAM key for for authenticated account or the specified service account
 - [yc iam key delete](delete.md) — Delete the specified IAM key
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

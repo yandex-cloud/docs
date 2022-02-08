@@ -16,7 +16,7 @@ Aliases:
 - `remove-http-listener`
 - `remove-stream-listener`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -25,7 +25,7 @@ Aliases:
 |`--listener-name`|<b>`string`</b><br/>Name of listener to remove from application load balancer.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

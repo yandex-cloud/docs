@@ -12,7 +12,7 @@ Syntax:
 
 - [yc serverless function runtime list](list.md) — List runtimes
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

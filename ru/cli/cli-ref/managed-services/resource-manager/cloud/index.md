@@ -26,7 +26,7 @@ Aliases:
 - [yc resource-manager cloud remove-access-binding](remove-access-binding.md) — Remove access binding for the specified cloud
 - [yc resource-manager cloud list-operations](list-operations.md) — List operations for the specified cloud
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

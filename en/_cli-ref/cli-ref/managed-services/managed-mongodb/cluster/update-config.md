@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mongodb cluster update-config <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--set`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/> Set a parameter for a MongoDB cluster. Can be specified multiple times. Option may be prefixed by service name: mongocfg, mongod, mongos. Mongod is assumed when no prefix is provided|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

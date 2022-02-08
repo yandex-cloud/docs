@@ -23,7 +23,7 @@ Aliases:
 - [yc dataproc subcluster update](update.md) — Modify configuration or attributes of a subcluster.
 - [yc dataproc subcluster delete](delete.md) — Delete a subcluster.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

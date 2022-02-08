@@ -11,7 +11,7 @@ Syntax:
 
 `yc container image list-vulnerabilities --scan-result-id <SCAN-RESULT-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 |`--filter`|<b>`string`</b><br/>Filter by severity.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-sqlserver backup get <BACKUP-ID> [<BACKUP-ID>...] [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -23,7 +23,7 @@ Aliases:
 - [yc config profile delete](delete.md) — Delete the specified configuration profile
 - [yc config profile activate](activate.md) — Activate the specified configuration profile
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

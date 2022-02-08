@@ -11,7 +11,7 @@ Syntax:
 
 `yc load-balancer network-load-balancer delete <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [<LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Network load balancer name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

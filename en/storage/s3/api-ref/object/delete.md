@@ -5,7 +5,7 @@ Deletes an object.
 ## Request {#request}
 
 ```
-DELETE /{bucket}/{key} HTTP/1.1
+DELETE /{bucket}/{key} HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
@@ -14,6 +14,12 @@ DELETE /{bucket}/{key} HTTP/1.1
 | ----- | ----- |
 | `bucket` | Bucket name. |
 | `key` | Object key. |
+
+### Query parameters {#request-params}
+
+| Parameter | Description |
+| ----- | ----- |
+| `versionId` | Link to a specific version of the object. |
 
 ### Headers {#request-headers}
 

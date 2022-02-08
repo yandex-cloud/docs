@@ -11,7 +11,7 @@ Syntax:
 
 `yc ydb database restore <DATABASE-NAME>|<DATABASE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--target-path`|<b>`string`</b><br/>Specify restore target path.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

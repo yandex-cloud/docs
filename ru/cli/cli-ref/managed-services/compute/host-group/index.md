@@ -29,7 +29,7 @@ Aliases:
 - [yc compute host-group list-instances](list-instances.md) — List instances of the specified host group
 - [yc compute host-group list-operations](list-operations.md) — List operations for the specified host group
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

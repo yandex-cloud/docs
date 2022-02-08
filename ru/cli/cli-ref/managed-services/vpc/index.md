@@ -70,7 +70,7 @@ Syntax:
 	- [yc vpc address list-operations](address/list-operations.md) — List operations for an address.
 	- [yc vpc address move](address/move.md) — Move an address to another folder.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

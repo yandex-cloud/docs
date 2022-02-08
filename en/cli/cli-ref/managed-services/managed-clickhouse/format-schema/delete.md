@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse format-schema delete <FORMAT-SCHEMA-NAME> [<FORMAT-SCHEMA-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse format schema.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

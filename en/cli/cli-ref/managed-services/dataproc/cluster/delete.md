@@ -11,7 +11,7 @@ Syntax:
 
 `yc dataproc cluster delete <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--decommission-timeout`|<b>`int`</b><br/>Graceful decommission timeout in seconds.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

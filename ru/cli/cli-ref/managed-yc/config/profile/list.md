@@ -11,7 +11,7 @@ Syntax:
 
 `yc config profile list [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

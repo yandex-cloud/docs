@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-mysql backup get](get.md) — Show information about the specified MySQL backup
 - [yc managed-mysql backup list](list.md) — List available backups
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

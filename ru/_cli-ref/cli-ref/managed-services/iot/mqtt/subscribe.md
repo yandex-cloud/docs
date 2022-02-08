@@ -8,7 +8,7 @@ Syntax:
 
 `yc iot mqtt subscribe [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`-q`,`--qos`|<b>`string`</b><br/>Quality of service level to use for all messages (0 or 1)/(at-most-once or at-least-once). Defaults to 0.|
 |`--details`|Print topic name, qos, message id for subscribed data.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

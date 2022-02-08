@@ -32,7 +32,7 @@ Syntax:
 	- [yc kms symmetric-crypto generate-data-key](symmetric-crypto/generate-data-key.md) — Generate data key and encrypt it with specified symmetric key
 	- [yc kms symmetric-crypto re-encrypt](symmetric-crypto/re-encrypt.md) — Re-encrypt a ciphertext with the specified symmetric key
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

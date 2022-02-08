@@ -11,7 +11,7 @@ Syntax:
 
 `yc serverless function version create (--function-id <FUNCTION_ID>|--function-name <FUNCTION_NAME>) [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -37,7 +37,7 @@ Syntax:
 |`--subnet-id`|<b>`value[,value]`</b><br/> Version subnet ids.|
 |`--add-service-account`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Adds a named service account to the version. Can be used multiple times.  Possible property names:  alias Specifies an alias, through which the service account can be accessed.  id Service account id  name Service account name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

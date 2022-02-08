@@ -16,7 +16,7 @@ Aliases:
 - `describe`
 - `show`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc dns zone list-records <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>DNS zone name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

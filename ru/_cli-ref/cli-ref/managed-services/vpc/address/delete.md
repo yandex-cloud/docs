@@ -8,7 +8,7 @@ Syntax:
 
 `yc vpc address delete <ADDRESS-NAME>|<ADDRESS-ID> [<ADDRESS-NAME>|<ADDRESS-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Address name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

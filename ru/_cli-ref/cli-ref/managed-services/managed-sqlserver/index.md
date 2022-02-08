@@ -52,7 +52,7 @@ Aliases:
 	- [yc managed-sqlserver resource-preset get](resource-preset/get.md) — Show information about the specified SQLServer resource preset
 	- [yc managed-sqlserver resource-preset list](resource-preset/list.md) — List available SQLServer resource presets.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

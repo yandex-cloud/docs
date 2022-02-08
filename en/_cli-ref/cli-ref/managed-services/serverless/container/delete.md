@@ -8,7 +8,7 @@ Syntax:
 
 `yc serverless container delete <CONTAINER-NAME>|<CONTAINER-ID> [<CONTAINER-NAME>|<CONTAINER-ID>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Container name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

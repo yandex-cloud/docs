@@ -33,7 +33,7 @@ Syntax:
 - [yc lockbox payload](payload/index.md) — Access secret payload
 	- [yc lockbox payload get](payload/get.md) — Get payload of the specified secret
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

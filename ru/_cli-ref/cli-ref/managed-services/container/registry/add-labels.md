@@ -8,7 +8,7 @@ Syntax:
 
 `yc container registry add-labels <REGISTRY-NAME>|<REGISTRY-ID> --labels KEY=VALUE[,KEY=VALUE...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

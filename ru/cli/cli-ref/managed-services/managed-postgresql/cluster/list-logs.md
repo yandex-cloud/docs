@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-postgresql cluster list-logs <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -25,7 +25,7 @@ Syntax:
 |`--until`|<b>`timestamp`</b><br/>End timestamp for the logs request. Exclusive with 'follow' flag. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|
 |`--follow`|Enable 'tail -f' semantics - load logs as they appear until interrupted. Exclusive with 'until' flag.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

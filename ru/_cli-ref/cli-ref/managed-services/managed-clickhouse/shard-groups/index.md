@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-clickhouse shard-groups update](update.md) — Modify configuration or attributes of a ClickHouse shard group.
 - [yc managed-clickhouse shard-groups delete](delete.md) — Delete a shard group.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -17,7 +17,7 @@ Aliases:
 - [yc managed-elasticsearch resource-preset get](get.md) — Get information about a ElasticSearch resource preset.
 - [yc managed-elasticsearch resource-preset list](list.md) — List available resource presets for Managed Service for ElasticSearch.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

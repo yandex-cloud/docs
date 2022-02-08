@@ -12,7 +12,7 @@ Syntax:
 
 - [yc lockbox payload get](get.md) — Get payload of the specified secret
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

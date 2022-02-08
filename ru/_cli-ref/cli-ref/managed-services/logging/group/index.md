@@ -23,7 +23,7 @@ Syntax:
 - [yc logging group remove-access-binding](remove-access-binding.md) — Removes access binding from the specified log group
 - [yc logging group list-operations](list-operations.md) — List log group operations
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|
