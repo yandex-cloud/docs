@@ -31,7 +31,7 @@ Aliases:
 - [yc managed-elasticsearch cluster remove-labels](remove-labels.md) — Remove labels from specified ElasticSearch cluster
 - [yc managed-elasticsearch cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc ydb database update <DATABASE-NAME>|<DATABASE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -40,7 +40,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/> ID of the YDB database.|
 |`--name`|<b>`string`</b><br/> Name of the YDB database.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc container repository lifecycle-policy create <LIFECYCLE-POLICY-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -23,7 +23,7 @@ Syntax:
 |`--rules`|<b>`string`</b><br/>Path to a file with lifecycle rules in json format. File content example: [{"description": "rule description", "expire_period": "48h", "tag_regexp": ".*", "untagged": true, "retained_top": 5}]|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -45,7 +45,7 @@ Aliases:
 - [yc serverless function runtime](runtime/index.md) — Inspect function runtimes
 	- [yc serverless function runtime list](runtime/list.md) — List runtimes
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

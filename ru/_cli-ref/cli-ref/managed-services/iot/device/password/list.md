@@ -8,14 +8,14 @@ Syntax:
 
 `yc iot device password list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--device-id`|<b>`string`</b><br/>Device id.|
 |`--device-name`|<b>`string`</b><br/>Device name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

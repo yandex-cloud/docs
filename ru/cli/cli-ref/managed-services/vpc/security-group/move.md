@@ -11,7 +11,7 @@ Syntax:
 
 `yc vpc security-group move <SECURITY-GROUP-NAME>|<SECURITY-GROUP-ID> --destination-folder-id VALUE [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--destination-folder-name`|<b>`string`</b><br/> Destination folder name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

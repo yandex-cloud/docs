@@ -16,7 +16,7 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -24,7 +24,7 @@ Aliases:
 |`--name`|<b>`string`</b><br/>Specifies the certificate name.|
 |`--full`|Also show a list of active challenges to validate domains|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

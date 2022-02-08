@@ -11,7 +11,7 @@ Syntax:
 
 `yc kms symmetric-key schedule-version-destruction <SYMMETRIC-KEY> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--version-id`|<b>`string`</b><br/>Active version of symmetric key to schedule destruction.|
 |`--pending-period`|<b>`duration`</b><br/>Pending period for destruction.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

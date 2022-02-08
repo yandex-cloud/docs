@@ -33,7 +33,7 @@ Aliases:
 - [yc kms symmetric-key add-access-binding](add-access-binding.md) — Add access binding for the specified symmetric key
 - [yc kms symmetric-key remove-access-binding](remove-access-binding.md) — Remove access binding for the specified symmetric key
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

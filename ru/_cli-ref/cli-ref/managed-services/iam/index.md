@@ -59,7 +59,7 @@ Syntax:
 - [yc iam user-account](user-account/index.md) — Manage user accounts
 	- [yc iam user-account get](user-account/get.md) — Show information about the specified user account
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

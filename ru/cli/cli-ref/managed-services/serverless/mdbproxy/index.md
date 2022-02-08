@@ -26,7 +26,7 @@ Syntax:
 	- [yc serverless mdbproxy create postgresql](create/postgresql.md) — Create postgres proxy
 	- [yc serverless mdbproxy create clickhouse](create/clickhouse.md) — Create clickhouse proxy
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

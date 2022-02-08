@@ -11,7 +11,7 @@ Syntax:
 
 `yc container node-group remove-metadata <NODE-GROUP-NAME>|<NODE-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--all`|If this flag is specified, all metadata will be deleted.|
 |`--keys`|<b>`value[,value]`</b><br/>List of keys that will be deleted in metadata.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

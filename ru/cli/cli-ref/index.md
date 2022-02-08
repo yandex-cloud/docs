@@ -21,6 +21,7 @@ Syntax:
 
 #### Operations manage
 
+- [yc operation](managed-operation/index.md) — manage operations
 - [yc operation get](managed-operation/operation/get.md) — Get operation
 - [yc operation wait](managed-operation/operation/wait.md) — Wait for operation to complete
 

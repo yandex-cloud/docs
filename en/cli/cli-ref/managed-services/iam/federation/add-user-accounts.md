@@ -11,7 +11,7 @@ Syntax:
 
 `yc iam federation add-user-accounts <FEDERATION-NAME>|<FEDERATION-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--name-ids`|<b>`value[,value]`</b><br/>Unique name identifiers to add to the federation.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

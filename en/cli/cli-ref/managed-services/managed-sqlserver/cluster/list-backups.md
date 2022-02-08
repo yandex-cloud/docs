@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-sqlserver cluster list-backups <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>SQLServer cluster name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

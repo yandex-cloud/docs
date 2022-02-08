@@ -11,7 +11,7 @@ Syntax:
 
 `yc vpc subnet add-range <SUBNET-NAME>|<SUBNET-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--range`|<b>`value[,value]`</b><br/>The IP address space being added to this subnet in CIDR notation.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

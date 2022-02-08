@@ -15,7 +15,7 @@ Syntax:
 - [yc datatransfer endpoint create mysql-source](mysql-source.md) — Create MySQL source
 - [yc datatransfer endpoint create mysql-target](mysql-target.md) — Create MySQL target
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

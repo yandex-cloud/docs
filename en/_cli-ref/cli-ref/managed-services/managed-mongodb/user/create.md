@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mongodb user create <USER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--password`|<b>`string`</b><br/> Password of the MongoDB user.|
 |`--permission`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Database and role in the database to assign to the user. Can be specified multiple times.  Possible property names:  database Name of the database that the permission grants access to.  role Role in the database to assign to the user. Can be specified multiple times.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

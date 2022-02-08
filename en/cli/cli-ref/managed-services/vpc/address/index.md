@@ -26,7 +26,7 @@ Aliases:
 - [yc vpc address list-operations](list-operations.md) — List operations for an address.
 - [yc vpc address move](move.md) — Move an address to another folder.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

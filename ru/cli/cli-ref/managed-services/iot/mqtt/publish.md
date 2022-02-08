@@ -11,7 +11,7 @@ Syntax:
 
 `yc iot mqtt publish [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -25,7 +25,7 @@ Syntax:
 |`-f`,`--file`|<b>`string`</b><br/>Send the contents of a file as the message.|
 |`-l`,`--stdin`|Read messages from stdin, sending a separate message for each line.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

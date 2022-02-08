@@ -11,7 +11,7 @@ Syntax:
 
 `yc vpc network create <NETWORK-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of network labels as key-value pairs.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

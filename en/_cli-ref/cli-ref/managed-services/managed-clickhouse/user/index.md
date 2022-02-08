@@ -25,7 +25,7 @@ Aliases:
 - [yc managed-clickhouse user update-quota](update-quota.md) — Update ClickHouse user quota by interval.
 - [yc managed-clickhouse user remove-quota](remove-quota.md) — Remove quota from a ClickHouse user by interval.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -15,7 +15,7 @@ Aliases:
 
 - `submit-hive`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -30,7 +30,7 @@ Aliases:
 |`--jar-file-uris`|<b>`value[,value]`</b><br/> JAR file URIs|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

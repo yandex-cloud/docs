@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mongodb user list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>Name of the MongoDB cluster.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

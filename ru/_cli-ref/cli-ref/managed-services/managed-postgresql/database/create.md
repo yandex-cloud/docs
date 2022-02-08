@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-postgresql database create <DATABASE_NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--lc-type`|<b>`string`</b><br/> Locale property for database to be created.|
 |`--extensions`|<b>`key=value[,key=value...]`</b><br/> A list of extensions NAME=VERSION pairs to add.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

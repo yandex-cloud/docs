@@ -13,7 +13,7 @@ Syntax:
 - [yc cdn cache purge](purge.md) — Purge CDN resource paths
 - [yc cdn cache prefetch](prefetch.md) — Prefetch CDN resource paths
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

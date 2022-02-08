@@ -11,7 +11,7 @@ Syntax:
 
 `yc application-load-balancer virtual-host insert-grpc-route <ROUTE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -30,7 +30,7 @@ Syntax:
 |`--before`|<b>`string`</b><br/> Specifies the name of the route to append the new route before.|
 |`--after`|<b>`string`</b><br/> Specifies the name of the route to append the new route after.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

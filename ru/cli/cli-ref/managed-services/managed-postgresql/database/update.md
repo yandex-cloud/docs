@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-postgresql database update <DATABASE_NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--extensions`|<b>`key=value[,key=value...]`</b><br/> A list of extensions NAME=VERSION pairs to update.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

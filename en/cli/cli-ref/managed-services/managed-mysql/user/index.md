@@ -25,7 +25,7 @@ Aliases:
 - [yc managed-mysql user grant-permission](grant-permission.md) — Grant permission to the specified MySQL user
 - [yc managed-mysql user revoke-permission](revoke-permission.md) — Revoke permission from the specified MySQL user
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

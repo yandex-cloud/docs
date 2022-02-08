@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance-group add-metadata <INSTANCE-GROUP-NAME>|<INSTANCE-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--metadata`|<b>`key=value[,key=value...]`</b><br/> Metadata to add. See for details https://cloud.yandex.ru/docs/compute/concepts/vm-metadata|
 |`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/> Same as --metadata except that the value for the entry will be read from a local file.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

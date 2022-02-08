@@ -11,14 +11,14 @@ Syntax:
 
 `yc iot registry certificate list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--registry-id`|<b>`string`</b><br/>Registry id.|
 |`--registry-name`|<b>`string`</b><br/>Registry name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

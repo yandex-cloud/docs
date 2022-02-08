@@ -36,7 +36,7 @@ Syntax:
 	- [yc ydb backup list](backup/list.md) — List YDB backups in a folder.
 	- [yc ydb backup delete](backup/delete.md) — Delete the specified YDB backups.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

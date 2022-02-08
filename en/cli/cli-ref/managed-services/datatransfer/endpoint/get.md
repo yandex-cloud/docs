@@ -11,7 +11,7 @@ Syntax:
 
 `yc datatransfer endpoint get <ENDPOINT-ID> [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

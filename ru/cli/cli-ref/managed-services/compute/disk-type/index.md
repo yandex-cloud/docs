@@ -20,7 +20,7 @@ Aliases:
 - [yc compute disk-type get](get.md) — Show information about the specified disk type
 - [yc compute disk-type list](list.md) — List disk types
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

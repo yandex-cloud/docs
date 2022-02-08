@@ -13,7 +13,7 @@ Syntax:
 - [yc ydb resource-preset get](get.md) — Get information about the specified YDB resource preset.
 - [yc ydb resource-preset list](list.md) — List YDB resource presets.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

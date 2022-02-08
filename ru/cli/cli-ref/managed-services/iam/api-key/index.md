@@ -22,7 +22,7 @@ Aliases:
 - [yc iam api-key create](create.md) — Create an API key for the specified service account
 - [yc iam api-key delete](delete.md) — Delete the specified API key
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

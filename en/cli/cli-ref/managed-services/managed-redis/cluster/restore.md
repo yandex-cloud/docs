@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-redis cluster restore [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -40,7 +40,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Redis cluster.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

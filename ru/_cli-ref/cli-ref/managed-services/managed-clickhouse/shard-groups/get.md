@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse shard-groups get <SHARD-GROUP-NAME> [<SHARD-GROUP-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--name`|<b>`string`</b><br/>Shard group name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

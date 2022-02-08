@@ -8,7 +8,7 @@ Syntax:
 
 `yc dns zone create <DNS-ZONE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--network-ids`|<b>`value[,value]`</b><br/> Specifies network identifiers from which dns zone records will be visible.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

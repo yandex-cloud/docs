@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-sqlserver resource-preset get <RESOURCE-PRESET-ID> [<RESOURCE-PRESET-ID>...] [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

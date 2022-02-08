@@ -8,7 +8,7 @@ Syntax:
 
 `yc operation get OPERATION-ID [OPERATION-ID...] [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

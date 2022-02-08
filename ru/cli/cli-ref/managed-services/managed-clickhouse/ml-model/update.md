@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse ml-model update <ML-MODEL-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse machine learning model.|
 |`--uri`|<b>`string`</b><br/>URI to download a model|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

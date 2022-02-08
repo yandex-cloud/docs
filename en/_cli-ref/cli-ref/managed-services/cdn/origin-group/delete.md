@@ -8,14 +8,14 @@ Syntax:
 
 `yc cdn origin-group delete <ORIGIN-GROUP-ID> [<ORIGIN-GROUP-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Specifies the origin group ID.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

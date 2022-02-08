@@ -16,14 +16,14 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Filesystem id.|
 |`--name`|<b>`string`</b><br/>Filesystem name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

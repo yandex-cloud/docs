@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-redis backup get](get.md) — Show information about the specified Redis backup
 - [yc managed-redis backup list](list.md) — List available backups
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

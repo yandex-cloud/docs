@@ -11,7 +11,7 @@ Syntax:
 
 `yc resource-manager cloud update <CLOUD-NAME>|<CLOUD-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>A new name for the cloud.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the cloud.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

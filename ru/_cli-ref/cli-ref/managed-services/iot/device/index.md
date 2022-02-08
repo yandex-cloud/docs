@@ -31,7 +31,7 @@ Aliases:
 	- [yc iot device password add](password/add.md) — Add new password to specified device
 	- [yc iot device password delete](password/delete.md) — Delete specified password from specified device
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

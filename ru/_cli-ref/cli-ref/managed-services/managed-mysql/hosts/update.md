@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-mysql hosts update <HOST-NAME> [<HOST-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--assign-public-ip`|Whether the host should get a public IP address.|
 |`--backup-priority`|<b>`int`</b><br/>Priority of the host as a backup source.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

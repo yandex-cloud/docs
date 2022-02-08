@@ -11,14 +11,14 @@ Syntax:
 
 `yc logging group stats <LOG-GROUP-NAME>|<LOG-GROUP-ID> [<LOG-GROUP-NAME>|<LOG-GROUP-ID>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Log group id.|
 |`--name`|<b>`string`</b><br/>Log group name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

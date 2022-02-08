@@ -11,7 +11,7 @@ Syntax:
 
 `yc lockbox payload get <SECRET-NAME>|<SECRET-ID> [Flags][Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--key`|<b>`string`</b><br/>The key of payload entry to get a single value. Both text and binary values output as is, without any encoding.|
 |`--version-id`|<b>`string`</b><br/>Secret version id. By default, the current one is used.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

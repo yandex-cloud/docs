@@ -20,7 +20,7 @@ Aliases:
 - [yc iam role get](get.md) — Show information about the specified role
 - [yc iam role list](list.md) — List roles
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

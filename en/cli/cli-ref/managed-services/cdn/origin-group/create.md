@@ -11,7 +11,7 @@ Syntax:
 
 `yc cdn origin-group create <GROUP-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--origin`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Origin specification.  Possible property names:  source Specifies the source of the origin.  enabled Specifies if origin is enabled.  backup Specifies if origin is backup one.  meta-bucket-name Specifies meta bucket name.  meta-website-name Specifies meta website name.  meta-balancer-id Specifies meta balancer id.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

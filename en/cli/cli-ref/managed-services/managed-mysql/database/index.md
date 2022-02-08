@@ -22,7 +22,7 @@ Aliases:
 - [yc managed-mysql database create](create.md) — Create MySQL database
 - [yc managed-mysql database delete](delete.md) — Delete the specified MySQL database
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

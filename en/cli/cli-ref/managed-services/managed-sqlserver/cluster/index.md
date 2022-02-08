@@ -32,7 +32,7 @@ Aliases:
 - [yc managed-sqlserver cluster start](start.md) — Start the specified SQLServer cluster
 - [yc managed-sqlserver cluster stop](stop.md) — Stop the specified SQLServer cluster
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

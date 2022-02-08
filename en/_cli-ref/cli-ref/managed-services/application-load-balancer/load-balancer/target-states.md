@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer load-balancer target-states <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--backend-group-id`|<b>`string`</b><br/>ID of the backend group to get states for.|
 |`--backend-group-name`|<b>`string`</b><br/>Name of the backend group to get states for.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

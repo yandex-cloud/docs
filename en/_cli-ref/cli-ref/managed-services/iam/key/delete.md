@@ -8,13 +8,13 @@ Syntax:
 
 `yc iam key delete <KEY-ID> [<KEY-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>key id.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

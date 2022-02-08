@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute filesystem create <FILESYSTEM-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -24,7 +24,7 @@ Syntax:
 |`--block-size`|<b>`byteSize`</b><br/> Specifies the block size of the filesystem in bytes. You can also use K and M suffixes.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

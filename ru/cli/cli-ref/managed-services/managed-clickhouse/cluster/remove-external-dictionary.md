@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse cluster remove-external-dictionary <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--dict-name`|<b>`string`</b><br/>Name of the external dictionary to remove.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

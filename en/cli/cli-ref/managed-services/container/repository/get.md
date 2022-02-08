@@ -11,14 +11,14 @@ Syntax:
 
 `yc container repository get <REPOSITORY-NAME>|<REPOSITORY-ID> [<REPOSITORY-NAME>|<REPOSITORY-ID>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Repository id.|
 |`--name`|<b>`string`</b><br/>Repository name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

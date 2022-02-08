@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-kubernetes node-group update <NODE-GROUP-NAME>|<NODE-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -47,7 +47,7 @@ Syntax:
 |`--network-acceleration-type`|<b>`string`</b><br/> Type of a network acceleration for nodes. Values: 'standard', 'software-accelerated'|
 |`--container-runtime`|<b>`string`</b><br/> Type of a container runtime settings for nodes. Values: 'docker', 'containerd'|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

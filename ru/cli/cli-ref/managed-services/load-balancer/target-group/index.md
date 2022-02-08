@@ -26,7 +26,7 @@ Aliases:
 - [yc load-balancer target-group remove-targets](remove-targets.md) — Remove targets from the specified target group
 - [yc load-balancer target-group list-operations](list-operations.md) — List operations for the specified target group
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

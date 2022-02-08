@@ -34,7 +34,7 @@ Aliases:
 - [yc managed-redis cluster start](start.md) — Start the specified Redis cluster
 - [yc managed-redis cluster stop](stop.md) — Stop the specified Redis cluster
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

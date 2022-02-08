@@ -33,7 +33,7 @@ Aliases:
 	- [yc serverless container revision get](revision/get.md) — Show information about the specified container revision
 	- [yc serverless container revision deploy](revision/deploy.md) — Deploy new container revision
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc container node-group remove-labels <NODE-GROUP-NAME>|<NODE-GROUP-ID> --labels KEY,[KEY...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--labels`|<b>`value[,value]`</b><br/>Label keys to remove.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

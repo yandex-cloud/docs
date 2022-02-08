@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse shard-groups delete <SHARD-GROUP-NAME> [<SHARD-GROUP-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--name`|<b>`string`</b><br/>Shard group name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

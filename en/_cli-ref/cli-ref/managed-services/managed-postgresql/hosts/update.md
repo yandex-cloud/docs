@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-postgresql hosts update <HOST-NAME> [<HOST-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--priority`|<b>`int`</b><br/>Priority of the host as a replica.|
 |`--assign-public-ip`|Whether the host should get a public IP address.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-postgresql hosts list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

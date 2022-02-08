@@ -8,7 +8,7 @@ Syntax:
 
 `yc iot device logs <<DEVICE-NAME>|<DEVICE-ID>  [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--until`|<b>`timestamp`</b><br/>Show logs until this time|
 |`-f`,`--follow`|Output logs as they arrive|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

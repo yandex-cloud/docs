@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-operation/index.md
+---
 # yc operation
 
 Manage operations
@@ -14,10 +17,10 @@ Aliases:
 
 #### Command Tree
 
-- [yc operation get](get.md) — Get operation
-- [yc operation wait](wait.md) — Wait for operation to complete
+- [yc operation get](operation/get.md) — Get operation
+- [yc operation wait](operation/wait.md) — Wait for operation to complete
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

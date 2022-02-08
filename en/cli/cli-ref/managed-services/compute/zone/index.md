@@ -20,7 +20,7 @@ Aliases:
 - [yc compute zone get](get.md) — Show information about the specified availability zone.
 - [yc compute zone list](list.md) — List availability zones
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

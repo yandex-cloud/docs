@@ -11,7 +11,7 @@ Syntax:
 
 `yc container repository lifecycle-policy update <LIFECYCLE-POLICY-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -24,7 +24,7 @@ Syntax:
 |`--disable`|Disable the lifecycle policy.|
 |`--new-rules`|<b>`string`</b><br/>Path to a file with new rules of the lifecycle policy in json format. Existing rules will be completely overwritten. File content example: [{"description": "rule description", "expire_period": "48h", "tag_regexp": ".*", "untagged": true, "retained_top": 5}]|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

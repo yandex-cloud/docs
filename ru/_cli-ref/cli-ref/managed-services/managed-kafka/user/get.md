@@ -8,14 +8,14 @@ Syntax:
 
 `yc managed-kafka user get <USER-NAME> [<USER-NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>Kafka cluster id.|
 |`--cluster-name`|<b>`string`</b><br/>Kafka cluster name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

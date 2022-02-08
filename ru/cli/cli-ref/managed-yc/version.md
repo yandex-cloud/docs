@@ -11,13 +11,13 @@ Syntax:
 
 `yc version`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--semantic`|Print semantic version only|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc logging group update <LOG-GROUP-NAME>|<LOG-GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -24,7 +24,7 @@ Syntax:
 |`--data-stream`|<b>`string`</b><br/> New data stream.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

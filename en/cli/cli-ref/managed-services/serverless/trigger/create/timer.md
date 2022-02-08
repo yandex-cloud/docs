@@ -11,7 +11,7 @@ Syntax:
 
 `yc serverless trigger create timer <TRIGGER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -36,7 +36,7 @@ Syntax:
 |`--dlq-service-account-name`|<b>`string`</b><br/> Service account to handle dead letter queue.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

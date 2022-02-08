@@ -26,7 +26,7 @@ Syntax:
 	- [yc organization-manager federation saml certificate delete](certificate/delete.md) — Delete the specified certificate
 	- [yc organization-manager federation saml certificate list-operations](certificate/list-operations.md) — List operations for the specified certificate
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

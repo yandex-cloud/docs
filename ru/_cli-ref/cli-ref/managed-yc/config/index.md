@@ -21,7 +21,7 @@ Syntax:
 	- [yc config profile delete](profile/delete.md) — Delete the specified configuration profile
 	- [yc config profile activate](profile/activate.md) — Activate the specified configuration profile
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

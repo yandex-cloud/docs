@@ -11,7 +11,7 @@ Syntax:
 
 `yc vpc network update <NETWORK-NAME>|<NETWORK-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/> New description for the network.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the network as key-value pairs. Existing set of labels will be completely overwritten.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

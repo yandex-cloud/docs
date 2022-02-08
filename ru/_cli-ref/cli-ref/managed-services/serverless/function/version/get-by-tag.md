@@ -8,7 +8,7 @@ Syntax:
 
 `yc serverless function version get-by-tag (--function-id <FUNCTION_ID>|--function-name <FUNCTION_NAME>) --tag <TAG> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--function-name`|<b>`string`</b><br/>Function name.|
 |`--tag`|<b>`string`</b><br/>Tag. Default $latest.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

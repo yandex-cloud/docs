@@ -11,7 +11,7 @@ Syntax:
 
 `yc serverless trigger create message-queue <TRIGGER-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -35,7 +35,7 @@ Syntax:
 |`--invoke-container-service-account-name`|<b>`string`</b><br/> Service account to be used by the worker to invoke the container.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

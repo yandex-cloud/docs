@@ -8,14 +8,14 @@ Syntax:
 
 `yc ydb database get <DATABASE-NAME>|<DATABASE-ID> [<DATABASE-NAME>|<DATABASE-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the YDB database.|
 |`--name`|<b>`string`</b><br/>Name of the YDB database.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

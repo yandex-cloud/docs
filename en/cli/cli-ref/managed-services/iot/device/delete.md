@@ -11,7 +11,7 @@ Syntax:
 
 `yc iot device delete <DEVICE-NAME>|<DEVICE-ID> [<DEVICE-NAME>|<DEVICE-ID>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Device name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

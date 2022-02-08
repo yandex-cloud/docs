@@ -30,7 +30,7 @@ Syntax:
 	- [yc serverless trigger create billing-budget](create/billing-budget.md) — Create billing budget trigger
 	- [yc serverless trigger create yds](create/yds.md) — Create YDS trigger
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

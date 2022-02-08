@@ -8,7 +8,7 @@ Syntax:
 
 `yc iot registry list-device-topic-aliases <REGISTRY-NAME>|<REGISTRY-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Registry id.|
 |`--name`|<b>`string`</b><br/>Registry name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

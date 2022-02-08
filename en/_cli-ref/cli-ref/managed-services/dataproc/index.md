@@ -42,7 +42,7 @@ Syntax:
 	- [yc dataproc resource-preset get](resource-preset/get.md) — Get information about a Data Proc resource preset.
 	- [yc dataproc resource-preset list](resource-preset/list.md) — List available resource presets for Data Proc.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

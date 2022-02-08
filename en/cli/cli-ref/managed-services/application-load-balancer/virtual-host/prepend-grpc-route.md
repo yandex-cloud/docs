@@ -11,7 +11,7 @@ Syntax:
 
 `yc application-load-balancer virtual-host prepend-grpc-route <ROUTE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -28,7 +28,7 @@ Syntax:
 |`--host-rewrite`|<b>`string`</b><br/> Specifies host rewrite for the route. Authority/host header sent to the backend will be replace with this value|
 |`--grpc-status-response-code`|<b>`string`</b><br/> Specifies direct response with configured gRPC status code for the route.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

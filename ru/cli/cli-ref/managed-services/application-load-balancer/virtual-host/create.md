@@ -11,7 +11,7 @@ Syntax:
 
 `yc application-load-balancer virtual-host create <VIRTUAL-HOST-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--modify-request-header`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Specifies modifications to be applied to the request headers.  Possible property names:  name Specifies the name of the header to modify.  append Specifies the value to be appended to the header.  replace Specifies the new value for the header.  rename Specifies the new name fot the header.  remove Remove the specified header  |
 |`--modify-response-header`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Specifies modifications to be applied to the response headers.  Possible property names:  name Specifies the name of the header to modify.  append Specifies the value to be appended to the header.  replace Specifies the new value for the header.  rename Specifies the new name fot the header.  remove Remove the specified header|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

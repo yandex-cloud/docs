@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse cluster backup <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

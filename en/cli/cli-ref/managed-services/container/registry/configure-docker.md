@@ -11,14 +11,14 @@ Syntax:
 
 `yc container registry configure-docker`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--disable`|Disable credential helper|
 |`--skip-version-check`|Skip check that installed docker supports credential helpers|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

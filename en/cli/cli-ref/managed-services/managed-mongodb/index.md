@@ -69,7 +69,7 @@ Aliases:
 	- [yc managed-mongodb shards add](shards/add.md) — Create new shard for the cluster in the specified availability zones.
 	- [yc managed-mongodb shards delete](shards/delete.md) — Delete a shard.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

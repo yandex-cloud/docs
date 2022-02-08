@@ -11,7 +11,7 @@ Syntax:
 
 `yc iam service-account update <SERVICE-ACCOUNT-NAME>|<SERVICE-ACCOUNT-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the service account.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

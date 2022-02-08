@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--full`|Also show the entirety of the default and the effective ClickHouse configurations.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

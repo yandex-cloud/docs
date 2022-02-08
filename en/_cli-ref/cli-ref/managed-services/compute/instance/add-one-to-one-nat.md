@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance add-one-to-one-nat <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--nat-ip-version`|<b>`string`</b><br/> Specifies IP version for One-to-One NAT. Can be either 'ipv4' or 'ipv6'. This flag can be applied to network interfaces with ipv4 address or both addresses.|
 |`--nat-address`|<b>`string`</b><br/> Specifies public IP address for One-to-One NAT. This flag can be applied to network interfaces with ipv4 address or both addresses.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

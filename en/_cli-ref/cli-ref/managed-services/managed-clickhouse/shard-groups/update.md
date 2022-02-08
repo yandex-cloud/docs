@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse shard-groups update <SHARD-GROUP-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Description of the shard group.|
 |`--shards`|<b>`value[,value]`</b><br/>Shards that should be in group.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

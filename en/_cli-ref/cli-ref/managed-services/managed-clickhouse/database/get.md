@@ -8,14 +8,14 @@ Syntax:
 
 `yc managed-clickhouse database get <DATABASE_NAME> [<DATABASE_NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc container registry add-ip-permissions <REGISTRY-NAME>|<REGISTRY-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--push`|<b>`value[,value]`</b><br/>Push ip permission to set. Can be used multiple times.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

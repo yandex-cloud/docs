@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-postgresql cluster start-failover <CLUSTER-NAME>|<CLUSTER-ID>`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--host`|<b>`string`</b><br/>Hostname of replica to promote. If omitted replica will be chosen automatically|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -13,7 +13,7 @@ Syntax:
 - [yc serverless mdbproxy update postgresql](postgresql.md) — Update the specified proxy
 - [yc serverless mdbproxy update clickhouse](clickhouse.md) — Update the specified proxy
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

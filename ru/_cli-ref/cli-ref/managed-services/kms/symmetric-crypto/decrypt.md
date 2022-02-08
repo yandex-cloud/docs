@@ -8,7 +8,7 @@ Syntax:
 
 `yc kms symmetric-crypto decrypt <SYMMETRIC-KEY> [Flags][Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -18,7 +18,7 @@ Syntax:
 |`--ciphertext-file`|<b>`string`</b><br/>Required. Ciphertext file.|
 |`--plaintext-file`|<b>`string`</b><br/>Required. File to write plaintext.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

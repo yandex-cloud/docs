@@ -30,7 +30,7 @@ Aliases:
 - [yc dataproc cluster list-ui-links](list-ui-links.md) — Show URLs of proxied web user interfaces.
 - [yc dataproc cluster list-operations](list-operations.md) — List operations for a cluster.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

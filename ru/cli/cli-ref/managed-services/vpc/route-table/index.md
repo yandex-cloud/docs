@@ -27,7 +27,7 @@ Aliases:
 - [yc vpc route-table list-operations](list-operations.md) — List operations for a route table.
 - [yc vpc route-table move](move.md) — Move a route table to another folder.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

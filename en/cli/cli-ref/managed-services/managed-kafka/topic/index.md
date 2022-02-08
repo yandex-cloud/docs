@@ -23,7 +23,7 @@ Aliases:
 - [yc managed-kafka topic update](update.md) — Modify attributes of a Kafka topic.
 - [yc managed-kafka topic delete](delete.md) — Delete a Kafka topic.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

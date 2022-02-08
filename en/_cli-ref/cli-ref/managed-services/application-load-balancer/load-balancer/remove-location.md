@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer load-balancer remove-location <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--zone`|<b>`value[,value]`</b><br/>Zone list to remove from the load balancer locations, --zone zone-id1 --zone=zone-id2|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

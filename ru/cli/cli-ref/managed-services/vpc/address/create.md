@@ -11,7 +11,7 @@ Syntax:
 
 `yc vpc address create <ADDRESS-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of address labels as key-value pairs.|
 |`--external-ipv4`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External ipv4 address specification.  Possible property names:  zone Specifies the zone.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute image get-latest-from-family <IMAGE-FAMILY> [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

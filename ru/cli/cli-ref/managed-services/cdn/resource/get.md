@@ -11,14 +11,14 @@ Syntax:
 
 `yc cdn resource get <RESOURCE-ID> [<RESOURCE-ID>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--no-options`|Enable resource view without options|
 |`--id`|<b>`string`</b><br/>Specifies the resource ID.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

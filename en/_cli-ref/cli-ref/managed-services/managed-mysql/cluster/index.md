@@ -33,7 +33,7 @@ Aliases:
 - [yc managed-mysql cluster start](start.md) — Start the specified MySQL cluster
 - [yc managed-mysql cluster stop](stop.md) — Stop the specified MySQL cluster
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -28,7 +28,7 @@ Aliases:
 - [yc container cluster list-operations](list-operations.md) — List operations for the specified Kubernetes cluster.
 - [yc container cluster list-nodes](list-nodes.md) — List nodes in all node groups of the specified Kubernetes cluster.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

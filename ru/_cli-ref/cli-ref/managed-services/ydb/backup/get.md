@@ -8,13 +8,13 @@ Syntax:
 
 `yc ydb backup get <BACKUP-ID> [<BACKUP-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>backup id.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

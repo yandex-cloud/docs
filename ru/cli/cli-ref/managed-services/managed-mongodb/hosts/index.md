@@ -24,7 +24,7 @@ Aliases:
 - [yc managed-mongodb hosts restart](restart.md) — Restart specified MongoD hosts.
 - [yc managed-mongodb hosts stepdown](stepdown.md) — Stepdown specified MongoD hosts.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

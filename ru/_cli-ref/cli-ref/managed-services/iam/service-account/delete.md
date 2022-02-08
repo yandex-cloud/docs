@@ -8,7 +8,7 @@ Syntax:
 
 `yc iam service-account delete <SERVICE-ACCOUNT-NAME>|<SERVICE-ACCOUNT-ID> [<SERVICE-ACCOUNT-NAME>|<SERVICE-ACCOUNT-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>service account name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

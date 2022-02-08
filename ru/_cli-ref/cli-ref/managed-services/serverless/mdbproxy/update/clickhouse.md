@@ -8,7 +8,7 @@ Syntax:
 
 `yc serverless mdbproxy update clickhouse <PROXY-NAME>|<PROXY-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--new-user`|<b>`string`</b><br/> Clickhouse user.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

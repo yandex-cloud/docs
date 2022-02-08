@@ -27,7 +27,7 @@ Aliases:
 	- [yc organization-manager federation saml list-user-accounts](saml/list-user-accounts.md) — List user accounts of the specified federation
 	- [yc organization-manager federation saml list-operations](saml/list-operations.md) — List operations for the specified federation
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

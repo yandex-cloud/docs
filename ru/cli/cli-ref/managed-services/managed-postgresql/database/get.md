@@ -11,14 +11,14 @@ Syntax:
 
 `yc managed-postgresql database get <DATABASE_NAME> [<DATABASE_NAME>...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>PostgreSQL cluster id.|
 |`--cluster-name`|<b>`string`</b><br/>PostgreSQL cluster name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc logging write <LOG-GROUP-NAME>|<LOG-GROUP-ID>`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -25,7 +25,7 @@ Syntax:
 |`--timestamp`|<b>`timestamp`</b><br/>Log entry creation time, default: now|
 |`--level`|<b>`string`</b><br/>Log level|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

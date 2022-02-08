@@ -1,28 +1,27 @@
 # Подключение к узлу по SSH
 
-Чтобы подключиться к узлу по SSH:
+Чтобы подключиться к [узлу](../concepts/index.md#node-group) [кластера {{ k8s }}](../concepts/index.md#kubernetes-cluster) по SSH:
+* Добавьте публичный ключ в метаинформацию при [создании группы узлов](node-group/node-group-create.md).
 
-* Добавьте публичный ключ в метаинформацию при создании группы узлов.
+  {% note info %}
 
-    {% note info %}
+  В образах Linux, которые используются на узлах, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
 
-    В образах Linux, которые используются на узлах, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
+  {% endnote %}
 
-    {% endnote %}
+* [Настройте группы безопасности](security-groups.md) кластера.
 
-* [Настройте группы безопасности](./security-groups.md) кластера.
+  {% note warning %}
 
-    {% note warning %}
+  Настройки групп безопасности могут препятствовать подключению к кластеру.
 
-    Настройки групп безопасности могут препятствовать подключению к кластеру.
-
-    {% endnote %}
+  {% endnote %}
 
 Подробнее см. в разделе [Подключение к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
 
 ## Создайте пары ключей SSH {#creating-ssh-keys}
 
-Подготовьте ключи для использования с вашим узлом. Для этого:
+Подготовьте ключи для использования с вашим узлом кластера {{ k8s }}. Для этого:
 
 {% list tabs %}
 
@@ -118,7 +117,7 @@ yc managed-kubernetes node-group create \
 ```bash
 yc managed-kubernetes node-group add-metadata \
   --name <имя группы узлов> \
-  --metadata-from-file ssh-keys=<имя файла с публичными ключами> \
+  --metadata-from-file ssh-keys=<имя файла с публичными ключами>
 ```
 
 ## Получите публичный IP-адрес узла {#node-public-ip}
@@ -138,9 +137,9 @@ yc managed-kubernetes node-group add-metadata \
   Результат выполнения команды:
 
   ```bash
-  NAME                        STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-  cl17i6943n92sb98jifg-itif   Ready    <none>   31m   v1.13.3   10.0.0.27     84.201.145.251   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
-  cl17i6943n92sb98jifg-ovah   Ready    <none>   31m   v1.13.3   10.0.0.22     84.201.149.184   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
+  NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
+  cl17i6943n92sb98jifg-itif  Ready   <none>  31m  v1.13.3  10.0.0.27    84.201.145.251  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
+  cl17i6943n92sb98jifg-ovah  Ready   <none>  31m  v1.13.3  10.0.0.22    84.201.149.184  Ubuntu 18.04.1 LTS  4.15.0-29-generic  docker://18.6.2
   ```
 
 - Консоль управления

@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-redis cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -16,7 +16,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Redis cluster name.|
 |`--full`|Also show default and effective redis configs.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

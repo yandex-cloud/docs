@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse ml-model create <ML-MODEL-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -22,7 +22,7 @@ Syntax:
 |`--type`|<b>`string`</b><br/>Type of machine learning model Values: 'ml-model-type-catboost'|
 |`--uri`|<b>`string`</b><br/>URI to download a model|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

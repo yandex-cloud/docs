@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-clickhouse backup get](get.md) — Get information about a ClickHouse backup.
 - [yc managed-clickhouse backup list](list.md) — List ClickHouse backups available in a folder.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

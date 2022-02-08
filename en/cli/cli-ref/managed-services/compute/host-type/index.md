@@ -20,7 +20,7 @@ Aliases:
 - [yc compute host-type get](get.md) — Show information about the specified host type
 - [yc compute host-type list](list.md) — List host types
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

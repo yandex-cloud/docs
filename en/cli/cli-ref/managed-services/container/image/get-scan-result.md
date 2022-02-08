@@ -11,13 +11,13 @@ Syntax:
 
 `yc container image get-scan-result <SCAN-RESULT-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Scan result id.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

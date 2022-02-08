@@ -21,7 +21,7 @@ Aliases:
 - [yc managed-redis hosts add](add.md) — Create new hosts for the cluster in the specified availability zones
 - [yc managed-redis hosts delete](delete.md) — Delete the specified hosts
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -27,7 +27,7 @@ Aliases:
 - [yc container image list-scan-results](list-scan-results.md) — [PREVIEW] List scan results of Docker image.
 - [yc container image list-vulnerabilities](list-vulnerabilities.md) — [PREVIEW] List vulnerabilities found during scan.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

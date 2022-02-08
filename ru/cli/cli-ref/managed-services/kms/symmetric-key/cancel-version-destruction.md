@@ -11,7 +11,7 @@ Syntax:
 
 `yc kms symmetric-key cancel-version-destruction <SYMMETRIC-KEY> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--version-id`|<b>`string`</b><br/>Scheduled for destruction version of symmetric key to cancel destruction.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

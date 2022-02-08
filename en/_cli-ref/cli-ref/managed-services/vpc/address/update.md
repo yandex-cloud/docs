@@ -8,7 +8,7 @@ Syntax:
 
 `yc vpc address update <ADDRESS-NAME>|<ADDRESS-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the address as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--reserved`| Specefies if address is reserved or not.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

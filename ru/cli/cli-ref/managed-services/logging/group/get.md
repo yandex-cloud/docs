@@ -16,14 +16,14 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Log group id.|
 |`--name`|<b>`string`</b><br/>Log group name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

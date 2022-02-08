@@ -11,7 +11,7 @@ Syntax:
 
 `yc container registry create <REGISTRY-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> List of label KEY=VALUE pairs to add.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

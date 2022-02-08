@@ -16,7 +16,7 @@ Syntax:
 - [yc cdn provider list-activated](list-activated.md) — List activated CDN providers
 - [yc cdn provider activate](activate.md) — Activate CDN provider
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

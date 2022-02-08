@@ -11,7 +11,7 @@ Syntax:
 
 `yc application-load-balancer virtual-host list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--http-router-id`|<b>`string`</b><br/>ID of the Http router.|
 |`--http-router-name`|<b>`string`</b><br/>Name of the Http router.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,14 +11,14 @@ Syntax:
 
 `yc managed-kafka cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Kafka cluster id.|
 |`--name`|<b>`string`</b><br/>Kafka cluster name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

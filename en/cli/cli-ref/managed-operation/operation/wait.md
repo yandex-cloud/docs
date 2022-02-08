@@ -11,7 +11,7 @@ Syntax:
 
 `yc operation wait OPERATION-ID [OPERATION-ID...] [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

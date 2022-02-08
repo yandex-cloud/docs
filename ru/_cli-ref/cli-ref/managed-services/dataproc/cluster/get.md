@@ -8,14 +8,14 @@ Syntax:
 
 `yc dataproc cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the cluster.|
 |`--name`|<b>`string`</b><br/>Name of the cluster.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,14 +11,14 @@ Syntax:
 
 `yc cdn resource list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 |`--no-options`|Enable resource view without options|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

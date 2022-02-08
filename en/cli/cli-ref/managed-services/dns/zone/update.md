@@ -11,7 +11,7 @@ Syntax:
 
 `yc dns zone update <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -23,7 +23,7 @@ Syntax:
 |`--network-ids`|<b>`value[,value]`</b><br/> Specifies network identifiers from which dns zone records will be visible|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

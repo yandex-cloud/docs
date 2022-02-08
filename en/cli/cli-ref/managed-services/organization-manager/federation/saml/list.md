@@ -11,14 +11,14 @@ Syntax:
 
 `yc organization-manager federation saml list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

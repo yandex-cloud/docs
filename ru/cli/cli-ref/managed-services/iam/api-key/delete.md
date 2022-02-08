@@ -11,13 +11,13 @@ Syntax:
 
 `yc iam api-key delete <API-KEY-ID> [<API-KEY-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Access key id. This is id of key resource in cloud, but not key id that is used for authentication.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

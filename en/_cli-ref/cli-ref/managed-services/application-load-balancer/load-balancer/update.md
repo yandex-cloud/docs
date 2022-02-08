@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer load-balancer update <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--clear-security-groups`| Clear all security groups for application load balancer.|
 |`--security-group-id`|<b>`value[,value]`</b><br/> Security groups for the load balancer, --security-group-id id1 --security-group-id=id2|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -29,7 +29,7 @@ Aliases:
 - [yc application-load-balancer backend-group update-stream-backend](update-stream-backend.md) — Update Stream backend to the backend group
 - [yc application-load-balancer backend-group delete-stream-backend](delete-stream-backend.md) — Delete Stream backend from the backend group
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

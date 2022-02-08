@@ -11,7 +11,7 @@ Syntax:
 
 `yc compute disk update <DISK-NAME>|<DISK-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -23,7 +23,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--size`|<b>`byteSize`</b><br/> Indicates the new size of the disk.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

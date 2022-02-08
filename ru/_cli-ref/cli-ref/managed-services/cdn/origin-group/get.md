@@ -8,13 +8,13 @@ Syntax:
 
 `yc cdn origin-group get <ORIGIN-GROUP-ID> [<ORIGIN-GROUP-ID>...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Specifies the origin group ID.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

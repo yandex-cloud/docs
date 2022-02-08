@@ -19,7 +19,7 @@ LEN( value )
 Returns the number of characters in the string or items in array `value`.
 
 **Argument types:**
-- `value` — `Array of fractional numbers | Array of integer numbers | Array of strings | String`
+- `value` — `Array of fractional numbers | Array of integers | Array of strings | String`
 
 
 **Return type**: `Integer`

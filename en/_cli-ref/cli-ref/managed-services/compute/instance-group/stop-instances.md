@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance-group stop-instances <INSTANCE-GROUP-NAME>|<INSTANCE-GROUP-ID> --instance-ids INSTANCE-ID[,INSTANCE-ID...] [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -17,7 +17,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--instance-ids`|<b>`value[,value]`</b><br/>Ids of instances to stop|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

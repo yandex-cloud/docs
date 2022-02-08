@@ -8,7 +8,7 @@ Syntax:
 
 `yc vpc route-table create <ROUTE-TABLE-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--route`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> A list of static routes in a table.  Possible property names:  destination Destination subnet in CIDR notation.  next-hop Next hop IP address.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

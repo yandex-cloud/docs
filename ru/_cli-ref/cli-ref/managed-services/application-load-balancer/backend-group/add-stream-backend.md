@@ -8,7 +8,7 @@ Syntax:
 
 `yc application-load-balancer backend-group add-stream-backend <BACKEND_GROUP-NAME>|<BACKEND_GROUP-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -30,7 +30,7 @@ Syntax:
 |`--grpc-healthcheck`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of gRPC health checks for backend.  Possible property names:  port Port of the health check.  healthy-threshold Healthy threshold of the health check.  unhealthy-threshold Unhealthy threshold of the health check.  timeout Timeout of the health check.  interval Interval of the health check.  service-name Service name of the gRPC health check.  |
 |`--stream-healthcheck`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of stream (TCP) health checks for backend.  Possible property names:  port Port of the health check.  healthy-threshold Healthy threshold of the health check.  unhealthy-threshold Unhealthy threshold of the health check.  timeout Timeout of the health check.  interval Interval of the health check.  send-text Text to send for stream (TCP) health check.  receive-text Text to receive for stream (TCP) health check.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

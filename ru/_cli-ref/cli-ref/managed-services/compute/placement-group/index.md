@@ -25,7 +25,7 @@ Aliases:
 - [yc compute placement-group list-instances](list-instances.md) — List instances of the specified placement group
 - [yc compute placement-group list-operations](list-operations.md) — List operations for the specified placement group
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -21,7 +21,7 @@ Aliases:
 - [yc serverless container revision get](get.md) — Show information about the specified container revision
 - [yc serverless container revision deploy](deploy.md) — Deploy new container revision
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

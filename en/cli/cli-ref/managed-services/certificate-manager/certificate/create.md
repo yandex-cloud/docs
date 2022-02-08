@@ -15,7 +15,7 @@ Aliases:
 
 - `import`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -26,7 +26,7 @@ Aliases:
 |`--key`|<b>`string`</b><br/> Path to PEM file with a private key of the certificate.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -11,7 +11,7 @@ Syntax:
 
 `yc managed-clickhouse cluster add-external-dictionary <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -38,7 +38,7 @@ Syntax:
 |`--postgresql-source-hosts`|<b>`value[,value]`</b><br/> Replica hosts names.|
 |`--postgresql-invalidate-query`|<b>`string`</b><br/> Query for checking the dictionary status, to pull only updated data.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

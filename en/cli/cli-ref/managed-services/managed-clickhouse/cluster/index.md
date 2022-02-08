@@ -42,7 +42,7 @@ Aliases:
 - [yc managed-clickhouse cluster start](start.md) — Start the specified ClickHouse cluster
 - [yc managed-clickhouse cluster stop](stop.md) — Stop the specified ClickHouse cluster
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

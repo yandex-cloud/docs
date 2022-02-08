@@ -19,7 +19,7 @@ Aliases:
 
 - [yc managed-clickhouse version list](list.md) — List available ClickHouse versions.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

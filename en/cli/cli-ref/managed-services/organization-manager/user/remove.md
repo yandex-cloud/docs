@@ -11,7 +11,7 @@ Syntax:
 
 `yc organization-manager user remove [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -19,7 +19,7 @@ Syntax:
 |`--subject-id`|<b>`string`</b><br/>Subject whose membership will be deleted.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

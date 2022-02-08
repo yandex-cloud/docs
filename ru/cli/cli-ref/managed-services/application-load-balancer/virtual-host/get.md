@@ -16,14 +16,14 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--http-router-id`|<b>`string`</b><br/>ID of the Http router.|
 |`--http-router-name`|<b>`string`</b><br/>Name of the Http router.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

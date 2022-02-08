@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-postgresql backup get](get.md) — Show information about the specified PostgreSQL backup
 - [yc managed-postgresql backup list](list.md) — List available backups
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

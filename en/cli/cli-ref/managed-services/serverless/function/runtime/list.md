@@ -11,7 +11,7 @@ Syntax:
 
 `yc serverless function runtime list [Global Flags...]`
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

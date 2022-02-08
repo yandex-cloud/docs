@@ -33,7 +33,7 @@ Aliases:
 - [yc serverless api-gateway add-domain](add-domain.md) — Attach domain to the specified API Gateway
 - [yc serverless api-gateway remove-domain](remove-domain.md) — Detach domain from the specified API Gateway
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

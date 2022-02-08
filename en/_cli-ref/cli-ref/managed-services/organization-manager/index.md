@@ -25,7 +25,7 @@ Syntax:
 	- [yc organization-manager user list](user/list.md) — List user accounts of the specified organization
 	- [yc organization-manager user remove](user/remove.md) — Remove user accounts from the specified organization
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

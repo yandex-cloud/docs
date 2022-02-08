@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance update <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -31,7 +31,7 @@ Syntax:
 |`--service-account-id`|<b>`string`</b><br/> Service account, which token can be obtained inside VM from metadata service.|
 |`--service-account-name`|<b>`string`</b><br/> Service account, which token can be obtained inside VM from metadata service.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -20,7 +20,7 @@ Aliases:
 - [yc managed-mongodb resource-preset get](get.md) — Get information about a MongoDB resource preset.
 - [yc managed-mongodb resource-preset list](list.md) — List available resource presets for Managed Service for MongoDB.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

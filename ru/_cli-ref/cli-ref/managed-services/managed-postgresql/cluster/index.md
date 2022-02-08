@@ -33,7 +33,7 @@ Aliases:
 - [yc managed-postgresql cluster start](start.md) — Start the specified PostgreSQL cluster
 - [yc managed-postgresql cluster stop](stop.md) — Stop the specified PostgreSQL cluster
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

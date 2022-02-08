@@ -40,7 +40,7 @@ Aliases:
 	- [yc managed-kafka user update](user/update.md) — Modify attributes of a Kafka user.
 	- [yc managed-kafka user delete](user/delete.md) — Delete a Kafka user.
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

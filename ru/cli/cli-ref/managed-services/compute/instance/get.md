@@ -16,7 +16,7 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -24,7 +24,7 @@ Aliases:
 |`--name`|<b>`string`</b><br/>Instance name.|
 |`--full`|Whether description should include metadata of the instance|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

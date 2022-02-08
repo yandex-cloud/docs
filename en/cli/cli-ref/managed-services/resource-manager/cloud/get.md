@@ -16,14 +16,14 @@ Aliases:
 - `describe`
 - `show`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Cloud id.|
 |`--name`|<b>`string`</b><br/>Cloud name.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

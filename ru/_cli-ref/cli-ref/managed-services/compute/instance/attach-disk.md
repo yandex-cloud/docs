@@ -8,7 +8,7 @@ Syntax:
 
 `yc compute instance attach-disk <INSTANCE-NAME>|<INSTANCE-ID> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -20,7 +20,7 @@ Syntax:
 |`--device-name`|<b>`string`</b><br/>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.|
 |`--auto-delete`|Specifies if this persistent disk will be automatically deleted when the instance is deleted.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

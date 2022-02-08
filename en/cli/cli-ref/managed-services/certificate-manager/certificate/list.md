@@ -11,14 +11,14 @@ Syntax:
 
 `yc certificate-manager certificate list [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 |`--full`|Also show a list of active challenges to validate domains|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|

@@ -8,7 +8,7 @@ Syntax:
 
 `yc managed-clickhouse shards update <SHARD-NAME> [Flags...] [Global Flags...]`
 
-#### Global Flags
+#### Flags
 
 | Flag | Description |
 |----|----|
@@ -21,7 +21,7 @@ Syntax:
 |`--clickhouse-disk-type`|<b>`string`</b><br/> Storage type for ClickHouse hosts in the shard.|
 |`--weight`|<b>`int`</b><br/> New weight of a ClickHouse host in the shard.|
 
-#### Flags
+#### Global Flags
 
 | Flag | Description |
 |----|----|
