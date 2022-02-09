@@ -3,11 +3,11 @@ description:
   - >-
     Сервис Managed Service for Kubernetes предоставляет окружение для работы с контейнеризованными приложениями в инфраструктуре Yandex.Cloud. Вы можете разворачивать, масштабировать и управлять приложениями в контейнерах с помощью Kubernetes.
   - >-
-    Сервис позволяет предоставлять доступ к приложениям, используя публичные и внутренние <a href="https://cloud.yandex.ru/docs/managed-kubernetes/concepts/service">сервисы различных типов</a>, а также <a href="https://cloud.yandex.ru/docs/managed-kubernetes/operations/marketplace">приложения Cloud Marketplace</a>. Все данные надежно хранятся и реплицируются в инфраструктуре Yandex.Cloud, но можно дополнительно сделать резервные копии данных из Kubernetes и хранить их в <a href="https://cloud.yandex.ru/docs/storage/">Object Storage</a> или другом хранилище. Для управления Kubernetes используйте командную оболочку <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl">kubectl</a>. Все данные надежно хранятся и реплицируются в инфраструктуре Yandex.Cloud, но можно дополнительно сделать резервные копии данных из Kubernetes и хранить их в <a href="https://cloud.yandex.ru/docs/storage/">Object Storage</a> или другом хранилище. Для управления Kubernetes используйте командную оболочку <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl">kubectl</a>.
+    Сервис позволяет предоставлять доступ к приложениям, используя публичные и внутренние <a href="https://cloud.yandex.ru/docs/managed-kubernetes/concepts/service">сервисы различных типов</a>, а также <a href="https://cloud.yandex.ru/docs/managed-kubernetes/operations/marketplace">приложения Cloud Marketplace</a>. Все данные надежно хранятся и реплицируются в инфраструктуре Yandex.Cloud, но можно дополнительно сделать резервные копии данных из Kubernetes и хранить их в <a href="https://cloud.yandex.ru/docs/storage/">Object Storage</a> или другом хранилище. Для управления Kubernetes используйте командную оболочку <a href="https://kubernetes.io/ru/docs/tasks/tools/install-kubectl">kubectl</a>.
   - >-
     Инфраструктура Yandex.Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+    в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
