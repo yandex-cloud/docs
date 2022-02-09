@@ -24,7 +24,7 @@
 
 1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru?create_destinations=datalens.yandex-team.ru&create_destinations=upload.datalens.yandex-team.ru&create_protocol=tcp&create_locations=office&create_locations=vpn&create_ports=443) на доступ к сервису {{ datalens-short-name }}. Заполните поля заявки:
 
-   * **Источник** — пользователи или группа пользователей, которым предоставляется доступ.
+   * **Источник** — ABC-группа и несколько ABC-групп, которым предоставляется доступ.
    * **Назначения** — `datalens.yandex-team.ru`, `upload.datalens.yandex-team.ru` и `stat.yandex-team.ru` (при необходимости работы с отчетами).
    * **Протокол** — **TCP**.
    * **Порты** — `443`.
