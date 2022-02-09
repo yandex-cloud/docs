@@ -5,6 +5,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 
 # All instructions
 
+* [{#T}](security-groups.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
 * [{#T}](encrypting-secrets.md)
@@ -13,6 +14,8 @@ description: "In this article you will learn how to work with managed Kubernetes
 ## Network scenarios {#network-scenarios}
 
 * [{#T}](create-load-balancer.md)
+* [{#T}](calico.md)
+* [{#T}](cilium.md)
 
 ## Working with persistent volumes {#persistent-volumes}
 

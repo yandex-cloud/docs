@@ -63,9 +63,9 @@ When creating a {{ k8s }} cluster, activate the Calico network policy controller
 
 {% endcut %}
 
-## Create a {{ k8s }} namespace {#сonfigure-namespace}
+## Create a {{ k8s }} namespace {#configure-namespace}
 
-Create a namespace using the {{ k8s }} [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) API object:
+Create a namespace using the {{ k8s }} [Namespace]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/namespaces/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/){% endif %} API object:
 
 ```
 kubectl create ns policy-test
@@ -132,23 +132,23 @@ To create a pod, use the {{ k8s }} [Deployment](https://kubernetes.io/docs/conce
    <head>
    <title>Welcome to nginx!</title>
    <style>
-       body {
-           width: 35em;
-           margin: 0 auto;
-           font-family: Tahoma, Verdana, Arial, sans-serif;
-       }
+     body {
+       width: 35em;
+       margin: 0 auto;
+       font-family: Tahoma, Verdana, Arial, sans-serif;
+     }
    </style>
    </head>
    <body>
    <h1>Welcome to nginx!</h1>
    <p>If you see this page, the nginx web server is successfully installed and
    working. Further configuration is required.</p>
-   
+
    <p>For online documentation and support please refer to
    <a href="http://nginx.org/">nginx.org</a>.<br/>
    Commercial support is available at
    <a href="http://nginx.com/">nginx.com</a>.</p>
-   
+
    <p><em>Thank you for using nginx.</em></p>
    </body>
    </html>
@@ -310,7 +310,7 @@ Allow access to the nginx web server using network policies. Network policies wi
    pod "access" deleted
    ```
 
-### Check the network isolation functionality for other pods {#сheck-isolation}
+### Check the network isolation functionality for other pods {#check-isolation}
 
 The created `access-nginx` network policies allow connections for pods with the `run: access` label.
 

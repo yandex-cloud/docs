@@ -101,7 +101,7 @@ Events can be exported to any SIEM system using s3fs, see the [instructions](../
 
 ### Data encryption and key/secret management {#kubernetes-data-encryption}
 
-- **Server-side encryption**: Enable secret encryption in etcd. See the [instructions](../../../kms/solutions/k8s.md). Do this at all times, regardless of whether you use secret management services or not.
+- **Server-side encryption**: Enable secret encryption in etcd. See the [instructions](../../../kms/solutions/kubernetes.md). Do this at all times, regardless of whether you use secret management services or not.
 - **Secret management**: Use [Yandex Lockbox](../../../lockbox/index.yaml) or [HashiCorp Vault with Yandex KMS support](https://cloud.yandex.com/marketplace/products/f2eokige6vtlf94uvgs2) from Yandex Cloud Marketplace. 
   ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Secret management using SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
 

@@ -8,7 +8,7 @@ To create a {{ k8s }} cluster:
 1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
 1. [On the billing page]({{ link-console-billing }}) make sure that you have enabled a [billing account](../../../billing/concepts/billing-account.md) and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account).
 1. If you don't have a folder, [create one](../../../resource-manager/operations/folder/create.md).
-1. Install the [{{ k8s }} CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+1. Install the [{{ k8s }} CLI (kubectl)]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %}.
 1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
 1. If you don't have a network, [create one](../../../vpc/operations/network-create.md).
 1. If you don't have any subnets, [create them](../../../vpc/operations/subnet-create.md) in the availability zones where you will create a {{ k8s }} cluster and node group.
@@ -34,7 +34,7 @@ To create a {{ k8s }} cluster:
 
   1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
+  1. Specify the {{ k8s }} cluster parameters in the create command (only some of the supported parameters are given in the example):
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -47,6 +47,7 @@ To create a {{ k8s }} cluster:
        --version 1.13 \
        --cluster-ipv4-range 10.1.0.0/16 \
        --service-ipv4-range 10.2.0.0/16 \
+       --security-group-ids enpe5sdn7vs5mu6udl7i,enpj6c5ifh755o6evmu4 \
        --service-account-name default-sa \
        --node-service-account-name default-sa \
        --daily-maintenance-window start=22:00,duration=10h
@@ -90,15 +91,31 @@ To create a {{ k8s }} cluster:
        --enable-network-policy
      ```
 
+  1. To use the [encryption key](../../concepts/encryption.md) to protect confidential information, pass its name or ID in the cluster creation command:
+
+     ```bash
+     {{ yc-k8s }} cluster create \
+     ...
+       --kms-key-name <encryption key name> \
+       --kms-key-id <encryption key ID> \
+     ...
+     ```
+
+     {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+
 - Terraform
 
   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. In the configuration file, describe the parameters of resources that you want to create. You can add multiple records at the same time.
+  1. In the configuration file, describe the parameters of resources that you want to create. You can add multiple records at the same time:
      * `name`: The {{ k8s }} cluster name.
      * `description`: {{ k8s }} cluster description.
      * `network_id`: Network ID.
      * `version`: The {{ k8s }} version.
+     * (Optional) `kms_provider`: [Encryption key](../../concepts/encryption.md) for {{ kms-full-name }} that will be used to protect secrets.
+
+        {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+
      * `zonal`: Zonal wizard parameters:
        * `zone`: Availability zone.
        * `subnet_id`: The subnet ID. If it is not specified and there is only one subnet in the specified zone, an address in this subnet will be allocated.
@@ -139,7 +156,7 @@ To create a {{ k8s }} cluster:
      resource "yandex_kubernetes_cluster" "zonal_cluster_resource_name" {
        name        = "MyCluster"
        description = "MyCluster description"
-       network_id = "${yandex_vpc_network.this.id}"
+       network_id  = "${yandex_vpc_network.this.id}"
 
        master {
          version = "1.17"
@@ -152,14 +169,18 @@ To create a {{ k8s }} cluster:
 
        service_account_id      = "${yandex_iam_service_account.this.id}"
        node_service_account_id = "${yandex_iam_service_account.this.id}"
-       release_channel = "STABLE"
-       depends_on = ["yandex_resourcemanager_folder_iam_member.this"]
+       release_channel         = "STABLE"
+       depends_on              = ["yandex_resourcemanager_folder_iam_member.this"]
+       kms_provider {
+         key_id = "<encryption key ID>"
+       }
      }
 
      resource "yandex_vpc_network" "this" {}
 
      resource "yandex_vpc_subnet" "subnet_resource_name" {
        network_id     = yandex_vpc_network.this.id
+       zone           = "ru-central1-a"
        v4_cidr_blocks = ["192.168.20.0/24"]
      }
 
@@ -257,7 +278,7 @@ To create a {{ k8s }} cluster:
      Enter a value: yes
      ```
 
-     Terraform creates all the required resources. As a result of executing the command, the console displays the contents of the `kubeconfig` configuration file, which can be used with [kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/).
+     Terraform creates all the required resources. As a result of executing the command, the console displays the contents of the `kubeconfig` configuration file, which can be used with [kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %}.
 
      {% note info %}
 
@@ -294,5 +315,7 @@ To create a {{ k8s }} cluster:
 - API
 
   To create a {{ k8s }} cluster, use the [create](../../api-ref/Cluster/create.md) method for the [Cluster](../../api-ref/Cluster) resource.
+
+  To use a [{{ kms-name }} encryption key](../../concepts/encryption.md) to protect secrets, pass its ID in the `kmsProvider.keyId` parameter.
 
 {% endlist %}

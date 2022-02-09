@@ -5,15 +5,15 @@ description: "The main entity operated by the service is the {{k8s}} cluster. Th
 
 # Relationships between resources in {{ managed-k8s-name }}
 
-[{{ k8s }}](https://{{ k8s }}.io) is an environment for managing containerized applications. {{ k8s }} provides mechanisms for interacting with clusters that can automate tasks like deploying, scaling, and managing applications in containers.
+[{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% if lang == "en" %}(https://https://kubernetes.io/){% endif %} is an environment for managing containerized applications. {{ k8s }} provides mechanisms for interacting with clusters that can automate tasks like deploying, scaling, and managing applications in containers.
 
 The main entity in the service is the _{{ k8s }} cluster_.
 
 ## {{ k8s }} cluster {#kubernetes-cluster}
 
-{{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes.
+{{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the cluster. Containerized user applications are run on nodes.
 
-The service fully controls the master and monitors the status and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
+The service fully controls the master and monitors the status and health of node groups. Users can manage nodes directly and configure clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
 
 {% note warning %}
 
@@ -59,6 +59,11 @@ When you create a group of nodes, you can configure the following VM parameters:
 * VM type.
 * Type and number of cores (vCPU).
 * Amount of memory (RAM) and disk space.
+* Kernel parameters:
+  * _Safe_ kernel parameters are isolated between pods.
+  * _Unsafe_ parameters affect the operation of the pods and the node as a whole. In {{ managed-k8s-name }}, you can't change unsafe kernel parameters unless their names have been explicitly specified when [creating a node group](../operations/node-group/node-group-create.md).
+
+  For more information about kernel parameters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
 You can create groups with different configurations in a {{ k8s }} cluster and place them in different [availability zones](../../overview/concepts/geo-scope.md).
 
@@ -74,11 +79,11 @@ Containers are described in pods via JSON or YAML objects.
 
 ### IP masquerade for pods {#pod-ip-masquerade}
 
-If a pod needs access to resources outside the cluster, its IP address will be replaced by the IP address of the node the pod is running on. For this, the cluster uses [IP masquerade](https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/).
+If a pod needs access to resources outside the {{k8s}} cluster, its IP address will be replaced by the IP address of the node the pod is running on. For this, the cluster uses [IP masquerade](https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/).
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerade, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called  `ip-masq-agent`. If you need to disable pod IP masquerade, for example, to access pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/concepts/index.md), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerade, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerade, for example, to access pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...
@@ -101,12 +106,14 @@ _A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
 
 ## Service accounts {#service-accounts}
 
-{{ managed-k8s-full-name }} clusters use two types of service accounts:
+{{ managed-k8s-name }} clusters use two types of service accounts:
 * **Cloud service accounts**
+
   These accounts exist on the level of a cloud's individual folders and can be used by {{ managed-k8s-name }} and other services.
 
   For more information, see [{#T}](../security/index.md) and [{#T}](../../iam/concepts/users/service-accounts.md).
 * **{{ k8s }} service accounts**
+
   These accounts exist and are only valid on the level of an individual {{ managed-k8s-name }} cluster. They are applied by {{ k8s }}:
   * To authenticate cluster API calls from applications deployed in the cluster.
   * To configure access for these applications.
@@ -131,9 +138,9 @@ _Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k
 
 {% note warning %}
 
-Don't confuse [node group cloud labels](../../overview/concepts/services.md#labels) (`labels`) with [{{ k8s }} node labels]{% if region == "int" %}(https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){% else %}(https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/labels/){% endif %} (`node_labels`) managed by {{ managed-k8s-name }}.
+Don't confuse [node group cloud labels](../../overview/concepts/services.md#labels) (`labels`) with [{{ k8s }} node labels]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/labels/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){% endif %} (`node_labels`) managed by {{ managed-k8s-name }}.
 
-We recommend managing all node labels via the [{{ managed-k8s-full-name }} API](../api-ref/NodeGroup/index.md) since, by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. That's why labels added using the [{{ k8s }} API]{% if region == "int" %}(https://kubernetes.io/docs/concepts/overview/kubernetes-api){% else %}(https://kubernetes.io/ru/docs/concepts/overview/kubernetes-api){% endif %} may be lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
+We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) since, by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. That's why labels added using the [{{ k8s }} API]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/kubernetes-api){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/kubernetes-api){% endif %} may be lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
 
 {% endnote %}
 

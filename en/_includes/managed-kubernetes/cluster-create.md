@@ -1,9 +1,13 @@
 1. In [management console]({{ link-console-main }}), select the folder where you want to create your {{ k8s }} cluster.
 1. In the list of services, select **{{ managed-k8s-name }}**.
 1. Click **Create cluster**.
-1. Enter a name and description for the {{ k8s }} cluster.
+1. Enter a name and description for the {{ k8s }} cluster. The cluster name must be unique within {{ yandex-cloud }}.
 1. Specify a **service account for the resources**. This is used to create the resources.
 1. Specify a **service account for nodes**. The nodes use this service account to access the Docker image registry.
+1. (Optional) Specify the **Encryption key** that will be used for [encrypting secrets](../../managed-kubernetes/concepts/encryption.md).
+
+   {% include [write-once-settings](write-once-setting.md) %}
+
 1. Specify a [release channel](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 1. Under **Master configuration**:
    * In the **{{ k8s }} version** field, select the {{ k8s }} version to be installed on the master.
@@ -19,7 +23,7 @@
    * In the **Cloud network** field, select the network to create the master in.
    * In the **Subnet** field, select the subnet to create the master in.
 
-     For the regional master, specify three subnets in each availability zone.
+     For the regional master, specify a subnet in each availability zone.
    * Select security groups to control the cluster's network traffic.
 
      {% include [security-groups-alert](security-groups-alert.md) %}

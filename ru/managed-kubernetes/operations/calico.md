@@ -96,7 +96,7 @@
 
 ## Создайте пространство имен {{ k8s }} {#сonfigure-namespace}
 
-Создайте пространство имен с помощью объект API {{ k8s }} [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/):
+Создайте пространство имен с помощью объект API {{ k8s }} [Namespace]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/namespaces/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/){% endif %}:
 
 ```
 kubectl create ns policy-test
