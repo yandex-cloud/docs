@@ -404,6 +404,18 @@
 
     1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) с тем же именем, что и на источнике.
     1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
+    1. Чтобы шардировать переносимые коллекции в кластере-приемнике {{ mmg-full-name }}:
+        1. Следуя [инструкции](../../managed-mongodb/tutorials/sharding.md), создайте и настройте в базе-приемнике пустые шардированные коллекции с теми же именами, что и на источнике.
+
+            Сервис {{ data-transfer-name }} не шардирует переносимые коллекции автоматически. Шардирование больших коллекций может занять продолжительное время и снизить скорость трансфера.
+
+        1. Если шардирование происходит по ключу, отличному от `_id` (используется по умолчанию), [назначьте пользователю роль](../../managed-mongodb/operations/cluster-users.md#updateuser) `mdbShardingManager`.
+
+        1. При [создании эндпоинта для приемника](./target-endpoint.md#settings-mongodb) выберите политику очистки `DISABLED` или `TRUNCATE`.
+
+            {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
+
+        Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/).
 
 * Пользовательская инсталляция
 
@@ -464,6 +476,7 @@
     1. Создайте пользователя с правами `readWrite` на базу-приемник:
 
         ```javascript
+        use admin;
         db.createUser({
             user: "<имя пользователя>",
             pwd: "<пароль>",
@@ -478,6 +491,53 @@
         ```
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
+
+    1. Чтобы шардировать переносимые коллекции в кластере-приемнике:
+
+        1. Подготовьте базу данных и создайте в ней пустые коллекции с теми же именами, что и на источнике.
+
+            Сервис {{ data-transfer-name }} не шардирует переносимые коллекции автоматически. Шардирование больших коллекций может занять продолжительное время и снизить скорость трансфера.
+
+        1. Включите шардирование для базы-приемника:
+
+            ```javascript
+            sh.enableSharding("<имя базы-приемника>")
+            ```
+
+        1. Создайте индекс для каждой шардируемой коллекции:
+
+            ```javascript
+            db.<имя коллекции>.createIndex(<свойства индекса>)
+            ```
+
+            Описание функции `createIndex()` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex).
+
+        1. Задайте шардирование для каждой коллекции с учетом ее пространства имен:
+
+            ```javascript
+            sh.shardCollection("<имя базы-приемника>.<имя коллекции>", {"<индекс>": "<тип индекса>"});
+            ```
+
+            Описание функции `shardCollection()` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
+
+        1. Чтобы убедиться в том, что шардирование настроено и включено, получите список доступных шардов:
+
+            ```javascript
+            sh.status()
+            ```
+
+        1. Если для шардирования используется ключ, отличный от `_id` (значение по умолчанию), назначьте системную роль `clusterManager` пользователю, от имени которого сервис {{ data-transfer-name }} будет подключаться к кластеру-приемнику:
+
+            ```javascript
+            use admin;
+            db.grantRolesToUser("<имя пользователя>", ["clusterManager"]);
+            ```
+
+        1. При [создании эндпоинта для приемника](./target-endpoint.md#settings-mongodb) выберите политику очистки `DISABLED` или `TRUNCATE`.
+
+            {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
+
+        Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/basics/sharding/).
 
 {% endlist %}
 
