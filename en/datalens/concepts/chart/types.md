@@ -203,6 +203,7 @@ Map supports three types of visualization:
 * [Point map](#point-map-chart)
 * [Choropleth map](#choropleth-map-chart)
 * [Heat map](#heat-map-chart)
+* [Polyline map](#polyline-map-chart)
 
 You can place no more than 5 layers with any visualization type on a map. Layers in the **Map** chart are called geolayers.
 
