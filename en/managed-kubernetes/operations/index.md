@@ -8,6 +8,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
 * [{#T}](encrypting-secrets.md)
+* [{#T}](marketplace.md)
 
 ## Network scenarios {#network-scenarios}
 

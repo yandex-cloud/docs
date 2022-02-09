@@ -15,6 +15,8 @@ items:
         href: operations/node-connect-ssh.md
       - name: Creating a configuration file
         href: operations/create-static-conf.md
+      - name: Working with {{ marketplace-name }}
+        href: operations/marketplace.md
       - name: Network scenarios
         items:
           - name: >-
