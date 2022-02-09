@@ -13,4 +13,4 @@
 
 Доступны следующие настройки:
 
-{% include [mch-dbms-settings](../../_includes/mdb/mrd-dbms-settings.md) %}
+{% include [mrd-dbms-settings](../../_includes/mdb/mrd-dbms-settings.md) %}
