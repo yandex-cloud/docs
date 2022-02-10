@@ -88,6 +88,8 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [data-transfer-admin](../../../_includes/roles-data-transfer-admin.md) %}
 
+{% include [data-transfer-publicadmin](../../../_includes/roles-data-transfer-publicadmin.md) %}
+
 ## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}

@@ -33,20 +33,31 @@ description: "Управление доступом в сервисе по пе�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-### Сервисные роли {#service-roles}
+{% include [data-transfer-viewer](../../_includes/roles-data-transfer-viewer.md) %}
 
-Роль | Разрешения
------ | -----
-`data-transfer.admin` | Позволяет управлять [эндпоинтами](../concepts/index.md#endpoint) и [трансферами](../concepts/index.md#transfer) (создавать, изменять и удалять их), а также активировать и деактивировать трансферы.
-`data-transfer.viewer` | Позволяет просматривать информацию только о ресурсах сервиса {{ data-transfer-name }}.
+{% include [data-transfer-admin](../../_includes/roles-data-transfer-admin.md) %}
 
-### Роли других сервисов {{ yandex-cloud }} {#other-roles}
+{% include [data-transfer-publicadmin](../../_includes/roles-data-transfer-publicadmin.md) %}
 
-{% include [roles-resource-manager](../../_includes/roles-resource-manager.md) %}
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
 
-### Примитивные роли {#primitive-roles}
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-{% include [roles-primitive](../../_includes/roles-primitive.md) %}
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
 
 ## Какие роли необходимы {#required-roles}
 
