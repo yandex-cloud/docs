@@ -10,7 +10,7 @@
 
 {% endif %}
 
-Для написания подзапросов в датасетах и запросов в SQL-чартах используйте {% if audience == "external" %} [синтаксис YQL](../../../ydb/yql/reference/index.md). {% endif %} {% if audience == "internal" %} синтаксис YQL. {% endif %}
+Для написания подзапросов в датасетах и запросов в QL-чартах используйте {% if audience == "external" %} [синтаксис YQL](../../../ydb/yql/reference/index.md). {% endif %} {% if audience == "internal" %} синтаксис YQL. {% endif %}
 
 {% endnote %}
 

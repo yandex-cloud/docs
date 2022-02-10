@@ -13,7 +13,7 @@ To add a selector to a dashboard:
       * **Based on datasets**. Selector values are displayed from a dataset field.
       * **Manual input**. Values are set manually in the selector settings.
 
-        [SQL charts](../../concepts/chart/index.md#sql-charts) support both selector types.
+        [QL charts](../../concepts/chart/index.md#sql-charts) support both selector types.
 
 1. Fill in the selector parameters:
 
@@ -36,6 +36,6 @@ To add a selector to a dashboard:
 
    {% endlist %}
 
-   In [SQL charts](../../concepts/chart/index.md#sql-charts), you can control selector settings from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
+   In [QL charts](../../concepts/chart/index.md#sql-charts), you can control selector settings from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
 
 1. Click **Add**. The widget is displayed on the dashboard.

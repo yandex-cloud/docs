@@ -11,7 +11,7 @@
 - [Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики](data-from-metrica-yc-visualization.md)
 - [Аналитика мобильного приложения на данных AppMetrica](data-from-appmetrica-visualization.md)
 - [Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)](data-from-podcasts.md)
-- [Визуализация данных с помощью SQL-чарта](data-from-ch-to-sql-chart.md)
+- [Визуализация данных с помощью QL-чарта](data-from-ch-to-sql-chart.md)
 - [Анализ customer journey мобильного приложения на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
 - [Анализ логов Object Storage при помощи DataLens](storage-logs-analysis.md)
 
@@ -23,6 +23,6 @@
 - [Визуализация данных из ClickHouse over YT (CHYT)](data-from-ch-over-yt.md)
 - [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
 - [Визуализация данных из отчетов Statface](data-from-statface-visualization.md)
-- [Визуализация данных с помощью SQL-чарта](data-from-ch-to-sql-chart.md)
+- [Визуализация данных с помощью QL-чарта](data-from-ch-to-sql-chart.md)
 
 {% endif %}
