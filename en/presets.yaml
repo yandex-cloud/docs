@@ -60,6 +60,7 @@ default:
   load-testing-full-name: Yandex Load Testing
   cloud-desktop-full-name: Yandex Cloud Desktop
   marketplace-full-name: Yandex Cloud Marketplace
+  captcha-full-name: Yandex SmartCaptcha
 
   # Full services names without Yandex
   iam-name: Identity and Access Management
@@ -124,6 +125,7 @@ default:
   wiki-name: Wiki
   load-testing-name: Load Testing
   cloud-desktop-name: Cloud Desktop
+  captcha-name: SmartCaptcha
 
   # Short names
   iam-short-name: IAM
@@ -464,6 +466,14 @@ default:
   mp-test-sku-id: dn272e8979uvek5cnuhk
 
   # Data Transfer
+  dt-status-copy: '**Copying**'
+  dt-status-created: '**Created**'
+  dt-status-creation: '**Creating**'
+  dt-status-error: '**Error**'
+  dt-status-finished: '**Completed**'
+  dt-status-repl: '**Replicating**'
+  dt-status-stopped: '**Stopped**'
+  dt-status-stopping: '**Stopping**'
   dt-copy: Copy
   dt-repl: Replicate
   dt-copy-repl: Copy and replicate

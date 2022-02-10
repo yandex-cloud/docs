@@ -1,0 +1,14 @@
+title: Yandex SmartCaptcha
+href: index.yaml
+stage: tech-preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    items:
+      - name: Widget connection methods
+        href: concepts/widget-methods.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md
