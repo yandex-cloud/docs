@@ -45,6 +45,8 @@ items:
     items:
       - name: Шардирование коллекций
         href: tutorials/sharding.md
+      - name: Перенос коллекций из {{ MG }} в {{ mmg-name }}
+        href: tutorials/mongodb-migration.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
   - name: Концепции
