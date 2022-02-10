@@ -9,13 +9,13 @@ The minimum charging unit is 1 MB.
 - Prices in USD
   | Resource category | Cost of 1 GB, without VAT |
   | ----- | -----
-  | Outgoing traffic, <10 GB | $0 |
+  | Outgoing traffic, <10 GB per month | $0 |
   | Outgoing traffic, >10 GB | $0.012307 |
   
 - Prices in roubles
   | Resource category | Cost of 1 GB, with VAT |
   | ----- | -----
-  | Outgoing traffic, <10 GB | ₽0 |
+  | Outgoing traffic, <10 GB per month | ₽0 |
   | Outgoing traffic, >10 GB | ₽0.9600 |
   
 {% endlist %}
