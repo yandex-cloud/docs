@@ -36,3 +36,15 @@ FQDN можно использовать для доступа к хосту в 
 При удалении хоста с публичным FQDN соответствующий этому имени IP-адрес отзывается.
 
 {% endif %}
+
+## Группы безопасности {#security-groups}
+
+{% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
+
+{% note tip %}
+
+При подключении к кластеру из той же облачной сети, в которой он находится, не забудьте [настроить](../operations/connect.md#configure-security-groups) группы безопасности не только для кластера, но и для хоста, с которого выполняется подключение.
+
+{% endnote %}
+
+{% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}

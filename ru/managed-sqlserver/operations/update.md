@@ -7,6 +7,7 @@
 - [Изменить настройки](#change-sqlserver-config) {{ MS }} согласно документации {{ MS }}.
 - [{#T}](#change-additional-settings).
 - [Переместить кластер](#move-cluster) в другой каталог.
+- [Изменить группы безопасности кластера](#change-sg-set).
 
 {% note warning %}
 
@@ -268,3 +269,79 @@
   - Идентификатор каталога назначения в параметре `destinationFolderId`.
 
 {% endlist %}
+
+## Изменить группы безопасности {#change-sg-set}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mms-name }}**.
+    1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+    1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) для кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster update --help
+        ```
+
+    1. Укажите нужные группы безопасности в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster update <идентификатор или имя кластера> \
+           --security-group-ids=<список групп безопасности>
+        ```
+
+        Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+    1. Измените в описании кластера {{ mms-name }} значение параметра `security_group_ids`:
+
+        ```hcl
+        resource "yandex_mdb_sqlserver_cluster" "<имя кластера>" {
+          ...
+          security_group_ids = [<список идентификаторов групп безопасности>]
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+- API
+
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Список идентификаторов групп безопасности в параметре `securityGroupIds`.
+    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+
+{% endlist %}
+
+{% note warning %}
+
+Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
+
+{% endnote %}
