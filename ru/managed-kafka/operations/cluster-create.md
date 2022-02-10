@@ -72,6 +72,8 @@
 
         {% endnote %}
 
+     1. Выберите группы безопасности для сетевого трафика кластера.
+
      1. Для доступа к хостам-брокерам из интернета выберите опцию **Публичный доступ**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
 
         {% note warning %}
@@ -79,8 +81,6 @@
         Запросить публичный доступ после создания кластера невозможно.
 
         {% endnote %}
-    
-     1. Выберите группы безопасности для сетевого трафика кластера.
 
   1. В блоке **Хосты**:
      1. Укажите количество [хостов-брокеров](../concepts/brokers.md) {{ KF }} для размещения в каждой выбранной зоне доступности.
@@ -154,7 +154,9 @@
           ```
 
       1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
+
   {% if audience != "internal" %}
+
   1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
       ```bash
@@ -164,7 +166,9 @@
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+
   {% endif %}
+
 - Terraform
 
     {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
@@ -183,9 +187,11 @@
 
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-        {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+        * Кластер {{ KF }} — описание кластера и его хостов. При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
 
-        При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
+        * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+        * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
         Пример структуры конфигурационного файла:
 
@@ -278,9 +284,11 @@
     Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`.
 
     {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-    
+
     {% if audience != "internal" %}
+
     Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
+
     {% endif %}
 
     {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}

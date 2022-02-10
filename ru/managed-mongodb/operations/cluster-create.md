@@ -146,7 +146,11 @@
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+     * Кластер базы данных — описание кластера и его хостов.
+
+     * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+     * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
      Пример структуры конфигурационного файла:
 
