@@ -6,7 +6,7 @@
 
 To create a connection, you will need a [service account](../../../iam/concepts/users/service-accounts.md) with the [role](../../../iam/operations/sa/assign-role-for-sa.md) **ydb.viewer** (or **viewer**).
 
-To write subqueries in datasets and queries in SQL charts, use [YQL syntax](../../../ydb/yql/reference/overview.md).
+To write subqueries in datasets and queries in QL charts, use [YQL syntax](../../../ydb/yql/reference/overview.md).
 
 {% endnote %}
 

@@ -1,24 +1,24 @@
-# Visualizing data with a SQL chart
+# Visualizing data with a QL chart
 
 In this scenario, you will create charts using SQL queries. SQL queries enable you to configure data for visualization in a more flexible way than the standard dataset method does. For example, you can add parameters from dashboards to a SQL query.
 
-We recommend using a SQL chart when creating a conventional chart from a dataset isn't suitable, or when you would like to experiment with data.
+We recommend using a QL chart when creating a conventional chart from a dataset isn't suitable, or when you would like to experiment with data.
 
 A direct connection to a demo database will be used as your data source.
 
 To visualize and analyze data, make sure you have a [ready-to-use cloud](#before-you-begin) and follow these steps:
 
 1. [Create a connection](#create-connection).
-1. [Create a SQL chart](#create-sql-chart).
+1. [Create a QL chart](#create-sql-chart).
 1. [Create a dashboard](#create-dashboard).
-1. [Add the SQL chart to the dashboard](#add-sql-chart-to-dashboard).
+1. [Add the QL chart to the dashboard](#add-sql-chart-to-dashboard).
 1. [Add a selector to the dashboard](#add-selector-to-dashboard).
 
 {% note warning %}
 
 * SQL queries only work with databases. CSV, GoogleSheets, Yandex.Metrica, and other service connections do not support SQL queries.
 
-* SQL charts are currently available on non-public dashboards only. If you open a [public dashboard](../../datalens/concepts/datalens-public.md), you will see an error in the chart.
+* QL charts are currently available on non-public dashboards only. If you open a [public dashboard](../../datalens/concepts/datalens-public.md), you will see an error in the chart.
 
 {% endnote %}
 
@@ -30,11 +30,11 @@ To visualize and analyze data, make sure you have a [ready-to-use cloud](#before
 
 {% include [datalens-create-sample-connection](../datalens/operations/datalens-create-sample-connection.md) %}
 
-## Create a SQL chart {#create-sql-chart}
+## Create a QL chart {#create-sql-chart}
 
 1. Go to an existing database connection.
 1. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
-1. In the upper right-hand corner, click **Create SQL chart**.
+1. In the upper right-hand corner, click **Create QL-chart**.
 1. On the **Query** tab, enter the query code:
 
    ```sql
@@ -87,7 +87,7 @@ To visualize and analyze data, make sure you have a [ready-to-use cloud](#before
 
 1. In the upper right-hand corner, click **Save**.
 
-You can place the chart created on the dashboard. You can also add a selector to the dashboard to control the SQL chart `status` parameter.
+You can place the chart created on the dashboard. You can also add a selector to the dashboard to control the QL chart `status` parameter.
 
 ## Create a dashboard {#create-dashboard}
 
@@ -102,7 +102,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add your charts to
 
    The dashboard created will open for editing.
 
-## Add a SQL chart to your dashboard {#add-sql-chart-to-dashboard}
+## Add a QL chart to your dashboard {#add-sql-chart-to-dashboard}
 
 1. At the top of the page, click **Add** and select **Chart**.
 
@@ -167,5 +167,5 @@ Add a [selector](../../datalens/concepts/dashboard.md#selector) to be able to fi
 
 - [{#T}](../../datalens/operations/dashboard/add-chart.md)
 - [{#T}](../../datalens/operations/dashboard/add-selector.md)
-- [SQL charts](../../datalens/concepts/chart/index.md#sql-charts)
+- [QL charts](../../datalens/concepts/chart/index.md#sql-charts)
 

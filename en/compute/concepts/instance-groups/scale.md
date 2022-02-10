@@ -23,6 +23,8 @@ This is done to ensure that the average metric value within the same [availabili
 
 > For example, there are 4 instances in an availability zone with an average metric value of 70 and target value of 80. {{ ig-name }} doesn't reduce the group size, because as you delete an instance, the average value surpasses the target value: 4 × 70 / 3 = 93.3. When the average value drops to 60, {{ ig-name }} deletes one instance since the average value doesn't surpass the target: 4 × 60 / 3 = 80.
 
+If multiple metrics are specified in the settings, then the largest estimated VM instance group size is used.
+
 For automatically scaled groups, assign [common scaling settings](#auto-scale-settings) and [metric](#metrics) settings.
 
 ### Type of automatic scaling {#auto-scale-type}
@@ -84,7 +86,7 @@ After the number of instances is calculated and changed (if necessary), {{ ig-na
 
 #### Monitoring metrics {#monitoring-metrics}
 
-You can use any {{ monitoring-name }} metrics for automatic scaling in {{ ig-name }}.
+You can use up to any three {{ monitoring-name }} metrics for automatic scaling in {{ ig-name }}.
 
 When using monitoring metrics, specify the following in {{ ig-name }}:
 

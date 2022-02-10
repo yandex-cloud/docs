@@ -161,7 +161,7 @@ items:
         href: datalens/data-from-appmetrica-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcast authors)
         href: datalens/data-from-podcasts.md
-      - name: Visualizing data with a SQL chart
+      - name: Visualizing data with a QL chart
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Mobile app customer journey analytics based on AppMetrica data
         href: datalens/data-from-appmetrica-yc-visualization.md

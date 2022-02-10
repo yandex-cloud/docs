@@ -46,7 +46,7 @@ items:
           - name: Encrypting data using Google Tink
             href: solutions/encrypt/google-tink.md
       - name: Encrypting secrets in Managed Service for Kubernetes
-        href: solutions/k8s.md
+        href: solutions/kubernetes.md
       - name: KMS key management with Hashicorp Terraform
         href: solutions/terraform-key.md
       - name: Encrypting secrets in Hashicorp Terraform

@@ -149,7 +149,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
   1. Make sure the resource doesn't have any roles that you don't want to lose:
 
       ```
-      $ yc resource-manager folder list-access-binding my-folder
+      $ yc resource-manager folder list-access-bindings my-folder
       ```
   2. For example, assign a role to multiple users:
 

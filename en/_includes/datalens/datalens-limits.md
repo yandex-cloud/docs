@@ -34,4 +34,5 @@ You can change the number of data rows per response in request parameters, for e
 | Point map | 40,000 |
 | Choropleth map | 40,000 |
 | Heat map | 40,000 |
+| Polyline map | 40,000 |
 

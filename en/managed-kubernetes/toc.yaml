@@ -15,16 +15,16 @@ items:
         href: operations/node-connect-ssh.md
       - name: Creating a configuration file
         href: operations/create-static-conf.md
+      - name: Working with {{ marketplace-name }}
+        href: operations/marketplace.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a Kubernetes cluster
             href: operations/create-load-balancer.md
-          - name: Configuring the Cilium network policy controller
-            href: operations/cilium.md
-          - name: Using Kubernetes cluster network policies
-            href: operations/running-network-policy.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
+          - name: Configuring the Cilium network policy controller
+            href: operations/cilium.md
       - name: Encrypting secrets
         href: operations/encrypting-secrets.md
       - name: Working with persistent volumes
@@ -97,6 +97,8 @@ items:
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
+      - name: Encrypting secrets
+        href: concepts/encryption.md
       - name: Using Kubernetes API objects
         items:
           - name: Volumes
@@ -113,7 +115,7 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
-      - name: Kubernetes cluster network policies
+      - name: Network settings and cluster policies
         href: concepts/network-policy.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -192,5 +194,7 @@ items:
               - name: list
                 href: api-ref/Version/list.md
   - name: Questions and answers
-    href: qa/index.md
+    items:
+      - name: General questions
+        href: qa/index.md
 base: en/managed-kubernetes

@@ -5,7 +5,7 @@ _Charts_ are the visualization of data from a dataset in the form of a table, di
 {{ datalens-short-name }} includes two types of charts:
 
 * [Dataset-based charts](#dataset-based-charts)
-* [SQL charts](#sql-charts)
+* [QL charts](#sql-charts)
 
 ## Dataset-based charts {#dataset-based-charts}
 
@@ -62,15 +62,15 @@ Working with linked datasets in geovisualizations on different layers:
 * Filters in the **Layer filters** section that use non-linked dimensions only apply to their own dataset within the current layer.
 * There are no restrictions on using non-linked dimensions in different layers.
 
-## SQL charts {#sql-charts}
+## QL charts {#sql-charts}
 
-_SQL charts_ are charts created from a connection if the connection target is a database. Use a SQL query to build these charts. The query is executed using the original database's SQL flavor, which helps expand visualization capabilities by using database-specific transactions.
+_QL charts_ are charts created from a connection if the connection target is a database. Use a SQL query to build these charts. The query is executed using the original database's SQL flavor, which helps expand visualization capabilities by using database-specific transactions.
 
 Executing a SQL query does not set up a separate [Dataset](../dataset/index.md) object, but rather generates one on the fly and displays it in the preview panel.
 
-Unlike [regular charts](#dataset-based-charts), the logic of using the wizard in SQL charts favors the SQL query, that is, the wizard only displays data from a query.
+Unlike [regular charts](#dataset-based-charts), the logic of using the wizard in QL charts favors the SQL query, that is, the wizard only displays data from a query.
 
-SQL chart features:
+QL chart features:
 
 * They reduce database workload by using direct queries.
 * They are only suitable for `SELECTs`.
@@ -83,7 +83,7 @@ SQL chart features:
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
 
-To create a SQL chart, see the [instructions](../../operations/chart/create-sql-chart.md).
+To create a QL chart, see the [instructions](../../operations/chart/create-sql-chart.md).
 
 ## Publishing a chart {#public-access}
 

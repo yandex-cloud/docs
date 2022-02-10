@@ -26,6 +26,7 @@ title: "Обеспечение доступа к приложению, запу�
 * [Создайте сервис типа LoadBalancer с публичным IP-адресом](#lb-create)
 * [Создайте сервис типа LoadBalancer с внутренним IP-адресом](#lb-int-create)
 * [Параметры loadBalancerIP и externalTrafficPolicy](#advanced)
+* (Опционально) [{#T}](#network-policy)
 
 ## Создайте простое приложение {#simple-app}
 
@@ -87,7 +88,7 @@ title: "Обеспечение доступа к приложению, запу�
 
      Результат выполнения команды:
 
-     ```bash
+     ```text
      Name:                   hello
      Namespace:              default
      CreationTimestamp:      Wed, 28 Oct 2020 23:15:25 +0300
@@ -187,17 +188,17 @@ title: "Обеспечение доступа к приложению, запу�
 
      Результат выполнения команды:
 
-     ```bash
+     ```text
      Name:                     hello
      Namespace:                default
      Labels:                   <none>
-     Annotations:              Selector:  app=hello
+     Annotations:              Selector: app=hello
      Type:                     LoadBalancer
      IP:                       172.20.169.7
      LoadBalancer Ingress:     130.193.50.111
-     Port:                     plaintext  80/TCP
+     Port:                     plaintext 80/TCP
      TargetPort:               8080/TCP
-     NodePort:                 plaintext  32302/TCP
+     NodePort:                 plaintext 32302/TCP
      Endpoints:                10.1.130.4:8080
      Session Affinity:         None
      External Traffic Policy:  Cluster
@@ -225,7 +226,7 @@ title: "Обеспечение доступа к приложению, запу�
 
      Результат выполнения команды:
 
-     ```bash
+     ```text
      Hello, world!
      Running in 'hello-74c9c1b238-c1rpa'
      ```
@@ -236,7 +237,7 @@ title: "Обеспечение доступа к приложению, запу�
 
 {% note info %}
 
-[Внутренний сетевой балансировщик нагрузки](../../network-load-balancer/concepts/internal-load-balancer) находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+[Внутренний сетевой балансировщик нагрузки](../../network-load-balancer/concepts/internal-load-balancer.md) находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
@@ -324,4 +325,72 @@ apiVersion: v1
 
    Минимальное значение — `2`, максимальное значение — `10`.
 
-Подробнее см. в разделе [{#T}](../../network-load-balancer/concepts/health-check.md).
+Подробнее см. в [документации {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/health-check.md).
+
+## Создайте объект NetworkPolicy {#network-policy}
+
+Для подключения к сервисам, опубликованным через {{ network-load-balancer-full-name }}, с определенных IP-адресов, в кластере должны быть включены [сетевые политики](../concepts/network-policy.md). Для настройки доступа через балансировщик создайте объект [NetworkPolicy]({{ k8s-api-link }}#netowrkpolicy-v1-networking-k8s-io) с политикой типа `Ingress`:
+
+```yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: <имя политики>
+  namespace: <пространство имен>
+spec:
+  podSelector:
+    <правила фильтрации подов>
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 198.18.235.0/24
+    - ipBlock:
+        cidr: 198.18.248.0/24
+    - ipBlock:
+        cidr: <диапазон адресов, с которых разрешен доступ к балансировщику>
+    ...
+    - ipBlock:
+        cidr: <диапазон адресов, с которых разрешен доступ к балансировщику>
+```
+
+Где:
+* `metadata.name` — имя политики.
+* `metadata.namespace` — [пространство имен](../concepts/index.md#namespace).
+* `spec.podSelector` — правила фильтрации [подов](../concepts/index.md#pod).
+* `spec.policyTypes` — тип политики. Укажите значение `Ingress`.
+* `spec.ingress.from.ipBlock.cidr` — диапазоны адресов, с которых разрешен доступ к балансировщику.
+
+  Диапазоны `198.18.235.0/24` и `198.19.248.0/24` [зарезервированы {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/health-check.md) для проверки состояния узлов. Их указание в настройках объекта NetworkPolicy обязательно.
+
+{% cut "Пример настройки объекта NetworkPolicy" %}
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: whitelist-netpol
+  namespace: ns-example
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    # Диапазоны адресов, используемые балансировщиком для проверки состояния узлов.
+    - ipBlock:
+        cidr: 198.18.235.0/24
+    - ipBlock:
+        cidr: 198.18.248.0/24
+    # Диапазоны адресов подов.
+    - ipBlock:
+        cidr: 172.16.1.0/12
+    - ipBlock:
+        cidr: 172.16.2.0/12
+```
+
+{% endcut %}

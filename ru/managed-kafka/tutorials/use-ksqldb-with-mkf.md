@@ -1,6 +1,6 @@
 # Поставка данных в ksqlDB
 
-ksqlDB — это база данных, которая предназначена для потоковой обработки сообщений, поступающих из топиков {{ KF }}. Работа с потоком сообщений в ksqlDB похожа на работу с таблицами в обычной базе данных. Таблица ksqlDB автоматически пополняется данными, поступающими из топика, а данные, которые вы добавите в таблицу ksqlDB, отправляются топик {{ KF }}. Подробнее см. [в документации ksqlDB](https://docs.ksqldb.io/en/latest).
+ksqlDB — это база данных, которая предназначена для потоковой обработки сообщений, поступающих из топиков {{ KF }}. Работа с потоком сообщений в ksqlDB похожа на работу с таблицами в обычной базе данных. Таблица ksqlDB автоматически пополняется данными, поступающими из топика, а данные, которые вы добавите в таблицу ksqlDB, отправляются в топик {{ KF }}. Подробнее см. в [документации ksqlDB](https://docs.ksqldb.io/en/latest).
 
 Чтобы настроить поставку данных из {{ mkf-name }} в ksqlDB:
 1. [Настройте интеграцию с {{ KF }} для базы ksqlDB](#configure-ksqldb-for-kf).
@@ -9,6 +9,8 @@ ksqlDB — это база данных, которая предназначен
 1. [Получите тестовые данные из кластера {{ mkf-name }}](#get-data-from-kf)
 1. [Запишите тестовые данные в ksqlDB](#insert-data-to-ksqldb).
 1. [Проверьте наличие тестовых данных в топике {{ KF }}](#fetch-data-from-kf).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -37,7 +39,7 @@ ksqlDB — это база данных, которая предназначен
 1. Установите утилиту для потоковой обработки JSON-файлов [jq](https://stedolan.github.io/jq/) на сервер ksqlDB. 
 
 
-## Настройте интеграцию с {{ KF }} для сервера ksqlDB {#configure-ksqldb-for-kf}
+## Настройте интеграцию с {{ KF }} для базы ksqlDB {#configure-ksqldb-for-kf}
 
 1. Подключитесь к серверу ksqlDB.
 1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы ksqlDB мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для дополнительной защиты хранилища:
@@ -51,21 +53,23 @@ ksqlDB — это база данных, которая предназначен
 
 1. Укажите в файле конфигурации ksqlDB `/etc/ksqldb/ksql-server.properties` данные для аутентификации в кластере {{ mkf-name }}:
    
-   ```bash
+   ```ini
    bootstrap.servers=<FQDN брокера 1:9091, ..., FQDN брокера N:9091>
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/ksqldb/ssl
    ssl.truststore.password=<пароль хранилища сертификатов>
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<пароль пользователя ksql>";
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<пароль учетной записи ksql>";
    ```
    
    FQDN брокеров можно запросить со [списком хостов в кластере](../operations/cluster-hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
 
-1. Перезапустите сервис ksqlDB командой
+1. Перезапустите сервис ksqlDB командой:
 
-    `systemctl restart confluent-ksqldb.service`
-    
+    ```bash
+    sudo systemctl restart confluent-ksqldb.service
+    ````
+
 ## Изучите формат данных, поступающих от {{ mkf-name }} {#explore-kf-data-format}
 
 Обработка потока данных из {{ mkf-name }} зависит от формата представления в сообщении {{ KF }}.
@@ -85,13 +89,15 @@ ksqlDB — это база данных, которая предназначен
 
 Далее выполним настройку полей потоковой таблицы в базе ksqlDB.
 
-## Создайте таблицу ksqlDB для данных из {{ KF }} {#create-kf-table}
+## Создайте в ksqlDB таблицу для записи потока данных из топика {{ KF }} {#create-kf-table}
 
 Чтобы записывать информацию из топика {{ KF }}, создайте в базе ksqlDB таблицу. Структура таблицы соответствует [формату данных](#explore-kf-data-format), которые поступают из {{ mkf-name }}:
 1. Подключитесь к серверу ksqlDB.
 1. Запустите клиент `ksql` командой:
 
-   `ksql http://0.0.0.0:8088`
+   ```bash
+   ksql http://0.0.0.0:8088
+   ```
   
 1. Выполните запрос:
 
@@ -157,15 +163,15 @@ ksqlDB — это база данных, которая предназначен
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
-      -X sasl.password="<пароль пользователя ksql>" \
+      -X sasl.password="<пароль учетной записи ksql>" \
       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
    ```
 
-   Информация отправляется с помощью [учетной записи `ksql`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../operations/connect.md).
+   Информация отправляется с помощью учетной записи `ksql`. Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../operations/connect.md).
    
 1. Убедитесь, что в [сессии](#create-kf-table) отобразились данные, которые были отправлены в топик:
     
-   ```bash
+   ```text
    +--------------------------+--------------------------+------------------------+
    |PROFILEID                 |LATITUDE                  |LONGITUDE               |
    +--------------------------+--------------------------+------------------------+
@@ -173,14 +179,16 @@ ksqlDB — это база данных, которая предназначен
    |4a7c7b41                  |37.4049                   |-122.0822               |
    ```
     
-  Данные считываются с помощью [учетной записи `ksql`](#before-you-begin).
+  Данные считываются с помощью учетной записи `ksql`.
 
 ## Запишите тестовые данные в ksqlDB {#insert-data-to-ksqldb}
 
 1. Подключитесь к серверу ksqlDB.
 1. Запустите клиент `ksql` командой:
 
-   `ksql http://0.0.0.0:8088`
+   ```bash
+   ksql http://0.0.0.0:8088
+   ```
   
 1. Вставьте тестовые данные в таблицу `riderLocations`:
     
@@ -190,12 +198,12 @@ ksqlDB — это база данных, которая предназначен
    INSERT INTO riderLocations (profileId, latitude, longitude) VALUES ('4ddad000', 37.7857, -122.4011);
    ```
    
-   Эти данные синхронно отправляются в топик {{ KF }} `locations` с помощью [учетной записи `ksql`](#before-you-begin).
+   Эти данные синхронно отправляются в топик {{ KF }} `locations` с помощью учетной записи `ksql`.
    
 ## Проверьте наличие тестовых данных в топике {{ KF }} {#fetch-data-from-kf}
    
 1. Подключитесь к серверу ksqlDB.
-1. Проверьте сообщения в топике `locations` кластера {{ mkf-name }} с помощью `kafkacat` и [учетной записи `ksql`](#before-you-begin):
+1. Проверьте сообщения в топике `locations` кластера {{ mkf-name }} с помощью `kafkacat` и учетной записи `ksql`:
 
    ```bash
    kafkacat -C  \
@@ -204,10 +212,16 @@ ksqlDB — это база данных, которая предназначен
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
-    -X sasl.password="<пароль пользователя ksql>" \
+    -X sasl.password="<пароль учетной записи ksql>" \
     -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:   
    ```
 
 1. Убедитесь, что в консоли отображаются сообщения, которые вы [записали в таблицу](#insert-data-to-ksqldb). 
 
-Подробнее о работе с потоковыми данными, поставляемыми из {{ KF }}, см. [в документации ksqlDB](https://docs.ksqldb.io/en/latest/concepts/stream-processing/).
+## Удалите созданные ресурсы {#clear-out}
+
+Если созданные ресурсы вам больше не нужны, удалите их:
+
+* [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
+* Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+* [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).

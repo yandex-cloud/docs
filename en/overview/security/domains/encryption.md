@@ -171,7 +171,7 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
 
 - [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
 
-   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using KMS. To enable secret encryption, specify the KMS key when creating a Kubernetes cluster. You can't add the key when you edit the cluster. For more information, see [{#T}](../../../kms/solutions/k8s.md) in the KMS documentation.
+   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using KMS. To enable secret encryption, specify the KMS key when creating a Kubernetes cluster. You can't add the key when you edit the cluster. For more information, see [{#T}](../../../kms/solutions/kubernetes.md) in the KMS documentation.
 
 - {{ lockbox-name }}.
 

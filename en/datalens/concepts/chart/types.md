@@ -122,7 +122,7 @@ Normalized bar chart that shows the ratio of measures.
 
 ### Scatter chart {#scatter-chart}
 
-Displays data points for comparing pairs of values. Not supported in [SQL charts](./index.md#sql-charts).
+Displays data points for comparing pairs of values. Not supported in [QL charts](./index.md#sql-charts).
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
@@ -147,7 +147,7 @@ Displays the size of elements in a single data series relative to the sum of ele
 
 ### Ring chart {#ring-chart}
 
-Displays the size of elements in a single data series relative to the sum of elements as a ring. The number in the center of the ring depends on the type of indicator aggregation. Not supported in [SQL charts](./index.md#sql-charts).
+Displays the size of elements in a single data series relative to the sum of elements as a ring. The number in the center of the ring depends on the type of indicator aggregation. Not supported in [QL charts](./index.md#sql-charts).
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
@@ -185,7 +185,7 @@ Displays data in table format, where the first row defines the names of fields a
 
 ### Pivot table {#pivot-table}
 
-Displays data in table format, where rows and columns may contain dimension values and cells at their intersection may contain measures. Not supported in [SQL charts](./index.md#sql-charts).
+Displays data in table format, where rows and columns may contain dimension values and cells at their intersection may contain measures. Not supported in [QL charts](./index.md#sql-charts).
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
@@ -203,6 +203,7 @@ Map supports three types of visualization:
 * [Point map](#point-map-chart)
 * [Choropleth map](#choropleth-map-chart)
 * [Heat map](#heat-map-chart)
+* [Polyline map](#polyline-map-chart)
 
 You can place no more than 5 layers with any visualization type on a map. Layers in the **Map** chart are called geolayers.
 
@@ -216,7 +217,7 @@ You can do the following operations with geolayers:
 
 You can purchase pre-calculated geolayers from partners in {{ marketplace-name }}.
 
-Not supported in [SQL charts](./index.md#sql-charts).
+Not supported in [QL charts](./index.md#sql-charts).
 
 ### Point map {#point-map-chart}
 

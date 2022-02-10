@@ -144,7 +144,7 @@
 
   1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
       ```
-      $ yc resource-manager folder list-access-binding my-folder
+      $ yc resource-manager folder list-access-bindings my-folder
       ```
   2. Например, назначьте роль нескольким пользователям:
       ```

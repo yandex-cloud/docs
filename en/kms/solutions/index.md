@@ -6,7 +6,7 @@ description: 'Different scenarios for using Yandex Key Management Service in the
 # Usage cases Yandex Key Management Service
 
 * [Data encryption](encrypt/index.md)
-* [{#T}](k8s.md)
+* [{#T}](kubernetes.md)
 * [{#T}](terraform-key.md)
 * [{#T}](terraform-secret.md)
 * [{#T}](vault-secret.md)

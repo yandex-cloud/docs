@@ -8,7 +8,7 @@
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../../../resource-manager/operations/folder/create.md).
-1. Установите [{{ k8s }} CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+1. Установите [{{ k8s }} CLI (kubectl)](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/).
 1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
 1. Если у вас еще нет сети, [создайте ее](../../../vpc/operations/network-create.md).
 1. Если у вас еще нет подсетей, [создайте их](../../../vpc/operations/subnet-create.md) в зонах доступности, где будут созданы кластер {{ k8s }} и группа узлов.
