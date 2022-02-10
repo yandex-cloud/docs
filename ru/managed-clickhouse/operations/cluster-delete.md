@@ -39,4 +39,10 @@ description: "После удаления кластера баз данных C
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
+- API
+
+    Воспользуйтесь методом API [delete](../api-ref/Cluster/delete.md): передайте идентификатор требуемого кластера в параметре `clusterId` запроса.
+
+    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}
