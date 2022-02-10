@@ -49,9 +49,9 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
     1. [Create a table chart](#creating-table-chart)
 
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard)
-1. [Customer journey. Create an SQL chart and a Sankey chart](#customer-journey)
+1. [Customer journey. Create an QL chart and a Sankey chart](#customer-journey)
 
-    1. [Create an SQL chart in {{ datalens-short-name }}](#creating-sql-chart)
+    1. [Create an QL chart in {{ datalens-short-name }}](#creating-sql-chart)
     1. [Create a Sankey chart in {{ ml-platform-short-name }}](#creating-sankey-chart)
 
 ## Before you start {#before-you-begin}
@@ -273,15 +273,15 @@ To set up the connection and export the data from your app, use the instructions
 
 Try to change **event name** in the selector to another value to see how the dashboard changes.
 
-## 6. Customer journey. Create an SQL chart and a Sankey chart {#customer-journey}
+## 6. Customer journey. Create an QL chart and a Sankey chart {#customer-journey}
 
-### 6.1. Create an SQL chart in {{ datalens-short-name }} {#creating-sql-chart}
+### 6.1. Create an QL chart in {{ datalens-short-name }} {#creating-sql-chart}
 
-Use SQL charts to research event sequences and experiment in {{ datalens-short-name }}.
+Use QL charts to research event sequences and experiment in {{ datalens-short-name }}.
 
 1. Open the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
 1. Select the `AppMetrica_workshop` connection that you created in [4.2](#creation-datalens-connection-to-ch).
-1. At the top right, click **Create SQL-chart**.
+1. At the top right, click **Create QL-chart**.
 1. Enter the query:
 
      ```sql
@@ -331,7 +331,7 @@ Use SQL charts to research event sequences and experiment in {{ datalens-short-n
    ![image](../../_assets/datalens/solution-13/14-bar-chart.png)
 
 1. In the upper-right corner, click **Save**, then enter the chart name `Event chains`.
-1. Add the SQL chart to your dashboard.
+1. Add the QL chart to your dashboard.
 
    1. In the menu on the left, click **Dashboards**.
    1. Select the **auto.ru app** dashboard from the list.

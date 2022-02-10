@@ -2,7 +2,7 @@
 
 When creating an instance group, you can choose how to increase and decrease the number of instances in the group.
 
-The policy is defined in the `scale-policy` key in the YAML file.
+The policy is defined in the `scale_policy` key in the YAML file.
 
 ## fixed_scale {#fixed-scale-policy}
 
@@ -31,12 +31,14 @@ Keys:
 
 The `auto_scale` key defines an automatically scalable instance group. The initial size of the group is defined in the `initial_size` key. You can create a group with the desired number of instances within the available [quotas and limits](../../limits.md).
 
+The VM instance group will be scaled based on specified metrics: [CPU utilization](../scale.md#cpu-utilization) (the `cpu_utilization_rule` key) and/or metrics from [{{ monitoring-full-name }}](../scale.md#monitoring-metrics). If multiple metrics are specified in the file, then the largest estimated VM instance group size is used.
+
 Example of a YAML file entry:
 
 ```yaml
 scale_policy:
   auto_scale:
-    auto_scale_type: ZONAL
+    auto_scale_type: REGIONAL
     initial_size: 5
     max_size: 15
     min_zone_size: 3
@@ -45,6 +47,13 @@ scale_policy:
     stabilization_duration: 120
     cpu_utilization_rule:
       utilization_target: 75
+    custom_rules:
+    - rule_type: WORKLOAD
+      metric_type: GAUGE
+      metric_name: queue.messages.stored_count
+      labels:
+        queue: dj600000000220a507nq
+      target: 5
 ```
 
 Keys:
@@ -61,6 +70,12 @@ Keys:
 | `stabilization_duration` | Stabilization period. After the number of VMs increases, the group size does not decrease until the end of a stabilization period even if the average value of the metric has dropped below `cpu_utilization_rule.utilization_target`.<br>Valid values are between 60 and 1800 seconds. |
 | `cpu_utilization_rule` | Sets the target CPU utilization to run scaling based on the average CPU utilization in the instance group. |
 | `utilization_target` | Target CPU utilization to be supported by {{ ig-name }}.<br>If the average CPU utilization is below the target value, {{ ig-name }} will reduce the number of instances until it reaches `min_zone_size` in each availability zone.<br>If the average CPU utilization is higher than the target value, {{ ig-name }} will create instances until it reaches `max_size`.<br>Valid values are from 10 to 100. |
+| `custom_rules` | The list of [metrics from {{ monitoring-full-name }}](../scale.md#monitoring-metrics) for automatic scaling. It can include up to three metrics. |
+| `rule_type` | Type of metric rule:<ul><li>`UTILIZATION` for metrics of resource utilization per VM instance;</li><li>`WORKLOAD` for metrics of the total workload on all VM instances.</li></ul>For more information, see [{#T}](../scale.md#monitoring-metrics). |
+| `metric_type` | Type of metric:<ul><li>the`GAUGE` metric reflects the indicator value at a certain point in time;</li><li>the`COUNTER` metric grows uniformly over time.</li></ul>For more information, see [{#T}](../scale.md#monitoring-metrics). |
+| `metric_name` | The name of the metric from {{ monitoring-name }}. |
+| `labels` | [Labels](../../../../monitoring/concepts/data-model.md#label) of a metric from {{ monitoring-name }}. |
+| `target` | The target metric value by which {{ ig-name }} calculates the number of VM instances needed. For more information, see [{#T}](../scale.md#monitoring-metrics). |
 
 \* Required field.
 
@@ -83,20 +98,5 @@ scale_policy:
       utilization_target: 75
 ```
 
-Keys:
+The same keys are used for `test_auto_scale`, [as for `auto_scale`](#auto-scale-policy).
 
-| Key | Value |
-| --- | --- |
-| `fixed_scale` | A group of fixed-size instances. |
-| `size`* | Number of instances in the group.<br>Valid values are from 0 to 100. |
-| `test_auto_scale` | Test auto scaling parameters. |
-| `initial_size`* | Initial number of instances in the group. It's only used for validating the parameters of the group being created.<br>Valid values are from 1 to 100. |
-| `max_size` | Maximum number of instances in the group.<br>Valid values are from 0 to 100. |
-| `min_zone_size` | Minimum number of instances in one availability zone.<br>Valid values are from 0 to 100. |
-| `measurement_duration`* | Time in seconds allotted for averaging metrics based on CPU load. If the average load at the end of the interval is higher than `cpu_utilization_rule.utilization_target`, {{ ig-name }} increases the number of instances in the group.<br>Valid values are from 60 to 600 seconds. |
-| `warmup_duration`* | Warm-up period for the instance. During this time, traffic is sent to the instance, but CPU utilization metrics aren't considered.<br>Valid values are from 0 to 600 seconds. |
-| `stabilization_duration` | The minimum amount of time to monitor CPU utilization before {{ ig-name }} can reduce the number of instances in the group. During this time, the group is not resized, even if the average CPU utilization drops below the `cpu_utilization_rule.utilization_target` value.<br>Valid values are from 60 to 1800 seconds. |
-| `cpu_utilization_rule`* | Sets the target CPU utilization to run scaling based on the average CPU utilization in the instance group. |
-| `utilization_target`* | Target CPU utilization to be supported by {{ ig-name }}.<br>If the average CPU utilization is below the target value, {{ ig-name }} will reduce the number of instances until it reaches `min_zone_size` in each availability zone.<br>If the average CPU utilization is higher than the target value, {{ ig-name }} will create instances until it reaches `max_size`.<br>Valid values are from 10 to 100. |
-
-\* Required field.

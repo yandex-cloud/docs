@@ -27,7 +27,7 @@ items:
         href: solutions/data-from-appmetrica-visualization.md
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         href: solutions/data-from-podcasts.md
-      - name: Визуализация данных с помощью SQL-чарта
+      - name: Визуализация данных с помощью QL-чарта
         href: solutions/data-from-ch-to-sql-chart.md
       - name: Построение чартов customer journeys на данных AppMetrica
         href: solutions/data-from-appmetrica-yc-visualization.md
@@ -159,7 +159,7 @@ items:
             href: operations/chart/create-indicator-chart.md
           - name: Создание древовидной диаграммы
             href: operations/chart/create-tree-chart.md
-          - name: Создание SQL-чарта
+          - name: Создание QL-чарта
             href: operations/chart/create-sql-chart.md
           - name: Создание мультидатасетного чарта
             href: operations/chart/create-multidataset-chart.md
@@ -647,6 +647,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Invalid user token
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md

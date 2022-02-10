@@ -320,16 +320,19 @@ GET foo
     );
 
     cluster.on("ready", () => {
-        cluster.set("foo", "bar");
-        cluster.get("foo", (err, result) => {
-            if (err){
-                console.error(err);
-            } else {
-                console.log(result);
+        Promise.all([
+            cluster.set("foo", "bar"),
+            cluster.get("foo")
+        ]).then(
+            (result) => {
+                console.log(result[1]); // result == ["OK", "bar"]
+                cluster.disconnect();
+            },
+            (reject) => {
+                console.log(reject);
+                cluster.disconnect();
             }
-        });
-
-        cluster.disconnect();
+        );
     });
     ```
 
@@ -368,9 +371,20 @@ GET foo
         }
     );
 
-    cluster.set("foo", "bar");
-    cluster.get("foo", (err, res) => {
-        console.log(res);
+    cluster.on("ready", () => {
+        Promise.all([
+            cluster.set("foo", "bar"),
+            cluster.get("foo")
+        ]).then(
+            (result) => {
+                console.log(result[1]); // result == [ "OK", "bar"]
+                cluster.disconnect();
+            },
+            (reject) => {
+                 console.log(reject);
+                 cluster.disconnect();
+            }
+        );
     });
     ```
 

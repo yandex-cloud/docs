@@ -1,9 +1,31 @@
 title: Managed Service for Kubernetes
 description:
   - >-
-    Managed Service for Kubernetes provides an environment for easy management
-    of containerized applications using Kubernetes based on the Yandex.Cloud
-    infrastructure.
+    Managed Service for Kubernetes provides an environment for managing
+    containerized applications in the Yandex.Cloud infrastructure. Deploy,
+    scale, and manage applications in containers using Kubernetes.
+  - >-
+    You can provide access to applications using various public and internal <a
+    href="https://cloud.yandex.com/en/docs/managed-kubernetes/concepts/service/">services</a>,
+    as well as <a
+    href="https://cloud.yandex.com/en/docs/managed-kubernetes/operations/marketplace">Cloud
+    Marketplace applications</a>. All data is securely stored and replicated in
+    the Yandex.Cloud infrastructure, but you can create additional backups of
+    Kubernetes data and store them in <a
+    href="https://cloud.yandex.com/en/docs/storage/">Object Storage</a> or
+    another storage. To manage Kubernetes, use the <a
+    href="https://kubernetes.io/docs/tasks/tools/install-kubectl">kubectl</a>
+    command shell.
+  - >-
+    The Yandex.Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
+    in accordance with the Russian Federal Law "On Personal Data" 152-FZ.
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla/">Service Level Agreement</a>. The
+    service level is defined in <a
+    href="https://yandex.com/legal/cloud_sla_compute/">Yandex Compute Cloud
+    Service Level</a>.
 meta:
   title: Managed Service for Kubernetes
 links:

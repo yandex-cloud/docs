@@ -113,6 +113,8 @@ items:
         href: dataplatform/confluent-schema-registry.md
       - name: Поставка данных с помощью Debezium
         href: dataplatform/kafka-cdc.md
+      - name: Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop
+        href: dataplatform/sqoop.md
       - name: Миграция базы данных из Yandex Managed Service for MySQL в MySQL
         href: dataplatform/mmy-to-mysql-migration.md
       - name: Миграция базы данных в Managed Service for Microsoft SQL Server
@@ -181,7 +183,7 @@ items:
         href: datalens/data-from-appmetrica-visualization.md
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         href: datalens/data-from-podcasts.md
-      - name: Визуализация данных с помощью SQL-чарта
+      - name: Визуализация данных с помощью QL-чарта
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Анализ customer journey мобильного приложения на данных AppMetrica
         href: datalens/data-from-appmetrica-yc-visualization.md

@@ -169,6 +169,36 @@ Source: https://logging.apache.org/log4j/2.x/security.html
 
 Hystax Acura controller (or respective Load Balancer in case of HA deployment): allow ingress traffic for UDP-port 12201 only for a list of known source IP ranges where replication agents work.
 
+## 12.11.2021: CVE-2021-22205: Remote code execution via a vulnerability in {{ GL }}
+
+### Description
+
+In {{ GL }} versions starting from 11.9, a [security issue](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22205) was discovered, which resulted in a remote command execution. An attack may be carried out by sending two requests that require no authentication.
+
+The vulnerability is caused by not properly validating uploaded image files by an external file parser using the ExifTool library ([CVE-2021-22204](https://security-tracker.debian.org/tracker/CVE-2021-22204)).
+
+The issue is fixed in {{ GL }} versions 13.10.3, 13.9.6, and 13.8.8.
+
+### Impact on Yandex.Cloud services
+
+The vulnerability affects all {{ compute-full-name }} users using a deprecated {{ GL }} image from {{ marketplace-full-name }} or a custom image. These users need to upgrade {{ GL }} to the latest version.
+
+To fix the issue on the {{ yandex-cloud }} side, the following measures were taken:
+
+* The {{ GL }} image has temporarily been removed from {{ marketplace-full-name }} and will be updated to the current version.
+* Notifications with update recommendations were sent to all users using a deprecated {{ GL }} image.
+
+{{ mgl-full-name }} users are not affected by the vulnerability, since the service uses the current {{ GL }} version.
+
+### Compensatory measures
+
+If you're using a deprecated {{ GL }} image from {{ marketplace-full-name }} or a custom image, [update](https://about.gitlab.com/update) it to the latest version. If for some reason you can't update the {{ GL }} version, use a [hotpatch](https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918/2).
+
+### More information
+
+* [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
+* [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
+
 ## 12.10.2021: CVE-2021-25741: Risk of accessing a host's filesystem
 
 ### Description
@@ -190,7 +220,6 @@ We also recommend that you:
 * Disable running pods as root for untrusted uploads.
 
 To do this, you can use the following tools:
-
 * [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/users)
 * [Kyverno](https://kyverno.io/policies/pod-security/restricted/require-run-as-nonroot/require-run-as-nonroot/)
 
@@ -299,7 +328,6 @@ Original report from Netflix: [NFLX-2019-001](https://github.com/Netflix/securit
 Vulnerability analysis from Red Hat: [TCP SACK PANIC](https://access.redhat.com/security/vulnerabilities/tcpsack).
 
 ### Impact on {{ yandex-cloud }} services
-
 * The {{ yandex-cloud }} infrastructure was promptly protected and updated.
 * The OS images available to Yandex Compute Cloud users were updated as soon as the appropriate fixes became available. Therefore, the new VMs created in Yandex Compute Cloud are not vulnerable to those vulnerabilities.
 
@@ -308,13 +336,11 @@ Vulnerability analysis from Red Hat: [TCP SACK PANIC](https://access.redhat.com/
 ### Description
 
 List of domains included in Public Suffix List:
-
 * yandexcloud.net
 * storage.yandexcloud.net
 * website.yandexcloud.net
 
 Domains in the Public Suffix List get the properties of top-level domains, such as .ru or .com:
-
 * Browsers won't save the cookies set for the listed domains.
 * Browsers won't let anyone change the page's `Origin` request headers to root domains.
 
@@ -323,4 +349,3 @@ For more information, see [our blog](https://cloud.yandex.ru/blog/posts/2019/08/
 ### Impact on {{ yandex-cloud }} services
 
 These changes will improve the security for {{ yandex-cloud }} users.
-

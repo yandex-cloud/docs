@@ -228,7 +228,9 @@ items:
       - name: Обновление группы ВМ под нагрузкой
         href: solutions/updating-under-load.md
       - name: Развертывание Remote Desktop Gateway
-        href: solutions/rds-gw
+        href: solutions/rds-gw.md
+      - name: Передача логов с ВМ в Yandex Cloud Logging
+        href: solutions/vm-fluent-bit-logging.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

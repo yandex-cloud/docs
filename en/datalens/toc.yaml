@@ -29,7 +29,7 @@ items:
         href: solutions/data-from-appmetrica-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcast authors)
         href: solutions/data-from-podcasts.md
-      - name: Visualizing data with a SQL chart
+      - name: Visualizing data with a QL chart
         href: solutions/data-from-ch-to-sql-chart.md
       - name: Building customer journey charts based on AppMetrica data
         href: solutions/data-from-appmetrica-yc-visualization.md
@@ -157,7 +157,7 @@ items:
             href: operations/chart/create-indicator-chart.md
           - name: Creating a tree chart
             href: operations/chart/create-tree-chart.md
-          - name: Creating a SQL chart
+          - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
           - name: Adding a hierarchy
             href: operations/chart/add-hierarchy.md
