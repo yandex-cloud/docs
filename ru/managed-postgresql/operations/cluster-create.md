@@ -133,6 +133,7 @@
          --disk-size <объем хранилища, ГБ> \
          --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <список идентификаторов групп безопасности> \
+         --connection-pooling-mode=<режим работы менеджера соединений> \
          --deletion-protection=<защита от удаления кластера: true или false> \
          --serverless-access
       ```
@@ -156,6 +157,8 @@
       ```
 
   {% endif %}
+
+      Доступные [режимы работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -230,6 +233,11 @@
            disk_type_id       = "<тип хранилища>"
            disk_size          = <объем хранилища, ГБ>
          }
+         pooler_config {
+           pool_discard = <параметр Odyssey pool_discard: true или false>
+           pooling_mode = "<режим работы: SESSION, TRANSACTION или STATEMENT>"
+         }
+         ...
        }
 
        database {
