@@ -31,6 +31,8 @@ items:
         href: solutions/index.md
       - name: Передача логов кластера Yandex Managed Service for Kubernetes в Cloud Logging
         href: solutions/k8s-fluent-bit-logging.md
+      - name: Передача логов с ВМ в Cloud Logging
+        href: solutions/vm-fluent-bit-logging.md
   - name: Концепции
     items:
       - name: Лог-группа
