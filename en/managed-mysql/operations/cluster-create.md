@@ -268,7 +268,7 @@ If you specified security group IDs when creating a cluster, you may also need t
          --environment=production \
          --network-name=default \
          --security-group-ids {{ security-group }} \
-         --host zone-id={{ host-net-example }} \
+         --host {{ host-net-example }} \
          --resource-preset {{ host-class }} \
          --disk-type {{ disk-type-example }} \
          --disk-size 20 \
