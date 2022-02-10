@@ -11,6 +11,8 @@
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
+## Как создать кластер {{ mkf-name }} {#create-cluster}
+
 {% list tabs %}
 
 - Консоль управления
@@ -335,18 +337,18 @@
 
   ```bash
   {{ yc-mdb-kf }} cluster create \
-  --name mykf \
-  --environment production \
-  --version 2.6 \
-  --network-name {{ network-name }} \
-  --zone-ids {{ zone-id }} \
-  --brokers-count 1 \
-  --resource-preset {{ host-class }} \
-  --disk-size 10 \
-  --disk-type {{ disk-type-example }} \
-  --assign-public-ip \
-  --security-group-ids {{ security-group }} \
-  --deletion-protection=true
+     --name mykf \
+     --environment production \
+     --version 2.6 \
+     --network-name {{ network-name }} \
+     --zone-ids {{ zone-id }} \
+     --brokers-count 1 \
+     --resource-preset {{ host-class }} \
+     --disk-size 10 \
+     --disk-type {{ disk-type-example }} \
+     --assign-public-ip \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
   ```
 
   {% else %}

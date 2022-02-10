@@ -350,33 +350,33 @@
 
   ```bash
   {{ yc-mdb-pg }} cluster create \
-    --name mypg \
-    --environment production \
-    --network-name default \
-    --resource-preset {{ host-class }} \
-    --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
-    --disk-type {{ disk-type-example }} \
-    --disk-size 20 \
-    --user name=user1,password=user1user1 \
-    --database name=db1,owner=user1 \
-    --security-group-ids {{ security-group }} \
-    --deletion-protection=true
+     --name mypg \
+     --environment production \
+     --network-name default \
+     --resource-preset {{ host-class }} \
+     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+     --disk-type {{ disk-type-example }} \
+     --disk-size 20 \
+     --user name=user1,password=user1user1 \
+     --database name=db1,owner=user1 \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
   ```
 
   {% else %}
 
-  ```
+  ```bash
   {{ yc-mdb-pg }} cluster create \
-    --name mypg \
-    --environment production \
-    --network-id ' ' \
-    --host zone-id=man \
-    --resource-preset db1.micro \
-    --disk-type local-ssd \
-    --disk-size 20 \
-    --user name=user1,password=user1user1 \
-    --database name=db1,owner=user1 \
-    --security-group-ids {{ security-group }}
+     --name mypg \
+     --environment production \
+     --network-id ' ' \
+     --host zone-id=man \
+     --resource-preset db1.micro \
+     --disk-type local-ssd \
+     --disk-size 20 \
+     --user name=user1,password=user1user1 \
+     --database name=db1,owner=user1 \
+     --security-group-ids {{ security-group }}
   ```
 
   {% endif %}
