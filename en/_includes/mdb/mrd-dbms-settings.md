@@ -1,4 +1,4 @@
-* **Databases**{#settings-databases} {{ tag-con }} {{ tag-api }}
+* **Databases**{#settings-databases} {{ tag-all }}
 
     Number of databases.
 
@@ -14,7 +14,7 @@
 
     {% endnote %}
 
-* **Maxmemory policy**{#settings-maxmemory-policy} {{ tag-con }} {{ tag-api }}
+* **Maxmemory policy**{#settings-maxmemory-policy} {{ tag-all }}
 
     Memory management mode when there is not enough memory.
     * `volatile-lru`: Delete keys whose TTL has expired, starting with the least recently used (LRU) key.
@@ -28,7 +28,7 @@
 
     For more information, see the [{{ RD }} documentation](https://docs.redislabs.com/latest/rs/administering/database-operations/eviction-policy/).
 
-* **Notify keyspace events**{#settings-notify-keyspace-events} {{ tag-con }} {{ tag-api }}
+* **Notify keyspace events**{#settings-notify-keyspace-events} {{ tag-all }}
 
     Configure notifications about keyspace events.
 
@@ -41,7 +41,7 @@
 
     For a complete list of modifiers, see the [{{ RD }} documentation](http://redis.io/topics/notifications).
 
-* **Slowlog log slower than**{#settings-slowlog-slower-than} {{ tag-con }} {{ tag-api }}
+* **Slowlog log slower than**{#settings-slowlog-slower-than} {{ tag-all }}
 
     Queries that run longer than the specified time (in microseconds) are considered slow. These queries are logged to the slow log. If the value is `0`, all queries being run are logged there.
 
@@ -49,7 +49,7 @@
 
     For more information, see the [{{ RD }} documentation](https://redis.io/commands/slowlog).
 
-* **Slowlog max len**{#settings-slowlog-max-len} {{ tag-con }} {{ tag-api }}
+* **Slowlog max len**{#settings-slowlog-max-len} {{ tag-all }}
 
     Maximum number of entries in the slow queries log. When the log is at its maximum length, before inserting new entries, the oldest ones are removed.
 
@@ -57,7 +57,7 @@
 
     For more information, see the [{{ RD }} documentation](https://redis.io/commands/slowlog).
 
-* **Timeout**{#settings-timeout} {{ tag-con }} {{ tag-api }}
+* **Timeout**{#settings-timeout} {{ tag-all }}
 
     The time (in seconds) during which a connection to an inactive client is maintained.
 
