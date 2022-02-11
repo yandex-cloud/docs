@@ -24,7 +24,7 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
 - Terraform
 
-  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Before you start, [get an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli) for your service account and save it to a file.
 

@@ -20,9 +20,9 @@
 
 * [CLI](../../../cli/quickstart.md#initialize)
 * [Container Registry](../../../container-registry/operations/authentication.md#oauth)
-* [Terraform](../../../solutions/infrastructure-management/terraform-quickstart.md)
-* [Packer](../../../solutions/infrastructure-management/packer-quickstart.md)
-* [GitLab CI](../../../solutions/testing/ci-for-snapshots.md)
+* [Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [Packer](../../../tutorials/infrastructure-management/packer-quickstart.md)
+* [GitLab CI](../../../tutorials/testing/ci-for-snapshots.md)
 
 #### См. также {#see-also}
 

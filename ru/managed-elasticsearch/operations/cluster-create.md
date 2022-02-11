@@ -160,11 +160,11 @@ keywords:
 
 - Terraform
 
-    {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
 
     {% if audience != "internal" %}
     
-    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     {% endif %}
 

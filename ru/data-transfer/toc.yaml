@@ -25,7 +25,7 @@ items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Какие задачи решает сервис
-        href: concepts/solutions.md
+        href: concepts/use-cases.md
       - name: Жизненный цикл трансфера
         href: concepts/transfer-lifecycle.md
       - name: Преобразование типов данных

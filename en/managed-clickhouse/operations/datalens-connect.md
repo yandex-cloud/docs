@@ -64,7 +64,7 @@ Once the connection is created, you can:
 
 {% if audience != "internal" %}
 
-See an [example of data visualization from {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).
+See an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 
 {% endif %}
 

@@ -56,7 +56,7 @@
 
 {% if audience != "internal" %}
 
-См. также: [пример визуализации данных из {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).
+См. также: [пример визуализации данных из {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 
 {% endif %}
 

@@ -25,7 +25,7 @@ items:
         href: operations/cluster-accounts.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Data delivery in Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md

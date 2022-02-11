@@ -68,7 +68,7 @@ items:
         href: concepts/user-rights.md
       - name: MySQL settings
         href: concepts/settings-list.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md

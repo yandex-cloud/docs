@@ -75,7 +75,7 @@
 
 - Terraform
 
-  Подробнее о Terraform [читайте в документации](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Если вы создавали группу источников с помощью Terraform, вы можете удалить ее:
 

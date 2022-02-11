@@ -2,34 +2,34 @@
 title: Yandex Data Proc
 href: index.yaml
 items:
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Работа с заданиями
         items:
           - name: Обзор
-            href: solutions/job-overview.md
+            href: tutorials/job-overview.md
           - name: Работа с заданиями Hive
-            href: solutions/hive-job-basics.md
+            href: tutorials/hive-job-basics.md
           - name: Работа с заданиями MapReduce
-            href: solutions/mapreduce-job-basics.md
+            href: tutorials/mapreduce-job-basics.md
           - name: Работа с заданиями PySpark
-            href: solutions/pyspark-job-basics.md
+            href: tutorials/pyspark-job-basics.md
           - name: Работа с заданиями Spark
-            href: solutions/spark-job-basics.md
+            href: tutorials/spark-job-basics.md
           - name: Использование Apache Hive
-            href: solutions/how-to-use-hive.md
+            href: tutorials/how-to-use-hive.md
           - name: Запуск Spark-приложений
-            href: solutions/run-spark-job.md
+            href: tutorials/run-spark-job.md
           - name: Запуск приложений с удаленного хоста
-            href: solutions/remote-run-job.md
+            href: tutorials/remote-run-job.md
       - name: Настройка сети для кластеров Data Proc
-        href: solutions/configure-network.md
+        href: tutorials/configure-network.md
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
-        href: solutions/copy-files-from-object-storage.md
+        href: tutorials/copy-files-from-object-storage.md
       - name: Обмен данными с {{ mch-name }}
-        href: solutions/exchange-data-with-mch.md
+        href: tutorials/exchange-data-with-mch.md
       - name: Импорт базы данных с использованием Sqoop
-        href: solutions/sqoop.md
+        href: tutorials/sqoop.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

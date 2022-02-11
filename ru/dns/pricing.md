@@ -32,7 +32,7 @@ editable: false
 
     {% note tip %}
 
-    Рекомендуем использовать [кеширующие резолверы](solutions/local-dns-cache.md), например, `systemd-resolved`,
+    Рекомендуем использовать [кеширующие резолверы](tutorials/local-dns-cache.md), например, `systemd-resolved`,
     `dnsmasq`, `unbound`. С их помощью можно снизить количество запросов внешних доменных имен и тем самым уменьшить
     расходы.
 

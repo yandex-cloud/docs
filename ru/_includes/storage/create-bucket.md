@@ -17,7 +17,7 @@
 
 - Terraform
 
-  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
+  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
 
   Перед началом работы получите {% if audience != "internal" %}[статические ключи доступа](../../iam/operations/sa/create-access-key.md){% else %}статические ключи доступа{% endif %} — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 

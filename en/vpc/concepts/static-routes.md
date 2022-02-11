@@ -35,7 +35,7 @@ You currently can't use prefixes from address ranges that are allocated to subne
 When creating a route, you can set an unused internal IP that isn't linked to any VM as the next hop. In this case, the route is only used after you run a VM with the appropriate IP address.
 
 The two main uses of static routes in {{ yandex-cloud }}:
-1. Building a network route to the appropriate prefix through a single VM. The internal IP address is used as the VM ID. For more information about building network routes in {{ yandex-cloud }} and other virtual or local networks, see the tutorials [{#T}](../../solutions/routing/nat-instance.md) and [{#T}](../../solutions/routing/ipsec-vpn.md).
+1. Building a network route to the appropriate prefix through a single VM. The internal IP address is used as the VM ID. For more information about building network routes in {{ yandex-cloud }} and other virtual or local networks, see the tutorials [Routing through a NAT instance](../../tutorials/routing/nat-instance.md) and [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec-vpn.md).
 1. A fail-safe routing scheme with routes in multiple availability zones. You can create VMs in different availability zones and route them to the same destination subnet. Note that different route tables should be linked to subnets in different availability zones, since you can't place routes to the same prefixes in the same table. If a VM in one of the availability zones fails, VMs from the other zones will remain linked to the destination subnet.
 
 ## Rerouting traffic to the internet {#internet-routes}

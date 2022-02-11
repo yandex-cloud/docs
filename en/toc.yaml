@@ -114,8 +114,8 @@ items:
   - name: Resource Manager
     href: resource-manager/index.yaml
     when: audience == "external"
-  - name: Yandex.Cloud use cases
-    href: solutions/index.yaml
+  - name: Yandex.Cloud practical guidelines
+    href: tutorials/index.yaml
     when: audience == "external"
   - name: SpeechKit
     href: speechkit/index.yaml

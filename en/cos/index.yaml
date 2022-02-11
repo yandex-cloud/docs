@@ -14,9 +14,9 @@ links:
   - title: Concepts
     description: Learn more about the Container Optimized Image
     href: concepts/
-  - title: Use cases
-    description: Container Optimized Image use cases
-    href: solutions/
+  - title: Practical guidelines
+    description: Container Optimized Image tutorials
+    href: tutorials/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits

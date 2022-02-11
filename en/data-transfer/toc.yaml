@@ -37,7 +37,7 @@ items:
       - name: Relationship between service resources
         href: concepts/index.md
       - name: What tasks is the service used for?
-        href: concepts/solutions.md
+        href: concepts/use-cases.md
       - name: Service specifics
         items:
           - name: Overview

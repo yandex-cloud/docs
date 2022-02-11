@@ -31,7 +31,7 @@ items:
         href: operations/cluster-delete.md
       - name: Миграция базы данных в Yandex.Cloud
         href: operations/data-migration.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Шардирование коллекций
         href: tutorials/sharding.md

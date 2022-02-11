@@ -162,9 +162,9 @@ links:
     description: Running containers without Kubernetes®
     href: serverless-containers/
     when: audience == "external"
-  - title: Yandex.Cloud use cases
+  - title: Yandex.Cloud practical guidelines
     description: Instructions for handling various tasks using cloud services
-    href: solutions/
+    href: tutorials/
     when: audience == "external"
   - title: SpeechKit
     description: Speech recognition and speech synthesis technologies

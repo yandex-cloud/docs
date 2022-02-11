@@ -15,7 +15,7 @@
 
    {% note info %}
 
-   Интеграцию с {{ KF }} можно настроить уже на этапе [создания кластера](../../managed-clickhouse/operations/cluster-create.md). В этом сценарии использования интеграция будет настроена [позже](#configure-mch-for-kf).
+   Интеграцию с {{ KF }} можно настроить уже на этапе [создания кластера](../../managed-clickhouse/operations/cluster-create.md). В этом практическом руководстве интеграция будет настроена [позже](#configure-mch-for-kf).
 
    {% endnote %}
 

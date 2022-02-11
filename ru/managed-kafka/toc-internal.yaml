@@ -25,7 +25,7 @@ items:
         href: operations/cluster-accounts.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Поставка данных в Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md    

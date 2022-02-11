@@ -74,7 +74,7 @@ Integrated with Odyssey, {{ mpg-name }} clusters:
 
 - Support placing of [logical replication threads](https://www.postgresql.org/docs/current/logical-replication.html) via the puller.
 
-    See [{#T}](../solutions/replication-overview.md) for examples of logical replication.
+    See [{#T}](../tutorials/replication-overview.md) for examples of logical replication.
 
 In addition, {{ mpg-name }} automatically ensures fault tolerance of the connection pooler in clusters with multiple hosts.
 

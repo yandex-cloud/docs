@@ -62,5 +62,5 @@ Currently, to get the load balancer's log group ID and [create a trigger](../../
 
 {% endnote %}
 
-For an example of log processing, see the use case [{#T}](../solutions/logging.md).
+For an example of log processing, see the use case [{#T}](../tutorials/logging.md).
 

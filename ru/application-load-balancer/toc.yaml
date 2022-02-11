@@ -45,18 +45,18 @@ items:
             href: operations/application-load-balancer-get-log-group-id.md
           - name: Удалить L7-балансировщик
             href: operations/application-load-balancer-delete.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Организация виртуального хостинга
-        href: solutions/virtual-hosting.md
+        href: tutorials/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
-        href: solutions/alb-with-ddos-protection.md
+        href: tutorials/alb-with-ddos-protection.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
-        href: solutions/l7-bluegreen-deploy.md
+        href: tutorials/l7-bluegreen-deploy.md
       - name: Терминирование TLS-соединений
-        href: solutions/tls-termination.md
+        href: tutorials/tls-termination.md
       - name: Запись логов балансировщика в {{ PG }}
-        href: solutions/logging.md
+        href: tutorials/logging.md
   - name: Концепции
     items:
       - name: Обзор

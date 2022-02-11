@@ -45,18 +45,18 @@ items:
             href: operations/application-load-balancer-get-log-group-id.md
           - name: Delete an L7 load balancer
             href: operations/application-load-balancer-delete.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Setting up virtual hosting
-        href: solutions/virtual-hosting.md
+        href: tutorials/virtual-hosting.md
       - name: Creating a load balancer with DDoS protection
-        href: solutions/alb-with-ddos-protection.md
-      - name: Blue-green and canary deployment of service versions
-        href: solutions/l7-bluegreen-deploy.md
+        href: tutorials/alb-with-ddos-protection.md
+      - name: Blue-green deployment for switching between service versions
+        href: tutorials/l7-bluegreen-deploy.md
       - name: Terminating TLS connections
-        href: solutions/tls-termination.md
+        href: tutorials/tls-termination.md
       - name: Writing load balancer logs to {{ PG }}
-        href: solutions/logging.md
+        href: tutorials/logging.md
   - name: Concepts
     items:
       - name: Overview

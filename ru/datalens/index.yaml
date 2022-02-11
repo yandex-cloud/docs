@@ -11,9 +11,9 @@ links:
     description: Как начать работать с DataLens
     when: audience == "external"
     href: quickstart
-  - title: Сценарии использования
+  - title: Практические руководства
     description: Пройдите туториалы с примерами использования сервиса DataLens
-    href: solutions/
+    href: tutorials/
   - title: Концепции
     description: Узнайте про устройство и возможности сервиса
     href: concepts/

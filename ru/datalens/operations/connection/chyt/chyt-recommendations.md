@@ -50,6 +50,6 @@
 ## Полезные ссылки
 
 * [Производительность CHYT](https://yt.yandex-team.ru/docs/description/chyt/reference/performance)
-* [Визуализация данных из ClickHouse over YT (CHYT)](../../../solutions/data-from-ch-over-yt.md)
+* [Визуализация данных из ClickHouse over YT (CHYT)](../../../tutorials/data-from-ch-over-yt.md)
 * [Управление доступом к DataLens](../../../security/index.md)
 

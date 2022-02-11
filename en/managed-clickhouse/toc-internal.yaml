@@ -53,7 +53,7 @@ items:
         href: operations/shard-groups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Sharding tables
         href: tutorials/sharding.md

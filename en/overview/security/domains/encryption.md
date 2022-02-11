@@ -106,11 +106,11 @@ If you use [{{message-queue-full-name}}](../../../message-queue/index.yaml) to t
 
 For client-side encryption, we recommend that you use the following libraries:
 
-- AWS Encryption SDK and its [KMS integration](../../../kms/solutions/encrypt/aws-encryption-sdk.md).
-- Google Tink and its [KMS integration](../../../kms/solutions/encrypt/google-tink.md).
-- [Yandex.Cloud SDK](../../../kms/solutions/encrypt/sdk.md) with any other cryptographic library compatible with PCI DSS or any standards used in your company.
+- AWS Encryption SDK and its [KMS integration](../../../kms/tutorials/encrypt/aws-encryption-sdk.md).
+- Google Tink and its [KMS integration](../../../kms/tutorials/encrypt/google-tink.md).
+- [Yandex.Cloud SDK](../../../kms/tutorials/encrypt/sdk.md) with any other cryptographic library compatible with PCI DSS or any standards used in your company.
 
-For a comparison of libraries, see [{#T}](../../../kms/solutions/encrypt/index.md) in the KMS documentation.
+For a comparison of libraries, see [{#T}](../../../kms/tutorials/encrypt/index.md) in the KMS documentation.
 
 ## Managing keys {#key-management}
 
@@ -163,7 +163,7 @@ For instructions on how to use the service, see the [Lockbox documentation](../.
 
 [Vault](https://www.vaultproject.io/) lets you use KMS as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) feature.
 
-To store secrets with Vault, you can use a VM based on an [image from Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace/products/yc/vault-yckms) with a pre-installed HashiCorp Vault build and Auto Unseal support. Instructions for setting up Auto Unseal are provided in [{#T}](../../../kms/solutions/vault-secret.md) in the KMS documentation.
+To store secrets with Vault, you can use a VM based on an [image from Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace/products/yc/vault-yckms) with a pre-installed HashiCorp Vault build and Auto Unseal support. Instructions for setting up Auto Unseal are provided in [{#T}](../../../kms/tutorials/vault-secret.md) in the KMS documentation.
 
 ### Secrets in Kubernetes {#k8s-secrets}
 
@@ -171,7 +171,7 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
 
 - [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/).
 
-   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using KMS. To enable secret encryption, specify the KMS key when creating a Kubernetes cluster. You can't add the key when you edit the cluster. For more information, see [{#T}](../../../kms/solutions/kubernetes.md) in the KMS documentation.
+   By default, secrets are stored unencrypted in etcd. However, {{managed-k8s-name}} lets you encrypt secrets using KMS. To enable secret encryption, specify the KMS key when creating a Kubernetes cluster. You can't add the key when you edit the cluster. For more information, see [{#T}](../../../kms/tutorials/kubernetes.md) in the KMS documentation.
 
 - {{ lockbox-name }}.
 
@@ -181,7 +181,7 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
 
 ### Transferring secrets to a VM using Terraform and KMS
 
-KMS supports the encryption of secrets used in a Terraform configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in [{#T}](../../../kms/solutions/terraform-secret.md) in the KMS documentation. It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
+KMS supports the encryption of secrets used in a Terraform configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in [{#T}](../../../kms/tutorials/terraform-secret.md) in the KMS documentation. It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
 
 ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Encrypting secrets in Terraform to transfer them to a VM with a Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
 

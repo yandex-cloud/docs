@@ -53,7 +53,7 @@ items:
         href: operations/shard-groups.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Шардирование таблиц
         href: tutorials/sharding.md

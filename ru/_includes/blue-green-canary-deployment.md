@@ -44,7 +44,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-you-begin](../solutions/_solutions_includes/before-you-begin.md) %}
+{% include [before-you-begin](./tutorials/_tutorials_includes/before-you-begin.md) %}
 
 В качестве примера будет использоваться каталог с именем `example-folder`.
 
@@ -170,7 +170,7 @@
 
 - Terraform
 
-  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../solutions/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
+  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
   
   1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-c`:
   

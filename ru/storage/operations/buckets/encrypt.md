@@ -24,7 +24,7 @@
 
 - Terraform
 
-  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
+  Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
 
   Перед началом работы, {% if audience != "internal" %}[получите IAM-токен](../../../iam/operations/iam-token/create-for-sa.md#via-cli){% else %}получите IAM-токен{% endif %} для сервисного аккаунта и запишите его в файл.
 

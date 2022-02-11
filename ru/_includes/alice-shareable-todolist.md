@@ -29,7 +29,7 @@
     * [AWS CLI](../storage/tools/aws-cli);
     * [jq](https://stedolan.github.io/jq/download/);
     * [Node.js](https://nodejs.org/en/download/package-manager/);
-    * [Terraform](../solutions/infrastructure-management/terraform-quickstart).
+    * [Terraform](../tutorials/infrastructure-management/terraform-quickstart).
 
 1. Для доработки проекта дополнительно потребуются:
     * [Язык программирования Go](https://golang.org/).
@@ -108,7 +108,7 @@ cp secure-config-template.json secure-config.json
 
 ### Загрузите код бэкенда в {{ sf-name }} {#deploy-backend}
 
-Используйте Terraform для автоматизации действий. Перед использованием [проинициализируйте его](../solutions/infrastructure-management/terraform-quickstart#configure-provider).
+Используйте Terraform для автоматизации действий. Перед использованием [проинициализируйте его](../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
 
 Для этого в папке с конфигурационным файлом app.tf выполните команду:
 ```

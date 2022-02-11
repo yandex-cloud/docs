@@ -1,4 +1,3 @@
-
 # Создание {{ CH }}-кластера
 
 {{ CH }}-кластер — это один или несколько хостов базы данных, между которыми можно настроить репликацию.
@@ -211,7 +210,7 @@
 - Terraform
 
   {% if audience != "internal" %}
-  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
   {% endif %}
 
   Чтобы создать кластер:
@@ -219,7 +218,7 @@
     1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
     {% if audience != "internal" %}
-    1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     
     1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
 

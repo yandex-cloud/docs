@@ -71,28 +71,28 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
-      - name: All use cases
-        href: solutions/index.md
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Integration with Container Registry
-        href: solutions/container-registry.md
+        href: tutorials/container-registry.md
       - name: Running workloads with GPUs
-        href: solutions/running-pod-gpu.md
+        href: tutorials/running-pod-gpu.md
       - name: Installing the NGINX Ingress controller with Let's Encrypt®
-        href: solutions/ingress-cert-manager.md
+        href: tutorials/ingress-cert-manager.md
       - name: Configuring the Application Load Balancer Ingress controller
-        href: solutions/alb-ingress-controller.md
+        href: tutorials/alb-ingress-controller.md
       - name: Backup to Object Storage
-        href: solutions/backup.md
+        href: tutorials/backup.md
       - name: Integration with a corporate DNS zone
-        href: solutions/custom-dns.md
+        href: tutorials/custom-dns.md
       - name: Automatic DNS scaling by cluster size
-        href: solutions/dns-autoscaler.md
+        href: tutorials/dns-autoscaler.md
       - name: Setting up local DNS caching
-        href: solutions/node-local-dns.md
+        href: tutorials/node-local-dns.md
       - name: Configuring Fluent Bit for Yandex Cloud Logging
-        href: solutions/fluent-bit-logging.md
+        href: tutorials/fluent-bit-logging.md
   - name: Concepts
     items:
       - name: Relationship between service resources

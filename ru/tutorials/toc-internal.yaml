@@ -1,0 +1,7 @@
+title: Технический toc для работы инклюдов
+href: index.yaml
+items:
+  - name: Веб-сервис
+    items:
+      - name: Все сценарии
+        href: web/index.md

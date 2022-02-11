@@ -27,14 +27,14 @@ items:
         href: operations/export-cloud-logging.md
       - name: Uploading audit logs to a bucket
         href: operations/export-bucket.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Searching a bucket
-        href: solutions/search-bucket.md
+        href: tutorials/search-bucket.md
       - name: Searching a log group
-        href: solutions/search-cloud-logging.md
+        href: tutorials/search-cloud-logging.md
       - name: Setting up alerts in {{ monitoring-name }}
-        href: solutions/alerts-monitoring.md
+        href: tutorials/alerts-monitoring.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

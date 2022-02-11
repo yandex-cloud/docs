@@ -6,7 +6,7 @@
 
 {% if audience == "internal" %}
 
-Для подключения [CH over YT](../../solutions/data-from-ch-over-yt.md#before-you-begin) с публичной кликой `*ch_datalens` время выполнения запроса составляет не более 30 секунд. Рекомендуем использовать [приватную клику](https://yt.yandex-team.ru/docs/description/chyt/cliques/start) в подключении.
+Для подключения [CH over YT](../../tutorials/data-from-ch-over-yt.md#before-you-begin) с публичной кликой `*ch_datalens` время выполнения запроса составляет не более 30 секунд. Рекомендуем использовать [приватную клику](https://yt.yandex-team.ru/docs/description/chyt/cliques/start) в подключении.
 
 {% endif %}
 

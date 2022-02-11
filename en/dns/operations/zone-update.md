@@ -50,7 +50,7 @@ To update a DNS zone:
 
 - Terraform
 
-  Read more about Terraform in the [documentation](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Read more about Terraform in the [documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To update a DNS zone created using Terraform:
 

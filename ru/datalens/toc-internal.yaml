@@ -4,16 +4,16 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
-      - name: Все сценарии
-        href: solutions/index.md
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Визуализация данных из CSV-файла
-        href: solutions/data-from-csv-visualization.md
+        href: tutorials/data-from-csv-visualization.md
       - name: Визуализация данных из базы данных ClickHouse
-        href: solutions/data-from-db-visualization.md
+        href: tutorials/data-from-db-visualization.md
       - name: Визуализация данных из Metriсa
-        href: solutions/data-from-metrica-visualization.md
+        href: tutorials/data-from-metrica-visualization.md
   - name: Концепции
     items:
       - name: Обзор сервиса

@@ -1,6 +1,6 @@
-{% include [terraform-definition](../solutions/terraform-definition.md) %}
+{% include [terraform-definition](../tutorials/terraform-definition.md) %}
 
-Read more about Terraform in the [documentation](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+Read more about Terraform in the [documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 To delete a cluster created using {{ TF }}:
 

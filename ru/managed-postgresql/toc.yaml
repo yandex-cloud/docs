@@ -41,29 +41,29 @@ items:
         href: operations/performance-diagnostics.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Создание кластера PostgreSQL для 1С
-        href: solutions/1c-postgresql
+        href: tutorials/1c-postgresql
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         when: audience != "internal"
-        href: solutions/sqoop.md
+        href: tutorials/sqoop.md
       - name: Анализ производительности и оптимизация
-        href: solutions/profiling.md
+        href: tutorials/profiling.md
       - name: Репликация и миграция
         items:
         - name: Логическая репликация PostgreSQL
-          href: solutions/replication-overview.md
+          href: tutorials/replication-overview.md
         - name: Миграция базы данных в Managed Service for PostgreSQL
           href: operations/data-migration.md
         - name: Миграция базы данных из Managed Service for PostgreSQL
-          href: solutions/outbound-replication.md
+          href: tutorials/outbound-replication.md
         - name: >-
             Создание логической реплики Amazon RDS для PostgreSQL в Managed
             Service for PostgreSQL
           href: operations/logical-replica-from-rds.md
       - name: Поставка данных с помощью Debezium
-        href: solutions/kafka-cdc.md
+        href: tutorials/kafka-cdc.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

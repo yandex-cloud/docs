@@ -42,7 +42,7 @@
 
 - Terraform
 
-  Подробнее о Terraform [читайте в документации](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Если вы создавали снимок диска с помощью Terraform, вы можете удалить его:
 

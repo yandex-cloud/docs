@@ -43,12 +43,12 @@ items:
             href: operations/origin-groups/bind-group-to-resource.md
           - name: Deleting an origin group
             href: operations/origin-groups/delete-group.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Publishing game updates
-        href: solutions/prefetch.md
+        href: tutorials/prefetch.md
       - name: Blue-green and canary deployment
-        href: solutions/blue-green-canary-deployment.md
+        href: tutorials/blue-green-canary-deployment.md
   - name: Concepts
     items:
       - name: Service overview

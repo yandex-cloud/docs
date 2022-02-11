@@ -31,7 +31,7 @@ items:
         href: operations/cluster-delete.md
       - name: Database migration to the Cloud
         href: operations/data-migration.md
-  - name: Tutorials
+  - name: Practical guidelines
     items:
       - name: Sharding collections
         href: tutorials/sharding.md

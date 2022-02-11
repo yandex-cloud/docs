@@ -92,7 +92,7 @@
 
 ### Как создать датасет на основе динамических таблиц? {#how-to-create-dataset}
 
-Воспользуйтесь сценарием [{#T}](solutions/data-from-ch-over-yt.md).
+Воспользуйтесь сценарием [{#T}](tutorials/data-from-ch-over-yt.md).
 
 Если вы получаете ошибку в DataLens при создании датасета на основе динамической таблицы следующего вида: `Dynamic store read for table <название таблицы> is disabled; in order to read dynamic stores, set attribute "enable_dynamic_store_read" to true and remount table; if you indeed want to read only static part of dynamic table, pass setting chyt.dynamic_table.enable_dynamic_store_read = 0`.
 
@@ -219,7 +219,7 @@
 
 ## Отчеты Statface в {{ datalens-short-name }} {#statface-reports}
 
-Сценарий [Визуализация данных из отчетов Statface](solutions/data-from-statface-visualization.md) содержит описание различных вариантов, позволяющих использовать данные отчетов Statface в {{ datalens-short-name }}.
+Сценарий [Визуализация данных из отчетов Statface](tutorials/data-from-statface-visualization.md) содержит описание различных вариантов, позволяющих использовать данные отчетов Statface в {{ datalens-short-name }}.
 
 
 ## Партнерская аналитика {#partner-analytics}

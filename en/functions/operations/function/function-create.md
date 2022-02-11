@@ -45,9 +45,9 @@
 
 - Terraform
 
-    {% include [terraform-definition](../../../_includes/solutions/terraform-definition.md) %}
+    {% include [terraform-definition](../../../_includes/tutorials/terraform-definition.md) %}
 
-    If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+    If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     To create a function:
 

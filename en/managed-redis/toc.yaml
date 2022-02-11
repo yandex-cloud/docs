@@ -30,7 +30,7 @@ items:
         href: operations/monitoring.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Storing PHP sessions in Managed Service for Redis
         href: tutorials/redis-as-php-sessions-storage.md

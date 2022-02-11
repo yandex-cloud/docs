@@ -77,30 +77,30 @@ items:
             href: operations/node-group/node-group-delete.md
       - name: Подключение внешних узлов к кластеру
         href: operations/external-nodes-connect.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
-      - name: Все сценарии
-        href: solutions/index.md
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Интеграция с Container Registry
-        href: solutions/container-registry.md
+        href: tutorials/container-registry.md
       - name: Запуск рабочих нагрузок с GPU
-        href: solutions/running-pod-gpu.md
+        href: tutorials/running-pod-gpu.md
       - name: Установка NGINX Ingress-контроллера с Let's Encrypt®
-        href: solutions/ingress-cert-manager.md
+        href: tutorials/ingress-cert-manager.md
       - name: Настройка Application Load Balancer Ingress-контроллера
-        href: solutions/alb-ingress-controller.md
+        href: tutorials/alb-ingress-controller.md
       - name: Резервное копирование в Object Storage
-        href: solutions/backup.md
+        href: tutorials/backup.md
       - name: Интеграция с корпоративной зоной DNS
-        href: solutions/custom-dns.md
+        href: tutorials/custom-dns.md
       - name: Автоматическое масштабирование DNS по размеру кластера
-        href: solutions/dns-autoscaler.md
+        href: tutorials/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
-        href: solutions/node-local-dns.md
+        href: tutorials/node-local-dns.md
       - name: Настройка Fluent Bit для работы с Yandex Cloud Logging
-        href: solutions/fluent-bit-logging.md
+        href: tutorials/fluent-bit-logging.md
       - name: Синхронизация с секретами Yandex Lockbox
-        href: solutions/kubernetes-lockbox-secrets.md
+        href: tutorials/kubernetes-lockbox-secrets.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

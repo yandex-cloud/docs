@@ -9,7 +9,7 @@
 
 ## Пример {#example}
 
-По следующей спецификации можно создать автоматически масштабируемую группу ВМ, как в [сценарии обработки сообщений из очереди {{ message-queue-full-name }}](../../solutions/autoscale-monitoring.md):
+По следующей спецификации можно создать автоматически масштабируемую группу ВМ, как в [сценарии обработки сообщений из очереди {{ message-queue-full-name }}](../../tutorials/autoscale-monitoring.md):
 
 ```yaml
 folder_id: b1gken0eihqn2oa0fm2k

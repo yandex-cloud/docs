@@ -118,8 +118,8 @@ items:
   - name: Resource Manager
     href: resource-manager/index.yaml
     when: audience == "external"
-  - name: Сценарии использования платформы Yandex.Cloud
-    href: solutions/index.yaml
+  - name: Практические руководства платформы Yandex.Cloud
+    href: tutorials/index.yaml
     when: audience == "external"
   - name: SpeechKit
     href: speechkit/index.yaml
