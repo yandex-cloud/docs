@@ -59,7 +59,7 @@ To delete an instance group:
 
 - Terraform
 
-  Read more about Terraform in the [documentation](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Read more about Terraform in the [documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   If you created an instance group using Terraform, you can delete it:
 

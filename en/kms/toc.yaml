@@ -29,30 +29,30 @@ items:
         href: concepts/consistency.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
-      - name: All use cases
-        href: solutions/index.md
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Data encryption
         items:
           - name: Which encryption method should I choose?
-            href: solutions/encrypt/index.md
+            href: tutorials/encrypt/index.md
           - name: Encrypting data using the Yandex.Cloud CLI and API
-            href: solutions/encrypt/cli-api.md
+            href: tutorials/encrypt/cli-api.md
           - name: Encrypting data using the Yandex.Cloud SDK
-            href: solutions/encrypt/sdk.md
+            href: tutorials/encrypt/sdk.md
           - name: Encrypting data using the AWS Encryption SDK
-            href: solutions/encrypt/aws-encryption-sdk.md
+            href: tutorials/encrypt/aws-encryption-sdk.md
           - name: Encrypting data using Google Tink
-            href: solutions/encrypt/google-tink.md
+            href: tutorials/encrypt/google-tink.md
       - name: Encrypting secrets in Managed Service for Kubernetes
-        href: solutions/kubernetes.md
+        href: tutorials/kubernetes.md
       - name: KMS key management with Hashicorp Terraform
-        href: solutions/terraform-key.md
+        href: tutorials/terraform-key.md
       - name: Encrypting secrets in Hashicorp Terraform
-        href: solutions/terraform-secret.md
+        href: tutorials/terraform-secret.md
       - name: Auto Unseal in Hashicorp Vault
-        href: solutions/vault-secret.md
+        href: tutorials/vault-secret.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

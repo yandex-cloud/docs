@@ -182,13 +182,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
 
   To create a cluster:
 
     1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-    1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     1. Create a configuration file with a description of your [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 

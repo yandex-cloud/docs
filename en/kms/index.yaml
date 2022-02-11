@@ -16,9 +16,9 @@ links:
   - title: Concepts
     description: Learn about service concepts and entities
     href: concepts/
-  - title: Use cases
+  - title: Practical guidelines
     description: Perform common tasks with KMS keys
-    href: solutions/
+    href: tutorials/
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/

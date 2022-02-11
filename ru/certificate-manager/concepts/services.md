@@ -23,5 +23,5 @@
 
 #### См. также {#see-also}
 
-- [Статический веб-сайт в {{ objstorage-name }}](../../solutions/web/static.md)
+- [Статический веб-сайт в {{ objstorage-name }}](../../tutorials/web/static.md)
 - [{{ api-gw-full-name }}](../../api-gateway/index.yaml)

@@ -73,9 +73,9 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
 - Terraform
 
-    {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
 
-    If you don't have {{ TF }}, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+    If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     To create a cluster:
 

@@ -7,11 +7,11 @@
   ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 - **NGFW from Marketplace**: If more robust network protection is required, use NGFW from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network).
   ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a Yandex.Cloud VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
-- **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN. See [the setup instructions using the strongSwan daemon](../../../solutions/routing/ipsec-vpn.md) or use [Cloud Interconnect](../../../interconnect/index.yaml) (the GOST VPN service is also available). 
+- **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN. See [the setup instructions using the strongSwan daemon](../../../tutorials/routing/ipsec-vpn.md) or use [Cloud Interconnect](../../../interconnect/index.yaml) (the GOST VPN service is also available). 
   ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to Yandex.Cloud using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
-- **Secure remote administrator access (VPN)**: Set up a VPN connection between remote devices and Yandex.Cloud using solutions from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network). See the [setup instructions for OpenVPN](../../../solutions/routing/openvpn.md).
+- **Secure remote administrator access (VPN)**: Set up a VPN connection between remote devices and Yandex.Cloud using solutions from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network). See the [setup instructions for OpenVPN](../../../tutorials/routing/openvpn.md).
 - **Bastion host**: Create a bastion VM to access the infrastructure using control protocols (for example, SSH or RDP).
-- **Outgoing access (NAT)**: Use the [built-in NAT service](../../../vpc/operations/enable-nat.md) for secure outgoing internet access (egress NAT). This service translates your addresses into a shared address pool. If internet access should be from your controlled address pool, use a [NAT instance](../../../solutions/routing/nat-instance.md#create-nat-instance) (a dedicated VM).
+- **Outgoing access (NAT)**: Use the [built-in NAT service](../../../vpc/operations/enable-nat.md) for secure outgoing internet access (egress NAT). This service translates your addresses into a shared address pool. If internet access should be from your controlled address pool, use a [NAT instance](../../../tutorials/routing/nat-instance.md#create-nat-instance) (a dedicated VM).
 - **DDoS protection**: When assigning public IP addresses to your cloud resources, use the built-in [DDoS protection](../../../vpc/ddos-protection/index.md) by clicking the button (L4 DDoS protection). If you need L7 DDoS protection, contact your manager.
 
 ## Authentication and access control {#authentication}
@@ -32,7 +32,7 @@
 - **Encryption in Object Storage**: Enable bucket encryption (server-side encryption). See the [instructions](../../../storage/operations/buckets/encrypt.md). This encryption protects bucket data from being published on the internet.
 - **VM disk encryption (if required)**.
   ![](../../../_assets/overview/solution-library-icon.svg)[Solution: VM disk encryption using KMS](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
-- **Client-side encryption (if required)**: Use data encryption using KMS keys. See an [overview of encryption methods](../../../kms/solutions/encrypt/index.md).
+- **Client-side encryption (if required)**: Use data encryption using KMS keys. See an [overview of encryption methods](../../../kms/tutorials/encrypt/index.md).
 - **KMS key protection**: Grant only granular access to individual KMS keys — the `kms.keys.encrypterDecrypter` role. Use [key rotation](../../../kms/concepts/version.md).
 - **Secret management**: Use secret management services, such as [Yandex Lockbox](../../../lockbox/index.yaml) or [HashiCorp Vault with Yandex KMS support](https://cloud.yandex.com/marketplace/products/f2eokige6vtlf94uvgs2) from Yandex Cloud Marketplace. 
 
@@ -46,7 +46,7 @@
 - **Secure configuration of Object Storage**: Use encryption, [bucket policies](../../../storage/concepts/policy.md), and ACLs or [versioning for deletion protection](../../../storage/concepts/versioning.md), enable [built-in access auditing](../../../storage/operations/buckets/enable-logging.md) and configure CORS (if necessary). 
   ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Secure configuration of Yandex Object Storage in Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
 - **Secure configuration of Cloud Functions**: Provide a service account token via the [native authentication mechanism](../../../functions/operations/function-sa.md) using the assigned service account and metadata. If possible, use [private functions](../../../functions/operations/function-public.md).
-- **Secure configuration of Yandex Container Registry**: We do not recommend using privileged containers to run loads. Use the built-in [vulnerability scanner](../../../container-registry/solutions/image-auto-scan.md) in images.
+- **Secure configuration of Yandex Container Registry**: We do not recommend using privileged containers to run loads. Use the built-in [vulnerability scanner](../../../container-registry/tutorials/image-auto-scan.md) in images.
 - **Yandex Certificate Manager**: Use [Yandex Certificate Manager](../../../certificate-manager/index.yaml) to store, receive, and update TLS certificates from Let's Encrypt® and to upload your own certificates. The service is integrated with Yandex Object Storage, Yandex API Gateway, and Application Load Balancer.
 
 ## Protection against malicious code {#malicious-code-protection}
@@ -101,14 +101,14 @@ Events can be exported to any SIEM system using s3fs, see the [instructions](../
 
 ### Data encryption and key/secret management {#kubernetes-data-encryption}
 
-- **Server-side encryption**: Enable secret encryption in etcd. See the [instructions](../../../kms/solutions/kubernetes.md). Do this at all times, regardless of whether you use secret management services or not.
+- **Server-side encryption**: Enable secret encryption in etcd. See the [instructions](../../../kms/tutorials/kubernetes.md). Do this at all times, regardless of whether you use secret management services or not.
 - **Secret management**: Use [Yandex Lockbox](../../../lockbox/index.yaml) or [HashiCorp Vault with Yandex KMS support](https://cloud.yandex.com/marketplace/products/f2eokige6vtlf94uvgs2) from Yandex Cloud Marketplace. 
   ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Secret management using SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
 
 ### Network security {#kubernetes-network-security}
 
 - **Security groups**: Configure security groups for Kubernetes. See the [instructions](../../../managed-kubernetes/operations/security-groups.md). We don't recommend granting public access and public addresses to Kubernetes components.
-- **Ingress controller**: To access Kubernetes services from outside, use a LoadBalancer (external or internal) Ingress controller (HTTPS): [Application Load Balancer Ingress Controller](../../../managed-kubernetes/solutions/alb-ingress-controller.md) (recommended) or other solutions, such as [NGINX Ingress Controller](../../../managed-kubernetes/solutions/ingress-cert-manager.md).
+- **Ingress controller**: To access Kubernetes services from outside, use a LoadBalancer (external or internal) Ingress controller (HTTPS): [Application Load Balancer Ingress Controller](../../../managed-kubernetes/tutorials/alb-ingress-controller.md) (recommended) or other solutions, such as [NGINX Ingress Controller](../../../managed-kubernetes/tutorials/ingress-cert-manager.md).
 - **DDoS protection**: Create an IP address with DDoS protection and assign it to the service or Ingress controller.
 - **Network policy**: Restrict access at the Kubernetes level using [Calico Network Policies](../../../managed-kubernetes/operations/calico.md) or advanced [Cilium network policies](../../../managed-kubernetes/operations/cilium.md).
 - **Access only from a limited pool of addresses (if required)**: Assign security groups for the Application Load Balancer Ingress controller and use network policies for other Ingress controllers.
@@ -135,5 +135,5 @@ Events can be exported to any SIEM system using s3fs, see the [instructions](../
 
 ### Backups {#kubernetes-backup}
 
-- **Backups**: Configure Kubernetes cluster backups in Yandex Object Storage. See the [instructions](../../../managed-kubernetes/solutions/backup.md). Follow the recommendations in [Secure configuration of Yandex Object Storage](secure-config.md#object-storage).
+- **Backups**: Configure Kubernetes cluster backups in Yandex Object Storage. See the [instructions](../../../managed-kubernetes/tutorials/backup.md). Follow the recommendations in [Secure configuration of Yandex Object Storage](secure-config.md#object-storage).
 

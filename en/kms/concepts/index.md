@@ -38,10 +38,10 @@ You can use {{ kms-short-name }} keys:
 * In Yandex.Cloud services:
   * [Managed Service for Kubernetes](../../managed-kubernetes/).
   * [Certificate Manager](../../certificate-manager/).
-* When working with [Terraform](../solutions/terraform-key.md).
+* When working with [Terraform](../tutorials/terraform-key.md).
 * In cryptographic libraries:
-  * [AWS Encryption SDK](../solutions/encrypt/aws-encryption-sdk.md).
-  * [Google Tink](../solutions/encrypt/google-tink.md).
+  * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).
+  * [Google Tink](../tutorials/encrypt/google-tink.md).
 
 ### Secure key storage {#keys-storage}
 

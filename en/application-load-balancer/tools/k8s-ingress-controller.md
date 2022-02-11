@@ -46,5 +46,5 @@ After installing the controller, you can use it to create an [Ingress](https://k
 > 
 > Using this configuration, the controller creates a load balancer with three listeners that receive traffic on port 80. Since the configuration specifies the domain name and [certificate from the {{ certificate-manager-name }}](../../certificate-manager/concepts/index.md#types), HTTP routers redirect traffic to port 443. A listener is selected based on the path specified in the request URI and passes traffic to the assigned [service](../../managed-kubernetes/concepts/index.md#service): `alb-demo-1` or `alb-demo-2`. For each service, its own backend group is created according to its configuration.
 
-For more information about installing and using the controller, see the [{#T}](../../managed-kubernetes/solutions/alb-ingress-controller.md) use case in the {{ managed-k8s-name }} documentation.
+For more information about installing and using the controller, see the [{#T}](../../managed-kubernetes/tutorials/alb-ingress-controller.md) use case in the {{ managed-k8s-name }} documentation.
 

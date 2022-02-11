@@ -81,8 +81,8 @@ items:
     href: partner/index.yaml
   - name: Resource Manager
     href: resource-manager/index.yaml
-  - name: Yandex.Cloud use cases
-    href: solutions/index.yaml
+  - name: Yandex.Cloud practical guidelines
+    href: tutorials/index.yaml
   - name: SpeechKit
     href: speechkit/index.yaml
   - name: Object Storage

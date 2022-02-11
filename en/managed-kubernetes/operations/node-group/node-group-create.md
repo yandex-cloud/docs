@@ -72,7 +72,7 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
 
   In [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md), you created a {{ k8s }} cluster using Terraform. Use the same `.tf` configuration file to create a node group in the cluster.
 
-  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. In the configuration file, describe the parameters of resources that you want to create. You can add multiple records at the same time.
      * `yandex_kubernetes_node_group`: Node group parameters:

@@ -295,26 +295,26 @@ items:
         href: lang/csharp/errors.md
       - name: Использование SDK
         href: lang/csharp/sdk.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Создание навыка Алисы
-        href: solutions/alice-skill.md
+        href: tutorials/alice-skill.md
       - name: Развертывание веб-приложения
-        href: solutions/java-servlet-todo-list.md
+        href: tutorials/java-servlet-todo-list.md
       - name: Разработка навыка Алисы и сайта с авторизацией
-        href: solutions/alice-shareable-todolist.md
+        href: tutorials/alice-shareable-todolist.md
       - name: Запись данных с устройства в Managed Service for PostgreSQL
-        href: solutions/data-recording.md
+        href: tutorials/data-recording.md
       - name: Разработка Slack-бота
-        href: solutions/slack-bot-serverless.md
+        href: tutorials/slack-bot-serverless.md
       - name: Разработка Telegram-бота
-        href: solutions/telegram-bot-serverless.md
+        href: tutorials/telegram-bot-serverless.md
       - name: Подключение к базе данных YDB из функции на Python
-        href: solutions/connect-to-ydb.md
+        href: tutorials/connect-to-ydb.md
       - name: Подключение к базе данных YDB из функции на Node.js
-        href: solutions/connect-to-ydb-nodejs.md
+        href: tutorials/connect-to-ydb-nodejs.md
       - name: Конвертация видео в GIF на Python
-        href: solutions/video-converting-queue.md
+        href: tutorials/video-converting-queue.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

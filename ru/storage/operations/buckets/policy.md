@@ -210,7 +210,7 @@
 
 - Terraform
 
-  Подробнее о Terraform в [документации](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о Terraform в [документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Если вы применили политику доступа к бакету при помощи Terraform, вы можете удалить её:
 

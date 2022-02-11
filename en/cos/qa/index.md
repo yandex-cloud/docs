@@ -25,7 +25,7 @@ The Docker Compose specification does not support `build` instructions: the imag
 
 #### How can I close a port for public access and leave it accessible within the network? {#port}
 
-- If you use a standard COI (one [container](../solutions/vm-create.md) configured by parameters), all ports that are open in the Docker container will also be open on the host.
-- If you need other network settings for containers, you can configure them using a COI with the [Docker Compose specification](../solutions/docker-compose.md#docker-compose).
+- If you use a standard COI (one [container](../tutorials/vm-create.md) configured by parameters), all ports that are open in the Docker container will also be open on the host.
+- If you need other network settings for containers, you can configure them using a COI with the [Docker Compose specification](../tutorials/docker-compose.md#docker-compose).
 - To make your container port open on the host but disable access to it from the internet, you can use [security groups](../../vpc/concepts/security-groups.md).
 

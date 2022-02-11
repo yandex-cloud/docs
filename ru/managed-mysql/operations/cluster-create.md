@@ -113,14 +113,18 @@
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
   
-  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   Чтобы создать кластер:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+     * Кластер базы данных — описание кластера и его хостов.
+
+     * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+     * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
      Пример структуры конфигурационного файла:
 
@@ -251,7 +255,7 @@
          --environment=production \
          --network-name=default \
          --security-group-ids {{ security-group }} \
-         --host zone-id={{ host-net-example }} \
+         --host {{ host-net-example }} \
          --resource-preset {{ host-class }} \
          --disk-type {{ disk-type-example }} \
          --disk-size 20 \

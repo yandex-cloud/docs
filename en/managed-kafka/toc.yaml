@@ -31,7 +31,7 @@ items:
         href: operations/cluster-delete.md
       - name: Monitoring the state of a cluster and hosts
         href: operations/monitoring.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Data delivery in Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md

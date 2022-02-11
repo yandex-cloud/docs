@@ -37,7 +37,7 @@ If you no longer plan to use a virtual machine, [delete it](../operations/vm-con
 
 ## What's next {#what-is-next}
 
-* Watch [tutorials for creating web services in {{ yandex-cloud }}](../../solutions/web/index.md).
+* Watch [tutorials for creating web services in {{ yandex-cloud }}](../../tutorials/web/index.md).
 * Learn [how to create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).
 * Learn [how to use VMs](../operations/index.md).
 * Read [answers to frequently asked questions](../qa/all.md).

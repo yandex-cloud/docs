@@ -37,7 +37,7 @@ You can change the value of a [resource record](../concepts/resource-record.md).
 
 - Terraform
 
-  Read more about Terraform in the [documentation](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Read more about Terraform in the [documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To update a DNS record created using Terraform:
 

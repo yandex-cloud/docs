@@ -36,10 +36,10 @@
 
   Варианты настройки:
 
-  - [Создание туннеля IPSec VPN с использованием демона strongSwan](../../../solutions/routing/ipsec-vpn.md)
+  - [Создание туннеля IPSec VPN с использованием демона strongSwan](../../../tutorials/routing/ipsec-vpn.md)
   - ![](../../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с Yandex.Cloud с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
-- Client VPN между удаленными устройствами и Yandex.Cloud. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе образа из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=network). См. инструкцию в разделе [{#T}](../../../solutions/routing/openvpn.md).
+- Client VPN между удаленными устройствами и Yandex.Cloud. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе образа из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=network). См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../../tutorials/routing/openvpn.md).
 - Приватное выделенное соединение между удаленной площадкой и Yandex.Cloud c помощью услуги [Cloud Interconnect](../../../interconnect/index.yaml).
 {#gost-vpn}
 - ГОСТ VPN. Если требуется организовать защищенный канал с аппаратных сертифицированных СКЗИ, обратитесь к своему менеджеру. Услуга ГОСТ VPN включает установку аппаратного криптошлюза на стороне Yandex.Cloud и, при необходимости, на стороне клиента, а также настройку и дальнейшую поддержку защищенного канала. Криптошлюзы предоставляются в аренду. Услуга оказывается совместно с партнером Yandex.Cloud.
@@ -56,7 +56,7 @@
 
 - [Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Адрес назначается ВМ по принципу one-to-one NAT. 
 - [Egress NAT](../../../vpc/operations/enable-nat.md). Включает доступ в интернет для подсети через общий пул публичных адресов Yandex.Cloud. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры. 
-- [NAT-инстанс](../../../solutions/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace/products/f2etqeet87jshce7o7j8).
+- [NAT-инстанс](../../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace/products/f2etqeet87jshce7o7j8).
 
 Сравнение способов доступа в интернет:
 

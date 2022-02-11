@@ -85,24 +85,24 @@ items:
         href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
-      - name: Все сценарии
-        href: solutions/index.md
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Работа с помощью Mosquitto
         items:
           - name: Отправить сообщение
-            href: solutions/mosquitto/mosquitto-publish.md
+            href: tutorials/mosquitto/mosquitto-publish.md
           - name: Подписать устройство или реестр на получение сообщений
-            href: solutions/mosquitto/mosquitto-subscribe.md
+            href: tutorials/mosquitto/mosquitto-subscribe.md
       - name: Работа с Yandex IoT Core с устройства с Android на языке Java
-        href: solutions/android-java.md
+        href: tutorials/android-java.md
       - name: Работа с Yandex IoT Core на языке C#
-        href: solutions/c-sharp.md
+        href: tutorials/c-sharp.md
       - name: Работа с Yandex IoT Core на языке Java
-        href: solutions/java.md
+        href: tutorials/java.md
       - name: Запись данных с устройства в Managed Service for PostgreSQL
-        href: solutions/data-recording.md
+        href: tutorials/data-recording.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

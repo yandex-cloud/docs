@@ -1,0 +1,37 @@
+title: Yandex.Cloud platform practical guidelines
+description:
+  - >-
+    Detailed step-by-step instructions that will help you handle various tasks
+    using Yandex.Cloud services.
+meta:
+  title: Practical guidelines
+links:
+  - title: Web service
+    description: Create websites using various CMS and network technologies
+    href: web/
+  - title: Online store
+    description: Open online stores on a variety of platforms
+    href: internet-store/
+  - title: Data archive
+    description: Set up data backups in Yandex.Cloud
+    href: archive/
+  - title: Test environment
+    description: Test applications on VMs
+    href: testing/
+  - title: Performing infrastructure management
+    description: >-
+      Deploy your infrastructure using convenient tools for managing cloud
+      resources
+    href: infrastructure-management/
+  - title: Network routing
+    description: Configure static routes and VPN to access cloud resources
+    href: routing/
+  - title: Windows in Yandex.Cloud
+    description: Use Windows services in Yandex.Cloud
+    href: windows/
+  - title: Data visualization and analytics
+    description: Collect, visualize, and analyze data from various sources
+    href: datalens/
+  - title: Internet of things
+    description: Manage your smart devices using the Yandex IoT Core service
+    href: iot/

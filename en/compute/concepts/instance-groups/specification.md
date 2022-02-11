@@ -9,7 +9,7 @@ You can create or edit an instance group based on the specification in the [YAML
 
 ## Example {#example}
 
-You can use the specification below to create an automatically scalable VM group, as in the [message processing scenario from the {{ message-queue-full-name }} queue](../../solutions/autoscale-monitoring.md):
+You can use the specification below to create an automatically scalable VM group, as in the [message processing scenario from the {{ message-queue-full-name }} queue](../../tutorials/autoscale-monitoring.md):
 
 ```yaml
 folder_id: b1gken0eihqn2oa0fm2k

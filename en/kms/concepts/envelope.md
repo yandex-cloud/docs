@@ -65,5 +65,5 @@ Envelope encryption shifts some of the responsibility for secure data encryption
 
 * Generate new DEKs when data is re-encrypted.
 
-To avoid errors, we recommend using the [AWS Encryption SDK](../solutions/encrypt/aws-encryption-sdk.md) or [Google Tink](../solutions/encrypt/google-tink.md) for client-side encryption.
+To avoid errors, we recommend using the [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md) or [Google Tink](../tutorials/encrypt/google-tink.md) for client-side encryption.
 

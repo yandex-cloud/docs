@@ -16,10 +16,10 @@ When creating a job, specify:
 
 For placing and [starting a job](../operations/jobs.md):
 
-* Use the {{ yandex-cloud }} interfaces. For more information, see [basic examples](../solutions/job-overview.md#jobs-basic-tutorials) of working with jobs.
+* Use the {{ yandex-cloud }} interfaces. For more information, see [basic examples](../tutorials/job-overview.md#jobs-basic-tutorials) of working with jobs.
 
 
-* Connect directly to the cluster node. For more information, see the example in [{#T}](../solutions/remote-run-job.md).
+* Connect directly to the cluster node. For more information, see the example in [{#T}](../tutorials/remote-run-job.md).
 
 For successful job execution:
 

@@ -34,5 +34,5 @@ The trail will be created and will start uploading audit logs to the log group.
 
 * Learn more about the [audit log format](../concepts/format.md).
 * Learn more about [Exporting audit logs to SIEM systems](../concepts/export-siem.md).
-* Learn more about [searching audit logs in a bucket](../solutions/search-bucket.md).
+* Learn more about [searching audit logs in a bucket](../tutorials/search-bucket.md).
 

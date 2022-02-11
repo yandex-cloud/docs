@@ -59,18 +59,18 @@ items:
         items:
           - name: Applying an access policy
             href: operations/access/apply-policy.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Getting object query statistics with S3 Select
-        href: solutions/server-logs.md
+        href: tutorials/server-logs.md
       - name: Getting website traffic statistics with S3 Select
-        href: solutions/user-agent-statistics.md
+        href: tutorials/user-agent-statistics.md
       - name: Generating a billing report with resource break-down using S3 Select
-        href: solutions/billing-resource-detailing.md
+        href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
-        href: solutions/server-side-encryption.md
+        href: tutorials/server-side-encryption.md
       - name: Blue-green and canary deployment
-        href: solutions/blue-green-canary-deployment.md
+        href: tutorials/blue-green-canary-deployment.md
   - name: Concepts
     items:
       - name: Overview

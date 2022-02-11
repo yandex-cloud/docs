@@ -16,7 +16,7 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 
     For more information, see [{#T}](../../vpc/concepts/security-groups.md).
 
-1. [Create a VM with LAMP/LEMP](../../solutions/web/lamp-lemp.md#create-vm) in {{ compute-full-name }} with any suitable configuration.
+1. [Create a VM with LAMP/LEMP](../../tutorials/web/lamp-lemp.md#create-vm) in {{ compute-full-name }} with any suitable configuration.
 
     When creating a VM, select the security group that you set up earlier. To check the security settings, enter the VM's public IP address in the browser address bar: the default page of the web server should be displayed.
 

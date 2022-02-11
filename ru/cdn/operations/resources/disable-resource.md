@@ -87,7 +87,7 @@
 
 - Terraform
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Откройте файл конфигурации Terraform и добавьте или измените блок ресурса `yandex_cdn_resource` на `active = false`.
 

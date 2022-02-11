@@ -1,3 +1,1 @@
-# Миграция базы данных в {{ mms-name }}
-
-{% include [_includes/tutorials/mssql-data-migration](../../_includes/tutorials/mssql-data-migration.md) %}
+{% include [mssql-data-migration](../../_includes/tutorials/dataplatform/mssql-data-migration.md) %}

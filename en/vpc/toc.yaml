@@ -56,12 +56,12 @@ items:
         items:
           - name: Enable protection from DDoS attacks
             href: operations/enable-ddos-protection.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Architecture and protection of a basic internet service
-        href: solutions/web-service.md
+        href: tutorials/web-service.md
       - name: DHCP settings for working with a corporate DNS server
-        href: solutions/dhcp-options.md
+        href: tutorials/dhcp-options.md
   - name: Concepts
     items:
       - name: Relationship between service resources

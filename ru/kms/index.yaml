@@ -16,9 +16,9 @@ links:
   - title: Концепции
     description: Узнайте про концепции и сущности сервиса
     href: concepts/
-  - title: Сценарии использования
+  - title: Практические руководства
     description: Решайте типовые задачи по работе с ключами KMS
-    href: solutions/
+    href: tutorials/
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/

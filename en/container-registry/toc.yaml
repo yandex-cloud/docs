@@ -69,14 +69,14 @@ items:
             href: operations/roles/revoke.md
   - name: Yandex Container Solution
     href: ../cos/
-  - name: Use cases
+  - name: Practical guidelines
     items:
-      - name: All use cases
-        href: solutions/index.md
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Running a Docker image on a VM
-        href: solutions/run-docker-on-vm.md
+        href: tutorials/run-docker-on-vm.md
       - name: Setting up automatic scanning of a Docker image
-        href: solutions/image-auto-scan.md
+        href: tutorials/image-auto-scan.md
   - name: Concepts
     items:
       - name: Overview

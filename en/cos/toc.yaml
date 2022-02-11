@@ -5,34 +5,34 @@ items:
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
-      - name: All use cases
-        href: solutions/index.md
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Creating a VM from a Container Optimized Image
-        href: solutions/vm-create.md
+        href: tutorials/vm-create.md
       - name: >-
           Creating a VM from a Container Optimized Image and an additional
           volume for a Docker container
-        href: solutions/vm-create-with-second-disk.md
+        href: tutorials/vm-create-with-second-disk.md
       - name: >-
           Creating a VM from a Container Optimized Image with multiple Docker
           containers
-        href: solutions/docker-compose.md
+        href: tutorials/docker-compose.md
       - name: Creating an instance group from a Container Optimized Image
-        href: solutions/ig-create.md
+        href: tutorials/ig-create.md
       - name: >-
           Creating an instance group from a Container Optimized Image with
           multiple Docker containers
-        href: solutions/ig-with-containers.md
+        href: tutorials/ig-with-containers.md
       - name: Editing a VM with Container Optimized Image
-        href: solutions/vm-update.md
+        href: tutorials/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
-        href: solutions/serial-port.md
+        href: tutorials/serial-port.md
       - name: >-
           Creating a VM and an instance group from a Container Optimized Image
           using Terraform
-        href: solutions/coi-with-terraform.md
+        href: tutorials/coi-with-terraform.md
   - name: Concepts
     items:
       - name: Container Optimized Image

@@ -45,7 +45,7 @@ Some steps don't support certain tools:
 
 ## Before you start {#before-you-begin}
 
-{% include [before-you-begin](../solutions/_solutions_includes/before-you-begin.md) %}
+{% include [before-you-begin](./tutorials/_tutorials_includes/before-you-begin.md) %}
 
 This use case uses a folder named `example-folder` as an example.
 
@@ -171,7 +171,7 @@ To create a network and subnets:
 
 - Terraform
 
-  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. In the configuration file, describe the parameters of `canary-network` and its subnets: `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b`, and `canary-subnet-ru-central1-c`:
 

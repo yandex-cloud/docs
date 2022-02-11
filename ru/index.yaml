@@ -129,9 +129,9 @@ links:
   - title: Serverless Containers
     description: Запуск контейнеров без Kubernetes®
     href: serverless-containers/
-  - title: Сценарии использования платформы Yandex.Cloud
+  - title: Практические руководства платформы Yandex.Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
-    href: solutions/
+    href: tutorials/
   - title: SpeechKit
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/

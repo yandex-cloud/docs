@@ -35,9 +35,9 @@ items:
         href: operations/performance-diagnostics.md
       - name: Database maintenance
         href: operations/maintenance.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Migrating databases to Managed Service for Microsoft SQL Server
         href: tutorials/data-migration.md

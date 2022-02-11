@@ -34,20 +34,20 @@ According to the PCI DSS standard, access to a VM via a serial console is consid
 ### Preparing VM images {#vm-preparing}
 
 When deploying virtual machines, we recommend:
-- Preparing a VM image whose system settings correspond to your information security policy. You can create an image using Packer. See [{#T}](../../../solutions/infrastructure-management/packer-quickstart.md).
+- Preparing a VM image whose system settings correspond to your information security policy. You can create an image using Packer. See [Getting started with Packer](../../../tutorials/infrastructure-management/packer-quickstart.md).
 - Use this image to create a virtual machine or [instance group](../../../compute/concepts/instance-groups/index.md).
 - Look up the virtual machine's information to check that it was created using this image.
 
 ### Terraform {#terraform}
 
-With Terraform, you can manage a cloud infrastructure using configuration files. If you change the files, Terraform automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [{#T}](../../../solutions/infrastructure-management/terraform-quickstart.md).
+With Terraform, you can manage a cloud infrastructure using configuration files. If you change the files, Terraform automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [Getting started with Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 We don't recommend using private information in Terraform configuration files, such as passwords, secrets, personal data or payment system data. Instead, you should use services to store and use secrets in the configuration file, such as [HashiCorp Vault](https://cloud.yandex.com/marketplace/products/f2eokige6vtlf94uvgs2) or [{{ lockbox-name }}](https://cloud.yandex.com/services/lockbox) (to transfer secrets to the target object without using Terraform).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 - Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan` and `terraform apply`.
-- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a Terraform state to Yandex Object Storage (see [{#T}](../../../solutions/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using Yandex Database to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
-- Use the [mechanism for transferring secrets to Terraform using env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text, or use built-in {{ kms-name }} capabilities for [encrypting data in Terraform](https://cloud.yandex.com/en/docs/kms/solutions/terraform-secret) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073))
+- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a Terraform state to Yandex Object Storage (see [Uploading Terraform states to Object Storage](../../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using Yandex Database to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
+- Use the [mechanism for transferring secrets to Terraform using env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text, or use built-in {{ kms-name }} capabilities for [encrypting data in Terraform](https://cloud.yandex.com/en/docs/kms/tutorials/terraform-secret) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073))
 
    For more information about Yandex Object Storage security, see [Object Storage](#object-storage) below.
 
@@ -92,7 +92,7 @@ When using Yandex Object Storage, make sure critical data is encrypted. Use any 
 
    {% endnote %}
 
-- Integrating Object Storage with the KMS service for client-side encryption. For encryption methods, see [{#T}](../../../kms/solutions/encrypt/index.md)
+- Integrating Object Storage with the KMS service for client-side encryption. For encryption methods, see [{#T}](../../../kms/tutorials/encrypt/index.md)
 - Third-party client-side encryption libraries prior to sending data to Object Storage. When using third-party libraries for data encryption and your own key management methods, be sure that your operation model, algorithms, and key lengths comply with regulator requirements.
 
 #### Encryption in transit
@@ -179,7 +179,7 @@ Hosts and hypervisors running Cloud Functions contain all the applicable updates
 
 ### Specifics of time synchronization in functions {#cloud-functions-time}
 
-The Cloud Functions service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the Cloud Functions side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with Yandex.Cloud. For more information about time synchronization, see [{#T}](../../../compute/solutions/ntp.md) in the Compute Cloud documentation.
+The Cloud Functions service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the Cloud Functions side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with Yandex.Cloud. For more information about time synchronization, see [{#T}](../../../compute/tutorials/ntp.md) in the Compute Cloud documentation.
 
 ### Managing HTTP headers in functions {#http-headers}
 

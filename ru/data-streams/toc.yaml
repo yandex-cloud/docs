@@ -57,14 +57,14 @@ items:
         href: concepts/limits.md
       - name: Сравнение с Yandex Message Queue
         href: concepts/yds-ymq-comparison.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Ввод данных в системы хранения
-        href: solutions/data-ingestion.md
+        href: tutorials/data-ingestion.md
       - name: Хранение журналов работы приложения
-        href: solutions/log-ingestion.md
+        href: tutorials/log-ingestion.md
       - name: Передача данных в микросервисных архитектурах
-        href: solutions/message-broker.md
+        href: tutorials/message-broker.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

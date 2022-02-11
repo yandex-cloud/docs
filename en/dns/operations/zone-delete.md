@@ -39,7 +39,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 
 - Terraform
 
-  Read more about Terraform in the [documentation](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Read more about Terraform in the [documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To delete a DNS zone created using Terraform:
 

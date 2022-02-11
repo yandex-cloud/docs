@@ -54,4 +54,4 @@
 * Использовать разные DEK для разных данных.
 * Генерировать новые DEK при повторном шифровании данных.
 
-Чтобы избежать ошибок, для шифрования на стороне клиента рекомендуется использовать [AWS Encryption SDK](../solutions/encrypt/aws-encryption-sdk.md) или [Google Tink](../solutions/encrypt/google-tink.md).
+Чтобы избежать ошибок, для шифрования на стороне клиента рекомендуется использовать [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md) или [Google Tink](../tutorials/encrypt/google-tink.md).

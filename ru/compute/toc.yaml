@@ -217,20 +217,20 @@ items:
             href: operations/dedicated-host/running-host-vms.md
   - name: Yandex Container Solution
     href: ../cos/
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Настройка синхронизации времени NTP
-        href: solutions/ntp.md
+        href: tutorials/ntp.md
       - name: Работа с группой ВМ с автоматическим масштабированием
-        href: solutions/vm-autoscale.md
+        href: tutorials/vm-autoscale.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
-        href: solutions/autoscale-monitoring.md
+        href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
-        href: solutions/updating-under-load.md
+        href: tutorials/updating-under-load.md
       - name: Развертывание Remote Desktop Gateway
-        href: solutions/rds-gw.md
+        href: tutorials/rds-gw
       - name: Передача логов с ВМ в Yandex Cloud Logging
-        href: solutions/vm-fluent-bit-logging.md
+        href: tutorials/vm-fluent-bit-logging.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

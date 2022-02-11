@@ -36,7 +36,7 @@ Sep 28 08:00:33 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
 {"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://cr.yandex/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
 ```
 
-**Как исправить:** проверьте доступ к {{ container-registry-name }} командой: `nc -vz cr.yandex 443`. Если доступа нет, [настройте NAT-инстанс](../../solutions/routing/nat-instance.md) или назначьте публичный IP-адрес на виртуальные машины с {{ coi }}. Также можно включить egress NAT для подсети, в которой создаются ВМ.
+**Как исправить:** проверьте доступ к {{ container-registry-name }} командой: `nc -vz cr.yandex 443`. Если доступа нет, [настройте NAT-инстанс](../../tutorials/routing/nat-instance.md) или назначьте публичный IP-адрес на виртуальные машины с {{ coi }}. Также можно включить egress NAT для подсети, в которой создаются ВМ.
 
 {% note warning %}
 

@@ -248,7 +248,7 @@ To create an instance group with an L7 load balancer:
 
 - Terraform
 
-  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. In the configuration file, describe the parameters of resources that you want to create:
 

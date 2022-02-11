@@ -120,7 +120,7 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 ## What's next {#whats-next}
 
-* Review the [tutorials](solutions/index.md) for examples of using the service.
+* Review the [tutorials](tutorials/index.md) for examples of using the service.
 * Read about [service concepts](concepts/index.md).
 * See [step-by-step instructions](operations/index.md).
 * Look at an [example ready-made dashboard](https://datalens.yandex/9fms9uae7ip02).

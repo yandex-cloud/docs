@@ -115,9 +115,9 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
 
-  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
 
@@ -253,7 +253,7 @@ If you specified security group IDs when creating a cluster, you may also need t
          --environment=production \
          --network-name=default \
          --security-group-ids {{ security-group }} \
-         --host zone-id={{ host-net-example }} \
+         --host {{ host-net-example }} \
          --resource-preset {{ host-class }} \
          --disk-type {{ disk-type-example }} \
          --disk-size 20 \

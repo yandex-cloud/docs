@@ -35,9 +35,9 @@ items:
         href: operations/performance-diagnostics.md
       - name: Обслуживание баз данных
         href: operations/maintenance.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
-      - name: Все сценарии
+      - name: Все руководства
         href: tutorials/index.md
       - name: Миграция базы данных в Managed Service for Microsoft SQL Server
         href: tutorials/data-migration.md

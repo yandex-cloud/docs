@@ -80,4 +80,4 @@
 - [Создание Docker-образа](../operations/docker-image/docker-image-create.md)
 - [Загрузка Docker-образа](../operations/docker-image/docker-image-push.md)
 - [Скачивание Docker-образа](../operations/docker-image/docker-image-pull.md)
-- [Запуск Docker-образа на виртуальной машине](../solutions/index.md)
+- [Запуск Docker-образа на виртуальной машине](../tutorials/index.md)

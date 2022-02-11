@@ -53,10 +53,10 @@ items:
         href: concepts/delay-queues.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Converting a video to a GIF in Python
-        href: solutions/video-converting-queue.md
+        href: tutorials/video-converting-queue.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

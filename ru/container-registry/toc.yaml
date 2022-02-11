@@ -69,16 +69,16 @@ items:
             href: operations/roles/revoke.md
   - name: Yandex Container Solution
     href: ../cos/
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
-      - name: Все сценарии
-        href: solutions/index.md
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Запуск Docker-образа на виртуальной машине
-        href: solutions/run-docker-on-vm.md
+        href: tutorials/run-docker-on-vm.md
       - name: Создание триггера с помощью Yandex Cloud Functions
-        href: solutions/trigger-create.md
+        href: tutorials/trigger-create.md
       - name: Настройка автоматического сканирования Docker-образа
-        href: solutions/image-auto-scan.md
+        href: tutorials/image-auto-scan.md
   - name: Концепции
     items:
       - name: Обзор

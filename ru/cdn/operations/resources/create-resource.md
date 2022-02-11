@@ -121,7 +121,7 @@
   yc cdn provider activate --folder-id <идентификатор каталога> --type gcore
   ```
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса:
 

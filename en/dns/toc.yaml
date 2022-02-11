@@ -40,15 +40,15 @@ items:
   - name: Practical guidelines
     items:
       - name: Configuring a local caching DNS resolver
-        href: solutions/local-dns-cache.md
+        href: tutorials/local-dns-cache.md
       - name: Migrating DNS zones from Yandex.Connect
-        href: solutions/connect-migration.md
+        href: tutorials/connect-migration.md
       - name: Integrating with a corporate DNS service
-        href: solutions/dns-integration.md
+        href: tutorials/dns-integration.md
       - name: >-
           Configuring {{ dns-name }} for access to managed database clusters
           from other cloud networks
-        href: solutions/mdb-dns-peering.md
+        href: tutorials/mdb-dns-peering.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

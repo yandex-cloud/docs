@@ -92,5 +92,5 @@ Currently, VPC network traffic event logs (Flow Logs) can only be collected by c
 
 ## Time synchronization {#time-synch}
 
-To get the exact time of OS- and application-level events, configure clock synchronization by following the [instructions](../../../compute/solutions/ntp.md).
+To get the exact time of OS- and application-level events, configure clock synchronization by following the [instructions](../../../compute/tutorials/ntp.md).
 

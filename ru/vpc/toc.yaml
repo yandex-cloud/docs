@@ -56,12 +56,12 @@ items:
         items:
           - name: Включить защиту от DDoS-атак
             href: operations/enable-ddos-protection.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Архитектура и защита базового интернет-сервиса
-        href: solutions/web-service.md
+        href: tutorials/web-service.md
       - name: Настройки DHCP для работы с корпоративным DNS-сервером
-        href: solutions/dhcp-options.md
+        href: tutorials/dhcp-options.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

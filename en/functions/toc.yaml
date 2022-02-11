@@ -295,26 +295,26 @@ items:
         href: lang/csharp/errors.md
       - name: Using the SDK
         href: lang/csharp/sdk.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Creating skills for Alice
-        href: solutions/alice-skill.md
+        href: tutorials/alice-skill.md
       - name: Deploying a web application
-        href: solutions/java-servlet-todo-list.md
+        href: tutorials/java-servlet-todo-list.md
       - name: Developing a skill for Alice and a website with authorization
-        href: solutions/alice-shareable-todolist.md
+        href: tutorials/alice-shareable-todolist.md
       - name: Writing data from a device to Managed Service for PostgreSQL
-        href: solutions/data-recording.md
+        href: tutorials/data-recording.md
       - name: Developing a Slack bot
-        href: solutions/slack-bot-serverless.md
+        href: tutorials/slack-bot-serverless.md
       - name: Developing a Telegram bot
-        href: solutions/telegram-bot-serverless.md
+        href: tutorials/telegram-bot-serverless.md
       - name: Connecting to a YDB database from a Python function
-        href: solutions/connect-to-ydb.md
+        href: tutorials/connect-to-ydb.md
       - name: Connecting to a YDB database from a function in Node.js
-        href: solutions/connect-to-ydb-nodejs.md
+        href: tutorials/connect-to-ydb-nodejs.md
       - name: Converting a video to a GIF in Python
-        href: solutions/video-converting-queue.md
+        href: tutorials/video-converting-queue.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

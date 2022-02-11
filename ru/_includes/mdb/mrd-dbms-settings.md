@@ -1,4 +1,4 @@
-* **Databases**{#settings-databases} {{ tag-con }} {{ tag-api }}
+* **Databases**{#settings-databases} {{ tag-all }}
 
     Количество баз данных.
 
@@ -14,7 +14,7 @@
 
     {% endnote %}
 
-* **Maxmemory policy**{#settings-maxmemory-policy} {{ tag-con }} {{ tag-api }}
+* **Maxmemory policy**{#settings-maxmemory-policy} {{ tag-all }}
 
     Режим управления памятью при ее дефиците.
 
@@ -29,7 +29,7 @@
 
     Подробнее см. в [документации {{ RD }}](https://docs.redislabs.com/latest/rs/administering/database-operations/eviction-policy/).
 
-* **Notify keyspace events**{#settings-notify-keyspace-events} {{ tag-con }} {{ tag-api }}
+* **Notify keyspace events**{#settings-notify-keyspace-events} {{ tag-all }}
 
     Настройка уведомлений о событиях, происходящих в пространстве ключей.
 
@@ -43,7 +43,7 @@
 
     Полный список модификаторов см. в [документации {{ RD }}](http://redis.io/topics/notifications).
 
-* **Slowlog log slower than**{#settings-slowlog-slower-than} {{ tag-con }} {{ tag-api }}
+* **Slowlog log slower than**{#settings-slowlog-slower-than} {{ tag-all }}
 
     Запросы, выполняющиеся дольше указанного времени (в микросекундах), считаются длительными. Такие запросы попадают в лог медленных запросов (slow log). При значении `0` в этот лог будут попадать все выполняемые запросы.
 
@@ -51,7 +51,7 @@
 
     Подробнее см. в [документации {{ RD }}](https://redis.io/commands/slowlog).
 
-* **Slowlog max len**{#settings-slowlog-max-len} {{ tag-con }} {{ tag-api }}
+* **Slowlog max len**{#settings-slowlog-max-len} {{ tag-all }}
 
     Максимальное количество записей в логе медленных запросов. При заполнении лога перед вставкой новых записей будут удалены самые старые.
 
@@ -59,7 +59,7 @@
 
     Подробнее см. в [документации {{ RD }}](https://redis.io/commands/slowlog).
 
-* **Timeout**{#settings-timeout} {{ tag-con }} {{ tag-api }}
+* **Timeout**{#settings-timeout} {{ tag-all }}
 
     Время в секундах, в течение которого будет поддерживаться соединение с неактивными клиентами.
 

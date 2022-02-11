@@ -24,11 +24,11 @@ links:
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
-  - title: Use cases
+  - title: Practical guidelines
     description: >-
       Use Yandex Container Registry to perform common tasks for managing Docker
       images
-    href: solutions/
+    href: tutorials/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits

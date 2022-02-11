@@ -50,7 +50,7 @@
 
 - Terraform
 
-  Подробнее о Terraform [читайте в документации](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы обновить зону DNS, созданную с помощью Terraform:
 

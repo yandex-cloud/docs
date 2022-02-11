@@ -5,4 +5,4 @@
 Чтобы работать с сырыми данными Метрики и AppMetrica вы можете:
 
 * для AppMetrica настроить автоматическую выгрузку сырых данных в {{ mch-name }} прямо в [интерфейсе AppMetrica](https://appmetrica.yandex.ru/docs/cloud/index.html);
-* для Метрики воспользоваться примером кода для экспорта сырых данных в {{ CH }} через LogsAPI из [документации](../../../datalens/solutions/data-from-metrica-yc-visualization.md#get-download-data-in-ch).
+* для Метрики воспользоваться примером кода для экспорта сырых данных в {{ CH }} через LogsAPI из [документации](../../../datalens/tutorials/data-from-metrica-yc-visualization.md#get-download-data-in-ch).

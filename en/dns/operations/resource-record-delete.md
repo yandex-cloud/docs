@@ -40,7 +40,7 @@ To delete a [resource record](../concepts/resource-record.md):
 
 - Terraform
 
-  Read more about Terraform in the [documentation](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Read more about Terraform in the [documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To delete a record created using Terraform from the DNS zone:
 

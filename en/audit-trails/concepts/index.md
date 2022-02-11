@@ -7,10 +7,10 @@
 
 Collecting of audit logs lets you use analytical tools and rapidly respond to events occurring with {{ yandex-cloud }} services:
 
-* [Searching in audit logs in the bucket](../solutions/search-bucket.md)
-* [Searching in audit logs in the log group](../solutions/search-cloud-logging.md)
+* [Searching in audit logs in the bucket](../tutorials/search-bucket.md)
+* [Searching in audit logs in the log group](../tutorials/search-cloud-logging.md)
 * [Uploading audit logs to SIEM](./export-siem.md)
-* [Setting up alerts in {{ monitoring-full-name }}](../solutions/alerts-monitoring.md)
+* [Setting up alerts in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md)
 
 {{ yandex-cloud }} services whose audit logs are collected by {{ at-name }}:
 

@@ -31,30 +31,30 @@ items:
         href: concepts/hsm.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
-      - name: Все сценарии
-        href: solutions/index.md
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Шифрование данных
         items:
           - name: Какой способ шифрования выбрать?
-            href: solutions/encrypt/index.md
+            href: tutorials/encrypt/index.md
           - name: Шифрование с помощью CLI и API Yandex.Cloud
-            href: solutions/encrypt/cli-api.md
+            href: tutorials/encrypt/cli-api.md
           - name: Шифрование с помощью SDK Yandex.Cloud
-            href: solutions/encrypt/sdk.md
+            href: tutorials/encrypt/sdk.md
           - name: Шифрование с помощью AWS Encryption SDK
-            href: solutions/encrypt/aws-encryption-sdk.md
+            href: tutorials/encrypt/aws-encryption-sdk.md
           - name: Шифрование с помощью Google Tink
-            href: solutions/encrypt/google-tink.md
+            href: tutorials/encrypt/google-tink.md
       - name: Шифрование секретов в Managed Service for Kubernetes
-        href: solutions/k8s.md
+        href: tutorials/k8s.md
       - name: Управление ключами KMS с Hashicorp Terraform
-        href: solutions/terraform-key.md
+        href: tutorials/terraform-key.md
       - name: Шифрование секретов в Hashicorp Terraform
-        href: solutions/terraform-secret.md
+        href: tutorials/terraform-secret.md
       - name: Auto Unseal в Hashicorp Vault
-        href: solutions/vault-secret.md
+        href: tutorials/vault-secret.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

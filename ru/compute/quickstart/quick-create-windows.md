@@ -42,7 +42,7 @@ keywords:
 
 ## Что дальше {#what-is-next}
 
-* Посмотрите [Сценарии создания веб-сервисов в {{ yandex-cloud }}](../../solutions/web/index.md).
+* Посмотрите [Сценарии создания веб-сервисов в {{ yandex-cloud }}](../../tutorials/web/index.md).
 * Узнайте, [как создать ВМ с GPU](../operations/vm-create/create-vm-with-gpu.md).
 * Узнайте, [как работать с ВМ](../operations/index.md).
 * Прочитайте [ответы на часто задаваемые вопросы](../qa/all.md).

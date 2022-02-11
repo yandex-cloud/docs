@@ -1,5 +1,4 @@
-# All use cases
+# All tutorials
 
-* [{#T}](./data-migration.md)
+* [Migrating databases to {{ mms-name }}](./data-migration.md)
 * [{#T}](./monitoring.md)
-

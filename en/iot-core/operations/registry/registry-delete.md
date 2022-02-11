@@ -40,9 +40,9 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
 - Terraform
 
-  {% include [terraform-definition](../../../_includes/solutions/terraform-definition.md) %}
+  {% include [terraform-definition](../../../_includes/tutorials/terraform-definition.md) %}
 
-  Read more about Terraform in the [documentation](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Read more about Terraform in the [documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Registries created using Terraform can be deleted:
 

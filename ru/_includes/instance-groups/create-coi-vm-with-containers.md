@@ -109,7 +109,6 @@
    - API
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
-
      1. Создать подсеть в зоне доступности `ru-central1-a`с помощью метода [Сreate](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
 
    {% endlist %}
@@ -132,7 +131,7 @@
      boot_disk_spec:
        mode: READ_WRITE # Режим доступа к диску: чтение и запись.
        disk_spec:
-         image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
+         image_id: <идентификатор последней версии COI>
          type_id: network-hdd # Тип диска.
          size: 32G # Размер диска.
      network_interface_specs:
@@ -214,7 +213,7 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. Выберите сервис **{{ compute-short-name }}**.
+     1. Выберите сервис **{{ compute-name }}**.
      1. Перейдите в раздел **Группы виртуальных машин**.
      1. Нажмите на имя группы ВМ `group-coi-containers`.
 
