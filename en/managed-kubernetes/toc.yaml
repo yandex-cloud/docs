@@ -147,3 +147,5 @@ items:
     items:
       - name: General questions
         href: qa/index.md
+      - name: Automatic scaling
+        href: qa/cluster-autoscaler.md
