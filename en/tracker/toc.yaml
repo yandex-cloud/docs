@@ -31,7 +31,7 @@ items:
         href: disable-tracker.md
   - name: Yandex Tracker mobile app
     href: mobile.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Setting up Yandex Tracker for a development team
         items:

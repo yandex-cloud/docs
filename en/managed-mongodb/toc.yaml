@@ -41,7 +41,7 @@ items:
         href: operations/performance-diagnostics.md
       - name: Performance analysis tools
         href: operations/tools.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Sharding collections
         href: tutorials/sharding.md

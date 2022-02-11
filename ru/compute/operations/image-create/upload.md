@@ -17,7 +17,7 @@ keywords:
 
 {% note warning %}
 
-В {{ compute-name }} создать образ можно только из файла, загруженного в {{ objstorage-name }}. Также вы можете мигрировать виртуальную машину с помощью [Hystax Acura](../../../solutions/infrastructure-management/hystax-migration.md).
+В {{ compute-name }} создать образ можно только из файла, загруженного в {{ objstorage-name }}. Также вы можете мигрировать виртуальную машину с помощью [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).
 
 {% endnote %}
 
@@ -92,7 +92,7 @@ keywords:
 
 - Terraform
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать образ:
 

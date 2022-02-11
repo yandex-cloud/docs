@@ -85,24 +85,24 @@ items:
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
-      - name: All use cases
-        href: solutions/index.md
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Working with Mosquitto
         items:
           - name: Sending messages
-            href: solutions/mosquitto/mosquitto-publish.md
+            href: tutorials/mosquitto/mosquitto-publish.md
           - name: Subscribing a device or registry to receive messages
-            href: solutions/mosquitto/mosquitto-subscribe.md
+            href: tutorials/mosquitto/mosquitto-subscribe.md
       - name: Working with Yandex IoT Core from an Android device in Java
-        href: solutions/android-java.md
+        href: tutorials/android-java.md
       - name: Working with Yandex IoT Core in C#
-        href: solutions/c-sharp.md
+        href: tutorials/c-sharp.md
       - name: Working with Yandex IoT Core in Java
-        href: solutions/java.md
+        href: tutorials/java.md
       - name: Writing data from a device to Managed Service for PostgreSQL
-        href: solutions/data-recording.md
+        href: tutorials/data-recording.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

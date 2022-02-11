@@ -12,10 +12,10 @@ description: 'Yandex Audit Trails позволяет собирать аудит
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события уровня сервисов {{ yandex-cloud }}:
 
-* [Поиск по аудитным логам в бакете](../solutions/search-bucket.md)
-* [Поиск по аудитным логам в лог-группе](../solutions/search-cloud-logging.md)
+* [Поиск по аудитным логам в бакете](../tutorials/search-bucket.md)
+* [Поиск по аудитным логам в лог-группе](../tutorials/search-cloud-logging.md)
 * [Загрузка аудитных логов в SIEM](./export-siem.md)
-* [Настройка алертов в {{ monitoring-full-name }}](../solutions/alerts-monitoring.md)
+* [Настройка алертов в {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md)
 
 Сервисы {{ yandex-cloud }}, аудитные логи которых собирает {{ at-name }}:
 

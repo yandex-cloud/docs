@@ -18,7 +18,7 @@ You will be billed for:
 
     {% note tip %}
 
-    We recommend using [caching resolvers](solutions/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing costs.
+    We recommend using [caching resolvers](tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can help you reduce the number of queries for external domain names, reducing costs.
 
     {% endnote %}
 

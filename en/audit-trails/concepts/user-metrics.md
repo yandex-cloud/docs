@@ -26,4 +26,4 @@ You can track the status of [trails](./trail.md) using [{{ monitoring-full-name 
 
 ## What's next {#whats-next}
 
-* Review the {{ at-name }} [alert settings](../solutions/alerts-monitoring.md) in {{ monitoring-full-name }}.
+* Review the {{ at-name }} [alert settings](../tutorials/alerts-monitoring.md) in {{ monitoring-full-name }}.

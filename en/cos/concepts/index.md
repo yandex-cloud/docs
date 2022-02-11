@@ -7,4 +7,4 @@ It's integrated with the {{ yandex-cloud }} platform, which lets you:
 * Update running Docker containers with minimum downtime.
 * Access Docker container open network ports without any additional settings.
 
-Learn more about working with a {{ coi }} in [{#T}](../solutions/vm-create.md).
+Learn more about working with a {{ coi }} in [{#T}](../tutorials/vm-create.md).

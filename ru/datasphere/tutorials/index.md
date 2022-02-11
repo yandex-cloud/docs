@@ -3,7 +3,7 @@ title: Сценарии использования Yandex DataSphere
 description: 'Различные сценарии использования Yandex DataSphere в облаке Yandex.Cloud. Знакомство с DataSphere, распознавание голоса, оценка качества STT-моделей, разметка аудио, классификация изображений на видеокадрах.'
 ---
 
-# Сценарии использования Yandex DataSphere
+# Практические руководства Yandex DataSphere
 
 * [{#T}](basics.md)
 * [{#T}](speech-recognition.md)

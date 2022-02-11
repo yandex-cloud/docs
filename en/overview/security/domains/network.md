@@ -34,10 +34,10 @@ To enable administrators to establish remote connections to your cloud resources
 - A site-to-site VPN between a remote site (such as your office) and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an image from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network).
 
   Setup options:
-  - [Creating an IPsec VPN tunnel using the strongSwan](../../../solutions/routing/ipsec-vpn.md) daemon
+  - [Creating an IPsec VPN tunnel using the strongSwan](../../../tutorials/routing/ipsec-vpn.md) daemon
   - ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to Yandex.Cloud using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
-- A client VPN between remote devices and Yandex.Cloud. As a remote access gateway, use a VM featuring a client VPN based on an image from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network). See the instructions in [{#T}](../../../solutions/routing/openvpn.md).
+- A client VPN between remote devices and Yandex.Cloud. As a remote access gateway, use a VM featuring a client VPN based on an image from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network). See the instructions in [Creating a VPN connection using OpenVPN](../../../tutorials/routing/openvpn.md).
 
 - A dedicated private connection between a remote site and Yandex.Cloud using [Cloud Interconnect](../../../interconnect/index.yaml).
 
@@ -54,7 +54,7 @@ Possible options for setting up outbound internet access:
 
 - [Public IP address](../../../vpc/concepts/address.md#public-addresses). Assigned to a VM according to the one-to-one NAT rule.
 - [Egress NAT](../../../vpc/operations/enable-nat.md). Enables internet access for a subnet through a shared pool of Yandex.Cloud public IP addresses. We don't recommend that you use Egress NAT for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
-- [NAT instance](../../../solutions/routing/nat-instance.md). The NAT function is performed by a separate VM. You can create this VM using an image from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace/products/f2etqeet87jshce7o7j8).
+- [NAT instance](../../../tutorials/routing/nat-instance.md). The NAT function is performed by a separate VM. You can create this VM using an image from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace/products/f2etqeet87jshce7o7j8).
 
 Comparison of internet access methods:
 

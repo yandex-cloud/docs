@@ -48,7 +48,7 @@
 - Визуализировать датасеты с помощью [чартов](../../datalens/concepts/chart/index.md) и [дашбордов](../../datalens/concepts/dashboard.md).
 
 
-См. также: [пример визуализации данных из {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).
+См. также: [пример визуализации данных из {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 
 ## Просмотреть список подключений кластера {#connectors-list}
 

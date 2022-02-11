@@ -49,9 +49,9 @@
   
 - Terraform
 
-  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
 
-  Подробнее о Terraform [читайте в документации](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Если вы создавали сетевой балансировщик с помощью Terraform, вы можете удалить его:
 

@@ -99,7 +99,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - Terraform
 
-  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create an image:
 

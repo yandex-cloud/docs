@@ -24,6 +24,6 @@ A certificate linked to the domain is used to provide a TLS connection.
 
 #### See also {#see-also}
 
-- [Static website in {{ objstorage-name }}](../../solutions/web/static.md)
+- [Static website in {{ objstorage-name }}](../../tutorials/web/static.md)
 - [{{ api-gw-full-name }}](../../api-gateway/index.yaml)
 

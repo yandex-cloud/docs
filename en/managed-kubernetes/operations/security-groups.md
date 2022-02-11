@@ -48,7 +48,7 @@ Setting up rules for service traffic enables the performance of a regional clust
        * `192.168.0.0/16`.
        * `172.16.0.0/12`.
 
-1. Add a rule for outgoing traffic that allows cluster hosts to connect to external resources, for example, to download images from Docker Hub or work with [{{ objstorage-full-name }}](../solutions/backup.md):
+1. Add a rule for outgoing traffic that allows cluster hosts to connect to external resources, for example, to download images from Docker Hub or work with [{{ objstorage-full-name }}](../tutorials/backup.md):
    * Port range: `{{ port-any }}`.
    * Protocol: `Any`.
    * Source type: `CIDR`.

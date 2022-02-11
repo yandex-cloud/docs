@@ -31,7 +31,7 @@ items:
         href: disable-tracker.md
   - name: Мобильное приложение Tracker
     href: mobile.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Настроить Tracker для команды разработки
         items:

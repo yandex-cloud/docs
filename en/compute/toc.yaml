@@ -209,20 +209,20 @@ items:
             href: operations/dedicated-host/running-host-vms.md
   - name: Yandex Container Optimized Solutions
     href: ../cos/
-  - name: Scenarios
+  - name: Practical guidelines
     items:
       - name: Configuring NTP time synchronization
-        href: solutions/ntp.md
+        href: tutorials/ntp.md
       - name: Running instance groups with auto scaling
-        href: solutions/vm-autoscale.md
+        href: tutorials/vm-autoscale.md
       - name: >-
           Automatically scaling an instance group for handling messages from a
           queue
-        href: solutions/autoscale-monitoring.md
+        href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
-        href: solutions/updating-under-load.md
+        href: tutorials/updating-under-load.md
       - name: Deploying Remote Desktop Gateway
-        href: solutions/rds-gw.md
+        href: tutorials/rds-gw.md
   - name: Concepts
     items:
       - name: Relationship between resources

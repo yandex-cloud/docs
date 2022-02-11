@@ -26,4 +26,4 @@
 
 ## Что дальше {#whats-next}
 
-* Ознакомьтесь со сценариями [настройки алертов](../solutions/alerts-monitoring.md) {{ at-name }} в {{ monitoring-full-name }}.
+* Ознакомьтесь со сценариями [настройки алертов](../tutorials/alerts-monitoring.md) {{ at-name }} в {{ monitoring-full-name }}.

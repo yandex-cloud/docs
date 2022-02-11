@@ -41,10 +41,12 @@ items:
         href: operations/performance-diagnostics.md
       - name: Инструменты для анализа производительности
         href: operations/tools.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Шардирование коллекций
         href: tutorials/sharding.md
+      - name: Перенос коллекций из {{ MG }} в {{ mmg-name }}
+        href: tutorials/mongodb-migration.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
   - name: Концепции

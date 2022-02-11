@@ -153,10 +153,10 @@ keywords:
 
 - Terraform
 
-    {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
 
         
-    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     Чтобы создать кластер:
 
@@ -164,9 +164,9 @@ keywords:
 
         * Кластер базы данных — описание кластера и его хостов.
 
-        
-        * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-        * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+        * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+        * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
         Пример структуры конфигурационного файла:
 

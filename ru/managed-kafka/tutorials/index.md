@@ -1,4 +1,4 @@
-# Все сценарии
+# Все руководства
 
 * [{#T}](./send-data-to-mch.md)
 * [{#T}](./use-ksqldb-with-mkf.md)

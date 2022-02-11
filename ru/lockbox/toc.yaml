@@ -13,12 +13,12 @@ items:
         href: operations/secret-update.md
       - name: Удалить секрет
         href: operations/secret-delete.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
-      - name: Все сценарии
-        href: solutions/index.md
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Синхронизация с секретами Managed Service for Kubernetes
-        href: solutions/kubernetes-lockbox-secrets.md
+        href: tutorials/kubernetes-lockbox-secrets.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

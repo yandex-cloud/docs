@@ -1,0 +1,180 @@
+title: Practical guidelines
+href: index.yaml
+items:
+  - name: Web service
+    items:
+      - name: All tutorials
+        href: web/index.md
+      - name: Static website in Object Storage
+        href: web/static.md
+      - name: Website on LAMP or LEMP stack
+        href: web/lamp-lemp.md
+      - name: Fault-tolerant website with load balancing by Network Load Balancer
+        href: web/load-balancer-website.md
+      - name: Fault-tolerant website using DNS load balancing
+        href: web/dns-load-balancer.md
+      - name: Joomla website with PostgreSQL
+        href: web/joomla-postgresql.md
+      - name: WordPress website
+        href: web/wordpress.md
+      - name: WordPress website on a MySQL database
+        href: web/wordpress-mysql.md
+      - name: 1C-Bitrix website
+        href: web/bitrix-website.md
+      - name: Blue-green and canary deployment of service versions
+        href: web/blue-green-canary-deployment.md
+  - name: Online stores
+    items:
+      - name: All tutorials
+        href: internet-store/index.md
+      - name: 1C-Bitrix online store
+        href: internet-store/bitrix-shop.md
+      - name: Opencart online store
+        href: internet-store/opencart.md
+  - name: Data archive
+    items:
+      - name: All tutorials
+        href: archive/index.md
+      - name: Single-node file server
+        href: archive/single-node-file-server.md
+      - name: Configuring an SFTP server on Centos 7
+        href: archive/backup-and-archive-to-sftp.md
+      - name: Backup to Object Storage via Acronis Backup
+        href: archive/object-storage-acronis.md
+      - name: Backup to Object Storage via CloudBerry Desktop Backup
+        href: archive/object-storage-cloudberry.md
+      - name: Backup to Object Storage via Duplicati
+        href: archive/object-storage-duplicati.md
+      - name: Backup to Object Storage via Bacula
+        href: archive/backup-with-bacula.md
+      - name: Backup to Object Storage via Veritas Backup Exec
+        href: archive/object-storage-veritas.md
+      - name: Digitizing archives in Yandex Vision
+        href: archive/archive-from-vision-to-object-storage.md
+  - name: Test environment
+    items:
+      - name: All tutorials
+        href: testing/index.md
+      - name: Testing applications with GitLab
+        href: testing/gitlab.md
+      - name: Creating test VMs using GitLab CI
+        href: testing/ci-for-snapshots.md
+      - name: High-performance computing on preemptible VMs
+        href: testing/hpc-on-preemptible.md
+      - name: Emulating multiple IoT devices
+        href: testing/iot-emulation.md
+  - name: Performing infrastructure management
+    items:
+      - name: All tutorials
+        href: infrastructure-management/index.md
+      - name: Getting started with Terraform
+        href: infrastructure-management/terraform-quickstart.md
+      - name: Uploading Terraform states to Object Storage
+        href: infrastructure-management/terraform-state-storage.md
+      - name: Getting started with Packer
+        href: infrastructure-management/packer-quickstart.md
+      - name: Automating VM image builds using Jenkins
+        href: infrastructure-management/jenkins.md
+      - name: Continuous deployment of containerized applications using GitLab
+        href: infrastructure-management/gitlab-containers.md
+      - name: >-
+          Creating a cluster of 1C:Enterprise Linux servers with a Managed
+          Service for PostgreSQL cluster
+        href: infrastructure-management/1c-postgresql-linux.md
+      - name: Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server
+        href: infrastructure-management/1c-mssql-windows.md
+      - name: Migrating to Yandex.Cloud using Hystax Acura
+        href: infrastructure-management/hystax-migration.md
+      - name: Emergency recovery in Yandex.Cloud using Hystax Acura
+        href: infrastructure-management/hystax-disaster-recovery.md
+      - name: Configuring a fault-tolerant architecture in Yandex.Cloud
+        href: infrastructure-management/fault-tolerance.md
+  - name: Building a data platform
+    items:
+      - name: All tutorials
+        href: dataplatform/index.md
+      - name: Syncing MySQL data using Yandex DataTransfer
+        href: dataplatform/sync-mysql.md
+      - name: Delivering data using Debezium
+        href: dataplatform/kafka-cdc.md
+      - name: Migrating databases to Managed Service for Microsoft SQL Server
+        href: dataplatform/mssql-data-migration.md
+      - name: >-
+          Configuring {{ dns-full-name }} for accessing managed database
+          clusters from other cloud networks
+        href: dataplatform/mdb-dns-peering.md
+  - name: Windows in Yandex.Cloud
+    items:
+      - name: All tutorials
+        href: windows/index.md
+      - name: Deploying Active Directory
+        href: windows/active-directory.md
+      - name: Deploying Microsoft Exchange
+        href: windows/exchange.md
+      - name: Deploying Remote Desktop Services
+        href: windows/rds.md
+      - name: Deploying an Always On availability group
+        href: windows/mssql-alwayson.md
+      - name: >-
+          Deploying an Always On availability group with an internal network
+          load balancer
+        href: windows/mssql-alwayson-lb.md
+      - name: Deploying Remote Desktop Gateway
+        href: windows/rds-gw.md
+  - name: Network routing
+    items:
+      - name: All tutorials
+        href: routing/index.md
+      - name: Routing through a NAT instance
+        href: routing/nat-instance.md
+      - name: Creating a VPN tunnel
+        href: routing/ipsec-vpn.md
+      - name: Installing a Cisco CSR1000v virtual router
+        href: routing/cisco.md
+      - name: Installing a Mikrotik CHR virtual router
+        href: routing/mikrotik.md
+      - name: Creating a VPN connection using OpenVPN
+        href: routing/openvpn.md
+  - name: Data visualization and analytics
+    items:
+      - name: All tutorials
+        href: datalens/index.md
+      - name: Visualizing data from a CSV file
+        href: datalens/data-from-csv-visualization.md
+      - name: Creating and publishing a chart with a map of Moscow from a CSV file
+        href: datalens/data-from-csv-to-public-visualization.md
+      - name: Analyzing a store chain's sales based on data from a ClickHouse DB
+        href: datalens/data-from-ch-visualization.md
+      - name: Analyzing open data on road accidents in Russia
+        href: datalens/data-from-csv-geo-visualization.md
+      - name: >-
+          Analyzing sales and locations of pizzerias based on data from
+          Clickhouse DB and Marketplace
+        href: datalens/data-from-ch-to-geolayers-visualization.md
+      - name: Web analytics with a connection to Yandex.Metrica
+        href: datalens/data-from-metrica-visualization.md
+      - name: >-
+          Web analytics with funnels and cohorts calculated based on
+          Yandex.Metrica data
+        href: datalens/data-from-metrica-yc-visualization.md
+      - name: Mobile app analytics based on AppMetrica data
+        href: datalens/data-from-appmetrica-visualization.md
+      - name: Analyzing Yandex Music podcast statistics (for podcast authors)
+        href: datalens/data-from-podcasts.md
+      - name: Visualizing data with a SQL chart
+        href: datalens/data-from-ch-to-sql-chart.md
+      - name: Mobile app customer journey analytics based on AppMetrica data
+        href: datalens/data-from-appmetrica-yc-visualization.md
+  - name: Internet of things
+    items:
+      - name: Tutorials for the internet of things
+        href: iot/index.md
+      - name: Status monitoring of geographically distributed devices
+        href: iot/datalens.md
+      - name: Monitoring sensor readings and event notifications
+        href: iot/monitoring.md
+  - name: Serverless technologies
+    items:
+      - name: URL shortener
+        href: serverless/serverless-url-shortener.md
+base: en/tutorials

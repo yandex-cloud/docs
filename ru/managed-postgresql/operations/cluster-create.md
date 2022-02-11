@@ -123,11 +123,14 @@
          --disk-size <объем хранилища, ГБ> \
          --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <список идентификаторов групп безопасности> \
+         --connection-pooling-mode=<режим работы менеджера соединений> \
          --deletion-protection=<защита от удаления кластера: true или false> \
          --serverless-access
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
+      Доступные [режимы работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -142,17 +145,19 @@
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
     
-  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать кластер:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
-          * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-     * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+     * Кластер базы данных — описание кластера и его хостов.
+
+     * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+     * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
      Пример структуры конфигурационного файла:
 
@@ -186,6 +191,11 @@
            disk_type_id       = "<тип хранилища>"
            disk_size          = <объем хранилища, ГБ>
          }
+         pooler_config {
+           pool_discard = <параметр Odyssey pool_discard: true или false>
+           pooling_mode = "<режим работы: SESSION, TRANSACTION или STATEMENT>"
+         }
+         ...
        }
 
        database {

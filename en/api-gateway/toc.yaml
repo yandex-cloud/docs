@@ -19,16 +19,16 @@ items:
         href: operations/api-gw-monitoring.md
       - name: Viewing the execution log
         href: operations/api-gw-logs.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Deploying a web application
-        href: solutions/java-servlet-todo-list.md
+        href: tutorials/java-servlet-todo-list.md
       - name: Developing a skill for Alice and a website with authorization
-        href: solutions/alice-shareable-todolist.md
+        href: tutorials/alice-shareable-todolist.md
       - name: Developing a Slack bot
-        href: solutions/slack-bot-serverless.md
+        href: tutorials/slack-bot-serverless.md
       - name: Developing a Telegram bot
-        href: solutions/telegram-bot-serverless.md
+        href: tutorials/telegram-bot-serverless.md
   - name: Concepts
     items:
       - name: Relationship between service resources

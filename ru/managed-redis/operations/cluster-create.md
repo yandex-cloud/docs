@@ -119,26 +119,20 @@
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-- API
-
-  Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
-  * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-  * Имя кластера в параметре `name`.
-  * Идентификаторы групп безопасности в параметре `securityGroupIds`.
-  * Флаг `tlsEnabled=true` для создания кластера с поддержкой шифрованных SSL-соединений (для версии {{ RD }} 6.0 или старше).
-
 - Terraform
 
-  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
   
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   Чтобы создать кластер:
 
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
        * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
-              * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-       * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
        Пример структуры конфигурационного файла для создания кластера с поддержкой SSL:
 
@@ -207,6 +201,14 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
        После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+- API
+
+  Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
+  * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+  * Имя кластера в параметре `name`.
+  * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+  * Флаг `tlsEnabled=true` для создания кластера с поддержкой шифрованных SSL-соединений (для версии {{ RD }} 6.0 или старше).
 
 {% endlist %}
 

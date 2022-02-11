@@ -25,7 +25,7 @@ To deploy a project:
     * [AWS CLI](../storage/tools/aws-cli).
     * [jq](https://stedolan.github.io/jq/download/).
     * [Node.js](https://nodejs.org/en/download/package-manager/).
-    * [Terraform](../solutions/infrastructure-management/terraform-quickstart).
+    * [Terraform](../tutorials/infrastructure-management/terraform-quickstart).
 
 1. To finalize the project, you'll additionally need:
     * [The Go programming language](https://golang.org/).
@@ -114,7 +114,7 @@ To create tables in the database, run the command:
 
 ### Upload the backend code to {{ sf-name }} {#deploy-backend}
 
-Use Terraform to automate your operations. Before you start, [initialize it](../solutions/infrastructure-management/terraform-quickstart#configure-provider).
+Use Terraform to automate your operations. Before you start, [initialize it](../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
 
 To do this, go to the folder with the app.tf config file and run the command:
 

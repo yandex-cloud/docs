@@ -21,7 +21,7 @@ Groups of {{ k8s }} nodes require internet access for downloading images and com
 
 Internet access can be provided in the following ways:
 * By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
-* [Configuring a virtual machine as a NAT instance](../../solutions/routing/nat-instance.md).
+* [Configuring a virtual machine as a NAT instance](../../tutorials/routing/nat-instance.md).
 * [Enabling NAT to the internet](../../vpc/operations/enable-nat.md).
 
 {% endnote %}

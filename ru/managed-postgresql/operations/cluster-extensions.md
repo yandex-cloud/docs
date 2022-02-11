@@ -194,7 +194,7 @@
 
 * [hypopg](https://hypopg.readthedocs.io/en/rel1_stable/) {#ext-hypopg}
 
-    Содержит виртуальные индексы. Они позволяют с минимальными затратами ресурсов выяснить, будет ли {{ PG }} использовать реальные индексы при обработке [проблемных запросов](../solutions/profiling.md#solving-inefficient-queries).
+    Содержит виртуальные индексы. Они позволяют с минимальными затратами ресурсов выяснить, будет ли {{ PG }} использовать реальные индексы при обработке [проблемных запросов](../tutorials/profiling.md#solving-inefficient-queries).
 
 * [intarray]({{ pg-docs }}/static/intarray.html) {#ext-intarray}
 

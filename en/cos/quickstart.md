@@ -89,4 +89,4 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 #### What's next {#what-is-next}
 
 * Read a detailed description of a [{{ coi }}](concepts/index.md).
-* For information about what else you can do with a {{ coi }}, see our [step-by-step instructions](solutions/index.md).
+* For information about what else you can do with a {{ coi }}, see our [step-by-step instructions](tutorials/index.md).

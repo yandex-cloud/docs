@@ -15,9 +15,9 @@ links:
   - title: Концепции
     description: Узнайте подробнее про образ Container Optimized Image
     href: concepts/
-  - title: Сценарии использования
-    description: Сценарии использования образа Container Optimized Image
-    href: solutions/
+  - title: Практические руководства
+    description: Руководства по работе с образом Container Optimized Image
+    href: tutorials/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения
     href: concepts/limits

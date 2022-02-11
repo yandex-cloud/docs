@@ -1,30 +1,30 @@
 title: Yandex Data Proc
 href: index.yaml
 items:
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Working with jobs
         items:
           - name: Overview
-            href: solutions/job-overview.md
+            href: tutorials/job-overview.md
           - name: Working with Hive jobs
-            href: solutions/hive-job-basics.md
+            href: tutorials/hive-job-basics.md
           - name: Working with MapReduce jobs
-            href: solutions/mapreduce-job-basics.md
+            href: tutorials/mapreduce-job-basics.md
           - name: Working with PySpark jobs
-            href: solutions/pyspark-job-basics.md
+            href: tutorials/pyspark-job-basics.md
           - name: Working with Spark jobs
-            href: solutions/spark-job-basics.md
+            href: tutorials/spark-job-basics.md
           - name: Using Apache Hive
-            href: solutions/how-to-use-hive.md
+            href: tutorials/how-to-use-hive.md
           - name: Running Spark applications
-            href: solutions/run-spark-job.md
+            href: tutorials/run-spark-job.md
           - name: Running applications from a remote host
-            href: solutions/remote-run-job.md
+            href: tutorials/remote-run-job.md
       - name: Configuring networks for Data Proc clusters
-        href: solutions/configure-network.md
+        href: tutorials/configure-network.md
       - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
-        href: solutions/copy-files-from-object-storage.md
+        href: tutorials/copy-files-from-object-storage.md
   - name: Step-by-step instructions
     items:
       - name: All instructions

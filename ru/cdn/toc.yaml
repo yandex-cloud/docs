@@ -45,12 +45,12 @@ items:
             href: operations/origin-groups/bind-group-to-resource.md
           - name: Удалить группу источников
             href: operations/origin-groups/delete-group.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Публикация обновлений для игр
-        href: solutions/prefetch.md
+        href: tutorials/prefetch.md
       - name: Сине-зеленое и канареечное развертывание
-        href: solutions/blue-green-canary-deployment.md
+        href: tutorials/blue-green-canary-deployment.md
   - name: Концепции
     items:
       - name: Обзор сервиса

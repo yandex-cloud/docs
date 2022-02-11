@@ -35,10 +35,10 @@ description: 'Key Management Service — сервис для создания к
 * В сервисах {{ yandex-cloud }}:
   * [Managed Service for Kubernetes](../../managed-kubernetes/).
   * [Certificate Manager](../../certificate-manager/).
-* При работе с [Terraform](../solutions/terraform-key.md).
+* При работе с [Terraform](../tutorials/terraform-key.md).
 * В библиотеках шифрования:
-  * [AWS Encryption SDK](../solutions/encrypt/aws-encryption-sdk.md).
-  * [Google Tink](../solutions/encrypt/google-tink.md).
+  * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).
+  * [Google Tink](../tutorials/encrypt/google-tink.md).
 
 ### Безопасное хранение ключей {#keys-storage}
 

@@ -10,8 +10,6 @@
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
-* [Установить режим работы менеджера соединений](#change-pooler-config).
-
 * [Вручную переключать мастер в кластере](#start-manual-failover).
 
 * [Изменить группы безопасности кластера](#change-sg-set).
@@ -333,6 +331,7 @@
             --maintenance-window type=<weekly или anytime> \
             --websql-access=<true или false> \
             --deletion-protection=<защита от удаления кластера: true или false> \
+            --connection-pooling-mode=<режим работы менеджера соединений> \
             --serverless-access=<true или false>
         ```
 
@@ -347,6 +346,8 @@
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
     
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+    * `--connection-pooling-mode` — указывает [режим работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
     {% include [Защита от удаления кластера](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
 
@@ -388,6 +389,21 @@
       }
       ```
 
+  1. Чтобы изменить [режим работы менеджера соединений](../concepts/pooling.md), добавьте к описанию кластера {{ mpg-name }} блок `config.pooler_config`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        config {
+          pooler_config {
+            pool_discard = <параметр Odyssey pool_discard: true или false>
+            pooling_mode = "<режим работы: SESSION, TRANSACTION или STATEMENT>"
+          }
+          ...
+        }
+      }
+      ```
+
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
       ```hcl
@@ -416,6 +432,7 @@
     * Идентификатор кластера в параметре `clusterId`.
     * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
+    * [Режим работы менеджера соединений](../concepts/pooling.md) в параметре `configSpec.poolerConfig.poolingMode`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -432,74 +449,6 @@
 
   
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
-
-{% endlist %}
-
-## Установить режим работы менеджера соединений {#change-pooler-config}
-
-Для менеджера соединений можно установить сессионный или транзакционный режим работы. Подробнее см. в разделе [{#T}](../concepts/pooling.md).
-
-{% list tabs %}
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы изменить режим работы менеджера соединений:
-
-  1. Посмотрите описание команды CLI для изменения кластера:
-
-      ```bash
-      {{ yc-mdb-pg }} cluster update --help
-      ```
-
-  1. Укажите нужный режим работы с помощью флага `--connection-pooling-mode`:
-
-      ```bash
-      {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
-         --connection-pooling-mode <SESSION или TRANSACTION>
-      ```
-
-      {{ mpg-short-name }} запустит операцию по изменению режима работы менеджера соединений.
-
-- Terraform
-
-    Для изменения режима работы менеджера соединений:
-
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-
-    1. Укажите нужный режим работы в блоке `config.pooler_config`.
-
-        ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
-          ...
-          config {
-            pooler_config {
-              pool_discard = <параметр Odissey pool_discard: true или false>
-              pooling_mode = "<режим работы: SESSION или TRANSACTION>"
-            }
-            ...
-          }
-        }
-        ```
-
-    1. Проверьте корректность настроек.
-
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
-
-- API
-
-  Изменить режим работы менеджера соединений для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.poolerConfig.poolingMode`.
 
 {% endlist %}
 

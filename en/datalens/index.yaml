@@ -14,9 +14,9 @@ links:
   - title: Getting started
     description: Getting started with DataLens
     href: quickstart
-  - title: Use cases
+  - title: Practical guidelines
     description: See usage examples and tutorials for using DataLens
-    href: solutions/
+    href: tutorials/
   - title: Concepts
     description: Learn about basic concepts and service functions
     href: concepts/

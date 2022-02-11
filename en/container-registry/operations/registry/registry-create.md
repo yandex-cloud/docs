@@ -83,7 +83,7 @@ The created [registry](../../concepts/registry.md) can be used by any users and 
 
 - Terraform
 
-  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. To a configuration file, add the parameters of the registry that you want to create. For example, you can use the file `example.tf` from the `~/yandex-cloud-terraform` directory:
 

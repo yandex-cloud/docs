@@ -117,7 +117,9 @@ items:
         href: dataplatform/sqoop.md
       - name: Миграция базы данных из Yandex Managed Service for MySQL в MySQL
         href: dataplatform/mmy-to-mysql-migration.md
-      - name: Миграция базы данных в Managed Service for Microsoft SQL Server
+      - name: Перенос коллекций из {{ MG }} в {{ mmg-full-name }}
+        href: dataplatform/mongodb-migration.md
+      - name: Миграция базы данных в {{ mms-full-name }}
         href: dataplatform/mssql-data-migration.md
       - name: >-
           Настройка Kafka Connect для работы с кластером Yandex Managed Service

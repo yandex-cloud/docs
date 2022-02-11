@@ -123,9 +123,9 @@ items:
         href: early-access/index.md
       - name: Специальные фоновые операции
         href: early-access/repeat.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
-      - name: Все сценарии
+      - name: Все руководства
         href: tutorials/index.md
       - name: Знакомство с DataSphere
         href: tutorials/basics.md

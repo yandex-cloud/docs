@@ -65,8 +65,10 @@ items:
         href: concepts/user-rights.md
       - name: Настройки MySQL
         href: concepts/settings-list.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}

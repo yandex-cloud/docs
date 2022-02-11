@@ -27,16 +27,16 @@ items:
         href: operations/export-cloud-logging.md
       - name: Загрузка аудитных логов в бакет
         href: operations/export-bucket.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Поиск в бакете
-        href: solutions/search-bucket.md
+        href: tutorials/search-bucket.md
       - name: Поиск в лог-группе
-        href: solutions/search-cloud-logging.md
+        href: tutorials/search-cloud-logging.md
       - name: Настройка алертов в {{ monitoring-name }}
-        href: solutions/alerts-monitoring.md
+        href: tutorials/alerts-monitoring.md
       - name: Настройка реагирования в Cloud Functions
-        href: solutions/logging-functions.md
+        href: tutorials/logging-functions.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

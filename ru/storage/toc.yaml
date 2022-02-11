@@ -59,22 +59,22 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Настройка HTTPS
             href: operations/hosting/certificate.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Получение статистики запросов к объекту с использованием S3 Select
-        href: solutions/server-logs.md
+        href: tutorials/server-logs.md
       - name: Получение cтатистики посещения сайта с использованием S3 Select
-        href: solutions/user-agent-statistics.md
+        href: tutorials/user-agent-statistics.md
       - name: >-
           Формирование отчета по ресурсной детализации расходов с использованием
           S3 Select
-        href: solutions/billing-resource-detailing.md
+        href: tutorials/billing-resource-detailing.md
       - name: Шифрование на стороне сервера
-        href: solutions/server-side-encryption.md
+        href: tutorials/server-side-encryption.md
       - name: Сине-зеленое и канареечное развертывание
-        href: solutions/blue-green-canary-deployment.md
+        href: tutorials/blue-green-canary-deployment.md
       - name: Анализ логов с использованием DataLens
-        href: solutions/storage-logs-analysis.md
+        href: tutorials/storage-logs-analysis.md
   - name: Концепции
     items:
       - name: Обзор

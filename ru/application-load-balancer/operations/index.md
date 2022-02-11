@@ -27,4 +27,5 @@ description: "Пошаговые инструкции по работе с Yande
 
 * [{#T}](application-load-balancer-create.md)
 * [{#T}](application-load-balancer-update.md)
+* [{#T}](application-load-balancer-stop-and-start.md)
 * [{#T}](application-load-balancer-delete.md)
