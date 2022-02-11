@@ -68,6 +68,8 @@ items:
         href: concepts/settings-list.md
   - name: Практические руководства
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
