@@ -1,3 +1,7 @@
+---
+title: "Granting access to an app running in a {{ k8s }} cluster"
+---
+
 # Granting access to an app running in a {{ k8s }} cluster
 
 To grant access to an app running in a {{ k8s }} cluster, you can use [various types of public and internal services](../concepts/service.md).
@@ -5,7 +9,8 @@ To grant access to an app running in a {{ k8s }} cluster, you can use [various t
 To publish an app, use a `LoadBalancer` service. The following options are supported:
 * Public access by IP address with a [network load balancer](../../network-load-balancer/concepts/index.md).
 * Access from internal networks by IP address with an [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md).
-  The application will be available from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/) or a VPN.
+
+  The application will be available from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/) or via VPN.
 
 To use DDoS protection, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address and [specify](#advanced) it using the `loadBalancerIP` option.
 
@@ -17,14 +22,14 @@ Unlike the IP address of a pod or node, which may change if the resources in a n
 
 Prepare and run the application to be granted access to using a `LoadBalancer` service in the {{ k8s }} cluster. As an example, use a simple application that responds to HTTP requests on port 8080.
 
-* [Create a simple app](#simple-application)
+* [Create a simple app](#simple-app)
 * [Create a LoadBalancer service with a public IP address](#lb-create)
 * [Create a LoadBalancer service with an internal IP address](#lb-int-create)
 * [loadBalancerIP and externalTrafficPolicy parameters](#advanced)
 
 ## Create a simple app {#simple-app}
 
-1. Save the following app creation specification to a YAML file named `hello.yaml`:
+1. Save the following app creation specification to a YAML file named `hello.yaml`.
 
    [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is the {{ k8s }} API object that manages the replicated application.
 
@@ -62,7 +67,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
      kubectl apply -f hello.yaml
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      deployment.apps/hello created
@@ -80,7 +85,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
      kubectl describe deployment hello
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      Name:                   hello
@@ -138,18 +143,13 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      name: hello
    spec:
      ports:
-     - port: 80
-       name: plaintext
-       targetPort: 8080
-     selector:
+     - port: 80 # Network load balancer port to handle user requests.
+       name: plaintext 
+       targetPort: 8080 # Container port the application listens on.
+     selector: # Selector labels used in a pod template when creating a Deployment object.
        app: hello
      type: LoadBalancer
    ```
-
-   Where:
-   * `port` is the network load balancer port to handle user requests.
-   * `targetPort` is the container port where the application is available.
-   * `selector` stands for the selector labels used in the pod template when creating the `Deployment` object.
 
 1. Create a network load balancer:
 
@@ -161,7 +161,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      kubectl apply -f load-balancer.yaml
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      service/hello created
@@ -174,6 +174,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
    {% list tabs %}
 
    - Management console
+
      1. In the [management console]({{ link-console-main }}), select your default folder.
      1. Select **{{ network-load-balancer-name }}**.
      1. The **Load balancers** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
@@ -184,7 +185,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      kubectl describe service hello
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      Name:                     hello
@@ -222,7 +223,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      Where:
      * `130.193.50.111` is the public IP address from the `LoadBalancer Ingress` field.
 
-     Command execution result:
+     Command output:
 
      ```bash
      Hello, world!
@@ -235,7 +236,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
 
 {% note info %}
 
-[Internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer) is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+[The Internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md) is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -248,29 +249,23 @@ metadata:
   name: hello
   annotations:
     yandex.cloud/load-balancer-type: internal
-    yandex.cloud/subnet-id: e1b23q26ab1c0dce8te9
+    yandex.cloud/subnet-id: e1b23q26ab1c0dce8te9 # ID for the subnet to allocate an IP address for the network load balancer in.
 spec:
   ports:
-  - port: 80
+  - port: 80 # Network load balancer port to handle user requests.
     name: plaintext
-    targetPort: 8080
-  selector:
+    targetPort: 8080 # Container port the application listens on.
+  selector: # Selector labels used in a pod template when creating a Deployment object.
     app: hello
   type: LoadBalancer
 ```
 
-Where:
-* `yandex.cloud/subnet-id` is the ID of the subnet to allocate the IP address for the network load balancer in.
-* `port` is the network load balancer port to handle user requests.
-* `targetPort` is the container port where the application is available.
-* `selector` stands for the selector labels used in the pod template when creating the `Deployment` object.
-
 ## loadBalancerIP and externalTrafficPolicy parameters {#advanced}
 
-In {{ managed-k8s-short-name }}, the following advanced settings are available for a service with the `LoadBalancer` type:
+In {{ managed-k8s-name }}, the following advanced settings are available for a service with the `LoadBalancer` type:
 * Assign a [pre-allocated public IP address](../../vpc/operations/get-static-ip.md) using the `loadBalancerIP` parameter.
-  When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
-* Manage traffic using the [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec) parameter:
+When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
+* Traffic management with [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec):
   * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In this case:
     * If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node.
   * `Local`: Traffic goes directly to the nodes where the application containers are running. In this case:
@@ -297,3 +292,36 @@ spec:
   type: LoadBalancer
   externalTrafficPolicy: <Local or Cluster>
 ```
+
+## Parameters for checking node status {#healthcheck}
+
+Services like `LoadBalancer` in {{ managed-k8s-name }} can run status check requests against a [target group](../../network-load-balancer/concepts/target-resources.md) of {{ k8s }} nodes. Based on the resulting metrics, {{ managed-k8s-name }} decides if the nodes are available.
+
+To enable node health check mode, specify a set of parameters `yandex.cloud/load-balancer-healthcheck` in the service specification, such as:
+
+```yaml
+apiVersion: v1
+...
+  annotations:
+    yandex.cloud/load-balancer-healthcheck-healthy-threshold: "2"
+    yandex.cloud/load-balancer-healthcheck-interval: "2s"
+    yandex.cloud/load-balancer-healthcheck-timeout: "1s"
+    yandex.cloud/load-balancer-healthcheck-unhealthy-threshold: "2"
+...
+```
+
+Where:
+* `yandex.cloud/load-balancer-healthcheck-healthy-threshold` is the number of consecutive successful checks required to consider the node available.
+
+  The minimum value is `2` and the maximum is `10`.
+* `yandex.cloud/load-balancer-healthcheck-interval` is the interval (in seconds) for running health checks.
+
+  The minimum value is `2s` and the maximum is `300s`.
+* `yandex.cloud/load-balancer-healthcheck-timeout` is the health check timeout (in seconds). A node is considered unavailable if it has not responded within the specified time.
+
+  The minimum value is `1s` and the maximum is `60s`.
+* `yandex.cloud/load-balancer-healthcheck-unhealthy-threshold` is the number of consecutive failed checks that would make the node unavailable.
+
+  The minimum value is `2` and the maximum is `10`.
+
+For more information, see [{#T}](../../network-load-balancer/concepts/health-check.md).
