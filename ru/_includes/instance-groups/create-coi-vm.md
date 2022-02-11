@@ -38,22 +38,7 @@
 
 1. Создайте YAML-файл с именем, например, `specification.yaml`.
 
-1. Выберите последнюю версию образа {{ coi }} из [публичных образов](../../compute/operations/images-with-pre-installed-software/get-list.md).
-
-   Узнайте идентификатор последней версии образа {{ coi }}:
-
-   {% list tabs %}
-
-   - CLI
-
-     ```bash
-     yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
-     id: <ID образа>
-     folder_id: standard-images
-     ...
-     ```
-
-   {% endlist %}
+1. {% include [get-latest-coi](../container-registry/get-latest-coi.md) %}
 
 1. Опишите в YAML-файле `specification.yaml`, который вы создали:
 
@@ -81,7 +66,7 @@
        boot_disk_spec:
          mode: READ_WRITE
          disk_spec:
-           image_id: fd81a49qficqvt0dthu8
+           image_id: <идентификатор последней версии COI>
            type_id: network-hdd
            size: 32G
        network_interface_specs:
@@ -148,7 +133,7 @@
        boot_disk_spec:
          mode: READ_WRITE
          disk_spec:
-           image_id: fd81a49qficqvt0dthu8
+           image_id: <идентификатор последней версии COI>
            type_id: network-hdd
            size: 32G
        network_interface_specs:

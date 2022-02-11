@@ -11,21 +11,18 @@
   ```
 
   Результат выполнения команды:
-
+  
   ```bash
-  id: fd8iv792kirahcnqnt0q
+  id: <идентификатор последней версии COI>
   folder_id: standard-images
-  created_at: "2021-01-29T13:30:22Z"
-  name: container-optimized-image-1611926453
-  description: Build by Assembly-Workshop-build-66870
-  family: container-optimized-image
-  storage_size: "6157238272"
-  min_disk_size: "10737418240"
-  product_ids:
-  - f2elj2f52bbqe4af8tfd
-  status: READY
-  os:
-    type: LINUX
+  ...
   ```
+
+- Marketplace
+
+  1. Перейдите на страницу образа с нужной конфигурацией:
+     * [{{ coi }}](https://cloud.yandex.ru/marketplace/products/yc/container-optimized-image).
+     * [{{ coi }} GPU](https://cloud.yandex.ru/marketplace/products/yc/container-optimized-image-gpu).
+  1. В блоке **Идентификаторы продукта** скопируйте значение `image_id`.
 
 {% endlist %}

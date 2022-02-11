@@ -14,7 +14,7 @@ instance_template:
   boot_disk_spec:
     mode: READ_WRITE # Режим доступа к диску: чтение и запись.
     disk_spec:
-      image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
+      image_id: <идентификатор последней версии COI>
     type_id: network-ssd # Тип диска.
     size: 30G # Размер диска.
   network_interface_specs:
