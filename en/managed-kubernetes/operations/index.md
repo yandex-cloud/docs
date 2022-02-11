@@ -16,6 +16,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](create-load-balancer.md)
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
+* [{#T}](cilium-node-local-dns.md)
 
 ## Working with persistent volumes {#persistent-volumes}
 
