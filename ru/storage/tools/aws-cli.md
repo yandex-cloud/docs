@@ -141,3 +141,21 @@ aws --endpoint-url=https://{{ s3-storage-host }} \
 aws --endpoint-url=https://{{ s3-storage-host }} \
   s3 cp s3://bucket-name/textfile.txt textfile.txt
 ```
+
+### Сокращенная форма записи команд {#command-shortener}
+
+В aws не предусмотрено задание endpoint в конфигурационном файле, поэтому endpoint-url приходится писать каждый раз при наборе команды.
+
+Вы можете сократить форму записи команд задав alias. Для windows это доступно через wsl (ubuntu) или git bash. Наберите команду:
+
+```bash
+alias s3aws='aws s3 --endpoint-url=https://storage.yandexcloud.net'
+```
+
+Далее Вы можете писать команды кратко, например следующая команда выведет список бакетов:
+
+```bash
+s3aws ls
+```
+
+Если Вы хотите чтобы alias загружался всегда прис старте терминала, то тогда эту команду надо прописать в файл оболочки (в зависимости от того чем пользуетесь, если bash, то ```~/.bashrc``` если zsh, то ```~/.zshrc```
