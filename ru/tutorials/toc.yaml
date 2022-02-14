@@ -99,6 +99,8 @@ items:
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Настройка отказоустойчивой архитектуры в Yandex.Cloud
         href: infrastructure-management/fault-tolerance.md
+      - name: Создание SAP-программы в Yandex.Cloud
+        href: infrastructure-management/sap.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
