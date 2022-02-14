@@ -323,6 +323,7 @@ default:
   s2-6xlarge: s2.6xlarge (64 vCPU, 256 GB)
   s2-7xlarge: s2.7xlarge (80 vCPU, 320 GB)
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
+  t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   b3-c1-m4: b3-c1-m4 (2 vCPU × 50%, 4 GB)

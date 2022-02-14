@@ -36,6 +36,7 @@ description: "GPU (Graphics Processing Unit) – это графический �
 NVIDIA® A100, построенная на базе микроархитектуры {% if region =="int" %}[Ampere®](https://www.nvidia.com/en-us/data-center/ampere-architecture/){% else %}[Ampere®](https://www.nvidia.com/ru-ru/data-center/ampere-architecture/){% endif %}, использует тензорные ядра третьего поколения и предоставляет 80 ГБ памяти HBM2 с пропускной способностью до 2 ТБ/с.
 
 ### NVIDIA® Tesla® T4 {#tesla-t4}
+
 NVIDIA® Tesla® T4, построенная на базе архитектуры [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf), использует тензорные ядра Turing и новые ядра RT, предоставляет 16 ГБ памяти GDDR6 с [пропускной способностью 300 ГБ/с](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
 ### Конфигурации виртуальных машин {#config}
