@@ -101,7 +101,9 @@ items:
             href: pricing-archive/pricing-01012019.md
   - name: Releases
     items:
-      - name: Text to speech release notes
+      - name: Recognition releases
+        href: release-notes-stt.md
+      - name: Synthesis releases
         href: release-notes-tts.md
       - name: Archive release notes
         href: release-notes.md
