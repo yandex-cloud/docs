@@ -51,6 +51,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-  - title: SpeechKit releases
-    description: SpeechKit releases and versions
-    href: release-notes

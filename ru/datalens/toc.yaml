@@ -191,6 +191,8 @@ items:
             href: operations/dashboard/manage-access.md
           - name: Добавление параметров на дашборд
             href: operations/dashboard/add-parameters.md
+          - name: Автообновление дашборда
+            href: operations/dashboard/auto-update.md
       - name: Работа с правами доступа
         items:
           - name: Назначение прав доступа

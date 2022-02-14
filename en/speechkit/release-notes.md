@@ -16,6 +16,8 @@ For more information about voice models, see [About the technology](tts/index.md
 
 For information about text-to-speech models see [{#T}](release-notes-tts.md).
 
+For information about recognition model updates, see [{#T}](release-notes-stt.md).
+
 ## Previous versions {#previous}
 
 ### Release 30.09.21 {#300921}

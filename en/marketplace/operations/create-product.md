@@ -11,4 +11,3 @@ To add a product to the Marketplace, upload an image based on [Linux](create-ima
 {% include [product-version](../../_includes/marketplace/product-version.md) %}
 
 The product's first version will be sent for moderation to {{ yandex-cloud }}. After it passes moderation, you'll get an email confirming that your product is available to users in the Marketplace public catalog.
-

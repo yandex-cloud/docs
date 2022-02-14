@@ -48,5 +48,4 @@ Add information about your product to be displayed in the Marketplace public cat
 
     1. Attach links to the product or developer website.
 
-    1. Click **Next** to proceed to uploading the first version of your product.
-
+1. Click **Next** to proceed to uploading the first version of your product.

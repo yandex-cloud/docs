@@ -47,6 +47,7 @@
 - [{#T}](chart/config-chart-navigator.md)
 - [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md)
+- [{#T}](chart/add-guid.md)
 
 ## Working with dashboards {#working-with-dashboards}
 

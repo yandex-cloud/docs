@@ -61,3 +61,4 @@
 - [{#T}](dashboard/edit-alias.md)
 - [{#T}](dashboard/publish.md)
 - [{#T}](dashboard/manage-access.md)
+- [{#T}](dashboard/auto-update.md)

@@ -55,8 +55,8 @@ If the pattern phrases suggest that the glossary terms may be in possessive case
 Then the `templates.tsv` file will contain entries like
 
 ```
-Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv}{last-name=last-names.tsv}?
-Hello, can I talk to {first-name=first-names-possessive.tsv}{last-name=last-names-possessive.tsv} representative?
+Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
+Hello, can I talk to {first-name=first-names-possessive.tsv} {last-name=last-names-possessive.tsv} representative?
 ```
 
 ### Testing the quality of advanced training {#testing}

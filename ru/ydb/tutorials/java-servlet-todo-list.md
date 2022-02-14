@@ -1,7 +1,7 @@
 ---
 title: Java Servlet API. Развертывание веб-приложения
 description: "В этом сценарии вы узнаете, как с помощью Java Servlet API и serverless-технологий создать небольшое веб-приложение для управления списком задач."
-sourcePath: ru/ydb/overlay/solutions/java-servlet-todo-list.md
+sourcePath: ru/ydb/overlay/tutorials/java-servlet-todo-list.md
 ---
 
 
