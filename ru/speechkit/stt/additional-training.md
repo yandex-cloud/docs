@@ -48,8 +48,8 @@
 Тогда файл с шаблонами `templates.tsv` будет состоять из записей вида
 
 ```
-Добрый день, вы {first-name=first-names.tsv}{middle-name=middle-names.tsv}{last-name=last-names.tsv}?
-Здравствуйте, я могу поговорить с {first-name=first-names-ablative.tsv}{middle-name=middle-names-ablative.tsv}?
+Добрый день, вы {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
+Здравствуйте, я могу поговорить с {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv}?
 ```
 
 ## Загрузка данных для дообучения {#import-data}

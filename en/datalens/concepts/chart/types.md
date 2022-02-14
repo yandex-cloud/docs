@@ -190,7 +190,7 @@ Displays data in table format, where rows and columns may contain dimension valu
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
 | Columns | Dimensions |
-| Stings | Dimensions |
+| Rows | Dimensions |
 | Measures | Measures. If you add more than one measure to a section, the **Columns** section contains the `Measure Names` dimension that defines the location of the measure headers. `Measure Names` can be moved to **Rows** |
 | Filters | Dimension or measure. Used as a filter |
 | Colors | Measure. Affects shading of all cells containing indicators. It may contain only one indicator |
@@ -264,10 +264,10 @@ Displays lines consisting of sequentially connected points on a map.
 | Polylines | Measure with the `Geopoint` type |
 | Measures | Measure. The value displayed when you hover over a point |
 | Grouping | Dimension. Defines a group of points forming a polyline |
-| Colors | Dimension or measure. Affects the intensity of line segment fill. A segment is filled in from the first point |
+| Colors | Dimension or measure. Affects the intensity of line segment fill. A segment is filled in from the originating point |
 | Order | Dimension. Defines the order for connecting points within a group |
 | Layer filters | Dimension or measure. Used as a filter for the current layer |
-| General filters | Dimension or measure. Used as a filter for the whole chart |
+| Chart filters | Dimension or measure. Used as a filter for the whole chart |
 
 ## Other {#other}
 

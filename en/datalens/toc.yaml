@@ -167,6 +167,8 @@ items:
             href: operations/chart/publish.md
           - name: Managing chart access
             href: operations/chart/manage-access.md
+          - name: Adding guid as a parameter
+            href: operations/chart/add-guid.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards

@@ -75,25 +75,25 @@ items:
                 href: deploy/orchestrated/operate.md
       - name: Полезные ссылки
         href: getting_started/useful_links.md
-  - name: Сценарии использования
+  - name: Практические руководства
     items:
       - name: Развертывание веб-приложения
-        href: solutions/java-servlet-todo-list.md
+        href: tutorials/java-servlet-todo-list.md
       - name: Разработка Slack-бота
-        href: solutions/slack-bot-serverless.md
+        href: tutorials/slack-bot-serverless.md
       - name: Использование Docker-контейнера YDB
-        href: solutions/ydb_docker.md
+        href: tutorials/ydb_docker.md
         hidden: true
       - name: Подключение к YDB из функции Yandex Cloud Functions на Python
-        href: solutions/connect-from-cf.md
+        href: tutorials/connect-from-cf.md
       - name: >-
           Подключение к базе данных YDB из функции Yandex Cloud Functions на
           Node.js
-        href: solutions/connect-from-cf-nodejs.md
+        href: tutorials/connect-from-cf-nodejs.md
       - name: Конвертация видео в GIF на Python
-        href: solutions/video-converting-queue.md
+        href: tutorials/video-converting-queue.md
       - name: Разработка навыка Алисы и сайта с авторизацией
-        href: solutions/alice-shareable-todolist.md
+        href: tutorials/alice-shareable-todolist.md
   - name: Концепции
     items:
       - name: Обзор
