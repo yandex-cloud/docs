@@ -65,3 +65,4 @@
 {% if audience != "internal" %} - [{#T}](dashboard/publish.md) {% endif %}
 - [{#T}](dashboard/manage-access.md)
 {% if audience == "internal" %} - [{#T}](dashboard/add-parameters.md) {% endif %}
+- [{#T}](dashboard/auto-update.md)
