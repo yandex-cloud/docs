@@ -47,6 +47,7 @@
 
 {% include [copy-into-folder](../_includes/datalens/qa/copy-into-folder.md) %}
 
+{% include [revoke-token.md](../_includes/datalens/qa/revoke-token.md) %}
 
 ## Подключения {#connections}
 
