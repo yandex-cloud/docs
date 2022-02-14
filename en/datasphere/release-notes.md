@@ -6,6 +6,27 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release 11.01.2022 {#110122}
+
+1. Added new [computing resource configurations](concepts/configurations.md):
+   * g2.mig (1 MIG NVIDIA Ampere A100)
+   * g2.2 (2 GPU NVIDIA Ampere A100)
+   * g2.4 (4 GPU NVIDIA Ampere A100)
+1. Updated the introductory <q>Welcome</q> notebooks in Russian and English.
+1. Fixed bugs, added minor improvements.
+
+## Release 18.11.2021 {#181121}
+
+1. Added the ability for the user to resize project storage.
+1. Added the ability to set  usage limits on individual folders and projects to manage costs.
+1. Projects take less time to open.
+1. Fixed bugs, added minor improvements.
+
+## Release 24.09.2021 {#240921}
+
+1. Added the ability to connect to S3 object storage from the interface.
+1. Added rapid model deployment from Python code cells.
+
 ## Release 16.02.2021 {#160221}
 
 * Added a new state saving mode: **Autosave Commit Mode**.
