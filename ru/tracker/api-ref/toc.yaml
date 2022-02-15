@@ -167,6 +167,10 @@ items:
           href: get-sprint.md
         - name: Создать спринт
           href: post-sprint.md
+- name: Компоненты
+  items:
+    - name: Получить список компонентов
+      href: get-components.md
 - name: Импорт
   items:
     - name: Импортировать задачу
