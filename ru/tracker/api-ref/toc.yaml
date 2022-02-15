@@ -123,12 +123,18 @@ items:
       href: concepts/queues/delete-tag.md
     - name: Автоматизация
       items:
-        - name: Получить триггер
-          href: concepts/queues/get-trigger.md
-        - name: Создать триггер
-          href: concepts/queues/create-trigger.md
-        - name: Создать автодействие
-          href: concepts/queues/create-autoaction.md
+        - name: Автодействия
+          items:
+            - name: Создать автодействие
+              href: concepts/queues/create-autoaction.md              
+            - name: Получить параметры автодействия
+              href: concepts/queues/get-autoaction.md
+        - name: Тригеры
+          items:              
+            - name: Создать триггер
+              href: concepts/queues/create-trigger.md
+            - name: Получить параметры триггера
+              href: concepts/queues/get-trigger.md              
 - name: Доски задач
   items:
     - name: Получить параметры всех досок
