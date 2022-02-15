@@ -1,16 +1,60 @@
 # Релизы YC CLI
 
-## Версия 0.87.0 (18.01.22) {#latest-release}
+## Версия 0.88.0 (12.02.22) {#latest-release}
+
+### Изменения в CLI {#cli}
+
+#### {{ data-transfer-name }}
+
+* Добавлена команда `list` для `endpoint` и `transfer`:
+
+  * `yc datatransfer endpoint list`;
+  * `yc datatransfer transfer list`;
+
+* Добавлены команды для обновления `endpoint` и `transfer`:
+
+  * `yc datatransfer endpoint update postgres-source`;
+  * `yc datatransfer endpoint update postgres-target`;
+  * `yc datatransfer endpoint update mysql-source`;
+  * `yc datatransfer endpoint update mysql-target`;
+  * `yc datatransfer transfer update`;
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ dataproc-name }} {#dataproc}
+#### {{ cdn-name }} {#cdn}
+
+* Добавлена возможность делать полную очистку кэша ресурса: `yc cdn cache purge --all`.
+* Исправлено создание ресурса, когда источник — бакет или балансер.
+
+#### {{ api-gw-name }} {#api-gw}
+
+* В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены флаги `--network-id`
+  и `--network-name` для указания сети API-шлюза, а также флаги `--subnet-id` и `--subnet-name` для детального списка
+  подсетей.
+
+#### {{ compute-name }} {#compute}
+
+* Добавлены команды `yc compute disk move` и `yc compute instance move` для перемещения дисков и инстансов между фолдерами
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mms-name }}**
+
+* В команды `yc managed-sqlserver update`, `yc managed-sqlserver start` добавлен флаг `confirm-payment` для подтверждения согласия с лицензионными платежами.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.87.0 (18.01.22) {#version0.87.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ dataproc-name }} {#dataproc}
 
 * Добавлена команда `yc dataproc job cancel <JOB-ID>|<JOB-NAME>`.
 
   Теперь можно отменить выполнение незавершенного задания.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mes-name }}**
 
@@ -24,8 +68,6 @@
 * Добавлена команда `yc managed-elasticsearch backup get` для просмотра информации о конкретном бэкапе.
 * В команды `yc managed-sqlserver cluster create` и `yc managed-sqlserver cluster restore` добавлен флаг `--host-group-ids`, который задает список хостов для размещение кластера на выделенных серверах.
 * В команду `yc managed-sqlserver cluster restore` добавлен флаг `--deletion-protection`, который позволяет установить защиту от случайного удаления кластера.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.86.0 (15.12.21) {#version0.86.0}
 
