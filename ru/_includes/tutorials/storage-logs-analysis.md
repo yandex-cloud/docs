@@ -172,7 +172,7 @@
      yc vpc subnet list
      ```
 
-     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+     Если ни одной подсети в каталоге нет, {% if audience != "internal" %}[создайте нужные подсети](../../vpc/operations/subnet-create.md){% else %}создайте нужные подсети{% endif %} в сервисе {{ vpc-short-name }}.
 
   1. Укажите параметры кластера в команде создания:
 
