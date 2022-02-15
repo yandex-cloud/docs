@@ -2,8 +2,11 @@
 
 {{ objstorage-name }} lets you configure a bucket:
 
-- For static website hosting.
-- For request redirects.
+* To support [static website hosting](#hosting).
+* To [redirect all requests](#redirects).
+* To [redirect requests conditionally](#redirects-on-conditions).
+
+## Static website hosting {#hosting}
 
 {% list tabs %}
 
@@ -12,13 +15,9 @@
   1. In the management console, go to the bucket you want to configure hosting for.
   1. Make sure public access is allowed to the bucket. If not, follow the instructions [{#T}](../buckets/bucket-availability.md).
   1. In the left pane, select **Website**.
-  1. Set up hosting or redirects in the corresponding section of the settings.
-      - When setting up hosting, specify:
-        - The website homepage.
-        - The page to be displayed to the user in the event of 4xx errors. Optional.
-      - When setting up redirects, specify:
-        - The host where all requests to the current bucket will be redirected.
-        - The protocol if the specified host accepts requests strictly over a specific protocol.
+  1. Under **Hosting**, specify:
+      * The website homepage.
+      * The page to be displayed to the user in the event of 4xx errors. Optional.
 
 - Terraform
 
@@ -63,6 +62,7 @@
 
      1. In the command line, go to the directory where you created the configuration file.
      1. Run the check using the command:
+
         ```
         terraform plan
         ```
@@ -72,13 +72,48 @@
   1. Deploy the cloud resources.
 
      1. If the configuration doesn't contain any errors, run the command:
+
      ```
      terraform apply
      ```
-
+     
      1. Confirm that you want to create the resources.
 
      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+
+{% endlist %}
+
+## Redirect all requests {#redirects}
+
+{% list tabs %}
+
+- Management console
+
+  1. In the management console, go to the bucket you wish to configure redirection for.
+  1. Make sure public access is allowed to the bucket. If not, follow the instructions [{#T}](../buckets/bucket-availability.md).
+  1. In the left pane, select **Website**.
+  1. Under **Redirect**, specify:
+      * The domain name of the host to act as the redirect target for all requests to the current bucket.
+      * The protocol if the specified host accepts requests strictly over a specific protocol.
+
+{% endlist %}
+
+## Conditional request redirection {#redirects-on-conditions}
+
+{% list tabs %}
+
+- Management console
+
+  1. In the management console, go to the bucket you wish to configure conditional redirection for.
+  1. Make sure public access is allowed to the bucket. If not, follow the instructions [{#T}](../buckets/bucket-availability.md).
+  1. In the left pane, select **Website**.
+  1. Under **Hosting**, add a forwarding rule with the forwarding condition and the new address.
+      * Condition. For example, you can do a redirect when you receive a specified response code or if the beginning of the object key in a request matches the specified key.
+      * Redirection:
+        * The domain name of the host where requests that satisfy the condition should redirect.
+        * The protocol to use to send redirected requests.
+        * HTTP 3xx status code to determine the redirect type.
+        * Replace the entire key specified in the condition or its initial sequence only.
 
 {% endlist %}
 
