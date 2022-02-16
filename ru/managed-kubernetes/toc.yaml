@@ -91,6 +91,8 @@ items:
         href: tutorials/alb-ingress-controller.md
       - name: Резервное копирование в Object Storage
         href: tutorials/backup.md
+      - name: Работа со снапшотами
+        href: tutorials/pvc-snapshot-restore.md
       - name: Интеграция с корпоративной зоной DNS
         href: tutorials/custom-dns.md
       - name: Автоматическое масштабирование DNS по размеру кластера
