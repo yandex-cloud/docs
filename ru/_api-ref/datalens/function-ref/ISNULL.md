@@ -28,31 +28,22 @@ expression IS [ NOT ] NULL
 
 **Возвращаемый тип**: `Логический`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
-```
-ISNULL([Profit])
-```
 
-```
-ISNULL("qwerty") = FALSE
-```
 
-```
-"qwerty" IS NULL = FALSE
-```
+| **[sales]**   | **ISNULL([sales])**   | **[sales] IS NULL**   | **[sales] IS NOT NULL**   |
+|:--------------|:----------------------|:----------------------|:--------------------------|
+| `432.40`      | `False`               | `False`               | `True`                    |
+| `77.00`       | `False`               | `False`               | `True`                    |
+| `12000.00`    | `False`               | `False`               | `True`                    |
+| `NULL`        | `True`                | `True`                | `False`                   |
+| `34.25`       | `False`               | `False`               | `True`                    |
+| `128.00`      | `False`               | `False`               | `True`                    |
+| `0.00`        | `False`               | `False`               | `True`                    |
+| `NULL`        | `True`                | `True`                | `False`                   |
 
-```
-NULL IS NULL = TRUE
-```
 
-```
-"qwerty" IS NOT NULL = TRUE
-```
-
-```
-NULL IS NOT NULL = FALSE
-```
 
 
 #### Поддержка источников данных {#data-source-support}

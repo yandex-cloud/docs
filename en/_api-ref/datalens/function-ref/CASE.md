@@ -74,6 +74,23 @@ CASE [country]
 END
 ```
 
+{% cut "Example with data table" %}
+
+
+Formulas:
+
+- **unit**: `[unit]` ;
+- **case_function**: `CASE([unit], "s", 1, "m", 60, "h", 3600, 0)` ;
+- **case_statement**: `CASE [unit] WHEN "s" THEN 1 WHEN "m" THEN 60 WHEN "h" THEN 3600 ELSE 0 END` .
+
+| **unit**   | **case_function**   | **case_statement**   |
+|:-----------|:--------------------|:---------------------|
+| `'s'`      | `1`                 | `1`                  |
+| `'m'`      | `60`                | `60`                 |
+| `'h'`      | `3600`              | `3600`               |
+
+{% endcut %}
+
 
 #### Data source support {#data-source-support}
 

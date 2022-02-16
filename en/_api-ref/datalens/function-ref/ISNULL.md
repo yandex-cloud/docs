@@ -28,31 +28,22 @@ Returns `TRUE` if `expression` is `NULL`, otherwise returns `FALSE`.
 
 **Return type**: `Boolean`
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-ISNULL([Profit])
-```
 
-```
-ISNULL("qwerty") = FALSE
-```
 
-```
-"qwerty" IS NULL = FALSE
-```
+| **[sales]**   | **ISNULL([sales])**   | **[sales] IS NULL**   | **[sales] IS NOT NULL**   |
+|:--------------|:----------------------|:----------------------|:--------------------------|
+| `432.40`      | `False`               | `False`               | `True`                    |
+| `77.00`       | `False`               | `False`               | `True`                    |
+| `12000.00`    | `False`               | `False`               | `True`                    |
+| `NULL`        | `True`                | `True`                | `False`                   |
+| `34.25`       | `False`               | `False`               | `True`                    |
+| `128.00`      | `False`               | `False`               | `True`                    |
+| `0.00`        | `False`               | `False`               | `True`                    |
+| `NULL`        | `True`                | `True`                | `False`                   |
 
-```
-NULL IS NULL = TRUE
-```
 
-```
-"qwerty" IS NOT NULL = TRUE
-```
-
-```
-NULL IS NOT NULL = FALSE
-```
 
 
 #### Data source support {#data-source-support}
