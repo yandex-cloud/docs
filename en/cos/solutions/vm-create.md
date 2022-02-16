@@ -22,7 +22,9 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        * The length can be from 3 to 63 characters.
        * It may contain Latin letters, numbers, and hyphens.
        * The first character must be a letter. The last character can't be a hyphen.
-     * Specify the [**Docker image**](../concepts/docker-image.md) used to launch the Docker container on the VM.
+     * Specify the [**Docker image**](../concepts/docker-image.md) to use to run the Docker container on the VM. You can do this in one of the following ways:
+       * By selecting one of the available images. To do this, start typing the image name in the search bar. The image search reads all the available cloud folders.
+       * By specifying the image name manually. To do this, click **Enter link** and enter the image name. You can specify an image from {{ container-registry-name }} or any publicly available Docker image library (such as [Docker Hub](https://hub.docker.com)).
      * (optional) In the **Command** field, specify the executable file to run when the Docker container starts.
      * (optional) Specify **Command arguments**.
      * (optional) Specify **Environment variables** in `key:value` format, which are available in the Docker container.
@@ -96,10 +98,6 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
   Once the VM is created, it appears in the list of VMs under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
 
 - CLI using a specification file
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create a VM and set Docker container parameters using a [specification file](../concepts/coi-specifications.md#coi-spec):
   1. View a description of the command:
