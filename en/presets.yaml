@@ -429,6 +429,8 @@ default:
   link-cloud-marketplace: https://cloud.yandex.com/marketplace
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
+  link-pci-dss-en: https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
+  link-pci-dss-ru: https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
@@ -467,17 +469,17 @@ default:
   mp-test-sku-id: dn272e8979uvek5cnuhk
 
   # Data Transfer
-  dt-status-copy: '**Copying**'
-  dt-status-created: '**Created**'
-  dt-status-creation: '**Creating**'
-  dt-status-error: '**Error**'
-  dt-status-finished: '**Completed**'
-  dt-status-repl: '**Replicating**'
-  dt-status-stopped: '**Stopped**'
-  dt-status-stopping: '**Stopping**'
-  dt-copy: Copy
-  dt-repl: Replicate
-  dt-copy-repl: Copy and replicate
+  dt-status-copy: "**Copying**"
+  dt-status-created: "**Created**"
+  dt-status-creation: "**Creating**"
+  dt-status-error: "**Error**"
+  dt-status-finished: "**Completed**"
+  dt-status-repl: "**Replicating**"
+  dt-status-stopped: "**Stopped**"
+  dt-status-stopping: "**Stopping**"
+  dt-type-copy-repl: Copy and replicate
+  dt-type-copy: Copy
+  dt-type-repl: Replicate
 
   # Terraform providers
   tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster

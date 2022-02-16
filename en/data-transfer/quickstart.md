@@ -1,91 +1,128 @@
 # Getting started with {{ data-transfer-name }}
 
-Copy or replicate data between the databases of the service by creating endpoints and configuring transfers between them.
-
-{% note warning %}
-
-Put the transfer in the same folder with the endpoints that it connects together.
-
-{% endnote %}
+Copy or replicate data from a source to a target by creating [endpoints](concepts/index.md#endpoint) and configuring [transfers](concepts/index.md#transfer) between them.
 
 ## Before you start {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-1. On the [Billing]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
-1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher. The role must be assigned for the folder where you'll work or the cloud that the folder belongs to.
+1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder doesn't exist, create it:
 
-## Create a source endpoint {#source}
+    {% list tabs %}
 
-1. In the [management console]({{ link-console-main }}), select the folder to create an endpoint in.
-1. In the list of services, select **{{ data-transfer-name }}**.
-1. Click **Create endpoint**.
-1. In the window that opens, make sure that the **Direction** field is set to **Source**.
-1. Enter the **Name** of the endpoint.
-1. (optional) Enter a **Description** of the endpoint.
-1. Select the **Database** you want to transfer data from.
-1. Under **Endpoint parameters**:
-    * If you selected {{ mmy-name }}<sup>®</sup> or {{ mpg-name }}, specify:
-        1. **ID** of the {{ MY }} or {{ PG }} cluster to transfer data from.
-        1. **DB username**.
-        1. **DB user password**.
-        1. (optional) Other parameters.
+    - Management console
 
-    * If you selected {{ MY }} or {{ PG }}, specify:
-        1. **IP or FQDN of the host** to transfer data from.
-        1. **DB username**.
-        1. **DB user password**.
-        1. (optional) Other parameters.
+         {% include [create-folder](../_includes/create-folder.md) %}
+
+    - CLI
+
+         {% include [cli-install](../_includes/cli-install.md) %}
+
+        1. See a description of the create folder command:
+
+            ```bash
+            yc resource-manager folder create --help
+            ```
+
+        1. Create a new folder:
+
+            * with a name and without a description:
+
+                 ```bash
+                 yc resource-manager folder create \
+                    --name new-folder
+                 ```
+
+                 {% include [name-format](../_includes/name-format.md) %}
+
+            * with a name and description:
+
+                ```bash
+                yc resource-manager folder create \
+                   --name new-folder \
+                   --description "my first folder with description"
+                ```
+
+    - API
+
+        Use the [create](../resource-manager/api-ref/Folder/create.md) method for the [Folder](../resource-manager/api-ref/Folder/index.md) resource of the {{ resmgr-full-name }} service.
+
+    {% endlist %}
+
+1. [On the billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+
+1. On the [access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher to the desired folder or the cloud that the folder belongs to.
+
+## Configure the source and the target {#db-settings}
+
+Prepare the source service for sending data:
+
+* [{{ KF }}](operations/prepare.md#source-kf)
+* [{{ CH }}](operations/prepare.md#source-ch)
+* [{{ MG }}](operations/prepare.md#source-mg)
+* [{{ MY }}](operations/prepare.md#source-my)
+* [{{ PG }}](operations/prepare.md#source-pg)
+* [{{ yds-full-name }}](operations/prepare.md#source-yds)
+
+Prepare the target service for receiving the data:
+
+* [{{ CH }}](operations/prepare.md#target-ch)
+* [{{ MG }}](operations/prepare.md#target-mg)
+* [{{ MY }}](operations/prepare.md#target-my)
+* [{{ objstorage-name }}](operations/prepare.md#target-storage)
+* [{{ PG }}](operations/prepare.md#target-pg)
+
+To receive data in {{ ydb-name }}, no setup is necessary.
+
+## Creating an endpoint for the source {#source}
+
+1. Go to the folder page and select **{{ data-transfer-name }}**.
+1. On the **Endpoints** tab, click **Create endpoint**.
+1. Make sure that the **Direction** field is set to `Source`.
+1. Enter a name for the endpoint.
+1. In the **Database type** field, select the type of the DBMS to transfer data from.
+1. Specify endpoint parameters in the corresponding settings section.
 1. Click **Create**.
 
-## Create a target endpoint {#target}
+For more information, see [{#T}](operations/source-endpoint.md).
 
-To create an endpoint for the target database:
+## Creating an endpoint for the target {#target}
 
-1. In the [management console]({{ link-console-main }}), select the folder to create an endpoint in.
-1. In the list of services, select **{{ data-transfer-name }}**.
-1. Click **Create endpoint**.
-1. In the window that opens, make sure that the **Direction** field is set to **Target**.
-1. Enter the **Name** of the endpoint.
-1. (optional) Enter a **Description** of the endpoint.
-1. Select the **Database** you want to transfer data to.
-1. Under **Endpoint parameters**:
-    * If you selected {{ mmy-name }} or {{ mpg-name }}, specify:
-        1. **ID** of the {{ MY }} or {{ PG }} cluster you want to transfer data to.
-        1. **DB username**.
-        1. **DB user password**.
-        1. (optional) Other parameters.
-
-    * If you selected {{ MY }} or {{ PG }}, specify:
-        1. **IP or FQDN of the host** to transfer data to.
-        1. **DB username**.
-        1. **DB user password**.
-        1. (optional) Other parameters.
+1. Go to the folder page and select **{{ data-transfer-name }}**.
+1. On the **Endpoints** tab, click **Create endpoint**.
+1. Make sure that the **Direction** field is set to `Target`.
+1. Enter a name for the endpoint.
+1. In the **Database type** field, select the type of DBMS that you want to transfer data to.
+1. Specify endpoint parameters in the corresponding settings section.
 1. Click **Create**.
+
+For more information, see [{#T}](./operations/target-endpoint.md).
 
 ## Create a transfer {#create-transfer}
 
-To create a transfer between the two databases:
-
-1. In [management console]({{ link-console-main }}), select the folder to create a transfer in.
-1. In the list of services, select **{{ data-transfer-name }}**.
-1. Select the **Transfer** tab.
-1. Click **Create transfer**.
-1. In the window that opens, select the source database **Endpoint** under **Source**.
-1. Select the target database **Endpoint** under **Target**.
-1. Under **Transfer parameters**:
-    1. Enter the transfer **Name**.
-    1. Select the **Type of** [transfer](concepts/index.md#transfer-type).
-    1. (optional) Enter the transfer **Description**.
+1. Go to the folder page and select **{{ data-transfer-name }}**.
+1. On the **Transfers** tab, click **Create transfer**.
+1. Select the endpoint for the source and the endpoint for the target.
+1. Enter a name for the transfer.
+1. Select the [type of transfer](./concepts/index.md#transfer-type.md):
+    * `{{ dt-type-copy-repl }}`: To create a full copy of the source data and keep it up-to-date.
+    * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source.
+    * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+1. (Optional) add a transfer description.
 1. Click **Create**.
+
+For more information, see [Types of transfers](./concepts/transfer-lifecycle.md#transfer-types).
 
 ## Activate the transfer {#activate}
 
-To activate the transfer:
+1. Go to the folder page and select **{{ data-transfer-name }}**.
+1. On the **Transfers** tab, click ![ellipsis](../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Activate**.
 
-1. In [management console]({{ link-console-main }}), select the folder to create a transfer in.
-1. In the list of services, select **{{ data-transfer-name }}**.
-1. Select the **Transfer** tab.
-1. In the window that opens, click the ![image](../_assets/horizontal-ellipsis.svg) icon.
-1. In the menu that opens, click **Activate**.
+The data transfer process will begin.
+
+For more information, see [{#T}](operations/transfer.md).
+
+## What's next {#whats-next}
+
+* Read about [service concepts](concepts/index.md).
+* Learn more about [preparing databases for the service](operations/prepare.md) and [setting up transfers](operations/transfer.md).
+* Read [questions and answers](qa/index.md).
 

@@ -1,3 +1,4 @@
+---
 title: Yandex Data Transfer
 href: index.yaml
 items:
@@ -7,52 +8,48 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
+      - name: Preparing for the transfer
+        href: operations/prepare.md
       - name: Managing a source endpoint
-        items:
-          - name: Creating a source endpoint
-            href: operations/source/create-endpoint.md
-          - name: Updating a source endpoint
-            href: operations/source/update-endpoint.md
-          - name: Deleting a source endpoint
-            href: operations/source/delete-endpoint.md
+        href: operations/source-endpoint.md
       - name: Managing a target endpoint
-        items:
-          - name: Creating a target endpoint
-            href: operations/target/create-endpoint.md
-          - name: Updating a target endpoint
-            href: operations/target/update-endpoint.md
-          - name: Deleting a target endpoint
-            href: operations/target/delete-endpoint.md
+        href: operations/target-endpoint.md
       - name: Managing the transfer process
-        items:
-          - name: Creating a transfer
-            href: operations/transfer/create-transfer.md
-          - name: Updating a transfer
-            href: operations/transfer/update-transfer.md
-          - name: Deleting a transfer
-            href: operations/transfer/delete-transfer.md
-    href: quickstart.md
+        href: operations/transfer.md
+      - name: Working with databases during the transfer
+        href: operations/db-actions.md
+      - name: Monitoring the transfer status
+        href: operations/monitoring.md
   - name: Concepts
     items:
       - name: Relationship between service resources
         href: concepts/index.md
       - name: What tasks is the service used for?
         href: concepts/use-cases.md
-      - name: Service specifics
-        items:
-          - name: Overview
-            href: concepts/specific.md
-          - name: MySQL specifics
-            href: concepts/specific-mysql.md
-          - name: PostgreSQL specifics
-            href: concepts/specific-postgresql.md
-      - name: Monitoring transfers
-        href: concepts/monitoring.md
+      - name: Transfer lifecycle
+        href: concepts/transfer-lifecycle.md
+      - name: Data type conversions
+        when: audience == "draft"
+        href: concepts/data-type-bindings.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/datatransfer/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/datatransfer/toc.yaml
   - name: Questions and answers
     href: qa/index.md
