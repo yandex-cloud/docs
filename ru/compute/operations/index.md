@@ -20,7 +20,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](dsvm/index.md)
 * [{#T}](dsvm/quickstart.md)
 
-## Группы размещения {#placement-groups}
+## Группы размещений {#placement-groups}
 
 * [{#T}](placement-groups/create.md)
 * [{#T}](placement-groups/delete.md)
@@ -65,6 +65,7 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
+* [{#T}](disk-create/nonreplicated.md)
 
 ## Управление диском {#disk-control}
 
