@@ -15,7 +15,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
     {% note info %}
 
-    This feature is at the [Preview stage](../../overview/concepts/launch-stages.md) stage. At the [General Availability](../../overview/concepts/launch-stages.md) stage, this restriction will be lifted.
+    This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. At the [General Availability](../../overview/concepts/launch-stages.md) stage, this restriction will be lifted.
 
     {% endnote %}
 
@@ -197,6 +197,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       1. To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
       1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster:
+
          * Set the {{ CH }} version ({{ mch-ck-version }} or higher) in the `--version` parameter.
          * Set `--embedded-keeper` to `true`.
 
@@ -378,6 +379,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * With accidental cluster deletion protection.
 
   {% else %}
+
   * Named `mych`.
   * In the `production` environment.
   * In the `default` network.

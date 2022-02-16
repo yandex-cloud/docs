@@ -4,7 +4,7 @@ You can add and remove cluster hosts and manage {{ CH }} settings for individual
 
 {% note warning %}
 
-To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, first [add {{ ZK }} hosts](zk-hosts.md) that will ensure fault tolerance of the cluster.
+If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [enable fault tolerance](./zk-hosts.md#add-zk) using {{ ZK }}hosts.
 
 {% endnote %}
 
@@ -27,9 +27,9 @@ To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, f
 
   To get a list of cluster hosts, run the command:
 
-  ```
-  $ {{ yc-mdb-ch }} host list
-       --cluster-name=<cluster name>
+  ```bash
+  {{ yc-mdb-ch }} host list \
+     --cluster-name=<cluster name>
   
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
@@ -41,7 +41,6 @@ To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, f
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-
 - API
 
   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
@@ -52,6 +51,12 @@ To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, f
 ## Adding a host {#add-host}
 
 The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mch-full-name }}** block.
+
+{% note info %}
+
+A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication support can consist of one or three hosts only and can't have new hosts added. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. This restriction is removed at the General Availability stage.
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -84,8 +89,8 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
   1. Request a list of cluster subnets to select one for the new host:
 
-      ```
-      $ yc vpc subnet list
+      ```bash
+      yc vpc subnet list
       
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
@@ -103,8 +108,8 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
   1. View a description of the CLI command for adding a host:
 
-     ```
-     $ {{ yc-mdb-ch }} host add --help
+     ```bash
+     {{ yc-mdb-ch }} host add --help
      ```
 
   1. Run the add host command:
