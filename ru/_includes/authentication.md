@@ -14,4 +14,10 @@
 
 [{#T}](../iam/concepts/index.md#accounts)
 
+{% else %}
+
+Для выполнения операций через API необходимо получить IAM-токен.
+
+{% include [create-iam-token-for-robot](iam/create-iam-token-for-robot.md) %}
+
 {% endif %}
