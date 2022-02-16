@@ -3,4 +3,3 @@
 | [Short audio recognition](../../speechkit/pricing#rules-stt-short) | {{ sku|USD|ai.speech.stt|string }} |
 | [Long audio recognition](../../speechkit/pricing#rules-stt-long) | {{ sku|USD|ai.speech.stt_long_running|string }} |
 | [Long audio recognition](../../speechkit/pricing#rules-stt-long) by the [deferred-general](../../speechkit/stt/models.md#new-versions) model | {{ sku|USD|ai.speech.stt_long_running_deferred.v1|string }} |
-| [Audio markup](../../speechkit/stt/markup.md) | {{ sku|USD|ai.speech.transcribe.human.v1|string }} |

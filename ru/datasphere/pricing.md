@@ -193,3 +193,25 @@ g2.8 | 928
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
+
+### Разметка аудио {#markup}
+
+В этом разделе указана стоимость [разметки аудио](tutorials/markup.md). Стоимость указана за единицу тарификации, итоговая стоимость разметки зависит от объема данных и будет посчитана после загрузки данных.
+
+{% if region == "ru" %}
+
+Услуга | Цена за единицу тарификации, <br>вкл. НДС
+---|---
+[Разметка аудио](tutorials/markup.md) | {{ sku|RUB|ai.speech.transcribe.human.v1|string }}
+
+{% endif %}
+
+{% if region == "kz" %}
+
+Услуга | Цена за единицу тарификации, <br>вкл. НДС
+---|---
+[Разметка аудио](tutorials/markup.md) | {{ sku|KZT|ai.speech.transcribe.human.v1|string }}
+
+{% endif %}
+
