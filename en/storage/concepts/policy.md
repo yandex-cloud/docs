@@ -14,7 +14,6 @@ Access is verified at three levels: {{ iam-full-name }} service verification, th
 1. If the request failed the IAM or bucket policy check, access verification is performed based on an object's ACL.
 
 The bucket policy consists of the following basic elements:
-
 * Resource: A bucket (`arn:aws:s3:::samplebucket`), an object in the bucket (`arn:aws:s3:::samplebucket/some/key`), or a prefix (`arn:aws:s3:::samplebucket/some/path/*`).
 * Action: A set of resource operations that the policy either prohibits or allows. For more information, see [Actions](../s3/api-ref/policy/actions.md).
 * The result is denying or allowing the requested action. First, the request is checked against the `Deny` action filter. If matched, the request is rejected and no further checks are performed. If it meets the `Allow` action filter criteria, the request is allowed. If the request doesn't meet any of the filters, it's rejected.
@@ -23,18 +22,22 @@ The bucket policy consists of the following basic elements:
 
 A JSON-like language is used to describe policy rules.
 
-To avoid blocking access to a bucket via the {{ yandex-cloud }} management console under the policy, you can add the following rule to the `Statement` section:
+## Bucket access via the management console {#console-access}
+
+If a bucket has an access policy configured, access to the bucket via the {{ yandex-cloud }} management console is disabled by default. To enable bucket access, you need to add a rule under the access policy `Statement` section to allow any requests to `<bucket name>/*` and `<bucket name>` resources via the management console.
+
+Example rule for a specific {{ yandex-cloud }} user:
 
 ```json
 {
   "Effect": "Allow",
   "Principal": {
-  "CanonicalUser": "ajeyourusernameid"
+    "CanonicalUser": "<user ID>"
   },
   "Action": "*",
   "Resource": [
-    "arn:aws:s3:::your-bucket-name/*",
-    "arn:aws:s3:::your-bucket-name"
+    "arn:aws:s3:::<bucket name>/*",
+    "arn:aws:s3:::<bucket name>"
   ],
   "Condition": {
     "StringLike": {
@@ -44,13 +47,16 @@ To avoid blocking access to a bucket via the {{ yandex-cloud }} management conso
 }
 ```
 
+
+You can retrieve the user ID by following the [procedure](../../iam/operations/users/get.md) in the {{ iam-full-name }} documentation.
+
 ## Sample configurations {#config-examples}
 
 * A policy that allows an anonymous user to read objects in the `samplebucket` bucket over an encrypted connection:
 
 ```json
 {
-  "Id": "epd4limdp3dgec7enpq5"
+  "Id": "epd4limdp3dgec7enpq5",
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -58,7 +64,7 @@ To avoid blocking access to a bucket via the {{ yandex-cloud }} management conso
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::samplebucket/*",
+      "Resource": "arn:aws:s3:::<bucket name>/*",
       "Condition": {
         "Bool": {
           "aws:SecureTransport": "true"
@@ -79,7 +85,7 @@ To avoid blocking access to a bucket via the {{ yandex-cloud }} management conso
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::samplebucket/*",
+      "Resource": "arn:aws:s3:::<bucket name>/*",
       "Condition": {
         "IpAddress": {
           "aws:SourceIp": "100.101.102.128/30"
@@ -100,13 +106,13 @@ To avoid blocking access to a bucket via the {{ yandex-cloud }} management conso
       "Effect": "Allow",
       "Principal": "*",
       "Action": "*",
-      "Resource": "arn:aws:s3:::samplebucket/*"
+      "Resource": "arn:aws:s3:::<bucket name>/*"
     },
     {
       "Effect": "Deny",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::samplebucket/*",
+      "Resource": "arn:aws:s3:::<bucket name>/*",
       "Condition": {
         "IpAddress": {
           "aws:SourceIp": "100.101.102.103"
@@ -127,19 +133,19 @@ To avoid blocking access to a bucket via the {{ yandex-cloud }} management conso
       "Sid":"User1PermissionsResource",
       "Effect":"Allow",
       "Principal": {
-        "CanonicalUser": "ajeanexampleusername"
+        "CanonicalUser": "<user ID>"
       },
       "Action": "*",
-      "Resource":["arn:aws:s3:::common-bucket/user1path/*"]
+      "Resource":["arn:aws:s3:::<bucket name>/user1path/*"]
     },
     {
       "Sid":"User1PermissionsPrefix",
       "Effect":"Allow",
       "Principal": {
-          "CanonicalUser": "ajeanexampleusername"
+          "CanonicalUser": "<user ID>"
       },
       "Action": "s3:ListBucket",
-      "Resource":["arn:aws:s3:::common-bucket"],
+      "Resource":["arn:aws:s3:::<bucket name>"],
       "Condition": {
         "StringLike": {
           "s3:prefix": "user1path/*"
@@ -150,19 +156,19 @@ To avoid blocking access to a bucket via the {{ yandex-cloud }} management conso
       "Sid":"User2PermissionsResource",
       "Effect":"Allow",
       "Principal": {
-        "CanonicalUser": "ajesomeotherusername"
+        "CanonicalUser": "<user ID>"
       },
       "Action": "*",
-      "Resource":["arn:aws:s3:::common-bucket/user2path/*"]
+      "Resource":["arn:aws:s3:::<bucket name>/user2path/*"]
     },
     {
       "Sid":"User2PermissionsPrefix",
       "Effect":"Allow",
       "Principal": {
-        "CanonicalUser": "ajesomeotherusername"
+        "CanonicalUser": "<user ID>"
       },
       "Action": "s3:ListBucket",
-      "Resource":["arn:aws:s3:::common-bucket"],
+      "Resource":["arn:aws:s3:::<bucket name>"],
       "Condition": {
         "StringLike": {
           "s3:prefix": "user2path/*"

@@ -22,10 +22,10 @@ To enable hosting, you need [public access](../operations/buckets/bucket-availab
   ```xml
   <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     <IndexDocument>
-      <Suffix>index.html</Suffix>
+        <Suffix>index.html</Suffix>
     </IndexDocument>
     <ErrorDocument>
-      <Key>error.html</Key>
+        <Key>error.html</Key>
     </ErrorDocument>
   </WebsiteConfiguration>
   ```
@@ -39,8 +39,8 @@ To enable hosting, you need [public access](../operations/buckets/bucket-availab
   ```xml
   <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     <RedirectAllRequestsTo>
-      <HostName>example.com</HostName>
-      <Protocol>http</Protocol>
+        <HostName>example.com</HostName>
+        <Protocol>http</Protocol>
     </RedirectAllRequestsTo>
   </WebsiteConfiguration>
   ```
@@ -70,20 +70,20 @@ To enable hosting, you need [public access](../operations/buckets/bucket-availab
 
   {% endcut %}
 
-To set up [static site hosting](../operations/hosting/setup.md) or [forwarding for all requests](../operations/hosting/setup.md), use the {{ yandex-cloud }} management console.
+You can configure [static website hosting](../operations/hosting/setup.md#hosting), [redirection for all requests](../operations/hosting/setup.md#redirects), or [conditional request redirection](../operations/hosting/setup.md#redirects-on-conditions) using the {{ yandex-cloud }} management console.
 
 All the hosting settings are available through the [Amazon S3-compatible HTTP API](../s3/api-ref/hosting.md).
 
 After you configure the bucket for hosting, the website becomes accessible at:
 
 ```
-http(s)://<bucket name>.{{ s3-web-host }}
+http(s)://<bucket_name>.{{ s3-web-host }}
 ```
 
 or
 
 ```
-http(s)://{{ s3-web-host }}/<bucket name>
+http(s)://{{ s3-web-host }}/<bucket_name>
 ```
 
 {% note info %}
@@ -95,5 +95,6 @@ By default, a bucket with a dot in the name is only available over HTTP. To gran
 When accessing the website, you get responses with the codes described in [{#T}](../s3/api-ref/hosting/answer-codes.md).
 
 When hosting a website, you can:
+
 * [Use your own domain](../operations/hosting/own-domain.md).
 * [Support multiple domain names](../operations/hosting/multiple-domains.md).

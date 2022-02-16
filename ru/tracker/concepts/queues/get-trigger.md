@@ -1,7 +1,7 @@
 ---
 sourcePath: ru/tracker/api-ref/concepts/queues/get-trigger.md
 ---
-# Получить триггер
+# Получить параметры триггера
 
 Запрос позволяет получить информацию о [триггере](../../user/trigger.md) очереди.
 
@@ -9,7 +9,7 @@ sourcePath: ru/tracker/api-ref/concepts/queues/get-trigger.md
 
 Перед выполнением запроса [получите доступ к API](../access.md).
 
-Чтобы получить информацию о триггере, используйте HTTP-запрос с методом `GET`. 
+Чтобы получить параметры триггера, используйте HTTP-запрос с методом `GET`. 
 
 ```json
 GET /{{ ver }}/queues/<queue-id>/triggers/<trigger-id>

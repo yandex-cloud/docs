@@ -10,3 +10,4 @@
 * [Миграция в {{ yandex-cloud }} с помощью Hystax Acura](hystax-migration.md)
 * [Аварийное восстановление в {{ yandex-cloud }} с помощью Hystax Acura](hystax-disaster-recovery.md)
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](fault-tolerance.md)
+* [Создание SAP-программы в {{ yandex-cloud }}](sap.md)

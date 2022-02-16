@@ -8,25 +8,21 @@
 
 ## Installation {#installation}
 
-{% include [install-java-sdk](../../_includes/aws-tools/install-net-sdk.md)%}
+{% include [install-net-sdk](../../_includes/aws-tools/install-net-sdk.md)%}
 
 ## Setup {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-s3-url.md) %}
 
-## Code samples {#java-sdk-examples}
+## Code samples {#net-sdk-examples}
 
 To connect to {{ objstorage-name }}, use the code
 
-```
+```csharp
 AmazonS3Config configsS3 = new AmazonS3Config {
     ServiceURL = "https://s3.yandexcloud.net"
 };
 
-AmazonS3Client s3client = new AmazonS3Client(
-    AWS_ACCESS_KEY,
-    AWS_SECRET_KEY,
-    configsS3
-);
+AmazonS3Client s3client = new AmazonS3Client(configsS3);
 ```
 
