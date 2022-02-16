@@ -20,7 +20,7 @@ For a code sample, see `aws-java-sdk/samples/AmazonS3` in the archive with the S
 
 To connect to {{ objstorage-name }}, replace the code in the sample:
 
-```cpp
+```java
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withRegion("us-west-2")
@@ -29,7 +29,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
 
 to
 
-```cpp
+```java
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withEndpointConfiguration(

@@ -107,7 +107,7 @@
     1. Создайте пользователя с ролью `readWrite` на базу-источник:
 
         ```javascript
-        use <имя базы>
+        use admin
         db.createUser({
             user: "<имя пользователя>",
             pwd: "<пароль>",
@@ -122,6 +122,13 @@
         ```
 
         После старта трансфер подключится к источнику от имени этого пользователя.
+
+    1. При использовании {{ MG }} версий 3.4 и 3.6 для работы трансфера необходимо, чтобы пользователь обладал правами на чтение коллекции `local.oplog.rs`. Чтобы назначить пользователю роль `clusterManager`, предоставляющую такие права, подключитесь к {{ MG }} и выполните команды:
+
+        ```js
+        use admin;
+        db.grantRolesToUser("<имя пользователя>", ["clusterManager"]);
+        ```
 
 {% endlist %}
 
@@ -236,9 +243,81 @@
         GRANT USAGE ON SCHEMA <название схемы> TO <имя пользователя>;
         ```
 
-    1. Установите плагин [wal2json](https://github.com/eulerto/wal2json).
+    1. Установите и включите расширение [wal2json](https://github.com/eulerto/wal2json).
 
-    1. Если источник репликации — кластер, установите на его хосты плагин [pg_tm_aux](https://github.com/x4m/pg_tm_aux). Это позволит продолжить репликацию в случае смены хоста-мастера.
+        **Установка**
+
+        * Linux
+
+            1. Подключите [официальный репозиторий {{ PG }}](https://www.postgresql.org/download/) для вашего дистрибутива.
+            1. Обновите список доступных пакетов и установите пакет `wal2json` для используемой версии {{ PG }}.
+
+        * Windows 10, 11
+
+            1. Если у вас не установлена Microsoft Visual Studio, загрузите и установите ее. Для сборки расширения wal2json достаточно редакции [Comminuty Edition](https://visualstudio.microsoft.com/ru/vs/community/). При установке выберите компоненты:
+
+                * MSBuild,
+                * MSVC v141 x86/x64 build tools,
+                * C++\CLI support for v141 build tools,
+                * MSVC v141 — VS 2017 C++ x64\x86 build tools,
+                * MSVC v141 — VS 2017 C++ x64\x86 Spectre-mitigated libs,
+                * самая свежая версия Windows SDK для используемой версии ОС,
+                * прочие зависимости, которые устанавливаются автоматически для выбранных компонентов.
+
+                Запомните номер устанавливаемой версии Windows SDK — он понадобится при указании параметров сборки wal2json.
+
+            1. Загрузите исходный код wal2json со [страницы проекта](https://github.com/eulerto/wal2json/releases).
+            1. Распакуйте архив с исходным кодом в каталог `C:\wal2json\`.
+            1. Перейдите в каталог `C:\wal2json`.
+            1. В рамках одной сессии PowerShell внесите изменения в файл `wal2json.vcxproj`:
+
+                * замените строки `C:\postgres\pg103` на путь к каталогу с установленной версией {{ PG }}, например:
+
+                    ```powershell
+                    (Get-Content .\wal2json.vcxproj).replace('C:\postgres\pg103', 'C:\PostgreSQL\14') | `
+                     Set-Content .\wal2json.vcxproj
+                    ```
+
+                * замените параметр сборки `/MP` на `/MT`, например:
+
+                    ```powershell
+                    (Get-Content .\wal2json.vcxproj).replace('/MP', '/MT') | Set-Content .\wal2json.vcxproj
+                    ```
+
+                * укажите в параметре `<WindowsTargetPlatformVersion>` номер версии установленного компонента Windows SDK:
+
+                    ```powershell
+                    (Get-Content .\wal2json.vcxproj).replace('<WindowsTargetPlatformVersion>8.1', '<WindowsTargetPlatformVersion><установленная версия Windows SDK>') | `
+                     Set-Content .\wal2json.vcxproj
+                    ```
+
+                1. Укажите значение переменной окружения, необходимой для сборки wal2json, например, для Visual Studio Comminity Edition 2022:
+
+                    ```powershell
+                    $VCTargetsPath='C:\Program Files\Microsoft Visual Studio\2022\Comminuty\MSBuild\Microsoft\VC\v150'
+                    ```
+
+                1. Запустите сборку:
+
+                    ```powershell
+                    & 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe' /p:Configuration=Release /p:Platform=x64
+                    ```
+
+                1. Скопируйте файл `wal2json.dll` из каталога `build/release` в каталог `lib` установленной версии {{ PG }}.
+
+       {% endlist %}
+
+        **Настройка**
+
+        1. В файле `postgresql.conf` измените значение параметра `wal_level` на `logical`:
+
+            ```conf
+            wal_level = logical
+            ```
+
+        1. Перезапустите PostgreSQL.
+
+    1. Если источник репликации — кластер, установите и включите на его хостах расширение [pg_tm_aux](https://github.com/x4m/pg_tm_aux). Это позволит продолжить репликацию в случае смены хоста-мастера.
 
     1. {% include [Таблицы без первичных ключей](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 

@@ -21,7 +21,7 @@
 
 Чтобы подключиться к {{ objstorage-name }} замените в примере код
 
-```cpp
+```java
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withRegion("us-west-2")
@@ -30,7 +30,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
 
 на
 
-```cpp
+```java
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .withCredentials(new AWSStaticCredentialsProvider(credentials))
     .withEndpointConfiguration(
