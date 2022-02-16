@@ -11,26 +11,26 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сервисный аккаунт.
      1. Выберите вкладку **Сервисные аккаунты**.
      1. Нажмите кнопку **Создать сервисный аккаунт**.
-     1. Введите имя сервисного аккаунта и нажмите кнопку **Создать**.
+     1. Введите имя сервисного аккаунта `service-acc` и нажмите кнопку **Создать**.
      1. В списке сервисов выберите **{{ container-registry-name }}**.
-     1. Справа от имени нужного реестра нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Настроить ACL**.
+     1. Справа от имени нужного реестра нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **ACL реестра**.
      1. В открывшемся окне выберите сервисный аккаунт и нажмите кнопку **Добавить**.
      1. В выпадающем списке **Разрешения** отметьте роль `container-registry.images.puller`.
      1. Нажмите кнопку **Сохранить**.
 
    - CLI
 
+     {% include [cli-install](../../_includes/cli-install.md) %}
+
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
      1. Создайте сервисный аккаунт:
-
-        {% include [cli-install](../../_includes/cli-install.md) %}
-
-        {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
         ```bash
         yc iam service-account create --name service-acc
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: ajelabcde12f33nol1v5
@@ -42,18 +42,17 @@
      1. Назначьте роль сервисному аккаунту:
 
         ```bash
-        yc <имя_сервиса> <ресурс> add-access-binding <имя_ресурса>|<id_ресурса> \
-          --role <id_роли> \
-          --subject serviceAccount:<id_сервисного аккаунта>
+        yc container registry add-access-binding crpc9qeoft236r8tfalm \
+          --role rtc45bkje12f53nollw3 \
+          --subject serviceAccount:ajelabcde12f33nol1v5
         ```
 
         Где:
-        * `<имя_сервиса>` — имя сервиса `container`.
-        * `<ресурс>` — категория ресурса `registry`.
-        * `<имя_ресурса>` — имя ресурса, на который назначается роль. Вы можете указать ресурс по имени или идентификатору.
-        * `<id_ресурса>` — идентификатор реестра `crpc9qeoft236r8tfalm`, на который назначается роль.
-        * `<id_роли>` — идентификатор роли `container-registry.images.puller`.
-        * `<id_сервисного аккаунта>` — идентификатор сервисного аккаунта `ajelabcde12f33nol1v5`, которому назначается роль.
+        * `container` — имя сервиса.
+        * `registry` — категория реестра.
+        * `crpc9qeoft236r8tfalm` — идентификатор реестра, на который назначается роль. Можно также указать имя реестра.
+        * `role` — идентификатор роли `container-registry.images.puller`.
+        * `subject serviceAccount` — идентификатор сервисного аккаунта, которому назначается роль.
 
    - API
 
@@ -71,15 +70,9 @@
      1. В списке сервисов выберите **{{ compute-name }}**.
      1. Нажмите кнопку **Создать ВМ**.
      1. В блоке **Базовые параметры**:
-        * Введите имя и описание ВМ. Требования к имени:
-
-          {% include [name-format](../../_includes/name-format.md) %}
-
-          {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
-
-        * Выберите созданный на предыдущем шаге [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
+        * Введите имя `first-instance` и описание ВМ.
         * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-     1. В блоке **Образы из {{ marketplace-name }}** выберите один из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
+     1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите один из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
      1. (опционально) В блоке **Диски** настройте загрузочный диск:
         * Укажите нужный размер диска.
         * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
@@ -90,14 +83,17 @@
         * Укажите [гарантированную долю](../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
         * При необходимости сделайте ВМ [прерываемой](../../compute/concepts/preemptible-vm.md).
      1. В блоке **Сетевые настройки**:
-        * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Если сети нет, нажмите кнопку **Создать новую сеть** и создайте ее:
-          * В открывшемся окне укажите имя новой сети и выберите, к какой подсети необходимо подключить ВМ. У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet) (если подсети нет, создайте ее). Затем нажмите кнопку **Создать**.
+        * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Если сети нет, нажмите кнопку **Создать сеть** и создайте ее:
+          * В открывшемся окне выберите каталог и укажите имя новой сети. Включите опцию **Создать подсети**. Нажмите кнопку **Создать**.
+
+		  У выбранной сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее. 
         * В поле **Публичный адрес** выберите способ назначения адреса:
           * **Автоматически** — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
           * **Список** — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
           * **Без адреса** — чтобы не назначать публичный IP-адрес.
         * (опционально) Выберите опцию [защиты от DDoS-атак](../../vpc/ddos-protection/).
      1. В блоке **Доступ** укажите данные для доступа на ВМ:
+	    * Выберите созданный на предыдущем шаге [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
         * В поле **Логин** введите имя пользователя.
 
           {% note alert %}
@@ -106,14 +102,13 @@
 
           {% endnote %}
 
-         * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh#creating-ssh-keys).
+        * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
+          При создании SSH-ключа сохраните пароль для закрытой части ключа. Он понадобится при подключении к ВМ по SSH.
+
      1. Нажмите кнопку **Создать ВМ**.
 
    - CLI
-
-     {% include [cli-install](../../_includes/cli-install.md) %}
-
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
      1. Посмотрите описание команды CLI для создания ВМ:
 
@@ -121,7 +116,7 @@
         yc compute instance create --help
         ```
 
-     1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
+     1. Подготовьте [пару ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для SSH-доступа на ВМ. При создании SSH-ключа сохраните пароль для закрытой части ключа. Он понадобится при дальнейшем подключении к ВМ по SSH.
      1. Выберите один из публичных [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}).
 
         {% include [standard-images](../../_includes/standard-images.md) %}
@@ -139,34 +134,36 @@
         +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
         ```
 
-     1.  Создайте ВМ в каталоге по умолчанию. Укажите следующие параметры:
-         * `name` — имя ВМ.
+     1. Создайте ВМ в каталоге по умолчанию:
 
-            {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+        ```bash
+        yc compute instance create \
+          --name first-instance \
+          --zone ru-central1-a \
+          --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+          --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
+          --ssh-key ~/.ssh/id_rsa.pub \
+          --service-account-name service-acc
+        ```
 
-         * `zone` — зона доступности, которая соответствует выбранной подсети.
-         * `subnet-name` — имя выбранной подсети.
-         * `image-family` — [семейство образов](../../compute/concepts/image.md#family), например `centos-7`. Эта опция позволит установить последнюю версию операционной системы из указанного семейства.
-         * Публичный IP. Чтобы создать ВМ без публичного IP, исключите опцию `nat-ip-version=ipv4`.
-         * `ssh-key` — путь до публичного SSH-ключа. Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
-         * `service-account-name` — имя созданного на предыдущем шаге сервисного аккаунта.
+		Где:
+		* `name` — имя ВМ.
 
-          ```bash
-          yc compute instance create \
-            --name first-instance \
-            --zone ru-central1-a \
-            --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
-            --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-            --ssh-key ~/.ssh/id_rsa.pub
-            --service-account-name service-acc
-          ```
+          {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-          Будет создана ВМ `first-instance`.
+        * `zone` — зона доступности, которая соответствует выбранной подсети.
+        * `subnet-name` — имя выбранной подсети.
+        * `image-family` — [семейство образов](../../compute/concepts/image.md#family), например `centos-7`. Эта опция позволит установить последнюю версию операционной системы из указанного семейства.
+        * `nat-ip-version` — публичный IP. Чтобы создать ВМ без публичного IP, исключите эту опцию.
+        * `ssh-key` — путь до публичного SSH-ключа. Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+        * `service-account-name` — имя созданного на предыдущем шаге сервисного аккаунта.
+
+        Будет создана ВМ `first-instance`.
 
    - API
 
      Создайте ВМ с помощью метода [Create](../../compute/api-ref/Instance/create.md) для ресурса `Instance`:
-     1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
+     1. Подготовьте [пару ключей](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) для SSH-доступа на ВМ. При создании SSH-ключа сохраните пароль для закрытой части ключа. Он понадобится при дальнейшем подключении к ВМ по SSH.
      1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
         * [Инструкция](../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
         * [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
@@ -207,35 +204,12 @@
           ]}
         ```
 
-     1. Создайте файл с телом запроса на создание ВМ, например `body.json`. Укажите следующие параметры:
-        * `folderId` — идентификатор каталога.
-        * `name` — имя, которое будет присвоено ВМ при создании.
-        * `zoneId` — зона доступности, которая соответствует выбранной подсети.
-        * `platformId` — [платформа](../../compute/concepts/vm-platforms.md).
-        * `resourceSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
-        * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../compute/concepts/vm-metadata.md).
-        * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска. Размер диска должен быть не меньше минимального размера диска, указанного в информации об образе.
-        * `networkInterfaceSpecs` — настройки сети.
-           * `subnetId` — идентификатор выбранной подсети.
-           * `primaryV4AddressSpec` — IP-адрес, который будет присвоен ВМ. Чтобы добавить [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ, укажите:
-
-             ```yaml
-             "primaryV4AddressSpec": {
-               "oneToOneNatSpec": {
-                 "ipVersion": "IPV4"
-               }
-             }
-             ```
-        * `serviceAccountId` — идентификатор созданного на предыдущем шаге сервисного аккаунта.
-
-        Подробнее про формат тела запроса в [справочнике API](../../compute/api-ref/Instance/create.md).
-
-        Пример файла `body.json`:
+     1. Создайте файл с телом запроса на создание ВМ `body.json`:
 
         ```json
         {
           "folderId": "b1gvmob95yysaplct532",
-          "name": "instance-demo-no-pwauth",
+          "name": "first-instance",
           "zoneId": "ru-central1-c",
           "platformId": "standard-v3",
           "resourcesSpec": {
@@ -265,6 +239,32 @@
         }
         ```
 
+		Где:
+		* `folderId` — идентификатор каталога.
+        * `name` — имя, которое будет присвоено ВМ при создании.
+        * `zoneId` — зона доступности, которая соответствует выбранной подсети.
+        * `platformId` — [платформа](../../compute/concepts/vm-platforms.md).
+        * `resourceSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
+        * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../compute/concepts/vm-metadata.md).
+        * `bootDiskSpec` — настройки загрузочного диска:
+           * `size` — размер диска. Должен быть не меньше минимального размера диска, указанного в информации об образе.
+		   * `imageId` — идентификатор выбранного образа.
+        * `networkInterfaceSpecs` — настройки сети:
+           * `subnetId` — идентификатор выбранной подсети.
+           * `primaryV4AddressSpec` — IP-адрес, который будет присвоен ВМ. Чтобы добавить [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ, укажите:
+
+             ```json
+             "primaryV4AddressSpec": {
+               "oneToOneNatSpec": {
+                 "ipVersion": "IPV4"
+               }
+             }
+             ```
+
+        * `serviceAccountId` — идентификатор созданного ранее сервисного аккаунта.
+
+        Подробнее про формат тела запроса в [справочнике API](../../compute/api-ref/Instance/create.md).
+
      1. Создайте ВМ:
 
         ```bash
@@ -279,7 +279,6 @@
     {% endlist %}
 
 1. Добавьте переменные для удобства работы:
-
    * Публичный IP-адрес вашей ВМ в переменную `${PUBLIC_IP}`:
 
      ```bash
@@ -292,6 +291,7 @@
      export REGISTRY_ID=crpc9qeoft236r8tfalm
      ```
 
+1. Если Docker еще не установлен, [установите](https://docs.docker.com/engine/install/) и запустите его.
 1. Аутентифицируйтесь в реестре от своего имени:
 
    {% list tabs %}
@@ -305,7 +305,7 @@
         echo <oauth-токен> | docker login --username oauth --password-stdin cr.yandex
         ```
 
-        Результат команды:
+        Результат:
 
         ```bash
         Login Succeeded
@@ -320,13 +320,14 @@
      {% endnote %}
 
      1. [Получите](../../iam/operations/iam-token/create.md) IAM-токен.
+
      1. Выполните команду:
 
         ```bash
         yc iam create-token | docker login --username iam --password-stdin cr.yandex
         ```
 
-        Результат команды:
+        Результат:
 
         ```bash
         Login Succeeded
@@ -341,7 +342,7 @@
         yc container registry configure-docker
         ```
 
-        Результат команды:
+        Результат:
 
         ```bash
         Credential helper is configured in '/home/<user>/.docker/config.json'
@@ -363,13 +364,13 @@
         "cr.yandex": "yc"
         ```
 
-     1. Docker готов к использованию, например, для [загрузки Docker-образов](../operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
+     Docker готов к использованию, например, для [загрузки Docker-образов](../operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
 
    {% endlist %}
 
-1. Создайте файл Dockerfile и добавьте туда следующие строки:
+1. Создайте файл `Dockerfile` и добавьте туда следующие строки:
 
-   ```bash
+   ```docker
    FROM ubuntu:latest
    CMD echo "Hi, I'm inside"
    ```
@@ -386,7 +387,7 @@
    docker push cr.yandex/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Результат команды:
+   Результат:
 
    ```bash
    The push refers to repository [cr.yandex/crpc9qeoft236r8tfalm/ubuntu]
@@ -396,14 +397,16 @@
    hello: digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf size: 943
    ```
 
-1. [Зайдите по SSH на ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) и пройдите аутентификацию от имени сервисного аккаунта, привязанного к этой машине:
+1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect):
 
    ```bash
    ssh ${PUBLIC_IP} \
    curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | cut -f1 -d',' | cut -f2 -d':' | tr -d '"' | sudo docker login --username iam --password-stdin cr.yandex
    ```
 
-   Результат команды:
+   При запросе пароля укажите пароль от закрытой части созданного ранее SSH-ключа.
+
+   Результат:
 
    ```bash
    Login Succeeded
@@ -415,21 +418,13 @@
    ssh ${PUBLIC_IP} docker pull cr.yandex/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Результат команды:
+   Результат:
 
    ```bash
    hello: Pulling from crpc9qeoft236r8tfalm/ubuntu
    6a5697faee43: Pulling fs layer
    ba13d3bc422b: Pulling fs layer
-   a254829d9e55: Pulling fs layer
-   a254829d9e55: Verifying Checksum
-   a254829d9e55: Download complete
-   ba13d3bc422b: Verifying Checksum
-   ba13d3bc422b: Download complete
-   6a5697faee43: Download complete
-   6a5697faee43: Pull complete
-   ba13d3bc422b: Pull complete
-   a254829d9e55: Pull complete
+   ...
    Digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf
    Status: Downloaded newer image for cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
@@ -441,8 +436,8 @@
    ssh ${PUBLIC_IP} docker run cr.yandex/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Результат команды:
+   Результат:
 
-   ```bash
+   ```text
    Hi, I'm inside
    ```
