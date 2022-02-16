@@ -66,6 +66,7 @@ ignore:
   - "ru/ydb-src/*"
   - "en/*"
   - "ru/marketplace-v2/*"
+  - "ru/tutorials/*"
 
 docs-viewer:
   project-name: cloud

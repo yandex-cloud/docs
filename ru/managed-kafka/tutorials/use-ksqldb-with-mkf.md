@@ -229,6 +229,6 @@ ksqlDB — это база данных, которая предназначен
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-* [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-* Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+* {% if audience != "internal" %}[Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).{% else %}Удалите виртуальную машину. {% endif %}
+* Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, {% if audience != "internal" %}[удалите его](../../vpc/operations/address-delete.md).{% else %}Удалите его.{% endif %}
 * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
