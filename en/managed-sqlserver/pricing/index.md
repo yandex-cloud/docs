@@ -1,11 +1,13 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ mms-name }}
 
-{% note warning %}
+{% note info %}
 
-The billing rules described on this page are valid until and including December 31, 2021. Starting from January 01, 2022 the rules described in section [{#T}](pricing.md) will come into effect.
+* This pricing policy is valid through February 28, 2022.
+* For the pricing policy that will be in effect starting March 1, 2022, see [{#T}](pricing-01032022.md).
 
 {% endnote %}
 
@@ -14,12 +16,11 @@ The billing rules described on this page are valid until and including December 
 Pricing is applied differently depending on the cluster status:
 
 * `Running` cluster: You pay for software licenses, computing resources, storage, and backups.
-
 * `Stopped` cluster: You're charged for storage and backups in full, but pricing for software licenses is described in [{#T}](#license). Computing resources are free of charge.
 
   {% note alert %}
 
-  If a cluster uses local storage (`local-ssd`), its computing resources are not released when it's stopped and are charged in full.
+  If a cluster uses local SSD storage (`local-ssd`), its computing resources are not released when it is stopped and are charged in full.
 
   {% endnote %}
 
@@ -29,9 +30,9 @@ The cost of {{ mms-name }} usage is based on:
 
 * The cost of licenses for Windows Server Datacenter and Microsoft SQL Server.
 
-{% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
+{% include [pricing-rules](../../_includes/mdb/pricing-rules.md) %}
 
-{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+{% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
 ### Software license usage {#license}
 
@@ -43,12 +44,12 @@ You're charged for using licenses on an pre-payment basis. This means that a fee
 * If you start a cluster that was stopped in the previous period, you need to pay the full license cost for the entire billing period. If you stop and start a cluster multiple times within one period, you need to pay the license cost only at the first start.
 * If you change the cluster configuration and reduce resource consumption, the cost of released licenses for this period is not refunded. A new cost is valid from the first day of the following month.
 * If you change the cluster configuration and increase resource consumption, you need additional licenses. Their cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll additionally pay 7/30 of the monthly cost of new licenses.
-* {{ MS }} multi-host clusters with [unreadable secondary replicas](./concepts/replication.md#readable-and-non-readable-replicas) require only one Microsoft SQL Server Enterprise license for the primary replica.
-* {{ MS }} multi-host clusters with [readable secondary replicas](./concepts/replication.md#readable-and-non-readable-replicas) require a Microsoft SQL Server Enterprise license for each replica.
+* Multi-host {{ MS }} clusters with [unreadable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) require only one Microsoft SQL Server Enterprise license: for the primary replica.
+* Multi-host {{ MS }} clusters with [readable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) require a Microsoft SQL Server Enterprise license for each replica.
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost of using DB hosts is calculated according to their class. Exact class characteristics are given in [{#T}](concepts/instance-types.md). The host usage fee is charged in accordance with the agreement.
+The cost of using DB hosts is calculated according to their class. Exact class characteristics are given in [{#T}](../concepts/instance-types.md). The host usage fee is charged in accordance with the agreement.
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when the DB host is not performing its main functions.
 
@@ -58,11 +59,11 @@ The disk space usage fee is charged in accordance with the agreement. The follow
 
 * Storage allocated for DB clusters.
 
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts:
-       * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+       * For Intel Cascade Lake: In increments of 100 GB.
        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
-    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
+    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -76,23 +77,31 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Pricing {#prices}
 
+{% if region == "int" %}
+  
+All prices are shown without VAT.
+  
+{% else %}
+  
 All prices are shown with VAT.
+  
+{% endif %}
 
 {% if region == "ru"%}
 
-{% include [rub-pricing.md](../_pricing/managed-sqlserver/rub-pricing.md) %}
+{% include [rub-pricing.md](../../_pricing/managed-sqlserver/rub-pricing.md) %}
 
 {% endif %}
 
 {% if region == "kz"%}
 
-{% include [kzt-pricing.md](../_pricing/managed-sqlserver/kzt-pricing.md) %}
+{% include [kzt-pricing.md](../../_pricing/managed-sqlserver/kzt-pricing.md) %}
 
 {% endif %}
 
 {% if region == "int"%}
 
-{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing.md) %}
+{% include [usd-pricing.md](../../_pricing/managed-sqlserver/usd-pricing.md) %}
 
 {% endif %}
 
@@ -100,49 +109,19 @@ All prices are shown with VAT.
 
 {% if region == "ru" %}
 
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
 
 {% endif %}
 
 {% if region == "kz" %}
 
-{% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+{% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
 
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-{% endif %}
-
-{% if audience == "draft" %}
-
-## Estimated prices for host classes {#calculated-prices}
-
-Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the aforementioned prices for using software licenses, vCPU, and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.ru/services/managed-sqlserver#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
-
-{% if region == "ru"%}
-
-{% include [rub-licence.md](../_pricing/managed-sqlserver/rub-licence.md) %}
-
-{% endif %}
-
-{% if region == "kz"%}
-
-{% include [kzt-licence.md](../_pricing/managed-sqlserver/kzt-licence.md) %}
-
-{% endif %}
-
-{% if region == "int"%}
-
-{% include [usd-licence.md](../_pricing/managed-sqlserver/usd-licence.md) %}
-
-{% endif %}
+{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
 
