@@ -16,6 +16,8 @@ items:
         href: operations/connect.md
       - name: Управление хостами кластера
         href: operations/cluster-hosts.md
+      - name: Изменение настроек кластера
+        href: operations/update.md
       - name: Управление базами данных
         href: operations/databases.md
         when: state != "public-preview"
