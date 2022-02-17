@@ -230,9 +230,11 @@
 * **Merge tree**{#setting-merge-tree} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     Конфигурация движка MergeTree:
-    * **Max bytes to merge at min space in pool** — максимальный общий размер [кусков данных]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %} для слияния, когда в фоновом пуле минимум свободных потоков.
+    * **Max bytes to merge at min space in pool** — максимальный общий размер кусков данных для слияния, когда в фоновом пуле минимум свободных ресурсов.
 
       По умолчанию выбрано значение `1048576` (1 МБ).
+
+      Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %}.
 
     * **Max replicated merges in queue** — максимальное количество задач слияния, которые могут одновременно находиться в очереди `ReplicatedMergeTree`.
 
@@ -250,15 +252,19 @@
 
       По умолчанию выбрано значение `300`.
 
+      Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings/#parts-to-throw-insert){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/merge-tree-settings/#parts-to-throw-insert){% endif %}.
+
     * **Replicated deduplication window** — число блоков последних вставок хешей, которые {{ ZK }} будет хранить. Дедубликация работает только для последних вставленных данных. Старые блоки будут удалены.
 
       По умолчанию выбрано значение `100`.
+
+      Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings/#replicated-deduplication-window){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/merge-tree-settings/#replicated-deduplication-window){% endif %}.
 
     * **Replicated deduplication window seconds** — время, в течение которого {{ ZK }} хранит блоки последних вставок хешей. Дедубликация работает только для последних вставленных данных. Старые блоки будут удалены.
 
       По умолчанию выбрано значение `604800`.
 
-    Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}.
+      Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds){% endif %}.
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-tf }}
 
