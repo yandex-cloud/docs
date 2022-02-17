@@ -21,11 +21,11 @@
 
 ## Установка {{ ydb-short-name }} CLI {#how-to-install}
 
-{% include [ydb-cli-install](../../reference/ydb-cli/install.md) %}
+{% include notitle [ydb-cli-install](../../reference/ydb-cli/_includes/install.md) %}
 
-## Настройка авторизации {#iam}
+## Настройка аутентификации {#iam}
 
-В этой инструкции для авторизации в {{ ydb-short-name }} используется [IAM-токен](../../../iam/concepts/authorization/iam-token.md). О других способах авторизации читайте в разделе [{#T}](../../reference/ydb-cli/authorization.md).
+В этой инструкции для аутентификации в {{ ydb-short-name }} используется [IAM-токен](../../../iam/concepts/authorization/iam-token.md). О других способах читайте в разделе [Аутентификация при соединении CLI с БД](../../reference/ydb-cli/auth.md).
 
 1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md):
 
