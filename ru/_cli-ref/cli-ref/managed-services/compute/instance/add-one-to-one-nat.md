@@ -1,6 +1,6 @@
 # yc compute instance add-one-to-one-nat
 
-Add one-to-one NAT to the the specified network interface of virtual machine instance
+Add one-to-one NAT to the specified network interface of virtual machine instance
 
 #### Command Usage
 

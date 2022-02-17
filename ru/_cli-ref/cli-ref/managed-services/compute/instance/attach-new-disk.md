@@ -1,6 +1,6 @@
 # yc compute instance attach-new-disk
 
-Attach new disk to the the specified virtual machine instance
+Attach new disk to the specified virtual machine instance
 
 #### Command Usage
 
