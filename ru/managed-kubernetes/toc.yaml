@@ -19,8 +19,12 @@ items:
         href: operations/update-kubernetes.md
       - name: Настройка автомасштабирования
         href: operations/autoscale.md
-      - name: Работа с {{ marketplace-name }}
-        href: operations/marketplace.md
+      - name: Установка приложений
+        items:
+          - name: Основы работы с {{ marketplace-name }}
+            href: operations/applications/marketplace.md
+          - name: Установка Metrics Provider
+            href: operations/applications/metrics-provider.md
       - name: Сетевые сценарии
         items:
           - name: >-
