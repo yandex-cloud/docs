@@ -8,11 +8,11 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/_includes/ydb_docker/06
 Просмотрите текст лицензионного соглашения:
 
 ```bash
-sudo docker run --rm -it --entrypoint cat cr.yandex/yc/yandex-docker-local-ydb LICENSE
+sudo docker run --rm -it --entrypoint cat {{ ydb_local_docker_image }} LICENSE
 ```
 
 Просмотрите все использованные при создании компоненты и их лицензии:
 
 ```bash
-sudo docker run --rm -it --entrypoint cat cr.yandex/yc/yandex-docker-local-ydb THIRD_PARTY_LICENSES
+sudo docker run --rm -it --entrypoint cat {{ ydb_local_docker_image }} THIRD_PARTY_LICENSES
 ```

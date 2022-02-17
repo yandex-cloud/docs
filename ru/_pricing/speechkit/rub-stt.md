@@ -4,4 +4,3 @@
 [Синхронное распознавание](../../speechkit/stt/request.md) | {{ sku|RUB|ai.speech.stt|string }}
 [Асинхронное распознавание](../../speechkit/stt/transcribation.md) | {{ sku|RUB|ai.speech.stt_long_running|string }}
 Асинхронное распознавание моделью [deferred-general](../../speechkit/stt/models#tags) | {{ sku|RUB|ai.speech.stt_long_running_deferred.v1|string }}
-[Разметка аудио](../../speechkit/stt/markup.md) | {{ sku|RUB|ai.speech.transcribe.human.v1|string }}

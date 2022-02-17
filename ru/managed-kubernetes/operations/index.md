@@ -10,7 +10,11 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](create-static-conf.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
-* [{#T}](marketplace.md)
+
+## Установка приложений {#marketplace}
+
+* [{#T}](applications/marketplace.md)
+* [{#T}](applications/metrics-provider.md)
 
 ## Сетевые сценарии {#network-scenarios}
 

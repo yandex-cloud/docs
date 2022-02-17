@@ -34,7 +34,7 @@
    * **Версия {{ k8s }}**: не ниже 1.19.
    * **Публичный адрес**: `Автоматически`.
 1. [Создайте группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.19.
-1. [Настройте группы безопасности кластера и группы узлов](../operations/security-groups.md).
+1. [Настройте группы безопасности кластера и группы узлов](../operations/security-groups.md). Группа безопасности группы узлов должна разрешать входящие TCP-соединения к портам 10501 и 10502 из подсетей балансировщика или из его группы безопасности (позже подсети и группу нужно будет указать для [создания Ingress-контроллера](#create-ingress-and-apps)).
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.7.0.
 1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
 1. Убедитесь, что вы можете подключиться к кластеру с помощью `kubectl`:
@@ -141,7 +141,7 @@ yc certificate-manager certificate list
 
      Где:
      * `ingress.alb.yc.io/subnets` — одна или несколько [подсетей](../../vpc/concepts/network.md#subnet), с которыми будет работать {{ alb-name }}.
-     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию.
+     * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов или в ее группу безопасности.
      * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md), либо установите значение `auto`, чтобы получить новый.
      * `ingress.alb.yc.io/group-name` — объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}. Укажите имя группы.
 
@@ -155,6 +155,18 @@ yc certificate-manager certificate list
        {% endnote %}
 
      * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
+     * `ingress.alb.yc.io/protocol` — протокол соединений между балансировщиком и бэкендами:
+         
+       * `http` — HTTP/1.1. Значение по умолчанию.
+       * `http2` — HTTP/2.
+       * `grpc` — gRPC.
+         
+     * `ingress.alb.yc.io/transport-security` — протокол шифрования соединений между балансировщиком и бэкендами:
+       
+       * `tls` — TLS без проверки сертификата.
+
+       Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
+       
      * `ingress.alb.yc.io/prefix-rewrite` — замена пути на указанное значение.
      * `ingress.alb.yc.io/upgrade-types` — допустимые значения HTTP-заголовка `Upgrade`, например, `websocket`.
      * `ingress.alb.yc.io/request-timeout` — максимальный период, на который может быть установлено соединение.
@@ -583,6 +595,12 @@ yc certificate-manager certificate list
         {% endnote %}
 
       * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
+      * `ingress.alb.yc.io/protocol` — протокол соединений между балансировщиком и бэкендами:
+
+         * `http` — HTTP/1.1. Значение по умолчанию.
+         * `http2` — HTTP/2.
+         * `grpc` — gRPC.
+
       * `ingress.alb.yc.io/prefix-rewrite` — замена пути на указанное значение.
       * `ingress.alb.yc.io/upgrade-types` — допустимые значения HTTP-заголовка `Upgrade`, например, `websocket`.
       * `ingress.alb.yc.io/request-timeout` — максимальный период, на который может быть установлено соединение.

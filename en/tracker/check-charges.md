@@ -1,4 +1,4 @@
-## Viewing service detalization
+# Viewing service detalization
 
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 

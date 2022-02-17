@@ -21,10 +21,8 @@ items:
         href: stt/models.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
-      - name: Импорт данных для дообучения модели
+      - name: Загрузка данных для дообучения модели
         href: stt/import-training-data.md
-      - name: Разметка аудио
-        href: stt/markup.md
       - name: Справочник API
         items:
           - name: Аутентификация в API
@@ -63,7 +61,7 @@ items:
             href: tts/brand-voice/index.md
           - name: Формат входных данных Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
-          - name: Импорт данных для Brand Voice
+          - name: Загрузка данных для Brand Voice
             href: tts/brand-voice/import-data.md
       - name: Справочник API
         items:

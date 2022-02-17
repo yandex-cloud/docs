@@ -5,7 +5,7 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.
 
 ## Глобальные {#pragmas}
 
-### AutoCommit
+### AutoCommit {#autocommit}
 
 | Тип значения | По умолчанию |
 | --- | --- |
@@ -13,7 +13,7 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.
 
 Автоматически выполнять [COMMIT](../../select.md#commit) после каждого выражения.
 
-### TablePathPrefix
+### TablePathPrefix {#table-path-prefix}
 
 | Тип значения | По умолчанию |
 | --- | --- |
@@ -26,7 +26,7 @@ SELECT * FROM test;`
 
 Префикс не добавляется, если имя таблицы указано как абсолютный путь (начинается с /).
 
-### Warning
+### Warning {#warning}
 
 | Тип значения | По умолчанию |
 | --- | --- |

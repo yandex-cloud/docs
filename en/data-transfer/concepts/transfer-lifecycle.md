@@ -1,0 +1,68 @@
+# Transfer lifecycle
+
+A transfer's lifecycle is the set of its statuses and transitions between them. The transfer type determines the order of transitions between statuses. The current transfer status determines available actions with transfers. For more information, see [{#T}](../operations/transfer.md).
+
+## Statuses {#statuses}
+
+* {{ dt-status-created }}: Assigned to a transfer immediately after [creation](../operations/transfer.md#create).
+
+* {{ dt-status-creation }}: Assigned to a transfer after [activation](../operations/transfer.md#activate).
+
+    At this time, the service checks the connection to the source and target and creates the resources necessary for the transfer. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be available, for example, creating replication slots, copying a data schema, and so on.
+
+* {{ dt-status-stopping }}: Assigned to the transfer after [deactivation](../operations/transfer.md#deactivate).
+
+    At this time, the service performs the actions necessary to properly disconnect from the source and target. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be performed, for example, closing replication slots, transferring triggers, stored procedures, and functions, creating indexes in the target database, and so on.
+
+* {{ dt-status-stopped }}: Assigned to the transfer after [deactivation](../operations/transfer.md#deactivate) is complete.
+
+    Only successful transfer deactivation guarantees the operability of the target and the source.
+
+* {{ dt-status-copy }}: Assigned to _{{ dt-type-copy }}_ and _{{ dt-type-copy-repl }}_ transfers for the period while data is copied from the source.
+
+* {{ dt-status-repl }}: Assigned to _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers.
+    * _{{ dt-type-repl }}_: After a successful [activation](../operations/transfer.md#activate).
+    * _{{ dt-type-copy-repl }}_: After successfully copying data from the source.
+
+* {{ dt-status-finished }}: Assigned to _{{ dt-type-copy }}_ transfers that have successfully completed the data transfer.
+
+* {{ dt-status-error }}: Assigned to the transfer if any issues occur.
+
+    Depending on the status preceding the error, the transfer can be [activated](../operations/transfer.md#activate) again or [restarted](../operations/transfer.md#reupload).
+
+    Errors in the operation of the transfer can be caused by operations on the source or target. For more information, see [{#T}](../operations/db-actions.md).
+
+## Types of transfers {#transfer-types}
+
+### Copy {#copy}
+
+The _{{ dt-type-copy }}_ transfer is designed for transferring the state of the source database to the target without keeping it up-to-date. Changes that occurred on the source after the transfer is completed will not be transferred. This type of transfers can be useful when there is no writing load on the source or there is no need to keep the target database up-to-date, for example, [when deploying test environments](use-cases.md#testing).
+
+When the transfer is ready, its status automatically switches to {{ dt-status-copy }}. It's maintained until all the data in the source is transferred to the target. Then the transfer is automatically deactivated and switches its status to {{ dt-status-finished }}.
+
+The transition between statuses for the _{{ dt-type-copy }}_ transfer type is shown below:
+
+![lifecycle-copy](../../_assets/data-transfer/lifecycle/copy.svg)
+
+### Replicate {#replication}
+
+The _{{ dt-type-repl }}_ transfer is designed for transferring changes from the source to the target without completely copying all the data: during [activation](../operations/transfer.md#activate), only the data schema is transferred.
+
+When the transfer is ready, its status automatically switches to {{ dt-status-repl }}, which is maintained indefinitely. Changes occurring in the source are automatically transmitted to the target.
+
+The transition between statuses for the _{{ dt-type-repl }}_ transfer type is shown below:
+
+![lifecycle-replication](../../_assets/data-transfer/lifecycle/replication.svg)
+
+### Copy and replicate {#copy-and-replication}
+
+The _{{ dt-type-copy-repl }}_ transfer combines the functionality of _{{ dt-type-copy }}_ and _{{ dt-type-repl }}_ transfers: the source data is completely transferred to the target and is kept up-to-date. Typically, such transfers are used in migration scenarios.
+
+After successful [activation](../operations/transfer.md#activate) and preparation for work, the status of the transfer automatically switches to {{ dt-status-copy }}. It's maintained until all the data in the source is transferred to the target.
+
+Then the status of the transfer switches to {{ dt-status-repl }}: all changes occurring on the source are automatically transferred to the target.
+
+The transition between statuses for the _{{ dt-type-copy-repl }}_ transfer type is shown below:
+
+![lifecycle-copy-and-replication](../../_assets/data-transfer/lifecycle/copy-and-replication.svg)
+

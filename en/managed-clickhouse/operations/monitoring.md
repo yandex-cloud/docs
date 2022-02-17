@@ -22,12 +22,12 @@ To view detailed information about the {{ mch-name }} cluster status:
 1. Go to the folder page and select **{{ mch-name }}**.
 1. Click on the name of the cluster and open the **Monitoring** tab.
 
-If the cluster uses [replication](../concepts/replication.md), the **Monitoring** tab displays the following two tabs:
+If the cluster uses a mechanism for replication and distribution of queries using [{{ ZK }}](../concepts/replication.md#zk), the **Monitoring** tab displays the following two tabs:
 
 * **Clickhouse**: Charts that show the operation of the entire {{ CH }} cluster and hosts.
 * **Zookeeper**: Charts that indicate the performance of {{ ZK }} hosts.
 
-If no replication is used, the **Clickhouse** tab charts are displayed on the common **Monitoring** tab.
+If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used, charts from the **Clickhouse** tab are displayed on the general **Monitoring** tab.
 
 {% list tabs %}
 

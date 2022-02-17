@@ -58,7 +58,10 @@ To learn more about operating distributed tables, see the [documentation for {{ 
 
 - You can [add hosts](../operations/hosts.md#add-host) to a shard.
 
-  If the shard contains more than one host, replication becomes enabled. Before adding a host to the shard, [add](../operations/zk-hosts.md#add-zk) {{ ZK }} hosts that will manage the replication process unless you already have them in the cluster.
+  Shards with multiple hosts require running replication. Therefore:
 
-To learn more about replication and {{ ZK }} hosts, see [{#T}](replication.md).
+  * In a cluster with {{ CK }}, you can add hosts immediately: replication is already running.
+  * In a cluster with {{ ZK }}, you need to [enable fault tolerance](../operations/zk-hosts.md#add-zk) if it isn't enabled.
+
+  For more information about replication {{ CK }} and {{ ZK }}, see [{#T}](replication.md).
 

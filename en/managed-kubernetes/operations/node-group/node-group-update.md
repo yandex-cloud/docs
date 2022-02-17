@@ -2,13 +2,14 @@
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
-## Changing the name of a node group {#update-name}
+## Changing node group parameters {#update-settings}
 
-You can change the following node group parameters:
+You can change the following parameters of a [node group](../../concepts/index.md#node-group):
 * Name.
 * Description.
 * Number of nodes.
 * {{ k8s }} version.
+* List of security groups.
 * Computing resources and node disk size.
 * Update policy.
 
@@ -18,7 +19,7 @@ You can change the following node group parameters:
 
   To change a [node group](../../concepts/index.md#node-group):
   1. Open **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
-  1. Click on the name of the {{ k8s }} cluster you.
+  1. Click on the name of the desired cluster.
   1. Go to the **Node group** tab.
   1. Click **Edit** in the upper-right corner.
   1. Change the necessary parameters in the window that opens.
@@ -38,8 +39,22 @@ You can change the following node group parameters:
   * `--service-account-id`, `--service-account-name`: Edit the resource service account.
   * `--node-service-account-id`, `--node-service-account-name`: Edit the node service account.
   * `--version`: Change the {{ k8s }} version.
+  * `--network-interface`: Network settings:
+
+    {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
+
+  * `--network-acceleration-type`: Selection of the type of network acceleration:
+    * `standard`: Without acceleration.
+    * `software-accelerated`: [Software-accelerated network](../../../vpc/concepts/software-accelerated-network.md).
+
+    {% note warning %}
+
+    Before turning on the software-accelerated network, make sure that you have enough [resources available in the cloud](../../concepts/limits.md) to create an additional node.
+
+    {% endnote %}
+
   * `--latest-revision`: Get all available updates for the current version of the master.
-  * `--auto-upgrade`: Manage automatic upgrades.
+  * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
     * `--anytime-maintenance-window`: Run the maintenance at any time.
     * `--daily-maintenance-window`: Update daily at a specified time.
@@ -47,7 +62,48 @@ You can change the following node group parameters:
 
 - API
 
-  To change the parameters of a node group, use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+  To change the parameters of a node group, use the method [update](../../api-ref/NodeGroup/update.md) for the [NodeGroup](../../api-ref/NodeGroup) resource.
+
+{% endlist %}
+
+## Enabling access to nodes from the internet {#node-internet-access}
+
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ compute-full-name}}**.
+  1. Click on the VM name.
+  1. Under **Network**, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **Add public IP address**.
+  1. Specify the appropriate settings and click **Add**.
+
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  To enable access to nodes from the internet:
+
+  1. Get detailed information about the command to edit the node group:
+
+     ```bash
+     {{ yc-k8s }} node-group update --help
+     ```
+
+  1. Run the command to change a node group by passing the `--network-interface` parameter:
+
+     ```bash
+     {{ yc-k8s }} node-group update <node group ID or name> \
+     ...
+       --network-interface subnets=<name of node group subnet>, ipv4-address=nat
+     ```
+
+     You can find out the names and IDs of node groups in the [list of node groups in the folder](node-group-list.md#list).
+
+- API
+
+  Use the method [update](../../api-ref/NodeGroup/update.md) for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
 {% endlist %}
 
@@ -72,7 +128,7 @@ You can perform the following actions with node group labels:
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
   ```
 
-  Command execution result:
+  Command output:
 
   ```bash
   done (28s)
@@ -101,7 +157,7 @@ You can perform the following actions with node group labels:
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
   ```
 
-  Command execution result:
+  Command output:
 
   ```bash
   done (3s)
@@ -124,7 +180,7 @@ You can perform the following actions with node group labels:
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
   ```
 
-  Command execution result:
+  Command output:
 
   ```bash
   done (2s)
@@ -138,7 +194,7 @@ You can perform the following actions with node group labels:
 {% note warning %}
 
 * The `user-data` metadata key is not supported for post-configuring the VM and user data transmission.
-* To manage SSH keys, [use the `ssh-keys` key](../../../compute/concepts/vm-metadata).
+* To manage SSH keys, [use the key](../../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) `ssh-keys`.
 * For post-configuring nodes, use privileged DaemonSets. For example, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
 
 {% endnote %}

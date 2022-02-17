@@ -9,7 +9,7 @@
 Local storage doesn't provide fault tolerance for data storage and affects the overall pricing for the cluster:
 
 * Local storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mms-name }} cluster using local storage, a 3-host fault-tolerant configuration is automatically set up.
-* You are charged for a cluster with local storage even if it's stopped. Read more in the [pricing policy](../pricing.md).
+* You are charged for a cluster with local storage even if it's stopped. Read more in the [pricing policy](../pricing/index.md).
 
 ## Non-replicated network storage features {#network-nrd-storage-features}
 

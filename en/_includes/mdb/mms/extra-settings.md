@@ -5,7 +5,7 @@
 
         {% note alert %}
 
-        An additional fee is charged for using readable replicas. For more information, see [{#T}](../../../managed-sqlserver/pricing.md#license).
+        An additional fee is charged for using readable replicas. For more information, see [Pricing for {{ mms-name }}](../../../managed-sqlserver/pricing/index.md#license).
 
         {% endnote %}
 

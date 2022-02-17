@@ -116,3 +116,14 @@ The monthly usage rate is based on 720 hours a month.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+### Marking up audio files {#markup}
+
+This section shows the price of [{#T}](tutorials/markup.md). The price is indicated per billable unit, the total cost of markup depends on the amount of data and will be calculated after the data is uploaded.
+
+
+
+
+Service | Rate for the billable unit, without VAT
+---|---
+[Marking up audio files](tutorials/markup.md) | {{ sku|USD|ai.speech.transcribe.human.v1|string }}

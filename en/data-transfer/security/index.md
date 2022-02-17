@@ -2,24 +2,17 @@
 title: Access management in Yandex Data Transfer
 description: "Access management in the service for transferring data between storages — Yandex Data Transfer. The section describes which roles are required for this or that action, which resources can be assigned a role, which roles operate in the service."
 ---
-
 # Access management in {{ data-transfer-name }}
-
-To use the service, log in to the management console with your [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation).
 
 In this section, you'll learn:
 
-* [What roles are required](#choosing-roles) for particular actions.
 * [What resources you can assign roles to](#resources).
 * [What roles exist in the service](#roles-list).
+* [What roles are required](#required-roles) for particular actions.
+
+To use the service, log in to the management console with your [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
-
-## Roles required {#required-roles}
-
-To use the service, you need the [role](../../iam/concepts/access-control/roles.md) `of editor` or higher for the folder where projects are created. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
-
-You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
 
 ## What resources you can assign roles to {#resources}
 
@@ -41,6 +34,12 @@ You can assign roles for a [cloud](../../resource-manager/concepts/resources-hie
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+## What roles do I need {#required-roles}
+
+To use the service, you need the [role](../../iam/concepts/access-control/roles.md) `editor` or higher to the folder where [transfers](../concepts/index.md#transfer) and [endpoints](../concepts/index.md#endpoint) are created. With the `viewer` role, you can only view the list of existing transfers and endpoints.
+
+You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
 
 ## What's next {#whats-next}
 

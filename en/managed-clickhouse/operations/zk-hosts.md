@@ -1,6 +1,9 @@
 # Managing {{ ZK }} hosts
 
-[A shard](../concepts/sharding.md) with a single host in the {{ mch-name }} cluster isn't fault tolerant and doesn't provide [data replication](../concepts/replication.md). To make a cluster with this shard more reliable, you can [add additional {{ CH }} hosts](hosts.md) to the shard, but before managing them, first you need to [enable fault tolerance](#add-zk) (as a result, the minimum number of {{ ZK }} hosts, which is 3, will be added to the cluster).
+[Shards](../concepts/sharding.md) with two or more hosts with [{{ CK }}](../concepts/replication.md#ck) support are fault-tolerant by default. If the cluster was created without {{ CK }} support, its shards with a single host are not fault-tolerant and do not ensure data replication. To make the shards of this cluster fault-tolerant:
+
+1. [Enable fault tolerance using {{ ZK }}](#add-zk).
+1. [Add additional {{ CH }}](./hosts.md#add-host) hosts to the shard.
 
 You can [add](#add-zk-host) and [delete](#delete-zk-host) {{ ZK }} hosts in a fault-tolerant cluster. A fault-tolerant cluster can contain a total of 3 to 5 {{ ZK }} hosts.
 
@@ -9,6 +12,8 @@ You can [add](#add-zk-host) and [delete](#delete-zk-host) {{ ZK }} hosts in a fa
 If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are created, you can't delete all these hosts because there are always at least 3 {{ ZK }} hosts in the cluster.
 
 {% endnote %}
+
+For more information, see [{#T}](../concepts/replication.md).
 
 ## Enabling fault tolerance for the cluster {#add-zk}
 
@@ -31,19 +36,20 @@ If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are cre
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To enable fault tolerance for a cluster:
+
   1. View a description of the CLI command for adding {{ ZK }} hosts:
 
-     ```
-     $ {{ yc-mdb-ch }} cluster add-zookeeper --help
+     ```bash
+     {{ yc-mdb-ch }} cluster add-zookeeper --help
      ```
 
   1. Run the operation with the default host characteristics:
 
      ```bash
-     $ {{ yc-mdb-ch }} cluster add-zookeeper <cluster name> \
-                             --host zone-id=ru-central1-c,subnet-name=default-c \
-                             --host zone-id=ru-central1-a,subnet-name=default-a \
-                             --host zone-id=ru-central1-b,subnet-name=default-b
+     $ yc managed-clickhouse cluster add-zookeeper <cluster name> \
+                            --host zone-id=ru-central1-c,subnet-name=default-c \
+                            --host zone-id=ru-central1-a,subnet-name=default-a \
+                            --host zone-id=ru-central1-b,subnet-name=default-b
      ```
 
      If the network hosting the cluster contains exactly 3 subnets, each per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} automatically distributes hosts over the subnets.
@@ -161,7 +167,7 @@ If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are cre
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 

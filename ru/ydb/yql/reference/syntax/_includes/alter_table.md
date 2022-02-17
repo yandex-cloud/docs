@@ -46,3 +46,92 @@ ALTER TABLE `series` ADD INDEX `title_index` GLOBAL ON (`title`);
 ```sql
 ALTER TABLE `series` DROP INDEX `title_index`;
 ```
+
+## Переименование таблицы {#rename}
+
+```sql
+ALTER TABLE old_table_name RENAME TO new_table_name;
+```
+
+Если таблица с новым именем существует, будет возвращена ошибка. Возможность транзакционной подмены таблицы под нагрузкой поддерживается специализированными методами в CLI и SDK.
+
+Если в YQL запросе содержится несколько команд `ALTER TABLE ... RENAME TO ...`, то каждая будет выполнена в режиме автокоммита в отдельной транзакции. С точки зрения внешнего процесса, таблицы будут переименованы последовательно одна за другой. Чтобы переименовать несколько таблиц в одной транзакции, используйте специализированные методы, доступные в CLI и SDK.
+
+Переменование может использоваться для перемещения таблицы из одной директории внутри БД в другую, например:
+
+``` sql
+ALTER TABLE `table1` RENAME TO `/backup/table1`;
+```
+
+## Изменение групп колонок {#column-family}
+
+```ADD FAMILY``` — создаёт новую группу колонок в таблице. Приведенный ниже код создаст в таблице ```series_with_families``` группу колонок ```family_small```.
+
+```sql
+ALTER TABLE series_with_families ADD FAMILY family_small (
+    DATA = "ssd",
+    COMPRESSION = "off"
+);
+```
+
+При помощи команды ```ALTER COLUMN``` можно изменить группу колонок для указанной колонки. Приведенный ниже код для колонки ```release_date``` в таблице ```series_with_families``` сменит группу колонок на ```family_small```.
+
+```sql
+ALTER TABLE series_with_families ALTER COLUMN release_date SET FAMILY family_small;
+```
+
+Две предыдущие команды из листингов 8 и 9 можно объединить в один вызов ```ALTER TABLE```. Приведенный ниже код создаст в таблице ```series_with_families``` группу колонок ```family_small``` и установит её для колонки ```release_date```.
+
+```sql
+ALTER TABLE series_with_families
+	ADD FAMILY family_small (
+    	DATA = "ssd",
+    	COMPRESSION = "off"
+	),
+	ALTER COLUMN release_date SET FAMILY family_small;
+```
+
+При помощи команды ```ALTER FAMILY``` можно изменить параметры группы колонок. Приведенный ниже код для группы колонок ```default``` в таблице ```series_with_families``` сменит тип хранилища на ```hdd```:
+
+```sql
+ALTER TABLE series_with_families ALTER FAMILY default SET DATA "hdd";
+```
+
+Могут быть указаны все параметры группы колонок, описанные в команде [`CREATE TABLE`](create_table#column-family)
+
+
+## Изменение дополнительных параметров таблицы {#additional-alter}
+
+Большинство параметров таблицы в YDB, приведенных на странице [описания таблицы]({{ concept_table }}), можно изменить командой ```ALTER```.
+
+В общем случае команда для изменения любого параметра таблицы выглядит следующим образом:
+
+```sql
+ALTER TABLE table_name SET (key = value);
+```
+
+```key``` — имя параметра, ```value``` — его новое значение.
+
+Например, такая команда выключит автоматическое партиционирование таблицы:
+
+```sql
+ALTER TABLE series SET (AUTO_PARTITIONING_BY_SIZE = DISABLED);
+```
+
+## Сброс дополнительных параметров таблицы {#additional-reset}
+
+Некоторые параметры таблицы в YDB, приведенные на странице [описания таблицы]({{ concept_table }}), можно сбросить командой ```ALTER```.
+
+Команда для сброса параметра таблицы выглядит следующим образом:
+
+```sql
+ALTER TABLE table_name RESET (key);
+```
+
+```key``` — имя параметра.
+
+Например, такая команда сбросит (удалит) настройки TTL для таблицы:
+
+```sql
+ALTER TABLE series RESET (TTL);
+```

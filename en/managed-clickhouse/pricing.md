@@ -27,11 +27,11 @@ The cost of {{ mch-name }} usage is based on:
 
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are listed in the [{#T}](concepts/instance-types.md) section, prices for using vCPU and RAM — in the [Prices](#prices) section.
 
-You can choose the host class for {{ CH }} and ZooKeeper hosts (as appropriate for the expected replication load).
+You can choose the host class for {{ CH }} and {{ ZK }} hosts (as appropriate for the expected replication load).
 
 {% note warning %}
 
-When you create a cluster with 2 or more {{ CH }} hosts, 3 {{ ZK }} hosts with the minimal host class are created automatically to provide replication and fault tolerance for the cluster.
+In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and with two or more {{ CH }} hosts, 3 {{ ZK }} hosts with the minimal class are automatically created to provide replication and fault tolerance.
 
 {% endnote %}
 

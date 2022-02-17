@@ -6,18 +6,17 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/_includes/ydb_docker/02
 Выгрузите актуальную публичную версию Docker-образа:
 
 ```bash
-docker pull cr.yandex/yc/yandex-docker-local-ydb:latest
+docker pull {{ ydb_local_docker_image }}:{{ ydb_local_docker_image_tag }}
 ```
 
 Проверьте, что Docker-образ успешно выгружен:
 
 ```bash
-docker image list
+docker image list | grep {{ ydb_local_docker_image }}
 ```
 
 Результат выполнения:
 
 ```bash
-REPOSITORY                             TAG       IMAGE ID       CREATED        SIZE
-cr.yandex/yc/yandex-docker-local-ydb   latest    b73c5c1441af   2 months ago   793MB
+{{ ydb_local_docker_image }}           {{ ydb_local_docker_image_tag }}   b73c5c1441af   2 months ago   793MB
 ```
