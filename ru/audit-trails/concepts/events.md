@@ -149,10 +149,14 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `CreateSecret` | Создание секрета
 `DeactivateSecret` | Деактивация секрета
 `DeleteSecret` | Удаление секрета
+`GetPayload` | Получение доступа к содержимому секрета ^*^
 `ScheduleVersionDestruction` | Распланирование уничтожения версии секрета
 `SetSecretAccessBindings` | Выбор привязок прав доступа для секрета
 `UpdateSecret` | Изменение секрета
 `UpdateSecretAccessBindings` | Обновление привязок прав доступа для секрета
+
+\* Указанное событие по умолчанию не входит в аудитный лог. Чтобы добавить это событие в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
+«Просьба включить запись событий data plane Lockbox в audit trail <id трейла>».
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
