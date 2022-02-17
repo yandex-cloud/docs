@@ -31,3 +31,9 @@
 
 Заново [получите и активируйте](../quickstart/index.md#get_promocode) промокод, а затем [создайте](../quickstart/index.md#create_billing_account) новый платежный аккаунт.
 
+##### См. также
+
+* [Привязать другую карту](pin-card.md)
+* [Отвязать карту](unlink-card.md)
+* [Изменить способ оплаты](change-payment-method.md)
+* [Настроить уведомления](budgets.md)
