@@ -55,11 +55,9 @@
 
       {% if audience != "internal" %}
 
-      * Выберите [тип хранилища](../concepts/storage.md):
-          * либо более гибкое хранилище — на сетевых HDD-дисках (`network-hdd`), на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
-          * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
+      * Выберите [тип хранилища](../concepts/storage.md).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       {% endif %}
 

@@ -53,11 +53,10 @@ keywords:
         Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды {{ ES }}. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных экземпляров.
 
      1. В блоке **Хранилище**:
-        * Выберите [тип хранилища](../concepts/storage.md):
-           * либо более гибкое хранилище — на сетевых HDD-дисках (`network-hdd`), на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
-           * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
 
-          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+        * Выберите [тип хранилища](../concepts/storage.md).
+
+            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
         * Выберите объем хранилища, который будет использоваться для данных.
 
