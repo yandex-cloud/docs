@@ -140,7 +140,7 @@ jobId | Required. ID of the job to return.  To get a job ID make a [list](/docs/
 
 }
 ```
-A Data Proc job. For details about the concept, see [documentation](/docs/dataproc/concepts/jobs).
+A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts).
  
 Field | Description
 --- | ---
