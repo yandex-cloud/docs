@@ -610,7 +610,7 @@ items:
               - name: Overview
                 href: cli-ref/managed-services/application-load-balancer/load-balancer/index.md
               - name: target-states
-                href:cli-ref/managed-services/application-load-balancer/load-balancer/target-states.md
+                href: cli-ref/managed-services/application-load-balancer/load-balancer/target-states.md
               - name: remove-location
                 href: cli-ref/managed-services/application-load-balancer/load-balancer/remove-location.md
               - name: add-location
