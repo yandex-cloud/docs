@@ -16,7 +16,7 @@ By default, when secondary replicas in {{ mms-name }} are created, they are unre
 
 Readable replicas significantly reduce the load of read operations on the primary replica, but have certain usage specifics:
 
-* An additional fee is charged for each readable replica because such replicas [require software licenses](../pricing.md#license).
+* An additional fee is charged for each readable replica because such replicas [require software licenses](../pricing/index.md#license).
 * Between the primary and secondary replicas, [latency](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-2016#data-latency) occurs. This is because applying changes from the change log on the secondary replica takes some time, during which the state of the database on the secondary replica differes from that on the primary replica. If it's important to maintain the consistency of the data being read, [connect](../operations/connect.md) to the cluster only via the primary replica.
 
 For more information, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-2016#data-latency).

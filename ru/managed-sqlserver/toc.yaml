@@ -69,8 +69,8 @@ items:
     items:
       - name: Действующие правила тарификации
         href: pricing/index.md
-      - name: Правила тарификации с 1 февраля 2022 года
-        href: pricing/pricing-01022022.md
+      - name: Правила тарификации с 1 марта 2022 года
+        href: pricing/pricing-01032022.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

@@ -34,9 +34,20 @@ Arguments (`check_value`, `alt_value`) must be of the same type.
 
 #### Example {#examples}
 
-```
-IFNULL([Profit], 0)
-```
+
+
+| **[sales]**   | **IFNULL([sales], -100.0)**   |
+|:--------------|:------------------------------|
+| `432.40`      | `432.40`                      |
+| `77.00`       | `77.00`                       |
+| `12000.00`    | `12000.00`                    |
+| `NULL`        | `-100.00`                     |
+| `34.25`       | `34.25`                       |
+| `128.00`      | `128.00`                      |
+| `0.00`        | `0.00`                        |
+| `NULL`        | `-100.00`                     |
+
+
 
 
 #### Data source support {#data-source-support}

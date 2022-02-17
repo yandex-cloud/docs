@@ -57,13 +57,13 @@ Backups are created every 24 hours and stored for seven days after being created
 
 #### How does replication work for {{ CH }}? {#zookeeper-access}
 
-ZooKeeper is used for replication. {{ mch-short-name }} creates a separate ZooKeeper cluster for each {{ CH }} cluster.
+{{ mch-short-name }} clusters use replication using {{ CK }} or {{ ZK }}. In the first case, no additional settings are required — replication and fault tolerance are enabled by default. In the second case, for each {{ CH }} cluster, a {{ ZK }} cluster with at least three hosts is created.
 
-Access to ZooKeeper and its configuration are not available to {{ yandex-cloud }} users.
+Access to {{ ZK }} and its setup are not available to {{ yandex-cloud }} users.
 
 #### Why does a {{ CH }} cluster take up 3 hosts more than it should? {#why-does-a-cluster-take-up-3-hosts-more-than-it-should}
 
-When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
+When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 {{ ZK }} hosts for managing replication and fault tolerance, if {{ CK }} support is not enabled. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. By default, {{ ZK }} hosts are created with a minimal [host class](../concepts/instance-types.md).
 
-For more information about using ZooKeeper, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
+For more information about using {{ ZK }}, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
 

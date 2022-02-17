@@ -48,10 +48,6 @@ IF(
 #### Примеры {#examples}
 
 ```
-IF("Hello world" LIKE "%el%", "is like", "is not like") = "is like"
-```
-
-```
 IF
     [Profit] > 100
         THEN "High"
@@ -60,6 +56,28 @@ IF
     ELSE "Low"
 END
 ```
+
+{% cut "Пример с таблицей данных" %}
+
+
+Формулы:
+
+- **sales**: `[sales]` ;
+- **if_function**: `IF(ZN([sales]) < 100, "Less than 100", [sales] < 1000, "100 - 1000", "1000 and greater")` ;
+- **if_statement**: `IF ZN([sales]) < 100 THEN "Less than 100" ELSEIF [sales] < 1000 THEN "100 - 1000" ELSE "1000 and greater" END` .
+
+| **sales**   | **if_function**      | **if_statement**     |
+|:------------|:---------------------|:---------------------|
+| `432.40`    | `'100 - 1000'`       | `'100 - 1000'`       |
+| `77.00`     | `'Less than 100'`    | `'Less than 100'`    |
+| `12000.00`  | `'1000 and greater'` | `'1000 and greater'` |
+| `NULL`      | `'Less than 100'`    | `'Less than 100'`    |
+| `34.25`     | `'Less than 100'`    | `'Less than 100'`    |
+| `128.00`    | `'100 - 1000'`       | `'100 - 1000'`       |
+| `0.00`      | `'Less than 100'`    | `'Less than 100'`    |
+| `NULL`      | `'Less than 100'`    | `'Less than 100'`    |
+
+{% endcut %}
 
 
 #### Поддержка источников данных {#data-source-support}

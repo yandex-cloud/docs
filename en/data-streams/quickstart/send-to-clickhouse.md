@@ -92,7 +92,7 @@ To save data from {{ yds-full-name }} to {{ CH }}, create:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Select the source endpoint and the target endpoint.
+  1. Select endpoints for the source and target.
 
   1. Click **Create**.
 

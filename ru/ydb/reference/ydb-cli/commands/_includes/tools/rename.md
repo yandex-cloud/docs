@@ -8,7 +8,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/to
 Общий вид команды:
 
 ```bash
-ydb [global options...] tools rename [options...]
+{{ ydb-cli }} [global options...] tools rename [options...]
 ```
 
 * `global options` — [глобальные параметры](../../../commands/global-options.md).
@@ -17,146 +17,56 @@ ydb [global options...] tools rename [options...]
 Посмотрите описание команды для переименования таблицы:
 
 ```bash
-ydb tools rename --help
+{{ ydb-cli }} tools rename --help
 ```
 
 ## Параметры подкоманды {#options}
 
+Один запуск команды `tools rename` выполняет одну транзакцию переименования, которая может включать одну или несколько операций переименования разных таблиц.
+
 Имя параметра | Описание параметра
 ---|---
-`--timeout <значение>` | Таймаут операции, мс.
-`--item <свойство>=<значение>,...` | Параметры операции. Возможные значения:<br/><ul><li>`destination`, `dst`, `d` —  обязательный параметр, путь до таблицы назначения. Если путь назначения содержит директории, они должны быть созданы заранее.</li> <li>`source`, `src`, `s` — обязательный параметр, путь таблицы источника.</li><li>`replace`, `force` — необязательный параметр. Если значение `True`, то таблица назначения должна существовать и будет перезаписана. `False` — таблица назначения не должна существовать. Значение по умолчанию: `False`.</li></ul>
+`--item <свойство>=<значение>,...` | Описание операции переменования. Может быть указан несколько раз, если необходимо выполнить несколько операций переименования в одной транзакции.</br></br>Обязательные свойства:</br><ul><li>`source`, `src`, `s` — путь до таблицы источника.</li><li>`destination`, `dst`, `d` —  путь до таблицы назначения. Если путь назначения содержит директории, они должны быть созданы заранее.</li></ul>Дополнительные свойства:</br><ul> <li>`replace`, `force` — перезаписывать таблицу назначения. Если значение `True`, то таблица назначения будет перезаписана, а существованые в ней данные удалены. `False` — если таблица назначения существует, то будет выдана ошибка, и транзакция переименования будет целиком откачена. Значение по умолчанию: `False`.</li></ul>
+`--timeout <значение>` | Таймаут операции, мс. 
+
+При включении нескольких операций переименования в один вызов `tools rename` они исполняются в заданном порядке, но в рамках одной транзакции, что позволяет ротировать таблицу под нагрузкой без потери данных: первой операцией идет переименование рабочей таблицы в резервную, второй -- переименование новой таблицы в рабочую.
 
 ## Примеры {#examples}
 
-### Переименовать таблицу {#rename}
+- Переменование одной таблицы:
 
-База данных содержит директорию `new-project` с таблицами `main_table`, `second_table`, `third_table`.
+  ```bash
+  {{ ydb-cli }} tools rename --item src=old_name,dst=new_name
+  ```
 
-Переименуйте таблицы:
+- Переименование нескольких таблиц в одной транзакции:
+  ```bash
+  {{ ydb-cli }} tools rename \
+    --item source=new-project/main_table,destination=new-project/episodes \
+    --item source=new-project/second_table,destination=new-project/seasons \
+    --item source=new-project/third_table,destination=new-project/series
+  ```
 
-```bash
-{{ ydb-cli }} tools rename \
-  --item source=new-project/main_table,destination=new-project/episodes \
-  --item source=new-project/second_table,destination=new-project/seasons \
-  --item source=new-project/third_table,destination=new-project/series
-```
+- Перемещение таблиц в другую директорию:
 
-Получите листинг объектов:
+  ```bash
+  {{ ydb-cli }} tools rename \
+    --item source=new-project/main_table,destination=cinema/main_table \
+    --item source=new-project/second_table,destination=cinema/second_table \
+    --item source=new-project/third_table,destination=cinema/third_table
+  ```
 
-```bash
-ydb scheme ls new-project
-```
+- Замена таблицы
 
-Результат:
+  ```bash
+  {{ ydb-cli }} tools rename \
+    --item replace=True,source=pre-prod-project/main_table,destination=prod-project/main_table
+  ```
 
-```text
-episodes  seasons  series
-```
+- Ротация таблицы
 
-### Переместить таблицы {#move}
-
-База данных содержит директорию `new-project` с таблицами `main_table`, `second_table`, `third_table`.
-
-Создайте директорию:
-
-```bash
-{{ ydb-cli }} scheme mkdir cinema
-```
-
-Переименуйте таблицы и переместите их в созданную директорию:
-
-```bash
-{{ ydb-cli }} tools rename \
-  --item source=new-project/main_table,destination=cinema/episodes \
-  --item source=new-project/second_table,destination=cinema/seasons \
-  --item source=new-project/third_table,destination=cinema/series
-```
-
-Получите листинг объектов созданной директории:
-
-```bash
-ydb scheme ls cinema
-```
-
-Результат:
-
-```text
-episodes  seasons  series
-```
-
-### Заменить таблицу {#replace}
-
-База данных содержит директорию `prod-project` с таблицами `main_table`, `other_table` и директорию `pre-prod-project` с таблицами `main_table`, `other_table`.
-
-Замените таблицу `main_table` директории `prod-project` одноименной таблицей директории `pre-prod-project`:
-
-```bash
-{{ ydb-cli }} tools rename \
-  --item replace=True,source=pre-prod-project/main_table,destination=prod-project/main_table
-```
-
-Получите листинг объектов директории `prod-project`:
-
-```bash
-ydb scheme ls prod-project
-```
-
-Результат:
-
-```text
-main_table  other_table
-```
-
-Получите листинг объектов директории `pre-prod-project`:
-
-```bash
-ydb scheme ls pre-prod-project
-```
-
-Результат:
-
-```text
-other_table
-```
-
-Директория `pre-prod-project` больше не содержит таблицу `main_table`.
-
-### Заменить таблицу без удаления {#switch}
-
-База данных содержит директорию `prod-project` с таблицами `main_table`, `other_table` и директорию `pre-prod-project` с таблицами `main_table`, `other_table`.
-
-Переместите таблицу `prod-project/main_table` в таблицу `prod-project/main_table.backup`, а таблицу `pre-prod-project/main_table` в таблицу  `prod-project/main_table`:
-
-```bash
-
-{{ ydb-cli }} tools rename \
-  --item source=prod-project/main_table,destination=prod-project/main_table.backup \
-  --item source=pre-prod-project/main_table,destination=prod-project/main_table
-```
-
-Получите листинг объектов директории `prod-project`:
-
-```bash
-ydb scheme ls prod-project
-```
-
-Результат:
-
-```text
-main_table  other_table main_table.backup
-```
-
-Получите листинг объектов директории `pre-prod-project`:
-
-```bash
-ydb scheme ls pre-prod-project
-```
-
-Результат:
-
-```text
-other_table
-```
-
-Директория `pre-prod-project` больше не содержит таблицу `main_table`.
+  ```bash
+  {{ ydb-cli }} tools rename \
+    --item source=prod-project/main_table,destination=prod-project/main_table.backup \
+    --item source=pre-prod-project/main_table,destination=prod-project/main_table
+  ```

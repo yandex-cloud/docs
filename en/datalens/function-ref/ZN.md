@@ -24,15 +24,22 @@ Returns `expression` if it's not `NULL`. Otherwise returns 0.
 
 **Return type**: Same type as (`expression`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-ZN(1) = 1
-```
 
-```
-ZN(NULL) = 0
-```
+
+| **[sales]**   | **ZN([sales])**   |
+|:--------------|:------------------|
+| `432.40`      | `432.40`          |
+| `77.00`       | `77.00`           |
+| `12000.00`    | `12000.00`        |
+| `NULL`        | `0.00`            |
+| `34.25`       | `34.25`           |
+| `128.00`      | `128.00`          |
+| `0.00`        | `0.00`            |
+| `NULL`        | `0.00`            |
+
+
 
 
 #### Data source support {#data-source-support}

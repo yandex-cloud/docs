@@ -19,8 +19,12 @@ items:
         href: operations/update-kubernetes.md
       - name: Настройка автомасштабирования
         href: operations/autoscale.md
-      - name: Работа с {{ marketplace-name }}
-        href: operations/marketplace.md
+      - name: Установка приложений
+        items:
+          - name: Основы работы с {{ marketplace-name }}
+            href: operations/applications/marketplace.md
+          - name: Установка Metrics Provider
+            href: operations/applications/metrics-provider.md
       - name: Сетевые сценарии
         items:
           - name: >-
@@ -91,6 +95,8 @@ items:
         href: tutorials/alb-ingress-controller.md
       - name: Резервное копирование в Object Storage
         href: tutorials/backup.md
+      - name: Работа со снапшотами
+        href: tutorials/pvc-snapshot-restore.md
       - name: Интеграция с корпоративной зоной DNS
         href: tutorials/custom-dns.md
       - name: Автоматическое масштабирование DNS по размеру кластера

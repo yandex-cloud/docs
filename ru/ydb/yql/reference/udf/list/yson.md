@@ -228,20 +228,21 @@ Yson::Options([AutoConvert:Bool?, Strict:Bool?]) -> Resource<'Yson2.Options'>
 Передаётся последним опциональным аргументом (который для краткости не указан) в методы `Parse...`, `ConvertTo...`, `Contains`, `Lookup...` и `YPath...`, которые принимают результат вызова `Yson::Options`. По умолчанию все поля `Yson::Options` выключены (false), а при включении (true) модифицируют поведение следующим образом:
 
 * **AutoConvert** — если переданное в Yson значение не в точности соответствует типу данных результата, то значение будет по возможности сконвертировано. Например, `Yson::ConvertToInt64` в этом режиме будет делать Int64 даже из чисел типа Double.
-* **Strict** — по умолчанию все функции из библиотеки Yson возвращают ошибку в случае проблем в ходе выполнения запроса (например, попытка парсинга строки не являющейся Yson/Json, или попытка поиска по ключу в скалярном типе, или запрошено преобразование в несовместимый тип данных, и т.п.), а если отключить строгий режим, то вместо ошибки будет возвращаться `NULL`.
+* **Strict** — по умолчанию все функции из библиотеки Yson возвращают ошибку в случае проблем в ходе выполнения запроса (например, попытка парсинга строки не являющейся Yson/Json, или попытка поиска по ключу в скалярном типе, или запрошено преобразование в несовместимый тип данных, и т.п.), а если отключить строгий режим, то вместо ошибки в большинстве случаев будет возвращаться `NULL`. При преобразовании в словарь или список (`ConvertTo<Type>Dict` или `ConvertTo<Type>List`) плохие элементы будут выброшены из полученной коллекции.
 
 **Пример:**
 ``` yql
-$x = Yson(@@{y = true}@@);
-SELECT Yson::LookupBool($x, "z"); --- Ошибка
-SELECT Yson::LookupBool($x, "z", Yson::Options()); --- null (по-умолчанию все поля false)
-SELECT Yson::LookupBool($x, "z", Yson::Options(false as Strict)); --- null
-SELECT Yson::LookupBool($x, "z", Yson::Options(true as Strict)); --- Ошибка
+$yson = @@{y = true; x = 5.5}@@y;
+SELECT Yson::LookupBool($yson, "z"); --- null
+SELECT Yson::LookupBool($yson, "y"); --- true
 
-$x = Yson(@@{y = 5.5}@@);
-SELECT Yson::LookupInt64($x, "y") --- Ошибка
-SELECT Yson::LookupInt64($x, "y", Yson::Options(false as AutoConvert)); --- null
-SELECT Yson::LookupInt64($x, "y", Yson::Options(true as AutoConvert)); --- 5
+SELECT Yson::LookupInt64($yson, "x"); --- Ошибка
+SELECT Yson::LookupInt64($yson, "x", Yson::Options(false as Strict)); --- null
+SELECT Yson::LookupInt64($yson, "x", Yson::Options(true as AutoConvert)); --- 5
+
+SELECT Yson::ConvertToBoolDict($yson); --- Ошибка
+SELECT Yson::ConvertToBoolDict($yson, Yson::Options(false as Strict)); --- { "y": true }
+SELECT Yson::ConvertToDoubleDict($yson, Yson::Options(false as Strict)); --- { "x": 5.5 }
 ```
 
 Если во всём запросе требуется применять одинаковые значения настроек библиотеки Yson, то удобнее воспользоваться [PRAGMA yson.AutoConvert;](../../syntax/pragma.md#yson.autoconvert) и/или [PRAGMA yson.Strict;](../../syntax/pragma.md#yson.strict). Также эти `PRAGMA` являются единственным способом повлиять на неявные вызовы библиотеки Yson, которые возникают при работе с типами данных Yson/Json.

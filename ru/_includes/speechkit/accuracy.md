@@ -1,0 +1,1 @@
+В сервисе {{ ml-platform-full-name }} вы можете самостоятельно [оценить качество распознавания](../../datasphere/tutorials/estimate-quality.md) модели {{ speechkit-name }} на ваших данных.

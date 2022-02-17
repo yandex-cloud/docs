@@ -73,6 +73,8 @@ items:
                 href: deploy/orchestrated/aws_eks.md
               - name: Эксплуатация
                 href: deploy/orchestrated/operate.md
+      - name: Аутентификация
+        href: getting_started/auth.md
       - name: Полезные ссылки
         href: getting_started/useful_links.md
   - name: Практические руководства
@@ -100,6 +102,8 @@ items:
         href: concepts/index.md
       - name: Термины и определения
         href: concepts/databases.md
+      - name: Соединение с БД и аутентификация
+        href: concepts/connect.md
       - name: Модель данных и схема
         href: concepts/datamodel.md
       - name: Режимы работы Serverless и Dedicated
@@ -390,34 +394,26 @@ items:
     items:
       - name: Обзор
         href: reference/ydb-cli/index.md
-      - name: Установка YDB CLI
+      - name: Установка
         href: reference/ydb-cli/install.md
-      - name: Авторизация в YDB CLI
-        href: reference/ydb-cli/authorization.md
-      - name: Управление профилем
+      - name: Аутентификация
+        href: reference/ydb-cli/auth.md
+      - name: Структура команд YDB CLI
+        href: reference/ydb-cli/commands/commands.md
+      - name: Сервисные команды
+        href: reference/ydb-cli/commands/service.md
+      - name: Глобальные параметры
+        href: reference/ydb-cli/commands/global-options.md
+      - name: Работа со схемой БД
         items:
-          - name: Создание профиля
-            href: reference/ydb-cli/profile/create.md
-          - name: Получение информации о профиле
-            href: reference/ydb-cli/profile/list-and-get.md
-          - name: Активация профиля
-            href: reference/ydb-cli/profile/activate.md
-          - name: Удаление профиля
-            href: reference/ydb-cli/profile/delete.md
-      - name: Команды
-        items:
-          - name: Обзор
-            href: reference/ydb-cli/commands/index.md
-          - name: Структура и описание команд YDB CLI
-            href: reference/ydb-cli/commands/commands.md
-          - name: Глобальные параметры
-            href: reference/ydb-cli/commands/global-options.md
           - name: Листинг объектов
             href: reference/ydb-cli/commands/scheme-ls.md
           - name: Получение информации об объекте схемы
             href: reference/ydb-cli/commands/scheme-describe.md
-          - name: Получение списка эндпоинтов для базы данных
-            href: reference/ydb-cli/commands/discovery-list.md
+      - name: Получение списка эндпоинтов для базы данных
+        href: reference/ydb-cli/commands/discovery-list.md
+      - name: Работа с данными
+        items:
           - name: Выполнение запроса к данным
             href: reference/ydb-cli/commands/query.md
           - name: Потоковое чтение таблицы
@@ -428,14 +424,26 @@ items:
             href: reference/ydb-cli/commands/scheme-mkdir.md
           - name: Скан запросы
             href: reference/ydb-cli/commands/scan-query.md
-          - name: Утилиты
-            items:
-              - name: Переименование таблиц
-                href: reference/ydb-cli/commands/tools/rename.md
+      - name: Утилиты
+        items:
+          - name: Переименование таблиц
+            href: reference/ydb-cli/commands/tools/rename.md
+      - name: Управление профилем
+        items:
+          - name: Создание профиля
+            href: reference/ydb-cli/profile/create.md
+          - name: Получение информации о профиле
+            href: reference/ydb-cli/profile/list-and-get.md
+          - name: Активация профиля
+            href: reference/ydb-cli/profile/activate.md
+          - name: Удаление профиля
+            href: reference/ydb-cli/profile/delete.md
   - name: Работа с YDB SDK
     items:
       - name: Обзор
         href: reference/ydb-sdk/index.md
+      - name: Аутентификация
+        href: reference/ydb-sdk/auth.md
       - name: Тестовое приложение
         items:
           - name: Обзор
@@ -460,6 +468,48 @@ items:
                 href: reference/ydb-sdk/example/archive/example-go-v2.md
       - name: Обработка ошибок в API
         href: reference/ydb-sdk/error_handling.md
+      - name: Рецепты кода
+        items:
+          - name: Обзор
+            href: reference/ydb-sdk/recipes/index.md
+          - name: Аутентификация
+            items:
+              - name: Обзор
+                href: reference/ydb-sdk/recipes/auth/index.md
+              - name: С помощью токена
+                href: reference/ydb-sdk/recipes/auth/access_token.md
+              - name: Анонимная
+                href: reference/ydb-sdk/recipes/auth/anonymous.md
+              - name: Файл сервисного аккаунта
+                href: reference/ydb-sdk/recipes/auth/service_account.md
+              - name: Сервис метаданных
+                href: reference/ydb-sdk/recipes/auth/metadata.md
+              - name: С помощью переменных окружения
+                href: reference/ydb-sdk/recipes/auth/env.md
+              - name: С помощью логина и пароля
+                href: reference/ydb-sdk/recipes/auth/static.md
+          - name: Балансировка
+            items:
+              - name: Обзор
+                href: reference/ydb-sdk/recipes/balancing/index.md
+              - name: Равномерный случайный выбор
+                href: reference/ydb-sdk/recipes/balancing/random_choice.md
+              - name: Предпочитать ближайший дата-центр
+                href: reference/ydb-sdk/recipes/balancing/prefer_local.md
+              - name: Предпочитать зону доступности
+                href: reference/ydb-sdk/recipes/balancing/prefer_location.md
+          - name: Диагностика проблем
+            items:
+              - name: Обзор
+                href: reference/ydb-sdk/recipes/debug/index.md
+              - name: Включить логирование
+                href: reference/ydb-sdk/recipes/debug/logs.md
+              - name: Подключить метрики в Prometheus
+                href: reference/ydb-sdk/recipes/debug/prometheus.md
+              - name: Подключить трассировку в Jaeger
+                href: reference/ydb-sdk/recipes/debug/jaeger.md
+          - name: Установить размер пула сессий
+            href: reference/ydb-sdk/recipes/session_pool_limit.md
       - name: Установка и конфигурация
         href: reference/ydb-sdk/yc_setup.md
   - name: Вопросы и ответы

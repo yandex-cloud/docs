@@ -33,6 +33,7 @@
 
 * {{ CH }}
 
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Настройте кластер-источник, чтобы к нему можно было подключиться из интернета.

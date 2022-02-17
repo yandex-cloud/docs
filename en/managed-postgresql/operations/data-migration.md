@@ -2,33 +2,103 @@
 
 To migrate your database to {{ mpg-name }}, you need to directly transfer the data, acquire a write lock for the old database, and transfer the load on the database cluster in {{ yandex-cloud }}.
 
-There are two ways to migrate data to a {{ mpg-name }} cluster:
+There are three ways to migrate data from a third-party _source cluster_ to a {{ mpg-name }} _target cluster_:
 
-* Logical replication is the recommended method ([subscriptions](https://www.postgresql.org/docs/current/sql-createsubscription.html)). The subscription mechanism that logical replication is built on lets data be transferred to the {{ mpg-name }} cluster with minimal downtime.
-* Restoring a database from a dump using `pg_dump`.
+* [{#T}](#data-transfer).
 
-Below, the DBMS server you are migrating data from is called the _source server_, and the {{ mpg-name }} cluster that you are migrating to is the _destination server_.
+    This method allows you to:
+    * Go without creating an intermediate VM or granting online access to your {{ mpg-name }} target cluster.
+    * Migrate the database completely without stopping serving users.
+    * Migrate from older {{ PG }} versions to newer versions.
 
-The instructions assume that you are familiar with basic Linux administration.
+    To use this method, allow connecting to the source cluster from the internet.
 
-## Logical replication {#logical_replication}
+    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
-Logical replication is supported as of {{ PG }} version 10. In addition to migrating data between the same DBMS versions, logical replication lets you migrate to later {{ PG }} versions: set up replication from the source server to the destination server running a later {{ PG }} version following the migration steps.
+* [{#T}](#logical-replication).
+
+    [_Logical replication_](https://www.postgresql.org/docs/current/logical-replication.html) uses the [subscriptions](https://www.postgresql.org/docs/current/sql-createsubscription.html) mechanism. This lets you migrate data to the target cluster with minimal downtime.
+
+    Use this method only if, for some reason, it's not possible to migrate data using {{ data-transfer-full-name }}.
+
+* [{#T}](#backup).
+
+    _A logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. It is created using the `pg_dump` utility. To ensure that a logical dump is complete, before creating it, switch the source cluster to <q>read-only</q> mode.
+
+    Use this method only if, for some reason, it's not possible to transfer data using any of the above methods.
+
+## Before you start {#before-you-begin}
+
+[Create a {{ mpg-name }} cluster](./cluster-create.md) with any suitable configuration. In this case:
+
+* The {{ PG }} version must be the same or higher than the version in the source cluster. For the method using a logical dump, the versions must match.
+
+    Migration with a {{ PG }} version downgrade is impossible.
+
+* When creating a cluster, specify the same database name as in the source cluster.
+
+* Enable the same [{{ PG }} extensions](./cluster-extensions.md) as in the source cluster.
+
+## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
+
+1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-pg).
+
+1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-pg).
+
+1. [Create a source endpoint](../../data-transfer/operations/source-endpoint.md#create-endpoint) with the following parameters:
+    * **Database type**: `POSTGRES`.
+    * **Endpoint parameters** → **Connection settings**: `Host/Port`.
+Specify the parameters for connecting to the source cluster.
+
+1. [Create a target endpoint](../../data-transfer/operations/target-endpoint.md#create-endpoint) with the following parameters:
+    * **Database type**: `POSTGRES`.
+    * **Endpoint parameters** → **Connection settings**: `Cluster ID`.
+Specify the ID of the target cluster.
+
+1. [Create a transfer](../../data-transfer/operations/transfer.md#create-transfer) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
+
+1. [Activate](../../data-transfer/operations/transfer.md#activate-transfer) it.
+
+    {% note warning %}
+
+    Abstain from making any changes to the data schema in the source and target clusters when the data transfer is running. For more information, see [{#T}](../../data-transfer/operations/db-actions.md).
+
+    {% endnote %}
+
+1. Wait for the transfer to change to the **Replicated** status.
+
+1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
+
+1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
+
+1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate-transfer) the transfer and wait for it to transition to the **Stopped** status.
+
+    For more information about the transfer lifecycle, see the appropriate [section](../../data-transfer/concepts/transfer-lifecycle.md).
+
+1. [Delete](../../data-transfer/operations/transfer.md#delete-transfer) the stopped transfer.
+
+1. [Delete the source endpoint](../../data-transfer/operations/source-endpoint.md#delete).
+
+1. [Delete the target endpoint](../../data-transfer/operations/target-endpoint.md#delete-endpoint).
+
+## Migrating data using logical replication {#logical-replication}
+
+Logical replication is supported as of {{ PG }} version 10. Besides migrating data between the same {{ PG }} versions, logical replication lets you migrate to newer {{ PG }} versions.
 
 In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a user created simultaneously with the cluster) and users with the `mdb.admin` role for the cluster.
 
 Migration stages:
 
-1. [Configure the source server](#source-setup).
-1. [Export the database schema on the source](#source-schema-export).
-1. [Create a destination cluster and restore the database schema](#restore-schema).
+1. [Configure the source cluster](#source-setup).
+1. [Export the database schema in the source cluster](#source-schema-export).
+1. [Restore the database schema in the target cluster](#restore-schema).
 1. [Create a publication and subscription {{ PG }}](#create-publication-subscription).
 1. [Move the {{ PG }} sequence after replication](#transfer-sequences).
 1. [Disable replication and transfer the load](#transfer-load).
 
-### Configure the data source server {#source-setup}
+### Set up the source cluster {#source-setup}
 
-1. Specify the necessary SSL and WAL settings in the `postgresql.conf` file. In Debian and Ubuntu, the default path to this file is `/etc/postgresql/10/main/postgresql.conf`.
+1. Specify the necessary SSL and WAL settings in the `postgresql.conf` file. On Debian and Ubuntu Linux distributions, the default path to this file is `/etc/postgresql/<{{ PG }} version>/main/postgresql.conf`.
 
    1. We recommend using SSL for migrating data: this will not only help encrypt data, but also compress it. For more information, see [SSL Support](https://www.postgresql.org/docs/current/libpq-ssl.html) and [Database Connection Control Functions](https://www.postgresql.org/docs/current/libpq-connect.html) in the {{ PG }} documentation.
 
@@ -46,31 +116,31 @@ Migration stages:
       wal_level = logical                    # minimal, replica, or logical
       ```
 
-1. Configure host authentication on the source. To do this, add the cluster hosts in {{ yandex-cloud }} to the file `pg_hba.conf` (on Debian and Ubuntu distributions, the file is located at `/etc/postgresql/10/main/pg_hba.conf` by default).
+1. Configure authentication of hosts in the source cluster. To do this, add the cluster hosts to the `pg_hba.conf` file on {{ yandex-cloud }} (on Debian and Ubuntu distributions, it is located at the path `/etc/postgresql/<{{ PG }} version>/main/pg_hba.conf` by default).
 
-   For this the lines that will allow incoming connections to the database from the specified hosts should be added.
+    Add lines to allow connecting to the database from the specified hosts:
 
-   * If you use SSL:
+    * If you use SSL:
 
-     ```txt
-     hostssl         all            all             <host address>      md5
-     hostssl    replication         all             <host address>      md5
-     ```
+        ```txt
+        hostssl         all            all             <host address>      md5
+        hostssl         replication    all             <host address>      md5
+        ```
 
-   * If you don't use SSL:
+    * If you don't use SSL:
 
-     ```txt
-     host         all            all             <host address>      md5
-     host    replication         all             <host address>      md5
-     ```
+        ```txt
+        host         all            all             <host address>      md5
+        host         replication    all             <host address>      md5
+        ```
 
-1. If the source server has a firewall, allow incoming connections from the {{ mpg-name }} cluster hosts. For example, for Ubuntu 18:
+1. If a firewall is enabled in the source cluster, allow incoming connections from the {{ mpg-name }} cluster hosts. For example, for Ubuntu 18:
 
    ```bash
-   sudo ufw allow from <host address> to any port 5432
+   sudo ufw allow from <target cluster host address> to any port <port>
    ```
 
-1. Restart the database server to apply all these settings:
+1. Restart the {{ PG }} service to apply all your settings:
 
    ```bash
    sudo systemctl restart postgresql
@@ -82,103 +152,120 @@ Migration stages:
    sudo systemctl status postgresql
    ```
 
-### Export the DB schema from the source {#source-schema-export}
+### Export the database schema in the source cluster {#source-schema-export}
 
-Using the `pg_dump` utility, create a file with the database schema to be applied in the {{ mpg-name }} cluster.
+Use the `pg_dump` utility to create a file with the database schema to be applied in the target cluster.
 
 ```bash
-pg_dump -h <DBMS server address> -U <username> -p <port> --schema-only --no-privileges --no-subscriptions -d <database name> -Fd -f /tmp/db_dump
+pg_dump -h <IP address or FQDN of the master host of the source cluster> \
+        -U <username> \
+        -p <port> \
+        --schema-only \
+        --no-privileges \
+        --no-subscriptions \
+        -d <database name> \
+        -Fd -f /tmp/db_dump
 ```
 
 This export command skips all data associated with privileges and roles to avoid conflicts with the database settings in {{ yandex-cloud }}. If your database requires additional users, [create them](cluster-users.md#adduser).
 
-### Create a {{ mpg-name }} cluster and restore the database schema {#restore-schema}
+### Restore the database schema in the target cluster {#restore-schema}
 
-If you don't have a {{ PG }} cluster in {{ yandex-cloud }}, [create a {{ mpg-name }} cluster](cluster-create.md). When creating a cluster, specify the same database name that's on the source server.
-
-Restore the schema in the new cluster:
+Using the `pg_restore` utility, restore the database schema in the target cluster:
 
 ```bash
-pg_restore -Fd -v --single-transaction -s --no-privileges \
-          -h <target address> \
-          -U <username> \
-          -p 6432 \
-          -d <database name> /tmp/db_dump
+pg_dump -h <IP address or FQDN of the master host of the target cluster> \
+           -U <username> \
+           -p {{ port-mpg }} \
+           -Fd -v \
+           --single-transaction \
+           -s --no-privileges \
+           -d <database name> /tmp/db_dump
 ```
 
 ### Create a publication and subscription {#create-publication-subscription}
 
-For logical replication to work, you need to define a publication (a group of logically replicated tables) on the source server and a subscription (a description of a connection to another database) on the receiving server.
+For logical replication to work, create a publication (a group of logically replicated tables) in the source cluster and a subscription (a description of the connection to the other database) in the target cluster.
 
-1. On the source server, create a publication for all database tables. When migrating multiple databases, you need to create a separate publication for each of them.
+1. In the source cluster, create a publication for all the database tables. When migrating multiple databases, you need to create a separate publication for each of them.
 
    {% note info %}
 
-   You need superuser rights to create publications to all tables, but not to transfer the selected tables. For more information about creating publications, see the [documentation {{ PG }}]( https://www.postgresql.org/docs/current/sql-createpublication.html).
+   You need superuser rights to create publications to all tables, but not to transfer the selected tables. For more information about creating publications, see the [documentation{{ PG }}]( https://www.postgresql.org/docs/current/sql-createpublication.html).
 
    {% endnote %}
 
-   Request:
+   Query:
 
    ```sql
    CREATE PUBLICATION p_data_migration FOR ALL TABLES;
    ```
 
-1. On the {{ mpg-name }} cluster host, create a subscription with a connection string to the publication. For more information about creating subscriptions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/10/sql-createsubscription.html).
+1. On the {{ mpg-name }} cluster host, create a subscription with a connection string to the publication. For more information about creating subscriptions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createsubscription.html).
 
    Request with SSL enabled:
 
    ```sql
-   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source server address> port=<port> user=<username> sslmode=verify-full dbname=<database name>' PUBLICATION p_data_migration;
+   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=verify-full dbname=<database name>' PUBLICATION p_data_migration;
    ```
 
    Without SSL:
 
    ```sql
-   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source server address> port=<port> user=<username> sslmode=disable dbname=<database name>' PUBLICATION p_data_migration;
+   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source cluster address> port=<port> user=<username> sslmode=disable dbname=<database name>' PUBLICATION p_data_migration;
    ```
 
-1. You can monitor replication status from folders `pg_subscription_rel`. You can get the general replication status of the receiving server using `pg_stat_subscription` and on the source server using `pg_stat_replication`.
+1. To get the replication status, check the `pg_subscription_rel` directories. You can get the general replication status in the target cluster using `pg_stat_subscription` and in the source cluster using `pg_stat_replication`.
 
    ```sql
-   select * from pg_subscription_rel;
+   SELECT * FROM pg_subscription_rel;
    ```
 
-   First of all, you should monitor replication status on the receiving server with the `srsubstate` field. `r` in the `srsubstate` field means that synchronization has ended and the databases are ready to be replicated.
+   First of all, check the `srsubstate` field. `r` in this field means that synchronization has ended and the databases are ready to be replicated.
 
 ### Migrate {{ PG }} sequences after replication {#transfer-sequences}
 
-To fully complete synchronization between the source and the destination, disable writing new data on the source server and transfer the {{ PG }} sequences to the {{ mpg-name }} cluster:
+To complete synchronization of the source cluster and the target cluster:
 
-1. Export {{ PG }} sequences from the source:
+1. Switch the source cluster to <q>read-only</q> mode.
+
+1. Create a dump with {{ PG }}-sequences in the source cluster:
 
    ```bash
-   pg_dump -h <DBMS server address> -U <username> -p <port> -d <database name> \
+   pg_dump -h <IP address or FQDN of the master host of the source cluster> \
+           -U <username> \
+           -p <port> \
+           -d <database name> \
            --data-only -t '*.*_seq' > /tmp/seq-data.sql
    ```
 
-   Pay attention to the pattern used: if the database you're migrating has sequences that don't match the `*.*_seq` pattern, you have to enter a different pattern to upload them. For more information about patterns, see the [documentation {{ PG }}]( https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
+   Take note of the `*.*_seq` pattern used. If the database you're migrating has sequences that don't match this pattern, enter a different pattern to export them.
 
-1. Restore sequences on the {{ mpg-name }} host:
+   For more information about patterns, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PATTERNS).
+
+1. Restore the dump with sequences in the target cluster:
 
    ```bash
-   psql -h <DBMS server address> -U <username> -p 6432 -d <database name> \
+   psql -h <IP address or FQDN of the master host of the target cluster> \
+        -U <username> \
+        -p {{ port-mpg }} \
+        -d <database name> \
         < /tmp/seq-data.sql
    ```
 
-### Disable replication and switch over the load {#transfer-load}
+### Delete the subscription and switch over the load {#transfer-load}
 
-When replication is complete and you move the sequences, remove the subscription on the destination server (in the {{ mpg-name }} cluster):
+1. Delete the subscription in the target cluster:
 
-   ```sql
-   DROP SUBSCRIPTION s_data_migration;
-   ```
+    ```sql
+    DROP SUBSCRIPTION s_data_migration;
+    ```
 
-Afterwards, the load can be transferred to the receiving server. Since transferring sequences is a relatively quick and easily automated process, migrating to {{ mpg-name }} is possible with minimal downtime.
+1. Switch over the load to the target cluster.
 
-## Restore database from dump {#backup}
+## Transferring data by creating and restoring a logical dump {#backup}
 
-To migrate data from an existing {{ PG }} database to {{ mpg-name }}, use `pg_dump` and `pg_restore`: create a dump of your running database and restore it to the {{ PG }} cluster in {{ yandex-cloud }}.
+Create a dump of the necessary database in the source cluster using the `pg_dump` utility. To restore the dump in the target cluster, use the `pg_restore` utility.
 
 {% note info %}
 
@@ -186,29 +273,24 @@ To use `pg-restore`, you might need the `pg_repack` database extension.
 
 {% endnote %}
 
-Before trying to import your data, check whether the DBMS versions of the existing database and your cluster in {{ yandex-cloud }} match. If not, you won't be able to restore the created dump. To migrate to {{ PG }} version 11 or 12, you can use [logical replication](#logical_replication).
-
 Migration stages:
 
 1. [Create a dump of the database you want to migrate](#dump).
 1. [(optional) Create a virtual machine in {{ yandex-cloud }} and upload the database dump to it](#create-vm).
-1. [Create a cluster {{ mpg-name }}](#create-cluster).
-1. [Restore data from the dump to the cluster](#restore).
+1. [Restore data from the dump to the target cluster](#restore).
 
 ### Create a database dump {#dump}
 
-Use [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) to create a database dump.
+1. Switch the database to <q>read-only</q> mode.
 
-1. Before creating a dump, we recommend switching the database to <q>read-only</q> to avoid losing data that might appear while creating the dump. The database dump itself is created using the following command:
-
-    ```bash
-    pg_dump -h <DBMS server address> -U <username> -Fd -d <database name> -f ~/db_dump
-    ```
-
-1. To speed up the process, you can start dumping with multiple processor cores. To do this, set the `-j` flag with the number equal to the number of cores available to the DBMS:
+1. Create a dump using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility. To speed up the process, run it in multithreaded mode by passing the number of available CPU cores in the `-j` argument:
 
     ```bash
-    pg_dump -h <DBMS server address> -U <username> -j 4 -Fd -d <database name> -f ~/db_dump
+    pg_dump -h <IP address or FQDN of the master host of the source cluster> \
+            -U <username> \
+            -j <number of CPU cores> \
+            -Fd -d <database name> \
+            -f ~/db_dump
     ```
 
 1. Archive the dump:
@@ -216,8 +298,6 @@ Use [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) to create
     ```bash
     tar -cvzf db_dump.tar.gz ~/db_dump
     ```
-
-For more information about `pg_dump`, see the [documentation {{ PG }}](https://www.postgresql.org/docs/current/app-pgdump.html).
 
 ### (optional) Create a virtual machine in {{ yandex-cloud }} and upload the dump to it {#create-vm}
 
@@ -232,7 +312,7 @@ To prepare the virtual machine to restore the dump:
 
 1. In the management console, [create a new virtual machine](../../compute/operations/vm-create/create-linux-vm.md) from the [Ubuntu 20.04](https://cloud.yandex.com/en-ru/marketplace/products/f2eanb2gaki4us67hn9q) image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
-    The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside {{ yandex-cloud }}.
+    The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned a public IP address so that you can load the dump from outside {{ yandex-cloud }}.
 
 1. Set up the [{{ PG }} apt repository](https://www.postgresql.org/download/linux/ubuntu/).
 
@@ -266,13 +346,9 @@ To prepare the virtual machine to restore the dump:
     tar -xzf /tmp/db_dump.tar.gz
     ```
 
-### Create a {{ mpg-name }} cluster {#create-cluster}
+### Restore data from the dump to the target cluster {#restore}
 
-Make sure that the computing capacity and storage size of the cluster are appropriate for the environment where the existing databases are deployed and [create a cluster](cluster-create.md).
-
-### Restore data in the new environment {#restore}
-
-Use the [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) utility to restore your DB dump.
+Restore the database dump using the [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) utility.
 
 The version of `pg_restore` must match the `pg_dump` version, and the major version must be at least as high as on the DB where the dump is deployed.
 
@@ -281,16 +357,13 @@ In other words, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, or {
 If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
 
 ```bash
-pg_restore -Fd \
-           -v \
-           -h <pgsql_host_address> \
+pg_dump -h <IP address or FQDN of the master host of the target cluster> \
            -U <username>
-           -d <database_name> \
-           -p 6432 \
+           -d <database name> \
+           -p {{ port-mpg }} \
+           -Fd -v \
            /tmp/db_dump \
            --single-transaction \
            --no-privileges
 ```
-
-For more information about `pg_restore`, see the [documentation {{ PG }}](https://www.postgresql.org/docs/current/app-pgrestore.html).
 

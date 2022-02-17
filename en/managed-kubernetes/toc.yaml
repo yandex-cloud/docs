@@ -119,7 +119,9 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
-      - name: Network settings and cluster policies
+      - name: Network in {{ managed-k8s-name }}
+        href: concepts/network.md
+      - name: Kubernetes cluster network policies
         href: concepts/network-policy.md
       - name: Quotas and limits
         href: concepts/limits.md

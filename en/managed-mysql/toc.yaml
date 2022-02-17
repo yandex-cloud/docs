@@ -71,6 +71,8 @@ items:
     items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
+      - name: Migrating databases to Managed Service for MySQL
+        href: tutorials/data-migration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

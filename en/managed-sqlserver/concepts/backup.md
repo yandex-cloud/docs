@@ -59,7 +59,7 @@ Storing backups in {{ mms-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    For more information, see the [Pricing policy for {{ mms-name }}](../pricing.md#rules-storage).
+    For more information, see the [Pricing policy for {{ mms-name }}](../pricing/index.md#rules-storage).
 
 ## Checking backups {#verify}
 
