@@ -57,11 +57,15 @@
 [Полная версия](https://yandex.ru/support/browser/personal-data-protection/ytp.html#blocking-by-settings):
 
 * Разблокировать конкретный трекер: 
+
    1. Нажмите значок ![](../../_assets/wiki/ya-security.png) в Умной строке.
+
    1. Справа от трекера **sharepoint.com** и **yastatic.net** нажмите ![](../../_assets/wiki/ico-actions.png) → **Разблокировать**.
 
 * Разрешить трекеры для всех сайтов:
+
    1. В настройках браузера выберите раздел **Сайты** → **Расширенные настройки сайтов**.
+   
    1. В блоке «Сookie-файлы» выберите вариант блокировки **Ограничить сторонние cookie** — использование трекеров будет разрешено только сайтам, которые вы посещали.
 
 [Мобильная версия](https://yandex.ru/support/browser-mobile-android-phone/privacy/ytp.html#unblocking):

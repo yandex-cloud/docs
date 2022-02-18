@@ -14,7 +14,7 @@
 
 {% note alert %}
 
-Интеграция не сработает, если к странице на {{ wiki-name }} ограничен доступ пользователей. В этом случае [предоставьте доступ](../wiki/page-managment/access-setup.md) к вашей странице служебному аккаунту {% if audience == "internal" %}`@tech-robot`{% else %}`@yndx-wiki-cnt-robot`{% endif %}.
+Интеграция не сработает, если к странице на {{ wiki-name }} ограничен доступ пользователей. В этом случае [предоставьте доступ](../wiki/page-management/access-setup.md) к вашей странице служебному аккаунту {% if audience == "internal" %}`@tech-robot`{% else %}`@yndx-wiki-cnt-robot`{% endif %}.
 
 {% endnote %}
 

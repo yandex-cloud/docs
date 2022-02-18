@@ -4,7 +4,7 @@ items:
 - name: Начало работы
   when: audience == "external"
   items:
-  - name: Подключить Yandex Wiki
+  - name: Подключить {{ wiki-full-name }}
     href: enable-wiki.md
   - name: Войти в аккаунт
     href: login.md  
@@ -17,102 +17,107 @@ items:
   items:
   - name: Обзор сервиса
     href: overview.md
-  - name: Работа в Yandex Wiki
+  - name: Работа в {{ wiki-full-name }}
     href: concepts.md
-  - name: Структура Yandex Wiki
+  - name: Структура {{ wiki-full-name }}
     href: structure.md
+  - name: Типы страниц
+    href: pages-types.md
 - name: Создание страниц
   items:
-  - name: Обзор
-    href: create-and-edit.md
-  - name: Создать страницу
+  - name: Вики-страница
     href: create-page.md
-  - name: Создать страницу из файла
-    href: import-page.md
-  - name: Создать заметку
-    href: create-note.md
-  - name: Создать динамическую таблицу
+  - name: Динамическая таблица
     href: create-grid.md
-  - name: Создать таблицу из файла
-    href: import-export-grid.md
-  - name: Создать страницу в визуальном редакторе (Wysiwyg)
+  - name: Заметка
+    href: create-note.md
+  - name: Импорт из файла
+    href: import-page.md
+  - name: Документ Microsoft Office 365
     when: audience == "internal"
-    href: wysiwyg.md
-- name: Редактирование страниц
+    href: create-office.md
+  - name: Страница Wysiwyg
+    when: audience == "internal"
+    href: wysiwyg-create.md    
+- name: Редактирование вики-страниц и динамических таблиц
   items:
-  - name: Отредактировать страницу
+  - name: Отредактировать вики-страницу или заметку
     href: edit-page.md
   - name: Отредактировать динамическую таблицу
     href: edit-grid.md
-  - name: История изменений страницы
-    href: history.md
-  - name: Форматировать текст страницы
-    href: basic-markup.md
-  - name: Прикрепить файл
-    href: attach-file.md
-  - name: Вставить изображение
-    href: add-image.md
-  - name: Вставить таблицу
-    href: add-grid.md
-  - name: Вставить видео или аудио
-    href: add-video.md
-  - name: Вставить оглавление
-    href: add-toc.md
-  - name: Вставить ссылки на задачи Tracker
-    href: add-tickets-list.md
-  - name: Вставить формулу, диаграмму и блок-схему
-    href: add-diagram-formula.md 
-- name: Работа с документами Microsoft Office 365
-  when: audience == "internal"
-  items:
-  - name: Обзор
-    href: office365/ms-office.md
-  - name: Создать документ Microsoft Office 365 в Wiki
-    href: office365/create-ms-office.md
-  - name: Создать документ Office 365 на общем сайте Sharepoint
-    href: office365/create-sharepoint.md
-  - name: Совместное редактирование документов
-    href: office365/co-edit.md
-  - name: Вставить документ на обычную вики-страницу
-    href: office365/embed-iframe.md
-  - name: Настроить доступ к облачным документам
-    href: office365/doc-access.md
-  - name: Решение проблем с доступом к онлайн-документам
-    href: office365/access-troubles.md
-  - name: Разрешить отслеживающие куки
-    href: office365/cross-site-tracking.md
+  - name: Базовые возможности
+    items:
+    - name: Форматировать текст
+      href: basic-markup.md
+    - name: Прикрепить файл
+      href: attach-file.md
+    - name: Вставить изображение
+      href: add-image.md
+    - name: Вставить таблицу
+      href: add-grid.md
+    - name: Вставить видео или аудио
+      href: add-video.md
+  - name: Расширенные возможности
+    items:
+    - name: Динамические блоки
+      href: actions.md
+    - name: Динамические таблицы
+      href: actions/grid-reference.md
+    - name: Ссылки на сотрудников и текущая дата
+      when: audience =="internal"
+      href: actions/users.md
+    - name: Объекты из внешних источников
+      href: actions/iframe.md
+    - name: Текст из внешних источников
+      when: audience =="internal"
+      href: actions/include.md
+    - name: RSS-лента новостей
+      when: audience == "internal"
+      href: actions/feed.md
+    - name: Формулы, диаграммы и блок-схемы
+      href: add-diagram-formula.md 
+  - name: Структурировать контент
+    items:
+    - name: Оглавление страницы
+      href: actions/toc.md
+    - name: Закладка на странице
+      href: actions/anchor.md
+    - name: Списки страниц
+      href: actions/page-lists.md
 - name: Управление страницами
   items:
   - name: Настройки страницы
-    href: page-managment/page-settings.md    
+    href: page-management/page-settings.md    
   - name: Ограничить просмотр страницы
-    href: page-managment/access-setup.md
+    href: page-management/access-setup.md
   - name: Запретить редактирование страницы
-    href: page-managment/read-only.md
+    href: page-management/read-only.md
   - name: Назначить автора страницы
-    href: page-managment/edit-owner.md
+    href: page-management/edit-owner.md
   - name: Изменить адрес страницы
-    href: page-managment/move-page.md
+    href: page-management/move-page.md
   - name: Добавить ключевые слова (теги)
     href: add-key-words.md
   - name: Пометить устаревшие страницы
     href: exp-page.md
+  - name: Посмотреть историю изменений страницы
+    href: history.md
   - name: Удалить страницу
     href: delete-page.md
   - name: Настроить внешний вид вики-страниц
     when: audience == "internal"
     href: settings-wiki.md
-- name: Навигация по Wiki
+- name: Навигация по {{ wiki-name }}
   items:
-  - name: Поиск по Wiki
+  - name: Поиск по {{ wiki-name }}
     href: search.md
   - name: Подписки и избранное
     href: notifications.md
-  - name: Просмотреть структуру страниц и разделов
+  - name: Посмотреть структуру страниц и разделов
     href: cluster-overview.md
-  - name: Просмотреть список моих страниц
+  - name: Посмотреть список моих страниц
     href: my-pages.md
-  - name: Просмотреть измененные мной страницы
+  - name: Посмотреть измененные мной страницы
     href: edited-pages-list.md
   - name: Посмотреть все ссылки на страницу
     href: all-links.md
@@ -142,6 +147,28 @@ items:
     - name: Текстовый редактор Vim
       when: audience == "internal"
       href: vim.md
+- name: Работа в визуальном редакторе (Wysiwyg)
+  when: audience == "internal"
+  href: wysiwyg-edit.md
+- name: Работа с документами Microsoft Office 365
+  when: audience == "internal"
+  items:
+  - name: Обзор
+    href: office365/ms-office.md
+  - name: Создать документ Microsoft Office 365 в {{ wiki-name }}
+    href: office365/create-ms-office.md
+  - name: Создать документ Office 365 на общем сайте Sharepoint
+    href: office365/create-sharepoint.md
+  - name: Совместное редактирование документов
+    href: office365/co-edit.md
+  - name: Вставить документ на вики-страницу
+    href: office365/embed-iframe.md
+  - name: Настроить доступ к облачным документам
+    href: office365/doc-access.md
+  - name: Решение проблем с доступом к онлайн-документам
+    href: office365/access-troubles.md
+  - name: Разрешить отслеживающие куки
+    href: office365/cross-site-tracking.md
 - name: Справочник разметки
   items:
   - name: Разметка Markdown
@@ -149,7 +176,7 @@ items:
     - name: Обзор
       href: static-markup.md
     - name: Структура страницы
-      href: static-markup/document-strucuture.md
+      href: static-markup/document-structure.md
     - name: Оформление текста
       href: static-markup/formatting.md
     - name: Списки
@@ -182,29 +209,6 @@ items:
       href: static-markup/diagram.md
     - name: Границы, ширина и выравнивание блоков
       href: static-markup/wrappers.md      
-  - name: Динамические блоки
-    items:
-    - name: Обзор
-      href: actions.md
-    - name: Списки страниц
-      href: actions/page-lists.md
-    - name: Динамические таблицы
-      href: actions/grid-reference.md
-    - name: Оглавление страницы
-      href: actions/toc.md
-    - name: Закладка на странице
-      href: actions/anchor.md
-    - name: Ссылки на сотрудников и текущая дата
-      when: audience =="internal"
-      href: actions/users.md
-    - name: Веб-страница или видео
-      href: actions/iframe.md
-    - name: Контент из другого источника
-      when: audience =="internal"
-      href: actions/include.md
-    - name: RSS-лента новостей
-      when: audience == "internal"
-      href: actions/feed.md
 - name: Правила тарификации
   when: audience == "external"
   href: pricing.md

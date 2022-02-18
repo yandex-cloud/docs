@@ -6,7 +6,7 @@
 
 С помощью разметки Markdown вы можете:
 
-* [Задать структуру страницы](static-markup/document-strucuture.md)
+* [Задать структуру вики-страницы](static-markup/document-structure.md)
 
 * [Оформить текст](static-markup/formatting.md)
 
