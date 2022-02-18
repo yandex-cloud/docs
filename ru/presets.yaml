@@ -234,6 +234,7 @@ default:
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
   yc-ydb: yc ydb
+  yc-dt: yc datatransfer
   max-gpus: 4
   iam-token-lifetime: 12 часов
   pem-path: /cloud-certs/CA.pem

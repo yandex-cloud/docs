@@ -30,8 +30,8 @@
 
 1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
 1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#target-my).
-1. [Создайте эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#create) с типом базы данных `{{ MY }}`.
-1. [Создайте эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#create) с типом базы данных `{{ mmy-name }}`.
+1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) с типом базы данных `{{ MY }}`.
+1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) с типом базы данных `{{ mmy-name }}`.
 1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
 1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
@@ -49,8 +49,7 @@
     Подробнее о жизненном цикле трансфера см. в [соответствующем разделе](../../data-transfer/concepts/transfer-lifecycle.md).
 
 1. [Удалите](../../data-transfer/operations/transfer.md#delete) остановленный трансфер.
-1. [Удалите эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#delete).
-1. [Удалите эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#delete).
+1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
 {% if audience != "internal" %}
 
