@@ -105,5 +105,7 @@ items:
 #        items:
       - name: Общие ошибки
         href: kinesisapi/common-errors.md
+      - name: Примеры
+        href: kinesisapi/examples.md
   - name: Вопросы и ответы
     href: qa/index.md
