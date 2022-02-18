@@ -1,0 +1,15 @@
+items:
+- name: Overview
+  href: index.md
+- name: Creating a table
+  href: create-table.md
+- name: Adding data to a table
+  href: put-item.md
+- name: Reading data from a table
+  href: get-item.md
+- name: Updating data
+  href: update-item.md
+- name: Data selections
+  href: query.md
+- name: Deleting created resources
+  href: cleanup.md

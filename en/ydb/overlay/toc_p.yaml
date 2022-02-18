@@ -1,0 +1,50 @@
+title: Yandex Database
+href: index.yaml
+items:
+# Header
+- name: Contents
+  href: index.yaml
+
+- name: Getting started
+  items:
+  - name: Overview
+    href: quickstart/index.md
+  - name: Creating a cloud database
+    href: quickstart/create-db.md
+  - name: YQL API
+    items:
+    - name: Working with data via the management console
+      href: quickstart/yql-api/ydb-ui.md
+    - name: Working with the YDB CLI
+      href: quickstart/yql-api/ydb-cli.md
+    - name: Working with the YDB SDK
+      href: reference/ydb-sdk/index.md
+  - name: Amazon DynamoDB-compatible Document API
+    include: { mode: link, path: quickstart/document-api/toc_i.yaml }
+  - include: { mode: link, path: getting_started/toc_i.yaml }
+
+# Main
+- { name: Use cases,                  include: { mode: link, path: solutions/toc_i.yaml } }
+- { name: Concepts,                               include: { mode: link, path: concepts/toc_p.yaml } }
+- { name: Step-by-step instructions,                    include: { mode: link, path: operations/toc_i.yaml } }
+
+- name: Access management
+  href: security/start_auth.md
+
+- { name: Recommendations,                            include: { mode: link, path: best_practices/toc_p.yaml } }
+- { name: Maintenance,                            include: { mode: link, path: maintenance/toc_p.yaml } }
+- { name: Diagnostics,                             include: { mode: link, path: troubleshooting/toc_p.yaml } }
+- { name: Pricing policy,                     include: { mode: link, path: pricing/toc_i.yaml } }
+
+# References  
+- { name: "Amazon DynamoDB-compatible HTTP API", include: { mode: link, path: docapi/toc_i.yaml } }
+- { name: YQL,                                     include: { mode: link, path: yql/toc_i.yaml } }
+- { name: Working with the YDB CLI,                        include: { mode: link, path: reference/ydb-cli/toc_p.yaml } }
+- { name: Working with the YDB SDK,                        include: { mode: link, path: reference/ydb-sdk/toc_p.yaml } }
+  
+# Footer
+- { name: Questions and answers,                        include: { mode: link, path: faq/toc_p.yaml } }
+
+- name: Public materials
+  href: public_talks.md
+  when: lang == "en"

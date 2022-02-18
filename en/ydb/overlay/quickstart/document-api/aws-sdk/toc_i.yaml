@@ -1,0 +1,21 @@
+items:
+- name: Overview
+  href: index.md
+- name: Creating a table
+  href: create-table.md
+- name: Uploading data to a table
+  href: load-data.md
+- name: Managing records in a table
+  items:
+  - name: Creating a record
+    href: create-item.md
+  - name: Reading a record
+    href: read-item.md
+  - name: Updating a record
+    href: update-item.md
+  - name: Deleting a record
+    href: delete-item.md
+- name: Searching and extracting data
+  href: query-and-scan.md
+- name: Deleting a table
+  href: delete-table.md

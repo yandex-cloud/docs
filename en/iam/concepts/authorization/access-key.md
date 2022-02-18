@@ -13,7 +13,7 @@ For information about how to use static access keys, read the documentation on t
 
 {% if audience == "external" %}
 
-* [{{ ydb-name }}](../../../ydb/quickstart/aws-instrument/setup.md)
+* [{{ ydb-name }}](../../../ydb/quickstart/document-api/aws-setup.md)
 
 {% endif %}
 

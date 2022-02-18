@@ -1,0 +1,48 @@
+title: Yandex Database
+description:
+  - >-
+    <i>Yandex Database</i> (YDB) is a fault-tolerant Distributed SQL DBMS. YDB provides high availability, horizontal scalability, strict consistency, and ACID transaction support. Queries are made using an SQL dialect (<a href="yql/reference/overview">YQL</a>).
+nav:
+  title: Yandex Database
+meta:
+  title: Yandex Database
+links:
+  - title: Getting started
+    description: Creating a database, connecting to it, setting up access permissions, and performing basic operations with it
+    href: quickstart/index
+  - title: Concepts
+    description: How YDB works, its features and available usage modes
+    href: concepts/index
+  - title: Working with the CLI
+    description: YDB CLI reference
+    href: reference/ydb-cli/install
+  - title: Working with the SDK
+    description: YDB SDK reference
+    href: reference/ydb-sdk/
+  - title: Step-by-step instructions
+    description: Instructions on how to perform standard operations
+    href: operations/
+  # - title: Квоты и лимиты
+  #  description: Технические и организационные ограничения сервиса
+  #  href: concepts/limits
+  #- title: Управление доступом
+  #  description: Настройте права доступа для работы с сервисом
+  #  href: security/start_auth
+  - title: Recommendations
+    description: A set of recommendations for practical service use
+    href: best_practices/
+  - title: YQL reference guide
+    description: Description of YQL syntax and built-in functions
+    href: yql/reference/
+  - title: YQL tutorial
+    description: YQL introductory tutorials
+    href: yql/tutorial/
+  - title: Amazon DynamoDB-compatible HTTP API
+    description: Description of the Document API compatible with Amazon DynamoDB
+    href: docapi/api-ref/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing
+  - title: Useful links
+    description: Links to various resources related to YDB
+    href: getting_started/useful_links

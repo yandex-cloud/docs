@@ -1,0 +1,4 @@
+items:
+  - include: { mode: link, path: toc_i.yaml }
+  - name: Installing and configuring
+    href: yc_setup.md

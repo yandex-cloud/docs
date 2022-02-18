@@ -1,0 +1,16 @@
+items:
+  - name: Deploying a web application
+    href: java-servlet-todo-list.md
+  - name: Developing a Slack bot
+    href: slack-bot-serverless.md
+  - name: Using the YDB Docker container
+    href: ydb_docker.md
+    hidden: true # moved back to getting_started
+  - name: Connecting to YDB from a Python function in Yandex Cloud Functions
+    href: connect-from-cf.md
+  - name: Connecting to a YDB database from a Yandex Cloud Functions function in Node.js
+    href: connect-from-cf-nodejs.md
+  - name: Converting a video to a GIF in Python
+    href: video-converting-queue.md
+  - name: Developing a skill for Alice and a website with authorization
+    href: alice-shareable-todolist.md

@@ -1,0 +1,39 @@
+items:
+- name: All methods
+  href: api-ref/index.md
+- name: Actions
+  items:
+  - name: BatchGetItem
+    href: api-ref/actions/batchGetItem.md
+  - name: BatchWriteItem
+    href: api-ref/actions/batchWriteItem.md
+  - name: CreateTable
+    href: api-ref/actions/createTable.md
+  - name: DeleteItem
+    href: api-ref/actions/deleteItem.md
+  - name: DeleteTable
+    href: api-ref/actions/deleteTable.md
+  - name: DescribeTable
+    href: api-ref/actions/describeTable.md
+  - name: DescribeTimeToLive
+    href: api-ref/actions/describeTimeToLive.md
+  - name: GetItem
+    href: api-ref/actions/getItem.md
+  - name: ListTables
+    href: api-ref/actions/listTables.md
+  - name: PutItem
+    href: api-ref/actions/putItem.md
+  - name: Query
+    href: api-ref/actions/query.md
+  - name: Scan
+    href: api-ref/actions/scan.md
+  - name: TransactGetItems
+    href: api-ref/actions/transactGetItems.md
+  - name: TransactWriteItems
+    href: api-ref/actions/transactWriteItems.md
+  - name: UpdateItem
+    href: api-ref/actions/updateItem.md
+  - name: UpdateTimeToLive
+    href: api-ref/actions/updateTimeToLive.md
+- name: Common errors
+  href: api-ref/common-errors.md
