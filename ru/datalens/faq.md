@@ -33,7 +33,7 @@
 
 ### Как предоставить доступ к DataLens внешним сотрудникам? {#how-to-grant-permission}
 
-Права для внешних сотрудников предоставляются по запросу через очередь [DLHELP](https://st.yandex-team.ru/DLHELP/).
+Права для внешних сотрудников предоставляются по запросу. Подробнее в разделе [{#T}](security/external-access.md).
 
 {% include [qa-for-users.md](../_includes/datalens/qa/permission-error.md) %}
 
