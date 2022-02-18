@@ -15,8 +15,10 @@ items:
           href: operations/projects/install-dependencies.md
         - name: Managing computing resources
           href: operations/projects/control-compute-resources.md
-        - name: Consumption management
+        - name: Setting up consumption limits for a project
           href: operations/projects/custom-limits.md
+        - name: Setting up consumption limits for a folder
+          href: operations/projects/set-ds-budget.md
         - name: Resizing project storage
           href: operations/projects/storage-resize.md
         - name: Changing a name or description
@@ -109,6 +111,8 @@ items:
         href: concepts/tensorboard.md
       - name: Distributed training
         href: concepts/taas.md
+      - name: Cost management
+        href: concepts/budget.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Early access
