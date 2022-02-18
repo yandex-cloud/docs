@@ -55,11 +55,11 @@ description: 'Стоимость использования Tracker зависи
 
 > Например, в январе действовали тарифы:
 >
-> * для первых 100 пользователей — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %} за пользователя в месяц;
+> * для первых 100 пользователей — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %} за пользователя в месяц;
 >
-> * для следующих 150 пользователей — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %} за пользователя в месяц;
+> * для следующих 150 пользователей — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %} за пользователя в месяц;
 >
-> * для всех пользователей свыше 250 — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %} за пользователя в месяц.
+> * для всех пользователей свыше 250 — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %} за пользователя в месяц.
 >
 > Количество сотрудников, имеющих полный доступ к {{ tracker-name }}, в январе изменялось так:
 > 
@@ -76,7 +76,7 @@ description: 'Стоимость использования Tracker зависи
 > {% if region == "ru" %}
 > 
 > ```
-> 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}
+> 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|int|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|int|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|int|string }}
 > ```
 > 
 > {% endif %}
@@ -84,7 +84,7 @@ description: 'Стоимость использования Tracker зависи
 > {% if region == "kz" %}
 > 
 > ```
-> 100 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|string }}
+> 100 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|int|string }} + 150 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|int|string }} + 20 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|int|string }}
 > ```
 > 
 > {% endif %}
