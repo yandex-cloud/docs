@@ -442,7 +442,7 @@
         resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
           ...
           access {
-            datalens   = <Доступ из DataLens: true или false>
+            data_lens  = <Доступ из DataLens: true или false>
             metrika    = <Доступ из Метрики и AppMetrika: true или false>
             serverless = <Доступ из Cloud Functions: true или false>
             web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
