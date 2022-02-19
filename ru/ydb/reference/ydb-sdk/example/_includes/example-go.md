@@ -100,7 +100,7 @@ err = db.Table().Do(
       log.Printf("  > column, name: %s, %s\n", c.Type, c.Name)
     }
     return
-  }
+  },
 )
 if err != nil {
   // обработка ситуации, когда не удалось выполнить запрос
