@@ -1,33 +1,29 @@
 ---
-title: "Terms and definitions Yandex Database. Database"
-description: "A database (DB) is a dedicated isolated part of the resources of the Yandex Database service. The YDB service provides scalability, database fault tolerance and automatic data replication."
+sourcePath: en/ydb/overlay/concepts/databases.md
 ---
+{% include [intro.md](_includes/databases/intro.md) %}
 
-# Terms and definitions
+{% include [database.md](_includes/databases/database.md) %}
 
+In Yandex.Cloud, the database is linked to a specific cloud folder. You can also use {{ ydb-short-name }}-based Serverless databases that don't allocate any resources to users, but share resources of their host {{ ydb-short-name }} database.
 
-## Database {#database}
+For a description of the procedure for obtaining a database in Yandex.Cloud, see ["Creating a database"](../operations/create_manage_database.md)
 
+{% include [cluster.md](_includes/databases/cluster.md) %}
 
-*A database* (DB) is a dedicated isolated part of the {{ ydb-short-name }} service resources. The {{ ydb-short-name }} service provides database scalability and fault-tolerance, as well as automatic data replication.
+Cluster maintenance is a prerogative of the Yandex.Cloud team, so application developers can interact directly with the {{ ydb-short-name }} database.
 
+{% include [regions.md](_includes/databases/regions.md) %}
 
+{{ ydb-short-name }} cloud databases in Yandex.Cloud are provided in a geographically distributed region in central Russia (`ru-central1`) that has three availability zones. For more information about YC regions and availability zones, see [{#T}](../../overview/concepts/geo-scope.md). {% include [compute.md](_includes/databases/compute.md) %}
 
-## Regions and availability zones {#regions-az}
+{% include [compute.md](_includes/databases/compute.md) %}
 
-The {{ ydb-short-name }} database is regional and is located in the `ru-central` region. The `ru-central` region has three availability zones. For more information about regions and availability zones, see [{#T}](../../overview/concepts/geo-scope.md).
+###  Yandex.Cloud {{ ydb-short-name }} DB on dedicated resources
 
-## Directories {#directory}
+Yandex.Cloud {{ ydb-short-name }} DB is provided on VMs that can be created on any platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
 
-To easily organize databases, {{ ydb-short-name }} lets you create directories like in the file system.
-
-
-## Compute units {#compute-units}
-
-
-Computing resources are combinations of vCPUs and RAM. In {{ ydb-short-name }}, they're provided based on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
-
-Types of compute units:
+The following VM types are available:
 
 | Platform | Computing resource | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
 | ----- | ----- | ----- | ----- | ----- |
@@ -35,20 +31,12 @@ Types of compute units:
 | **Intel Cascade Lake** | medium-m64 | 8 | 100% | 64 |
 | **Intel Cascade Lake** | medium-m96 | 8 | 100% | 96 |
 
-To increase database throughput, you can increase the amount of compute units.
+Databases run on allocated computing resources are paid on an hourly basis. The amount of data storage for the database is paid additionally (see [Storage groups](#storage-groups) below).
 
-## Storage groups {#storage-groups}
+### Serverless {{ ydb-short-name }} database in Yandex.Cloud
 
-A storage group is a redundant array of independent disks that are networked in a single logical unit. Storage groups increase fault tolerance through redundancy and improve performance.
+Computing resources for serverless {{ ydb-short-name }} databases in Yandex.Cloud are provided automatically for database query purposes. The payment amount depends on the CPU capacity actually used and the I/O operations required to execute the database query. The amount of data stored in the database is paid additionally.
 
-In {{ ydb-short-name }}, each of the three availability zones uses three disks. This configuration ensures stability even if a zone or disk fails. It also provides a redundancy factor of 3.
+{% include [storage_groups.md](_includes/databases/storage_groups.md) %}
 
-
-A storage group may consist of any of the following types of storage devices:
-
-
-* SSD (`network-ssd`): A fast network drive. Network block storage on an SSD. Suitable for high-performance OLTP applications.
-* HDD (`network-hdd`): A standard network drive. Network block storage on an HDD. Suitable for storing large volumes (petabytes) of cold data.
-
-{{ ydb-short-name }} lets you allocate additional storage groups as your data grows.
-
+In cloud-based {{ ydb-short-name }} databases, Yandex.Cloud uses 3 disks in each of the 3 availability zones, both for databases on dedicated resources and serverless databases. This configuration ensures stability even if a zone or disk fails. It also provides a redundancy factor of 3.

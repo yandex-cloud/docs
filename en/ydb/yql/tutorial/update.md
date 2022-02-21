@@ -1,8 +1,11 @@
-# Data update by UPDATE
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/update.md
+---
+# Updating data with UPDATE
 
-Update data in the table using the [UPDATE](../reference/syntax/update.md) operator:
+Update data in the table using the [UPDATE](../reference/syntax/update.md) operator.
 
-{% include [yql-reference-prerequisites](../../_includes/yql_tutorial_prerequisites.md) %}
+{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
 
 ```sql
 UPDATE episodes
@@ -15,11 +18,11 @@ WHERE
 
 COMMIT;
 
--- See result:
+-- View result:
 SELECT * FROM episodes WHERE series_id = 2 AND season_id = 5;
 
--- YDB transaction doesn't see its own changes and operates on the data
--- read on transaction start. You can't UPDATE or DELETE a table
+-- YDB doesn't see changes that take place at the start of the transaction,
+-- which is why it first performs a read. You can't UPDATE or DELETE a table
 -- already changed within the current transaction. UPDATE ON and
 -- DELETE ON let you read, update, and delete multiple rows from one table
 -- within a single transaction.
@@ -40,9 +43,8 @@ SELECT * FROM $to_update;
 
 COMMIT;
 
--- See result:
+-- View result:
 SELECT * FROM episodes WHERE series_id = 1 AND season_id = 1;
 
 COMMIT;
 ```
-

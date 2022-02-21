@@ -9,10 +9,40 @@ items:
         href: operations/index.md
       - name: Подготовка к трансферу
         href: operations/prepare.md
-      - name: Управление эндпоинтом для источника
-        href: operations/source-endpoint.md
-      - name: Управление эндпоинтом для приемника
-        href: operations/target-endpoint.md
+      - name: Эндпоинты
+        items:
+          - name: Управление эндпоинтами
+            href: operations/endpoint/index.md
+          - name: Параметры эндпоинтов для источников
+            items:
+              - name: Apache Kafka®
+                href: operations/endpoint/source/kafka.md
+              - name: ClickHouse
+                href: operations/endpoint/source/clickhouse.md
+              - name: MongoDB
+                href: operations/endpoint/source/mongodb.md
+              - name: MySQL
+                href: operations/endpoint/source/mysql.md
+              - name: Oracle
+                href: operations/endpoint/source/oracle.md
+              - name: PostgreSQL
+                href: operations/endpoint/source/postgresql.md
+              - name: Yandex Data Streams
+                href: operations/endpoint/source/data-streams.md
+          - name: Параметры эндпоинтов для приемников
+            items:
+              - name: ClickHouse
+                href: operations/endpoint/target/clickhouse.md
+              - name: MongoDB
+                href: operations/endpoint/target/mongodb.md
+              - name: MySQL
+                href: operations/endpoint/target/mysql.md
+              - name: Object Storage
+                href: operations/endpoint/target/object-storage.md
+              - name: PostgreSQL
+                href: operations/endpoint/target/postgresql.md
+              - name: Yandex Database
+                href: operations/endpoint/target/yandex-database.md
       - name: Управление трансфером
         href: operations/transfer.md
       - name: Работа с базами данных во время трансфера

@@ -416,7 +416,7 @@ Clusters with {{ CK }} support do not use {{ ZK }} hosts. For more information, 
         resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
           ...
           access {
-            datalens   = <access from DataLens: true or false>
+            data_lens  = <access from DataLens: true or false>
             metrika    = <access from Yandex.Metrica and AppMetrica: true or false>
             serverless = <access from Cloud Functions: true or false>
             web_sql    = <execution of SQL queries from management console: true or false>

@@ -18,6 +18,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/> A new name of the filesystem.|
 |`--description`|<b>`string`</b><br/> Specifies a textual description of the filesystem.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--size`|<b>`byteSize`</b><br/> A new size of the filesystem.|
 
 #### Global Flags
 

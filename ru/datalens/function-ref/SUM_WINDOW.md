@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/SUM_WINDOW.md
 
 # SUM (оконная)
 
-_Функция `SUM` также доступна как [агрегатная](SUM.md)._
+_Функция `SUM` также доступна в следующих категориях: [Агрегатные функции](SUM.md)._
 
 #### Синтаксис {#syntax}
 

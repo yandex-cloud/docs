@@ -1,4 +1,7 @@
-Сreate the file `SeriesItemOps01.java` with the data for uploading, for example, using the nano editor:
+---
+sourcePath: en/ydb/overlay/_includes/seriesdata.md
+---
+Create a file named `seriesdata.json` with the uploaded data, for example, in the nano editor:
 
 ```bash
 nano seriesdata.json

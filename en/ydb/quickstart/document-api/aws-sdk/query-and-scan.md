@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/query-and-scan.md
+---
 # Searching and extracting data
 
 To search for data in the table, use the `query` method that passes the primary key of the desired item. For a complex key, only the partition key is required and the sort key is optional.
@@ -114,7 +117,7 @@ To extract data using `query` from the `Series` table:
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesQuery01.java` file, for example, using the nano editor:
 
@@ -211,7 +214,7 @@ To extract data using `query` from the `Series` table:
       java -jar target/release/SeriesQuery01.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series with id 3
@@ -267,7 +270,7 @@ To extract data using `query` from the `Series` table:
       python SeriesQuery01.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series with id = 3
@@ -359,7 +362,7 @@ To extract data using `query` from the `Series` table:
       php SeriesQuery01.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series with id 3
@@ -426,7 +429,7 @@ To extract data using `query` from the `Series` table:
       node SeriesQuery01.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Searching for movies with partition key 3.
@@ -504,7 +507,7 @@ To extract data using `query` from the `Series` table:
       ruby SeriesQuery01.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Searching for movies with partition key '3' in table 'Series'...
@@ -619,7 +622,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesQuery02.java` file, for example, using the nano editor:
 
@@ -709,7 +712,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       java -jar target/release/SeriesQuery02.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series with id 3 and title starting with T:
@@ -766,7 +769,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       python SeriesQuery02.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series with id 3 and title starting with T
@@ -852,7 +855,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       php SeriesQuery02.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series with id 3 and title starting with T:
@@ -887,7 +890,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       
       var docClient = new AWS.DynamoDB.DocumentClient();
       
-      console.log("Series with id 3 and title starting with Т:");
+      console.log("Series with id 3 and title starting with T:");
       
       var params = {
           TableName : "Series",
@@ -921,7 +924,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       node SeriesQuery02.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series with id 3 and title starting with T:
@@ -983,7 +986,7 @@ To find a series with the partition key 3 and the title starting with a T in the
           }
         }
       
-        puts "Searching in table '#{table_name}' for series with id = '#{series_id}' and title starting with T"              
+        puts "Searching in table '#{table_name}' for series with id = '#{series_id}' and title starting with T"
       
         query_for_items_from_table(dynamodb_client, query_condition)
       end
@@ -997,7 +1000,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       ruby SeriesQuery02.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Searching in table 'Series' for series with id '3' and title starting with T
@@ -1111,7 +1114,7 @@ To extract data using `scan` from the `Series` table:
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesScan.java` file, for example, using the nano editor:
 
@@ -1194,7 +1197,7 @@ To extract data using `scan` from the `Series` table:
       java -jar target/release/SeriesScan.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       { Item: {title=House of Cards, series_id=3, info={release_date=2013-02-01T00:00:00Z}} }
@@ -1267,7 +1270,7 @@ To extract data using `scan` from the `Series` table:
       python SeriesScan.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Searching for series with id from 1 to 3...
@@ -1373,7 +1376,7 @@ To extract data using `scan` from the `Series` table:
       php SeriesScan.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Scanning the table Series.
@@ -1396,7 +1399,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) meaning.
 
       {% endnote %}
 
@@ -1454,7 +1457,7 @@ To extract data using `scan` from the `Series` table:
       node SeriesScan.js
       ```
 
-      Command output:
+      Execution result:
 
       ```text
       Scanning the table Series
@@ -1480,7 +1483,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) meaning.
 
       {% endnote %}
 
@@ -1551,7 +1554,7 @@ To extract data using `scan` from the `Series` table:
       ruby SeriesScan.rb
       ```
 
-      Execution output:
+      Output:
 
       ```text
       Searching for series in table 'Series' with id from 1 to 3...
@@ -1567,4 +1570,3 @@ To extract data using `scan` from the `Series` table:
       ```
 
 {% endlist %}
-

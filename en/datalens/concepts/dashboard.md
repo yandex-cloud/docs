@@ -3,7 +3,7 @@ title: Dashboards in Yandex DataLens
 description: 'Dashboard in Yandex DataLens — a page or a set of pages on which widgets are located. Allows you to collect charts in one place, add explanatory captions and titles to them. New dashboard pages can be created using the tab element. DataLens allows you to display your dashboard in full screen mode.'
 ---
 
-# Dashboards in Yandex DataLens
+# Yandex DataLens dashboard
 
 _Dashboards_ are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles.
 You can create new dashboard pages using the **tab** element.
@@ -31,7 +31,7 @@ Visualization as a table or chart.
 You can place charts anywhere on a dashboard and change their size.
 Charts can be linked to selectors.
 
-For more information about charts, see [{#T}](./chart/index.md).
+For more information about charts, see [{#T}](chart/index.md).
 
 ### Selector {#selector}
 
@@ -53,9 +53,11 @@ A widget represented as a heading. It lets you differentiate charts by meaning a
 
 Links determine how a selector affects one or more charts or other selectors. By default, selectors are linked with charts created within a single dataset. Selectors and charts based on different datasets can also be linked manually using [aliases](#alias).
 
-You can choose an existing dataset field as the link or create your own field where you manually set the selector values.
+You can choose an existing dataset field as the link or create your own field where you manually set the selector values. You can specify the fields to be associated through a link in the [alias](#alias) configuration window.
 
 You can use links to filter the values of selectors and charts. For example, if you select a country in the first selector on the dashboard, the second selector limits the list of cities (and vice versa).
+
+The field used by the selector to filter on must be included in the dataset used to construct a chart. Otherwise, the link will not work. For more information, see the section [{#T}](data-join.md).
 
 The link type determines how values in selectors and charts are filtered. The type is set in the links window in dashboard edit mode.
 You can use the following types of links for a pair of widgets:
@@ -96,11 +98,11 @@ You can specify an alias for a pair of linked widgets. In this case:
 * Multiple aliases can be set for a single pair of widgets.
 * An alias set for one pair of widgets is applied to all linked widgets that are based on the same datasets (which use the fields specified in the alias).
 * An alias works within a single dashboard tab.
-* To limit the use of an alias, set the **Ignore** type for a link between widgets.
+* To limit the use of aliases, set **Ignore** as your link type for the link between your widgets on the selected field. In this case, the widgets for the selected field will have no effect on the dashboard tab.
 
 For more information about how to create aliases, see [{#T}](../operations/dashboard/create-alias.md).
 
-You can delete links from an alias where more than two fields are linked. For more information, see [{#T}](../operations/dashboard/edit-alias.md).
+You can delete links from an alias where more than two fields are linked. Delete a field from the alias if its associated link between datasets or widgets is not required on a dashboard tab. For more information, see [{#T}](../operations/dashboard/edit-alias.md).
 
 ## Publishing dashboards {#public-access}
 

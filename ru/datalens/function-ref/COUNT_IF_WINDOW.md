@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/COUNT_IF_WINDOW.md
 
 # COUNT_IF (оконная)
 
-_Функция `COUNT_IF` также доступна как [агрегатная](COUNT_IF.md)._
+_Функция `COUNT_IF` также доступна в следующих категориях: [Агрегатные функции](COUNT_IF.md)._
 
 #### Синтаксис {#syntax}
 

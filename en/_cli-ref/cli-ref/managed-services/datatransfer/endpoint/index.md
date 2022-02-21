@@ -12,11 +12,17 @@ Syntax:
 
 - [yc datatransfer endpoint get](get.md) — Get endpoint
 - [yc datatransfer endpoint delete](delete.md) — Delete endpoint
+- [yc datatransfer endpoint list](list.md) — List endpoints in folder
 - [yc datatransfer endpoint create](create/index.md) — Create endpoint
 	- [yc datatransfer endpoint create postgres-source](create/postgres-source.md) — Create PostgreSQL source
 	- [yc datatransfer endpoint create postgres-target](create/postgres-target.md) — Create PostgreSQL target
 	- [yc datatransfer endpoint create mysql-source](create/mysql-source.md) — Create MySQL source
 	- [yc datatransfer endpoint create mysql-target](create/mysql-target.md) — Create MySQL target
+- [yc datatransfer endpoint update](update/index.md) — Update endpoint
+	- [yc datatransfer endpoint update postgres-source](update/postgres-source.md) — Update PostgreSQL source
+	- [yc datatransfer endpoint update postgres-target](update/postgres-target.md) — Update PostgreSQL target
+	- [yc datatransfer endpoint update mysql-source](update/mysql-source.md) — Update MySQL source
+	- [yc datatransfer endpoint update mysql-target](update/mysql-target.md) — Update MySQL target
 
 #### Global Flags
 

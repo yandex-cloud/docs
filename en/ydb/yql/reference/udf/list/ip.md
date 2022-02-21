@@ -1,30 +1,21 @@
-# Ip UDF
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/ip.md
+sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/ip.md
+---
+
+# Ip
 
 The `Ip`  module supports both the IPv4 and IPv6 addresses. By default, they are represented as binary strings of 4 and 16 bytes, respectively.
 
 **List of functions**
 
-* ```Ip::FromString(String{Flags:AutoMap}) -> String?```
-
-   From a human-readable representation to a binary representation.
-
-* ```Ip::ToString(String{Flags:AutoMap}) -> String?```
-
-   From a binary representation to a human-readable representation.
-
+* ```Ip::FromString(String{Flags:AutoMap}) -> String?``` - From a human-readable representation to a binary representation.
+* ```Ip::ToString(String{Flags:AutoMap}) -> String?``` - From a binary representation to a human-readable representation.
 * ```Ip::IsIPv4(String?) -> Bool```
-
 * ```Ip::IsIPv6(String?) -> Bool```
-
 * ```Ip::IsEmbeddedIPv4(String?) -> Bool```
-
-* ```Ip::ConvertToIPv6(String{Flags:AutoMap}) -> String```
-
-   IPv6 remains unchanged, and IPv4 becomes embedded in IPv6.
-
-* ```Ip::GetSubnet(String{Flags:AutoMap}, [Uint8?]) -> String```
-
-   The second argument is the subnet size, by default it's 24 for IPv4 and 64 for IPv6.
+* ```Ip::ConvertToIPv6(String{Flags:AutoMap}) -> String```: IPv6 remains unchanged, and IPv4 becomes embedded in IPv6
+* ```Ip::GetSubnet(String{Flags:AutoMap}, [Uint8?]) -> String```: The second argument is the subnet size, by default it's 24 for IPv4 and 64 for IPv6
 
 **Examples**
 

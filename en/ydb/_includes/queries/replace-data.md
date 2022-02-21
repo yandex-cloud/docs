@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/_includes/queries/replace-data.md
+---
 ```sql
 REPLACE INTO series (series_id, title, release_date, series_info)
 VALUES

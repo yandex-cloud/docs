@@ -40,11 +40,11 @@ description: 'Стоимость использования Tracker зависи
 
 > Например, в январе действовали тарифы:
 >
-> * для первых 100 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }} за пользователя в месяц;
+> * для первых 100 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|int|string }} за пользователя в месяц;
 >
-> * для следующих 150 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }} за пользователя в месяц;
+> * для следующих 150 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|int|string }} за пользователя в месяц;
 >
-> * для всех пользователей свыше 250 — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }} за пользователя в месяц.
+> * для всех пользователей свыше 250 — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|int|string }} за пользователя в месяц.
 >
 > Количество сотрудников, имеющих полный доступ к {{ tracker-name }}, в январе изменялось так:
 > 
@@ -60,7 +60,7 @@ description: 'Стоимость использования Tracker зависи
 >
 > > 
 > ```
-> 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}
+> 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|int|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|int|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|int|string }}
 > ```
 > 
 >

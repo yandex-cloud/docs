@@ -178,7 +178,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
 
 - Yandex.Cloud Toolkit
 
-  You can create a function and its version using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+  You can create a function and its version using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/ru-ru/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -315,7 +315,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
 
     - Yandex.Cloud Toolkit
 
-      You can create an API gateway using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+      You can create an API gateway using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/ru-ru/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
     {% endlist %}
 

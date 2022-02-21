@@ -1,6 +1,9 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/batchWriteItem.md
+---
 # BatchWriteItem method
 
-Writes or deletes table items.
+Writes items to or deletes them from tables.
 A single call can write up to 16 MB of data, including up to 25 put or delete requests. Each item can be up to 400 KB in size.
 
 `BatchWriteItem` can't update items. To do this, use the [UpdateItem](./updateItem) method.
@@ -10,7 +13,6 @@ The individual `PutItem` and `DeleteItem` operations used in `BatchWriteItem` ar
 If none of the items can be processed because there is not enough throughput, the method returns a `ProvisionedThroughputExceededException`. If at least one item is processed, the action is successful and the unprocessed items are returned in the `UnprocessedItems` parameter.
 
 The entire batch write operation can be rejected:
-
 - A table specified in the request doesn't exist.
 - Primary key attributes specified in the request don't match those in the table's primary key schema.
 - You try to perform multiple operations on the same item in the same request.
@@ -79,8 +81,8 @@ The request contains data in JSON format.
 
 | Parameter | Description |
 | ----- | ----- |
-| `RequestItems` | An associative array of tables and related requests to perform.<br/> Each item consists of a table name and a list of operations to perform (`DeleteRequest` or `PutRequest`).<ul> <li>`DeleteRequest`: Perform a `DeleteItem` operation on the specified item. The item to delete is identified by the `Key` parameter and nested element:<ul><li>`Key`: An associative array of primary key attribute values that uniquely identify the item. Each entry consists of an attribute name and attribute value.<br/>For each primary key, specify all the key attributes. For a simple primary key, you only need to specify its value. For a composite primary key, specify values for both the partition key and the sort key.</ul><li>`PutRequest`: Perform a `PutItem` operation on the specified item. The item to be put is identified by the `Item` parameter and nested element:<ul><li>`Item`: An associative array of attributes and their values. Each entry consists of an attribute name and attribute value. Attribute values must not be null. String and binary type attributes must have lengths greater than zero. Set type attributes must not be empty. Requests containing empty values are rejected with a `ValidationException` exception.<br/></ul>**Type**: Associative array of the `WriteRequest` type.<br/>**Number of entries**: Up to 25 items.<br/>**Key length**: 3-255 characters.<br/>**Pattern**: [a-zA-Z0-9_.-]+<br/>**Array size**: 1-25 items.<br/>**Required**: Yes |
-| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL`: Return.<li>`NONE`: Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
+| `RequestItems` | An associative array of tables and related requests to perform.<br/> Each item consists of a table name and a list of operations to perform (`DeleteRequest` or `PutRequest`).<ul> <li>`DeleteRequest`: Perform a `DeleteItem` operation on the specified item. The item to delete is identified by the `Key` parameter and nested element:<ul><li>`Key`: An associative array of primary key attributes that uniquely identify the item. Each entry consists of an attribute name and attribute value.<br/>For each primary key, specify all the key attributes. For a simple primary key, you only need to specify its value. For a composite primary key, specify values for both the partition key and the sort key.</ul><li>`PutRequest`: Perform a `PutItem` operation on the specified item. The item to be put is identified by the `Item` parameter and nested element:<ul><li>`Item`: An associative array of attributes and their values. Each entry consists of an attribute name and attribute value. Attribute values must not be null. String and binary type attributes must have lengths greater than zero. Set type attributes must not be empty. Requests containing empty values are rejected with a `ValidationException` exception.<br/></ul>**Type**: Associative array of the `WriteRequest` type.<br/>**Number of entries**: Up to 25 items.<br/>**Key length**: 3-255 characters.<br/>**Pattern**: [a-zA-Z0-9_.-]+<br/>**Array size**: 1-25 items.<br/>**Required**: Yes |
+| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL` — Return.<li>`NONE` — Do not return.</ul><br/>**Type**: Line<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No
 
 ## Response
 
@@ -169,7 +171,7 @@ The response is returned in JSON format.
 
 | Parameter | Description |
 | ----- | ----- |
-| `ConsumedCapacity` | Consumed capacity units.<br/>Returned only if the request passed the `ReturnConsumedCapacity` parameter set to `TOTAL`.<br/>Consists of:<ul><li>`TableName`: The table that consumed the provisioned throughput.<li>`CapacityUnits`: The total number of capacity units consumed.</ul><br/>**Type**: Array of `ConsumedCapacity objects` |
+| `ConsumedCapacity` | Consumed capacity units.<br/>Returned only if the `ReturnConsumedCapacity` parameter set to `TOTAL` is specified in the request.<br/>Consists of:<ul><li>`TableName`: Table that consumes the allocated bandwidth.<li>`CapacityUnits`: Total number of capacity units consumed.</ul><br/>**Type**: Array of objects of the `ConsumedCapacity` type. |
 | `UnprocessedItems` | An associative array of tables and related requests that were not processed. The values are in the same form as they were set in `RequestItems`. You can reuse these values in a subsequent request.<br/>If there are no unprocessed items left, the response contains an empty `UnprocessedItems`.<br/><br/>**Type**: Associative array of the `WriteRequest` type.<br/>**Number of entries**: Up to 25 items.<br/>**Key length**: 3-255 characters.<br/>**Pattern**: [a-zA-Z0-9_.-]+<br/>**Array size**: 1-25 items. |
 
 ## Errors
@@ -182,4 +184,3 @@ The response is returned in JSON format.
 | `ResourceNotFoundException` | The specified table doesn't exist.<br/><br/>**HTTP status code**: 400 |
 
 There may be [common errors](../common-errors) as well. These are errors that are common to all methods.
-

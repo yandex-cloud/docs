@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/create-table.md
+---
 # Creating a table
 
 To create a table named `Series` with the `series_id` partition key and the `title` sort key:
@@ -101,7 +104,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesCreateTable.java` file, for example, using the nano editor:
 
@@ -182,7 +185,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       java -jar target/release/SeriesCreateTable.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Attempting to create table, wait...
@@ -191,7 +194,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
 - Python
 
-  The code below uses the `print` function from Python 3. To use this function in Python 2.6 or higher, add the `from __future__ import print_function` line at the beginning of the file.
+  The code below uses the `print` function from Python 3. To use this function in Python 2.6 or older, add the `from __future__ import print_function` line at the beginning of the file.
 
   1. Create the `SeriesCreateTable.py` file, for example, using the nano editor:
 
@@ -250,7 +253,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       python SeriesCreateTable.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Table status: ACTIVE
@@ -332,7 +335,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       php SeriesCreateTable.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```txt
       Table status: ACTIVE
@@ -391,7 +394,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       node SeriesCreateTable.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Table created. JSON table schema: {
@@ -505,7 +508,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       ruby SeriesCreateTable.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Creating table 'Series'...

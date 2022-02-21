@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/MAX.md
 
 # MAX
 
-_Функция `MAX` также доступна как [оконная](MAX_WINDOW.md)._
+_Функция `MAX` также доступна в следующих категориях: [Оконные функции](MAX_WINDOW.md)._
 
 #### Синтаксис {#syntax}
 

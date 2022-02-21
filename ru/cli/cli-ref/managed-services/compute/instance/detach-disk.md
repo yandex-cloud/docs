@@ -3,7 +3,7 @@ sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/detach-disk.md
 ---
 # yc compute instance detach-disk
 
-Detach disk from the the specified virtual machine instance
+Detach disk from the specified virtual machine instance
 
 #### Command Usage
 

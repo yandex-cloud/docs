@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/MIN_WINDOW.md
 
 # MIN (оконная)
 
-_Функция `MIN` также доступна как [агрегатная](MIN.md)._
+_Функция `MIN` также доступна в следующих категориях: [Агрегатные функции](MIN.md)._
 
 #### Синтаксис {#syntax}
 

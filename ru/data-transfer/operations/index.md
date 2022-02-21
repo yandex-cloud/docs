@@ -6,8 +6,7 @@ title: "Как перенести базы данных между хранил�
 # Пошаговые инструкции для {{ data-transfer-name }}
 
 - [{#T}](prepare.md)
-- [{#T}](source-endpoint.md)
-- [{#T}](target-endpoint.md)
+- [{#T}](endpoint/index.md)
 - [{#T}](transfer.md)
 - [{#T}](db-actions.md)
 - [{#T}](monitoring.md)

@@ -21,7 +21,7 @@
 
 ## Про документацию
 
-Документация разработана с использованием [Yandex Flavored Markdown](https://github.com/yandex-cloud/yfm-docs). [Подробнее про синтаксис](guides/yfm-syntax-ru.md).
+Документация разработана с использованием синтаксиса [Yandex Flavored Markdown](https://ydocs.tech/ru/syntax/).
 
 ## Как предложить правки
 
@@ -31,7 +31,7 @@
 
 ## Как собрать документацию локально
 
-Перед тем так создавать pull request, удобно собрать документацию локально и посмотреть на нее вживую. Для этого используется инструмент [yfm-docs](https://github.com/yandex-cloud/yfm-docs).
+Перед тем так создавать pull request, удобно собрать документацию локально и посмотреть на нее вживую. Для этого используется инструмент [yfm-docs](https://ydocs.tech/ru/tools/docs/).
 
 1. Установите **yfm-docs**:
   

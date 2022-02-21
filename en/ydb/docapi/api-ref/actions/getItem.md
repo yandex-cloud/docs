@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/getItem.md
+---
 # GetItem method
 
 Returns a set of attributes for the item with the specified primary key.
@@ -49,7 +52,7 @@ The request contains data in JSON format.
 | `ConsistentRead` | Defines the read consistency model.<br/>If `true`, strongly consistent reads are used. If `false` (default), sequential reads are used.<br/><br/>**Type**: Boolean<br/>**Required**: No |
 | `ExpressionAttributeNames` | Placeholder that can be used in an expression instead of an attribute name. The placeholder must start with the hash character `#`.<br/> Possible use cases:<ul><li>If you need to specify an attribute whose name conflicts with the word reserved.<li>As a variable if the attribute name is used in an expression multiple times.<li>To prevent the misinterpretation of special characters in the attribute name.</ul>For example, the attribute name `Percentile` conflicts with the reserved word and you can't use it in the expression explicitly. To get around this problem, in the `ExpressionAttributeNames` parameter, specify the placeholder: `{"#P":"Percentile"}`. Then, instead of the real attribute name, use `#P`.<br/><br/>**Type**: String<br/>**Length**: 1 - 65535 characters.<br/>**Required**: No |
 | `ProjectionExpression` | Expression that defines attributes to retrieve. The attributes must be comma-separated.<br/>If the attribute names aren't specified explicitly, all item attributes are returned.<br/><br/>**Type**: String<br/>**Required**: No |
-| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL`: Return.<li>`NONE`: Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
+| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL` - Return.<li>`NONE` - Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
 
 ## Response
 
@@ -108,7 +111,7 @@ The response is returned in JSON format.
 
 | Parameter | Description |
 | ----- | ----- |
-| `ConsumedCapacity` | Units of capacity consumed by a delete operation.<br/>Returned only if the request passed the `ReturnConsumedCapacity` parameter set to `TOTAL`.<br/><br/>**Type**: Object type `ConsumedCapacity type` |
+| `ConsumedCapacity` | Capacity units consumed by a delete operation.<br/>Returned only if the `ReturnConsumedCapacity` parameter set to `TOTAL` is specified in the request.<br/><br/>**Type**: Object of the `ConsumedCapacity` type. |
 | `Item` | A set of attributes of the requested item.<br/><br/>**Type**: Associative array of the `AttributeValue` type.<br/>**Length**: 1 - 65535 characters |
 
 ## Errors
@@ -121,4 +124,3 @@ The response is returned in JSON format.
 | `ResourceNotFoundException` | The specified table doesn't exist.<br/><br/>**HTTP status code**: 400 |
 
 There may be [common errors](../common-errors) as well. These are errors that are common to all methods.
-

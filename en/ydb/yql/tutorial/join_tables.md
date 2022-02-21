@@ -1,8 +1,11 @@
-# Joining tables by JOIN
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/join_tables.md
+---
+# Joining tables with JOIN
 
 Merge the columns of the source tables `seasons` and `series`, then output all the seasons of the IT Crowd series to the resulting table using the [JOIN](../reference/syntax/join.md) operator.
 
-{% include [yql-reference-prerequisites](../../_includes/yql_tutorial_prerequisites.md) %}
+{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
 
 ```sql
 SELECT
@@ -21,8 +24,7 @@ ORDER BY                         -- Sorting of the results.
     sr.series_id,
     sa.season_id                 -- ORDER BY sorts the values by one column
 ;                                -- or multiple columns. 
-                                 --  Columns are separated by commas.
+                                 -- Columns are separated by commas.
 
 COMMIT;
 ```
-

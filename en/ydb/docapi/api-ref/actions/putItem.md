@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/putItem.md
+---
 # PutItem method
 
 Replaces an item in a table or creates a new one. If the item with the specified primary key already exists, the method replaces it with a new item. If there is no item, the method creates it.
@@ -65,11 +68,11 @@ The request contains data in JSON format.
 | ----- | ----- |
 | `Item` | An associative array of attributes of the key/value type.<br/>Only primary key attributes are required, but you can specify other attributes, too.<br/>For a primary key, specify all its key attributes. For a simple key, you only need to specify its value. For a composite primary key, specify the value of the partition key and the sort key.<br/>Values for string and binary attributes can be empty.<br/><br/>**Type**: Object of the `AttributeValue` type<br/>**Length**: 1 - 65535 characters<br/>**Required**: Yes |
 | `TableName` | Name of the table storing the item.</br>May contain a path in the directory hierarchy like path/to/table.<br/><br/>**Type**: String<br/>**Length**: 3 - 255 characters<br/>**Pattern**: [a-zA-Z0-9_.-]+<br/>**Required**: Yes |
-| `ConditionExpression` | Condition for replacing the item. The method is only triggered if the condition is met.<br/>The condition consists of:<ul><li>Functions: `attribute_exists` \| `attribute_not_exists` \| `attribute_type` \| `contains` \| `begins_with` \| `size`. Names of the following are case-sensitive.<li>Comparison operator: `=` \| `<>` \| `<` \| `>` \| `<=` \| `>=` \| `BETWEEN` \| `IN`.<li>Logical operator: `AND` \| `OR` \| `NOT`.</ul><br/>**Type**: String<br/>**Required**: No |
+| `ConditionExpression` | Condition for replacing the item. The method will trigger only if the condition is met.<br/>The condition consists of:<ul><li>A function: `attribute_exists` \| `attribute_not_exists` \| `attribute_type` \| `contains` \| `begins_with` \| `size`. Names are case-sensitive.<li>A comparison operator: `=` \| `<>` \| `<` \| `>` \| `<=` \| `>=` \| `BETWEEN` \| `IN`.<li>A logical operator: `AND` \| `OR` \| `NOT`.</ul><br/>**Type**: String<br/>**Required**: No |
 | `ExpressionAttributeNames` | Placeholder that can be used in an expression instead of an attribute name. The placeholder must start with the hash character `#`.<br/> Possible use cases:<ul><li>If you need to specify an attribute whose name conflicts with the word reserved.<li>As a variable if the attribute name is used in an expression multiple times.<li>To prevent the misinterpretation of special characters in the attribute name.</ul>For example, the attribute name `Percentile` conflicts with the reserved word and you can't use it in the expression explicitly. To get around this problem, in the `ExpressionAttributeNames` parameter, specify the placeholder: `{"#P":"Percentile"}`. Then, instead of the real attribute name, use `#P`.<br/><br/>**Type**: String<br/>**Length**: 1 - 65535 characters.<br/>**Required**: No |
 | `ExpressionAttributeValues` | Placeholder that can be used in an expression instead of an attribute value, similar to `ExpressionAttributeNames`. The placeholder must start with a colon `:`.<br/>For example, you need to check whether the value of the `ProductStatus` attribute was one of the following: `Available` \| `Backordered` \| `Discontinued`. To do this, first declare placeholders: `{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }`. After that, you can use them in the expression: `ProductStatus IN (:avail, :back, :disc)`<br/><br/>**Type**: String of the `AttributeValue` type<br/>**Required**: No |
-| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL`: Return.<li>`NONE`: Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
-| `ReturnValues` | Used if you need to get the attributes of an item before its update.<br/>Possible values:<ul><li>`NONE` (default): Do not return item attributes <li>`ALL_OLD`: Return all attributes as they were before the item update</ul><br/>**Type**: String<br/>**Possible values**: `NONE` \| `ALL_OLD`<br/>**Required**: No |
+| `ReturnConsumedCapacity` | Indicates whether to return information about the consumed capacity.<ul><li>`TOTAL` - Return.<li>`NONE` - Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
+| `ReturnValues` | Use it if you need to get the attributes of an item before its update.<br/>Possible values:<ul><li>`NONE` (default): Do not return item attributes <li>`ALL_OLD`: Return all attributes as they were before the item update</ul><br/>**Type**: String<br/>**Possible values**: `NONE` \| `ALL_OLD`<br/>** Required**: No |
 
 ## Response
 
@@ -129,7 +132,7 @@ The response is returned in JSON format.
 | Parameter | Description |
 | ----- | ----- |
 | `Attributes` | An associative array of the `AttributeValue` type containing attribute values before their update.<br/>Returned only if the request passed the `ReturnValues` parameter set to `ALL_OLD`.<br/><br/>**Type**: Associative array of the `AttributeValue` type<br/>**Length**: 1 - 65535 characters. |
-| `ConsumedCapacity` | Units of capacity consumed by a delete operation.<br/>Returned only if the request passed the `ReturnConsumedCapacity` parameter set to `TOTAL`.<br/><br/>**Type**: Object type `ConsumedCapacity type` |
+| `ConsumedCapacity` | Capacity units consumed by a delete operation.<br/>Returned only if the `ReturnConsumedCapacity` parameter set to `TOTAL` is specified in the request.<br/><br/>**Type**: Object of the `ConsumedCapacity` type. |
 
 ## Errors
 
@@ -144,4 +147,3 @@ The response is returned in JSON format.
 | `TransactionConflictException` | The operation is rejected as a different transaction is in progress for the item.<br/><br/>**HTTP status code**: 400 |
 
 There may be [common errors](../common-errors) as well. These are errors that are common to all methods.
-

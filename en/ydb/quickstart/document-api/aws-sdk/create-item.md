@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/create-item.md
+---
 # Adding a record
 
 To add a new record to the `Series` table:
@@ -101,7 +104,7 @@ To add a new record to the `Series` table:
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesItemOps01.java` file, for example, using the nano editor:
 
@@ -183,7 +186,7 @@ To add a new record to the `Series` table:
       java -jar target/release/SeriesItemOps01.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Adding new record...
@@ -203,7 +206,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) meaning.
 
       {% endnote %}
 
@@ -242,7 +245,7 @@ To add a new record to the `Series` table:
       python SeriesItemOps01.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series added:
@@ -332,7 +335,7 @@ To add a new record to the `Series` table:
       php SeriesItemOps01.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series added: 3 - Supernatural
@@ -350,7 +353,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) meaning.
 
       {% endnote %}
 
@@ -381,13 +384,13 @@ To add a new record to the `Series` table:
           }
       };
       
-      console.log("Adding new record...");
+      console.log ("Adding new record...");
       docClient.put(params, function(err, data) {
           if (err) {
               console.error("Couldn't add record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
-              console.log("Series added:", JSON.stringify(data, null, 2));
+              console.log ("Series added:", JSON.stringify(data, null, 2));
           }
       });
       ```
@@ -400,7 +403,7 @@ To add a new record to the `Series` table:
       node SeriesItemOps01.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```bash
       Adding new record...
@@ -419,7 +422,7 @@ To add a new record to the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) meaning.
 
       {% endnote %}
 
@@ -463,7 +466,7 @@ To add a new record to the `Series` table:
         }
       
         puts "Uploading series '#{item[:title]} (#{item[:series_id]})' " \
-          "to the table '#{table_name}'..."
+          "to table '#{table_name}'..."
         add_item_to_table(dynamodb_client, table_item)
       end
       
@@ -476,7 +479,7 @@ To add a new record to the `Series` table:
       ruby SeriesItemOps01.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Uploading series 'Supernatural (3)' to the table 'Series'...

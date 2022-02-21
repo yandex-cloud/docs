@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/delete-table.md
+---
 # Deleting a table
 
 To delete the `Series` table:
@@ -101,7 +104,7 @@ To delete the `Series` table:
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesDeleteTable.java` file, for example, using the nano editor:
 
@@ -168,7 +171,7 @@ To delete the `Series` table:
       java -jar target/release/SeriesDeleteTable.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Attempting to delete table, wait...
@@ -211,7 +214,7 @@ To delete the `Series` table:
       python SeriesDeleteTable.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Table Series deleted.
@@ -272,7 +275,7 @@ To delete the `Series` table:
       php SeriesDeleteTable.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```txt
       Table deleted.
@@ -313,7 +316,7 @@ To delete the `Series` table:
               console.error("Couldn't delete table. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
-              console.log("Table deleted. Description of JSON table:", JSON.stringify(data, null, 2));
+              console.log ("Table deleted. Description of JSON table:", JSON.stringify(data, null, 2));
           }
       });
       ```
@@ -324,7 +327,7 @@ To delete the `Series` table:
       node SeriesDeleteTable.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Table deleted. Description of JSON table: {
@@ -414,7 +417,7 @@ To delete the `Series` table:
      ruby SeriesDeleteTable.rb
      ```
 
-     Execution output:
+     Execution result:
 
      ```text
      Deleting table 'Series'...

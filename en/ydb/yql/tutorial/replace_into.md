@@ -1,8 +1,11 @@
-# Data insert and update by REPLACE
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/replace_into.md
+---
+# Inserting and updating data with REPLACE
 
-Add data to the table using [REPLACE INTO](../reference/syntax/replace_into.md):
+Add data to the table using [REPLACE INTO](../reference/syntax/replace_into.md).
 
-{% include [yql-reference-prerequisites](../../_includes/yql_tutorial_prerequisites.md) %}
+{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
 
 ```sql
 REPLACE INTO episodes
@@ -27,9 +30,8 @@ VALUES
 -- can see the changes made by the previous transaction.
 COMMIT;
 
--- See result:
+-- View result:
 SELECT * FROM episodes WHERE series_id = 2 AND season_id = 5;
 
 COMMIT;
 ```
-

@@ -27,6 +27,7 @@ default:
   link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
   link-balance-invoices: https://balance.yandex.ru/invoices.xml
+  link-ya-360: https://admin.yandex.ru
   link-org-add-federation: https://cloud.yandex.ru/docs/organization/add-federation
   support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.ru/support/connect/add-domain.html

@@ -1,8 +1,11 @@
-# Data insert by INSERT
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/insert_into.md
+---
+# Inserting data with INSERT
 
-Add data to the table using [INSERT INTO](../reference/syntax/insert_into.md):
+Add data to the table using [INSERT INTO](../reference/syntax/insert_into.md).
 
-{% include [yql-reference-prerequisites](../../_includes/yql_tutorial_prerequisites.md) %}
+{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
 
 ```sql
 INSERT INTO episodes
@@ -32,9 +35,8 @@ VALUES
 
 COMMIT;
 
--- See result:
+-- View result:
 SELECT * FROM episodes WHERE series_id = 2 AND season_id = 5;
 
 COMMIT;
 ```
-

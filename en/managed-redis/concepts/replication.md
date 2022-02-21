@@ -14,7 +14,9 @@ For more information about how replication works in {{ RD }}, see the [DBMS docu
 
 ## Fault tolerance {#availability}
 
-High availability of cluster data is provided using Redis Sentinel: in a cluster consisting of three or more three hosts, Sentinel services automatically manage the selection of the master and the configuration of replicas.
+A master host can be changed both automatically as a result of a failure and [manually](../operations/failover.md). Manual master switching is available both for a [sharded cluster](./sharding.md#failover) and an unsharded one.
+
+High data availability in an unsharded cluster is implemented using Redis Sentinel: in a cluster consisting of three or more hosts, Sentinel services automatically manage master selection and replica configurations.
 
 In order to make decisions about cluster performance, the majority of Sentinel services need to be healthy. As a result, it's more cost-efficient to deploy clusters with an odd number of hosts when working with {{ mrd-name }}. For example, a cluster with three hosts can lose one host and continue working, while a cluster with four hosts can also lose no more than one host: if a second host is lost, the remaining Sentinel instances will not be enough to select a new master.
 
@@ -24,7 +26,7 @@ Owners of {{ mrd-name }} clusters can't configure Sentinel services, but they ca
 
 ## Redis persistence settings {#persistence-settings}
 
-{{ mrd-name }} clusters use the preset persistence settings that you cannot change:
+{{ mrd-name }} clusters use fault tolerance (persistence) presets:
 
 * **save ""**{#setting-save-rdb}
 
@@ -33,6 +35,14 @@ Owners of {{ mrd-name }} clusters can't configure Sentinel services, but they ca
 * **appendonly yes**{#setting-appendonly}
 
   AOF (Append Only File) mode is enabled. In this mode, Redis logs every write operation without changing already written data.
+
+  The AOF mode ensures data integrity in the event of cluster or Redis process emergency shutdown. Its use creates additional load on the hard drive, so you can disable this setting to save resources.
+
+  {% note warning %}
+
+  Disable AOF only if data integrity is unimportant for your application, for example, when using {{ mrd-name }} as your cache. If this is the case, the most recent data captured in Redis will only be stored in RAM and will be lost if a server crashes.
+
+  {% endnote %}
 
 * **no-appendfsync-on-rewrite yes**{#setting-no-appendfsync}
 

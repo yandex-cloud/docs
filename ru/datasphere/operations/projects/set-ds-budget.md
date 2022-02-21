@@ -40,7 +40,7 @@
   Удалить все ограничения каталога:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>>" \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
       -d '{"folder_id": "<folder_id>"}' \ 
       datasphere.api.cloud.yandex.net:443 \ 
       yandex.cloud.datasphere.v1.FolderBudgetService/Set

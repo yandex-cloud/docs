@@ -6,7 +6,7 @@ sourcePath: en/_api-ref/datalens/function-ref/AVG_IF_WINDOW.md
 
 # AVG_IF (window)
 
-_Function `AVG_IF` is also available as an [aggregate function](AVG_IF.md)._
+_Function `AVG_IF` is also found in the following categories: [Aggregate functions](AVG_IF.md)._
 
 #### Syntax {#syntax}
 

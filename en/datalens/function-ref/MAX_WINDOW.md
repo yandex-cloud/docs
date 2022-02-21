@@ -6,7 +6,7 @@ sourcePath: en/_api-ref/datalens/function-ref/MAX_WINDOW.md
 
 # MAX (window)
 
-_Function `MAX` is also available as an [aggregate function](MAX.md)._
+_Function `MAX` is also found in the following categories: [Aggregate functions](MAX.md)._
 
 #### Syntax {#syntax}
 

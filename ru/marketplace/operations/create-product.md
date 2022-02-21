@@ -1,13 +1,9 @@
-# Создание продукта в кабинете партнера Marketplace
+# Создание продукта в кабинете партнера {{ marketplace-short-name }}
 
-Чтобы добавить продукт в Marketplace, нужно загрузить образ на базе ОС [Linux](create-image.md#create) или [Windows Server](create-image-ms.md) в {{ yandex-cloud }}.
+Вы можете добавить в {{ marketplace-short-name }} разные типы продуктов:
+  * продукты для {{ compute-full-name }} — загрузите образ на базе ОС [Linux](create-image.md#create) или [Windows Server](create-image-ms.md) в {{ yandex-cloud }};
+  * продукты для {{ managed-k8s-full-name }} — загрузите helm chart и все входящие в него docker-образы в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Подробнее см. [{#T}](create-container.md).
 
-## Рассказать о продукте {#tell-about}
+## Создать заявку на утверждение продукта {#create-prod}
 
-{% include [product](../../_includes/marketplace/product.md) %}
-
-## Создать первую версию продукта {#first-version}
-
-{% include [product-version](../../_includes/marketplace/product-version.md) %}
-
-Первая версия продукта отправится на модерацию в {{ yandex-cloud }}. После проверки вы получите письмо с подтверждением того, что ваш продукт доступен пользователям в публичном каталоге Marketplace.
+{% include [product](../../_includes/marketplace/product-new.md) %}

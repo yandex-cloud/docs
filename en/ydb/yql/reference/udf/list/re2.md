@@ -1,4 +1,9 @@
-# Re2 UDF
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/re2.md
+sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/re2.md
+---
+
+# Re2
 
 **List of functions**
 
@@ -10,11 +15,11 @@
 * ```Re2::Count(String) -> (String?) -> Uint32```
 * ```Re2::Options([CaseSensitive:Bool?,DotNl:Bool?,Literal:Bool?,LogErrors:Bool?,LongestMatch:Bool?,MaxMem:Uint64?,NeverCapture:Bool?,NeverNl:Bool?,OneLine:Bool?,PerlClasses:Bool?,PosixSyntax:Bool?,Utf8:Bool?,WordBoundary:Bool?]) -> Struct<CaseSensitive:Bool,DotNl:Bool,Literal:Bool,LogErrors:Bool,LongestMatch:Bool,MaxMem:Uint64,NeverCapture:Bool,NeverNl:Bool,OneLine:Bool,PerlClasses:Bool,PosixSyntax:Bool,Utf8:Bool,WordBoundary:Bool>```
 
-As Pire has certain limitations needed to ensure efficient string matching against regular expressions, it might be too complex or even impossible to use [Pire UDF](pire.md) for some tasks. For such situations, we added another module to support regular expressions based on [google::RE2](https://github.com/google/re2). It offers a broader range of features ([see the official documentation](https://github.com/google/re2/wiki/Syntax)).
+As Pire has certain limitations needed to ensure efficient string matching against regular expressions, it might be too complex or even impossible to use [Pire](pire.md) for some tasks. For such situations, we added another module to support regular expressions based on [google::RE2](https://github.com/google/re2). It offers a broader range of features ([see the official documentation](https://github.com/google/re2/wiki/Syntax)).
 
 By default, the UTF-8 mode is enabled automatically if the regular expression is a valid UTF-8-encoded string, but is not a valid ASCII string. You can manually control the settings of the re2 library, if you pass the result of the `Re2::Options` function as the second argument to other module functions, next to the regular expression.
 
-{% note alert %}
+{% note warning %}
 
 Make sure to double all the backslashes in your regular expressions (if they are within a quoted string): standard string literals are treated as C-escaped strings in SQL. You can also format regular expressions as raw strings `@@regexp@@`: double slashes are not needed in this case.
 
@@ -56,6 +61,7 @@ If you leave out the details of implementation and syntax of regular expressions
 ## Re2::Capture {#capture}
 
 Unlike [Pire::Capture](pire.md#capture) ,  `Re2:Capture` supports multiple and named capturing groups.
+
 Result type: a structure with the fields of the type `String?`.
 
 * Each field corresponds to a capturing group with the applicable name.

@@ -20,6 +20,10 @@ Syntax:
 |`--description`|<b>`string`</b><br/> Api-gateway description.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--spec`|<b>`string`</b><br/> Api-gateway specification file name.|
+|`--network-name`|<b>`string`</b><br/> Api-gateway network name.|
+|`--network-id`|<b>`string`</b><br/> Api-gateway network id.|
+|`--subnet-name`|<b>`value[,value]`</b><br/> Api-gateway subnet names.|
+|`--subnet-id`|<b>`value[,value]`</b><br/> Api-gateway subnet ids.|
 
 #### Global Flags
 

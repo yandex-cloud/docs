@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/SUM_IF_WINDOW.md
 
 # SUM_IF (оконная)
 
-_Функция `SUM_IF` также доступна как [агрегатная](SUM_IF.md)._
+_Функция `SUM_IF` также доступна в следующих категориях: [Агрегатные функции](SUM_IF.md)._
 
 #### Синтаксис {#syntax}
 

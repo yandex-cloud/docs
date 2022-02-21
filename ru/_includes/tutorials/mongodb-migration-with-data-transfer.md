@@ -10,19 +10,19 @@
 
 1. [Подготовьте базы данных кластера-источника](../../data-transfer/operations/prepare.md#source-mg).
 1. [Подготовьте базы данных кластера-приемника с учетом шардирования коллекций, если необходимо](../../data-transfer/operations/prepare.md#target-mg).
-1. [Создайте эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#create):
+1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **Тип базы данных** — `{{ MG }}`.
     * **Настройки подключения** — `Пользовательская инсталляция`.
 
         Укажите параметры подключения к кластеру-источнику.
 
-1. [Создайте эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#create):
+1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
     * **Тип базы данных** — `{{ MG }}`.
     * **Настройки подключения** — `Кластер MDB`.
 
-        Укажите идентификатор кластера-приемника и [другие настройки](../../data-transfer/operations/target-endpoint.md#settings-mongodb).
+        Укажите идентификатор кластера-приемника и [другие настройки](../../data-transfer/operations/endpoint/target/mongodb.md).
 
 1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
 1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
@@ -109,7 +109,7 @@
 
 - Нешардированный кластер-приемник
 
-  1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/source-endpoint.md#create):
+  1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
       * **Тип базы данных** — `{{ MG }}`.
       * **Настройки подключения** — `Пользовательская инсталляция`.
         * **Сертификат CA** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
@@ -118,7 +118,7 @@
         * **Источник аутентификации** — `db1`.
         * **Имя пользователя** — `user1`.
         * **Пароль** — укажите пароль пользователя `user1`.
-  1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/target-endpoint.md#create):
+  1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/endpoint/index.md#create):
       * **Тип базы данных** — `{{ MG }}`.
       * **Настройки подключения** — `Кластер MDB`.
         * Укажите идентификатор кластера-приемника.
@@ -132,7 +132,7 @@
 
 - Шардированный кластер-приемник
 
-  1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/source-endpoint.md#create):
+  1. [Создайте эндпоинт для кластера-источника](../../data-transfer/operations/endpoint/index.md#create):
       * **Тип базы данных** — `{{ MG }}`.
       * **Настройки подключения** — `Пользовательская инсталляция`.
         * **Сертификат CA** — загрузите файл сертификата, если при подключении к кластеру-источнику требуется шифрование.
@@ -141,7 +141,7 @@
         * **Источник аутентификации** — `db1`.
         * **Имя пользователя** — `user1`.
         * **Пароль** — укажите пароль пользователя `user1`.
-  1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/target-endpoint.md#create):
+  1. [Создайте эндпоинт для кластера-приемника](../../data-transfer/operations/endpoint/index.md#create):
       * **Тип базы данных** — `{{ MG }}`.
       * **Настройки подключения** — `Кластер MDB`.
          * Укажите идентификатор кластера-приемника.
@@ -232,6 +232,5 @@
     Подробнее о жизненном цикле трансфера читайте в [документации {{ data-transfer-full-name }}](../../data-transfer/concepts/transfer-lifecycle.md).
 
 1. [Удалите](../../data-transfer/operations/transfer.md#delete) остановленный трансфер.
-1. [Удалите эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#delete).
-1. [Удалите эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#delete).
+1. [Удалите эндпоинты для источника и приемника](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Удалите созданный кластер {{ mmg-name }}](../../managed-mongodb/operations/cluster-delete.md).

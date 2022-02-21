@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/create_demo_tables.md
+---
 # Creating a table
 
 Create the tables and set the data schema for them using the statement [CREATE TABLE](../reference/syntax/create_table.md).
@@ -9,13 +12,13 @@ Keywords are case-insensitive and written in capital letters for clarity only.
 {% endnote %}
 
 ```sql
- CREATE TABLE series -- series is the table name.
+ CREATE TABLE series        -- series is the table name.
 (                           -- Must be unique within the folder.
     series_id Uint64,
     title Utf8,
     series_info Utf8,
     release_date Uint64,
-    PRIMARY KEY (series_id)  -- The primary key is a column or
+    PRIMARY KEY (series_id) -- The primary key is a column or
                             -- combination of columns that uniquely identifies
                             -- each table row (contains only
                             -- non-repeating values). A table can have
@@ -45,4 +48,3 @@ CREATE TABLE episodes
 
 COMMIT;
 ```
-

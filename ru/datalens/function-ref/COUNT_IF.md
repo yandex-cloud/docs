@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/COUNT_IF.md
 
 # COUNT_IF
 
-_Функция `COUNT_IF` также доступна как [оконная](COUNT_IF_WINDOW.md)._
+_Функция `COUNT_IF` также доступна в следующих категориях: [Оконные функции](COUNT_IF_WINDOW.md)._
 
 #### Синтаксис {#syntax}
 

@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/read-item.md
+---
 # Reading a record
 
 To read a record from the `Series` table:
@@ -230,7 +233,7 @@ To read a record from the `Series` table:
       python SeriesItemOps02.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Record obtained:
@@ -313,7 +316,7 @@ To read a record from the `Series` table:
       php SeriesItemOps02.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       {
@@ -393,7 +396,7 @@ To read a record from the `Series` table:
       node SeriesItemOps02.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Record read successfully: {
@@ -474,7 +477,7 @@ To read a record from the `Series` table:
       ruby SeriesItemOps02.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Getting information about 'Supernatural (3)' from table 'Series'...

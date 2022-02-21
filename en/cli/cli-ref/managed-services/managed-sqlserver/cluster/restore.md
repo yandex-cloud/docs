@@ -32,7 +32,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the SQLServer cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/> A list of host groups to place VMs of cluster on.|
-|`--confirm-payment`| Confirm immediate payment for cluster creation/restoring|
+|`--confirm-payment`| Confirm immediate payment for cluster creation/modification/restoring|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/AVG_IF.md
 
 # AVG_IF
 
-_Функция `AVG_IF` также доступна как [оконная](AVG_IF_WINDOW.md)._
+_Функция `AVG_IF` также доступна в следующих категориях: [Оконные функции](AVG_IF_WINDOW.md)._
 
 #### Синтаксис {#syntax}
 
