@@ -1,1 +1,1 @@
-{% include [data-from-statface-visualization](../../_includes/tutorials/data-from-statface-visualization.md) %}
+{% include [data-from-statface-visualization](../../_includes/tutorials/datalens/data-from-statface-visualization.md) %}
