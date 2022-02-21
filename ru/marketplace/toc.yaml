@@ -1,49 +1,51 @@
-title: Обзор кабинета партнера Yandex Cloud Marketplace
+title: "Партнёрам Yandex Cloud Marketplace"
 href: index.md
 items:
   - name: Пошаговые инструкции
     items:
-      - name: Все инструкции
-        href: operations/index.md
       - name: Регистрация
         href: operations/registration.md
+      - name: Создание продукта в кабинете партнера
+        href: operations/create-product.md
       - name: Создание тарифа
         href: operations/create-tariff.md
-      - name: Требования к образу на базе Linux
-        href: operations/create-image.md
-      - name: Требования к образу на базе Windows
-        href: operations/create-image-ms.md
-      - name: Требования к продуктам для Managed Service for Kubernetes
-        href: operations/create-container.md
-      - name: Создание продукта в кабинете партнера Marketplace
-        href: operations/create-product.md
-      - name: Изменение продукта
-        href: operations/change-product.md
-      - name: Добавление новой версии продукта
+      - name: Создание новой версии продукта
         href: operations/create-new-version.md
+      - name: Изменение версии продукта
+        href: operations/update-version.md
   - name: Концепции
     items:
       - name: Продукт
         href: concepts/product.md
+      - name: Версия
+        href: concepts/version.md
       - name: Тариф
         href: concepts/tariff.md
+      - name: Требования к продуктам Marketplace
+        expanded: true
+        items:
+        - name: Создание образа продукта на базе Linux
+          href: operations/create-image.md
+        - name: Создание образа продукта на базе Windows Server
+          href: operations/create-image-ms.md
+        - name: Создание продукта для {{ managed-k8s-name }}
+          href: operations/create-container.md
       - name: Тарификация продуктов на основе метрик издателя
-        href: metering/api-usage.md
+        href: concepts/api-usage.md
   - name: Справочник API
     items:
-      - name: REST
-        items:
+    - name: REST
+      items:
         - name: Обзор
-          href: metering/api-ref/index.md
+          href: api-ref/index.md
         - name: ImageProductUsage
           items:
             - name: Описание
-              href: metering/api-ref/ImageProductUsage/index.md
+              href: api-ref/ImageProductUsage/index.md
             - name: write
-              href: metering/api-ref/ImageProductUsage/write.md
-      - name: gRPC (англ.)
-        items: null
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/marketplace/metering-api/toc.yaml
-base: ru/marketplace
+              href: api-ref/ImageProductUsage/write.md
+    - name: gRPC (англ.)
+      items: null
+      include:
+        repo: docs
+        path: en/_api-ref-grpc/marketplace/metering-api/toc.yaml
