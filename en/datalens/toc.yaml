@@ -55,6 +55,8 @@ items:
             href: concepts/chart/settings.md
       - name: Dashboards
         href: concepts/dashboard.md
+      - name: Combining data
+        href: concepts/data-join.md
       - name: Using Markdown in DataLens
         href: concepts/markdown.md
       - name: DataLens Public
@@ -155,6 +157,8 @@ items:
             href: operations/chart/create-tree-chart.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
+          - name: Creating a multi-dataset chart
+            href: operations/chart/create-multidataset-chart.md
           - name: Adding a hierarchy
             href: operations/chart/add-hierarchy.md
           - name: Configuring the navigator
