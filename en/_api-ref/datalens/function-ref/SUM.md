@@ -4,7 +4,7 @@ editable: false
 
 # SUM
 
-_Function `SUM` is also available as a [window function](SUM_WINDOW.md)._
+_Function `SUM` is also found in the following categories: [Window functions](SUM_WINDOW.md)._
 
 #### Syntax {#syntax}
 

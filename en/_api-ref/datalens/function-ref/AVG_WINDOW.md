@@ -4,7 +4,7 @@ editable: false
 
 # AVG (window)
 
-_Function `AVG` is also available as an [aggregate function](AVG.md)._
+_Function `AVG` is also found in the following categories: [Aggregate functions](AVG.md)._
 
 #### Syntax {#syntax}
 

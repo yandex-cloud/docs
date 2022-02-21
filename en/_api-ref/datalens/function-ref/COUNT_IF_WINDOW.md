@@ -4,7 +4,7 @@ editable: false
 
 # COUNT_IF (window)
 
-_Function `COUNT_IF` is also available as an [aggregate function](COUNT_IF.md)._
+_Function `COUNT_IF` is also found in the following categories: [Aggregate functions](COUNT_IF.md)._
 
 #### Syntax {#syntax}
 

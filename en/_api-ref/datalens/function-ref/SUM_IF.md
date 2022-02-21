@@ -4,7 +4,7 @@ editable: false
 
 # SUM_IF
 
-_Function `SUM_IF` is also available as a [window function](SUM_IF_WINDOW.md)._
+_Function `SUM_IF` is also found in the following categories: [Window functions](SUM_IF_WINDOW.md)._
 
 #### Syntax {#syntax}
 

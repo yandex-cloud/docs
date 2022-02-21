@@ -4,7 +4,7 @@ editable: false
 
 # MIN
 
-_Function `MIN` is also available as a [window function](MIN_WINDOW.md)._
+_Function `MIN` is also found in the following categories: [Window functions](MIN_WINDOW.md)._
 
 #### Syntax {#syntax}
 

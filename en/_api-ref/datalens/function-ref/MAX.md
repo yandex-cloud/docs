@@ -4,7 +4,7 @@ editable: false
 
 # MAX
 
-_Function `MAX` is also available as a [window function](MAX_WINDOW.md)._
+_Function `MAX` is also found in the following categories: [Window functions](MAX_WINDOW.md)._
 
 #### Syntax {#syntax}
 

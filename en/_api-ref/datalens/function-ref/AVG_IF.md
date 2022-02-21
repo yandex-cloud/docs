@@ -4,7 +4,7 @@ editable: false
 
 # AVG_IF
 
-_Function `AVG_IF` is also available as a [window function](AVG_IF_WINDOW.md)._
+_Function `AVG_IF` is also found in the following categories: [Window functions](AVG_IF_WINDOW.md)._
 
 #### Syntax {#syntax}
 
