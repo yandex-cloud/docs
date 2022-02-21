@@ -21,12 +21,12 @@
 
 {% note tip %}
 
-В {{ wiki-name }} предусмотрен механизм изменения адреса страницы. Вместо того чтобы удалять и создавать страницу заново в другом разделе, вы можете [перенести](page-managment/move-page.md) ее.
+В {{ wiki-name }} предусмотрен механизм изменения адреса страницы. Вместо того чтобы удалять и создавать страницу заново в другом разделе, вы можете [перенести](page-management/move-page.md) ее.
 
 {% endnote %}
 
 #### См. также
 
-- [{#T}](page-managment/move-page.md)
+- [{#T}](page-management/move-page.md)
 
-- [{#T}](page-managment/edit-owner.md)
+- [{#T}](page-management/edit-owner.md)

@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/listTables.md
+---
 # ListTables method
 
 Returns a list of tables.
@@ -48,4 +51,3 @@ The response is returned in JSON format.
 | `InternalServerError` | An internal error occurred on the server side.<br/><br/>**HTTP status code**: 500<br/> |
 
 There may be [common errors](../common-errors) as well. These are errors that are common to all methods.
-

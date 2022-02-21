@@ -19,6 +19,10 @@ Syntax:
 |`--description`|<b>`string`</b><br/> New api-gateway description.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New list of label KEY=VALUE pairs to replace existing list.|
 |`--spec`|<b>`string`</b><br/> New api-gateway specification file name.|
+|`--network-name`|<b>`string`</b><br/> New api-gateway network name.|
+|`--network-id`|<b>`string`</b><br/> New api-gateway network id.|
+|`--subnet-name`|<b>`value[,value]`</b><br/> New api-gateway subnet names.|
+|`--subnet-id`|<b>`value[,value]`</b><br/> New api-gateway subnet ids.|
 
 #### Global Flags
 

@@ -6,11 +6,11 @@
 
 {% list tabs %}
 
-* Managed Service for Apache Kafka®
+* {{ mkf-name }}
 
     [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топик-источник.
 
-* Apache Kafka®
+* {{ KF }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -50,14 +50,14 @@
 
 * {{ mmg-name }}
 
-    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10000 транзакций на запись в секунду, создайте несколько эндпойнтов и трансферов. Подробнее см. в разделе [Подготовка источника {{ MG }}](../../data-transfer/operations/source-endpoint.md#settings-mongodb).
+    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
     1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
 
 * {{ MG }}
 
-    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ MG }}. Если нагрузка на базы выше 10000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
 
-    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ MG }}. Если нагрузка на базы выше 10000 транзакций на запись в секунду, создайте несколько эндпойнтов и трансферов. Подробнее см. в разделе [Подготовка источника {{ MG }}](../../data-transfer/operations/source-endpoint.md#settings-mongodb).
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Убедитесь, что мажорная версия {{ MG }} на приемнике не ниже `4.0`.
 
@@ -157,7 +157,7 @@
 
         {% endnote %}
 
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в разделе [Параметры эндпойнта-источника {{ MY }}](source-endpoint.md#settings-mysql).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ MY }}](./endpoint/source/mysql.md#additional-settings).
 
 - {{ MY }}
 
@@ -191,7 +191,7 @@
 
         {% endnote %}
 
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}). Подробнее см. в разделе [Параметры эндпойнта для источника {{ MY }}](source-endpoint.md#settings-mysql).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ MY }}](./endpoint/source/mysql.md#additional-settings).
 
 {% endlist %}
 
@@ -217,7 +217,7 @@
 
     1. {% include [Таблицы без первичных ключей](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в разделе [Параметры эндпойнта для источника {{ PG }}](source-endpoint.md#settings-postgresql).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](./endpoint/source/postgresql.md#additional-settings).
 
 * {{ PG }}
 
@@ -255,7 +255,7 @@
 
         * Windows 10, 11
 
-            1. Если у вас не установлена Microsoft Visual Studio, загрузите и установите ее. Для сборки расширения wal2json достаточно редакции [Comminuty Edition](https://visualstudio.microsoft.com/ru/vs/community/). При установке выберите компоненты:
+            1. Если у вас не установлена Microsoft Visual Studio, загрузите и установите ее. Для сборки расширения wal2json достаточно редакции [Community Edition](https://visualstudio.microsoft.com/ru/vs/community/). При установке выберите компоненты:
 
                 * MSBuild,
                 * MSVC v141 x86/x64 build tools,
@@ -292,7 +292,7 @@
                      Set-Content .\wal2json.vcxproj
                     ```
 
-                1. Укажите значение переменной окружения, необходимой для сборки wal2json, например, для Visual Studio Comminity Edition 2022:
+                1. Укажите значение переменной окружения, необходимой для сборки wal2json, например, для Visual Studio Community Edition 2022:
 
                     ```powershell
                     $VCTargetsPath='C:\Program Files\Microsoft Visual Studio\2022\Comminuty\MSBuild\Microsoft\VC\v150'
@@ -322,7 +322,7 @@
 
     1. {% include [Таблицы без первичных ключей](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в разделе [Параметры эндпойнта для источника {{ PG }}](source-endpoint.md#settings-postgresql).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](./endpoint/source/postgresql.md#additional-settings).
 
     1. Если на источнике настроена репликация через [Patroni](https://github.com/zalando/patroni), добавьте в его конфигурацию [блок ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings):
 
@@ -334,7 +334,7 @@
            type: logical
        ```
        
-       Имя базы данных и имя слота репликации должны совпадать со значениями, указанными в [настройках эндпойнта для источника](../../data-transfer/operations/source-endpoint.md#settings-postgresql). По-умолчанию `имя слота репликации` совпадает с `ID трансфера`.
+       Имя базы данных и имя слота репликации должны совпадать со значениями, указанными в [настройках эндпоинта для источника](../../data-transfer/operations/endpoint/source/postgresql.md). По умолчанию `имя слота репликации` совпадает с `ID трансфера`.
 
        В противном случае начало этапа репликации завершится ошибкой:
       
@@ -475,7 +475,7 @@
 
 {% list tabs %}
 
-* Кластер MDB
+* {{ mmg-name }}
 
     1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) с тем же именем, что и на источнике.
     1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
@@ -486,13 +486,13 @@
 
         1. Если шардирование происходит по ключу, отличному от `_id` (используется по умолчанию), [назначьте пользователю роль](../../managed-mongodb/operations/cluster-users.md#updateuser) `mdbShardingManager`.
 
-        1. При [создании эндпоинта для приемника](./target-endpoint.md#settings-mongodb) выберите политику очистки `DISABLED` или `TRUNCATE`.
+        1. При [создании эндпоинта для приемника](./endpoint/target/mongodb.md) выберите политику очистки `DISABLED` или `TRUNCATE`.
 
             {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
         Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/).
 
-* Пользовательская инсталляция
+* {{ MG }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -608,7 +608,7 @@
             db.grantRolesToUser("<имя пользователя>", ["clusterManager"]);
             ```
 
-        1. При [создании эндпоинта для приемника](./target-endpoint.md#settings-mongodb) выберите политику очистки `DISABLED` или `TRUNCATE`.
+        1. При [создании эндпоинта для приемника](./endpoint/target/mongodb.md) выберите политику очистки `DISABLED` или `TRUNCATE`.
 
             {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
@@ -649,7 +649,7 @@
 
 {% endlist %}
 
-### Приемник {{ objstorage-name }} {#target-storage}
+### Приемник {{ objstorage-full-name }} {#target-storage}
 
 
    1. [Создайте бакет](../../storage/operations/buckets/create.md) нужной вам конфигурации.
@@ -725,4 +725,4 @@
 
 ### {{ ydb-full-name }} {#prepare-source-ydb}
 
-Чтобы принимать данные в сервисе {{ ydb-name }}, подготовка не требуется.
+Чтобы принимать данные в сервисе {{ ydb-full-name }}, подготовка не требуется.

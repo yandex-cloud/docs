@@ -23,7 +23,7 @@ Syntax:
 |`--datalens-access`| Allow access for DataLens|
 |`--websql-access`| Allow access for Web SQL|
 |`--serverless-access`| Allow access for Serverless|
-|`--postgresql-version`|<b>`string`</b><br/> Version of PostgreSQL used in the cluster. Values: 13, 12, 11, 10, 10_1c|
+|`--postgresql-version`|<b>`string`</b><br/> Version of PostgreSQL used in the cluster. Values: 14, 13, 12, 11, 10, 10_1c|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
 |`--disk-type`|<b>`string`</b><br/> Type of the storage environment for the host.|

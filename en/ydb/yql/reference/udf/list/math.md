@@ -1,6 +1,11 @@
-# Math UDF
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/math.md
+sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/math.md
+---
 
-Set of wrappers around the functions from the LIBM library.
+# Math
+
+A set of wrappers around the functions from the libm library and the Yandex utilities.
 
 ## Constants {#constants}
 
@@ -70,7 +75,7 @@ SELECT Math::Sqrt(256);     -- 16
 SELECT Math::Trunc(1.2345); -- 1
 ```
 
-#### (Double, Double) -> Double {#doubledouble-double}
+## (Double, Double) -> Double {#doubledouble-double}
 
 **List of functions**
 
@@ -92,8 +97,8 @@ SELECT Math::Remainder(2.1, 2); -- 0.1
 **List of functions**
 
 * ```Math::Ldexp(Double{Flags:AutoMap}, Int32{Flags:AutoMap}) -> Double```
-* ```Math::Round(Double{Flags:AutoMap}, [Int32?]) -> Double```
-The second argument specifies the power of 10 to which we round (negative for decimal places and positive for rounding to tens-thousands-millions). By default, 0.
+* ```Math::Round(Double{Flags:AutoMap}, [Int32?]) -> Double```: The second argument indicates the power of 10 to which we round (it's negative for decimal digits and positive for rounding to tens, thousands, or millions); the default value is 0
+
 
 **Examples**
 
@@ -106,12 +111,33 @@ SELECT Math::Round(1.2345, -2); -- 1.23
 
 **List of functions**
 
-* ```Math::FuzzyEquals(Double{Flags:AutoMap}, Double{Flags:AutoMap}, [Double?]) -> Bool```
-Compares two Doubles for being inside the environment specified by the third argument. By default, 1.0e-13.
+* ```Math::FuzzyEquals(Double{Flags:AutoMap}, Double{Flags:AutoMap}, [Double?]) -> Bool```: Compares two Doubles for being inside the neighborhood specified by the third argument; the default value is 1.0e-13
 
 **Examples**
 
 ```sql
 SELECT Math::FuzzyEquals(1.01, 1.0, 0.05); -- true
+```
+
+## Functions for computing remainders
+
+**List of functions**
+
+* ```Math::Mod(Int64{Flags:AutoMap}, Int64) -> Int64?```
+* ```Math::Rem(Int64{Flags:AutoMap}, Int64) -> Int64?```
+
+These functions behave similarly to the built-in % operator in the case of non-negative arguments. The differences are noticeable in the case of negative arguments:
+
+* Math::Mod preserves the sign of the second argument (the denominator).
+* Math::Rem preserves the sign of the first argument (the numerator).
+
+
+Functions return null if the divisor is zero.
+
+**Examples**
+
+```sql
+SELECT Math::Mod(-1, 7);        -- 6
+SELECT Math::Rem(-1, 7);        -- -1
 ```
 

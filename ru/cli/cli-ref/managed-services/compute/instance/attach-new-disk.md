@@ -3,7 +3,7 @@ sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/attach-new-dis
 ---
 # yc compute instance attach-new-disk
 
-Attach new disk to the the specified virtual machine instance
+Attach new disk to the specified virtual machine instance
 
 #### Command Usage
 

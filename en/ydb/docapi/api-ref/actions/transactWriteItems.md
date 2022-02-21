@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/transactWriteItems.md
+---
 # TransactWriteItems method
 
 A synchronous write operation that groups up to 25 actions. You can work with items from different tables, but you can only perform one action on a single item per query.
@@ -7,7 +10,6 @@ The total size of all items may not exceed 4 MB.
 The method is atomic, meaning that either all actions are performed or none. For reasons for rejection, see the [TransactionCanceledException](#errors) error description.
 
 Allowed actions:
-
 - `Put`: Write a new item.
 - `Update`: Update an existing item.
 - `Delete`: Delete an existing item.
@@ -210,7 +212,7 @@ The request contains data in JSON format.
 | ----- | ----- |
 | `TransactItems` | An ordered array of `TransactWriteItem` objects, each of which contains a `Put`, `Update`, `Delete`, or `ConditionCheck` operation. You can work with items from different tables, but each item in a single query can only be used once.<br/><br/>**Type**: Array of `TransactWriteItem` objects<br/>**Array items**: 1-25.<br/>**Required**: Yes |
 | `ClientRequestToken` | Not supported. Regardless of token values, all method calls are idempotent. This means that repeated method calls will have the same effect as a single call.<br/>Although the server state won't change, responses may be different. If the `ReturnConsumedCapacity` parameter is set, the first request returns the number of write capacity units. Subsequent requests with the same token return the number of read capacity units.<br/>The token is valid within 10 minutes of completing the first request. After that, any request with the same token is counted as new.<br/>If you send the same token but with different parameters for 10 minutes, the method returns the `IdempotentParameterMismatch` exception.<br/><br/>**Type**: String<br/>**Length**: 1-36 characters.<br/>**Required**: No |
-| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL`: Return.<li>`NONE`: Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
+| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL` - Return.<li>`NONE` - Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
 
 ## Response
 
@@ -253,7 +255,7 @@ The response is returned in JSON format.
 
 | Parameter | Description |
 | ----- | ----- |
-| `ConsumedCapacity` | Units of capacity consumed by a delete operation.<br/>Returned only if the request passed the `ReturnConsumedCapacity` parameter set to `TOTAL`.<br/><br/>**Type**: Object type `ConsumedCapacity type` |
+| `ConsumedCapacity` | Capacity units consumed by a delete operation.<br/>Returned only if the `ReturnConsumedCapacity` parameter set to `TOTAL` is specified in the request.<br/><br/>**Type**: Object of the `ConsumedCapacity` type. |
 
 ## Errors {#errors}
 
@@ -268,4 +270,3 @@ The response is returned in JSON format.
 | `TransactionInProgressException` | The transaction with the specified request token is already in progress.<br/><br/>**HTTP status code**: 400 |
 
 There may be [common errors](../common-errors) as well. These are errors that are common to all methods.
-

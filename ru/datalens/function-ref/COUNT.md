@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/COUNT.md
 
 # COUNT
 
-_Функция `COUNT` также доступна как [оконная](COUNT_WINDOW.md)._
+_Функция `COUNT` также доступна в следующих категориях: [Оконные функции](COUNT_WINDOW.md)._
 
 #### Синтаксис {#syntax}
 

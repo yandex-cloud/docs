@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/transactGetItems.md
+---
 # TransactGetItems method
 
 A synchronous operation that atomically retrieves multiple items from tables.
@@ -49,7 +52,7 @@ The request contains data in JSON format.
 | Parameter | Description |
 | ----- | ----- |
 | `TransactItems` | An ordered array of objects of the `TransactGetItem` type, each of which contains a `Get` structure.<br/><br/>**Type**: Array of `TransactGetItem` objects<br/>**Array items**: 1-25.<br/>**Required**: Yes |
-| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL`: Return.<li>`NONE`: Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
+| `ReturnConsumedCapacity` | Indicates whether to return information about consumed capacity.<ul><li>`TOTAL` - Return.<li>`NONE` - Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
 
 ## Response
 
@@ -125,7 +128,6 @@ The response is returned in JSON format.
 | `ProvisionedThroughputExceededException` | You're sending requests too often. Try to increase the interval between requests.<br/>If their number is not too large, {{ ydb-name }} tries to process them all.<br/><br/>**HTTP status code**: 400 |
 | `RequestLimitExceeded` | The bandwidth exceeds the set quota.<br/><br/>**HTTP status code**: 400 |
 | `ResourceNotFoundException` | The specified table doesn't exist.<br/><br/>**HTTP status code**: 400 |
-| `TransactionCanceledException` | The entire request was canceled. This may happen in the following cases:<ul><li>Another `TransactGetItems` operation is in progress and is in conflict with a concurrent `PutItem`, `UpdateItem`, `DeleteItem`, or `TransactWriteItems` request.<li>The allocated capacity is insufficient to complete the transaction.<li>A user error occurred, such as incorrect data format.</ul><br/><br/>**HTTP status code**: 400 |
+| `TransactionCanceledException` | The entire request was canceled. This may happen in the following cases:<ul><li>Another `TransactGetItems` operation is in progress and is in conflict with a concurrent `PutItem`, `UpdateItem`, `DeleteItem`, or `TransactWriteItems`request.<li>The allocated capacity is insufficient to complete the transaction.<li>A user error occurred, such as incorrect data format.</ul><br/><br/>**HTTP status code**: 400 |
 
 There may be [common errors](../common-errors.md) as well. These are errors that are common to all methods.
-

@@ -3,7 +3,7 @@ sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/remove-one-to-
 ---
 # yc compute instance remove-one-to-one-nat
 
-Remove one-to-one NAT to the the specified network interface of virtual machine instance
+Remove one-to-one NAT to the specified network interface of virtual machine instance
 
 #### Command Usage
 

@@ -33,3 +33,9 @@ You can change the payer's contact information (for example, mailing address or 
 
 [Get and activate](../quickstart/index.md#get_promocode) a new promo code and then [create](../quickstart/index.md#create_billing_account) a new billing account.
 
+##### See also
+
+* [Link another bank card](pin-card.md)
+* [Unlink a card](unlink-card.md)
+* [Change the payment method](change-payment-method.md)
+* [Enabling notifications](budgets.md)

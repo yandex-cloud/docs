@@ -1,6 +1,7 @@
 ---
 title: Java Servlet API. Deploying a web application
-description: "In this scenario, you will learn how to use the Java Servlet API and serverless technologies to create a small web application for managing a to-do list."
+description: "In this use case, you'll learn how to use serverless technologies and the Java Servlet API to create a simple web application for managing a task list."
+sourcePath: en/ydb/overlay/solutions/java-servlet-todo-list.md
 ---
 
 # Deploying a web application using the Java Servlet API

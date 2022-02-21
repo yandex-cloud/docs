@@ -5,7 +5,6 @@ The Billing service sends out financial documents regarding any and all payments
 ## Documents for businesses and individual entrepreneurs{#docs-for-business}
 
 If you used funds from your [personal account](../concepts/personal-account.md) during the reporting period, [Yandex.Balance](https://balance.yandex.com/) will generate the following reporting documents on the last day of the month:
-
 * [Report](../concepts/act.md)
 * [Invoice](../concepts/invoice.md) (for residents of Russia or the Republic of Kazakhstan only, invoices for residents of the Republic of Kazakhstan are generated electronically.)
 
@@ -21,6 +20,8 @@ Documents are sent to the email address and mailing address specified in the pay
 
 {% endnote %}
 
-Residents of Russia may receive documents using electronic document management. Learn more about [electronic document management](../concepts/edo.md).
+Russian residents can:
+* Receive documents by way of [electronic document management](../concepts/edo.md) (DMS).
+* [Download documents through the management console](../operations/download-reporting-docs.md).
 
 

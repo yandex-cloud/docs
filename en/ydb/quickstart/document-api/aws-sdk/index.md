@@ -1,3 +1,10 @@
+---
+title: Work with AWS SDK. Overview
+description: "This section describes how to use the AWS SDK for several programming languages to write simple programs that perform the following operations in YDB."
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/index.md
+---
+
+
 # Overview
 
 This section describes how to use the AWS SDK for several programming languages to write simple programs that perform the following operations in {{ ydb-short-name }}:
@@ -12,7 +19,7 @@ This section describes how to use the AWS SDK for several programming languages 
 1. [Configure the AWS environment](../aws-setup.md).
 1. Prepare the Document API endpoint of the [created database](../../create-db.md).
 
-    {% cut "How to get the Document API endpoint of the database" %}
+    {% cut "How to find out the Document API database endpoint" %}
 
     1. Go to the [management console]({{ link-console-main }}).
     1. Select the folder and go to **{{ ydb-full-name }}**.

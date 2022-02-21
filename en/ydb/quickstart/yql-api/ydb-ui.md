@@ -1,10 +1,13 @@
+---
+sourcePath: en/ydb/overlay/quickstart/yql-api/ydb-ui.md
+---
 # Working with data via the management console
 
 After [creating a database](../create-db.md), perform basic YQL queries using the {{ yandex-cloud }} management console.
 
 {% note tip %}
 
-For more information about the YQL syntax, see the [YQL reference](../../yql/reference/overview.md).
+For more information about the YQL syntax, see the [YQL reference](../../yql/reference/index.md).
 
 {% endnote %}
 
@@ -32,7 +35,6 @@ Add data to the table using the [REPLACE INTO](../../yql/reference/syntax/replac
 
 {% endlist %}
 
-
 ## Update data {#update-data}
 
 Update the existing data in the table using the [UPDATE](../../yql/reference/syntax/update.md) instruction:
@@ -44,7 +46,6 @@ Update the existing data in the table using the [UPDATE](../../yql/reference/syn
   {% include [update-data-via-console](../../_includes/update-data-via-console.md) %}
 
 {% endlist %}
-
 
 ## Delete data {#delete-data}
 
@@ -58,7 +59,6 @@ Delete data from the table using the [DELETE](../../yql/reference/syntax/delete.
 
 {% endlist %}
 
-
 ## Query data {#select-data}
 
 Query data from the table using the [SELECT](../../yql/reference/syntax/select.md) instruction:
@@ -70,7 +70,6 @@ Query data from the table using the [SELECT](../../yql/reference/syntax/select.m
   {% include [select-data-via-console](../../_includes/select-data-via-console.md) %}
 
 {% endlist %}
-
 
 ## Delete a table {#drop-table}
 

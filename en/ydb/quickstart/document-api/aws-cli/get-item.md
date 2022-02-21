@@ -1,16 +1,19 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-cli/get-item.md
+---
 # Reading data from a table
 
 To read data from the `series` table:
 
 {% list tabs %}
 
-- AWS CLI
+* AWS CLI
 
-    Run the command below replacing `https://your-database-endpoint` with the endpoint of your DB:
+    Run the command by replacing `https://your-database-endpoint` with the endpoint of your DB:
 
     {% note warning %}
 
-    To run the AWS CLI in Windows, we recommend using [WSL](https://docs.microsoft.com/en-us/windows/wsl/).
+    To work with the AWS CLI from Windows, we recommend using the [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/).
 
     {% endnote %}
 
@@ -22,7 +25,7 @@ To read data from the `series` table:
         --endpoint $endpoint
     ```
 
-   Execution result:
+   Output:
 
     ```text
     {

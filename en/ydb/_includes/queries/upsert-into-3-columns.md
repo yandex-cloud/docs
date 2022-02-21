@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/_includes/queries/upsert-into-3-columns.md
+---
 ```sql
 UPSERT INTO episodes
 (

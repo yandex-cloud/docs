@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/deleteTable.md
+---
 # DeleteTable method
 
 Deletes a table and all of its items. It also deletes table indexes.
@@ -120,7 +123,7 @@ The response is returned in JSON format.
                   }
                }
             ],
-            "KMSMasterKeyId": "string",
+            "KMSMainKeyId": "string",
             "ProvisionedThroughputOverride": { 
                "ReadCapacityUnits": number
             },
@@ -138,7 +141,7 @@ The response is returned in JSON format.
       },
       "SSEDescription": { 
          "InaccessibleEncryptionDateTime": number,
-         "KMSMasterKeyArn": "string",
+         "KMSMainKeyArn": "string",
          "SSEType": "string",
          "Status": "string"
       },
@@ -167,8 +170,7 @@ The response is returned in JSON format.
 | ----- | ----- |
 | `InternalServerError` | An internal error occurred on the server side.<br/><br/>**HTTP status code**: 500<br/> |
 | `LimitExceededException` | Table operations limit exceeded.<br/>You can simultaneously perform up to 50 operations on tables, such as `CreateTable`, `UpdateTable`, `DeleteTable`, `UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.<br/><br/>**HTTP status code**: 400 |
-| `ResourceInUseException` | A table is in use and can't be deleted now.<br/>This error occurs if a table is being created or its structure is being updated (the table state is `CREATING` or `UPDATING`, respectively)<br/><br/>**HTTP status code**: 400<br/> |
+| `ResourceInUseException` | The table is in use and can't be deleted now.<br/>This error occurs if a table is being created or its structure is being updated (the table state is `CREATING` or `UPDATING`, respectively)<br/><br/>**HTTP status code**: 400<br/> |
 | `ResourceNotFoundException` | The specified table doesn't exist.<br/><br/>**HTTP status code**: 400<br/> |
 
 There may be [common errors](../common-errors) as well. These are errors that are common to all methods.
-

@@ -1,7 +1,10 @@
 ---
 title: Methods of working with Yandex Database HTTP API
-description: "Yandex Database HTTP API provides the following working methods. Working with tables (CreateTable, DeleteTable, DescribeTable, ListTables). Working with items (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
+description: "The Yandex Database HTTP API provides the following methods of operation. Working with tables (Create Table, DeleteTable, DescripeTable, ListTables). Working with elements (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
+sourcePath: en/ydb/overlay/docapi/api-ref/index.md
 ---
+
+
 # All methods
 
 The {{ ydb-name }} HTTP API provides the following methods:
@@ -31,4 +34,3 @@ The {{ ydb-name }} HTTP API provides the following methods:
 | [TransactGetItems](actions/transactGetItems.md) | Retrieves multiple items from tables. |
 | [TransactWriteItems](actions/transactWriteItems.md) | Performs a synchronous write operation. |
 | [UpdateItem](actions/updateItem.md) | Updates table items. |
-

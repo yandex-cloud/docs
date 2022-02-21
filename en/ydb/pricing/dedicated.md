@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/ydb/overlay/pricing/dedicated.md
 ---
+
 # Pricing rules for {{ ydb-name }} dedicated mode
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -33,7 +35,7 @@ The following is charged:
 
 * Storage allocated for DB storage groups.
 
-* Space used by on-demand DB backups saved in {{ objstorage-name }}. The cost of creating and storing backups is calculated according to the {{ objstorage-name }} rates.
+* Space used by on-demand DB backups saved in {{ objstorage-name }}.
 
    {% note info %}
 
@@ -45,7 +47,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
-You can get a guaranteed discount on service resource usage when you plan for a month, a year, or three years ahead.
+You can get a guaranteed discount on service resource usage when you commit for a month, year, or three years.
 
 Yandex Database provides two types of [CVoS](../../billing/concepts/cvos.md): for vCPUs and RAM for the DB hosts. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for DBs that use a specific class of VMs.
 
@@ -86,3 +88,4 @@ All prices are shown with VAT. Prices are given for a 30-day month. For shorter 
 
 
 {% include notitle [usd-dedicated.md](../../_pricing/ydb/usd-dedicated.md) %}
+

@@ -1,1 +1,0 @@
-{% include [type_string](../misc/type_string.md) %}

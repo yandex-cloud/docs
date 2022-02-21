@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/delete-item.md
+---
 # Deleting a record
 
 To conditionally delete a record from the `Series` table:
@@ -101,7 +104,7 @@ To conditionally delete a record from the `Series` table:
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesItemOps06.java` file, for example, using the nano editor:
 
@@ -180,7 +183,7 @@ To conditionally delete a record from the `Series` table:
       java -jar target/release/SeriesItemOps06.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Attempting to delete record...
@@ -274,7 +277,7 @@ To conditionally delete a record from the `Series` table:
       python SeriesItemOps06.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Attempting to delete record...
@@ -296,7 +299,7 @@ To conditionally delete a record from the `Series` table:
 
   1. Run the program again. The delete operation should now be successful.
 
-      Execution output:
+      Execution result:
 
       ```text
       Attempting to delete record...
@@ -382,7 +385,7 @@ To conditionally delete a record from the `Series` table:
       ?>
       ```
 
-      You can use the `deleteItem` method to delete a single record by specifying its primary key. You can additionally specify `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
+      You can use the `deleteItem` method to delete a single record by specifying its primary key. You can additionally specify `ConditionExpression`to prevent the element from being deleted if this condition is not satisfied.
 
       This code deletes a movie record if its rating is 5 or lower.
 
@@ -392,7 +395,7 @@ To conditionally delete a record from the `Series` table:
       php SeriesItemOps06.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Couldn't delete record:
@@ -467,7 +470,7 @@ To conditionally delete a record from the `Series` table:
               console.error("Couldn't delete record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
-              console.log("Deletion successful:", JSON.stringify(data, null, 2));
+              console.log ("Deletion successful:", JSON.stringify(data, null, 2));
           }
       });
       ```
@@ -480,7 +483,7 @@ To conditionally delete a record from the `Series` table:
       node SeriesItemOps06.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Performing conditional deletion...
@@ -587,7 +590,7 @@ To conditionally delete a record from the `Series` table:
       ruby SeriesItemOps06.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Deleting series 'Supernatural (3)' from table 'Series' if specified condition is satisfied.

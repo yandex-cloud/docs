@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/updateTimeToLive.md
+---
 # UpdateTimeToLive method
 
 Enables or disables TTL for the specified table.
@@ -61,4 +64,3 @@ The response is returned in JSON format.
 | `ResourceNotFoundException` | The specified table doesn't exist or its state is different from `ACTIVE`.<br/><br/>**HTTP status code**: 400 |
 
 There may be [common errors](../common-errors.md) as well. These are errors that are common to all methods.
-

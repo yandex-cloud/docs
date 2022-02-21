@@ -1,10 +1,8 @@
-# DROP TABLE
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/drop_table.md
+sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/drop_table.md
+---
 
-Deletes the specified table.
 
-**Example**
-
-```sql
-DROP TABLE my_table;
-```
+{% include [x](_includes/drop_table.md) %}
 

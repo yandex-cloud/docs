@@ -22,6 +22,7 @@ Aliases:
 - [yc compute disk remove-labels](remove-labels.md) — Remove labels from specified disk
 - [yc compute disk resize](resize.md) — Resize the specified disk
 - [yc compute disk delete](delete.md) — Delete the specified disk
+- [yc compute disk move](move.md) — Move the specified disk into the folder
 - [yc compute disk list-operations](list-operations.md) — List operations for the specified disk
 
 #### Global Flags

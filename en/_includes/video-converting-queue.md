@@ -3,6 +3,8 @@
 In this scenario, you'll create a video converter using [FFmpeg](https://ffmpeg.org/) and {{ message-queue-full-name }}.
 
 
+@[youtube](uyIMvEtr3cI)
+
 To create an application:
 
 1. [Prepare your cloud](#before-begin)
@@ -18,7 +20,7 @@ To create an application:
 
 1. On the [billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) activated and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md).
 
-1. On the [cloud page](https://console.cloud.yandex.com/cloud), create or select a folder for a new service.
+1. On the [cloud page](https://console.cloud.yandex.ru/cloud), create or select a folder for a new service.
 
     [Learn more about clouds and folders](../resource-manager/concepts/resources-hierarchy.md).
 

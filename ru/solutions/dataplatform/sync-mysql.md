@@ -1,6 +1,6 @@
 # Синхронизация данных из MySQL с помощью {{ data-transfer-full-name }}
 
-Из описания сценария вы узнаете, как обеспечить периодическую доставку изменений из внешней базы данных в облако при помощи {{ data-transfer-name }}. Для синхронизации данных в вашем облаке нужно создать промежуточное стейджинговое хранилище данных — {{ mmy-name }}, в которое будут реплицироваться таблицы. Данные синхронизируются практически в режиме реального времени. 
+{{ data-transfer-name }} обеспечивает периодическую доставку изменений из внешней базы данных в облако. Для синхронизации данных в вашем облаке нужно создать промежуточное стейджинговое хранилище данных — {{ mmy-name }}, в которое будут реплицироваться таблицы. Данные синхронизируются практически в режиме реального времени. 
 
 Чтобы настроить передачу изменений:
 
@@ -53,8 +53,8 @@
       ```bash
       yc compute instance create \
          --name magento \
-         --zone ru-central1-a \
-         --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+         --zone ru-central1-b \
+         --network-interface subnet-name=default-ru-central1-b,nat-ip-version=ipv4 \
          --hostname ya-sample-store \
          --use-boot-disk disk-name=web-store-lab-dataplatform \
          --ssh-key ~/.ssh/id_rsa.pub
@@ -71,7 +71,7 @@
 
 1. От имени администратора откройте файл `hosts` (C:\Windows\System32\drivers\etc\hosts), добавьте строку:
    ```
-   <ip-address-vm> ya-sample-store.local
+   <public-ip-address-vm> ya-sample-store.local
    ```
 
 1. Подключитесь к интернет-магазину по адресу `http://ya-sample-store.local/`.
@@ -124,8 +124,9 @@
 1. Определите параметры приемника данных — управляемой базы данных {{ mmy-name }}, которая находится в облаке:
 
    * **Имя** — `magento-report-dest`.
-   * **База данных** — `Managed Service for MySQL`.
-   * Выберите из списка идентификатор кластера — `ya-sample-cloud-mysql`.
+   * Выберите из списка тип БД — `MySQL`.
+   * **Настройки подключения** — `Кластер MDB`.
+   * **Кластер MDB** — `ya-sample-cloud-mysql`.
    * **Имя базы данных** — `magento-cloud`.
    * **Имя пользователя репликации** — `yc-user` и пароль — `12345678`.
    * В строке **Отключение проверки констрейнтов** поставьте галочку. 
@@ -161,7 +162,7 @@
    SELECT so.*, soi.* FROM sales_order_grid so
    INNER JOIN sales_order_item soi ON so.entity_id = soi.order_id
    ORDER BY entity_id DESC 
-   LIMIT 10
+   LIMIT 5
    ```
 1. Убедитесь, что данные вашего заказа появились в БД.
 

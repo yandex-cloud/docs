@@ -1,9 +1,14 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-setup.md
+---
 # Setting up AWS tools
 
 To access the database via the Document API in AWS DynamoDB-compatible mode, you can use AWS tools:
 
 * [AWS CLI](https://aws.amazon.com/cli/): The command line interface from AWS.
 * [AWS SDK](https://aws.amazon.com/ru/tools/#sdk): The software development kit.
+
+{% include [doc-tables-only.md](../../_includes/doc-tables-only.md) %}
 
 To use the AWS tools, follow these steps:
 
@@ -127,7 +132,7 @@ To use the AWS tools, follow these steps:
     --endpoint https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn03ubijq52j860kvgj
     ```
 
-    Execution output:
+    Output:
 
     ```text
     {

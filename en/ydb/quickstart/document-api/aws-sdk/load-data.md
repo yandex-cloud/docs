@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/load-data.md
+---
 # Uploading data to a table
 
 In this example, the data for uploading contains information about series in a JSON file. For each series, the `series_id` identifier, `title`, and additional `info` are set:
@@ -119,7 +122,7 @@ To upload data to the `Series` table:
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesLoadData.java` file, for example, using the nano editor:
 
@@ -213,7 +216,7 @@ To upload data to the `Series` table:
       java -jar target/release/SeriesLoadData.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Added series: 1 IT Crowd
@@ -270,7 +273,7 @@ To upload data to the `Series` table:
       python SeriesLoadData.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Added series: 1 IT Crowd
@@ -362,7 +365,7 @@ To upload data to the `Series` table:
       php SeriesLoadData.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Added series: 1 IT Crowd
@@ -432,7 +435,7 @@ To upload data to the `Series` table:
       node SeriesLoadData.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```bash
       Uploading series to YDB. Please wait...
@@ -521,7 +524,7 @@ To upload data to the `Series` table:
       ruby SeriesLoadData.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       7 series will be uploaded from file 'seriesdata.json' to the table 'Series'...

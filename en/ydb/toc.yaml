@@ -1,27 +1,27 @@
-title: Yandex Database
-href: index.yaml
 items:
+  - name: Contents
+    href: index.yaml
   - name: Getting started
     items:
       - name: Overview
         href: quickstart/index.md
-      - name: Create databases
+      - name: Creating a cloud database
         href: quickstart/create-db.md
       - name: YQL API
         items:
           - name: Working with data via the management console
             href: quickstart/yql-api/ydb-ui.md
-          - name: Working with YDB CLI
+          - name: Working with the YDB CLI
             href: quickstart/yql-api/ydb-cli.md
-          - name: Working with YDB SDK
-            href: quickstart/yql-api/ydb-sdk.md
-      - name: Document API in AWS DynamoDB-compatible mode
+          - name: Working with the YDB SDK
+            href: reference/ydb-sdk/index.md
+      - name: Amazon DynamoDB-compatible Document API
         items:
           - name: Setting up AWS tools
             href: quickstart/document-api/aws-setup.md
-          - name: Working with data through the HTTP interface
+          - name: Working with data from the HTTP interface
             href: quickstart/document-api/aws-http.md
-          - name: Working with AWS CLI
+          - name: Working with the AWS CLI
             items:
               - name: Overview
                 href: quickstart/document-api/aws-cli/index.md
@@ -37,7 +37,7 @@ items:
                 href: quickstart/document-api/aws-cli/query.md
               - name: Deleting created resources
                 href: quickstart/document-api/aws-cli/cleanup.md
-          - name: Working with AWS SDK
+          - name: Working with the AWS SDK
             items:
               - name: Overview
                 href: quickstart/document-api/aws-sdk/index.md
@@ -45,9 +45,9 @@ items:
                 href: quickstart/document-api/aws-sdk/create-table.md
               - name: Uploading data to a table
                 href: quickstart/document-api/aws-sdk/load-data.md
-              - name: Table management
+              - name: Managing records in a table
                 items:
-                  - name: Adding a record
+                  - name: Creating a record
                     href: quickstart/document-api/aws-sdk/create-item.md
                   - name: Reading a record
                     href: quickstart/document-api/aws-sdk/read-item.md
@@ -59,62 +59,22 @@ items:
                 href: quickstart/document-api/aws-sdk/query-and-scan.md
               - name: Deleting a table
                 href: quickstart/document-api/aws-sdk/delete-table.md
-      - name: Examples of YQL queries
-        href: quickstart/examples-yql.md
-      - name: Examples of operations in the YDB CLI
-        href: quickstart/examples-ydb-cli.md
-      - name: Launch a test app
-        href: quickstart/launch-test-app.md
-      - name: Document API
+      - name: Self-deployment
         items:
-          - name: Data operations
-            href: getting_started/start_docapi_rest.md
-          - name: AWS instruments
+          - name: Docker
+            href: getting_started/ydb_docker.md
+          - name: Kubernetes
             items:
-              - name: Environment setup
-                href: quickstart/aws-instrument/setup.md
-      - name: Developing in NodeJS through the Document API
-        href: getting_started/start_docapi_nodejs.md
-  - name: Step-by-step instructions
-    items:
-      - name: Working with the YDB CLI
-        items:
-          - name: Structure and description of YDB CLI commands
-            href: operations/ydb-cli/commands.md
-          - name: Getting information about schema objects
-            href: operations/ydb-cli/scheme-describe.md
-          - name: Streaming table reads
-            href: operations/ydb-cli/readtable.md
-          - name: Working with secondary indexes
-            href: operations/ydb-cli/operations-index.md
-      - name: Using a query plan and AST
-        href: operations/get-query-plan.md
-      - name: Database management
-        href: operations/create_manage_database.md
-      - name: Connecting to a database
-        href: operations/connect_to_a_database.md
-      - name: Table management
-        href: operations/schema.md
-      - name: Reading and writing data
-        href: operations/crud.md
-      - name: Working with secondary indexes
-        href: operations/indexes.md
-      - name: Working with AWS CLI
-        items:
-          - name: Creating a table
-            href: quickstart/document-api/aws-cli/create-table.md
-          - name: Adding data to a table
-            href: quickstart/document-api/aws-cli/put-item.md
-          - name: Reading data from a table
-            href: quickstart/document-api/aws-cli/get-item.md
-          - name: Updating data
-            href: quickstart/document-api/aws-cli/update-item.md
-          - name: Selecting data
-            href: quickstart/document-api/aws-cli/query.md
-          - name: Deleting created resources
-            href: quickstart/document-api/aws-cli/cleanup.md
-  - name: Working with the SDK
-    href: sdk/index.md
+              - name: Overview
+                href: deploy/orchestrated/concepts.md
+              - name: Deploying in Yandex Managed Service for Kubernetes
+                href: deploy/orchestrated/yc_managed_kubernetes.md
+              - name: Deploying in AWS Elastic Kubernetes Service
+                href: deploy/orchestrated/aws_eks.md
+              - name: Use
+                href: deploy/orchestrated/operate.md
+      - name: Useful links
+        href: getting_started/useful_links.md
   - name: Use cases
     items:
       - name: Deploying a web application
@@ -123,8 +83,13 @@ items:
         href: solutions/slack-bot-serverless.md
       - name: Using the YDB Docker container
         href: solutions/ydb_docker.md
+        hidden: true
       - name: Connecting to YDB from a Python function in Yandex Cloud Functions
         href: solutions/connect-from-cf.md
+      - name: >-
+          Connecting to a YDB database from a Yandex Cloud Functions function in
+          Node.js
+        href: solutions/connect-from-cf-nodejs.md
       - name: Converting a video to a GIF in Python
         href: solutions/video-converting-queue.md
       - name: Developing a skill for Alice and a website with authorization
@@ -133,6 +98,8 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
+      - name: Terms and definitions
+        href: concepts/databases.md
       - name: Data model and schema
         href: concepts/datamodel.md
       - name: Serverless and Dedicated operation modes
@@ -145,22 +112,34 @@ items:
         href: concepts/secondary_indexes.md
       - name: Time to Live (TTL)
         href: concepts/ttl.md
-      - name: Terms and definitions
-        href: concepts/databases.md
+      - name: Scan queries
+        href: concepts/scan_query.md
+      - name: Database limits
+        href: concepts/limits-ydb.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Access management
-    href: operations/start_auth.md
-  - name: Pricing policy
+  - name: Step-by-step instructions
     items:
       - name: Overview
-        href: pricing.md
-      - name: Serverless mode
-        href: pricing/serverless.md
-      - name: Dedicated mode
-        href: pricing/dedicated.md
+        href: operations/index.md
+      - name: Renaming
+        href: operations/rename.md
+      - name: Using a query plan and AST
+        href: operations/get-query-plan.md
+      - name: Managing databases
+        href: operations/create_manage_database.md
+      - name: Managing tables
+        href: operations/schema.md
+      - name: Reading and writing data
+        href: operations/crud.md
+      - name: Working with secondary indexes
+        href: operations/secondary_indexes.md
+  - name: Access management
+    href: security/start_auth.md
   - name: Recommendations
     items:
+      - name: Overview
+        href: best_practices/index.md
       - name: Schema design
         href: best_practices/schema_design.md
       - name: Partitioning tables
@@ -173,198 +152,314 @@ items:
         href: best_practices/batch_upload.md
       - name: Using timeouts
         href: best_practices/timeouts.md
-  - name: YDB API and API reference
-    items:
-      - name: Database limits
-        href: api/limits.md
-      - name: Handling errors in the API
-        href: api/error_handling.md
-  - name: Amazon DynamoDB-compatible HTTP API
-    items:
-      - name: API reference
-        items:
-          - name: All methods
-            href: docapi/api-ref/index.md
-          - name: Actions
-            items:
-              - name: BatchGetItem
-                href: docapi/api-ref/actions/batchGetItem.md
-              - name: BatchWriteItem
-                href: docapi/api-ref/actions/batchWriteItem.md
-              - name: CreateTable
-                href: docapi/api-ref/actions/createTable.md
-              - name: DeleteItem
-                href: docapi/api-ref/actions/deleteItem.md
-              - name: DeleteTable
-                href: docapi/api-ref/actions/deleteTable.md
-              - name: DescribeTable
-                href: docapi/api-ref/actions/describeTable.md
-              - name: DescribeTimeToLive
-                href: docapi/api-ref/actions/describeTimeToLive.md
-              - name: GetItem
-                href: docapi/api-ref/actions/getItem.md
-              - name: ListTables
-                href: docapi/api-ref/actions/listTables.md
-              - name: PutItem
-                href: docapi/api-ref/actions/putItem.md
-              - name: Query
-                href: docapi/api-ref/actions/query.md
-              - name: Scan
-                href: docapi/api-ref/actions/scan.md
-              - name: TransactGetItems
-                href: docapi/api-ref/actions/transactGetItems.md
-              - name: TransactWriteItems
-                href: docapi/api-ref/actions/transactWriteItems.md
-              - name: UpdateItem
-                href: docapi/api-ref/actions/updateItem.md
-              - name: UpdateTimeToLive
-                href: docapi/api-ref/actions/updateTimeToLive.md
-          - name: Common errors
-            href: docapi/api-ref/common-errors.md
-  - name: YQL reference guide
-    items:
-      - name: Overview
-        href: yql/reference/overview.md
-      - name: Data types
-        items:
-          - name: Simple
-            href: yql/reference/types/primitive.md
-          - name: Optional
-            href: yql/reference/types/optional.md
-          - name: Containers
-            href: yql/reference/types/containers.md
-          - name: Special
-            href: yql/reference/types/special.md
-      - name: Syntax
-        items:
-          - name: Unsupported statements
-            href: yql/reference/misc/not_yet_supported.md
-          - name: For text representation of data types
-            href: yql/reference/misc/type_string.md
-          - name: Expressions
-            href: yql/reference/syntax/expressions.md
-          - name: CREATE TABLE
-            href: yql/reference/syntax/create_table.md
-          - name: DROP TABLE
-            href: yql/reference/syntax/drop_table.md
-          - name: INSERT INTO
-            href: yql/reference/syntax/insert_into.md
-          - name: UPSERT INTO
-            href: yql/reference/syntax/upsert_into.md
-          - name: REPLACE INTO
-            href: yql/reference/syntax/replace_into.md
-          - name: UPDATE
-            href: yql/reference/syntax/update.md
-          - name: DELETE
-            href: yql/reference/syntax/delete.md
-          - name: SELECT
-            href: yql/reference/syntax/select.md
-          - name: GROUP BY
-            href: yql/reference/syntax/group_by.md
-          - name: JOIN
-            href: yql/reference/syntax/join.md
-          - name: FLATTEN
-            href: yql/reference/syntax/flatten.md
-          - name: ACTION
-            href: yql/reference/syntax/action.md
-          - name: DISCARD
-            href: yql/reference/syntax/discard.md
-          - name: PRAGMA
-            href: yql/reference/syntax/pragma.md
-          - name: DECLARE
-            href: yql/reference/syntax/declare.md
-          - name: OVER, PARTITION BY, and WINDOW
-            href: yql/reference/syntax/window.md
-      - name: Built-in functions
-        items:
-          - name: Basic
-            href: yql/reference/builtins/basic.md
-          - name: Aggregate
-            href: yql/reference/builtins/aggregation.md
-          - name: Window
-            href: yql/reference/builtins/window.md
-          - name: For lists
-            href: yql/reference/builtins/list.md
-          - name: For dictionaries
-            href: yql/reference/builtins/dict.md
-          - name: For JSON
-            href: yql/reference/builtins/json.md
-          - name: For structures
-            href: yql/reference/builtins/struct.md
-          - name: For types
-            href: yql/reference/builtins/types.md
-      - name: Preset user-defined functions
-        items:
-          - name: HyperScan
-            href: yql/reference/udf/list/hyperscan.md
-          - name: Pcre
-            href: yql/reference/udf/list/pcre.md
-          - name: Pire
-            href: yql/reference/udf/list/pire.md
-          - name: Re2
-            href: yql/reference/udf/list/re2.md
-          - name: String
-            href: yql/reference/udf/list/string.md
-          - name: Unicode
-            href: yql/reference/udf/list/unicode.md
-          - name: Datetime
-            href: yql/reference/udf/list/datetime.md
-          - name: Url
-            href: yql/reference/udf/list/url.md
-          - name: Ip
-            href: yql/reference/udf/list/ip.md
-          - name: Digest
-            href: yql/reference/udf/list/digest.md
-          - name: Math
-            href: yql/reference/udf/list/math.md
-          - name: Histogram
-            href: yql/reference/udf/list/histogram.md
-      - name: For text representation of data types
-        href: yql/reference/types/text.md
-  - name: YQL tutorial
-    items:
-      - name: Overview
-        href: yql/tutorial/index.md
-      - name: Creating a table
-        href: yql/tutorial/create_demo_tables.md
-      - name: Adding data to a table
-        href: yql/tutorial/fill_tables_with_data.md
-      - name: Selecting data from all columns
-        href: yql/tutorial/select_all_columns.md
-      - name: Selecting data from specific columns
-        href: yql/tutorial/select_specific_columns.md
-      - name: Sorting and filtering
-        href: yql/tutorial/basic_filter_and_sort.md
-      - name: Data aggregation
-        href: yql/tutorial/basic_aggregation.md
-      - name: Additional selection criteria
-        href: yql/tutorial/conditional_values.md
-      - name: Joining tables by JOIN
-        href: yql/tutorial/join_tables.md
-      - name: Data insert and update by REPLACE
-        href: yql/tutorial/replace_into.md
-      - name: Data insert and update by UPSERT
-        href: yql/tutorial/upsert_into.md
-      - name: Data insert by INSERT
-        href: yql/tutorial/insert_into.md
-      - name: Data update by UPDATE
-        href: yql/tutorial/update.md
-      - name: Deleting data
-        href: yql/tutorial/delete.md
-      - name: Adding and deleting columns
-        href: yql/tutorial/alter_table.md
-      - name: Deleting a table
-        href: yql/tutorial/delete_table.md
   - name: Maintenance
     items:
       - name: Backups
         href: maintenance/backup_and_recovery.md
+      - name: Introspection tools for self-deployment
+        items:
+          - name: Overview
+            href: maintenance/embedded_monitoring/overview.md
+          - name: YDB Monitoring
+            href: maintenance/embedded_monitoring/ydb_monitoring.md
+          - name: Connections overview
+            href: maintenance/embedded_monitoring/interconnect_overview.md
+          - name: Logs
+            href: maintenance/embedded_monitoring/logs.md
+          - name: Charts
+            href: maintenance/embedded_monitoring/charts.md
+      - name: Metric reference
+        href: maintenance/yc_metrics.md
   - name: Diagnostics
     items:
       - name: System views
         href: troubleshooting/system_views.md
+      - name: Monitoring
+        href: troubleshooting/monitoring.md
+  - name: Pricing policy
+    items:
+      - name: Overview
+        href: pricing/index.md
+      - name: Serverless mode
+        items:
+          - name: Pricing policy for serverless mode
+            href: pricing/serverless.md
+          - name: Query cost for YQL
+            href: pricing/request_units_yql.md
+          - name: Request cost for the Document API
+            href: pricing/request_units_docapi.md
+          - name: Request cost for special APIs
+            href: pricing/request_units_special.md
+      - name: Dedicated mode
+        href: pricing/dedicated.md
+  - name: Amazon DynamoDB-compatible HTTP API
+    items:
+      - name: All methods
+        href: docapi/api-ref/index.md
+      - name: Actions
+        items:
+          - name: BatchGetItem
+            href: docapi/api-ref/actions/batchGetItem.md
+          - name: BatchWriteItem
+            href: docapi/api-ref/actions/batchWriteItem.md
+          - name: CreateTable
+            href: docapi/api-ref/actions/createTable.md
+          - name: DeleteItem
+            href: docapi/api-ref/actions/deleteItem.md
+          - name: DeleteTable
+            href: docapi/api-ref/actions/deleteTable.md
+          - name: DescribeTable
+            href: docapi/api-ref/actions/describeTable.md
+          - name: DescribeTimeToLive
+            href: docapi/api-ref/actions/describeTimeToLive.md
+          - name: GetItem
+            href: docapi/api-ref/actions/getItem.md
+          - name: ListTables
+            href: docapi/api-ref/actions/listTables.md
+          - name: PutItem
+            href: docapi/api-ref/actions/putItem.md
+          - name: Query
+            href: docapi/api-ref/actions/query.md
+          - name: Scan
+            href: docapi/api-ref/actions/scan.md
+          - name: TransactGetItems
+            href: docapi/api-ref/actions/transactGetItems.md
+          - name: TransactWriteItems
+            href: docapi/api-ref/actions/transactWriteItems.md
+          - name: UpdateItem
+            href: docapi/api-ref/actions/updateItem.md
+          - name: UpdateTimeToLive
+            href: docapi/api-ref/actions/updateTimeToLive.md
+      - name: Common errors
+        href: docapi/api-ref/common-errors.md
+  - name: YQL
+    items:
+      - name: Overview
+        href: yql/reference/index.md
+      - name: YQL reference guide
+        items:
+          - name: Data types
+            items:
+              - name: Overview
+                href: yql/reference/types/index.md
+              - name: Simple
+                href: yql/reference/types/primitive.md
+              - name: Optional
+                href: yql/reference/types/optional.md
+              - name: Containers
+                href: yql/reference/types/containers.md
+              - name: Special
+                href: yql/reference/types/special.md
+              - name: Type casting
+                href: yql/reference/types/cast.md
+              - name: Text representation of data types
+                href: yql/reference/types/type_string.md
+              - name: JSON
+                href: yql/reference/types/json.md
+          - name: Syntax
+            items:
+              - name: Overview
+                href: yql/reference/syntax/index.md
+              - name: Lexical structure
+                href: yql/reference/syntax/lexer.md
+              - name: Expressions
+                href: yql/reference/syntax/expressions.md
+              - name: SELECT
+                href: yql/reference/syntax/select.md
+              - name: VALUES
+                href: yql/reference/syntax/values.md
+              - name: CREATE TABLE
+                href: yql/reference/syntax/create_table.md
+              - name: ALTER TABLE
+                href: yql/reference/syntax/alter_table.md
+              - name: DROP TABLE
+                href: yql/reference/syntax/drop_table.md
+              - name: INSERT
+                href: yql/reference/syntax/insert_into.md
+              - name: UPDATE
+                href: yql/reference/syntax/update.md
+              - name: DELETE
+                href: yql/reference/syntax/delete.md
+              - name: REPLACE
+                href: yql/reference/syntax/replace_into.md
+              - name: UPSERT
+                href: yql/reference/syntax/upsert_into.md
+              - name: GROUP BY
+                href: yql/reference/syntax/group_by.md
+              - name: JOIN
+                href: yql/reference/syntax/join.md
+              - name: WINDOW
+                href: yql/reference/syntax/window.md
+              - name: FLATTEN
+                href: yql/reference/syntax/flatten.md
+              - name: ACTION
+                href: yql/reference/syntax/action.md
+              - name: DISCARD
+                href: yql/reference/syntax/discard.md
+              - name: INTO RESULT
+                href: yql/reference/syntax/into_result.md
+              - name: PRAGMA
+                href: yql/reference/syntax/pragma.md
+              - name: DECLARE
+                href: yql/reference/syntax/declare.md
+              - name: Unsupported statements
+                href: yql/reference/syntax/not_yet_supported.md
+          - name: Built-in functions
+            items:
+              - name: Basic
+                href: yql/reference/builtins/basic.md
+              - name: Aggregate
+                href: yql/reference/builtins/aggregation.md
+              - name: Window
+                href: yql/reference/builtins/window.md
+              - name: For lists
+                href: yql/reference/builtins/list.md
+              - name: For dictionaries
+                href: yql/reference/builtins/dict.md
+              - name: For structures
+                href: yql/reference/builtins/struct.md
+              - name: For types
+                href: yql/reference/builtins/types.md
+              - name: For JSON
+                href: yql/reference/builtins/json.md
+              - name: C++ libraries
+                items:
+                  - name: Overview
+                    href: yql/reference/udf/list/index.md
+                  - name: Hyperscan
+                    href: yql/reference/udf/list/hyperscan.md
+                  - name: Pcre
+                    href: yql/reference/udf/list/pcre.md
+                  - name: Pire
+                    href: yql/reference/udf/list/pire.md
+                  - name: Re2
+                    href: yql/reference/udf/list/re2.md
+                  - name: String
+                    href: yql/reference/udf/list/string.md
+                  - name: Unicode
+                    href: yql/reference/udf/list/unicode.md
+                  - name: DateTime
+                    href: yql/reference/udf/list/datetime.md
+                  - name: Url
+                    href: yql/reference/udf/list/url.md
+                  - name: Ip
+                    href: yql/reference/udf/list/ip.md
+                  - name: Yson
+                    href: yql/reference/udf/list/yson.md
+                  - name: Digest
+                    href: yql/reference/udf/list/digest.md
+                  - name: Math
+                    href: yql/reference/udf/list/math.md
+                  - name: Histogram
+                    href: yql/reference/udf/list/histogram.md
+      - name: YQL tutorial
+        items:
+          - name: Overview
+            href: yql/tutorial/index.md
+          - name: Creating a table
+            href: yql/tutorial/create_demo_tables.md
+          - name: Adding data to a table
+            href: yql/tutorial/fill_tables_with_data.md
+          - name: Selecting data from all columns
+            href: yql/tutorial/select_all_columns.md
+          - name: Selecting data from specific columns
+            href: yql/tutorial/select_specific_columns.md
+          - name: Sorting and filtering
+            href: yql/tutorial/basic_filter_and_sort.md
+          - name: Data aggregation
+            href: yql/tutorial/basic_aggregation.md
+          - name: Additional selection criteria
+            href: yql/tutorial/conditional_values.md
+          - name: Joining tables with JOIN
+            href: yql/tutorial/join_tables.md
+          - name: Inserting and updating data with REPLACE
+            href: yql/tutorial/replace_into.md
+          - name: Inserting and updating data with UPSERT
+            href: yql/tutorial/upsert_into.md
+          - name: Inserting data with INSERT
+            href: yql/tutorial/insert_into.md
+          - name: Updating data with UPDATE
+            href: yql/tutorial/update.md
+          - name: Deleting data
+            href: yql/tutorial/delete.md
+          - name: Adding and deleting columns
+            href: yql/tutorial/alter_table.md
+          - name: Deleting a table
+            href: yql/tutorial/delete_table.md
+  - name: Working with the YDB CLI
+    items:
+      - name: Overview
+        href: reference/ydb-cli/index.md
+      - name: Installing the YDB CLI
+        href: reference/ydb-cli/install.md
+      - name: Authorization in the YDB CLI
+        href: reference/ydb-cli/authorization.md
+      - name: Profile management
+        items:
+          - name: Creating a profile
+            href: reference/ydb-cli/profile/create.md
+          - name: Getting profile information
+            href: reference/ydb-cli/profile/list-and-get.md
+          - name: Activating a profile
+            href: reference/ydb-cli/profile/activate.md
+          - name: Deleting a profile
+            href: reference/ydb-cli/profile/delete.md
+      - name: Commands
+        items:
+          - name: Overview
+            href: reference/ydb-cli/commands/index.md
+          - name: Structure and description of YDB CLI commands
+            href: reference/ydb-cli/commands/commands.md
+          - name: Global parameters
+            href: reference/ydb-cli/commands/global-options.md
+          - name: Listing objects
+            href: reference/ydb-cli/commands/scheme-ls.md
+          - name: Getting information about schema objects
+            href: reference/ydb-cli/commands/scheme-describe.md
+          - name: Getting a list of DB endpoints
+            href: reference/ydb-cli/commands/discovery-list.md
+          - name: Making a DB query
+            href: reference/ydb-cli/commands/query.md
+          - name: Streaming table reads
+            href: reference/ydb-cli/commands/readtable.md
+          - name: Working with secondary indexes
+            href: reference/ydb-cli/commands/operations-index.md
+          - name: Working with directories
+            href: reference/ydb-cli/commands/scheme-mkdir.md
+          - name: Scan queries
+            href: reference/ydb-cli/commands/scan-query.md
+          - name: Utilities
+            items:
+              - name: Renaming tables
+                href: reference/ydb-cli/commands/tools/rename.md
+  - name: Working with the YDB SDK
+    items:
+      - name: Overview
+        href: reference/ydb-sdk/index.md
+      - name: Test app
+        items:
+          - name: Overview
+            href: reference/ydb-sdk/example/index.md
+          - name: C# (.NET)
+            href: reference/ydb-sdk/example/example-dotnet.md
+          - name: Go
+            href: reference/ydb-sdk/example/example-go.md
+          - name: Java
+            href: reference/ydb-sdk/example/example-java.md
+          - name: Node.js
+            href: reference/ydb-sdk/example/example-nodejs.md
+          - name: PHP
+            href: reference/ydb-sdk/example/example-php.md
+          - name: Python
+            href: reference/ydb-sdk/example/example-python.md
+      - name: Handling errors in the API
+        href: reference/ydb-sdk/error_handling.md
+      - name: Installing and configuring
+        href: reference/ydb-sdk/yc_setup.md
   - name: Questions and answers
     items:
+      - name: Overview
+        href: faq/index.md
       - name: General questions
         href: faq/common.md
       - name: Errors
@@ -374,5 +469,8 @@ items:
       - name: Serverless
         href: faq/serverless.md
       - name: All questions on one page
-        href: faq.md
+        href: faq/all.md
+      - name: SDK-Hidden
+        href: faq/sdk.md
+        hidden: true
 base: en/ydb

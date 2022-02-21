@@ -1,9 +1,12 @@
+---
+sourcePath: en/ydb/overlay/operations/crud.md
+---
 # Reading and writing data
 
 Queries can be sent to YDB in the following ways:
 
 * From the [management console](#web-sql).
-* From an application written using the [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) or [Go](https://github.com/yandex-cloud/ydb-go-sdk).
+* from an application written in [YDB SDK](../reference/ydb-sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), or  [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 * Using the [API compatible with Amazon DynamoDB](../docapi/api-ref/index.md) (for document tables).
 
 In this section, we are going to use the management console to execute queries.
@@ -14,9 +17,9 @@ To run queries, you'll need to create a [database](create_manage_database.md) an
 
 ## SQL queries in the management console {#web-sql}
 
-To send an SQL query to the database from the management console:
+To send an SQL query to a database from the management console:
 
-1. In the [management console](https://console.cloud.yandex.ru), select the folder with the desired DB.
+1. In the [management console]({{ link-console-main }}), select the folder where the desired database is located.
 1. In the list of services, select **{{ ydb-name }}**.
 1. Select the database from the list.
 1. Click **SQL query** and enter the query text. When making queries, you can use the following templates:
@@ -67,7 +70,7 @@ Data added using the following code sample will be used later in this section.
 
 ### UPSERT {#upsert}
 
-Use [UPSERT](../yql/reference/syntax/upsert_into.md) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row already exists, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
+Use [UPSERT](../yql/reference/syntax/upsert_into.md) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row already exists, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are not changed. This is what differentiates it from the REPLACE statement.*
 
 {% note info %}
 
@@ -125,7 +128,7 @@ You can use an asterisk to select all the columns in a table. To obtain the valu
 
 {% note info %}
 
-For more information about how to query data by secondary index, see [{#T}](../yql/reference/syntax/select.md#si-select).
+For more information about how to query data by a secondary index, see the [YQL documentation](../yql/reference/syntax/select.md#secondary_index).
 
 {% endnote %}
 

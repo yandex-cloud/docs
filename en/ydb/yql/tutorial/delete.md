@@ -1,8 +1,11 @@
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/delete.md
+---
 # Deleting data
 
 Delete data from the table using [DELETE](../reference/syntax/delete.md).
 
-{% include [yql-reference-prerequisites](../../_includes/yql_tutorial_prerequisites.md) %}
+{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
 
 ```sql
 DELETE
@@ -15,12 +18,12 @@ WHERE
 
 COMMIT;
 
--- See result:
+-- View result:
 SELECT * FROM episodes WHERE series_id = 2 AND season_id = 5;
 
--- YDB transaction doesn't see its own changes and operates on the data
--- read on transaction start. It is impossible to execute UPDATE or DELETE,
--- if the table was already changed within the current transaction. UPDATE ON and
+-- YDB doesn't see changes that take place at the start of the transaction,
+-- which is why it first performs a read. It is impossible to execute UPDATE or DELETE on
+-- if the table was changed within the current transaction. UPDATE ON and
 -- DELETE ON let you read, update, and delete multiple rows from one table
 -- within a single transaction.
 
@@ -37,9 +40,8 @@ SELECT * FROM $to_delete;
 
 COMMIT;
 
--- See result:
+-- View result:
 SELECT * FROM episodes WHERE series_id = 1 AND season_id = 1;
 
 COMMIT;
 ```
-

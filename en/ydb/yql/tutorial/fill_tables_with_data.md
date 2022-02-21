@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/fill_tables_with_data.md
+---
 # Adding data to a table
 
 Populate the [created](create_demo_tables.md) tables with data using the [REPLACE INTO](../reference/syntax/replace_into.md) statement.
@@ -7,7 +10,7 @@ REPLACE INTO series (series_id, title, release_date, series_info)
 
 VALUES
 
-    -- By default, numeric literals have type Int32, 
+    -- By default, numeric literals have type Int32
     -- if the value is within the range.
     -- Otherwise, they automatically expand to Int64.
     (
@@ -17,7 +20,7 @@ VALUES
                                               -- You can convert a string
                                               -- literal into a primitive literal.
                                               -- The Date() function converts a string
-                                              -- literal in the ISO 8601 format into a date.
+                                              -- literal in ISO 8601 format into a date.
 
         "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."),
     (
@@ -116,4 +119,3 @@ VALUES
 
 COMMIT;
 ```
-

@@ -1,16 +1,19 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-cli/cleanup.md
+---
 # Deleting created resources
 
 If you don't need the `series` table any more, delete it:
 
 {% list tabs %}
 
-- AWS CLI
+* AWS CLI
 
-    Run the command below replacing `https://your-database-endpoint` with the endpoint of your DB:
+    Run the command by replacing `https://your-database-endpoint` with the endpoint of your DB:
 
     {% note warning %}
 
-    To run the AWS CLI in Windows, we recommend using [WSL](https://docs.microsoft.com/en-us/windows/wsl/).
+    To work with the AWS CLI from Windows, we recommend using the [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/).
 
     {% endnote %}
 
@@ -21,7 +24,7 @@ If you don't need the `series` table any more, delete it:
         --endpoint $endpoint
     ```
 
-   Execution output:
+   Output:
 
    ```text
    {

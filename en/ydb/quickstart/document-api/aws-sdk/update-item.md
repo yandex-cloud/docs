@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/update-item.md
+---
 # Updating a record
 
 This instruction describes how to make changes to an existing record in the table.
@@ -107,7 +110,7 @@ To update a movie record in the `Series` table:
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesItemOps03.java` file, for example, using the nano editor:
 
@@ -192,7 +195,7 @@ To update a movie record in the `Series` table:
       java -jar target/release/SeriesItemOps03.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Updating record...
@@ -265,7 +268,7 @@ To update a movie record in the `Series` table:
       python SeriesItemOps03.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Series data updated:
@@ -362,7 +365,7 @@ To update a movie record in the `Series` table:
 
       This code uses `UpdateExpression` to describe the updates that need to be performed for the specified record.
 
-      The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
+      The `ReturnValues` parameter prescribes to {{ ydb-short-name }}return only updated attributes (`UPDATED_NEW`).
 
   1. Run the program:
 
@@ -370,7 +373,7 @@ To update a movie record in the `Series` table:
       php SeriesItemOps03.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Record updated.
@@ -457,7 +460,7 @@ To update a movie record in the `Series` table:
       node SeriesItemOps03.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Updating record...
@@ -557,7 +560,7 @@ To update a movie record in the `Series` table:
       ruby SeriesItemOps03.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Updating table 'Series' with information about 'Supernatural (3)'...
@@ -675,7 +678,7 @@ To increase the `rating` atomic counter for a series:
       </project>
       ```
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+      Check out the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
   1. In the folder `src/main/java/ru/yandex/cloud/samples/`, create the `SeriesItemOps04.java` file, for example, using the nano editor:
 
@@ -754,7 +757,7 @@ To increase the `rating` atomic counter for a series:
       java -jar target/release/SeriesItemOps04.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Increasing atomic counter...
@@ -823,7 +826,7 @@ To increase the `rating` atomic counter for a series:
       python SeriesItemOps04.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```bash
       Series data updated:
@@ -923,7 +926,7 @@ To increase the `rating` atomic counter for a series:
       php SeriesItemOps04.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Record updated:
@@ -994,7 +997,7 @@ To increase the `rating` atomic counter for a series:
               console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
-              console.log ("Update successful:", JSON.stringify(data, null, 2));
+              console.log ("Update successful:", JSON. stringify(data, null, 2));
           }
       });
       ```
@@ -1007,7 +1010,7 @@ To increase the `rating` atomic counter for a series:
       node SeriesItemOps04.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```bash
       Updating record...
@@ -1104,7 +1107,7 @@ To increase the `rating` atomic counter for a series:
      ruby SeriesItemOps04.rb
      ```
 
-     Execution output:
+     Execution result:
 
      ```text
      Updating 'Series' with information about 'Supernatural (3)'...
@@ -1303,7 +1306,7 @@ To update a record in the `Series` table when the condition is satisfied:
       java -jar target/release/SeriesItemOps05.jar
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Attempting to perform conditional update...
@@ -1407,7 +1410,7 @@ To update a record in the `Series` table when the condition is satisfied:
       python SeriesItemOps05.py
       ```
 
-      Execution output:
+      Execution result:
 
       ```bash
       Attempting to perform conditional update...
@@ -1424,7 +1427,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
   1. Run the program again. The update operation should now be successful.
 
-      Execution output:
+      Execution result:
 
       ```bash
       Attempting to perform conditional update...
@@ -1530,7 +1533,7 @@ To update a record in the `Series` table when the condition is satisfied:
       php SeriesItemOps05.php
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Couldn't update record:
@@ -1623,7 +1626,7 @@ To update a record in the `Series` table when the condition is satisfied:
               console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
-              console.log ("Update successful:", JSON.stringify(data, null, 2));
+              console.log ("Update successful:", JSON. stringify(data, null, 2));
           }
       });
       ```
@@ -1638,7 +1641,7 @@ To update a record in the `Series` table when the condition is satisfied:
       node SeriesItemOps05.js
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Updating records with specified condition...
@@ -1762,7 +1765,7 @@ To update a record in the `Series` table when the condition is satisfied:
       ruby SeriesItemOps05.rb
       ```
 
-      Execution output:
+      Execution result:
 
       ```text
       Updating table 'Series' with information about 'Supernatural (3)'...
@@ -1791,4 +1794,3 @@ To update a record in the `Series` table when the condition is satisfied:
       ```
 
 {% endlist %}
-

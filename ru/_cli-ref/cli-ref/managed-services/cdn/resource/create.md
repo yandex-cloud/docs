@@ -20,7 +20,7 @@ Syntax:
 |`--origin-balancer-source`|<b>`string`</b><br/> Origin balancer source. Specify one of --origin-group-id, --origin-custom-source, --origin-bucket-source, --origin-balancer-source|
 |`--origin-balancer-id`|<b>`string`</b><br/> Origin balancer id. Mandatory argument for --origin-balancer-source|
 |`--secondary-hostnames`|<b>`value[,value]`</b><br/> List of secondary hostnames.|
-|`--origin-protocol`|<b>`string`</b><br/> Origin protocol. Valid values: HTTP, HTTPS, MATCH|
+|`--origin-protocol`|<b>`string`</b><br/> Origin protocol. Valid values: HTTP, HTTPS, MATCH. Values: 'http', 'https', 'match'|
 |`--active`| Specifies if create resource in active state. True by default|
 |`--dont-use-ssl-cert`| Don't use SSL certificate. Mutually exclusive with --lets-encrypt-gcore-ssl-cert, --cert-manager-ssl-cert-id|
 |`--lets-encrypt-gcore-ssl-cert`| Use Lets Encrypt GCore certificate. Mutually exclusive with --dont-use-ssl-cert, --cert-manager-ssl-cert-id|

@@ -10,7 +10,7 @@
 
 - API
 
-   Для управления балансом проекта используйте методы API [GetUniteBalance](../../api-ref/grpc/project_service#GetUnitBalance) и [SetUniteBalance](../../api-ref/grpc/project_service#SetUnitBalance).
+  Для управления балансом проекта используйте методы API [GetUniteBalance](../../api-ref/grpc/project_service#GetUnitBalance) и [SetUniteBalance](../../api-ref/grpc/project_service#SetUnitBalance).
 
   Получить баланс проекта:
   

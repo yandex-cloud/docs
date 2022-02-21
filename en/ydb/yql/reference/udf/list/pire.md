@@ -1,4 +1,9 @@
-# Pire UDF
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/pire.md
+sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/pire.md
+---
+
+# Pire
 
 **List of functions**
 
@@ -9,7 +14,7 @@
 * ```Pire::Capture(String) -> (String?) -> String?```
 * ```Pire::Replace(String) -> (String?, String) -> String?```
 
-One of the options to match regular expressions in YQL is to use Pire (Perl Incompatible Regular Expressions library). This is a very fast library of regular expressions developed at Yandex: at the lower level, it looks up the input string once, without any lookaheads or rollbacks, spending 5 machine instructions per character (on x86 and x86_64).
+One of the options to match regular expressions in YQL is to use  [Pire](https://github.com/yandex/pire) (Perl Incompatible Regular Expressions). This is a very fast library of regular expressions developed at Yandex: at the lower level, it looks up the input string once, without any lookaheads or rollbacks, spending 5 machine instructions per character (on x86 and x86_64).
 
 The speed is achieved by using the reasonable restrictions:
 
@@ -65,11 +70,12 @@ SELECT
 /*
 - match: `false`
 - grep: `true`
+- insensitive_grep: `true`
 - multi_match: `(false, true, true, true)`
 - some_multi_match: `false`
 - capture: `"a"`
-- capture_many: `"a"`
-- replace: `"xbaxaaxaa"`
+- capture_many: `"aa"`
+- replace: `"xaaxaaxba"`
 */
 ```
 
@@ -80,15 +86,18 @@ Matches the regular expression with a **part of the string** (arbitrary substrin
 ## Match {#match}
 
 Matches **the whole string** against the regular expression.
-To get the result similar to `Grep`  (where substring matching is included), enclose the regular expression in `.*`. For example, use `.*foo.*` instead of `foo`.
 
-## MultiGrep / MultiMatch {#multigrep}
+To get a result similar to `Grep`  (where substring matching is included), enclose the regular expression in `.*`. For example, use `.*foo.*` instead of `foo`.
+
+## MultiGrep/MultiMatch {#multigrep}
 
 Pire lets you match against multiple regular expressions in a single pass through the text and get a separate response for each match.
+
 Use the MultiGrep/MultiMatch functions to optimize the query execution speed. Be sure to do it carefully, since the size of the state machine used for matching grows exponentially with the number of regular expressions:
 
 * If you want to match a string against any of the listed expressions (the results are joined with "or"), it would be much more efficient to combine the query parts in a single regular expression with `|` and match it using regular Grep or Match.
 * Pire has a limit on the size of the state machine (YQL uses the default value set in the library). If you exceed the limit, the error is raised at the start of the query: `Failed to glue up regexes, probably the finite state machine appeared to be too large`.
+
 When you call MultiGrep/MultiMatch, regular expressions are passed one per line using [multiline string literals](../../syntax/expressions.md#multiline-string-literals):
 
 **Examples**
@@ -99,8 +108,8 @@ $multi_match = Pire::MultiMatch(@@a.*
 .*axa.*@@);
 
 SELECT
-$multi_match("a") AS a,
-$multi_match("axa") AS axa;
+    $multi_match("a") AS a,
+    $multi_match("axa") AS axa;
 
 /*
 - a: `(true, false, false)`
@@ -111,6 +120,7 @@ $multi_match("axa") AS axa;
 ## Capture {#capture}
 
 If a string matches the specified regular expression, it returns a substring that matches the group enclosed in parentheses in the regular expression.
+
 Capture is non-greedy: the shortest possible substring is returned.
 
 {% note alert %}
@@ -121,7 +131,7 @@ The expression must contain only **one** group in parentheses. `NULL` (empty Opt
 
 If the above limitations and features are unacceptable for some reason, we recommend that you consider [Re2::Capture](re2.md#capture).
 
-## Replace UDF {#replace}
+## REPLACE {#replace}
 
 Pire doesn't support replace based on a regular expression. `Pire::Replace` implemented in YQL is a simplified emulation using `Capture`. It may run correctly, if the substring occurs more than once in the source string.
 

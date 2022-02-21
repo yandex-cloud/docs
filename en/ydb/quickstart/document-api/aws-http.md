@@ -1,15 +1,20 @@
-# Working with data through the HTTP interface
+---
+sourcePath: en/ydb/overlay/quickstart/document-api/aws-http.md
+---
+# Working with data from the HTTP interface
 
 In this section, you'll learn how to create a table, add data to it, and then read it using the Document API HTTP interface.
 
 For HTTP queries, the examples in the section use the [cURL](https://curl.se/) utility.
 
+{% include [doc-tables-only.md](../../_includes/doc-tables-only.md) %}
+
 ## Before you start {#before-you-begin}
 
-1. If you don't have the {{ yandex-cloud }} CLI, [install and initialize it](../../../cli/quickstart.md#install).
+1. If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../../cli/quickstart.md#install).
 1. Prepare the Document API endpoint of the [created database](../create-db.md).
 
-    {% cut "How to get the Document API endpoint of the database" %}
+    {% cut "How to find out the Document API database endpoint" %}
 
     1. Go to the [management console]({{ link-console-main }}).
     1. Select the folder and go to **{{ ydb-full-name }}**.
@@ -23,7 +28,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
 
     {% note info %}
 
-    For the Amazon DynamoDB-compatible mode, use a serverless database configuration.
+    For the Amazon DynamoDB compatible mode, use a serverless database configuration.
 
     {% endnote %}
 

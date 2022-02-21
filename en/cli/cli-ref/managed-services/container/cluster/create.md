@@ -30,7 +30,7 @@ Syntax:
 |`--subnet-id`|<b>`string`</b><br/> Subnet id.|
 |`--subnet-name`|<b>`string`</b><br/> Subnet name.|
 |`--public-ip`| Set when the Kubernetes cluster needs an external IP.|
-|`--regional`| Create highly available master for the cluster. Master will be distributed across 3 availablity zones.|
+|`--regional`| Create highly available master for the cluster. Master will be distributed across 3 instances.|
 |`--region`|<b>`string`</b><br/> ID of the region where regional Kubernetes cluster resides|
 |`--master-location`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of regional master locations.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  zone Zone of the subnet.  |
 |`--release-channel`|<b>`string`</b><br/> Master and Node Groups release channel. Every release channel have it's own list of available versions and new revisions release policy. * 'regular' used by default. It usually have one or two stable kubernetes versions available. It's new revisions contains bug and security fixes, but also can contain new well tested features. * 'rapid' is less stable, but receives new features earlier. Usually have most new kubernetes version available. * 'stable' is most stable, but it's new revisions contains only critical bug and security fixes.|

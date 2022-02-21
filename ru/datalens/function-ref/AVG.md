@@ -6,7 +6,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/AVG.md
 
 # AVG
 
-_Функция `AVG` также доступна как [оконная](AVG_WINDOW.md)._
+_Функция `AVG` также доступна в следующих категориях: [Оконные функции](AVG_WINDOW.md)._
 
 #### Синтаксис {#syntax}
 

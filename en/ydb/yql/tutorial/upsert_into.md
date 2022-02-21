@@ -1,8 +1,11 @@
-# Data insert and update by UPSERT
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/upsert_into.md
+---
+# Inserting and updating data with UPSERT
 
-Add data to the table using [UPSERT INTO](../reference/syntax/upsert_into.md):
+Add data to the table using [UPSERT INTO](../reference/syntax/upsert_into.md).
 
-{% include [yql-reference-prerequisites](../../_includes/yql_tutorial_prerequisites.md) %}
+{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
 
 ```sql
 UPSERT INTO episodes
@@ -25,9 +28,8 @@ VALUES
 
 COMMIT;
 
--- See result:
+-- View result:
 SELECT * FROM episodes WHERE series_id = 2 AND season_id = 5;
 
 COMMIT;
 ```
-

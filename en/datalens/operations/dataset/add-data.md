@@ -14,3 +14,9 @@ To add data to a dataset using a SQL query:
 1. Enter a **Source name** and enter the SQL code in the **Subquery** field.
 1. Click **Create**.
 
+{% cut "SQL-query example" %}
+
+{% include [datalens-sql-join-example](../../../_includes/datalens/datalens-sql-join-example.md) %}
+
+{% endcut %}
+

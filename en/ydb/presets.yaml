@@ -1,6 +1,7 @@
 default:
   ydb-cli: ydb
   deploy: yfm
+  lang: ru
   iam-full-name: Yandex Identity and Access Management
   resmgr-full-name: Yandex Resource Manager
   compute-full-name: Yandex Compute Cloud
@@ -104,9 +105,29 @@ default:
   yandex-cloud: Yandex.Cloud
   s3-storage-host: storage.yandexcloud.net
   yc-ydb: yc ydb
+  yql-full-name: Yandex Query Language
+  yql-short-name: YQL
+  PG: PostgreSQL
+  oss: false
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
-  link-console-billing: https://console.cloud.yandex.com/billing
-  link-console-main: https://console.cloud.yandex.com/
+  roles-ydb-editor: ydb.editor
+  roles-ydb-viewer: ydb.viewer
+  roles-ydb-admin: ydb.admin
+  link-console-billing: https://console.cloud.yandex.ru/billing
+  link-console-main: https://console.cloud.yandex.ru/
+  link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  tech: false
+  backend_name: YDB
+  backend_name_lower: ydb
+  ydb: true
+  example_cluster: ydbtest
+  feature_secondary_index: true
+  feature_replace: true
+  feature_upsert: true
+  feature_join: true
+  feature_map_tables: true
+  feature_group_by_rollup_cube: true
+  feature_window_functions: true

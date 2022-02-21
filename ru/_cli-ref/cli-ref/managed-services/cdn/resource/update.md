@@ -12,12 +12,11 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--id`|<b>`string`</b><br/> Specifies the resource ID.|
 |`--origin-group-id`|<b>`int`</b><br/> Origin group id|
 |`--secondary-hostnames`|<b>`value[,value]`</b><br/> List of secondary hostnames. Mutually exclusive with --clear-secondary-hostnames|
 |`--clear-secondary-hostnames`| Clear secondary hostnames. Mutually exclusive with --secondary-hostnames|
-|`--origin-protocol`|<b>`string`</b><br/> Origin protocol. Valid values: HTTP, HTTPS, MATCH|
+|`--origin-protocol`|<b>`string`</b><br/> Origin protocol. Valid values: HTTP, HTTPS, MATCH. Values: 'http', 'https', 'match'|
 |`--active`| Specifies if resource is in active state.|
 |`--dont-use-ssl-cert`| Don't use SSL certificate. Mutually exclusive with --lets-encrypt-gcore-ssl-cert, --cert-manager-ssl-cert-id|
 |`--lets-encrypt-gcore-ssl-cert`| Use Lets Encrypt GCore certificate. Mutually exclusive with --dont-use-ssl-cert, --cert-manager-ssl-cert-id|
@@ -64,6 +63,7 @@ Syntax:
 |`--rewrite-flag`|<b>`string`</b><br/> Defines flag for the Rewrite option. Possible values: last — stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI. break — stops processing of the current set of the Rewrite option. redirect — returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme". permanent — returns a permanent redirect with the 301 code. Mutually exclusive with --clear-rewrite|
 |`--rewrite-body`|<b>`string`</b><br/> The pattern for Rewrite. At least one group should be specified. For Example: /rewrite_from/(.*) /rewrite_to/$1|
 |`--clear-rewrite`| Clear rewrite option. Mutually exclusive with --rewrite-flag|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 

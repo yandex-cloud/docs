@@ -16,13 +16,16 @@ Aliases:
 
 - [yc datatransfer transfer](transfer/index.md) — Manage transfers
 	- [yc datatransfer transfer create](transfer/create.md) — Create transfer
+	- [yc datatransfer transfer update](transfer/update.md) — Update transfer
 	- [yc datatransfer transfer delete](transfer/delete.md) — Delete transfer
 	- [yc datatransfer transfer get](transfer/get.md) — Get transfer
+	- [yc datatransfer transfer list](transfer/list.md) — List transfers in folder
 	- [yc datatransfer transfer activate](transfer/activate.md) — Activate transfer
 	- [yc datatransfer transfer deactivate](transfer/deactivate.md) — Deactivate transfer
 - [yc datatransfer endpoint](endpoint/index.md) — Manage endpoints
 	- [yc datatransfer endpoint get](endpoint/get.md) — Get endpoint
 	- [yc datatransfer endpoint delete](endpoint/delete.md) — Delete endpoint
+	- [yc datatransfer endpoint list](endpoint/list.md) — List endpoints in folder
 
 #### Global Flags
 

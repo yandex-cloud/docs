@@ -1,55 +1,39 @@
-# Digest UDF
+---
+sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/digest.md
+sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/digest.md
+---
+
+# Digest
 
 A set of commonly used hash functions.
 
 **List of functions**
 
 * ```Digest::Crc32c(String{Flags::AutoMap}) -> Uint32```
-
 * ```Digest::Fnv32(String{Flags::AutoMap}) -> Uint32```
-
 * ```Digest::Fnv64(String{Flags::AutoMap}) -> Uint64```
-
 * ```Digest::MurMurHash(String{Flags:AutoMap}) -> Uint64```
-
 * ```Digest::CityHash(String{Flags:AutoMap}) -> Uint64```
-
 * ```Digest::CityHash128(String{Flags:AutoMap}) -> Tuple<Uint64,Uint64>```
-
 * ```Digest::NumericHash(Uint64{Flags:AutoMap}) -> Uint64```
-
 * ```Digest::Md5Hex(String{Flags:AutoMap}) -> String```
-
 * ```Digest::Md5Raw(String{Flags:AutoMap}) -> String```
-
-* ```Digest::Md5HalfMix(String{Flags:AutoMap}) -> Uint64```
-
-    A variant of MD5 coarsening known as yabs_md5.
-
-* ```Digest::Argon2(String{Flags:AutoMap},String{Flags:AutoMap}) -> String```
-
-    The function takes a hashed data array as its first argument.
-The function takes a salt (a hash function input modifier) as the second argument.
-
-* ```Digest::Blake2B(String{Flags:AutoMap}) -> String```
-
+* ```Digest::Md5HalfMix(String{Flags:AutoMap}) -> Uint64```: MD5 coarsening option (yabs_md5)
+* ```Digest::Argon2(String{Flags:AutoMap},String{Flags:AutoMap}) -> String```: The second argument is the salt
+* ```Digest::Blake2B(String{Flags:AutoMap},[String?]) -> String```: The second optional argument is the key
 * ```Digest::SipHash(Uint64,Uint64,String{Flags:AutoMap}) -> Uint64```
-
 * ```Digest::HighwayHash(Uint64,Uint64,Uint64,Uint64,String{Flags:AutoMap}) -> Uint64```
-
+* ```Digest::FarmHashFingerprint(Uint64{Flags:AutoMap}) -> Uint64```
+* ```Digest::FarmHashFingerprint2(Uint64{Flags:AutoMap}, Uint64{Flags:AutoMap}) -> Uint64```
 * ```Digest::FarmHashFingerprint32(String{Flags:AutoMap}) -> Uint32```
-
 * ```Digest::FarmHashFingerprint64(String{Flags:AutoMap}) -> Uint64```
-
 * ```Digest::FarmHashFingerprint128(String{Flags:AutoMap}) -> Tuple<Uint64,Uint64>```
-
 * ```Digest::SuperFastHash(String{Flags:AutoMap}) -> Uint32```
-
 * ```Digest::Sha1(String{Flags:AutoMap}) -> String```
-
 * ```Digest::Sha256(String{Flags:AutoMap}) -> String```
-
 * ```Digest::IntHash64(Uint64{Flags:AutoMap}) -> Uint64```
+* ```Digest::XXH3(String{Flags:AutoMap}) -> Uint64```
+* ```Digest::XXH3_128(String{Flags:AutoMap}) -> Tuple<Uint64,Uint64>```
 
 **Examples**
 

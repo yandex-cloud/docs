@@ -6,7 +6,7 @@ sourcePath: en/_api-ref/datalens/function-ref/COUNT_WINDOW.md
 
 # COUNT (window)
 
-_Function `COUNT` is also available as an [aggregate function](COUNT.md)._
+_Function `COUNT` is also found in the following categories: [Aggregate functions](COUNT.md)._
 
 #### Syntax {#syntax}
 

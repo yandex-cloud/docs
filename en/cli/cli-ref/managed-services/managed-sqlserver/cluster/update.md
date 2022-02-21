@@ -23,6 +23,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the SQLServer cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--confirm-payment`| Confirm immediate payment for cluster creation/modification/restoring|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host|
 |`--disk-type`|<b>`string`</b><br/> Type of the storage environment for a host|

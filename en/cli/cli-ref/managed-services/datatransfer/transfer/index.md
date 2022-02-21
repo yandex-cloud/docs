@@ -14,8 +14,10 @@ Syntax:
 #### Command Tree
 
 - [yc datatransfer transfer create](create.md) — Create transfer
+- [yc datatransfer transfer update](update.md) — Update transfer
 - [yc datatransfer transfer delete](delete.md) — Delete transfer
 - [yc datatransfer transfer get](get.md) — Get transfer
+- [yc datatransfer transfer list](list.md) — List transfers in folder
 - [yc datatransfer transfer activate](activate.md) — Activate transfer
 - [yc datatransfer transfer deactivate](deactivate.md) — Deactivate transfer
 

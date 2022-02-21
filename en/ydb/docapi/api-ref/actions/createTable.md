@@ -1,3 +1,6 @@
+---
+sourcePath: en/ydb/overlay/docapi/api-ref/actions/createTable.md
+---
 # CreateTable method
 
 Creates a new table.
@@ -18,6 +21,21 @@ The request contains data in JSON format.
       }
    ],
    "BillingMode": "string",
+   "GlobalSecondaryIndexes": [ 
+      { 
+         "IndexName": "string",
+         "KeySchema": [ 
+            { 
+               "AttributeName": "string",
+               "KeyType": "string"
+            }
+         ],
+         "Projection": { 
+            "NonKeyAttributes": [ "string" ],
+            "ProjectionType": "string"
+         }
+      }
+   ],
    "KeySchema": [ 
       { 
          "AttributeName": "string",
@@ -33,6 +51,7 @@ The request contains data in JSON format.
 | Parameter | Description |
 | ----- | ----- |
 | `AttributeDefinitions` | An array of attributes that describe the key schema for a table and indexes.<br/><br/>**Type**: Array of objects of the `AttributeDefinition` type.<br/>**Required**: Yes |
+| `GlobalSecondaryIndexes` | An array of attributes describing one or more global secondary indexes to be created in the table. Each item consists of:<ul><li>`IndexName` is the index name. The name must be unique and have a length of at least three characters. Required parameter.</li><li>`KeySchema` are the attributes that constitute the primary key of the index.</li><li>`Projection` specifies attributes that are copied from the table to the index. Currently only the `ProjectionType` of `ALL` is supported.</li><li>`NonKeyAttributes` is a list of one or more non-key attribute names that are projected to the secondary index.</li></ul><br/>**Required**: No |
 | `KeySchema` | Attributes that make up a primary key. These attributes should also be specified in `AttributeDefinitions`.<br/>Each item consists of:<ul><li>`AttributeName`: Attribute name.<li>`KeyType`: Role that the key attribute will assume:<ul><li>`HASH`: Partition key<li>`RANGE`: Sort key</ul></ul>For a simple primary key (partition key), specify only one attribute with the `HASH` role.<br/>For a composite primary key (partition key + sort key), specify two attributes: the first with the HASH role and the second with that of `RANGE`<br/><br/>**Type**: Array of objects of the `KeySchemaElement` type<br/>**Length**: 1-2 items.<br/>**Required**: Yes |
 | `TableName` | Name of the table you create.<br/>May contain a path in the directory hierarchy like path/to/table.<br/><br/>**Type**: String<br/>**Length**: 3 - 255 characters.<br/>**Pattern**: [a-zA-Z0-9_.-]+<br/>**Required**: Yes |
 
@@ -72,7 +91,7 @@ The response is returned in JSON format.
       "LatestStreamLabel": "string",     
       "Replicas": [ 
          {             
-            "KMSMasterKeyId": "string",            
+            "KMSMainKeyId": "string",            
             "RegionName": "string",
             "ReplicaStatus": "string",
             "ReplicaStatusDescription": "string",
@@ -87,7 +106,7 @@ The response is returned in JSON format.
       },
       "SSEDescription": { 
          "InaccessibleEncryptionDateTime": number,
-         "KMSMasterKeyArn": "string",
+         "KMSMainKeyArn": "string",
          "SSEType": "string",
          "Status": "string"
       },
@@ -104,7 +123,7 @@ The response is returned in JSON format.
 
 | Parameter | Description |
 | ----- | ----- |
-| `TableDescription` | Properties of the created table.<br/><br/>**Type**: Object of the `TableDescription type` |
+| `TableDescription` | Properties of the created table.<br/><br/>**Type**: a `TableDescription` object |
 
 ## Errors
 
@@ -115,4 +134,3 @@ The response is returned in JSON format.
 | `ResourceInUseException` | An attempt to create a table with a name that already exists.<br/><br/>**HTTP status code**: 400<br/> |
 
 There may be [common errors](../common-errors) as well. These are errors that are common to all methods.
-
