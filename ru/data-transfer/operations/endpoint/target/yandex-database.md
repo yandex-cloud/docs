@@ -41,7 +41,7 @@
 
             {% if audience != "internal" %}
 
-            Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}](../../../../ydb/oss/public/develop/concepts/datamodel.md#partitioning)
+            Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}](../../../../ydb/concepts/datamodel.md#partitioning)
 
             {% endif %}
 

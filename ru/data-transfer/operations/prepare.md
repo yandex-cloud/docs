@@ -255,7 +255,7 @@
 
         * Windows 10, 11
 
-            1. Если у вас не установлена Microsoft Visual Studio, загрузите и установите ее. Для сборки расширения wal2json достаточно редакции [Comminuty Edition](https://visualstudio.microsoft.com/ru/vs/community/). При установке выберите компоненты:
+            1. Если у вас не установлена Microsoft Visual Studio, загрузите и установите ее. Для сборки расширения wal2json достаточно редакции [Community Edition](https://visualstudio.microsoft.com/ru/vs/community/). При установке выберите компоненты:
 
                 * MSBuild,
                 * MSVC v141 x86/x64 build tools,
@@ -292,7 +292,7 @@
                      Set-Content .\wal2json.vcxproj
                     ```
 
-                1. Укажите значение переменной окружения, необходимой для сборки wal2json, например, для Visual Studio Comminity Edition 2022:
+                1. Укажите значение переменной окружения, необходимой для сборки wal2json, например, для Visual Studio Community Edition 2022:
 
                     ```powershell
                     $VCTargetsPath='C:\Program Files\Microsoft Visual Studio\2022\Comminuty\MSBuild\Microsoft\VC\v150'
@@ -334,7 +334,7 @@
            type: logical
        ```
        
-       Имя базы данных и имя слота репликации должны совпадать со значениями, указанными в [настройках эндпойнта для источника](../../data-transfer/operations/source-endpoint.md#settings-postgresql). По-умолчанию `имя слота репликации` совпадает с `ID трансфера`.
+       Имя базы данных и имя слота репликации должны совпадать со значениями, указанными в [настройках эндпоинта для источника](../../data-transfer/operations/endpoint/source/postgresql.md). По умолчанию `имя слота репликации` совпадает с `ID трансфера`.
 
        В противном случае начало этапа репликации завершится ошибкой:
       
@@ -491,7 +491,7 @@
 
         1. Если шардирование происходит по ключу, отличному от `_id` (используется по умолчанию), [назначьте пользователю роль](../../managed-mongodb/operations/cluster-users.md#updateuser) `mdbShardingManager`.
 
-        1. При [создании эндпоинта для приемника](./target-endpoint.md#settings-mongodb) выберите политику очистки `DISABLED` или `TRUNCATE`.
+        1. При [создании эндпоинта для приемника](./endpoint/target/mongodb.md) выберите политику очистки `DISABLED` или `TRUNCATE`.
 
             {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
@@ -613,7 +613,7 @@
             db.grantRolesToUser("<имя пользователя>", ["clusterManager"]);
             ```
 
-        1. При [создании эндпоинта для приемника](./target-endpoint.md#settings-mongodb) выберите политику очистки `DISABLED` или `TRUNCATE`.
+        1. При [создании эндпоинта для приемника](./endpoint/target/mongodb.md) выберите политику очистки `DISABLED` или `TRUNCATE`.
 
             {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
