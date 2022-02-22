@@ -33,6 +33,7 @@
 Чтобы настроить {{ KFC }} для работы с кластером {{ mkf-name }}:
 
 1. [Настройте виртуальную машину](#prepare-vm).
+1. [Подготовьте тестовые данные](#prepare-test-data).
 1. [Настройте {{ KFC }}](#configure-kafka-connect).
 1. [Запустите {{ KFC }} и проверьте его работу](#test-kafka-connect).
 
@@ -51,9 +52,12 @@
 
 1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
 
-1. Подготовьте виртуальную машину к работе с {{ KFC }}:
 
-    1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
+## Настройте виртуальную машину {#prepare-vm}
+
+1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
+
+1. Подготовьте виртуальную машину к работе с {{ KFC }}:
 
 {% else %}
 
@@ -85,17 +89,6 @@
         sudo apt install kafkacat
         ```
 
-## Настройте виртуальную машину {#prepare-vm}
-{% if audience != "internal" %}
-
-1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
-
-{% else %}
-
-1. Подключитесь к виртуальной машине по SSH.
-
-{% endif %}
-
 1. [Получите SSL-сертификат](../../managed-kafka/operations/connect#get-ssl-cert).
 
 1. {% include [Добавление сертификата в хранилище](../../_includes/mdb/keytool-importcert.md) %}
@@ -107,23 +100,23 @@
     sudo cp ssl /etc/kafka-connect-worker/client.truststore.jks
     ```
 
-1. Создайте файл `/var/log/sample.json` с тестовыми данными. В этом файле приведены данные от сенсоров нескольких автомобилей в формате JSON:
+## Подготовьте тестовые данные {#prepare-test-data}
 
-    {% cut "sample.json" %}
+Создайте файл `/var/log/sample.json` с тестовыми данными. В этом файле приведены данные от сенсоров нескольких автомобилей в формате JSON:
 
-    ```json
-    {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":55.70329032,"longitude":37.65472196,"altitude":427.5,"speed":0,"battery_voltage":23.5,"cabin_temperature":17,"fuel_level":null}
-    {"device_id":"rhibbh3y08qmz3sdbrbu","datetime":"2020-06-06 09:49:54","latitude":55.71294467,"longitude":37.66542005,"altitude":429.13,"speed":55.5,"battery_voltage":null,"cabin_temperature":18,"fuel_level":32}
-    {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-07 15:00:10","latitude":55.70985913,"longitude":37.62141918,"altitude":417,"speed":15.7,"battery_voltage":10.3,"cabin_temperature":17,"fuel_level":null}
-    ```
+{% cut "sample.json" %}
 
-    {% endcut %}
+```json
+{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":55.70329032,"longitude":37.65472196,"altitude":427.5,"speed":0,"battery_voltage":23.5,"cabin_temperature":17,"fuel_level":null}
+{"device_id":"rhibbh3y08qmz3sdbrbu","datetime":"2020-06-06 09:49:54","latitude":55.71294467,"longitude":37.66542005,"altitude":429.13,"speed":55.5,"battery_voltage":null,"cabin_temperature":18,"fuel_level":32}
+{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-07 15:00:10","latitude":55.70985913,"longitude":37.62141918,"altitude":417,"speed":15.7,"battery_voltage":10.3,"cabin_temperature":17,"fuel_level":null}
+```
+
+{% endcut %}
 
 ## Настройте {{ KFC }} {#configure-kafka-connect}
 
 1. Создайте файл настроек процесса-исполнителя `/etc/kafka-connect-worker/worker.properties`:
-
-    {% cut "worker.properties" %}
 
     ```ini
     # AdminAPI connect properties
@@ -149,8 +142,6 @@
     value.converter.schemas.enable=true
     offset.storage.file.filename=/etc/kafka-connect-worker/worker.offset
     ```
-
-    {% endcut %}
 
     {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени учетной записи `user`, [созданной ранее](#before-you-begin).
 

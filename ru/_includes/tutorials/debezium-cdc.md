@@ -1,7 +1,14 @@
 Вы можете отслеживать изменения данных в {{ mpg-name }} и отправлять их в {{ mkf-name }} с помощью технологии Change Data Capture (CDC).
 
-Далее будет продемонстрировано на примере, как настроить CDC с помощью [Debezium](https://debezium.io/documentation/reference/index.html).
+Чтобы настроить CDC с помощью [Debezium](https://debezium.io/documentation/reference/index.html):
 
+1. [Подготовьте кластер-источник](#prepare-source).
+1. [Настройте Debezium](#setup-debezium).
+1. [Подготовьте кластер-приемник](#prepare-target).
+1. [Запустите процесс с Debezium-коннектором](#start-debezium).
+1. [Проверьте работоспособность Debezium](#test-debezium).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -28,31 +35,25 @@
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
 {% if audience != "internal" %}
 
-1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и установите зависимости:
+1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и проверьте доступ к кластерам:
 
 {% else %}
 
-1. Подключитесь к виртуальной машине по SSH и установите зависимости:
+1. Подключитесь к виртуальной машине по SSH и проверьте доступ к кластерам:
 
 {% endif %}
-    ```bash
-    sudo apt update && \
-    sudo apt install -y git docker.io kafkacat postgresql-client
-    ```
-{% if audience != "internal" %}
+    1. Установите зависимости:
 
-1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и проверьте, что доступны кластеры:
+       ```bash
+       sudo apt update && \
+       sudo apt install -y git docker.io kafkacat postgresql-client
+       ```
 
-{% else %}
+    2. Проверьте, что доступны кластеры:
+       * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (используйте утилиту `psql`);
+       * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (используйте утилиту `kafkacat`).
 
-1. Подключитесь к виртуальной машине по SSH и проверьте, что доступны кластеры:
-
-{% endif %}
-    * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (используйте утилиту `psql`);
-    * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (используйте утилиту `kafkacat`).
-
-
-## Подготовка кластера-источника {#prepare-source}
+## Подготовьте кластер-источник {#prepare-source}
 
 {% list tabs %}
 
@@ -99,53 +100,61 @@
 
 {% endlist %}
 
-
 ## Настройте Debezium {#setup-debezium}
-{% if audience != "internal" %}
 
-1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
+{% list tabs %}
 
-{% else %}
+- {{ KFC }}
 
-1. Подключитесь к виртуальной машине по SSH.
+    1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
 
-{% endif %}
+    1. Создайте файл настроек процесса-исполнителя `/etc/kafka-connect-worker/worker.properties`:
 
-1. Склонируйте репозиторий:
+        ```ini
+        # AdminAPI connect properties
+        bootstrap.servers=<FQDN хоста-брокера>:9091
+        sasl.mechanism=SCRAM-SHA-512
+        security.protocol=SASL_SSL
+        ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
+        ssl.truststore.password=<пароль к хранилищу сертификата>
+        sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль учетной записи debezium>";
 
-    ```bash
-    cd ~/ && \
-    git clone https://github.com/yandex-cloud/examples.git
-    ```
+        # Producer connect properties
+        producer.sasl.mechanism=SCRAM-SHA-512
+        producer.security.protocol=SASL_SSL
+        producer.ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
+        producer.ssl.truststore.password=<пароль к хранилищу сертификата>
+        producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль учетной записи debezium>";
 
-1. Скачайте и распакуйте актуальный [Debezium-коннектор](https://debezium.io/releases/) в директорию `~/examples/mdb/managed-kafka/debezium-cdc/plugins/`. 
-
-    Ниже приведен пример для версии `1.6.0`. Нужные команды зависят от типа кластера-источника:
-
-    {% list tabs %}
-
-    - {{ mpg-name }}
-
-        ```bash
-        mkdir  ~/examples/mdb/managed-kafka/debezium-cdc/plugins/ && \
-        wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.6.0.Final/debezium-connector-postgres-1.6.0.Final-plugin.tar.gz && \
-        tar -xzvf debezium-connector-postgres-1.6.0.Final-plugin.tar.gz -C ~/examples/mdb/managed-kafka/debezium-cdc/plugins/
+        # Worker properties
+        plugin.path=/etc/kafka-connect-worker/plugins
+        key.converter=org.apache.kafka.connect.json.JsonConverter
+        value.converter=org.apache.kafka.connect.json.JsonConverter
+        key.converter.schemas.enable=true
+        value.converter.schemas.enable=true
+        offset.storage.file.filename=/etc/kafka-connect-worker/worker.offset
         ```
 
-   {% endlist %}
+        {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени учетной записи `debezium`, которая будет создана при [подготовке кластера-приемника](#prepare-target).
 
-1. Соберите образ Docker:
+        FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
 
-    ```bash
-    cd ~/examples/mdb/managed-kafka/debezium-cdc && \
-    sudo docker build --tag debezium ./
-    ```
+    1. Скачайте и распакуйте актуальный [Debezium-коннектор](https://debezium.io/releases/) в директорию `/etc/kafka-connect-worker/plugins/`.
 
-1. Создайте файл `~/examples/mdb/managed-kafka/debezium-cdc/mdb-connector.properties` с настройками Debezium для подключения к кластеру-источнику:
+        Ниже приведен пример для версии `1.6.0`. Нужные команды зависят от типа кластера-источника:
 
-    {% list tabs %}
+        **{{ mpg-name }}**
 
-    - {{ mpg-name }}
+        ```bash
+        sudo mkdir -p ~/examples/mdb/managed-kafka/debezium-cdc/plugins/ && \
+        wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.6.0.Finaldebezium-connector-postgres-1.6.0.Final-plugin.tar.gz && \
+        sudo mkdir -p /etc/kafka-connect-worker/plugins && \
+        sudo tar -xzvf debezium-connector-postgres-1.6.0.Final-plugin.tar.gz -C /etckafka-connect-worker/plugins/
+        ```
+
+    1. Создайте файл `/etc/kafka-connect-worker/plugins/mdb-connector.properties` с настройками Debezium для подключения к кластеру-источнику. Содержание файла зависит от типа кластера-источника:
+
+        **{{ mpg-name }}**
 
         ```ini
         name=debezium-mpg
@@ -166,22 +175,21 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-postgresql/operations/cluster-list.md#list).
 
-        Здесь:
+        Описание параметров:
 
         * `name` — имя коннектора Debezium.
         * `database.hostname` — [особый FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
         * `database.user` — имя пользователя {{ PG }}.
         * `database.dbname` — имя базы данных {{ PG }}.
         * `database.server.name` — произвольное имя сервера баз данных, которое [Debezium будет использовать](#prepare-target) при выборе топика для отправки сообщений.
-        * `table.include.list` — список имен таблиц, для которых Debezium должен отслеживать изменения. Укажите полные имена, включающие в себя имя схемы (по умолчанию `public`). [Debezium будет использовать](#prepare-target) значения настроек из этого поля при выборе топика для отправки сообщений.
+        * `table.include.list` — список имен таблиц, для которых Debezium должен отслеживать изменения. Укажите полные имена, включающие в себя имя схемы (по умолчанию `public`). [Debezium будет использовать](#prepare-target) значения из этого поля при выборе топика для отправки сообщений.
         * `publication.name` — имя публикации, [созданной на кластере-источнике](#prepare-source).
         * `slot.name` — имя слота репликации, который будет создан Debezium при работе с публикацией.
         * `heartbeat.interval.ms` и `heartbeat.topics.prefix` — настройки heartbeat, [необходимые для работы](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
 
-    {% endlist %}
+{% endlist %}
 
-
-## Подготовьте кластер-приемник {#prepare-target}
+## Подготовьте кластер-приемник {{ mkf-name }} {#prepare-target}
 
 Настройки кластера-приемника зависят от типа кластера-источника:
 
@@ -211,40 +219,35 @@
 
         Если необходимо получить данные из нескольких кластеров-источников, создайте для каждого из них отдельный служебный топик.
 
-    1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) `debezium`.
+    1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) `debezium` с паролем, указанным в [файле настроек процесса-исполнителя](#setup-debezium).
 
-        [Выдайте ей](../../managed-kafka/operations/cluster-accounts.md#grant-permission) следующие права на созданные топики:
+        [Выдайте ей](../../managed-kafka/operations/cluster-accounts.md#grant-permission) права на созданные топики:
 
         * `ACCESS_ROLE_CONSUMER`
         * `ACCESS_ROLE_PRODUCER`
 
 {% endlist %}
 
+## Запустите процесс с Debezium-коннектором {#start-debezium}
 
-## Запустите Debezium {#start-debezium}
+1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
 
-1. Укажите в файле `~/examples/mdb/managed-kafka/debezium-cdc/.env` переменные окружения, используемые для доступа к кластеру-приемнику:
+1. Чтобы отправить тестовые данные в кластер, запустите процесс-исполнитель:
 
-    ```ini
-    BROKERS=<FQDN хоста-брокера>:9091
-    USER=debezium
-    PASSWORD=<пароль пользователя debezium>
-    ```
+    {% list tabs %}
 
-    Список FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
+    - {{ KFC }}
 
-1. Запустите контейнер с собранным Docker-образом:
+        ```bash
+        cd ~/kafka_2.12-2.6.2/bin/ && \
+        sudo ./connect-standalone.sh \
+            /etc/kafka-connect-worker/worker.properties \
+            /etc/kafka-connect-worker/plugins/mdb-connector.properties
+        ```
 
-    ```bash
-    cd ~/examples/mdb/managed-kafka/debezium-cdc/ && \
-    sudo docker run --name debezium --rm --env-file .env \
-      -v ~/examples/mdb/managed-kafka/debezium-cdc/plugins:/home/appuser/plugins \
-      -v ~/examples/mdb/managed-kafka/debezium-cdc/mdb-connector.properties:/home/appuser/config/connector.properties \
-      debezium:latest
-    ```
+    {% endlist %}
 
-    Контейнер будет непрерывно передавать новые данные из кластера-источника в кластер-приемник.
-
+Процесс будет непрерывно передавать новые данные из кластера-источника в кластер-приемник.
 
 ## Проверьте работоспособность Debezium {#test-debezium}
 
@@ -311,8 +314,7 @@
 
     {% endlist %}
 
-1. Подключитесь к кластеру-приемнику и убедитесь, что в топик `mpg.public.measurements` попали новые данные.
-
+1. Убедитесь, что в топик `mpg.public.measurements` попали новые данные.
 
 ## Удалите созданные ресурсы {#clear-out}
 
