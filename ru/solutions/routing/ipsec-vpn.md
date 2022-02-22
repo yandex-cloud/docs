@@ -118,7 +118,7 @@
 1. Перезапустите strongSwan:
 
    ```
-   $ systemctl restart strongswan
+   $ systemctl restart strongswan-starter
    ```
 
 ## Настройте статическую маршрутизацию {#configure-static-route}
@@ -182,7 +182,7 @@
 1. Перезапустите strongSwan:
 
    ```
-   $ systemctl restart strongswan
+   $ systemctl restart strongswan-starter
    ```
 
 ## Проверьте работу IPSec-туннеля {#test-vpn}
