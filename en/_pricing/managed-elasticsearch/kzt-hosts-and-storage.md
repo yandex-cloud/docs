@@ -45,9 +45,10 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 {% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Service                        | Cost of 1 GB per month                                                         |
-|--------------------------------|--------------------------------------------------------------------------------|
-| Standard network storage       | {{ sku|KZT|mdb.cluster.network-hdd.elasticsearch|month|string }}               |
-| Non-replicated network storage | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
-| Fast network storage           | {{ sku|KZT|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
-| Fast local storage             | {{ sku|KZT|mdb.cluster.local-nvme.elasticsearch|month|string }}                |
+| Service                         | Cost of 1 GB per month                                                         |
+|---------------------------------|--------------------------------------------------------------------------------|
+| Standard network storage        | {{ sku|KZT|mdb.cluster.network-hdd.elasticsearch|month|string }}               |
+| Non-replicated network storage  | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
+| Fast network storage            | {{ sku|KZT|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
+| Fast local storage              | {{ sku|KZT|mdb.cluster.local-nvme.elasticsearch|month|string }}                |
+| Backups beyond the storage size | ₸15.2544                                                                       |

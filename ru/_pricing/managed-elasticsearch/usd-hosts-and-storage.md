@@ -51,3 +51,4 @@ The cost for computing resources depends on the selected {{ ES }} edition.
 | Non-replicated network storage | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
 | Fast network storage           | {{ sku|USD|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
 | Fast local storage             | {{ sku|USD|mdb.cluster.local-nvme.elasticsearch|month|string }}                |
+| Backup over storage size       | $0.032594                                                                      |
