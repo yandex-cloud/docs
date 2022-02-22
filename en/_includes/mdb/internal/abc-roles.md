@@ -5,7 +5,7 @@ Special ABC roles are supported for accessing MDB clusters and hosts:
 
 {% note warning %}
 
-Syncing roles from ABC is not fast right now. It can take up to 4 hours from the time the role is granted until access is available.
+The process of role synchronization from ABC is not very fast right now. It can take up to an hour and a half from the moment the role is issued to the moment the access becomes available.
 
 {% endnote %}
 
