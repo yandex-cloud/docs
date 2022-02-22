@@ -42,10 +42,14 @@ items:
         href: tutorials/kafka-connect.md
       - name: Поставка данных в ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
-      - name: >-
-          Использование Confluent Schema Registry с Managed Service for Apache
-          Kafka®
-        href: tutorials/confluent-schema-registry.md
+      - name: Использование схем формата данных с Managed Service for Apache Kafka®
+        items:
+        - name: Обзор
+          href: tutorials/schema-registry-overview.md
+        - name: Работа с управляемым реестром схем формата данных
+          href: tutorials/managed-schema-registry.md
+        - name: Работа с реестром схем формата данных Confluent
+          href: tutorials/confluent-schema-registry.md
       - name: Миграция с помощью MirrorMaker 2.0
         href: tutorials/mirrormaker-unmanaged-topics.md  
       - name: Поставка данных с помощью Debezium
