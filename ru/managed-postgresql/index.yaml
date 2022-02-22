@@ -3,7 +3,7 @@ description:
   - >-
     Managed Service for PostgreSQL помогает разворачивать и поддерживать
     кластеры серверов PostgreSQL в инфраструктуре Yandex.Cloud. Сервис
-    поддерживает PostgreSQL 10, 11, 12 и 13, а также PostgreSQL 10, 11 и 12 для 1C.
+    поддерживает PostgreSQL 10, 11, 12, 13, 14 а также PostgreSQL 10, 11 и 12 для 1C.
   - >-
     Инфраструктура Yandex.Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
     защищена</a> в соответствии со следующими стандартами:
