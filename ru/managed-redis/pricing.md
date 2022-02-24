@@ -58,7 +58,15 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
 Все цены указаны с включением НДС.
+
+{% else %}
+
+Все цены указаны без включения НДС.
+
+{% endif %}
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
@@ -120,26 +128,3 @@ editable: false
 
 {% endif %}
 
-## Расчетные цены для конфигураций хостов {#calculated-prices}
-
-Цены за время работы хостов рассчитаны исходя из [конфигураций хостов](concepts/instance-types.md) и приведенных выше цен за использование RAM. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-redis#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-{% if region == "ru"%}
-
-{% include [rub-class.md](../_pricing/managed-redis/rub-class.md) %}
-
-{% endif %}
-
-{% if region == "kz"%}
-
-{% include [kzt-class.md](../_pricing/managed-redis/kzt-class.md) %}
-
-{% endif %}
-
-{% if region == "int"%}
-
-{% include [usd-class.md](../_pricing/managed-redis/usd-class.md) %}
-
-{% endif %}

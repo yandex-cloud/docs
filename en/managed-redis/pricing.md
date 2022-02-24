@@ -54,6 +54,10 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 All prices are shown with VAT.
 
+{% else %}
+
+All prices are shown without VAT.
+
 {% endif %}
 
 ### Host computing resources {#prices-hosts}
@@ -113,30 +117,6 @@ All prices are shown with VAT.
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-{% endif %}
-
-## Estimated prices for host configurations {#calculated-prices}
-
-Prices for the time of host uptime are calculated based on [host configurations](concepts/instance-types.md) and the above prices for using RAM. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-redis#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-{% if region == "ru"%}
-
-{% include [rub-class.md](../_pricing/managed-redis/rub-class.md) %}
-
-{% endif %}
-
-{% if region == "kz"%}
-
-{% include [kzt-class.md](../_pricing/managed-redis/kzt-class.md) %}
-
-{% endif %}
-
-{% if region == "int"%}
-
-{% include [usd-class.md](../_pricing/managed-redis/usd-class.md) %}
 
 {% endif %}
 

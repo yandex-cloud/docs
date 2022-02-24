@@ -63,7 +63,15 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
 Все цены указаны с включением НДС.
+
+{% else %}
+
+Все цены указаны без включения НДС.
+
+{% endif %}
 
 ### Вычислительные ресурсы хостов {#prices-host}
 
@@ -83,8 +91,6 @@ editable: false
 
 {% if region == "int" %}
 
-Prices in USD, without VAT
-    
 {% include [usd-host](../_pricing/managed-mongodb/usd-host.md) %}
 
 {% endif %}
@@ -106,8 +112,6 @@ Prices in USD, without VAT
 
 {% if region == "int" %}
 
-Prices in USD, without VAT
-    
 {% include [usd-storage](../_pricing/managed-mongodb/usd-storage.md) %}
 
 {% endif %}
@@ -133,31 +137,3 @@ Prices in USD, without VAT
 
 {% endif %}
 
-
-## Расчетные цены для классов хостов {#calculated-host-price}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-mongodb#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-Все цены указаны с включением НДС.
-
-{% if region == "ru" %}
-    
-{% include [rub-class](../_pricing/managed-mongodb/rub-class.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-    
-{% include [kzt-class](../_pricing/managed-mongodb/kzt-class.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-Prices in USD, without VAT
-    
-{% include [usd-class](../_pricing/managed-mongodb/usd-class.md) %}
-
-{% endif %}

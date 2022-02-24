@@ -1,5 +1,3 @@
-All prices are shown without VAT.
-
 ### Host computing resources {#prices-hosts}
 
 The cost for computing resources depends on the selected {{ ES }} edition.

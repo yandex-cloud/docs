@@ -1,4 +1,4 @@
-| Resource                           | Rate for 1 hour, <br>with VAT                      | With CVoS for 1 year | With CVoS for 3 years |
+| Resource                           | Rate for 1 hour                                    | With CVoS for 1 year | With CVoS for 3 years |
 |------------------------------------|----------------------------------------------------|----------------------|-----------------------|
 | **Intel Broadwell** |
 | 5% vCPU (**burstable**, 2 GB RAM)  | {{ sku|KZT|mdb.cluster.redis.v1.cpu.c5|string }}   | — | — |

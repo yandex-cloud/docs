@@ -63,6 +63,10 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 All prices are shown with VAT.
 
+{% else %}
+
+All prices are shown without VAT.
+
 {% endif %}
 
 ### Host computing resources {#prices-hosts}
@@ -124,54 +128,4 @@ All prices are shown with VAT.
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
-
-## Estimated prices for host classes {#calculated-prices}
-
-Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-postgresql#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-{% list tabs %}
-
-- Per host per month
-
-  {% if region == "ru" %}
-
-  {% include notitle [rub-calculated-month.md](../_pricing/managed-postgresql/rub-calculated-month.md) %}
-
-  {% endif %}
-
-  {% if region == "kz" %}
-
-  {% include notitle [kzt-calculated-month.md](../_pricing/managed-postgresql/kzt-calculated-month.md) %}
-
-  {% endif %}
-
-  {% if region == "int" %}
-
-  {% include notitle [usd-calculated-month.md](../_pricing/managed-postgresql/usd-calculated-month.md) %}
-
-  {% endif %}
-
-- Per host per hour
-
-  {% if region == "ru" %}
-
-  {% include notitle [rub-calculated-hour.md](../_pricing/managed-postgresql/rub-calculated-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "kz" %}
-
-  {% include notitle [kzt-calculated-hour.md](../_pricing/managed-postgresql/kzt-calculated-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "int" %}
-
-  {% include notitle [usd-calculated-hour.md](../_pricing/managed-postgresql/usd-calculated-hour.md) %}
-
-  {% endif %}
-
-{% endlist %}
 

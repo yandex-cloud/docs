@@ -100,7 +100,15 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
 Все цены указаны с включением НДС.
+
+{% else %}
+
+Все цены указаны без включения НДС.
+
+{% endif %}
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
@@ -182,30 +190,3 @@ editable: false
 
 {% endif %}
 
-## Расчетные цены для классов хостов {#calculated-host-price}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-kafka#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-Все цены указаны с включением НДС.
-
-### Хосты-брокеры {{ KF }} {#calculated-kafka-brokers}
-
-{% if region == "ru" %}
-
-{% include notitle [rub-calculated.md](../_pricing/managed-kafka/rub-calculated.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-calculated.md](../_pricing/managed-kafka/kzt-calculated.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-calculated.md](../_pricing/managed-kafka/usd-calculated.md) %}
-
-{% endif %}

@@ -78,6 +78,16 @@ You can't order storage or internet traffic using the CVoS model.
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+All prices are shown with VAT.
+
+{% else %}
+
+All prices are shown without VAT.
+
+{% endif %}
+
 {% if region == "ru" %}
 
 {% include notitle [rub-hosts-and-storage.md](../_pricing/managed-elasticsearch/rub-hosts-and-storage.md) %}
@@ -117,25 +127,3 @@ You can't order storage or internet traffic using the CVoS model.
 
 {% endif %}
 
-
-## Estimated prices for host classes {#calculated-host-price}
-
-Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-elasticsearch#calculator).
-
-{% if region == "ru" %}
-
-{% include notitle [rub-calculated.md](../_pricing/managed-elasticsearch/rub-calculated.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-calculated.md](../_pricing/managed-elasticsearch/kzt-calculated.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-calculated.md](../_pricing/managed-elasticsearch/usd-calculated.md) %}
-
-{% endif %}

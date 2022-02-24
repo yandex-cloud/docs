@@ -2,7 +2,7 @@
 
 For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
 
-| Resource | Cost per vCPU per month, with VAT |
+| Resource | Cost per vCPU per month |
 | ----- | ----- |
 | Windows Server Datacenter | ₽1202.40
 | Microsoft SQL Server Standard | ₽6792.00
@@ -11,7 +11,7 @@ For the following products, funds are debited once for the calendar month in adv
 
 ### Host computing resources {#prices-hosts}
 
-| Resource       | Cost for 1 hour, with VAT                          |
+| Resource       | Cost for 1 hour                                    |
 |----------------|----------------------------------------------------|
 | **Intel Cascade Lake**                                              |
 | 100% vCPU      | {{ sku|RUB|mdb.cluster.mssql.v2.cpu.c100|string }} |
@@ -24,7 +24,7 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% include [local-ssd for Ice Lake only by request](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Service                         | Cost of 1 GB per month, with VAT                                       |
+| Service                         | Cost of 1 GB per month                                                 |
 |---------------------------------|------------------------------------------------------------------------|
 | Standard network storage        | {{ sku|RUB|mdb.cluster.network-hdd.mssql|month|string }}               |
 | Non-replicated network storage  | ₽5.5000                                                                |

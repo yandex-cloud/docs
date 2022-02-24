@@ -107,11 +107,19 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+All prices are shown with VAT.
+
+{% else %}
+
+All prices are shown without VAT.
+
+{% endif %}
+
 ### {{ CH }} host computing resources {#prices-clickhouse}
 
 {% if region == "ru"%}
-
-All prices are shown with VAT.
 
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
 
@@ -194,98 +202,4 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
-
-## Estimated prices for host classes {#calculated-host-price}
-
-Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-clickhouse#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-### {{ CH }} hosts {#calculated-clickhouse}
-
-{% list tabs %}
-
-- Per host per month
-
-  {% if region == "ru"%}
-
-All prices are shown with VAT.
-
-  {% include [rub-ch-classes-month.md](../_pricing/managed-clickhouse/rub-ch-classes-month.md) %}
-
-  {% endif %}
-
-  {% if region == "kz"%}
-
-  {% include [kzt-ch-classes-month.md](../_pricing/managed-clickhouse/kzt-ch-classes-month.md) %}
-
-  {% endif %}
-
-- Per host per hour
-
-  {% if region == "ru"%}
-
-  {% include [rub-ch-classes-hour.md](../_pricing/managed-clickhouse/rub-ch-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "kz"%}
-
-  {% include [kzt-ch-classes-hour.md](../_pricing/managed-clickhouse/kzt-ch-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "int"%}
-
-  {% include [usd-ch-classes-hour.md](../_pricing/managed-clickhouse/usd-ch-classes-hour.md) %}
-
-  {% endif %}
-
-{% endlist %}
-
-### ZooKeeper hosts {#prices-zookeeper-host}
-
-{% note info %}
-
-You can't order {{ ZK }} host resources using a CVoS.
-
-{% endnote %}
-
-{% list tabs %}
-
-- Per host per month
-
-  {% if region == "ru"%}
-
-  {% include [rub-zoo-classes-month.md](../_pricing/managed-clickhouse/rub-zoo-classes-month.md) %}
-
-  {% endif %}
-
-  {% if region == "kz"%}
-
-  {% include [kzt-zoo-classes-month.md](../_pricing/managed-clickhouse/kzt-zoo-classes-month.md) %}
-
-  {% endif %}
-
-- Per host per hour
-
-  {% if region == "ru"%}
-
-  {% include [rub-zoo-classes-hour.md](../_pricing/managed-clickhouse/rub-zoo-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "kz"%}
-
-  {% include [kzt-zoo-classes-hour.md](../_pricing/managed-clickhouse/kzt-zoo-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "int"%}
-
-  {% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
-
-  {% endif %}
-
-{% endlist %}
 

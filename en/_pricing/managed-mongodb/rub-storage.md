@@ -1,4 +1,4 @@
-| Service                                               | Cost of 1 GB per month, with VAT                                  |
+| Service                                               | Cost of 1 GB per month                                      |
 |-------------------------------------------------------|-------------------------------------------------------------|
 | Storage based on network HDD disks                    | {{ sku|RUB|mdb.cluster.network-hdd.mongodb|month|string }}  |
 | Storage based on non-replicated SSD disks             | ₽5.5000                                                     |

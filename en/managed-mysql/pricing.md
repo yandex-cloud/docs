@@ -59,6 +59,16 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+All prices are shown with VAT.
+
+{% else %}
+
+All prices are shown without VAT.
+
+{% endif %}
+
 ### Host computing resources {#prices-hosts}
 
 {% if region == "ru" %}
@@ -119,32 +129,3 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endif %}
 
-## Estimated prices for host classes {#calculated-host-price}
-
-Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-mysql#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-{% if region == "ru" %}
-
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
-
-{% include notitle [rub-classes-hour.md](../_pricing/managed-mysql/rub-classes-hour.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, KZT.
-
-{% include notitle [kzt-classes-hour.md](../_pricing/managed-mysql/kzt-classes-hour.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
-
-{% include notitle [usd-classes-hour.md](../_pricing/managed-mysql/usd-classes-hour.md) %}
-
-{% endif %}

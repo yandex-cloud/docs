@@ -59,7 +59,15 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
 Все цены указаны с включением НДС.
+
+{% else %}
+
+Все цены указаны без включения НДС.
+
+{% endif %}
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
@@ -121,52 +129,3 @@ editable: false
 
 {% endif %}
 
-## Расчетные цены для классов хостов {#calculated-prices}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-postgresql#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-{% list tabs %}
-
-- За месяц работы хоста
-
-  {% if region == "ru" %}
-
-  {% include notitle [rub-calculated-month.md](../_pricing/managed-postgresql/rub-calculated-month.md) %}
-
-  {% endif %}
-
-  {% if region == "kz" %}
-
-  {% include notitle [kzt-calculated-month.md](../_pricing/managed-postgresql/kzt-calculated-month.md) %}
-
-  {% endif %}
-
-  {% if region == "int" %}
-
-  {% include notitle [usd-calculated-month.md](../_pricing/managed-postgresql/usd-calculated-month.md) %}
-
-  {% endif %}
-
-- За 1 час работы хоста
-
-  {% if region == "ru" %}
-
-  {% include notitle [rub-calculated-hour.md](../_pricing/managed-postgresql/rub-calculated-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "kz" %}
-
-  {% include notitle [kzt-calculated-hour.md](../_pricing/managed-postgresql/kzt-calculated-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "int" %}
-
-  {% include notitle [usd-calculated-hour.md](../_pricing/managed-postgresql/usd-calculated-hour.md) %}
-
-  {% endif %}
-
-{% endlist %}

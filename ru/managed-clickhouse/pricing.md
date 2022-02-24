@@ -111,11 +111,19 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
+Все цены указаны с включением НДС.
+
+{% else %}
+
+Все цены указаны без включения НДС.
+
+{% endif %}
+
 ### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
 
 {% if region == "ru"%}
-
-Все цены указаны с включением НДС.
 
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
 
@@ -202,97 +210,3 @@ editable: false
 
 {% endif %}
 
-## Расчетные цены для классов хостов {#calculated-host-price}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-clickhouse#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-Все цены указаны с включением НДС.
-
-### Хосты {{ CH }} {#calculated-clickhouse}
-
-{% list tabs %}
-
-- За месяц работы хоста
-  
-  {% if region == "ru"%}
-
-  {% include [rub-ch-classes-month.md](../_pricing/managed-clickhouse/rub-ch-classes-month.md) %}
-
-  {% endif %}
-
-  {% if region == "kz"%}
-
-  {% include [kzt-ch-classes-month.md](../_pricing/managed-clickhouse/kzt-ch-classes-month.md) %}
-
-  {% endif %}
-
-- За 1 час работы хоста
-
-  {% if region == "ru"%}
-
-  {% include [rub-ch-classes-hour.md](../_pricing/managed-clickhouse/rub-ch-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "kz"%}
-
-  {% include [kzt-ch-classes-hour.md](../_pricing/managed-clickhouse/kzt-ch-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "int"%}
-
-  {% include [usd-ch-classes-hour.md](../_pricing/managed-clickhouse/usd-ch-classes-hour.md) %}
-
-  {% endif %}
-
-{% endlist %}
-
-
-### Хосты ZooKeeper {#prices-zookeeper-host}
-
-{% note info %}
-
-Заказать ресурсы хостов {{ ZK }} с помощью механизма CVoS невозможно.
-
-{% endnote %}
-
-{% list tabs %}
-
-- За месяц работы хоста
-
-  {% if region == "ru"%}
-
-  {% include [rub-zoo-classes-month.md](../_pricing/managed-clickhouse/rub-zoo-classes-month.md) %}
-
-  {% endif %}
-
-  {% if region == "kz"%}
-
-  {% include [kzt-zoo-classes-month.md](../_pricing/managed-clickhouse/kzt-zoo-classes-month.md) %}
-
-  {% endif %}
-
-- За 1 час работы хоста
-
-  {% if region == "ru"%}
-
-  {% include [rub-zoo-classes-hour.md](../_pricing/managed-clickhouse/rub-zoo-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "kz"%}
-
-  {% include [kzt-zoo-classes-hour.md](../_pricing/managed-clickhouse/kzt-zoo-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "int"%}
-
-  {% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
-
-  {% endif %}
-
-{% endlist %}

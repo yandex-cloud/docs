@@ -1,4 +1,4 @@
-| Service                                                 | Rate for 1 GB per month, without VAT                      |
+| Service                                                 | Rate for 1 GB per month                                   |
 |---------------------------------------------------------|-----------------------------------------------------------|
 | Storage based on non-replicated SSD disks<sup>*</sup>   | $0.070512                                                 |
 | Storage based on network SSD disks                      | {{ sku|USD|mdb.cluster.network-nvme.redis|month|string }} |

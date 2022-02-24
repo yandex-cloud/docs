@@ -62,7 +62,15 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
 Все цены указаны с включением НДС.
+
+{% else %}
+
+Все цены указаны без включения НДС.
+
+{% endif %}
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
@@ -124,56 +132,3 @@ editable: false
 
 {% endif %}
 
-## Расчетные цены для классов хостов {#calculated-host-price}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-mysql#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-Все цены указаны с включением НДС.
-
-{% list tabs %}
-
-- За месяц работы хоста
-
-  Из расчета 720 часов в месяц, округлено до целых рублей.
-
-  {% if region == "ru" %}
-
-  {% include notitle [rub-classes-month.md](../_pricing/managed-mysql/rub-classes-month.md) %}
-
-  {% endif %}
-
-  {% if region == "kz" %}
-
-  {% include notitle [kzt-classes-month.md](../_pricing/managed-mysql/kzt-classes-month.md) %}
-
-  {% endif %}
-
-  {% if region == "int" %}
-
-  {% include notitle [usd-classes-month.md](../_pricing/managed-mysql/usd-classes-month.md) %}
-
-  {% endif %}
-
-- За 1 час работы хоста
-
-  {% if region == "ru" %}
-
-  {% include notitle [rub-classes-hour.md](../_pricing/managed-mysql/rub-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "kz" %}
-
-  {% include notitle [kzt-classes-hour.md](../_pricing/managed-mysql/kzt-classes-hour.md) %}
-
-  {% endif %}
-
-  {% if region == "int" %}
-
-  {% include notitle [usd-classes-hour.md](../_pricing/managed-mysql/usd-classes-hour.md) %}
-
-  {% endif %}
-
-{% endlist %}

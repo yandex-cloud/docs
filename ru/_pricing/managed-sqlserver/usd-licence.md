@@ -1,7 +1,3 @@
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
-
-Prices in USD, without VAT
-
 | Host class | Cost of a standard license | Cost of an enterprise license |
 | ----- | ----- | ----- |
 | **Intel Cascade Lake** |

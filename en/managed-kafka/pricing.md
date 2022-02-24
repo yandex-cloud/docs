@@ -86,6 +86,10 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 All prices are shown with VAT.
 
+{% else %}
+
+All prices are shown without VAT.
+
 {% endif %}
 
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
@@ -125,38 +129,6 @@ All prices are shown with VAT.
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-{% endif %}
-
-## Estimated prices for host classes {#calculated-host-price}
-
-Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-kafka#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-{% if region != "int" %}
-
-All prices are shown with VAT.
-
-{% endif %}
-
-### {{ KF }} broker hosts {#calculated-kafka-brokers}
-
-{% if region == "ru" %}
-
-{% include notitle [rub-calculated.md](../_pricing/managed-kafka/rub-calculated.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-calculated.md](../_pricing/managed-kafka/kzt-calculated.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-calculated.md](../_pricing/managed-kafka/usd-calculated.md) %}
 
 {% endif %}
 
