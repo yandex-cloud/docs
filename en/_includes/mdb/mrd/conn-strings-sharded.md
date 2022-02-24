@@ -4,26 +4,26 @@
 
 {% list tabs %}
 
-- Подключение без SSL
+- Connecting without using SSL
 
-    Укажите FQDN хоста-мастера в нужном шарде:
+    Specify the FQDN of the master host in the desired shard:
 
     ```bash
     redis-cli \
         -c \
-        -h <FQDN хоста-мастера в нужном шарде> \
-        -a <пароль>
+        -h <FQDN of master host in desired shard> \
+        -a <password>
     ```
 
-- Подключение с SSL
+- Connecting via SSL
 
-    Укажите FQDN хоста-мастера в нужном шарде:
+    Specify the FQDN of the master host in the desired shard:
 
     ```bash
     redis-cli \
         -c \
-        -h <FQDN хоста-мастера в нужном шарде> \
-        -a <пароль> \
+        -h <FQDN of master host in desired shard> \
+        -a <password> \
         -p {{ port-mrd-tls }} \
         --tls \
         --cacert ~/.redis/YandexInternalRootCA.crt \
@@ -31,14 +31,14 @@
 
 {% endlist %}
 
-После подключения к кластеру выполните команды:
+When you are connected to the cluster, run the commands:
 
 ```bash
 SET foo bar
 GET foo
 ```
 
-Если запрос `GET` возвращает значение `nil`, значит, запись для ключа `foo` была перемещена на другой шард. Подключитесь к нему и повторите запрос — он вернет значение `bar`.
+If the `GET` request returns `nil`, it means that the entry for the `foo` key has been moved to another shard. Connect to it and repeat the request: it will return the value `bar`.
 
 ### Go {#go}
 
@@ -46,56 +46,56 @@ GET foo
 
 {% list tabs %}
 
-- Подключение без SSL
+- Connecting without using SSL
 
     `connect.go`
 
     ```go
     package main
-
+    
     import (
     	"fmt"
     	"github.com/go-redis/redis/v7"
     	"time"
     )
-
+    
     func main() {
     	hostports := []string{
-    		"<FQDN хоста-мастера в шарде 1>:{{ port-mrd }}",
+    		"<FQDN of master host in shard 1>:{{ port-mrd }}",
     		...
-    		"<FQDN хоста-мастера в шарде N>:{{ port-mrd }}",
+    		"<FQDN of master host in shard N>:{{ port-mrd }}",
     	}
     	options := redis.UniversalOptions{
     		Addrs:       hostports,
     		DB:          0,
     		ReadOnly:    false,
     		DialTimeout: 5 * time.Second,
-    		Password:    "{{ пароль }}",
+    		Password:    "{{ password }}",
     	}
     	client := redis.NewUniversalClient(&options)
-
+    
     	err := client.Set("foo", "bar", 0).Err()
     	if err != nil {
     		panic(err)
     	}
-
+    
     	result, err := client.Get("foo").Result()
     	if err != nil {
     		panic(err)
     	}
     	fmt.Println(result)
-
+    
     	client.Close()
     }
     ```
 
-- Подключение с SSL
+- Connecting via SSL
 
     `connect.go`
 
     ```go
     package main
-
+    
     import (
     	"context"
     	"crypto/tls"
@@ -107,24 +107,24 @@ GET foo
     	"strings"
     	"time"
     )
-
+    
     func main() {
-    	caCert, err := ioutil.ReadFile("/home/<домашняя директория>/.redis/YandexInternalRootCA.crt")
+    	caCert, err := ioutil.ReadFile("/home/<home directory>/.redis/YandexInternalRootCA.crt")
     	if err != nil {
     		panic(err)
     	}
     	caCertPool := x509.NewCertPool()
     	caCertPool.AppendCertsFromPEM(caCert)
-
+    
     	hostports := []string{
-    		"<FQDN хоста-мастера в шарде 1>:{{ port-mrd-tls }}",
+    		"<FQDN of master host in shard 1>:{{ port-mrd-tls }}",
     		...
-    		"<FQDN хоста-мастера в шарде N>:{{ port-mrd-tls }}",
+    		"<FQDN of master host in shard N>:{{ port-mrd-tls }}",
     	}
     	options := redis.UniversalOptions{
     		Addrs:        hostports,
     		MaxRedirects: 1,
-    		Password:     "<пароль>",
+    		Password:     "<password>",
     		DB:           0,
     		ReadOnly:     false,
     		DialTimeout:  5 * time.Second,
@@ -140,14 +140,14 @@ GET foo
     					}
     					certs[i] = cert
     				}
-
+    
     				opts := x509.VerifyOptions{
     					Roots:         caCertPool,
     					CurrentTime:   time.Now(),
     					DNSName:       "",
     					Intermediates: x509.NewCertPool(),
     				}
-
+    
     				for i := range certs {
     					if i == 0 {
     						continue
@@ -165,7 +165,7 @@ GET foo
     		if len(parts) > 1 && !strings.HasPrefix(parts[0], "[") {
     			newAddr = "[" + strings.Join(parts[:len(parts)-1], ":") + "]:" + parts[len(parts)-1]
     		}
-
+    
     		netDialer := &net.Dialer{
     			Timeout:   options.DialTimeout,
     			KeepAlive: 5 * time.Minute,
@@ -177,7 +177,7 @@ GET foo
     	if err != nil {
     		panic(err)
     	}
-
+    
     	get := client.Get("foo")
     	if get.Err() != nil {
     		panic(err)
@@ -196,34 +196,34 @@ GET foo
 
 {% list tabs %}
 
-- Подключение без SSL
+- Connecting without using SSL
 
     `src/java/com/example/App.java`
 
     ```java
     package com.example;
-
+    
     import java.util.HashSet;
     import redis.clients.jedis.HostAndPort;
     import redis.clients.jedis.JedisCluster;
     import redis.clients.jedis.JedisPoolConfig;
-
+    
     public class App {
       public static void main(String[] args) {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-
+    
         HashSet<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
-        jedisClusterNodes.add(new HostAndPort("<FQDN хоста мастера в шарде 1>", {{ port-mrd }}));
+        jedisClusterNodes.add(new HostAndPort("<FQDN of master host in shard 1>", {{ port-mrd }}));
         ...
-        jedisClusterNodes.add(new HostAndPort("<FQDN хоста мастера в шарде N>", {{ port-mrd }}));
-
+        jedisClusterNodes.add(new HostAndPort("<FQDN of master host in shard N>", {{ port-mrd }}));
+    
         DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
-                password("<пароль>").
+                password("<password>").
                 build();
-
+    
         try {
           JedisCluster jc = new JedisCluster(jedisClusterNodes, jedisClientConfig, 5, jedisPoolConfig);
-
+    
           jc.set("foo", "bar");
           System.out.println(jc.get("foo"));
           jc.close();
@@ -234,43 +234,43 @@ GET foo
     }
     ```
 
-- Подключение с SSL
+- Connecting via SSL
 
     `src/java/com/example/App.java`
 
     ```java
     package com.example;
-
+    
     import redis.clients.jedis.DefaultJedisClientConfig;
     import redis.clients.jedis.HostAndPort;
     import redis.clients.jedis.JedisCluster;
     import redis.clients.jedis.JedisPoolConfig;
-
+    
     import javax.net.ssl.SSLParameters;
     import java.util.HashSet;
     import java.util.Set;
-
+    
     public class App {
       public static void main(String[] args) {
-        System.setProperty("javax.net.ssl.trustStore", "/home/<домашняя директория>/.redis/YATrustStore");
-        System.setProperty("javax.net.ssl.trustStorePassword", "<пароль защищенного хранилища сертификатов>");
-
+        System.setProperty("javax.net.ssl.trustStore", "/home/<home directory>/.redis/YATrustStore");
+        System.setProperty("javax.net.ssl.trustStorePassword", "<secure certificate store password>");
+    
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
         SSLParameters sslParameters = new SSLParameters();
-        jedisClusterNodes.add(new HostAndPort("<FQDN хоста-мастера в шарде 1>", {{ port-mrd-tls }}));
+        jedisClusterNodes.add(new HostAndPort("<FQDN of master host in shard 1>", {{ port-mrd-tls }}));
         ...
-        jedisClusterNodes.add(new HostAndPort("<FQDN хоста-мастера в шарде N>", {{ port-mrd-tls }}));
-
+        jedisClusterNodes.add(new HostAndPort("<FQDN of master host in shard N>", {{ port-mrd-tls }}));
+    
         DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
-                password("<пароль кластера>").
+                password("<cluster password>").
                 ssl(true).
                 sslParameters(sslParameters).
                 build();
-
+    
         try {
           JedisCluster jc = new JedisCluster(jedisClusterNodes, jedisClientConfig, 5, jedisPoolConfig);
-
+    
           jc.set("foo", "bar");
           System.out.println(jc.get("foo"));
           jc.close();
@@ -291,34 +291,34 @@ GET foo
 
 {% list tabs %}
 
-- Подключение без SSL
+- Connecting without using SSL
 
     `app.js`
 
     ```javascript
     "use strict";
-
+    
     const Redis = require("ioredis");
-
+    
     const cluster = new Redis.Cluster(
         [
             {
-                host: "<FQDN хоста-мастера в шарде 1>",
+                host: "<FQDN of master host in shard 1>",
                 port: {{ port-mrd }}
             },
             ...
             {
-                host: "<FQDN хоста-мастера в шарде N>",
+                host: "<FQDN of master host in shard N>",
                 port: {{ port-mrd }}
             }
         ],
         {
             redisOptions: {
-                password: "<пароль>"
+                password: "<password>"
             }
         }
     );
-
+    
     cluster.on("ready", () => {
         Promise.all([
             cluster.set("foo", "bar"),
@@ -336,33 +336,33 @@ GET foo
     });
     ```
 
-- Подключение с SSL
+- Connecting via SSL
 
     `app.js`
 
     ```javascript
     "use strict";
-
+    
     const Redis = require("ioredis");
     const fs = require("fs");
-
+    
     const cluster = new Redis.Cluster(
         [
             {
-                host: "<FQDN хоста-мастера в шарде 1>",
+                host: "<FQDN of master host in shard 1>",
                 port: {{ port-mrd-tls }}
             },
             ...
             {
-                host: "<FQDN хоста-мастера в шарде N>",
+                host: "<FQDN of master host in shard N>",
                 port: {{ port-mrd-tls }}
             },
         ],
         {
             redisOptions: {
-                password: "<пароль>",
+                password: "<password>",
                 tls: {
-                    ca: [fs.readFileSync("/home/<домашняя директория>/.redis/YandexInternalRootCA.crt")],
+                    ca: [fs.readFileSync("/home/<home directory>/.redis/YandexInternalRootCA.crt")],
                     checkServerIdentity: () => {
                         return null;
                     }
@@ -370,7 +370,7 @@ GET foo
             }
         }
     );
-
+    
     cluster.on("ready", () => {
         Promise.all([
             cluster.set("foo", "bar"),
@@ -398,66 +398,66 @@ GET foo
 
 {% list tabs %}
 
-- Подключение без SSL
+- Connecting without using SSL
 
     `connect.php`
 
     ```php
     <?php
-
+    
     require "Predis/Autoloader.php";
     Predis\Autoloader::register();
-
+    
     $hosts = [
-        "tcp://<FQDN хоста-мастера в шарде 1>:{{ port-mrd }}",
+        "tcp://<FQDN master host in shard 1>:{{ port-mrd }}",
         ...
-        "tcp://<FQDN хоста-мастера в шарде N>:{{ port-mrd }}",
+        "tcp://<FQDN of master host in shard N>:{{ port-mrd }}",
     ];
-
+    
     $options = [
         "cluster" => "redis",
         "parameters" => [
-            "password" => "<пароль>",
+            "password" => "<password>",
         ],
     ];
-
+    
     $conn = new Predis\Client($hosts, $options);
     $conn->set("foo", "bar");
-
+    
     var_dump($conn->get("foo"));
-
+    
     $conn->disconnect();
     ?>
     ```
 
-- Подключение с SSL
+- Connecting via SSL
 
    `connect.php`
 
    ```php
     <?php
-
+   
     require "Predis/Autoloader.php";
     Predis\Autoloader::register();
-
+   
     $hosts = [
-        'tls://<FQDN хоста-мастера в шарде 1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя директория>/.redis/YandexInternalRootCA.crt',
+        'tls://<FQDN of master host in shard 1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home directory>/.redis/YandexInternalRootCA.crt',
         ...
-        'tls://<FQDN хоста-мастера в шарде N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<домашняя директория>/.redis/YandexInternalRootCA.crt',
+        'tls://<FQDN of master host in shard N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home directory>/.redis/YandexInternalRootCA.crt',
     ];
-
+   
     $options = [
         'cluster' => 'predis',
         'parameters' => [
-            'password' => '<пароль>',
+            'password' => '<password>',
         ],
     ];
-
+   
     $conn = new Predis\Client($hosts, $options);
     $conn->set('foo', 'bar');
-
+   
     var_dump($conn->get("foo"));
-
+   
     $conn->disconnect();
     ?>
    ```
@@ -468,7 +468,7 @@ GET foo
 
 ### Python {#python}
 
-**Перед подключением установите зависимости:**
+**Before connecting, install the dependencies:**
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
@@ -480,56 +480,56 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
 
 {% list tabs %}
 
-- Подключение без SSL
+- Connecting without using SSL
 
     `connect.py`
 
     ```python
     from rediscluster import RedisCluster
-
+    
     startup_nodes = [
-        {"host": "<FQDN хоста-мастера в шарде 1>", "port": {{ port-mrd }}},
+        {"host": "<FQDN of master host in shard 1>", "port": {{ port-mrd }}},
         ...
-        {"host": "<FQDN хоста-мастера в шарде N>", "port": {{ port-mrd }}},
+        {"host": "<FQDN of master host in shard N>", "port": {{ port-mrd }}},
     ]
-
+    
     rc = RedisCluster(
         startup_nodes=startup_nodes,
         decode_responses=True,
         skip_full_coverage_check=True,
-        password="<пароль>",
+        password="<password>",
     )
-
+    
     rc.set("foo", "bar")
-
+    
     print(rc.get("foo"))
     ```
 
-- Подключение с SSL
+- Connecting via SSL
 
     `connect.py`
 
     ```python
     import OpenSSL
     from rediscluster import RedisCluster
-
+    
     startup_nodes = [
-        {"host": "<FQDN хоста-мастера в шарде 1>", "port": {{ port-mrd-tls }}},
+        {"host": "<FQDN of master host in shard 1>", "port": {{ port-mrd-tls }}},
         ...
-        {"host": "<FQDN хоста-мастера в шарде N>", "port": {{ port-mrd-tls }}},
+        {"host": "<FQDN of master host in shard N>", "port": {{ port-mrd-tls }}},
     ]
-
+    
     rc = RedisCluster(
         startup_nodes=startup_nodes,
         decode_responses=True,
         skip_full_coverage_check=True,
-        password="<пароль>",
+        password="<password>",
         ssl=True,
-        ssl_ca_certs="/home/<домашняя директория>/.redis/YandexInternalRootCA.crt",
+        ssl_ca_certs="/home/<home directory>/.redis/YandexInternalRootCA.crt",
     )
-
+    
     rc.set("foo", "bar")
-
+    
     print(rc.get("foo"))
     ```
 
@@ -543,60 +543,60 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
 
 {% list tabs %}
 
-- Подключение без SSL
+- Connecting without using SSL
 
     `connect.rb`
 
     ```ruby
     # coding: utf-8
-
+    
     require 'redis'
-
+    
     nodes = [
-      { host: '<FQDN хоста-мастера в шарде 1>', port: {{ port-mrd }} },
+      { host: '<FQDN of master host in shard 1>', port: {{ port-mrd }} },
       ...
-      { host: '<FQDN хоста-мастера в шарде N>', port: {{ port-mrd }} }
+      { host: '<FQDN of master host in shard N>', port: {{ port-mrd }} }
     ]
-
+    
     conn = Redis.new(
        cluster: nodes,
-       password: '<пароль>'
+       password: '<password>'
     )
-
+    
     conn.set('foo', 'bar')
     puts conn.get('foo')
-
+    
     conn.close
     ```
 
-- Подключение с SSL
+- Connecting via SSL
 
     `connect.rb`
 
     ```ruby
     # coding: utf-8
-
+    
     require 'redis'
-
+    
     nodes = [
-      { host: '<FQDN хоста-мастера в шарде 1>', port: {{ port-mrd-tls }} },
+      { host: '<FQDN of master host in shard 1>', port: {{ port-mrd-tls }} },
       ...
-      { host: '<FQDN хоста-мастера в шарде N>', port: {{ port-mrd-tls }} }
+      { host: '<FQDN of master host in shard N>', port: {{ port-mrd-tls }} }
     ]
-
+    
     conn = Redis.new(
       cluster: nodes,
-      password: '<пароль>',
+      password: '<password>',
       ssl: true,
       ssl_params: {
-        ca_file: '/home/<домашняя директория>/.redis/YandexInternalRootCA.crt',
+        ca_file: '/home/<home directory>/.redis/YandexInternalRootCA.crt',
         verify_hostname: false
       }
     )
-
+    
     conn.set('foo', 'bar')
     puts conn.get('foo')
-
+    
     conn.close
     ```
 
