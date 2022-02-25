@@ -5,11 +5,11 @@ description: 'Key Management Service is a service for creating and managing encr
 
 # {{ kms-name }} overview
 
-{{ kms-name }} is a service for creating and managing encryption keys in Yandex.Cloud.
+{{ kms-name }} is a service to create and manage encryption keys in {{ yandex-cloud }}.
 
-Modern encryption algorithms are public. Without access to keys, the knowledge of the ciphertext and encryption algorithm is not enough to decrypt data. Secure data storage thus means secure storage of encryption keys.
+Modern encryption algorithms are public. Without access to a key, knowledge of the ciphertext and the encryption algorithm is not enough to decrypt data. Secure data storage thus means secure storage of encryption keys.
 
-There are various types of encrypted data: from passwords, OAuth tokens, and SSH keys, to data arrays that are several GB in size. This may require different types of access (random or sequential) and different types of storage. The optimal encryption algorithms are selected depending on all these factors. With a large amount of data, it's important to both control access to this data consistently and consider the specifics of each type.
+There are various types of encrypted data: from passwords, OAuth tokens, and SSH keys, to data arrays that are several GB in size. They may require different types of access (random or sequential) and different types of storage. The optimal encryption algorithms are selected depending on all these factors. With a large amount of data, it's important to both control access to this data consistently and consider the specifics of each type.
 
 {{ kms-name }} meets the above objectives and provides secure and centralized storage for encryption keys.
 
@@ -22,9 +22,9 @@ To interact with {{ kms-short-name }}, you can use:
 * SDK: in [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), or [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 * API: [REST](../api-ref/) or [gRPC](../grpc/).
 
-## Key management {#keys-control}
+## Managing keys {#keys-control}
 
-[A key](key.md) is the main {{ kms-short-name }} resource, which is a set of versions of cryptographic material that can be used to encrypt or decrypt data. Control the lifecycle of crypto material by managing keys:
+[A key](key.md) is a primary {{ kms-short-name }} resource and a collection of versions of cryptographic material that can be used to encrypt or decrypt data. Control the lifecycle of crypto material by managing keys:
 
 * [Create keys](../operations/key.md#create).
 * [Rotate keys](../operations/key.md#rotate).
@@ -35,7 +35,7 @@ To interact with {{ kms-short-name }}, you can use:
 
 You can use {{ kms-short-name }} keys:
 
-* In Yandex.Cloud services:
+* In {{ yandex-cloud }} services:
   * [Managed Service for Kubernetes](../../managed-kubernetes/).
   * [Certificate Manager](../../certificate-manager/).
 * When working with [Terraform](../tutorials/terraform-key.md).
@@ -47,7 +47,9 @@ You can use {{ kms-short-name }} keys:
 
 The cryptographic key material is stored in encrypted form and isn't available as plaintext outside {{ kms-short-name }}. When using the service API, you can encrypt or decrypt the transmitted data with a specific key, but you can't explicitly get the crypto material. It's only restored to the RAM and just for the duration of operations with the corresponding key.
 
-All access control features provided by {{ iam-name }} are available for keys. For more information about managing access and assigning roles, see [{#T}](../security/index.md)
+In you use a [Hardware Security Module (HSM)](hsm.md), user keys never leave the HSM as plaintext. Key creation also takes place inside the HSM.
+
+All access control features provided by {{ iam-name }} are available for keys. For more information on access control and role assignment, review [{#T}](../security/index.md)
 
 ### Key usage audit {#keys-audit}
 
@@ -58,7 +60,7 @@ Each entry in the audit log contains the following information:
 * Date and time.
 * Type of operation.
 * The key used.
-* Subject (a Yandex.Cloud account or service account).
+* Subject ({{ yandex-cloud }} or service account).
 
 To get the audit logs, contact [technical support]({{ link-console-support }}).
 

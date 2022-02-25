@@ -1,5 +1,3 @@
-Все цены указаны с включением НДС.
-
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 Цена вычислительных ресурсов зависит от выбранной редакции {{ ES }}:
@@ -51,3 +49,4 @@
 | Хранилище на нереплицируемых SSD-дисках | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
 | Хранилище на сетевых SSD-дисках         | {{ sku|RUB|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
 | Хранилище на локальных SSD-дисках       | {{ sku|RUB|mdb.cluster.local-nvme.elasticsearch|month|string }}                |
+| Резервные копии сверх размера хранилища | 2,5424 ₽                                                                       |

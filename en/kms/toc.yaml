@@ -7,7 +7,7 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Keys
+      - name: Key
         href: operations/key.md
       - name: Key version
         href: operations/version.md
@@ -17,7 +17,7 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Keys
+      - name: Key
         href: concepts/key.md
       - name: Key version
         href: concepts/version.md
@@ -27,6 +27,8 @@ items:
         href: concepts/envelope.md
       - name: Key consistency
         href: concepts/consistency.md
+      - name: Hardware Security Module (HSM)
+        href: concepts/hsm.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Practical guidelines

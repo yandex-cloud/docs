@@ -38,6 +38,12 @@ SETTINGS index_granularity = 8192
 
 {% include [mch-hybrid-storage-tutorial-sample-query-full](../../_includes/mdb/mch-hs-tutorial-sample-query-full.md) %}
 
+{% note info %}
+
+Эта таблица использует [политику хранения](../concepts/storage.md#storage-policies) `default` (по умолчанию).
+
+{% endnote %}
+
 {#ttl}
 
 Выражение `TTL ...` задает политику работы с устаревающими данными:

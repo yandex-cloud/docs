@@ -15,6 +15,8 @@ items:
             href: operations/resources/configure-basics.md
           - name: Configuring resource caching
             href: operations/resources/configure-caching.md
+          - name: Configuring log export
+            href: operations/resources/configure-logs.md
           - name: Pre-loading files to CDN servers
             href: operations/resources/prefetch-files.md
           - name: Purging resource cache

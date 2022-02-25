@@ -71,4 +71,5 @@
 
 ## См. также {#see-also}
 
-* [Использование Confluent Schema Registry с Managed Service for Apache Kafka®](../tutorials/confluent-schema-registry.md).
+* [Работа с управляемым реестром схем формата данных](../tutorials/managed-schema-registry.md).
+* [Работа с реестром схем формата данных Confluent](../tutorials/confluent-schema-registry.md).

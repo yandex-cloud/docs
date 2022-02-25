@@ -8,11 +8,11 @@ You only need to check rights for domains for Let's Encrypt certificates. {{ cer
 
 {% endnote %}
 
-{{ certificate-manager-name }} waits for each domain from the certificate to pass the check (all checks have the `Valid` status). After that, Let's Encrypt issues the certificate. Then the certificate changes its status to `Issued` and you can use it in services integrated with {{ certificate-manager-name }}.
+{{ certificate-manager-name }} waits for challenges to complete for each domain in a certificate (all checks have the `Valid` status). After that, Let's Encrypt issues the certificate. Then the certificate changes its status to `Issued` and you can use it in services integrated with {{ certificate-manager-name }}.
 
 If the check is not passed within one week, the certificate status becomes `Invalid` (if you are obtaining the certificate) or `Renewal_failed` (if you are renewing the certificate). To obtain a certificate after that, request another certificate from Let's Encrypt.
 
-## Certificate check statuses {#status}
+## Certificate challenge statuses {#status}
 
 Certificate checks can have the following statuses:
 
@@ -46,38 +46,47 @@ To check the rights for the `example.com` domain:
 
 ## DNS {#dns}
 
-If you don't have access to the web server or need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains like `*.example.com`, use the `DNS` check type.
+If you don't have access to the web server or you need to get a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate) with masks for subdomains like `*.example.com`, use `DNS` as the challenge type.
 
-To pass a check, you need to add a special DNS record of the `TXT` or `CNAME` type:
+To pass the check, you need to add a special DNS record of one of the following two types: `TXT` or `CNAME`.
 
-* In case of a TXT record, when the certificate is renewed automatically after 60 days, you'll have to pass the check again and add a new value for the TXT record.
-* When adding a CNAME record, you only need to pass the check once. You can delegate to {{ certificate-manager-name }} the right of response in the domain's DNS zone used for checks. In this case, checks are performed automatically when certificates are issued and then renewed.
+When using a TXT record, you will have to pass the check every 60 days as part of the automatic certificate renewal.
+
+Using a CNAME record enables you to undergo a check only once. To do this, you need to delegate to {{ certificate-manager-name }} the right to respond in the domain's DNS zone used for the check. This will pass the check.
+
+Please note that you only need one of the above records. Adding both records can result in caching server conflicts.
 
 ### Adding a CNAME record {#cname}
 
-To check the rights for the `example.com` domain automatically:
+To check the rights for the domain `example.com` automatically:
 
 1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
 
 1. In the list of services, select **{{ certificate-manager-name }}**.
 
-1. Under **Check rights for domains**, see the value for the domain in the **Value** field.
+1. In the certificate list, please select the certificate that is involved in the check.
 
-1. With your DNS provider or on your own DNS server, host a `CNAME` record for delegating the management rights to the DNS zone used for checks:
+1. Under **Check rights for domains**, look at the value for the domain in the **Value** field.
+
+1. Have your DNS provider or your own DNS server host a `CNAME` record to delegate management privileges to the DNS zone used for the check:
 
     ```
-    _acme-challenge.example.com CNAME <certificate ID>.cm.yandexcloud.net.
+    _acme-challenge.example.com CNAME <Value>
     ```
+
+The `<Value>` string is created using the following template: `<Certificate ID>.cm.yandexcloud.net.`
 
 ### Adding a TXT record {#txt}
 
-To check the rights for the `example.com` domain:
+To check the rights for the domain `example.com domain`:
 
 1. In the [management console]({{ link-console-main }}), select the folder where the certificate was created.
 
 1. In the list of services, select **{{ certificate-manager-name }}**.
 
-1. Under **Check rights for domains**, see the value for the domain in the **Value** field.
+1. In the certificate list, please select the certificate that is involved in the check.
+
+1. Under **Check rights for domains**, look at the value for the domain in the **Value** field.
 
 1. With your DNS provider or on your own DNS server, host a `TXT` record:
 
@@ -87,11 +96,11 @@ To check the rights for the `example.com` domain:
 
 1. After the certificate status changes to `Issued`, delete the `TXT` record you added from the DNS server.
 
-## Checking rights automatically {#auto}
+## Validating rights automatically {#auto}
 
 In some cases, domain rights checks require no interaction from the user.
 
-### A CNAME record for a zone {#auto-cname}
+### CNAME record applicable to a zone {#auto-cname}
 
 A check is performed automatically if the following conditions are met:
 
@@ -103,7 +112,7 @@ A check is performed automatically if the following conditions are met:
     _acme-challenge.example.com CNAME <certificate ID>.cm.yandexcloud.net.
     ```
 
-### Redirecting a static website {{ objstorage-name }} {#auto-s3}
+### Redirecting a static {{ objstorage-name }} site {#auto-s3}
 
 A check is performed automatically if the following conditions are met:
 
@@ -114,20 +123,17 @@ A check is performed automatically if the following conditions are met:
     * Or a [redirect](../../storage/operations/hosting/multiple-domains.md) to the domain with the alias for the bucket.
 * The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it doesn't contain masks for subdomains.
 
-### Redirecting to a validation server in a web server {#auto-vs}
+### Redirecting to a validation server on a web server {#auto-vs}
 
 A check is performed automatically if the following conditions are met:
 
 * The certificate status is `Renewing`: it is being [renewed](managed-certificate.md#renew).
 * The certificate is not a [Wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate): it doesn't contain masks for subdomains.
 * For each certificate domain in the web server, a redirect is configured from
-
     ```
     http://<Domain>/.well-known/acme-challenge/*
     ```
-
     to
-
     ```
     https://validation.certificate-manager.api.cloud.yandex.net/<Certificate ID>/*
     ```
@@ -135,14 +141,14 @@ A check is performed automatically if the following conditions are met:
 Example of setting up a redirect in the nginx configuration:
 
 ```
-   server {
-        location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
-                return 301 https://validation.certificate-manager.api.cloud.yandex.net/<certificate ID>/$1.
-        }
-   }
+server {
+  location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
+    return 301 https://validation.certificate-manager.api.cloud.yandex.net/<certificate ID>/$1.
+  }
+}
 ```
 
 #### See also {#see-also}
 
-- [Let's Encrypt documentation. Types of checks](https://letsencrypt.org/docs/challenge-types/)
+* [Let's Encrypt documentation. Types of challenges](https://letsencrypt.org/docs/challenge-types/)
 

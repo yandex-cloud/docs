@@ -84,6 +84,9 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 ## Pricing {#prices}
 
+
+All prices are shown without VAT.
+
 ### {{ CH }} host computing resources {#prices-clickhouse}
 
 
@@ -117,50 +120,4 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-## Estimated prices for host classes {#calculated-host-price}
-
-Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-clickhouse#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-### {{ CH }} hosts {#calculated-clickhouse}
-
-{% list tabs %}
-
-- Per host per month
-
-
-
-- Per host per hour
-
-
-
-  
-  {% include [usd-ch-classes-hour.md](../_pricing/managed-clickhouse/usd-ch-classes-hour.md) %}
-
-{% endlist %}
-
-### ZooKeeper hosts {#prices-zookeeper-host}
-
-{% note info %}
-
-You can't order {{ ZK }} host resources using a CVoS.
-
-{% endnote %}
-
-{% list tabs %}
-
-- Per host per month
-
-
-
-- Per host per hour
-
-
-
-  
-  {% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
-
-{% endlist %}
 

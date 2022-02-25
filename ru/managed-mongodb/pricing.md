@@ -63,6 +63,7 @@ editable: false
 
 ## Цены {#prices}
 
+
 Все цены указаны с включением НДС.
 
 ### Вычислительные ресурсы хостов {#prices-host}
@@ -88,18 +89,5 @@ editable: false
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
 
-
-
-
-## Расчетные цены для классов хостов {#calculated-host-price}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-mongodb#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-Все цены указаны с включением НДС.
-
-    
-{% include [rub-class](../_pricing/managed-mongodb/rub-class.md) %}
 
 

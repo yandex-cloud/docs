@@ -16,8 +16,8 @@ To delete an image:
   
   1. In the management console, select the folder the image belongs to.
   1. Select **{{ compute-name }}**.
-  1. On the **Virtual machines** page, go to the **Images** tab.
-  1. In the line with the appropriate image, click ![image](../../../_assets/dots.svg) and select the **Delete** command.
+  1. Go to the **Images** tab.
+  1. In the line with the appropriate image, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Delete** from the menu.
   1. Confirm deletion.
   
 - CLI
@@ -45,5 +45,25 @@ To delete an image:
           --name first-image
       ```
   
-{% endlist %}
+- Terraform
 
+  Read more about Terraform in the [documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Images created using Terraform can be deleted:
+
+  1. In the command line, go to the directory with the Terraform configuration file.
+  1. Delete resources using the command:
+
+      ```
+      $ terraform destroy
+      ```
+
+      {% note alert %}
+
+      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+
+      {% endnote %}
+
+  1. Confirm the deletion of resources.
+
+{% endlist %}

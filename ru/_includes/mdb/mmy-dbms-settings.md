@@ -254,11 +254,59 @@
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size).
 
-- **Long query time**{#setting-long-query-time} {{ tag-con }} {{ tag-sql }} {{ tag-api }} {{ tag-tf }}
+- **Log slow filter**{#setting-log-slow-filter} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-  Время обработки запроса (в секундах), при превышении которого запрос будет считаться медленным. Не рекомендуется задавать маленькие значения для этой настройки — это может привести к ошибочному расцениванию большинства запросов как медленных.
+  Фильтр для лога медленных запросов по типу запроса. Представляет собой строку, которая может содержать любую комбинацию следующих значений, разделенных запятой:
 
-  Минимальное значение — `0`, максимальное значение — `3600` (1 час), по умолчанию — `0`.
+  * `full_scan` — в лог попадут запросы, которые выполняют полное сканирование таблицы.
+  * `full_join` — в лог попадут запросы, которые выполняют полное объединение (FULL JOIN, без использования индексов).
+  * `tmp_table` — в лог попадут запросы, которые выполняют создание неявной внутренней временной таблицы.
+  * `tmp_table_on_disk` — в лог попадут запросы, которые выполняют сохранение временной таблицы на диск.
+  * `filesort` — в лог попадут запросы, которые выполняют сортировку файлов.
+  * `filesort_on_disk` — в лог попадут запросы, которые выполняют сортировку файлов на диске.
+
+  Если значение фильтра задано, в лог медленных запросов попадают только те запросы, типы которых представлены в фильтре.
+
+  Значение по умолчанию — `""` (пустая строка, фильтрация запросов выключена).
+
+  Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+
+- **Log slow rate type**{#setting-log-slow-rate-type} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Задает тип записей лога медленных запросов для настройки [Log slow rate limit](#setting-log-slow-rate-limit):
+  
+  * `query` — на уровне запроса;
+  * `session` — на уровне сессии.
+
+  Значение по умолчанию — `query`.
+
+  Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type).
+
+- **Log slow rate limit**{#setting-log-slow-rate-limit} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Настройка указывает, какая часть запросов будет попадать в лог медленных запросов. В зависимости от значения настройки [Log slow rate type](#setting-log-slow-rate-type), настройка применяется к отдельным запросам (`QUERY`) или к сессиям (`SESSION`).
+
+  Если установлено значение `1`, то в лог будут попадать каждый запрос или сессия, которые признаны медленными. При других значениях будет логироваться каждый N-ный запрос или сессия, что снизит нагрузку на кластер.
+
+  Если время обработки запроса превышает значение [Slow query log always write time](#setting-slow-query-log-always-write-time), запрос будет записан в [лог медленных запросов](#setting-slow-query-log) независимо от значения [Log slow rate limit](#setting-log-slow-rate-limit).
+
+  Минимальное значение — `1`, максимальное значение — `1000`, по умолчанию — `1`.
+
+  Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+- **Log slow sp statements**{#setting-log-slow-sp-statements} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Управляет записью выражений, выполняемых хранимыми процедурами, в лог медленных запросов.
+
+  По умолчанию запись выражений включена.
+
+  Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+
+- **Long query time**{#setting-long-query-time} {{ tag-all }}
+
+  Время обработки запроса (в секундах), при превышении которого запрос будет считаться медленным. Чем меньше задано значение настройки, тем больше запросов будет считаться медленными.
+
+  Минимальное значение — `0`, максимальное значение — `3600` (1 час), по умолчанию — `10`.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
 
@@ -344,6 +392,27 @@
   Минимальное значение — `0` (многопоточная репликация на реплике выключена), максимальное значение — `64`, по умолчанию — `0`.
 
   Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers).
+
+- **Slow query log**{#setting-slow-query-log} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Разрешает ведение лога медленных запросов. Запрос считается медленным, если время его выполнения превышает заданное настройкой [Long query time](#setting-long-query-time).
+
+  Допустимые значения:
+
+  * `0` или `OFF`;
+  * `1` или `ON`.
+
+  Значение по умолчанию — `OFF`.
+
+  Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+
+- **Slow query log always write time**{#setting-slow-query-log-always-write-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Время обработки запроса (в секундах), при превышении которого запрос будет безоговорочно записан в [лог медленных запросов](#setting-slow-query-log), игнорируя настройку [Log slow rate limit](#setting-log-slow-rate-limit).
+
+  Минимальное значение — `0`, максимальное значение — `3600` (1 час), по умолчанию — `10`.
+
+  Подробнее см. в [документации Percona](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
 
 - **Sort buffer size**{#setting-sort-buffer-size} {{ tag-all }}
 

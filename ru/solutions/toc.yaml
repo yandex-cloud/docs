@@ -95,7 +95,7 @@ items:
         href: infrastructure-management/1c-mssql-windows.md
       - name: Миграция в Yandex.Cloud с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
-      - name: Аварийное восстановление в Yandex.Cloud с помощью Hystax Acura
+      - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Настройка отказоустойчивой архитектуры в Yandex.Cloud
         href: infrastructure-management/fault-tolerance.md
@@ -105,12 +105,20 @@ items:
         href: dataplatform/index.md
       - name: Синхронизация данных из MySQL с помощью Yandex DataTransfer
         href: dataplatform/sync-mysql.md
+      - name: Использование схем формата данных с Managed Service for Apache Kafka®
+        items:
+          - name: Обзор
+            href: dataplatform/schema-registry-overview.md
+          - name: >-
+              Использование {{ mkf-msr }} с Yandex Managed Service for Apache
+              Kafka®
+            href: dataplatform/managed-schema-registry.md
+          - name: >-
+              Использование Confluent Schema Registry с Yandex Managed Service
+              for Apache Kafka®
+            href: dataplatform/confluent-schema-registry.md
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
         href: dataplatform/dp-mch-data-exchange.md
-      - name: >-
-          Использование Confluent Schema Registry с Yandex Managed Service for
-          Apache Kafka®
-        href: dataplatform/confluent-schema-registry.md
       - name: Поставка данных с помощью Debezium
         href: dataplatform/kafka-cdc.md
       - name: Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop

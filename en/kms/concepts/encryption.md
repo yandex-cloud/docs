@@ -32,6 +32,8 @@ The [encrypt](../api-ref/SymmetricCrypto/encrypt) and [decrypt](../api-ref/Symme
 
 An important condition for secure encryption is the use of a cryptographically stable pseudo-random number generator (necessary for generating encryption keys and initialization vectors). {{ kms-short-name }} uses its own implementation of the [Fortuna](https://en.wikipedia.org/wiki/Fortuna_(PRNG)) algorithm, which collects entropy from various sources (RDSEED and RDRAND, /dev/urandom, host entropy).
 
+If you are using a [Hardware Security Module (HSM)](hsm.md), encryption keys are generated inside the HSM module using a built-in reliable entropy generator.
+
 ## AAD context {#add-context}
 
 Additional Authenticated Data (AAD) is additional data passed to the input of the [encrypt](../api-ref/SymmetricCrypto/encrypt) and [decrypt](../api-ref/SymmetricCrypto/decrypt) operations. To successfully decrypt data, pass the same AAD context that was passed for encryption.
@@ -52,8 +54,8 @@ The service stores the users' residential addresses in relation to their usernam
     * A new entry is added to the database and marked as belonging to Alice. It contains the address in encrypted form.
     * Alice can see her address: records belonging to her will be selected from the database, decrypted, and shown to Alice.
 * Another user, Trudy, was granted access to the database.
-    * Trudy has no encryption key and can't decrypt the content of the database, but can modify it.
-    * Trudy marks the entry with Alice's encrypted address as belonging to herself and can now see Alice's address.
+    * Trudy has no encryption key and can't decrypt the content of the database, but she can modify it.
+    * Trudy marks the entry containing Alice's encrypted address as owned by her and can now see Alice's address.
 
 The problem is solved if you pass, for example, the username as AAD context during the encryption process. In this case:
 

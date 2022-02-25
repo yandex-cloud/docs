@@ -47,7 +47,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
 
@@ -121,6 +121,84 @@
       Включенная защита не помешает подключиться к кластеру вручную и удалить данные.
 
   1. Нажмите кнопку **Создать кластер**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать кластер:
+
+    1. Посмотрите описание команды CLI для создания кластера:
+
+        ```bash
+        yc dataproc cluster create --help
+        ```
+
+    1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
+
+        ```bash
+        yc dataproc cluster create <имя кластера> \
+            --zone <зона доступности кластера> \
+            --service-account-name <имя сервисного аккаунта кластера> \
+            --version <версия образа> \
+            --services <список компонентов> \
+            --subcluster name=<имя подкластера с ролью MASTERNODE>,`
+                        `role=masternode,`
+                        `resource-preset=<класс хоста>,`
+                        `disk-type=<тип хранилища>,`
+                        `disk-size=<размер хранилища, ГБ>,`
+                        `subnet-name=<имя подсети>,`
+                        `hosts-count=1 \
+            --subcluster name=<имя подкластера с ролью DATANODE>,`
+                        `role=datanode,`
+                        `resource-preset=<класс хоста>,`
+                        `disk-type=<тип хранилища>,`
+                        `disk-size=<размер хранилища, ГБ>,`
+                        `subnet-name=<имя подсети>,`
+                        `hosts-count=<количество хостов> \
+            --bucket <имя бакета> \
+            --ssh-public-keys-file <путь к публичной части SSH-ключа> \
+            --security-group-ids <список идентификаторов групп безопасности> \
+            --deletion-protection=<защита от удаления кластера: true или false> \
+            --log-group-id <идентификатор лог-группы>
+        ```
+
+        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    1. Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
+
+        ```bash
+        yc dataproc cluster create <имя кластера> \
+            ...
+            --host-group-ids <идентификаторы групп выделенных хостов>
+        ```
+
+        {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+
+- API
+
+    Чтобы создать кластер, воспользуйтесь методом API [../api-ref/Cluster/create](create) и передайте в запросе:
+
+    * Идентификатор каталога, в котором должен быть размещен кластера, в параметре `folderId`.
+    * Имя кластера в параметре `name`.
+    * Конфигурацию кластера в параметре `configSpec`, в том числе:
+        * Версию [образа](../concepts/environment.md) в параметре `configSpec.versionId`.
+        * Список компонентов в параметре `configSpec.hadoop.services`.
+        * Публичную часть SSH-ключа в параметре `configSpec.hadoop.sshPublicKeys`.
+        * Настройки подкластеров в параметре `confibSpec.subclustersSpec`.
+    * Зону доступности кластера в параметре `zoneId`.
+    * Идентификатор сервисного аккаунта кластера в параметре `serviceAccountId`.
+    * Имя бакета в параметре `bucket`.
+    * Идентификаторы групп безопасности кластера в параметре `hostGroupIds`.
+    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
+
+    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 
 {% endlist %}
 

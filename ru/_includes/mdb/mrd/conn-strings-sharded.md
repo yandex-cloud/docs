@@ -4,7 +4,7 @@
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
     Укажите FQDN хоста-мастера в нужном шарде:
 
@@ -15,7 +15,7 @@
         -a <пароль>
     ```
 
-* Подключение с SSL
+- Подключение с SSL
 
     Укажите FQDN хоста-мастера в нужном шарде:
 
@@ -46,7 +46,7 @@ GET foo
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
     `connect.go`
 
@@ -89,7 +89,7 @@ GET foo
     }
     ```
 
-* Подключение с SSL
+- Подключение с SSL
 
     `connect.go`
 
@@ -291,7 +291,7 @@ GET foo
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
     `app.js`
 
@@ -336,7 +336,7 @@ GET foo
     });
     ```
 
-* Подключение с SSL
+- Подключение с SSL
 
     `app.js`
 
@@ -398,7 +398,7 @@ GET foo
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
     `connect.php`
 
@@ -430,7 +430,7 @@ GET foo
     ?>
     ```
 
-* Подключение с SSL
+- Подключение с SSL
 
    `connect.php`
 
@@ -480,7 +480,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
     `connect.py`
 
@@ -505,7 +505,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
     print(rc.get("foo"))
     ```
 
-* Подключение с SSL
+- Подключение с SSL
 
     `connect.py`
 
@@ -543,7 +543,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
     `connect.rb`
 
@@ -569,7 +569,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
     conn.close
     ```
 
-* Подключение с SSL
+- Подключение с SSL
 
     `connect.rb`
 

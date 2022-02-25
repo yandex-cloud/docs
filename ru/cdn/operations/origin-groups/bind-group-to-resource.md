@@ -350,3 +350,5 @@
      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
 {% endlist %}
+
+{% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}

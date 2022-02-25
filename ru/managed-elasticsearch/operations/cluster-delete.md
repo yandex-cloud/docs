@@ -13,7 +13,10 @@ keywords:
 
 ## Перед удалением кластера {#before-you-delete}
 
-[Отключите защиту от удаления](cluster-update.md#change-additional-settings) для кластера, если она включена.
+* [Отключите защиту от удаления](cluster-update.md#change-additional-settings) для кластера, если она включена.
+* [Сохраните идентификатор кластера](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 ## Удалить кластер {#delete}
 
