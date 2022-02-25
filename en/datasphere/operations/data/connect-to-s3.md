@@ -1,10 +1,4 @@
-# Connecting to S3 Storage
-
-{% note info %}
-
-You can connect to S3 object storage using the GUI in [early access mode](../../early-access/index.md).
-
-{% endnote %}
+# Connecting to S3 storage
 
 You can connect to S3 object storage from the Jupiter Notebook interface.
 
@@ -23,6 +17,12 @@ You can connect to S3 object storage from the Jupiter Notebook interface.
 1. Click **Test connection**. If successful, click **Mount**.
 
 Once connected, the bucket is available in the list on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab and you can view it as a file system.
+
+{% note info %}
+
+Try not to use S3 storage in [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %} mode for buckets with single-layer (non-recursive) folders with many files. This usage scenario decreases storage performance significantly.
+
+{% endnote %}
 
 ## Using S3 in a project {#usage}
 
