@@ -62,6 +62,7 @@ editable: false
 
 ## Цены {#prices}
 
+
 Все цены указаны с включением НДС.
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
@@ -85,30 +86,3 @@ editable: false
 
 
 
-## Расчетные цены для классов хостов {#calculated-host-price}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-mysql#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-Все цены указаны с включением НДС.
-
-{% list tabs %}
-
-- За месяц работы хоста
-
-  Из расчета 720 часов в месяц, округлено до целых рублей.
-
-  
-  {% include notitle [rub-classes-month.md](../_pricing/managed-mysql/rub-classes-month.md) %}
-
-
-
-- За 1 час работы хоста
-
-  
-  {% include notitle [rub-classes-hour.md](../_pricing/managed-mysql/rub-classes-hour.md) %}
-
-
-
-{% endlist %}

@@ -64,6 +64,9 @@ You can't order storage or internet traffic using the CVoS model.
 ## Pricing {#prices}
 
 
+All prices are shown without VAT.
+
+
 
 
 {% include notitle [usd-hosts-and-storage.md](../_pricing/managed-elasticsearch/usd-hosts-and-storage.md) %}
@@ -76,12 +79,3 @@ You can't order storage or internet traffic using the CVoS model.
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
-
-## Estimated prices for host classes {#calculated-host-price}
-
-Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-elasticsearch#calculator).
-
-
-
-
-{% include notitle [usd-calculated.md](../_pricing/managed-elasticsearch/usd-calculated.md) %}

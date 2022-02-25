@@ -108,10 +108,11 @@ editable: false
 
 ## Цены {#prices}
 
-### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
-
 
 Все цены указаны с включением НДС.
+
+### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
+
 
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
 
@@ -147,55 +148,3 @@ editable: false
 
 
 
-## Расчетные цены для классов хостов {#calculated-host-price}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-clickhouse#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-Все цены указаны с включением НДС.
-
-### Хосты {{ CH }} {#calculated-clickhouse}
-
-{% list tabs %}
-
-- За месяц работы хоста
-  
-  
-  {% include [rub-ch-classes-month.md](../_pricing/managed-clickhouse/rub-ch-classes-month.md) %}
-
-
-- За 1 час работы хоста
-
-  
-  {% include [rub-ch-classes-hour.md](../_pricing/managed-clickhouse/rub-ch-classes-hour.md) %}
-
-
-
-{% endlist %}
-
-
-### Хосты ZooKeeper {#prices-zookeeper-host}
-
-{% note info %}
-
-Заказать ресурсы хостов {{ ZK }} с помощью механизма CVoS невозможно.
-
-{% endnote %}
-
-{% list tabs %}
-
-- За месяц работы хоста
-
-  
-  {% include [rub-zoo-classes-month.md](../_pricing/managed-clickhouse/rub-zoo-classes-month.md) %}
-
-
-- За 1 час работы хоста
-
-  
-  {% include [rub-zoo-classes-hour.md](../_pricing/managed-clickhouse/rub-zoo-classes-hour.md) %}
-
-
-
-{% endlist %}

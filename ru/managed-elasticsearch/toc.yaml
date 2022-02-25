@@ -57,10 +57,14 @@ items:
         href: concepts/limits.md
       - name: Типы хранилища
         href: concepts/storage.md
+      - name: Резервные копии
+        href: concepts/backup.md
       - name: Шардирование и репликация
         href: concepts/scalability-and-resilience.md
       - name: Расширения Elasticsearch
         href: concepts/plugins.md
+      - name: Поддержка словарей
+        href: concepts/dictionaries.md
       - name: Политика управления версиями Elasticsearch
         href: concepts/update-policy.md
   - name: Управление доступом

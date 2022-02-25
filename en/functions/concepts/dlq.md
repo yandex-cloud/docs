@@ -5,13 +5,13 @@ description: "Dead Letter Queue (DLQ) is a queue where messages that could not b
 
 # Dead Letter Queue
 
-_A Dead Letter Queue (DLQ)_ is a [queue](../../message-queue/concepts/queue.md) where messages that a triggered function couldn't process are moved to. A message is considered processed if the function that received it ended successfully. Messages that are moved to the DLQ are stored there for analysis.
+_A Dead Letter Queue (DLQ)_ is a [queue](../../message-queue/concepts/queue.md) that messages which could not be processed by a triggered [function](./function.md) in {{ sf-name }} or [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} are redirected to. A message is considered processed if its recipient function or container ran to completion without errors. Messages moved to the DLQ are stored there for further analysis.
 
-If the function failed to process a message within the specified number of attempts, the message is moved to the DLQ. The number of function invocation attempts and the DLQ are specified in the redrive policy.
+If a function or a container failed to process a message over a specified number of attempts, it is redirected to the DLQ. The number of attempted function or container calls and the queue to serve as the DLQ are defined in a redirect policy.
 
-If no redrive policy is configured, the messages that the function failed to process are deleted.
+If no redirect policy is configured, messages that a function or a container failed to process are deleted.
 
-## Redrive policy
+## Redrive policy {#redrive-policy}
 
 The redrive policy defines the conditions for moving messages to the DLQ.
 
@@ -19,10 +19,10 @@ To configure the redrive policy for all triggers except a trigger for {{ message
 
 * The queue to move messages to.
 * [A service account](../../iam/concepts/users/service-accounts.md) with rights to write messages to the queue.
-* The time after which the function will be invoked again if the current attempt fails.
+* A timeout for a repeat function or container call if the current call fails.
 * The number of invocation retries before the trigger moves a message to the queue.
 
-[The redrive policy](../../message-queue/concepts/dlq.md#redrive-policy) for the {{ message-queue-full-name }} trigger is configured when creating a source queue for messages that are processed by the triggered function.
+[The redrive policy](../../message-queue/concepts/dlq.md#redrive-policy) for a {{ message-queue-full-name }} trigger is configured when creating a queue whose messages are processed by a triggered function or container.
 
 The message keeps its ID after moving to the DLQ.
 

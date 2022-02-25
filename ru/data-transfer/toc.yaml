@@ -59,6 +59,16 @@ items:
         href: concepts/transfer-lifecycle.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Решение проблем
+    items:
+      - name: Обзор
+        href: troubleshooting/index.md
+      - name: '{{ MG }}'
+        href: troubleshooting/mongodb.md
+      - name: '{{ MY }}'
+        href: troubleshooting/mysql.md
+      - name: '{{ ydb-full-name }} и {{ yds-full-name }}'
+        href: troubleshooting/ydb.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

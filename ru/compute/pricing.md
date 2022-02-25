@@ -53,6 +53,10 @@ editable: false
 
 {{ price-per-hour-count-per-second }}
 
+#### Использование лицензий Microsoft {#license-microsoft}
+
+Правила использования лицензий Microsoft описаны в разделе [{#T}](../microsoft/licensing.md).
+
 
 #### Пример расчета стоимости {#example-of-cost-calculation}
 

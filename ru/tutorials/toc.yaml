@@ -95,7 +95,7 @@ items:
         href: infrastructure-management/1c-mssql-windows.md
       - name: Миграция в Yandex.Cloud с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
-      - name: Аварийное восстановление в Yandex.Cloud с помощью Hystax Acura
+      - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Настройка отказоустойчивой архитектуры в Yandex.Cloud
         href: infrastructure-management/fault-tolerance.md
