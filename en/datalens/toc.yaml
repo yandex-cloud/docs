@@ -113,6 +113,10 @@ items:
         items:
           - name: Creating a dataset
             href: operations/dataset/create.md
+          - name: Combining data from multiple tables
+            href: operations/dataset/join-data.md
+          - name: Combining data from multiple CSV connections
+            href: operations/dataset/join-data-csv.md
           - name: Creating a data field
             href: operations/dataset/create-field.md
           - name: Creating a calculated data field
