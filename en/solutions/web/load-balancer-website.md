@@ -1,29 +1,25 @@
 # Fault-tolerant website with load balancing by {{ network-load-balancer-full-name }}
 
-This scenario describes how to set up a website on a LAMP (Linux, Apache, MySQL, PHP) or LEMP (Linux, nginx, MySQL, PHP) stack with load balancing from [{{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/index.md) between two availability zones and fault tolerance in one zone.
+Create and set up a website on a [LAMP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/LAMP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/LAMP_(software_bundle)){% endif %} ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), and [PHP](https://www.php.net/)) or LEMP (with [Nginx](https://www.nginx.com/) used instead of Apache) stack with load balancing enabled by [{{ network-load-balancer-short-name }}](../../network-load-balancer/concepts/index.md) between two availability zones and fault tolerance in one zone.
 
-To set up a fault-tolerant load-balanced website:
-
-1. [Before you start](#before-begin).
-1. [Create VMs with a pre-installed web server](#create-vm).
+1. [Before you start](#before-you-begin).
+1. [Prepare the network infrastructure](#prepare-network).
+1. [Create an instance group](#create-vms).
 1. [Upload the website files](#upload-files).
-1. [Create a target group](#create-target-group).
 1. [Create a network load balancer](#create-load-balancer).
 1. [Test the fault tolerance](#test-availability).
 
 If you no longer need the website, [delete all its resources](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create a folder to run your VM in or select one on the [{{ yandex-cloud }} page]({{ link-console-cloud }}).
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
-
-Make sure that your folder contains a network with subnets in the [availability zones](../../overview/concepts/geo-scope.md) `ru-cental1-a` and `ru-central1-b`. To do this, select **Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If you don't have the right [network](../../vpc/operations/network-create.md) or [subnets](../../vpc/operations/subnet-create.md), create them.
 
 ### Required paid resources {#paid-resources}
 
@@ -33,146 +29,122 @@ The cost of hosting a website includes:
 * A fee for using dynamic public IP addresses (see [{{ vpc-full-name }}pricing](../../vpc/pricing.md)).
 * A fee for network load balancers and traffic balancing (see [pricing{{ network-load-balancer-full-name}}](../../network-load-balancer/pricing.md)).
 
-## Create the virtual machines {#create-vm}
+## Prepare the network infrastructure {#prepare-network}
 
-The VMs must be created from identical images and their parameters must also be identical.
+Before creating a VM:
 
-### Create the first VM with a pre-installed web server {#create-vm-1}
+1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 
-Create a virtual machine:
+1. Make sure that the selected folder contains a network with subnets in the `ru-cental1-a` and `ru-central1-b` availability zones. To do this, select **{{ vpc-name }}** on the folder page. If you don't have the right [network](../../vpc/operations/network-create.md) or [subnets](../../vpc/operations/subnet-create.md), create them.
 
-1. On the folder page, click **Create resource** and select **Virtual machine**.
+## Create an instance group {#create-vms}
 
-1. In the **Name** field, enter a name for the VM: `lb-tutorial-web-ru-central1-a`.
+To create an instance group with a pre-installed web server:
 
-1. Select the availability zone: `ru-central1-a`.
+1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+1. Open the **Instance groups** tab and click **Create group**.
+1. Under **Basic parameters**:
+   * Name the instance group like `nlb-vm-group`.
+   * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
 
-1. Choose one public image for both VMs:
-   * **LEMP** for Linux, nginx, MySQL, and PHP
-   * **LAMP** for Linux, Apache, MySQL, and PHP
+1. Under **Allocation**, select the `ru-cental1-a` and `ru-central1-b` availability zones to ensure fault tolerance of your hosting.
+1. Under **Instance template**, click **Define** and set up the configuration for a basic instance:
+   * Under **Basic parameters**, enter the template **Description**:
+   * Under **Image/boot disk selection**, open the **Cloud Marketplace** tab and click **Show more**. Choose a product:
+     * [LEMP]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/lemp){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/yc/lemp){% endif %} for Linux, NGINX, MySQL, and PHP.
+     * [LAMP]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/lamp){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/yc/lamp){% endif %} for Linux, Apache, MySQL, and PHP.
 
-1. Under **Computing resources**:
-   * **Platform**: Intel Ice Lake.
-   * **vCPU**: 2.
-   * **Guaranteed vCPU share**: 20%.
-   * **RAM**: 1 GB.
+     Click **Use**.
+   * Under **Disks**, specify:
+     * **Disk type**: HDD.
+     * **Size**: 3 GB.
+   * Under **Computing resources**, specify:
+     * **Platform**: Intel Ice Lake.
+     * **vCPU**: 2.
+     * **Guaranteed vCPU share**: 20%.
+     * **RAM**: 1 GB.
+   * Under **Network settings**:
+     * Select a cloud network and its subnets.
+     * In the **Public address** field, select **Auto**.
+   * Under **Access**, specify the data required to access the VM:
+     * In the **Service account** field, select the service account to link the VM to.
+     * Enter the username in the **Login** field.
+     * In the **SSH key** field, paste the contents of the public key file.
+     To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * Click **Save**.
 
-1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
+1. Under **Scaling**, enter the **Size** of the instance group: 2.
+1. Under **Integration with Network Load Balancer**, select **Create target group** and specify `nlb-tg` as the group name.
+1. Click **Create**.
 
-1. In the **Public address** field, select **Auto**.
+It may take several minutes to create an instance group. Once all VMs change their status to `RUNNING`, you can [upload the website files to them](#upload-files).
 
-1. Specify data required for accessing the VM:
-   * Enter the username in the **Login** field.
-   * Under **SSH key**, paste the contents of the public key file. You need to create a key pair for SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or PuTTYgen (on Windows).
+#### See also
 
-1. Click **Create VM**.
-
-### Create a second VM with a pre-installed web server {#create-vm}
-
-Create a second virtual machine:
-
-1. On the folder page, click **Create resource** and select **Virtual machine**.
-
-1. In the **Name** field, enter a name for the VM: `lb-tutorial-web-ru-central1-b`.
-
-1. Select the availability zone: `ru-central1-b`.
-
-1. Choose one public image for both VMs:
-   * **LEMP** for Linux, nginx, MySQL, and PHP
-   * **LAMP** for Linux, Apache, MySQL, and PHP
-
-1. Under **Computing resources**:
-   * **Platform**: Intel Ice Lake.
-   * **vCPU**: 2.
-   * **Guaranteed vCPU share**: 20%.
-   * **RAM**: 1 GB.
-
-1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
-
-1. In the **Public address** field, select **Auto**.
-
-1. Specify data required for accessing the VM:
-   * Enter the username in the **Login** field.
-   * Under **SSH key**, paste the contents of the public key file. You need to create a key pair for SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or PuTTYgen (on Windows).
-
-1. Click **Create VM**.
-
-Creating the VM may take several minutes. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
-
-Public IP addresses are assigned to virtual machines when they're created. They can be used for [SSH access](../../compute/operations/vm-connect/ssh.md).
+* [{#T}](../../compute/operations/vm-connect/ssh.md)
 
 ## Upload the website files {#upload-files}
 
-As an example, you can create an `index.html` test file with any text.
+To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from the [archive](https://storage.yandexcloud.net/doc-files/index.html.zip).
 
-For the `lb-tutorial-web-ru-central1-a` and `lb-tutorial-web-ru-central1-b` VMs, do the following:
+Do the following for each VM instance in the [created group](#create-vms):
 
-1. Go to **{{ compute-name }}** in the management console and find the public IP address of the VM.
-
+1. On the **Virtual machines** tab, click on the name of the desired VM in the list. Under **Network**, find the VM's public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-
 1. Grant your user write access to the directory `/var/www/html`:
 
    ```bash
-   $ sudo chown -R "$USER":www-data /var/www/html
+   sudo chown -R "$USER":www-data /var/www/html
    ```
 
-1. Upload the website files to the VM over SCP.
+1. Upload the website files to the VM via [SCP protocol]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/SCP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Secure_copy_protocol){% endif %}.
 
    {% list tabs %}
 
    - Linux/macOS
 
+     Use the `scp` command-line utility:
+
      ```bash
-     $ scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
+     scp -r <path to the file directory> <VM user name>@<VM IP address>:/var/www/html
      ```
 
    - Windows
 
-     Use [WinSCP](https://winscp.net/eng/index.php) to copy the local file directory to `/var/www/html` on the VM.
+     Use [WinSCP](https://winscp.net/eng/download.php) to copy the local file directory to `/var/www/html` on the VM.
 
    {% endlist %}
 
-## Create a target group {#create-target-group}
-
-1. Open the **Load Balancer** section in the folder where the VMs were created.
-1. Open the **Target group** tab.
-1. Click **Create target group**.
-1. Enter a name for the target group, such as `lb-tg-tutorial-web`.
-1. Select the virtual machines `lb-tutorial-web-ru-central1-a` and `lb-tutorial-web-ru-central1-b` to add them to the target group.
-6. Click **Create target group**.
-
 ## Create a network load balancer {#create-load-balancer}
 
-When creating a network load balancer, you need to create a listener that the load balancer will use to receive traffic. You also need to set up health checks for resources in the attached target group.
+When creating a network load balancer, you need to add a listener that the load balancer will use to receive traffic, attach the target group created together with the instance group, and set up health checks for resources in it.
 
 To create a network load balancer:
 
-1. Open the **Load balancers** tab.
-1. Click **Create load balancer**.
-1. Enter a name for the load balancer, such as `lb-tutorial-web`.
-1. Click **Add listener** under **Listeners**.
-1. In the window that opens, enter a name for the listener, like `lb-tut-listener-1`.
-1. Set the port to `80`.
+1. In the [management console]({{ link-console-main }}), open **{{ network-load-balancer-short-name }}**.
+1. Click **Create a network load balancer**.
+1. Name the load balancer, such as `nlb-1`.
+1. Under **Listeners**, click **Add listener** and specify the parameters:
+    * **Listener name**: `nlb-listener`.
+    * **Port**: `80`.
+    * **Target port**: `80`.
+
 1. Click **Add**.
-1. Turn on **Target groups**.
-1. Select the previously created target group `lb-tg-tutorial-web`. If there's only one target group, it's selected automatically.
-1. Under **Health check**, enter a name for the health check, like `health-check-1`.
-1. Select the check type: **HTTP**.
-1. Set the port to `80`.
-1. Specify the URL for health checks. You can leave the default path: `/`.
-1. Specify the response timeout in seconds: `1`.
-1. Specify the interval, in seconds, for sending health check requests: `2`.
-1. Set the healthy threshold, which is the number of successful checks required to consider the VM ready to receive traffic: `5`.
-1. Specify the unhealthy threshold, which is the number of failed checks after which no traffic will be routed the VM: `5`.
-1. Click **Create load balancer**.
+1. Under **Target groups**:
+    1. Click **Add target group** and choose the [previously created](#create-vms) `nlb-tg` target group. If there's only one target group, it's selected automatically.
+    1. Under **Health check**, click **Configure** and edit the parameters:
+        * **Name** of the check: `health-check-1`.
+        * **Healthy threshold**: The number of successful checks required to consider the VM ready to receive traffic: `5`.
+        * **Unhealthy threshold**: The number of failed checks after which no traffic will be routed to the VM: `5`.
+    1. Click **Apply**.
+
+1. Click **Create**.
 
 ## Test the fault tolerance {#test-availability}
 
-1. Under **Network** on the VM page in the management console, find the public IP address of the `lb-tutorial-web-ru-central1-a` VM.
-
-1. Connect to the VM over SSH.
-
+1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+1. Go to the page of the VM from the previously created group. Under **Network**, find the VM's public IP address.
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Stop the web service to simulate a failure on the web server:
 
    {% list tabs %}
@@ -180,21 +152,20 @@ To create a network load balancer:
    - LAMP
 
      ```bash
-     $ sudo service apache2 stop
+     sudo service apache2 stop
      ```
 
    - LEMP
 
      ```bash
-     $ sudo service nginx stop
+     sudo service nginx stop
      ```
-
    {% endlist %}
 
-1. In the management console, go to **{{ network-load-balancer-name }}** and select the load balancer created earlier.
+1. Go to **{{ network-load-balancer-name }}** and select the `nlb-1` load balancer created earlier.
+1. Find the listener IP address under **Listeners**. Open the website in the browser using the listener address.
 
-1. Find the listener IP address under **Listeners**. Open the website in the browser using the listener address. The connection should be successful, even though one of the web servers has failed.
-
+   The connection should be successful, even though one of the web servers has failed.
 1. When the check is complete, start the web service again:
 
    {% list tabs %}
@@ -202,18 +173,20 @@ To create a network load balancer:
    - LAMP
 
      ```bash
-     $ sudo service apache2 start
+     sudo service apache2 start
      ```
 
    - LEMP
-
      ```bash
-     $ sudo service nginx start
+     sudo service nginx start
      ```
 
    {% endlist %}
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for deployed servers, [delete](../../compute/operations/vm-control/vm-delete.md) the virtual machines `dns-lb-tutorial-web-ru-central1-a` and `dns-lb-tutorial-web-ru-central1-b`, and the [load balancer](../../network-load-balancer/operations/load-balancer-delete) `lb-tutorial-web`.
+To shut down the hosting and stop paying for the created resources:
 
+1. [Delete](../../network-load-balancer/operations/load-balancer-delete.md) the `nlb-1` network load balancer.
+
+1. [Delete](../../compute/operations/instance-groups/delete.md) the `nlb-vm-group` instance group.
