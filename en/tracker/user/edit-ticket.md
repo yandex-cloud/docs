@@ -1,6 +1,6 @@
 # Editing an issue
 
-To change an issue, go to the issue page. If you don't have sufficient rights to edit the issue, [request permissions](../faq.md#section_xgr_zng_4bb) from the queue owner oryour organization's administrator.
+To edit an issue, go to the issue page. If you don't have access to edit the issue, [request permissions](../faq.md#section_xgr_zng_4bb) from the queue owner or your company's admin.
 
 {% note info %}
 
@@ -28,18 +28,20 @@ Issue pages are updated in real time. If someone edits or adds a comment to an i
 
 - Web interface
 
-  To the right of the issue description, click ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [wiki markup](markup.md) to format text. Click **Save** to save your changes.
+  To the right of the issue description, click ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [YFM markup](markup.md) to format text. Click **Save** to save your changes.
 
   If you close or refresh the page without saving your changes, the new description will still be stored in drafts. You can restore that description by clicking the edit icon ![](../../_assets/tracker/icon-edit.png), clicking ![](../../_assets/tracker/drafts.png) in the toolbar, and choosing the draft.
 
   You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues.
 
 
+
 - Mobile app
 
-  To the right of the issue description, tap ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [wiki markup](markup.md) to format text. Click **Save** to save your changes.
+  To the right of the issue description, tap ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [YFM markup](markup.md) to format text. Click **Save** to save your changes.
 
   You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues. You'll see the linked issue on the **Related** tab.
+
 
 
 {% endlist %}

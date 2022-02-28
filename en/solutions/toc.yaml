@@ -11,6 +11,10 @@ items:
         href: web/lamp-lemp.md
       - name: Fault-tolerant website with load balancing by Network Load Balancer
         href: web/load-balancer-website.md
+      - name: >-
+          Fault-tolerant website with load balancing by Application Load
+          Balancer
+        href: web/application-load-balancer-website.md
       - name: Fault-tolerant website using DNS load balancing
         href: web/dns-load-balancer.md
       - name: Joomla website with PostgreSQL

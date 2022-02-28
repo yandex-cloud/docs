@@ -1,5 +1,7 @@
 # Viewing service detalization
 
+To view service detalization:
+
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
 
 1. Select your billing account on the**Account list** page.

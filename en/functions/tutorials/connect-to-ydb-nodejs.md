@@ -1,5 +1,5 @@
 ---
-author: Ulibka68
+author: gayratv
 ---
 
 # Connecting to a {{ ydb-full-name }} database from a {{ sf-name }} function in Node.js

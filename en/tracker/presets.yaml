@@ -4,7 +4,7 @@ default:
   api-short-name: Tracker API
   host: https://api.tracker.yandex.net
   ver: v2
-  org-id: 'X-Org-ID: <organization''s ID>'
+  org-id: 'X-Org-ID: <organization ID>'
   link-connect: https://connect.yandex.com/
   link-connect-main: https://connect.yandex.com/portal/home
   link-admin-fields: https://tracker.yandex.com/admin/fields
@@ -28,7 +28,6 @@ default:
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/?lang=en
   link-balance-invoices: https://balance.yandex.ru/invoices.xml
   link-org-add-federation: https://cloud.yandex.com/docs/organization/add-federation
-  link-org-main: https://cloud.yandex.com/docs/organization/
   support-connect-account: https://yandex.com/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.com/support/connect/add-domain.html
   support-connect-domains: https://yandex.com/support/connect/domains.html#proof
@@ -47,8 +46,11 @@ default:
   link-get-token: https://oauth.yandex.com/
   link-OAuth-dev-guide: https://yandex.com/dev/oauth/doc/dg/concepts/about.html
   link-register-application: https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html
+  link-oauth-token: https://yandex.ru/dev/oauth/doc/dg/tasks/get-oauth-token.html
+  link-web-oauth: https://yandex.ru/dev/oauth/doc/dg/reference/web-client.html#web-client__request-url
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
   link-python-official: https://www.python.org/downloads/
+  link-yandex: https://yandex.ru
   tracker-settings: Tracker settings
   release-date: March 1
   example-account: login@yandex.com

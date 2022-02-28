@@ -1,6 +1,6 @@
 # Formatting text in issues
 
-Use wiki markup when formatting text in issue descriptions or comments. For example, you can format text with italics or bold, as well as add lists and tables.
+To format text in issue descriptions or comments, use Yandex Flavored Markdown syntax. For example, you can format text with italics or bold, as well as add lists and tables.
 
 If you want to see a preview of how the issue description or comment would look after formatting, click **Preview**. Click **Edit** to resume formatting.
 
@@ -8,22 +8,26 @@ The basic markup options are listed below.
 
 | Element | Markup | Result |
 | ----- | ----- | ----- |
-| Headers | ```== First-level header```<br/>```=== Second-level header```<br/>```==== Third-level header``` | ![](../../_assets/tracker/format/h1-h3.png) |
-| Horizontal line | ``` ---- ``` | ![](../../_assets/tracker/format/hr.png) |
-| Bold | ```**Bold text**``` | ![](../../_assets/tracker/format/bold.png) |
-| Italics | ```*Italic text*``` | ![](../../_assets/tracker/format/italic.png) |
-| Underline | ```__Underlined text__``` | ![](../../_assets/tracker/format/underlined.png) |
-| Strikethrough | ```--Strikethrough text--``` | ![](../../_assets/tracker/format/crossed.png) |
-| Small text | ```++Small font++``` | ![](../../_assets/tracker/format/small-text.png) |
-| Highlighted text | ```??Highlighted text??``` | ![](../../_assets/tracker/format/red-background.png) |
-| Colored text.<br/><br/>Supported colors:<br/><br/>`red` .<br/>`green` .<br/>`blue` .<br/>`grey` / `gray` .<br/>`yellow` . | ```!!(blue)Blue text!!``` | ![](../../_assets/tracker/format/colored.png) |
-| Numbered list | ```1. List item.```<br/>```2. List item.```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`2. Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`3. Nested list item.`<br/>```3. List item.``` | ![](../../_assets/tracker/format/numerated-list-exampe.png) |
-| Bulleted list | ```* List item.```<br/>```* List item:```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* Nested list item.`<br/>```* List item.``` | ![](../../_assets/tracker/format/unordered-list-exampe.png) |
-| Link | ```((http://example.com/ link text))``` | ![](../../_assets/tracker/format/hyperlink.png) |
+| Headings | ```# First level header```<br/>```## Second level header```<br/>```### Third level header``` | ![](../../_assets/tracker/format/h1-h3.png) |
+| Bold | ```**Bold**``` | **Bold** |
+| Italics | ```_Italics_``` | _Italics_ |
+| Bold italics | ```**_Bold italics_**``` | **_Bold italics_** |
+| Also bold italics | ```_**Also bold italics**_``` | _**Also bold italics**_ |
+| Strikethrough | ```~~Strikethrough~~``` | ~~Strikethrough~~ |
+| Underline | ```++Underlined text++``` | ![](../../_assets/tracker/format/underlined.png) |
+| Superscript | ```Super^script^``` | Super^script^ |
+| Monospaced text | ```##Monospaced text##``` | ![](../../_assets/tracker/format/monospaced.png) |
+| Colored text.<br/><br/>Supported colors:<br/><br/>`red`;<br/>`green`;<br/>`blue`;<br/>`gray`;<br/>`yellow`. | ```{blue}(Blue text)``` | ![](../../_assets/tracker/format/colored.png) |
+| Numbered list | ```1. List item.```<br/>```1. List item.```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Nested list item.`<br/>```1. List item.``` | ![](../../_assets/tracker/format/ol.png) |
+| Bulleted list | ```* List item.```<br/>```* List item:```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* Nested list item.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* Nested list item.`<br/>```* List item.``` | ![](../../_assets/tracker/format/ul.png) |
+| Link | ```[link_text]({{ link-yandex }})``` | [link_text]({{ link-yandex }}) |
+| URL | To convert a URL or email address into a link, add angle brackets on both sides <>.<br/>```<{{ link-yandex }}>``` | <{{ link-yandex }}> |
 | Issue link | ``` TEST-123 ``` | ![](../../_assets/tracker/format/tracker-magic-link.png) |
-| Quoted text | ```<[Quoting```<br/>```long text```<br/>```with linebreaks]>``` | ![](../../_assets/tracker/format/quote.png) |
-| Single-line quote | ```>Single-line quote```<br/>```>>Second-level quote``` | ![](../../_assets/tracker/format/inline-quote.png) |
-| Collapsed text | ```<{Read the entire text```<br/>```You can see this text by clicking```<br/>```"Read the entire text".```<br/>```}>``` | ![](../../_assets/tracker/format/cut.png) |
-| Table | ```#\|```<br/>```\|\|cell 11\|cell 12\|cell 13\|\|```<br/>```\|\|cell 21\|cell 22\|\|```<br/>```\|#``` | ![](../../_assets/tracker/format/table.png) |
-| Source code | ```%%code snippet%%``` | ![](../../_assets/tracker/format/source-code-2.png) |
-| Escaping wiki markup | ```""**Escaping all markup**```<br/>```//elements in this text//""```<br/>```~**Escaping a single** //markup element//``` | ![](../../_assets/tracker/format/escaping.png) |
+| Quoted text | ```> Quoting```<br/>```>> Nested quotes``` | ![](../../_assets/tracker/format/quote.png) |
+| Collapsed text | ```{% cut "Read the entire text" %}```<br/>```The content that's displayed on click.```<br/>```{% endcut %}``` | ![](../../_assets/tracker/format/cut.png) |
+| Table | ```\| Heading1 \| Heading2  \|```<br/>```\| ---------- \| ---------- \|```<br/>```\| Text       \| Text       \|```<br/>```\| Text       \| Text       \|``` | ![](../../_assets/tracker/format/table.png) |
+| Multiple-line table | ```#\|```<br/>```\|\| **Heading1** \| **Heading2** \|\|```<br/>```\|\| Text ```<br/>```on two lines```<br/>```\| Text \|\|```<br/>```\|#``` | ![](../../_assets/tracker/format/table2.png) |
+| Source code | ``` `code snippet` ``` | `code snippet` |
+| Multiple-line code block | ` ```php`<br/>`<?`<br/>`phpinfo();`<br/>`$s = "Hello, World!\n";`<br/>`print $s;`<br/>` ``` ` | ![](../../_assets/tracker/format/source-code-3.png) |
+| Escaping markup elements | ```\*\*escaping** _markup elements_``` | \*\*escaping** _markup elements_ |
+

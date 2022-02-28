@@ -10,6 +10,14 @@ To use {{ tracker-name }} paid features, you first need to link a billing accoun
 
 * If you don't have a billing account yet, select **Create** and [add a new account](#create).
 
+{% note warning %}
+
+If the selected billing account has overdue payments or has been suspended, you won't be able to link it to {{ tracker-name }}. If this is the case, please go to the [{{ link-billing }}]({{ link-billing }}) page, select your account, and follow the prompts in the interface. After your billing account is re-activated, try linking it to {{ tracker-name }} again. You can read more about account statuses in the [{{ yandex-cloud }} billing](../billing/concepts/billing-account-statuses.md) documentation.
+
+{% endnote %}
+
+If you linked a billing account with an active trial period or created a new account, the paid version will be automatically activated for your account. This means that money can be debited from your account to pay for services {{ yandex-cloud }}. If you haven't used the starting grant yet, you will be able to use it after switching to the paid version. Read more about the starting grant in [Getting started in {{ yandex-cloud }}](../getting-started/index.yaml).
+
 ## Creating a billing account {#create}
 
 1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
@@ -61,23 +69,10 @@ To use {{ tracker-name }} paid features, you first need to link a billing accoun
    * `PAYMENT_NOT_CONFIRMED` — used for individual entrepreneurs and companies residing in Russia or Kazakhstan that pay via **Bank transfer**, as well as companies residing outside of Russia and Kazakhstan (any payment method). You will receive an email outlining further steps you need to take to an address specified in your Yandex account. Billing account activation may take up to three business days.
 
 
-1. After creating a billing account, you can use the trial period (if available) or [activate the paid version](#activate).
 
-## Activating the paid version of {#activate}
+After creating a billing account, [link it to {{ tracker-name }}](#bind). You can also use the starting grant to explore {{ yandex-cloud }} services if you haven't activated the trial period or purchased paid services before. Read more about the starting grant in [Getting started in {{ yandex-cloud }}](../getting-started/index.yaml).
 
-After creating a billing account, you can use the trial period and the grant to try out the {{ yandex-cloud }} services provided you haven't activated the trial period or purchased paid services before. You can read more about the trial period in [Getting started with {{ yandex-cloud }}](../getting-started/index.yaml).
 
-You must activate the paid version in your account within 30 days after the trial period ends. Moreover, you have to activate the paid version if the trial version is unavailable for your account. Otherwise, the {{ tracker-name }} paid features will be unavailable to you.
-
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Billing**.
-
-1. Select your billing account on the**Account list** page.
-
-1. Go to the **Overview** page and click **Upgrade to paid version**.
-
-1. Enable the **I'm switching to the paid version** option and click **Upgrade to paid version** again to confirm your choice.
-
-1. After activating the paid version, [top up your account balance](pay-the-bill.md). Now you can use your account to pay for {{ yandex-cloud }} services.
 
 ## Editing your billing account {#edit}
 

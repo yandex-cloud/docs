@@ -23,16 +23,46 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 
 OAuth 2.0 allows applications to access Yandex services on behalf of the user. For information about basic OAuth concepts and the Yandex implementation of the protocol, see the ["OAuth authorization. Developer's guide"]({{ link-OAuth-dev-guide }}).
 
-To get access to the {{ api-name }}:
+To get access, register the application. The application redirects the user to the Yandex OAuth Server access request page.  The user logs in to Yandex and gives the application permission to access their data.
 
-1. [Register]({{ link-register-application }}) your application and configure its read and write access rights in {{ tracker-name }}.
+To get access to {{ api-name }}:
 
-1. [Obtain]({{ link-get-token }}) an OAuth token for authorization.
+
+
+1. [Register]({{ link-register-application }}) application on the OAuth server:
+
+   1. Go to [**New client**]({{ link-get-token }}client/new). Name the application.
+
+   1. Select the platform the application is installed on and specify its [settings]({{ link-register-application }}#register-client__platform).
+
+   1. Go to the **Permissions** field, open **Tracker**, and select the following options:
+      * **Writing information to tracker (tracker:write)**.
+      * **Reading information from tracker (tracker:read)**.
+
+   1. Click **Create app**.
+
+1. Get an OAuth token for authorization:
+
+   1. Select your application from the [list]({{ link-get-token }}).
+
+   1. Copy the value from the **ID** and generate a token request link:
+      `{{ link-get-token }}authorize?response_type=token&client_id=<application ID>`
+      You can specify [additional parameters]({{ link-web-oauth }}) of the token request.
+
+   1. Follow the link and copy the OAuth token. The token you received must be used in requests to the {{ tracker-name }} API.
+
+     {% note info %}
+
+     Yandex.OAuth redirects the user to the address specified in the **Callback URL** field on the application page. The address is generated automatically based on the application settings and the parameters of the selected platform.
+     If your application is still in development, you can access {{ tracker-name }} by receiving the [debug token]({{ link-oauth-token }}) manually as a test user.
+
+     {% endnote %}
 
 1. To check if you have access to the API, [request information about the current user](../get-user-info.md).
 If no access permission is granted, you'll get a response with code `401 Unauthorized`.
 
 The token permissions correspond to the permissions for the {{ tracker-name }} account. For example, if the user isn't allowed to change queue settings, API requests to change queue settings won't be available using this token.
+
 
 
 ## Access the API with an IAM token {#iam-token}
@@ -51,9 +81,9 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
 
   1. Get an IAM token:
 
-     ```
-     $ yc iam create-token
-     ```
+    ```
+    $ yc iam create-token
+    ```
 
 - API
 
@@ -62,7 +92,7 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
   1. Exchange the received token for an IAM token. To do this, use an HTTP `POST` request:
 
      ```json
-     POST https://iam.api.cloud.yandex.net/iam/v1/tokens
+      POST https://iam.api.cloud.yandex.net/iam/v1/tokens
      
        {
           "yandexPassportOauthToken": "<OAUTH-token>"
@@ -106,17 +136,19 @@ When developing applications in Python, you can use the [yandex_tracker_client](
 
 To start using the client:
 
-1. Download and install the newest version of Python from [https://www.python.org/downloads/](https://www.python.org/downloads/).
+1. Download and install the latest Python version from [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
 1. Run the following command in your OS command line:
 
     
+
     ```
     pip install yandex_tracker_client
     ```
 
 
-1. Receive your OAuth token and organization ID to access the API. To learn more, see the [API reference](../concepts/access.md).
+
+1. Receive your OAuth token and organization ID to access the API. For more information about how to do this, see the [API reference](../concepts/access.md).
 
 1. Initialize the client in your program's code:
 
