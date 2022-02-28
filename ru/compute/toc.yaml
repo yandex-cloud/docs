@@ -75,6 +75,8 @@ items:
             href: operations/vm-control/vm-detach-disk.md
           - name: Перенести ВМ в другую зону доступности
             href: operations/vm-control/vm-change-zone.md
+          - name: Перенести ВМ в другой каталог
+            href: operations/vm-control/vm-change-folder.md
           - name: Привязать к ВМ публичный IP-адрес
             href: operations/vm-control/vm-attach-public-ip.md
           - name: Сделать публичный IP-адрес ВМ статическим
@@ -113,6 +115,8 @@ items:
             href: operations/disk-control/create-snapshot.md
           - name: Изменить диск
             href: operations/disk-control/update.md
+          - name: Перенести диск в другой каталог
+            href: operations/disk-control/disk-change-folder.md
           - name: Удалить диcк
             href: operations/disk-control/delete.md
           - name: Удалить снимок диска

@@ -32,7 +32,7 @@ To specify issue updates that will fire the trigger, set a condition:
 >
 > The trigger will be activated once a set condition is met: New comment AND (one of two conditions is met: User assigned to issue OR issue status changed to Need info) AND (one of two conditions is met: Start date specified OR Original estimate specified).
 
-## Comparison operators {#section_cdn_d4j_wfb}
+## Comparison operations {#section_cdn_d4j_wfb}
 
 - If you set a comparison operation as a trigger condition, the condition is checked every time the issue is updated. The trigger activates once the condition is met.
 
@@ -41,7 +41,7 @@ To specify issue updates that will fire the trigger, set a condition:
 - You can set additional options for some comparison operations:
   - **No match before change**: Triggers if a field value changed after a comparison operation.
   - **Ignore case**: Treat uppercase characters as matching the same lowercase characters.
-  - **Ignore markup**: Ignore Wiki markup in text.
+  - **Ignore markup**: Ignore markup in text.
 
 Examples of acceptable comparison operations are listed in the table.
 
@@ -55,3 +55,4 @@ Examples of acceptable comparison operations are listed in the table.
 | Element number equal, element number greater than, element number less than | Comparison operations for fields that may contain multiple elements, such as **Tags**. |
 | Includes no elements, includes all elements, includes any element | Comparison operations for fields that may contain multiple elements, such as **Tags**. |
 | Includes no fragments, doesn't include fragment, matches, includes any fragment, includes fragment | Comparison operations for the **Comment text** condition, which check for specified text fragments in comments. |
+

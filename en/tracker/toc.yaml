@@ -187,7 +187,7 @@ items:
         href: manager/create-agile-board.md
       - name: Working with an agile board
         href: user/agile.md
-      - name: Editing or deleting a board
+      - name: Editing and deleting a board
         href: manager/edit-agile-board.md
       - name: Sprints
         href: manager/create-agile-sprint.md
@@ -205,7 +205,7 @@ items:
         href: user/search-task.md
       - name: Searching for my issues
         href: user/default-filters.md
-      - name: Finding issues in queues
+      - name: Searching for issues in queues
         href: manager/quick-filters.md
       - name: Creating an issue filter
         href: user/create-filter.md
@@ -461,7 +461,7 @@ items:
             href: concepts/queues/get-queues.md
           - name: Get queue versions
             href: concepts/queues/get-versions.md
-          - name: Get required queue fields
+          - name: Get required fields for the queue
             href: concepts/queues/get-fields.md
           - name: Deleting a queue
             href: concepts/queues/delete-queue.md
@@ -469,6 +469,12 @@ items:
             href: concepts/queues/restore-queue.md
           - name: Remove a tag from a queue
             href: concepts/queues/delete-tag.md
+          - name: Automation
+            items:
+              - name: Receiving triggers
+                href: concepts/queues/get-trigger.md
+              - name: Creating triggers
+                href: concepts/queues/create-trigger.md
       - name: Issue boards
         items:
           - name: Get parameters of all boards

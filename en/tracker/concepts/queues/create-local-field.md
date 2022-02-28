@@ -74,12 +74,12 @@ Authorization: OAuth <OAuth token>
 > Example: Create a local field of the <q>Drop-down list</q> type with a fixed set of string values:
 >
 >- An HTTP POST method is used.
->- A local field is created for the QUEUE-TEST queue.
+>- A local field is created for the DESIGN queue.
 >- Field type: `FixedListOptionsProvider`.
 >- Drop-down list values: <q>the first list item</q>, <q>the second list item</q>, <q>the third list item</q>.
 >
 >```json
->POST /v2/queues/QUEUE-TEST/localFields
+>POST /v2/queues/DESIGN/localFields
 >Host: {{ host }}
 >Authorization: OAuth <OAuth token>
 >{{ org-id }}
@@ -108,7 +108,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -194,7 +194,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

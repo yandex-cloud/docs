@@ -112,7 +112,6 @@
         --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov84aon8s1 \
         --public-ip \
         --ssh-key ~/.ssh/id_rsa.pub
-
       ```
 
       Данная команда создаст виртуальную машину с загрузочным диском на 5 ГБ из заранее загруженного образа с именем `test-vm-from-image`.

@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/overview/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}
+
 {% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/overview/security-bulletins/cve-2022-0185.md) %}
 
 {% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/overview/security-bulletins/cve-2021-4034-polkit.md) %}

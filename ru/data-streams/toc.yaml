@@ -17,6 +17,8 @@ items:
             href: quickstart/aws-cli.md
       - name: Сохранение данных в ClickHouse
         href: quickstart/send-to-clickhouse.md
+      - name: Обработка потока изменений из Debezium
+        href: quickstart/debezium.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

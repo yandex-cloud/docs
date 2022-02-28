@@ -112,7 +112,7 @@ The chart displays statistics for _events_ in issues over a certain period of ti
 
 - Issue was switched to the **Resolved** status.
 
-- The issue was created.
+- Issue created.
 
 To configure the widget, make these settings:
 
@@ -152,7 +152,7 @@ To configure the widget, make these settings:
 
 ![image](../../_assets/tracker/widgets/note.png)
 
-Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [Wiki markup](markup.md).
+Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [YFM markup](markup.md).
 
 
 

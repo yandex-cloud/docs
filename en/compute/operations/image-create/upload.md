@@ -8,6 +8,7 @@ keywords:
   - disk image
   - Linux OS image
 ---
+
 # Uploading a disk image to {{ yandex-cloud }}
 
 The following instructions describe how to upload an image file with Linux OS to {{ objstorage-full-name }} and use it to create an [image](../../concepts/image.md) and VM in {{ compute-name }}.
@@ -16,7 +17,7 @@ Popular virtualization systems are supported.
 
 {% note warning %}
 
-In {{ compute-name }}, you can only create images using links to files uploaded to {{ objstorage-name }}.
+In {{ compute-name }}, you can only create images using files uploaded to {{ objstorage-name }}. You can also migrate a VM using [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).
 
 {% endnote %}
 
@@ -29,7 +30,6 @@ For setup instructions, see [{#T}](custom-image.md).
 ## Upload an image file to {{ objstorage-name }} {#upload-file}
 
 Upload your image to {{ objstorage-name }} and get a link to the uploaded image:
-
 1. If you don't have a bucket in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one.
 1. Upload the image to your bucket, for example, [via the management console](../../../storage/operations/objects/upload.md), using the [AWS CLI](../../../storage/tools/aws-cli.md) or [WinSCP](../../../storage/tools/winscp.md). In {{ objstorage-name }} terms, the uploaded image is called an _object_.
 1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
@@ -43,29 +43,26 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 - Management console
 
   1. In the management console, select the folder where you want to create an image.
-
   1. Select **{{ compute-name }}**.
-
   1. On the **Virtual machines** page, go to the **Images** tab.
-
   1. Click **Upload image**.
-
   1. Enter the image name.
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+     * Its length can be from 2 to 63 characters.
+     * It may contain lowercase Latin letters, numbers, and hyphens.
+     * The first character must be a letter. The last character can't be a hyphen.
 
   1. If necessary, add a description of the image.
-
   1. Insert the link to the image you received in {{ objstorage-name }}.
-
+  1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable the **Optimize for deployment** option.
   1. Click **Upload**.
 
 - CLI
 
-  To create a new image via the link, use the flag `--source-uri`.
+  To create a new image via the link, use the flag `--source-uri`. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), use the `--pooled` flag.
 
   ```bash
-  yc compute image create --name <image-name> --source-uri <image-URL>
+  yc compute image create --name <image-name> --source-uri <image-URL> --pooled
   ```
 
   Where:
@@ -93,10 +90,6 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
   {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
 
-- API
-
-  To create a new image via the link, use the [Create](../../api-ref/Image/create.md) method for the `Image` resource. Pass the link to the image in the `uri` parameter.
-
 - Terraform
 
   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -109,9 +102,10 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
      ```
      resource "yandex_compute_image" "image-1" {
-       name = "ubuntu-cosmic"
-       os_type = "LINUX"
+       name       = "ubuntu-cosmic"
+       os_type    = "LINUX"
        source_url = "<link to the image in {{ objstorage-name }}>"
+       pooled     = "false"
      }
      ```
 
@@ -120,7 +114,6 @@ Create a new image from the link obtained in {{ objstorage-name }}:
   1. Make sure that the configuration files are correct.
 
      1. In the command line, go to the directory where you created the configuration file.
-
      1. Run the check using the command:
 
         ```bash
@@ -140,6 +133,10 @@ Create a new image from the link obtained in {{ objstorage-name }}:
      1. Confirm that you want to create the resources.
 
      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+
+- API
+
+  Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method in the gRPC API or the [create](../../api-ref/Image/create.md) method of the `Image` resource in the REST API. In the request, specify the link to the image.
 
 {% endlist %}
 
