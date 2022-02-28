@@ -65,7 +65,7 @@ Let's set up a trigger that automatically picks an assignee for our issue:
 1. Save your trigger.
 To see if you trigger works, pick any issue from the queue with the added trigger and change the issue's status or components.
 
-## Invite assignees automatically {#summon_ticket}
+## Inviting assignees automatically {#summon_ticket}
 
 After completing an issue, the assignee may forget to specify some important information, such as time spent. In this case, you can configure a trigger that will automatically invite the assignee if the issue is closed and the time spent is not specified:
 
@@ -139,7 +139,7 @@ Let's set up a trigger that automatically sends an email to the user telling the
 
 You need to set up email integration if you want to send emails right from {{ tracker-name }} and create issues from incoming emails:
 
-1. [Set up an email address for the queue]{% if audience == "external" %} (queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %} that will create issues from user requests.
+1. [Set up an email address for the queue]{% if audience == "external" %}(queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %} to store issues created based on user requests.
 
     If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex 360 for Business]({{ support-business-domain }}).
 
@@ -149,7 +149,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. If users aren't your organization's employees:
 
-    1. [Allow accepting emails from external addresses](queue-mail.md#mail_tasks).
+    1. [Allow receiving emails from external addresses](queue-mail.md#mail_tasks).
 
     1. [Allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
 
@@ -195,7 +195,7 @@ Set up a trigger that automatically notifies users by mail when a new issue is c
 
     To see if the trigger works, send an email to the queue address.
 
-## Send a notification when an issue is created based on a form {#notify_form}
+## Sending a notification when an issue is created based on a form {#notify_form}
 
 Let's say the support team is processing user requests in {{ tracker-name }}. Users contact the support team via a feedback form created in [{{ forms-full-name }}]({{ link-forms }}). A {{ tracker-name }} issue is then created based on that form.
 
@@ -213,7 +213,7 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 1. If the users aren't your company's employees, [allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
 
-#### Step 2. Set up a form to record requests
+#### Step 2. Set up a form to register requests
 
 To create issues from requests sent through forms:
 
@@ -231,7 +231,7 @@ To create issues from requests sent through forms:
 
     1. Use the **Issue description** field to add answers to the questions included in your form.
 
-    1. If you want to save a user's email address in your issue parameters, add the **From** field and choose **Variables** → **Answer** → **Email**.
+    1. To save the user's email address in the issue settings, add the **From** field and select **Variables** → **Answer** → **Email**.
 
     1. Save your integration settings.
 
@@ -273,7 +273,7 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 
     To see if your trigger works, fill out the form you integrated with {{ tracker-name }}.
 
-## Automatically add a form to the issue comments {#insert_form}
+## Automatically adding a form to the issue comments {#insert_form}
 
 Using a trigger, you can add a form with auto-prefilled fields to the issue comments. To do this, add a special code with a link to the form in the comment text. Values can be passed to the form fields via [GET parameters](../../forms/get-params.md). For example, you can send issue parameters via [variables](../user/vars.md) available in triggers.
 
@@ -289,7 +289,7 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
 
 1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
-1. Set the trigger to react when the issue is closed:
+1. Set the trigger to fire when the issue is closed:
 
     1. Choose **Conditions to be met** → **All**.
 
@@ -304,20 +304,20 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
    {% if audience == "internal" %}
 
     ```
-    {{=<% %>=}}{{iframe src=//forms.yandex-team.ru/surveys/<form_id>/?iframe=1&<question_id>=<value> frameborder=0 width=100% height=660px scrolling=no}}
+    {{=<% %>=}}/iframe/(src="https://forms.yandex-team.ru/surveys/<form_id>/?iframe=1&<question_id>=<value>" frameborder=0 width=500)
     ```
 
    {% else%}
 
     ```
-    {{=<% %>=}}{{iframe src=//forms.yandex.ru/surveys/<form_id>/?iframe=1&<question_id>=<value> frameborder=0 width=100% height=660px scrolling=no}}
+    {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/<form_id>/?iframe=1&<question_id>=<value>" frameborder=0 width=500)
     ```
 
    {% endif %}
 
     - `<form id>` is the ID of the form to be added.
 
-    - `<question_id>` is the [ID of the question](../../forms/question-id.md#sec_question).
+    - `<question_id>` — [question_id](../../forms/question-id.md#sec_question).
 
     - `<value>` is the value to populate the form field.
 
@@ -330,13 +330,13 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
     {% if audience == "internal" %}
 
      ```
-     {{=<% %>=}}{{iframe src=//forms.yandex-team.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%> frameborder=0 width=100% height=660px scrolling=no}}
+     {{=<% %>=}}/iframe/(src="https://forms.yandex-team.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%>" frameborder=0 width=100% height=660px scrolling=no}}
      ```
 
     {% else%}
 
     ```
-    {{=<% %>=}}{{iframe src=//forms.yandex.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%> frameborder=0 width=100% height=660px scrolling=no}}
+    {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%>" frameborder=0 width=100% height=660px scrolling=no}}
     ```
 
     {% endif %}

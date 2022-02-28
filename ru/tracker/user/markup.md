@@ -18,8 +18,8 @@
 Верхний регистр | ```Верхний^регистр^``` | Верхний^регистр^
 Моноширинный текст | ```##Моноширинный текст##``` | ![](../../_assets/tracker/format/monospaced.png)
 Цветной текст.<br/><br/>Поддерживаются цвета:<br/><br/>`red`;<br/>`green`;<br/>`blue`;<br/>`gray`;<br/>`yellow`. | ```{blue}(Текст синего цвета)``` | ![](../../_assets/tracker/format/colored.png)
-Нумерованный список | ```1. Пункт списка.```<br/>```1. Пункт списка.```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Подпункт.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Подпункт.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Подпункт.`<br/>```1. Пункт списка.``` | ![](../../_assets/tracker/format/numerated-list-exampe.png)
-Маркированный список | ```* пункт списка;```<br/>```* пункт списка:```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* подпункт;`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* подпункт;`<br/>```* пункт списка.``` | ![](../../_assets/tracker/format/unordered-list-exampe.png)
+Нумерованный список | ```1. Пункт списка.```<br/>```1. Пункт списка.```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Подпункт.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Подпункт.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Подпункт.`<br/>```1. Пункт списка.``` | ![](../../_assets/tracker/format/ol.png)
+Маркированный список | ```* пункт списка;```<br/>```* пункт списка:```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* подпункт;`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* подпункт;`<br/>```* пункт списка.``` | ![](../../_assets/tracker/format/ul.png)
 Ссылка | ```[текст_ссылки]({{ link-yandex }})``` | [текст_ссылки]({{ link-yandex }})
 URL | Чтобы преобразовать URL или адрес электронной почты в ссылку, добавьте с двух сторон угловые скобки <>.<br/>```<{{ link-yandex }}>``` | <{{ link-yandex }}>
 Ссылка на задачу | ``` TEST-123 ``` | ![](../../_assets/tracker/format/tracker-magic-link.png)

@@ -111,7 +111,7 @@ items:
       href: concepts/queues/get-queues.md
     - name: Get queue versions
       href: concepts/queues/get-versions.md
-    - name: Get required queue fields
+    - name: Get required fields for the queue
       href: concepts/queues/get-fields.md
     - name: Deleting a queue
       href: concepts/queues/delete-queue.md
@@ -121,6 +121,12 @@ items:
       when: audience == "external"
     - name: Remove a tag from a queue
       href: concepts/queues/delete-tag.md
+    - name: Automation
+      items:
+        - name: Receiving triggers
+          href: concepts/queues/get-trigger.md
+        - name: Creating triggers
+          href: concepts/queues/create-trigger.md
 - name: Issue boards
   items:
     - name: Get parameters of all boards

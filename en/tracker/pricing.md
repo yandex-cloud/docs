@@ -40,7 +40,7 @@ To check your billing account balance or view your payment history, on the top p
 
 How the monthly {{ tracker-name }} subscription fee is calculated:
 
-- The monthly fee is based on the maximum number of users who simultaneously had access to {{ tracker-name }} during the month.
+* The monthly fee is based on the maximum number of users who simultaneously had access to {{ tracker-name }} during the month.
 
     {% note tip %}
 
@@ -51,48 +51,48 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 {% if audience == "draft" %}- If you accidentally granted access to {{ tracker-name }} to a user or team that won't use {{ tracker-name }}, you can revoke their access rights within 30 minutes. In that case, they won't be included when calculating the monthly subscription fee.
 {% endif %}
 
-- For large companies, the monthly fee is calculated on a progressive scale.
+* For large companies, the monthly fee is calculated on a progressive scale.
 
 > For example, these rates were in effect in January:
 >
->- The subscription fee for the first 100 users: {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %}.
+>* For the first 100 users — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %} per user per month.
 >
->- The subscription fee for next 150 users: {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %}.
+>* For the next 150 users — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %} per user per month.
 >
->- The subscription fee for all users beyond 250 persons mentioned above: {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %}.
+>* For all users over 250 — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|int|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|int|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %} per user per month.
 >
 >The number of employees who had full access to {{ tracker-name }} changed in January:
 >
->- 245 employees had full Tracker access for 14 days.
+>* 245 employees had full {{tracker-name}} access for 14 days.
 >
->- The next 7 days saw 270 employees with access to Tracker.
+>* The next 7 days saw 270 employees with access to Tracker.
 >
->- Finally, during the last 10 days there were 260 employees with access to Tracker.
+>* Finally, during the last 10 days there were 260 employees with access to Tracker.
 >
 >During the month, the maximum number of users with access to {{ tracker-name }} at the same time was 270.
 >
 >That means the following formula will be used to calculate the subscription fee for 270 users:
 >
 > {% if region == "ru" %}
-> 
+>
 > ```
 > 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|int|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|int|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|int|string }}
 > ```
-> 
+>
 > {% endif %}
-> 
+>
 > {% if region == "kz" %}
-> 
+>
 > ```
 > 100 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|int|string }} + 150 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|int|string }} + 20 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|int|string }}
 > ```
-> 
+>
 > {% endif %}
-> 
+>
 > {% if region == "int" %}
-> 
+>
 > ```
 > 100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
 > ```
-> 
+>
 > {% endif %}

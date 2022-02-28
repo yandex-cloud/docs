@@ -125,8 +125,10 @@ Version
 Widget 
 :  An information block located on the [dashboard](#dashboard-definition) that automatically receives issue-related data and displays it as a list, table, or chart. [ Learn more about widgets.](user/widgets.md)
 
-Wiki markup 
-:  The Wiki markup is a set of rules for formatting text using special characters. You can use it to [format the text in issue descriptions and comments](user/markup.md).
-
 Workflow 
 :  A set of possible issue statuses and status transition rules. The queue settings for issues of various types let users [choose preset workflows](manager/add-ticket-type.md) and [create custom ones](manager/add-workflow.md).
+
+## Y {#en-y}
+
+Yandex Flavored Markdown (YFM)
+:  Yandex Flavored Markdown is a set of text formatting rules that use special characters. You can use it to [format text in issue descriptions and comments](user/markup.md).

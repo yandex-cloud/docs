@@ -1,10 +1,10 @@
 # Creating issues
 
-You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create the issue in, check with the project manager{% if audience == "external" %} or your organization's admin{% endif %}.
+You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create your issue in, check with the project manager{% if audience == "external" %} or your company's admin{% endif %}.
 
 {% if locale == "ru" %}
 
-@[youtube](vtPEpbz8uiw)
+[youtube](vtPEpbz8uiw)
 
 {% endif %}
 
@@ -33,7 +33,7 @@ Each queue can have its own [set of issue types](../manager/add-ticket-type.md).
 
     1. Enter a title in the **Summary** field.
 
-    1. Fill in the **Description** field. Use [wiki markup](markup.md) to format text.
+    1. Fill in the **Description** field. Use [YFM markup](markup.md) to format text.
 
     1. Click **Choose files** to attach files or images to the issue.
 To insert images into the text, click ![](../../_assets/tracker/add-image.png).
@@ -79,7 +79,7 @@ You can also leave this field empty to assign someone later.
 
     1. [Edit](edit-ticket.md) the issue details:
 
-        - Go to the **Description** tab and specify general parameters: add a description, select the issue type and priority, specify the assignee, and set the deadline. Use [wiki markup](markup.md) to format text.
+        - Go to the **Description** tab and specify general parameters: add a description, select the issue type and priority, specify the assignee, and set the deadline. Use [YFM markup](markup.md) to format text.
 
         - On the **Parameters** tab, specify [additional settings](create-param.md#section_ymd_ycj_1gb) for the issue.
 

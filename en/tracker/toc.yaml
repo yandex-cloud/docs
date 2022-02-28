@@ -199,7 +199,7 @@ items:
       href: manager/create-agile-board.md
     - name: Working with an agile board
       href: user/agile.md
-    - name: Editing or deleting a board
+    - name: Editing and deleting a board
       href: manager/edit-agile-board.md
     - name: Sprints
       href: manager/create-agile-sprint.md
@@ -217,7 +217,7 @@ items:
       href: user/search-task.md
     - name: Searching for my issues
       href: user/default-filters.md
-    - name: Finding issues in queues
+    - name: Searching for issues in queues
       href: manager/quick-filters.md
     - name: Creating an issue filter
       href: user/create-filter.md

@@ -14,7 +14,7 @@ If you keep all your discussions about an issue in the comments section, you wil
 
 - Web interface
 
-    To comment on an issue, enter your text in the box at the bottom of the page and click **Submit**. In the comments section, you can use [wiki markup](markup.md) and attach images and files.
+    To comment on an issue, enter your text in the box at the bottom of the page and click **Submit**. You can use [markup](markup.md) in the comments section and attach images and files.
 
     You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically links the issue.
 
@@ -33,7 +33,7 @@ You can disable automatic linking for issues from different queues in the [queue
 
 - Mobile app
 
-    To comment on an issue, enter your text in the **Write a comment** box at the bottom of the screen and tap ![](../../_assets/tracker/send.png). In the comments section, you can use [wiki markup](markup.md) and [attach images and files](#sec_file). To expand the comment box to full screen, tap ![](../../_assets/tracker/open-text.png).
+    To comment on an issue, enter your text in the **Write a comment** box at the bottom of the screen and tap ![](../../_assets/tracker/send.png). You can use [text markup](markup.md) and [attach images and files](#sec_file) in the comment section. To expand the comment box to full screen, tap ![](../../_assets/tracker/open-text.png).
 
     You can use the comments section to specify a key for a different issue so that {{ tracker-name }} automatically [links](ticket-links.md#add-link) the issue.
 
@@ -233,7 +233,7 @@ If you frequently leave similar comments, make a template for them. You can crea
 
 1. Enter the comment that you want to make a template.
 
-1. Click ![](../../_assets/tracker/comment-template.png).
+1. Tap ![](../../_assets/tracker/comment-template.png).
 
 1. Choose **Create template from this comment** from the drop-down list.
 
@@ -249,7 +249,7 @@ To create a comment from a template:
 
 1. Make sure that the comments field does not contain any text.
 
-1. Click ![](../../_assets/tracker/comment-template.png).
+1. Tap ![](../../_assets/tracker/comment-template.png).
 
 1. Select a template from the drop-down list and click **Choose**.
 

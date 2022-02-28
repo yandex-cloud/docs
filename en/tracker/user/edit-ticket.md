@@ -1,6 +1,6 @@
 # Editing an issue
 
-To change an issue, go to the issue page. If you don't have sufficient rights to edit the issue, [request permissions](../faq.md#section_xgr_zng_4bb) from the queue owner or{% if audience == "external" %} your organization's{% endif %} administrator.
+To edit an issue, go to the issue page. If you don't have access to edit the issue, [request permissions](../faq.md#section_xgr_zng_4bb) from the queue owner or {% if audience == "external" %}your company's{% endif %} admin.
 
 {% note info %}
 
@@ -28,34 +28,34 @@ Issue pages are updated in real time. If someone edits or adds a comment to an i
 
 - Web interface
 
-  To the right of the issue description, click ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [wiki markup](markup.md) to format text. Click **Save** to save your changes.
+  To the right of the issue description, click ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [YFM markup](markup.md) to format text. Click **Save** to save your changes.
 
   If you close or refresh the page without saving your changes, the new description will still be stored in drafts. You can restore that description by clicking the edit icon ![](../../_assets/tracker/icon-edit.png), clicking ![](../../_assets/tracker/drafts.png) in the toolbar, and choosing the draft.
 
   You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues.
 
   {% if audience == "internal" %}
-  {% note info %}
+{% note info %}
 
   If you need to paste a link to another issue in your comment without actually linking the issues together, specify the `st:` parameter before the issue key (for example, `st:TEST-1234`). If you do this, a [magic link](wiki.md#magic-link-descr) will be displayed in the text field, but you won't link issues together.
-  You can disable automatic linking for issues from different queues in the [queue settings](../manager/edit-queue-general.md).
+You can disable automatic linking for issues from different queues in the [queue settings](../manager/edit-queue-general.md).
 
   {% endnote %}
-  {% endif %}
+{% endif %}
 
 - Mobile app
 
-  To the right of the issue description, tap ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [wiki markup](markup.md) to format text. Click **Save** to save your changes.
+  To the right of the issue description, tap ![](../../_assets/tracker/icon-edit.png) and edit the text. Use [YFM markup](markup.md) to format text. Click **Save** to save your changes.
 
   You can use the issue description to specify a key for a different issue so that {{ tracker-name }} automatically links the issues. You'll see the linked issue on the **Related** tab.
 
   {% if audience == "internal" %}
-  {% note info %}
+{% note info %}
 
    To add a link to another issue without creating a link to it, use the web interface.
 
   {% endnote %}
-  {% endif %}
+{% endif %}
 
 {% endlist %}
 

@@ -12,7 +12,7 @@ default:
   api-short-name: Tracker API
   host: https://api.tracker.yandex.net
   ver: v2
-  org-id: "X-Org-ID: <organization's ID>"
+  org-id: "X-Org-ID: <organization ID>"
   
   #Ссылки на Tracker и Коннект
   link-connect: https://connect.yandex.com/
@@ -37,11 +37,10 @@ default:
   link-tracker-example-2: https://tracker.yandex.com/queueKey
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/?lang=en
   link-balance-invoices: https://balance.yandex.ru/invoices.xml
-
+  
   #Ссылки на справку на yandex.ru/support
   #И на справку Организации, пока она в Preview
   link-org-add-federation: https://cloud.yandex.com/docs/organization/add-federation
-  link-org-main: https://cloud.yandex.com/docs/organization/
   support-connect-account: https://yandex.com/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.com/support/connect/add-domain.html
   support-connect-domains: https://yandex.com/support/connect/domains.html#proof #ссылка не работает
@@ -49,14 +48,7 @@ default:
   support-passport-create: https://yandex.com/support/passport/authorization/registration.html
   support-business-domain: https://yandex.com/support/business/domains.html
   support-business-users: https://yandex.com/support/business/add-users.html
-
-  #link-tracker-accessapi: https://tech.yandex.ru/connect/tracker/api/concepts/access-docpage/
-  #link-tracker-importapi: https://tech.yandex.ru/connect/tracker/api/concepts/import/import-ticket-docpage/
-  #link-tracker-techapi: https://tech.yandex.ru/connect/tracker/
-  #link-tracker-transitapi: https://yandex.ru/dev/connect/tracker/api/concepts/issues/new-transition-docpage/
-  #link-tracker-docapi: https://yandex.ru/dev/connect/tracker/api/about-docpage/
-  #link-tracker-formatapi: https://yandex.ru/dev/connect/tracker/api/concepts/issues/patch-issue-docpage/
-
+  
   #Внешние ссылки
   link-wiki-scrum: https://en.wikipedia.org/wiki/Scrum_(software_development)
   link-wiki-kanban: https://en.wikipedia.org/wiki/Kanban_(development)
@@ -68,11 +60,16 @@ default:
   #Внешние ссылки из справочника API
   link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
   link-rfc7578: https://tools.ietf.org/html/rfc7578
-  link-get-token: https://oauth.yandex.com/ 
+  link-get-token: https://oauth.yandex.com/
   link-OAuth-dev-guide: https://yandex.com/dev/oauth/doc/dg/concepts/about.html
   link-register-application: https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html
+  link-oauth-token: https://yandex.ru/dev/oauth/doc/dg/tasks/get-oauth-token.html
+  link-web-oauth: https://yandex.ru/dev/oauth/doc/dg/reference/web-client.html#web-client__request-url
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
   link-python-official: https://www.python.org/downloads/
+
+  #Ссылки на сервисы
+  link-yandex: https://yandex.ru
 
   #Интерфейс
   tracker-settings: Tracker settings
@@ -80,6 +77,10 @@ default:
   #Другое
   release-date: March 1
   example-account: login@yandex.com
+
+#external:
+
+#  По дефолту
 
 internal:
 
@@ -100,4 +101,3 @@ internal:
   link-tracker-example-2: https://st.yandex-team.ru/queueKey
 
   link-get-token: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=5f671d781aca402ab7460fde4050267b
-  
