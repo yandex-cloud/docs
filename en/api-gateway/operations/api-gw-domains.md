@@ -4,7 +4,7 @@ You can connect your own domain to access the API gateway. You can connect multi
 
 {% note warning %}
 
-This must be a third-level domain or higher (for example, www.example.com). This has to do with how CNAME records are processed on DNS hosting. Learn more in [RFC 1912, Section 2.4.](https://www.ietf.org/rfc/rfc1912.txt)
+This must be a third-level domain or lower. For example, you can connect the www.example.com domain but not example.com. This has to do with how CNAME records are processed on DNS hosting. For more information, see [RFC 1912, section 2.4.](https://www.ietf.org/rfc/rfc1912.txt)
 
 {% endnote %}
 
@@ -21,14 +21,14 @@ To connect a domain to an API gateway:
 	    ```
 
 		{% cut "How to find your API gateway service domain" %}
-		
+
 		1. Go to the [management console]({{ link-console-main }}).
-		1. Select the folder where the API gateway is located and in the list of services, **API Gateway**
+		1. Select the folder where the API gateway is located and in the list of services, **API Gateway**.
 		1. Select the API gateway.
 		1. In the window that opens, go to **Overview**. You can see the service domain under **General information**.
-		
+
         {% endcut %}
-        
+
         Domain names must end in a dot.
 
 	1. In the [management console]({{ link-console-main }}), select the folder where the API gateway is located.
@@ -54,4 +54,3 @@ To connect a domain to an API gateway:
 		1. Click **Connect** and select the domain.
 
 {% endlist %}
-
