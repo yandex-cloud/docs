@@ -2,6 +2,8 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/overview/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}
+
 {% include [cve-2022-0185](../../_includes/overview/security-bulletins/cve-2022-0185.md) %}
 
 {% include [cve-2021-4034-polkit](../../_includes/overview/security-bulletins/cve-2021-4034-polkit.md) %}
