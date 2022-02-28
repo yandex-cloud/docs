@@ -114,26 +114,128 @@
 - Python
 
     ```py
-    def check_captcha():
-
-        token = request.form["smart-token"]
-        print(f"token={token}", file=sys.stderr)
+    import requests
+    import sys
+    import json
+    
+    
+    SMARTCAPTCHA_SERVER_KEY = "<Ключ для серверной части>"
+    
+    
+    def check_captcha(token):
         resp = requests.get(
-
             "https://captcha-api.yandex.ru/validate",
-
             {
-                "secret": "<Ключ для серверной части>",
+                "secret": SMARTCAPTCHA_SERVER_KEY,
                 "token": token,
-                "ip": request.headers.get("X-Forwarded-For-Y", "127.0.0.1")
-            }
+                "ip": "127.0.0.1"  # Нужно передать IP пользователя.
+                                   # Как правильно получить IP зависит от вашего фреймворка и прокси.
+                                   # Например, в Flask это может быть request.remote_addr
+            },
+            timeout=1
         )
-
-        print(f"status_code={resp.status_code}", file=sys.stderr)
-        content = resp.content.decode()
-        print(f"content={content}", file=sys.stderr)
-        return json.loads(content)["status"] == "ok"
+        server_output = resp.content.decode()
+        if resp.status_code != 200:
+            print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
+            return True
+        return json.loads(server_output)["status"] == "ok"
+    
+    token = "<token>"  # Например, request.form["smart-token"]
+    if check_captcha(token):
+        print("Passed")
+    else:
+        print("Robot")
     ```
+
+- PHP
+
+    ```php
+    <?php
+    
+    define('SMARTCAPTCHA_SERVER_KEY', '<Ключ для серверной части>');
+    
+    function check_captcha($token) {
+        $ch = curl_init();
+        $args = http_build_query([
+            "secret" => SMARTCAPTCHA_SERVER_KEY,
+            "token" => $token,
+            "ip" => $_SERVER['REMOTE_ADDR'], // Нужно передать IP пользователя.
+                                             // Как правильно получить IP зависит от вашего прокси.
+        ]);
+        curl_setopt($ch, CURLOPT_URL, "https://captcha-api.yandex.ru/validate?$args");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+    
+        $server_output = curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+    
+        if ($httpcode !== 200) {
+            echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
+            return true;
+        }
+        $resp = json_decode($server_output);
+        return $resp->status === "ok";
+    }
+    
+    $token = $_POST['smart-token'];
+    if (check_captcha($token)) {
+        echo "Passed\n";
+    } else {
+        echo "Robot\n";
+    }
+    ```
+  
+- Node.js
+
+    ```js
+    const https = require('https'),
+          querystring = require('querystring');
+
+    const SMARTCAPTCHA_SERVER_KEY = "<Ключ для серверной части>";
+    
+    
+    function check_captcha(token, callback) {
+        const options = {
+            hostname: 'captcha-api.yandex.ru',
+            port: 443,
+            path: '/validate?' + querystring.stringify({
+                secret: SMARTCAPTCHA_SERVER_KEY,
+                token: token,
+                ip: '127.0.0.1', // Нужно передать IP пользователя.
+                                 // Как правильно получить IP зависит от вашего фреймворка и прокси.
+            }),
+            method: 'GET',
+        };
+        const req = https.request(options, (res) => {
+            res.on('data', (content) => {
+                if (res.statusCode !== 200) {
+                    console.error(`Allow access due to an error: code=${res.statusCode}; message=${content}`);
+                    callback(true);
+                    return;
+                }
+                callback(JSON.parse(content).status === 'ok');
+            });
+        });
+        req.on('error', (error) => {
+            console.error(error);
+            callback(true);
+        });
+        req.end();
+    }
+    
+    
+    let token = "<token>";
+    check_captcha(token, (passed) => {
+        if (passed) {
+            console.log("Passed");
+        } else {
+            console.log("Robot");
+        }
+    });
+    ```
+
+
 
 {% endlist %}
 
