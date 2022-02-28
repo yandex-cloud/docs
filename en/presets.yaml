@@ -60,6 +60,7 @@ default:
   load-testing-full-name: Yandex Load Testing
   cloud-desktop-full-name: Yandex Cloud Desktop
   marketplace-full-name: Yandex Cloud Marketplace
+  yq-full-name: Yandex Query
   captcha-full-name: Yandex SmartCaptcha
 
   # Full services names without Yandex

@@ -1,0 +1,62 @@
+title: Yandex Query
+stage: tech-preview
+href: index.yaml
+items:
+  - name: Начало работы
+    items:
+      - name: Пример анализа данных из Object Storage
+        href: quickstart/yellow-taxi.md
+      - name: Пример анализа потоковых данных
+        href: quickstart/streaming-example.md        
+      - name: Пример единого анализа потоковых и аналитических данных 
+        href: quickstart/unified-example.md                
+  - name: Концепции
+    items:
+    - name: Обзор
+      href: concepts/index.md
+    - name: Термины и определения
+      href: concepts/glossary.md
+    - name: Квоты и лимиты
+      href: concepts/limits.md
+    - name: Обработка запроса
+      href: concepts/request-processing.md
+    - name: Аналитическая обработка данных
+      href: concepts/batch-processing.md      
+    - name: Потоковая обработка данных
+      href: concepts/stream-processing.md
+    - name: Окна потоковой обработки
+      href: concepts/stream-processing-windows.md    
+    - name: Единый анализ потоковых и аналитических данных
+      href: concepts/unified-processing.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Работа с соединениями
+        href: operations/connection.md
+      - name: Работа с запросами
+        href: operations/query.md
+  - name: Источники и приемники данных
+    items:
+      - name: Чтение данных из Object Storage
+        href: sources-and-sinks/object-storage.md
+      - name: Чтение данных из Data Streams
+        href: sources-and-sinks/data-streams.md        
+      - name: Запись данных в Data Streams
+        href: sources-and-sinks/data-streams-write.md                
+      - name: Запись метрик в Monitoring
+        href: sources-and-sinks/monitoring.md                
+  - name: Сценарии использования
+    items:        
+      - name: Анализ логов Cloud Logging
+        href: tutorials/cloud-logging.md        
+      - name: Анализ потока изменений Debezium
+        href: tutorials/debezium.md                
+      - name: Просмотр отчетов DataLens на данных из Object Storage
+        href: tutorials/datalens.md                
+  - name: YQL
+    include:
+      mode: link
+      path: yql-docs-core/toc_product.yaml
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md

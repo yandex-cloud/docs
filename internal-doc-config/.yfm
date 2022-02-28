@@ -51,6 +51,7 @@ ignore:
   - "ru/organization/*"
   - "ru/overview/*"
   - "ru/partner/*"
+  - "ru/query/*"
   - "ru/resource-manager/*"
   - "ru/serverless-containers/*"
   - "ru/smartcaptcha/*"

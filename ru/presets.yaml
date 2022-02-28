@@ -467,6 +467,9 @@ default:
   yds-short-name: Data Streams
   yds: yds
 
+  yq-full-name: Yandex Query
+  yq-short-name: YQ
+
   # ML
   stt-short-fileSize: 1 МБ
   stt-short-audioLength: 30 секунд
