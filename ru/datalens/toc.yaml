@@ -491,6 +491,9 @@ items:
         when: audience == "internal"
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-INVALID_VALUE.md
+      - name: Incompatible dimensions
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INCOMPATIBLE_DIMENSIONS.md
       - name: Inconsistent aggregation among operands
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
