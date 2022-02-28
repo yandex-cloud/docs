@@ -8,3 +8,4 @@
 * [Миграция базы данных из {{ mmy-full-name }} в {{ MY }}](mmy-to-mysql-migration.md)
 * [Миграция базы данных в {{ mms-name }}](mssql-data-migration.md)
 * [Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей](mdb-dns-peering.md)
+* [Настройка управляемой базы данных в кластере {{ CH }} для Graphite](clickhouse-for-graphite.md)
