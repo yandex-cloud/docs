@@ -57,12 +57,12 @@ WHERE
 
 |Формат сжатия|Название в {{ yq-short-name }}|
 |--|--|
-|[Gzip](https://ru.wikipedia.org/wiki/Gzip)|Gzip|
-|[Zstd](https://ru.wikipedia.org/wiki/Zstandard)|Zstd|
-|[LZ4](https://ru.wikipedia.org/wiki/LZ4)|Lz4|
-|[Brotli](https://ru.wikipedia.org/wiki/Brotli)|Brotli|
-|[Bzip2](https://ru.wikipedia.org/wiki/Bzip2)|Bzip2|
-|[Xz](https://ru.wikipedia.org/wiki/XZ)|Xz|
+|[Gzip](https://ru.wikipedia.org/wiki/Gzip)|gzip|
+|[Zstd](https://ru.wikipedia.org/wiki/Zstandard)|zstd|
+|[LZ4](https://ru.wikipedia.org/wiki/LZ4)|lz4|
+|[Brotli](https://ru.wikipedia.org/wiki/Brotli)|brotli|
+|[Bzip2](https://ru.wikipedia.org/wiki/Bzip2)|bzip2|
+|[Xz](https://ru.wikipedia.org/wiki/XZ)|xz|
 
 ### Поддерживаемые форматы файлов { #formats }
 В {{yql-full-name}} поддерживаются следующие форматы файлов:

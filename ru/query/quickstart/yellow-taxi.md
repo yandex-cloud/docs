@@ -28,7 +28,7 @@ $data =
 SELECT 
     * 
 FROM 
-    `yellow-taxi`.object("nyc_taxi_csv/yellow_tripdata_2018-01.csv.gz", CSVWithNames, "Gzip" as compression) 
+    `yellow-taxi`.object("nyc_taxi_csv/yellow_tripdata_2018-01.csv.gz", csv_with_names, "gzip" as compression) 
 WITH SCHEMA (
     INT as VendorID,
     Datetime as tpep_pickup_datetime,

@@ -96,7 +96,7 @@ FROM
 $host_dictionary =
 SELECT
         *
-FROM object_storage_lookup.object('hosts.csv', CSVWithNames)
+FROM object_storage_lookup.object('hosts.csv', csv_with_names)
     WITH SCHEMA (
         String AS hostid,
         String AS host_name);
