@@ -28,7 +28,7 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to **Form integration** and click **Add form**.
 
@@ -48,7 +48,7 @@ You can also hide the standard form from users on the issue creation page if nec
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to **Basic settings** and click [**Show integration settings**](edit-queue-general.md).
 

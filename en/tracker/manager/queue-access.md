@@ -16,7 +16,7 @@ You can change access settings for individual users, groups, or roles:
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to **Access** → **All issues**.
 
@@ -78,7 +78,7 @@ To edit the message displayed to users with no access to the queue, do the follo
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to **Access** → **All issues**.
 
@@ -100,7 +100,7 @@ To configure access to issues by component:
 
 1. [Add to the queue components](components.md#section_zrt_szk_xz) to control access to issues with.
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to **Access** → **Issues with component**.
 

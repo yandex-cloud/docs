@@ -8,13 +8,37 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 A queue may include different types of issues, such as <q>New feature</q>, <q>Improvement</q>, or <q>Bug</q>. Each type of issue has its own workflow and set of resolutions. You can change the parameters of the available types of issues in the queue settings.
 
-## Add an issue type to a queue{#section_mvh_5yb_gz}
+{% if audience == "external" %}
+
+## Creating an issue type {#create-ticket-type}
+
+{% note warning %}
+
+Only the company admin can create new issue types. Once created, an issue type can't be deleted or edited.
+
+{% endnote %}
+
+The most popular issue types are available in {{ tracker-name }} by default. If you need something different, create a new one:
+
+1. Make sure that you are logged in as an administrator in {{ tracker-full-name }}.
+
+1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+
+1. Go to the **Issue types** tab.
+
+1. Click **Add issue type**.
+
+1. Fill in the fields and click **Create**.
+
+{% endif %}
+
+## Adding an issue type to a queue{#section_mvh_5yb_gz}
 
 To create a new issue type:
 
 1. Go to the queue page.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. Select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to the **Issue types** tab.
 
@@ -22,7 +46,7 @@ To create a new issue type:
 
 1. Configure settings:
     - **Issue type**: Select one of the available types.
-    {% if audience == "external" %}The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your company's admin can [create it](create-ticket-type.md).{% endif %}
+    {% if audience == "external" %}The most popular issue types are available in {{ tracker-name }} by default. If you don't see the type you need, your company's admin can [create it](#create-ticket-type).{% endif %}
     - **Workflow**: Set the workflow to apply to this type of issue. Select one of the available workflows or [create a new one](add-workflow.md) based on one of them.
     - **Resolutions**: Select possible resolutions.
     {% if audience == "external" %}The most popular resolutions are available in {{ tracker-name }} by default. If you don't see the resolution you need, your company's admin can [create it](create-resolution.md).{% endif %}
@@ -32,7 +56,7 @@ To create a new issue type:
 
 1. Click **Save** at the bottom of the tab.
 
-## Remove an issue type from the queue {#section_czj_jqm_2bb}
+## Removing an issue type from the queue {#section_czj_jqm_2bb}
 
 If one of the issue types is no longer needed in the queue, you can remove it.
 
@@ -46,7 +70,7 @@ To remove an issue type from a queue:
 
 1. Go to the queue page.
 
-1. Select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. Select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to the **Issue types** tab.
 

@@ -8,7 +8,7 @@ By default, only a [queue owner](../manager/queue-access.md) can create, edit, a
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. On the left-hand panel, choose **Automation** → **Triggers**.
 
