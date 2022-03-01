@@ -2,37 +2,43 @@
 editable: false
 ---
 
-# Method move
-Moves the specified instance to another folder of the same cloud.
+# Method updateHosts
+Updates the specified hosts.
  
-The instance must be stopped before moving. To stop the instance, make a [stop](/docs/compute/api-ref/Instance/stop) request.
 
-After moving, the instance will start recording its Yandex Monitoring default metrics to its new folder. Metrics
-that have been recorded to the source folder prior to moving will be retained.
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:move
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/hosts:batchUpdate
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-instanceId | Required. ID of the instance to move.  To get the instance ID, make a [list](/docs/compute/api-ref/Instance/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the ClickHouse cluster to update hosts in. To get the ClickHouse cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "destinationFolderId": "string"
+  "updateHostSpecs": [
+    {
+      "hostName": "string",
+      "updateMask": "string",
+      "assignPublicIp": true
+    }
+  ]
 }
 ```
 
  
 Field | Description
 --- | ---
-destinationFolderId | **string**<br><p>Required. ID of the folder to move the instance to.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+updateHostSpecs[] | **object**<br><p>Required. New configurations to apply to hosts.</p> <p>Must contain at least one element.</p> 
+updateHostSpecs[].<br>hostName | **string**<br><p>Required. Name of the host to update. To get the ClickHouse host name, use a <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts">listHosts</a> request.</p> 
+updateHostSpecs[].<br>updateMask | **string**<br><p>Field mask that specifies which fields of the ClickHouse host should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
+updateHostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

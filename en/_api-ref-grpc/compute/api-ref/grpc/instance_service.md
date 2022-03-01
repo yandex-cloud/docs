@@ -26,7 +26,7 @@ A set of methods for managing Instance resources.
 | [RemoveOneToOneNat](#RemoveOneToOneNat) | Removes One-to-one NAT from the network interface. |
 | [UpdateNetworkInterface](#UpdateNetworkInterface) | Updates the specified instance network interface. |
 | [ListOperations](#ListOperations) | Lists operations for the specified instance. |
-| [Move](#Move) | Moves the specified instance between folders |
+| [Move](#Move) | Moves the specified instance to another folder of the same cloud. |
 
 ## Calls InstanceService {#calls}
 
@@ -2770,7 +2770,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## Move {#Move}
 
-Moves the specified instance between folders
+Moves the specified instance to another folder of the same cloud. <br>The instance must be stopped before moving. To stop the instance, make a [Stop](#Stop) request. <br>After moving, the instance will start recording its Yandex Monitoring default metrics to its new folder. Metrics that have been recorded to the source folder prior to moving will be retained.
 
 **rpc Move ([MoveInstanceRequest](#MoveInstanceRequest)) returns ([operation.Operation](#Operation15))**
 
@@ -2782,8 +2782,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance that is being moved. The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the folder to move the instance to. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation15}
@@ -2807,8 +2807,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 instance_id | **string**<br>ID of the instance that is being moved. 
-source_folder_id | **string**<br>ID of the source folder. 
-destination_folder_id | **string**<br>ID of the destination folder. 
+source_folder_id | **string**<br>ID of the folder that the instance is being moved from. 
+destination_folder_id | **string**<br>ID of the folder that the instance is being moved to. 
 
 
 ### Instance {#Instance13}

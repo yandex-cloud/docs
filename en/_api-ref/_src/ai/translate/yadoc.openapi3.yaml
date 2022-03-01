@@ -225,6 +225,10 @@ components:
           type: string
         glossaryConfig:
           $ref: '#/components/schemas/TranslateGlossaryConfig_in_TranslateRequest_glossaryConfig'
+        speller:
+          description: use speller
+          type: boolean
+          format: boolean
     TranslateRequestFormat:
       description: |2-
          - PLAIN_TEXT: Text without markup. Default value.

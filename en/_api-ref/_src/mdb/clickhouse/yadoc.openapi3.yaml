@@ -793,6 +793,41 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterHostsMetadata'
       x-y-operation-response: Empty
+  /managed-clickhouse/v1/clusters/{clusterId}/hosts:batchUpdate:
+    post:
+      tags:
+      - Cluster
+      summary: Updates the specified hosts.
+      operationId: ClusterUpdateHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the ClickHouse cluster to update hosts in.
+          To get the ClickHouse cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterHostsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateHosts
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterHostsMetadata'
+      x-y-operation-response: Empty
   /managed-clickhouse/v1/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
@@ -4569,6 +4604,29 @@ components:
           description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
+    UpdateClusterHostsMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the ClickHouse cluster to modify hosts in.
+          type: string
+        hostNames:
+          description: Names of hosts that are being modified.
+          type: array
+          items:
+            type: string
+    UpdateClusterHostsRequest:
+      type: object
+      properties:
+        updateHostSpecs:
+          description: |-
+            Required.
+            New configurations to apply to hosts.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateHostSpec'
     UpdateClusterMetadata:
       type: object
       properties:
@@ -4678,6 +4736,21 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateFormatSchemaRequest_updateMask'
         uri:
           type: string
+    UpdateHostSpec:
+      type: object
+      properties:
+        hostName:
+          description: |-
+            Required.
+            Name of the host to update.
+            To get the ClickHouse host name, use a [listHosts](/docs/managed-clickhouse/api-ref/Cluster/listHosts) request.
+          type: string
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateHostSpec_updateMask'
+        assignPublicIp:
+          description: Whether the host should get a public IP address on creation.
+          type: boolean
+          format: boolean
     UpdateMlModelMetadata:
       type: object
       properties:
@@ -7960,6 +8033,19 @@ components:
           $ref: '#/components/schemas/ShardConfigSpecClickhouse_in_ShardConfigSpec_clickhouse'
     FieldMask_in_UpdateFormatSchemaRequest_updateMask:
       description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateHostSpec_updateMask:
+      description: |-
+        Field mask that specifies which fields of the ClickHouse host should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,

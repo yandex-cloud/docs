@@ -495,14 +495,16 @@ paths:
     post:
       tags:
       - Disk
-      summary: Moves disk between folders.
+      summary: Moves the specified disk to another folder of the same cloud.
       operationId: DiskMove
       parameters:
       - name: diskId
         in: path
         description: |-
           Required.
-          ID of the disk that is being moved.
+          ID of the disk to move.
+
+          To get the disk ID, make a [list](/docs/compute/api-ref/Disk/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -2075,14 +2077,21 @@ paths:
     post:
       tags:
       - Instance
-      summary: Moves the specified instance between folders
+      summary: Moves the specified instance to another folder of the same cloud.
+      description: |-
+        The instance must be stopped before moving. To stop the instance, make a [stop](/docs/compute/api-ref/Instance/stop) request.
+
+        After moving, the instance will start recording its Yandex Monitoring default metrics to its new folder. Metrics
+        that have been recorded to the source folder prior to moving will be retained.
       operationId: InstanceMove
       parameters:
       - name: instanceId
         in: path
         description: |-
           Required.
-          ID of the instance that is being moved.
+          ID of the instance to move.
+
+          To get the instance ID, make a [list](/docs/compute/api-ref/Instance/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -4539,10 +4548,10 @@ components:
           description: ID of the disk that is being moved.
           type: string
         sourceFolderId:
-          description: ID of the source folder.
+          description: ID of the folder that the disk is being moved from.
           type: string
         destinationFolderId:
-          description: ID of the destination folder.
+          description: ID of the folder that the disk is being moved to.
           type: string
     MoveDiskRequest:
       type: object
@@ -4550,7 +4559,9 @@ components:
         destinationFolderId:
           description: |-
             Required.
-            ID of the destination folder.
+            ID of the folder to move the disk to.
+
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
             The maximum string length in characters is 50.
           type: string
@@ -4561,10 +4572,10 @@ components:
           description: ID of the instance that is being moved.
           type: string
         sourceFolderId:
-          description: ID of the source folder.
+          description: ID of the folder that the instance is being moved from.
           type: string
         destinationFolderId:
-          description: ID of the destination folder.
+          description: ID of the folder that the instance is being moved to.
           type: string
     MoveInstanceRequest:
       type: object
@@ -4572,7 +4583,9 @@ components:
         destinationFolderId:
           description: |-
             Required.
-            ID of the destination folder.
+            ID of the folder to move the instance to.
+
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
             The maximum string length in characters is 50.
           type: string

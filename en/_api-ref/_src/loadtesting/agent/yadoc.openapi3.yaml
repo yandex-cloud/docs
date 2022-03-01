@@ -106,6 +106,8 @@ components:
           $ref: '#/components/schemas/File_in_Job_ammo'
         loggingLogGroupId:
           type: string
+        testData:
+          $ref: '#/components/schemas/StorageObject_in_Job_testData'
     JobSignalResponse:
       type: object
       properties:
@@ -243,6 +245,13 @@ components:
       - CONST
       - LINE
       - STEP
+    StorageObject:
+      type: object
+      properties:
+        objectStorageBucket:
+          type: string
+        objectStorageFilename:
+          type: string
     Test:
       type: object
       allOf:
@@ -463,6 +472,13 @@ components:
         content:
           type: string
           format: byte
+    StorageObject_in_Job_testData:
+      type: object
+      properties:
+        objectStorageBucket:
+          type: string
+        objectStorageFilename:
+          type: string
     JobSignalResponseSignal_in_JobSignalResponse_signal:
       type: string
       enum:
