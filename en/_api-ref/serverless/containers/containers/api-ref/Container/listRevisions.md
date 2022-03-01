@@ -57,7 +57,15 @@ filter | The maximum string length in characters is 1000.
       "executionTimeout": "string",
       "concurrency": "string",
       "serviceAccountId": "string",
-      "status": "string"
+      "status": "string",
+      "secrets": [
+        {
+          "id": "string",
+          "versionId": "string",
+          "key": "string",
+          "environmentVariable": "string"
+        }
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -89,4 +97,9 @@ revisions[].<br>executionTimeout | **string**<br>
 revisions[].<br>concurrency | **string** (int64)<br>
 revisions[].<br>serviceAccountId | **string**<br>
 revisions[].<br>status | **string**<br>
+revisions[].<br>secrets[] | **object**<br>
+revisions[].<br>secrets[].<br>id | **string**<br>
+revisions[].<br>secrets[].<br>versionId | **string**<br>
+revisions[].<br>secrets[].<br>key | **string**<br>
+revisions[].<br>secrets[].<br>environmentVariable | **string**<br>
 nextPageToken | **string**<br>

@@ -114,6 +114,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck}
@@ -140,15 +143,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext1)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext}
+### ValidationContext {#ValidationContext1}
 
 Field | Description
 --- | ---
@@ -176,7 +200,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup}
@@ -235,6 +259,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck1)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck1)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck1)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings1)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings1)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck1}
@@ -261,15 +288,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings1}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings1}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext2)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext2}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls1}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext1)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext3)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext1}
+### ValidationContext {#ValidationContext3}
 
 Field | Description
 --- | ---
@@ -297,7 +345,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup}
@@ -354,6 +402,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck2)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck2)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck2)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings2)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings2)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck2}
@@ -380,15 +431,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings2}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings2}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext4)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext4}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls2}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext2)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext5)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext2}
+### ValidationContext {#ValidationContext5}
 
 Field | Description
 --- | ---
@@ -509,6 +581,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck3)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck3)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck3)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings3)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings3)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck3}
@@ -535,15 +610,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings3}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings3}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext6)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext6}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls3}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext3)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext7)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext3}
+### ValidationContext {#ValidationContext7}
 
 Field | Description
 --- | ---
@@ -571,7 +667,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup1}
@@ -630,6 +726,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck4)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck4)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck4)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings4)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings4)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck4}
@@ -656,15 +755,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings4}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings4}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext8)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext8}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls4}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext4)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext9)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext4}
+### ValidationContext {#ValidationContext9}
 
 Field | Description
 --- | ---
@@ -692,7 +812,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup1}
@@ -749,6 +869,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck5)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck5)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck5)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings5)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings5)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck5}
@@ -775,15 +898,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings5}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings5}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext10)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext10}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls5}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext5)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext11)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext5}
+### ValidationContext {#ValidationContext11}
 
 Field | Description
 --- | ---
@@ -888,6 +1032,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck6)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck6)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck6)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings6)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings6)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck6}
@@ -914,15 +1061,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings6}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings6}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext12)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext12}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls6}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext6)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext13)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext6}
+### ValidationContext {#ValidationContext13}
 
 Field | Description
 --- | ---
@@ -950,7 +1118,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup2}
@@ -1009,6 +1177,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck7)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck7)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck7)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings7)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings7)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck7}
@@ -1035,15 +1206,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings7}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings7}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext14)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext14}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls7}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext7)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext15)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext7}
+### ValidationContext {#ValidationContext15}
 
 Field | Description
 --- | ---
@@ -1071,7 +1263,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup2}
@@ -1128,6 +1320,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck8)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck8)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck8)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings8)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings8)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck8}
@@ -1154,15 +1349,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings8}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings8}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext16)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext16}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls8}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext8)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext17)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext8}
+### ValidationContext {#ValidationContext17}
 
 Field | Description
 --- | ---
@@ -1282,6 +1498,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck9)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck9)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck9)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings9)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings9)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck9}
@@ -1308,15 +1527,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings9}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings9}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext18)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext18}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls9}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext9)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext19)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext9}
+### ValidationContext {#ValidationContext19}
 
 Field | Description
 --- | ---
@@ -1344,7 +1584,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup3}
@@ -1403,6 +1643,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck10)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck10)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck10)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings10)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings10)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck10}
@@ -1429,15 +1672,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings10}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings10}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext20)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext20}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls10}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext10)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext21)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext10}
+### ValidationContext {#ValidationContext21}
 
 Field | Description
 --- | ---
@@ -1465,7 +1729,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup3}
@@ -1522,6 +1786,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck11)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck11)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck11)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings11)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings11)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck11}
@@ -1548,15 +1815,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings11}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings11}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext22)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext22}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls11}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext11)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext23)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext11}
+### ValidationContext {#ValidationContext23}
 
 Field | Description
 --- | ---
@@ -1662,6 +1950,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck12)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck12)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck12)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings12)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings12)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck12}
@@ -1688,15 +1979,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings12}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings12}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext24)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext24}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls12}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext12)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext25)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext12}
+### ValidationContext {#ValidationContext25}
 
 Field | Description
 --- | ---
@@ -1724,7 +2036,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup4}
@@ -1783,6 +2095,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck13)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck13)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck13)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings13)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings13)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck13}
@@ -1809,15 +2124,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings13}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings13}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext26)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext26}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls13}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext13)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext27)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext13}
+### ValidationContext {#ValidationContext27}
 
 Field | Description
 --- | ---
@@ -1845,7 +2181,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup4}
@@ -1902,6 +2238,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck14)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck14)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck14)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings14)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings14)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck14}
@@ -1928,15 +2267,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings14}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings14}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext28)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext28}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls14}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext14)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext29)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext14}
+### ValidationContext {#ValidationContext29}
 
 Field | Description
 --- | ---
@@ -2056,6 +2416,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck15)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck15)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck15)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings15)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings15)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck15}
@@ -2082,15 +2445,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings15}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings15}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext30)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext30}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls15}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext15)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext31)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext15}
+### ValidationContext {#ValidationContext31}
 
 Field | Description
 --- | ---
@@ -2118,7 +2502,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup5}
@@ -2177,6 +2561,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck16)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck16)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck16)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings16)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings16)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck16}
@@ -2203,15 +2590,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings16}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings16}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext32)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext32}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls16}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext16)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext33)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext16}
+### ValidationContext {#ValidationContext33}
 
 Field | Description
 --- | ---
@@ -2239,7 +2647,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup5}
@@ -2296,6 +2704,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck17)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck17)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck17)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings17)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings17)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck17}
@@ -2322,15 +2733,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings17}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings17}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext34)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext34}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls17}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext17)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext35)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext17}
+### ValidationContext {#ValidationContext35}
 
 Field | Description
 --- | ---
@@ -2461,6 +2893,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck18)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck18)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck18)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings18)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings18)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck18}
@@ -2487,15 +2922,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings18}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings18}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext36)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext36}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls18}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext18)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext37)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext18}
+### ValidationContext {#ValidationContext37}
 
 Field | Description
 --- | ---
@@ -2549,6 +3005,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck19)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck19)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck19)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings19)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings19)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck19}
@@ -2575,15 +3034,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings19}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings19}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext38)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext38}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls19}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext19)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext39)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext19}
+### ValidationContext {#ValidationContext39}
 
 Field | Description
 --- | ---
@@ -2637,6 +3117,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck20)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck20)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck20)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings20)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings20)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck20}
@@ -2663,15 +3146,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings20}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings20}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext40)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext40}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls20}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext20)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext41)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext20}
+### ValidationContext {#ValidationContext41}
 
 Field | Description
 --- | ---
@@ -2785,6 +3289,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck21)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck21)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck21)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings21)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings21)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck21}
@@ -2811,15 +3318,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings21}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings21}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext42)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext42}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls21}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext21)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext43)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext21}
+### ValidationContext {#ValidationContext43}
 
 Field | Description
 --- | ---
@@ -2847,7 +3375,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup6}
@@ -2906,6 +3434,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck22)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck22)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck22)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings22)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings22)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck22}
@@ -2932,15 +3463,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings22}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings22}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext44)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext44}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls22}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext22)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext45)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext22}
+### ValidationContext {#ValidationContext45}
 
 Field | Description
 --- | ---
@@ -2968,7 +3520,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup6}
@@ -3025,6 +3577,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck23)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck23)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck23)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings23)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings23)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck23}
@@ -3051,15 +3606,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings23}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings23}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext46)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext46}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls23}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext23)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext47)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext23}
+### ValidationContext {#ValidationContext47}
 
 Field | Description
 --- | ---
@@ -3198,6 +3774,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck24)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck24)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck24)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings24)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings24)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck24}
@@ -3224,15 +3803,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings24}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings24}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext48)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext48}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls24}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext24)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext49)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext24}
+### ValidationContext {#ValidationContext49}
 
 Field | Description
 --- | ---
@@ -3260,7 +3860,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup7}
@@ -3319,6 +3919,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck25)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck25)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck25)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings25)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings25)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck25}
@@ -3345,15 +3948,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings25}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings25}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext50)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext50}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls25}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext25)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext51)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext25}
+### ValidationContext {#ValidationContext51}
 
 Field | Description
 --- | ---
@@ -3381,7 +4005,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup7}
@@ -3438,6 +4062,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck26)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck26)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck26)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings26)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings26)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck26}
@@ -3464,15 +4091,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings26}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings26}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext52)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext52}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls26}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext26)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext53)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext26}
+### ValidationContext {#ValidationContext53}
 
 Field | Description
 --- | ---
@@ -3564,6 +4212,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck27)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck27)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck27)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings27)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings27)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck27}
@@ -3590,15 +4241,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings27}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings27}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext54)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext54}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls27}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext27)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext55)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext27}
+### ValidationContext {#ValidationContext55}
 
 Field | Description
 --- | ---
@@ -3652,6 +4324,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck28)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck28)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck28)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings28)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings28)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck28}
@@ -3678,15 +4353,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings28}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings28}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext56)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext56}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls28}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext28)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext57)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext28}
+### ValidationContext {#ValidationContext57}
 
 Field | Description
 --- | ---
@@ -3740,6 +4436,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck29)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck29)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck29)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings29)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings29)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck29}
@@ -3766,15 +4465,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings29}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings29}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext58)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext58}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls29}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext29)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext59)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext29}
+### ValidationContext {#ValidationContext59}
 
 Field | Description
 --- | ---
@@ -3888,6 +4608,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck30)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck30)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck30)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings30)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings30)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck30}
@@ -3914,15 +4637,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings30}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings30}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext60)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext60}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls30}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext30)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext61)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext30}
+### ValidationContext {#ValidationContext61}
 
 Field | Description
 --- | ---
@@ -3950,7 +4694,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup8}
@@ -4009,6 +4753,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck31)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck31)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck31)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings31)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings31)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck31}
@@ -4035,15 +4782,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings31}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings31}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext62)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext62}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls31}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext31)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext63)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext31}
+### ValidationContext {#ValidationContext63}
 
 Field | Description
 --- | ---
@@ -4071,7 +4839,7 @@ header_name | **string**<br>Name of the HTTP header field that is used for sessi
 Field | Description
 --- | ---
 name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions. <br>If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. <br>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. 
 
 
 ### StreamBackendGroup {#StreamBackendGroup8}
@@ -4128,6 +4896,9 @@ healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health 
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck32)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck32)**<br>HTTP health check settings. 
 &nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck32)**<br>gRPC health check settings. 
+transport_settings | **oneof:** `plaintext` or `tls`<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+&nbsp;&nbsp;plaintext | **[PlaintextTransportSettings](#PlaintextTransportSettings32)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
+&nbsp;&nbsp;tls | **[SecureTransportSettings](#SecureTransportSettings32)**<br>Optional transport protocol for health checks. When not set, health checks use the same protocol as the proxied traffic. Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend. 
 
 
 ### StreamHealthCheck {#StreamHealthCheck32}
@@ -4154,15 +4925,36 @@ Field | Description
 service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
 
 
+### PlaintextTransportSettings {#PlaintextTransportSettings32}
+
+
+
+### SecureTransportSettings {#SecureTransportSettings32}
+
+Field | Description
+--- | ---
+sni | **string**<br>SNI string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext64)**<br>Validation context for backend TLS connections. 
+
+
+### ValidationContext {#ValidationContext64}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### BackendTls {#BackendTls32}
 
 Field | Description
 --- | ---
 sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext32)**<br>Validation context for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext65)**<br>Validation context for TLS connections. 
 
 
-### ValidationContext {#ValidationContext32}
+### ValidationContext {#ValidationContext65}
 
 Field | Description
 --- | ---

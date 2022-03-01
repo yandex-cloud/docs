@@ -3,16 +3,10 @@ editable: false
 ---
 
 # Method list
-Returns the list of buckets for specified folder id.
-The following fields will not be set in listing:
-* "cors"
-* "website_settings"
-* "lifecycle_rules"
-* "acl"
-* "policy"
-will be empty.
+Retrieves the list of buckets in the specified folder.
  
-
+The following fields will not be returned for buckets in the list: [Bucket.policy](/docs/storage/api-ref/Bucket#representation), [Bucket.acl](/docs/storage/api-ref/Bucket#representation), [Bucket.cors](/docs/storage/api-ref/Bucket#representation),
+[Bucket.websiteSettings](/docs/storage/api-ref/Bucket#representation), [Bucket.lifecycleRules](/docs/storage/api-ref/Bucket#representation).
  
 ## HTTP request {#https-request}
 ```
@@ -23,7 +17,7 @@ GET https://storage.api.cloud.yandex.net/storage/v1/buckets
  
 Parameter | Description
 --- | ---
-folderId | Required. Folder id for requested buckets.  The maximum string length in characters is 50.
+folderId | Required. ID of the folder to list buckets in.  To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -136,64 +130,64 @@ folderId | Required. Folder id for requested buckets.  The maximum string length
  
 Field | Description
 --- | ---
-buckets[] | **object**<br><p>Bucket is a core entity of the storage service. For more information, see <a href="/docs/storage/concepts/bucket">Bucket</a>.</p> 
-buckets[].<br>id | **string**<br><p>Bucket's ID, treated as name. Properties id and name are equal to each other, but name has priority over id.</p> 
-buckets[].<br>name | **string**<br><p>Bucket's uniqe name.</p> 
-buckets[].<br>folderId | **string**<br><p>Folder id to which this bucket belongs.</p> 
-buckets[].<br>anonymousAccessFlags | **object**<br><p>Access flags for anonymous access. For more information, see <a href="/docs/storage/concepts/bucket#bucket-access">Bucket Access</a></p> 
-buckets[].<br>anonymousAccessFlags.<br>read | **boolean** (boolean)<br>
-buckets[].<br>anonymousAccessFlags.<br>list | **boolean** (boolean)<br>
-buckets[].<br>anonymousAccessFlags.<br>configRead | **boolean** (boolean)<br>
-buckets[].<br>defaultStorageClass | **string**<br><p>Storage class of bucket. For more information, see <a href="/docs/storage/concepts/storage-class">Storage Class</a></p> 
-buckets[].<br>versioning | **string**<br><p>Bucket's versioning mode. For more information, see <a href="/docs/storage/concepts/versioning">Versioning</a></p> 
-buckets[].<br>maxSize | **string** (int64)<br><p>Maximum size of bucket. For more information, see <a href="/docs/storage/operations/buckets/limit-max-volume">Size limits</a></p> 
-buckets[].<br>policy | **object**<br><p>Bucket's policy. For more information, see <a href="/docs/storage/concepts/policy">Bucket Policy</a></p> 
-buckets[].<br>acl | **object**<br><p>Bucket's ACL. For more information, see <a href="/docs/storage/concepts/acl">ACL</a></p> <p>ACL model.</p> 
-buckets[].<br>acl.<br>grants[] | **object**<br>
-buckets[].<br>acl.<br>grants[].<br>permission | **string**<br><p>Required.</p> <ul> <li>PERMISSION_FULL_CONTROL: header X-Amz-Grant-Full-Control</li> <li>PERMISSION_WRITE: header X-Amz-Grant-Write</li> <li>PERMISSION_WRITE_ACP: header X-Amz-Grant-Write-Acp</li> <li>PERMISSION_READ: header X-Amz-Grant-Read</li> <li>PERMISSION_READ_ACP: header X-Amz-Grant-Read-Acp</li> </ul> 
-buckets[].<br>acl.<br>grants[].<br>grantType | **string**<br><p>Required.</p> <ul> <li>GRANT_TYPE_ACCOUNT: equal to 'id' grantee value</li> <li>GRANT_TYPE_ALL_AUTHENTICATED_USERS: equal to 'uri' authenticated users</li> <li>GRANT_TYPE_ALL_USERS: equal to 'uri' all users</li> </ul> 
-buckets[].<br>acl.<br>grants[].<br>granteeId | **string**<br><p>[semi-optional] grantee id is used only when grant_type is TO_ACCOUNT</p> 
-buckets[].<br>createdAt | **string** (date-time)<br><p>Creating date.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-buckets[].<br>cors[] | **object**<br><p>CORS settings for bucket, hosted as website. For more information, see <a href="/docs/storage/concepts/cors">CORS</a></p> 
-buckets[].<br>cors[].<br>id | **string**<br>
-buckets[].<br>cors[].<br>allowedMethods[] | **string**<br><p>Required. Must contain at least one element.</p> 
-buckets[].<br>cors[].<br>allowedHeaders[] | **string**<br><p>allowed_headers elements might be either as exact value (i.e. Test-Header-Field) or as pattern (i.e. Test-*-Field) But only one star allowed.</p> 
-buckets[].<br>cors[].<br>allowedOrigins[] | **string**<br><p>Required. allowed_origins elements might be either as exact value (i.e. some-value) or as pattern (i.e. some*value) But only one star allowed.</p> <p>Must contain at least one element.</p> 
-buckets[].<br>cors[].<br>exposeHeaders[] | **string**<br>
-buckets[].<br>cors[].<br>maxAgeSeconds | **integer** (int64)<br>
-buckets[].<br>websiteSettings | **object**<br><p>Website settings of bucket. For more information, see <a href="/docs/storage/concepts/hosting">Static site hosting</a></p> 
-buckets[].<br>websiteSettings.<br>index | **string**<br><p>index points to entrypoint of the website. Either property &quot;index&quot; or &quot;redirect_all_requests&quot; should be set in order to operate.</p> 
-buckets[].<br>websiteSettings.<br>error | **string**<br>
-buckets[].<br>websiteSettings.<br>redirectAllRequests | **object**<br><p>redirect_all_requests redirects all requests to other uri. If this field  used, no other fields should be defined.</p> 
-buckets[].<br>websiteSettings.<br>redirectAllRequests.<br>protocol | **string**<br><p>by default, http will be used.</p> 
-buckets[].<br>websiteSettings.<br>redirectAllRequests.<br>hostname | **string**<br>
-buckets[].<br>websiteSettings.<br>routingRules[] | **object**<br>
-buckets[].<br>websiteSettings.<br>routingRules[].<br>condition | **object**<br>
-buckets[].<br>websiteSettings.<br>routingRules[].<br>condition.<br>httpErrorCodeReturnedEquals | **string**<br>
-buckets[].<br>websiteSettings.<br>routingRules[].<br>condition.<br>keyPrefixEquals | **string**<br>
-buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect | **object**<br>
-buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>hostname | **string**<br>
-buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>httpRedirectCode | **string**<br><p>http_redirect_code allowed values ranges between 301 and 399. by default value 301 will be used.</p> <p>Value must match the regular expression ``3(0[1-9]\|[1-9][0-9])``.</p> 
-buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>protocol | **string**<br>
-buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>replaceKeyPrefixWith | **string**<br>
-buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>replaceKeyWith | **string**<br>
-buckets[].<br>lifecycleRules[] | **object**<br><p>Objects's lifecycle rules. For more information, see <a href="/docs/storage/concepts/lifecycles">Lifecycles</a></p> 
-buckets[].<br>lifecycleRules[].<br>id | **string**<br>
-buckets[].<br>lifecycleRules[].<br>enabled | **boolean** (boolean)<br>
-buckets[].<br>lifecycleRules[].<br>filter | **object**<br>
-buckets[].<br>lifecycleRules[].<br>filter.<br>prefix | **string**<br>
-buckets[].<br>lifecycleRules[].<br>expiration | **object**<br>
-buckets[].<br>lifecycleRules[].<br>expiration.<br>date | **string** (date-time)<br><p>If date is set, days parameter not allowed</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-buckets[].<br>lifecycleRules[].<br>expiration.<br>days | **integer** (int64)<br><p>If days are set, date parameter not allowed</p> 
-buckets[].<br>lifecycleRules[].<br>expiration.<br>expiredObjectDeleteMarker | **boolean** (boolean)<br><p>if expired_object_delete_marker is set, other parameters are not allowed.</p> 
-buckets[].<br>lifecycleRules[].<br>transitions[] | **object**<br>
-buckets[].<br>lifecycleRules[].<br>transitions[].<br>date | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-buckets[].<br>lifecycleRules[].<br>transitions[].<br>days | **integer** (int64)<br>
-buckets[].<br>lifecycleRules[].<br>transitions[].<br>storageClass | **string**<br><p>Required.</p> 
-buckets[].<br>lifecycleRules[].<br>abortIncompleteMultipartUpload | **object**<br>
-buckets[].<br>lifecycleRules[].<br>abortIncompleteMultipartUpload.<br>daysAfterExpiration | **integer** (int64)<br>
-buckets[].<br>lifecycleRules[].<br>noncurrentExpiration | **object**<br>
-buckets[].<br>lifecycleRules[].<br>noncurrentExpiration.<br>noncurrentDays | **integer** (int64)<br>
-buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[] | **object**<br>
-buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[].<br>noncurrentDays | **integer** (int64)<br>
-buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[].<br>storageClass | **string**<br><p>Required.</p> 
+buckets[] | **object**<br><p>A bucket resource. For details about the concept, see <a href="/docs/storage/concepts/bucket">documentation</a>.</p> 
+buckets[].<br>id | **string**<br><p>ID of the bucket. Always equal to <a href="/docs/storage/api-ref/Bucket#representation">name</a>, which has priority.</p> 
+buckets[].<br>name | **string**<br><p>Name of the bucket.</p> <p>The name is unique within Yandex.Cloud. For naming limitations and rules, see <a href="/docs/storage/concepts/bucket#naming">documentation</a>.</p> 
+buckets[].<br>folderId | **string**<br><p>ID of the folder that the bucket belongs to.</p> 
+buckets[].<br>anonymousAccessFlags | **object**<br><p>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see <a href="/docs/storage/concepts/bucket#bucket-access">documentation</a>.</p> 
+buckets[].<br>anonymousAccessFlags.<br>read | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read objects in the bucket is enabled.</p> 
+buckets[].<br>anonymousAccessFlags.<br>list | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to the list of objects in the bucket is enabled.</p> 
+buckets[].<br>anonymousAccessFlags.<br>configRead | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read <a href="/docs/storage/concepts/cors">CORS</a>, <a href="/docs/storage/concepts/hosting">static website hosting</a>, and <a href="/docs/storage/concepts/lifecycles">object lifecycles</a> settings of the bucket is enabled.</p> 
+buckets[].<br>defaultStorageClass | **string**<br><p>Default storage class for objects in the bucket. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
+buckets[].<br>versioning | **string**<br><p>Bucket versioning status. For details, see <a href="/docs/storage/concepts/versioning">documentation</a>.</p> <ul> <li>VERSIONING_DISABLED: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation. Objects that are stored in the bucket have a version ID of ``null``.</li> </ul> <p>To enable versioning, change status to ``VERSIONING_ENABLED`` via a <a href="/docs/storage/api-ref/Bucket/update">update</a> request. Note that this action is irreversible, and a bucket with versioning enabled can never return to ``VERSIONING_DISABLED`` state.</p> <ul> <li>VERSIONING_ENABLED: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that already existed at the time versioning was enabled will be versioned and given a unique version ID when modified by future requests.</li> </ul> <p>To suspend versioning, change status to ``VERSIONING_SUSPENDED`` via a <a href="/docs/storage/api-ref/Bucket/update">update</a> request. You cannot disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep them.</p> <ul> <li>VERSIONING_SUSPENDED: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time versioning was suspended are still versioned and keep their version IDs.</li> </ul> <p>To resume versioning, change status to ``VERSIONING_ENABLED`` via a <a href="/docs/storage/api-ref/Bucket/update">update</a> request.</p> 
+buckets[].<br>maxSize | **string** (int64)<br><p>Maximum size of the bucket, in bytes. For details, see <a href="/docs/storage/operations/buckets/limit-max-volume">documentation</a>.</p> 
+buckets[].<br>policy | **object**<br><p>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see <a href="/docs/storage/concepts/policy">documentation</a>.</p> 
+buckets[].<br>acl | **object**<br><p>Access control list (ACL) of the bucket. For details, see <a href="/docs/storage/concepts/acl">documentation</a>.</p> 
+buckets[].<br>acl.<br>grants[] | **object**<br><p>A grant resource, used to specify the permission granted and the grantee.</p> 
+buckets[].<br>acl.<br>grants[].<br>permission | **string**<br><p>Required. Permission granted by the grant.</p> <ul> <li>PERMISSION_FULL_CONTROL: Allows grantee the ``PERMISSION_WRITE``, ``PERMISSION_WRITE_ACP``, ``PERMISSION_READ``, and ``PERMISSION_READ_ACP`` on the bucket.</li> </ul> <p>Maps to ``x-amz-grant-full-control`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> <ul> <li>PERMISSION_WRITE: Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also allows deletions and overwrites of those objects.</li> </ul> <p>Maps to ``x-amz-grant-write`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> <ul> <li>PERMISSION_WRITE_ACP: Allows grantee to write the ACL for the bucket.</li> </ul> <p>Maps to ``x-amz-grant-write-acp`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> <ul> <li>PERMISSION_READ: Allows grantee to list the objects in the bucket.</li> </ul> <p>Maps to ``x-amz-grant-read`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> <ul> <li>PERMISSION_READ_ACP: Allows grantee to read the bucket ACL</li> </ul> <p>Maps to ``x-amz-grant-read-acp`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> 
+buckets[].<br>acl.<br>grants[].<br>grantType | **string**<br><p>Required. The grantee type for the grant.</p> <ul> <li>GRANT_TYPE_ACCOUNT: A grantee is a <a href="/docs/iam/concepts/#accounts">Yandex Cloud account</a>.</li> </ul> <p>For this grantee type, you need to specify the user ID in <a href="/docs/storage/api-ref/Bucket#representation">Bucket.acl.grants.granteeId</a> field. To get user ID, see <a href="/docs/iam/operations/users/get">instruction</a>.</p> <p>Maps to using ``id=&quot;*&quot;`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> <ul> <li>GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated Yandex.Cloud users, both from your clouds and other users' clouds. Access permission to this group allows any Yandex.Cloud account to access the resource via a signed (authenticated) request.</li> </ul> <p>Maps to using ``uri=&quot;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&quot;`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> <ul> <li>GRANT_TYPE_ALL_USERS: Grantees are all internet users. Access permission to this group allows anyone in the world access to the resource via signed (authenticated) or unsigned (anonymous) requests.</li> </ul> <p>Maps to using ``uri=&quot;http://acs.amazonaws.com/groups/global/AllUsers&quot;`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> 
+buckets[].<br>acl.<br>grants[].<br>granteeId | **string**<br><p>ID of the Yandex.Cloud user who is a grantee. Required when the ``grantType`` is ``GRANT_TYPE_ACCOUNT``.</p> 
+buckets[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+buckets[].<br>cors[] | **object**<br><p>A CORS rule resource. For details about the concept, see <a href="/docs/storage/concepts/cors">documentation</a>.</p> 
+buckets[].<br>cors[].<br>id | **string**<br><p>ID of the CORS rule.</p> 
+buckets[].<br>cors[].<br>allowedMethods[] | **string**<br><p>List of HTTP methods that are allowed by the CORS rule.</p> <p>When a client sends a CORS-preflight ``options`` request with the ``Access-Control-Request-Method`` header (see S3-compatible API reference](/docs/storage/s3/api-ref/object/options)), the specified method is checked against the list of the allowed methods. If there is a match, all the allowed methods are listed in the ``Access-Control-Allow-Methods`` header of the response.</p> <ul> <li>METHOD_GET: HTTP ``GET`` method.</li> <li>METHOD_HEAD: HTTP ``HEAD`` method.</li> <li>METHOD_POST: HTTP ``POST`` method.</li> <li>METHOD_PUT: HTTP ``PUT`` method.</li> <li>METHOD_DELETE: HTTP ``DELETE`` method.</li> </ul> 
+buckets[].<br>cors[].<br>allowedHeaders[] | **string**<br><p>List of HTTP headers allowed by the CORS rule.</p> <p>When a client sends a CORS-preflight ``options`` request with the ``Access-Control-Request-Headers`` header (see <a href="/docs/storage/s3/api-ref/object/options">S3-compatible API reference</a>), the specified headers are checked against the list of the allowed headers. If there is a match, the specified headers that are allowed are listed in the ``Access-Control-Allow-Headers`` header of the response.</p> <p>Each string in the list can contain at most one ``*`` wildcard character that matches 0 or more characters. For example, ``x-amz-*`` value will allow all Amazon S3-compatible headers.</p> 
+buckets[].<br>cors[].<br>allowedOrigins[] | **string**<br><p>Required. List of request origins allowed by the CORS rule.</p> <p>Each string in the list can contain at most one ``*`` wildcard character that matches 0 or more characters. For example, ``http://*.example.com`` value will allow requests originating from all subdomains of ``example.com``.</p> <p>Must contain at least one element.</p> 
+buckets[].<br>cors[].<br>exposeHeaders[] | **string**<br><p>List of headers contained in responses to CORS requests that can be accessed by applications.</p> 
+buckets[].<br>cors[].<br>maxAgeSeconds | **integer** (int64)<br><p>Time in seconds that a client can cache the response to a CORS-preflight request as identified by the object requested, the HTTP method, and the origin.</p> 
+buckets[].<br>websiteSettings | **object**<br><p>Configuration for hosting a static website in the bucket. For details, see <a href="/docs/storage/concepts/hosting">documentation</a>.</p> 
+buckets[].<br>websiteSettings.<br>index | **string**<br><p>Key of the index page object that is returned when a response is made to the root of the website.</p> <p>Either ``index`` or ``redirectAllRequests`` must be specified in order for the bucket to host a static website.</p> <p>If specified, the index page object must be located in the root of the bucket.</p> 
+buckets[].<br>websiteSettings.<br>error | **string**<br><p>Key of the error page object that is returned when an error occurs.</p> 
+buckets[].<br>websiteSettings.<br>redirectAllRequests | **object**<br><p>Configuration for redirecting all requests sent to the website.</p> <p>Either ``redirectAllRequests`` or ``index`` must be specified in order for the bucket to host a static website. If ``redirectAllRequests`` is specified, it must be the only field in <a href="/docs/storage/api-ref/Bucket#representation">Bucket.websiteSettings</a>.</p> <p>A configuration resource for redirecting all requests sent to the website.</p> 
+buckets[].<br>websiteSettings.<br>redirectAllRequests.<br>protocol | **string**<br><p>Scheme of the redirect URI.</p> <ul> <li>PROTOCOL_HTTP: ``http`` scheme.</li> <li>PROTOCOL_HTTPS: ``https`` scheme.</li> </ul> 
+buckets[].<br>websiteSettings.<br>redirectAllRequests.<br>hostname | **string**<br><p>Hostname of the redirect URI.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[] | **object**<br><p>List of redirect rules.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>condition | **object**<br><p>Redirect condition.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>condition.<br>httpErrorCodeReturnedEquals | **string**<br><p>HTTP status code (number only) that must match for the redirect to apply.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>condition.<br>keyPrefixEquals | **string**<br><p>Prefix of the object key from which requests are redirected.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect | **object**<br><p>Redirect instructions.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>hostname | **string**<br><p>Hostname of the redirect URI.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>httpRedirectCode | **string**<br><p>HTTP status code of the redirect response.</p> <p>Default value: ``&quot;301&quot;``.</p> <p>Value must match the regular expression ``3(0[1-9]\|[1-9][0-9])``.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>protocol | **string**<br><p>Scheme of the redirect URI.</p> <ul> <li>PROTOCOL_HTTP: ``http`` scheme.</li> <li>PROTOCOL_HTTPS: ``https`` scheme.</li> </ul> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>replaceKeyPrefixWith | **string**<br><p>Substitution for the prefix of the object key specified in ``keyPrefixEquals``.</p> <p>At most one of ``replaceKeyPrefixWith`` and ``replaceKeyWith`` can be specified.</p> 
+buckets[].<br>websiteSettings.<br>routingRules[].<br>redirect.<br>replaceKeyWith | **string**<br><p>New object key.</p> <p>At most one of ``replaceKeyWith`` and ``replaceKeyPrefixWith`` can be specified.</p> 
+buckets[].<br>lifecycleRules[] | **object**<br><p>An object lifecycle rule resource for the bucket. For details about the concept, see <a href="/docs/storage/concepts/lifecycles">documentation</a>.</p> 
+buckets[].<br>lifecycleRules[].<br>id | **string**<br><p>ID of the rule. Provided by the client or generated at creation time.</p> 
+buckets[].<br>lifecycleRules[].<br>enabled | **boolean** (boolean)<br><p>Indicates whether the rule is in effect.</p> 
+buckets[].<br>lifecycleRules[].<br>filter | **object**<br><p>Filter that identifies the objects to which the rule applies.</p> <p>If not specified, the rule applies to all objects in the bucket.</p> 
+buckets[].<br>lifecycleRules[].<br>filter.<br>prefix | **string**<br><p>Key prefix that the object must have in order for the rule to apply.</p> 
+buckets[].<br>lifecycleRules[].<br>expiration | **object**<br><p>Expiration rule.</p> <p>The expiration of an object is described as follows.</p> <p>For the unversioned bucket (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_DISABLED``), the object is deleted and cannot be recovered.</p> <p>For the bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``), the current version of the object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes the current version of the object.</p> <p>For the bucket with versioning suspended (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_SUSPENDED``), the current version of the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a delete marker becomes the current version of the object.</p> 
+buckets[].<br>lifecycleRules[].<br>expiration.<br>date | **string** (date-time)<br><p>Specific date of object expiration.</p> <p>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire immediately.</p> <p>Exactly one of ``date``, ``days``, and ``expiredObjectDeleteMarker`` fields can be specified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+buckets[].<br>lifecycleRules[].<br>expiration.<br>days | **integer** (int64)<br><p>Time period, in number of days from the creation or modification of the object, after which an object expires.</p> <p>Exactly one of ``days``, ``date``, and ``expiredObjectDeleteMarker`` fields can be specified.</p> 
+buckets[].<br>lifecycleRules[].<br>expiration.<br>expiredObjectDeleteMarker | **boolean** (boolean)<br><p>Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object delete marker) is removed at the object's expiration.</p> <p>Exactly one of ``expiredObjectDeleteMarker``, ``date``, and ``days`` fields can be specified.</p> 
+buckets[].<br>lifecycleRules[].<br>transitions[] | **object**<br><p>List of transition rules.</p> <p>The transition of an object is described as follows.</p> <p>For the unversioned bucket (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_DISABLED``), the object is transitioned to the specified storage class.</p> <p>For the bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``) or suspended (``VERSIONING_SUSPENDED``), the current version of the object is transitioned to the specified storage class.</p> 
+buckets[].<br>lifecycleRules[].<br>transitions[].<br>date | **string** (date-time)<br><p>Specific date of object transition.</p> <p>The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are transitioned immediately.</p> <p>At most one of ``date`` and ``days`` fields can be specified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+buckets[].<br>lifecycleRules[].<br>transitions[].<br>days | **integer** (int64)<br><p>Time period, in number of days from the creation or modification of the object, after which an object is transitioned.</p> <p>At most one of ``days`` and ``date`` fields can be specified.</p> 
+buckets[].<br>lifecycleRules[].<br>transitions[].<br>storageClass | **string**<br><p>Required. Storage class to which an object is transitioned.</p> <p>The only supported class is cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). Transitions from cold to standard storage are not allowed.</p> 
+buckets[].<br>lifecycleRules[].<br>abortIncompleteMultipartUpload | **object**<br><p>Configuration for aborting incomplete <a href="/docs/storage/concepts/multipart">multipart uploads</a>.</p> 
+buckets[].<br>lifecycleRules[].<br>abortIncompleteMultipartUpload.<br>daysAfterExpiration | **integer** (int64)<br><p>Time period, in number of days from the start of the multipart upload, after which the incomplete upload is aborted.</p> 
+buckets[].<br>lifecycleRules[].<br>noncurrentExpiration | **object**<br><p>Expiration rule for non-current versions of objects in a bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``) or suspended (``VERSIONING_SUSPENDED``).</p> <p>At expiration, the non-current version of the object is deleted and cannot be recovered.</p> 
+buckets[].<br>lifecycleRules[].<br>noncurrentExpiration.<br>noncurrentDays | **integer** (int64)<br><p>Time period, in number of days since the version of an object was classified as non-current, after which the version expires.</p> 
+buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[] | **object**<br><p>List of transition rules for non-current versions of objects in a bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``) or suspended (``VERSIONING_SUSPENDED``).</p> <p>At transition, the non-current version of the object is transitioned to the specified storage class.</p> 
+buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[].<br>noncurrentDays | **integer** (int64)<br><p>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned.</p> 
+buckets[].<br>lifecycleRules[].<br>noncurrentTransitions[].<br>storageClass | **string**<br><p>Required. Storage class to which a non-current version of an object is transitioned.</p> <p>The only supported class is cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). Transitions from cold to standard storage are not allowed.</p> 

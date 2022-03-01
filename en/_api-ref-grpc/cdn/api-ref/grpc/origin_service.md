@@ -12,7 +12,7 @@ Origin is not a standalone entity. It can live only within origin group.
 | [Get](#Get) | Get origin in origin group. |
 | [List](#List) | Lists origins of origin group. |
 | [Create](#Create) | Creates origin inside origin group. |
-| [Update](#Update) | Updates origin from origin group. |
+| [Update](#Update) | Updates the specified origin from the origin group. |
 | [Delete](#Delete) | Deletes origin from origin group. |
 
 ## Calls OriginService {#calls}
@@ -236,7 +236,7 @@ id | **string**<br>ID of the origin.
 
 ## Update {#Update}
 
-Updates origin from origin group.
+Updates the specified origin from the origin group. <br>Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge cache of the resources that use the origin via a [CacheService.Purge](./cache_service#Purge) request.
 
 **rpc Update ([UpdateOriginRequest](#UpdateOriginRequest)) returns ([operation.Operation](#Operation1))**
 

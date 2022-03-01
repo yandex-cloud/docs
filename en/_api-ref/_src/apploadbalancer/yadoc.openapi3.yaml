@@ -1863,7 +1863,7 @@ components:
             If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted
             on client restarts.
 
-            if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity.
+            If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity.
           type: string
     CreateBackendGroupMetadata:
       type: object
@@ -2602,6 +2602,14 @@ components:
           grpc:
             $ref: '#/components/schemas/HealthCheckGrpcHealthCheck'
             description: gRPC health check settings.
+      - title: transport_settings
+        type: object
+        maxProperties: 1
+        properties:
+          plaintext:
+            $ref: '#/components/schemas/PlaintextTransportSettings'
+          tls:
+            $ref: '#/components/schemas/SecureTransportSettings'
     HealthCheckGrpcHealthCheck:
       description: A resource for gRPC health check settings.
       type: object
@@ -3429,6 +3437,11 @@ components:
 
               The string length in characters must be greater than 0.
             type: string
+    PlaintextTransportSettings:
+      description: Transport settings to be used instead of the settings configured
+        per-cluster
+      type: object
+      properties: {}
     RedirectAction:
       description: A redirect action resource.
       type: object
@@ -3651,6 +3664,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
+    SecureTransportSettings:
+      description: Transport settings to be used instead of the settings configured
+        per-cluster
+      type: object
+      properties:
+        sni:
+          description: SNI string for TLS connections.
+          type: string
+        validationContext:
+          $ref: '#/components/schemas/ValidationContext_in_SecureTransportSettings_validationContext'
     SniMatch:
       description: A SNI handler resource.
       type: object
@@ -4835,6 +4858,22 @@ components:
       - LEAST_REQUEST
       - MAGLEV_HASH
       default: ROUND_ROBIN
+    ValidationContext_in_SecureTransportSettings_validationContext:
+      description: |-
+        Validation context for backend TLS connections.
+
+        A TLS validation context resource.
+      type: object
+      allOf:
+      - title: trusted_ca
+        type: object
+        maxProperties: 1
+        properties:
+          trustedCaId:
+            type: string
+          trustedCaBytes:
+            description: X.509 certificate contents in PEM format.
+            type: string
     TlsHandler_in_SniMatch_handler:
       description: |-
         Required.

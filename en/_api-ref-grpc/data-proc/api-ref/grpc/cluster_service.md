@@ -82,6 +82,16 @@ Field | Description
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
+initialization_actions[] | **[InitializationAction](#InitializationAction)**<br>Set of init-actions 
+
+
+### InitializationAction {#InitializationAction}
+
+Field | Description
+--- | ---
+uri | **string**<br>URI of the executable file 
+args[] | **string**<br>Arguments to the initialization action 
+timeout | **int64**<br>Execution timeout 
 
 
 ## List {#List}
@@ -156,6 +166,16 @@ Field | Description
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
+initialization_actions[] | **[InitializationAction](#InitializationAction1)**<br>Set of init-actions 
+
+
+### InitializationAction {#InitializationAction1}
+
+Field | Description
+--- | ---
+uri | **string**<br>URI of the executable file 
+args[] | **string**<br>Arguments to the initialization action 
+timeout | **int64**<br>Execution timeout 
 
 
 ## Create {#Create}
@@ -203,6 +223,16 @@ Field | Description
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
+initialization_actions[] | **[InitializationAction](#InitializationAction2)**<br>Set of init-actions 
+
+
+### InitializationAction {#InitializationAction2}
+
+Field | Description
+--- | ---
+uri | **string**<br>URI of the executable file 
+args[] | **string**<br>Arguments to the initialization action 
+timeout | **int64**<br>Execution timeout 
 
 
 ### CreateSubclusterConfigSpec {#CreateSubclusterConfigSpec}
@@ -311,6 +341,16 @@ Field | Description
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
+initialization_actions[] | **[InitializationAction](#InitializationAction3)**<br>Set of init-actions 
+
+
+### InitializationAction {#InitializationAction3}
+
+Field | Description
+--- | ---
+uri | **string**<br>URI of the executable file 
+args[] | **string**<br>Arguments to the initialization action 
+timeout | **int64**<br>Execution timeout 
 
 
 ## Update {#Update}
@@ -390,6 +430,16 @@ Field | Description
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
+initialization_actions[] | **[InitializationAction](#InitializationAction4)**<br>Set of init-actions 
+
+
+### InitializationAction {#InitializationAction4}
+
+Field | Description
+--- | ---
+uri | **string**<br>URI of the executable file 
+args[] | **string**<br>Arguments to the initialization action 
+timeout | **int64**<br>Execution timeout 
 
 
 ### Operation {#Operation1}
@@ -463,6 +513,16 @@ Field | Description
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
+initialization_actions[] | **[InitializationAction](#InitializationAction5)**<br>Set of init-actions 
+
+
+### InitializationAction {#InitializationAction5}
+
+Field | Description
+--- | ---
+uri | **string**<br>URI of the executable file 
+args[] | **string**<br>Arguments to the initialization action 
+timeout | **int64**<br>Execution timeout 
 
 
 ## Delete {#Delete}
@@ -594,6 +654,16 @@ Field | Description
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
+initialization_actions[] | **[InitializationAction](#InitializationAction6)**<br>Set of init-actions 
+
+
+### InitializationAction {#InitializationAction6}
+
+Field | Description
+--- | ---
+uri | **string**<br>URI of the executable file 
+args[] | **string**<br>Arguments to the initialization action 
+timeout | **int64**<br>Execution timeout 
 
 
 ## Stop {#Stop}
@@ -685,6 +755,16 @@ Field | Description
 services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
+initialization_actions[] | **[InitializationAction](#InitializationAction7)**<br>Set of init-actions 
+
+
+### InitializationAction {#InitializationAction7}
+
+Field | Description
+--- | ---
+uri | **string**<br>URI of the executable file 
+args[] | **string**<br>Arguments to the initialization action 
+timeout | **int64**<br>Execution timeout 
 
 
 ## ListOperations {#ListOperations}

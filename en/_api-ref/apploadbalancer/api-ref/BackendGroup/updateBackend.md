@@ -44,7 +44,7 @@ backendGroupId | Required. ID of the backend group to update the backend in.
         "unhealthyThreshold": "string",
         "healthcheckPort": "string",
 
-        // `http.healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`
+        // `http.healthchecks[]` includes only one of the fields `plaintext`, `tls`
         "stream": {
           "send": {
             "text": "string"
@@ -63,6 +63,18 @@ backendGroupId | Required. ID of the backend group to update the backend in.
         },
         // end of the list of possible fields`http.healthchecks[]`
 
+        "plaintext": {},
+        "tls": {
+          "sni": "string",
+          "validationContext": {
+
+            // `http.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
+            "trustedCaId": "string",
+            "trustedCaBytes": "string",
+            // end of the list of possible fields`http.healthchecks[].tls.validationContext`
+
+          }
+        }
       }
     ],
     "tls": {
@@ -109,7 +121,7 @@ backendGroupId | Required. ID of the backend group to update the backend in.
         "unhealthyThreshold": "string",
         "healthcheckPort": "string",
 
-        // `grpc.healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`
+        // `grpc.healthchecks[]` includes only one of the fields `plaintext`, `tls`
         "stream": {
           "send": {
             "text": "string"
@@ -128,6 +140,18 @@ backendGroupId | Required. ID of the backend group to update the backend in.
         },
         // end of the list of possible fields`grpc.healthchecks[]`
 
+        "plaintext": {},
+        "tls": {
+          "sni": "string",
+          "validationContext": {
+
+            // `grpc.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
+            "trustedCaId": "string",
+            "trustedCaBytes": "string",
+            // end of the list of possible fields`grpc.healthchecks[].tls.validationContext`
+
+          }
+        }
       }
     ],
     "tls": {
@@ -166,7 +190,7 @@ backendGroupId | Required. ID of the backend group to update the backend in.
         "unhealthyThreshold": "string",
         "healthcheckPort": "string",
 
-        // `stream.healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`
+        // `stream.healthchecks[]` includes only one of the fields `plaintext`, `tls`
         "stream": {
           "send": {
             "text": "string"
@@ -185,6 +209,18 @@ backendGroupId | Required. ID of the backend group to update the backend in.
         },
         // end of the list of possible fields`stream.healthchecks[]`
 
+        "plaintext": {},
+        "tls": {
+          "sni": "string",
+          "validationContext": {
+
+            // `stream.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
+            "trustedCaId": "string",
+            "trustedCaBytes": "string",
+            // end of the list of possible fields`stream.healthchecks[].tls.validationContext`
+
+          }
+        }
       }
     ],
     "tls": {
@@ -240,6 +276,12 @@ http.<br>healthchecks[].<br>http.<br>path | **string**<br><p>Required. HTTP path
 http.<br>healthchecks[].<br>http.<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP/2 usage in health checks.</p> <p>Default value: ``false``, HTTP/1.1 is used.</p> 
 http.<br>healthchecks[].<br>grpc | **object**<br>gRPC health check settings. <br>`http.healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`<br><br><p>A resource for gRPC health check settings.</p> 
 http.<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Name of the gRPC service to be checked.</p> <p>If not specified, overall health is checked.</p> <p>For details about the concept, see <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health Checking Protocol</a>.</p> 
+http.<br>healthchecks[].<br>plaintext | **object** <br>`http.healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+http.<br>healthchecks[].<br>tls | **object** <br>`http.healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+http.<br>healthchecks[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
+http.<br>healthchecks[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> <p>A TLS validation context resource.</p> 
+http.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
+http.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`http.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 http.<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted HTTP connections with targets.<br><p>A resource for backend TLS settings.</p> 
 http.<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for TLS connections.</p> 
 http.<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
@@ -277,6 +319,12 @@ grpc.<br>healthchecks[].<br>http.<br>path | **string**<br><p>Required. HTTP path
 grpc.<br>healthchecks[].<br>http.<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP/2 usage in health checks.</p> <p>Default value: ``false``, HTTP/1.1 is used.</p> 
 grpc.<br>healthchecks[].<br>grpc | **object**<br>gRPC health check settings. <br>`grpc.healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`<br><br><p>A resource for gRPC health check settings.</p> 
 grpc.<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Name of the gRPC service to be checked.</p> <p>If not specified, overall health is checked.</p> <p>For details about the concept, see <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health Checking Protocol</a>.</p> 
+grpc.<br>healthchecks[].<br>plaintext | **object** <br>`grpc.healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+grpc.<br>healthchecks[].<br>tls | **object** <br>`grpc.healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+grpc.<br>healthchecks[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
+grpc.<br>healthchecks[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> <p>A TLS validation context resource.</p> 
+grpc.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`grpc.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
+grpc.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`grpc.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 grpc.<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted HTTP connections with targets.<br><p>A resource for backend TLS settings.</p> 
 grpc.<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for TLS connections.</p> 
 grpc.<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
@@ -311,6 +359,12 @@ stream.<br>healthchecks[].<br>http.<br>path | **string**<br><p>Required. HTTP pa
 stream.<br>healthchecks[].<br>http.<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP/2 usage in health checks.</p> <p>Default value: ``false``, HTTP/1.1 is used.</p> 
 stream.<br>healthchecks[].<br>grpc | **object**<br>gRPC health check settings. <br>`stream.healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`<br><br><p>A resource for gRPC health check settings.</p> 
 stream.<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Name of the gRPC service to be checked.</p> <p>If not specified, overall health is checked.</p> <p>For details about the concept, see <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health Checking Protocol</a>.</p> 
+stream.<br>healthchecks[].<br>plaintext | **object** <br>`stream.healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+stream.<br>healthchecks[].<br>tls | **object** <br>`stream.healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+stream.<br>healthchecks[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
+stream.<br>healthchecks[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> <p>A TLS validation context resource.</p> 
+stream.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`stream.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
+stream.<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`stream.healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 stream.<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted HTTP connections with targets.<br><p>A resource for backend TLS settings.</p> 
 stream.<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for TLS connections.</p> 
 stream.<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 

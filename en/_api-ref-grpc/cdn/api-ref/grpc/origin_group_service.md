@@ -11,7 +11,7 @@ Origin Groups management service.
 | [Get](#Get) | Gets origin group with specified origin group id. |
 | [List](#List) | Lists origins of origin group. |
 | [Create](#Create) | Creates origin group. |
-| [Update](#Update) | Updates origin group. |
+| [Update](#Update) | Updates the specified origin group. |
 | [Delete](#Delete) | Deletes origin group with specified origin group id. |
 
 ## Calls OriginGroupService {#calls}
@@ -277,7 +277,7 @@ id | **string**<br>ID of the origin.
 
 ## Update {#Update}
 
-Updates origin group.
+Updates the specified origin group. <br>Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge cache of the resources that use the origin group via a [CacheService.Purge](./cache_service#Purge) request.
 
 **rpc Update ([UpdateOriginGroupRequest](#UpdateOriginGroupRequest)) returns ([operation.Operation](#Operation1))**
 

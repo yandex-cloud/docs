@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Yandex Storage API
+  title: Yandex Object Storage API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
@@ -12,22 +12,19 @@ paths:
     get:
       tags:
       - Bucket
-      summary: |-
-        Returns the list of buckets for specified folder id.
-        The following fields will not be set in listing:
-        * "cors"
-        * "website_settings"
-        * "lifecycle_rules"
-        * "acl"
-        * "policy"
-        will be empty.
+      summary: Retrieves the list of buckets in the specified folder.
+      description: |-
+        The following fields will not be returned for buckets in the list: [Bucket.policy](/docs/storage/api-ref/Bucket#representation), [Bucket.acl](/docs/storage/api-ref/Bucket#representation), [Bucket.cors](/docs/storage/api-ref/Bucket#representation),
+        [Bucket.websiteSettings](/docs/storage/api-ref/Bucket#representation), [Bucket.lifecycleRules](/docs/storage/api-ref/Bucket#representation).
       operationId: BucketList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
-          Folder id for requested buckets.
+          ID of the folder to list buckets in.
+
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -43,10 +40,9 @@ paths:
     post:
       tags:
       - Bucket
-      summary: Create a new bucket in specified folder.
+      summary: Creates a bucket in the specified folder.
       operationId: BucketCreate
       requestBody:
-        description: CreateBucketRequest creates bucket for S3.
         content:
           application/json:
             schema:
@@ -67,8 +63,8 @@ paths:
     get:
       tags:
       - Bucket
-      summary: Get specific bucket.
-      description: To get the lis of available buckets, make a [list](/docs/storage/api-ref/Bucket/list)
+      summary: Returns the specified bucket.
+      description: To get the list of all available buckets, make a [list](/docs/storage/api-ref/Bucket/list)
         request.
       operationId: BucketGet
       parameters:
@@ -76,14 +72,19 @@ paths:
         in: path
         description: |-
           Required.
-          Bucket's name.
-          To get the bucket name, use [list](/docs/storage/api-ref/Bucket/list) request.
+          Name of the bucket to return.
+
+          To get the bucket name, make a [list](/docs/storage/api-ref/Bucket/list) request.
         required: true
         schema:
           type: string
       - name: view
         in: query
-        description: Defines properties that should be returned by a request.
+        description: |-
+          Scope of information about the bucket to return.
+
+          Access to scopes is managed via [Identity and Access Management roles](/docs/storage/security),
+          bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/policy).
         schema:
           $ref: '#/components/schemas/GetBucketRequestView'
       responses:
@@ -97,15 +98,16 @@ paths:
     delete:
       tags:
       - Bucket
-      summary: Delete the specified bucket.
+      summary: Deletes the specified bucket.
       operationId: BucketDelete
       parameters:
       - name: name
         in: path
         description: |-
           Required.
-          Unique name of the bucket.
-          To get the bucket name, use [list](/docs/storage/api-ref/Bucket/list) request.
+          Name of the bucket to update.
+
+          To get the bucket name, make a [list](/docs/storage/api-ref/Bucket/list) request.
         required: true
         schema:
           type: string
@@ -123,28 +125,25 @@ paths:
     patch:
       tags:
       - Bucket
-      summary: Update the specified bucket.
+      summary: Updates the specified bucket.
+      description: |-
+        In most cases, `storage.editor` role (see [documentation](/docs/storage/security/#storage-editor)) should be enough
+        to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
       operationId: BucketUpdate
       parameters:
       - name: name
         in: path
         description: |-
           Required.
-          Unique name of the bucket.
-          To get the bucket name, use [list](/docs/storage/api-ref/Bucket/list) request.
+          Name of the bucket to update.
+
+          The name cannot be updated.
+
+          To get the bucket name, make a [list](/docs/storage/api-ref/Bucket/list) request.
         required: true
         schema:
           type: string
       requestBody:
-        description: |-
-          UpdateBucketRequest acts like patch method in HTTP world
-          In order to update most of the properties, the user must
-          have the appropriate permissions.
-
-          In most cases, storage.editor permission should be enough, but
-          might be limited by the bucket's Policy.
-
-          For more information, see [Policy](/docs/storage/concepts/policy)
         content:
           application/json:
             schema:
@@ -165,12 +164,14 @@ paths:
     get:
       tags:
       - Bucket
-      summary: Fetch stats of the bucket.
+      summary: Returns the statistics for the specified bucket.
       operationId: BucketGetStats
       parameters:
       - name: name
         in: path
-        description: Required.
+        description: |-
+          Required.
+          Name of the bucket to return the statistics for.
         required: true
         schema:
           type: string
@@ -186,12 +187,14 @@ paths:
     get:
       tags:
       - Bucket
-      summary: Fetch Bucket's HTTPS configuration.
+      summary: Returns the HTTPS configuration for the specified bucket.
       operationId: BucketGetHTTPSConfig
       parameters:
       - name: name
         in: path
-        description: Required.
+        description: |-
+          Required.
+          Name of the bucket to return the HTTPS configuration for.
         required: true
         schema:
           type: string
@@ -207,14 +210,16 @@ paths:
     post:
       tags:
       - Bucket
-      summary: Inserts HTTPS configuration for bucket.
+      summary: Updates the HTTPS configuration for the specified bucket.
+      description: The updated configuration could take up to 30 minutes to apply
+        to the bucket.
       operationId: BucketSetHTTPSConfig
       parameters:
       - name: name
         in: path
         description: |-
           Required.
-          Bucket name
+          Name of the bucket to update the HTTPS configuration for.
         required: true
         schema:
           type: string
@@ -239,11 +244,14 @@ paths:
     post:
       tags:
       - Bucket
+      summary: Deletes the HTTPS configuration for the specified bucket.
       operationId: BucketDeleteHTTPSConfig
       parameters:
       - name: name
         in: path
-        description: Required.
+        description: |-
+          Required.
+          Name of the bucket to delete the HTTPS configuration for.
         required: true
         schema:
           type: string
@@ -261,14 +269,16 @@ paths:
 components:
   schemas:
     ACL:
-      description: ACL model.
       type: object
       properties:
         grants:
+          description: List of permissions granted and the grantees.
           type: array
           items:
             $ref: '#/components/schemas/ACLGrant'
     ACLGrant:
+      description: A grant resource, used to specify the permission granted and the
+        grantee.
       type: object
       properties:
         permission:
@@ -276,14 +286,29 @@ components:
         grantType:
           $ref: '#/components/schemas/ACLGrantGrantType_in_ACLGrant_grantType'
         granteeId:
-          description: '[semi-optional] grantee id is used only when grant_type is
-            TO_ACCOUNT'
+          description: ID of the Yandex.Cloud user who is a grantee. Required when
+            the `grantType` is `GRANT_TYPE_ACCOUNT`.
           type: string
     ACLGrantGrantType:
       description: |2-
-         - GRANT_TYPE_ACCOUNT: equal to 'id' grantee value
-         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: equal to 'uri' authenticated users
-         - GRANT_TYPE_ALL_USERS: equal to 'uri' all users
+         - GRANT_TYPE_ACCOUNT: A grantee is a [Yandex Cloud account](/docs/iam/concepts/#accounts).
+
+        For this grantee type, you need to specify the user ID in [Bucket.acl.grants.granteeId](/docs/storage/api-ref/Bucket#representation) field. To get user ID, see
+        [instruction](/docs/iam/operations/users/get).
+
+        Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
+        method of Amazon S3-compatible HTTP API).
+         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated Yandex.Cloud users, both from your clouds and other users' clouds. Access
+        permission to this group allows any Yandex.Cloud account to access the resource via a signed (authenticated)
+        request.
+
+        Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
+        header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
+         - GRANT_TYPE_ALL_USERS: Grantees are all internet users. Access permission to this group allows anyone in the world access to the
+        resource via signed (authenticated) or unsigned (anonymous) requests.
+
+        Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for `x-amz-grant-*` header
+        ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
       type: string
       enum:
       - GRANT_TYPE_ACCOUNT
@@ -291,11 +316,28 @@ components:
       - GRANT_TYPE_ALL_USERS
     ACLGrantPermission:
       description: |2-
-         - PERMISSION_FULL_CONTROL: header X-Amz-Grant-Full-Control
-         - PERMISSION_WRITE: header X-Amz-Grant-Write
-         - PERMISSION_WRITE_ACP: header X-Amz-Grant-Write-Acp
-         - PERMISSION_READ: header X-Amz-Grant-Read
-         - PERMISSION_READ_ACP: header X-Amz-Grant-Read-Acp
+         - PERMISSION_FULL_CONTROL: Allows grantee the `PERMISSION_WRITE`, `PERMISSION_WRITE_ACP`, `PERMISSION_READ`, and `PERMISSION_READ_ACP`
+        on the bucket.
+
+        Maps to `x-amz-grant-full-control` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+        Amazon S3-compatible HTTP API.
+         - PERMISSION_WRITE: Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also
+        allows deletions and overwrites of those objects.
+
+        Maps to `x-amz-grant-write` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
+        S3-compatible HTTP API.
+         - PERMISSION_WRITE_ACP: Allows grantee to write the ACL for the bucket.
+
+        Maps to `x-amz-grant-write-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+        Amazon S3-compatible HTTP API.
+         - PERMISSION_READ: Allows grantee to list the objects in the bucket.
+
+        Maps to `x-amz-grant-read` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
+        S3-compatible HTTP API.
+         - PERMISSION_READ_ACP: Allows grantee to read the bucket ACL
+
+        Maps to `x-amz-grant-read-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+        Amazon S3-compatible HTTP API.
       type: string
       enum:
       - PERMISSION_FULL_CONTROL
@@ -307,64 +349,76 @@ components:
       type: object
       properties:
         read:
+          description: Specifies whether public (anonymous) access to read objects
+            in the bucket is enabled.
           type: boolean
           format: boolean
         list:
+          description: Specifies whether public (anonymous) access to the list of
+            objects in the bucket is enabled.
           type: boolean
           format: boolean
         configRead:
+          description: |-
+            Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
+            [static website hosting](/docs/storage/concepts/hosting), and
+            [object lifecycles](/docs/storage/concepts/lifecycles) settings of the bucket is enabled.
           type: boolean
           format: boolean
     Bucket:
       description: |-
-        Bucket is a core entity of the storage service.
-        For more information, see [Bucket](/docs/storage/concepts/bucket).
+        A bucket resource.
+        For details about the concept, see [documentation](/docs/storage/concepts/bucket).
       type: object
       properties:
         id:
-          description: |-
-            Bucket's ID, treated as name. Properties id and name are equal
-            to each other, but name has priority over id.
+          description: ID of the bucket. Always equal to [name](/docs/storage/api-ref/Bucket#representation),
+            which has priority.
           type: string
         name:
-          description: Bucket's uniqe name.
+          description: |-
+            Name of the bucket.
+
+            The name is unique within Yandex.Cloud. For naming limitations and rules, see
+            [documentation](/docs/storage/concepts/bucket#naming).
           type: string
         folderId:
-          description: Folder id to which this bucket belongs.
+          description: ID of the folder that the bucket belongs to.
           type: string
         anonymousAccessFlags:
           $ref: '#/components/schemas/AnonymousAccessFlags_in_Bucket_anonymousAccessFlags'
         defaultStorageClass:
           description: |-
-            Storage class of bucket.
-            For more information, see [Storage Class](/docs/storage/concepts/storage-class)
+            Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
+            cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
+            For details, see [documentation](/docs/storage/concepts/storage-class).
           type: string
         versioning:
           $ref: '#/components/schemas/Versioning_in_Bucket_versioning'
         maxSize:
           description: |-
-            Maximum size of bucket.
-            For more information, see [Size limits](/docs/storage/operations/buckets/limit-max-volume)
+            Maximum size of the bucket, in bytes.
+            For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume).
           type: string
           format: int64
         policy:
           description: |-
-            Bucket's policy.
-            For more information, see [Bucket Policy](/docs/storage/concepts/policy)
+            Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects.
+            For details, see [documentation](/docs/storage/concepts/policy).
           type: object
         acl:
           $ref: '#/components/schemas/ACL_in_Bucket_acl'
         createdAt:
           description: |-
-            Creating date.
+            Creation timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         cors:
           description: |-
-            CORS settings for bucket, hosted as website.
-            For more information, see [CORS](/docs/storage/concepts/cors)
+            List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS).
+            For details, see [documentation](/docs/storage/concepts/cors).
           type: array
           items:
             $ref: '#/components/schemas/CorsRule'
@@ -372,108 +426,151 @@ components:
           $ref: '#/components/schemas/WebsiteSettings_in_Bucket_websiteSettings'
         lifecycleRules:
           description: |-
-            Objects's lifecycle rules.
-            For more information, see [Lifecycles](/docs/storage/concepts/lifecycles)
+            List of object lifecycle rules for the bucket.
+            For details, see [documentation](/docs/storage/concepts/lifecycles).
           type: array
           items:
             $ref: '#/components/schemas/LifecycleRule'
     BucketStats:
-      description: BucketStats describes bucket statistics.
+      description: A bucket statistics resource.
       type: object
       properties:
         name:
-          description: |-
-            Counters holds amount and size of various type
-            of objects.
-            Requested bucket name.
+          description: Name of the bucket.
           type: string
         maxSize:
-          description: Maximum size of bucket.
+          description: Maximum size of the bucket, in bytes.
           type: integer
           format: int64
         usedSize:
-          description: Size of used space in bucket.
+          description: Size of used space in the bucket, in bytes.
           type: string
           format: int64
         storageClassMaxSizes:
-          description: Maximum size of bucket in projection of storage classes.
+          description: Size of available space in the bucket by storage class, in
+            bytes.
           type: array
           items:
             $ref: '#/components/schemas/OptionalSizeByClass'
         storageClassUsedSizes:
-          description: Size of used space in projection of storage classes.
+          description: Size of used space in the bucket by storage class, in bytes.
           type: array
           items:
             $ref: '#/components/schemas/SizeByClass'
         storageClassCounters:
-          description: Meta-info about objects stored in bucket in projection of storage
-            classes.
+          description: Object-related statistics by storage class and type of upload
+            (simple vs. multipart), in bytes.
           type: array
           items:
             $ref: '#/components/schemas/CountersByClass'
         defaultStorageClass:
-          description: Bucket's default storage class.
+          description: |-
+            Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
+            cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
+            For details, see [documentation](/docs/storage/concepts/storage-class).
           type: string
         anonymousAccessFlags:
           $ref: '#/components/schemas/AnonymousAccessFlags_in_BucketStats_anonymousAccessFlags'
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Bucket creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         updatedAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Bucket latest update timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     CertificateManagerHTTPSConfigParams:
-      description: |-
-        CertificateManagerHTTPSConfigParams allows to set existing certificate
-        from certificate manager.
-        For more information, see [Own certificate](/docs/storage/operations/hosting/certificate#cert-manager)
+      description: A resource for a TLS certificate from Yandex Certificate Manager.
       type: object
       properties:
         certificateId:
+          description: |-
+            ID of the certificate.
+
+            To get the list of all available certificates, make a [list](/docs/certificate-manager/api-ref/Certificate/list)
+            request.
           type: string
     CorsRule:
+      description: |-
+        A CORS rule resource.
+        For details about the concept, see [documentation](/docs/storage/concepts/cors).
       type: object
       properties:
         id:
+          description: ID of the CORS rule.
           type: string
         allowedMethods:
           description: |-
             Required.
+            List of HTTP methods allowed by the CORS rule.
+
+            When a client sends a CORS-preflight `options` request with the `Access-Control-Request-Method` header (see
+            [S3-compatible API reference](/docs/storage/s3/api-ref/object/options)), the specified method is checked against
+            the list of the allowed methods. If there is a match, all the allowed methods are listed in the
+            `Access-Control-Allow-Methods` header of the response.
+
             Must contain at least one element.
           type: array
           items:
             $ref: '#/components/schemas/CorsRuleMethod'
         allowedHeaders:
           description: |-
-            allowed_headers elements might be either as exact value
-            (i.e. Test-Header-Field) or as pattern (i.e. Test-*-Field)
-            But only one star allowed.
+            List of HTTP headers allowed by the CORS rule.
+
+            When a client sends a CORS-preflight `options` request with the `Access-Control-Request-Headers` header (see
+            [S3-compatible API reference](/docs/storage/s3/api-ref/object/options)), the specified headers are checked against
+            the list of the allowed headers. If there is a match, the specified headers that are allowed are listed in the
+            `Access-Control-Allow-Headers` header of the response.
+
+            Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
+            For example, `x-amz-*` value will allow all Amazon S3-compatible headers.
           type: array
           items:
             type: string
         allowedOrigins:
           description: |-
             Required.
-            allowed_origins elements might be either as exact value
-            (i.e. some-value) or as pattern (i.e. some*value)
-            But only one star allowed.
+            List of request origins allowed by the CORS rule.
+
+            Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
+            For example, `http://*.example.com` value will allow requests originating from all subdomains of `example.com`.
 
             Must contain at least one element.
           type: array
           items:
             type: string
         exposeHeaders:
+          description: List of headers contained in responses to CORS requests that
+            can be accessed by applications.
           type: array
           items:
             type: string
         maxAgeSeconds:
+          description: |-
+            Time in seconds that a client can cache the response to a CORS-preflight request as identified by the
+            object requested, the HTTP method, and the origin.
           type: integer
           format: int64
     CorsRuleMethod:
+      description: |-
+        List of HTTP methods that are allowed by the CORS rule.
+
+        When a client sends a CORS-preflight `options` request with the `Access-Control-Request-Method` header (see
+        S3-compatible API reference](/docs/storage/s3/api-ref/object/options)), the specified method is checked against the
+        list of the allowed methods. If there is a match, all the allowed methods are listed in the
+        `Access-Control-Allow-Methods` header of the response.
+
+         - METHOD_GET: HTTP `GET` method.
+         - METHOD_HEAD: HTTP `HEAD` method.
+         - METHOD_POST: HTTP `POST` method.
+         - METHOD_PUT: HTTP `PUT` method.
+         - METHOD_DELETE: HTTP `DELETE` method.
       type: string
       enum:
       - METHOD_GET
@@ -485,30 +582,44 @@ components:
       type: object
       properties:
         simpleObjectSize:
+          description: Total size of objects uploaded in single operation, in bytes.
           type: string
           format: int64
         simpleObjectCount:
+          description: Number of objects uploaded in single operation.
           type: string
           format: int64
         objectsPartsSize:
+          description: Total size of uploaded parts in incomplete multipart uploads,
+            in bytes.
           type: string
           format: int64
         objectsPartsCount:
+          description: Number of uploaded parts in incomplete multipart uploads.
           type: string
           format: int64
         multipartObjectsSize:
+          description: Total size of objects uploaded in multiple parts, in bytes.
           type: string
           format: int64
         multipartObjectsCount:
+          description: Number of objects uploaded in multiple parts.
           type: string
           format: int64
         activeMultipartCount:
+          description: Number of incomplete multipart uploads.
           type: string
           format: int64
     CountersByClass:
+      description: A resource for object-related statistics for a storage class by
+        type of upload (simple vs. multipart).
       type: object
       properties:
         storageClass:
+          description: |-
+            Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
+            `NEARLINE` all synonyms).
+            For details, see [documentation](/docs/storage/concepts/storage-class).
           type: string
         counters:
           $ref: '#/components/schemas/Counters_in_CountersByClass_counters'
@@ -516,35 +627,38 @@ components:
       type: object
       properties:
         name:
+          description: Name of the bucket that is being created.
           type: string
     CreateBucketRequest:
-      description: CreateBucketRequest creates bucket for S3.
       type: object
       properties:
         name:
           description: |-
             Required.
-            Unique name of the bucket.
-            This name is treated as unique identifier and used among the whole Cloud.
-            For naming limitations and rules, see [Bucket naming](/docs/storage/concepts/bucket#naming)
+            Name of the bucket.
+
+            The name must be unique within Yandex.Cloud. For naming limitations and rules, see
+            [documentation](/docs/storage/concepts/bucket#naming).
           type: string
         folderId:
           description: |-
             Required.
             ID of the folder to create a bucket in.
-            To get the folder ID, use [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
             The maximum string length in characters is 50.
           type: string
         defaultStorageClass:
           description: |-
-            Class of the storage.
-            For more information, see [Storage Class](/docs/storage/concepts/storage-class)
+            Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
+            cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
+            For details, see [documentation](/docs/storage/concepts/storage-class).
           type: string
         maxSize:
           description: |-
-            Maximum size of bucket.
-            For more information, see [Size limits](/docs/storage/operations/buckets/limit-max-volume)
+            Maximum size of the bucket.
+            For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume).
           type: string
           format: int64
         anonymousAccessFlags:
@@ -555,11 +669,14 @@ components:
       type: object
       properties:
         name:
+          description: Name of the bucket the HTTPS configuration is being deleted
+            for.
           type: string
     DeleteBucketMetadata:
       type: object
       properties:
         name:
+          description: Name of the bucket that is being deleted.
           type: string
     Empty:
       description: Empty JSON object `` {} ``.
@@ -577,60 +694,84 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     GetBucketRequestView:
-      description: |-
-        View allows to setup the amount of information
-        returned by the server.
-        Please note, that fetching extended information
-        may require additional permissions according to
-        bucket ACL and cloud access policy.
+      description: |2-
+         - VIEW_BASIC: Returns basic information about a bucket.
 
-         - VIEW_UNSPECIFIED: No specified view. Treated as basic value.
-         - VIEW_BASIC: Fetches basic information about bucket.
-         - VIEW_ACL: Fetches basic information with acl.
-         - VIEW_FULL: Includes all available fields in a bucket.
+        The following fields will _not_ be returned: [Bucket.acl](/docs/storage/api-ref/Bucket#representation), [Bucket.cors](/docs/storage/api-ref/Bucket#representation), [Bucket.websiteSettings](/docs/storage/api-ref/Bucket#representation),
+        [Bucket.lifecycleRules](/docs/storage/api-ref/Bucket#representation).
+         - VIEW_ACL: Returns basic information and access control list (ACL) for the bucket.
+
+        The following fields will _not_ be returned: [Bucket.cors](/docs/storage/api-ref/Bucket#representation), [Bucket.websiteSettings](/docs/storage/api-ref/Bucket#representation), [Bucket.lifecycleRules](/docs/storage/api-ref/Bucket#representation).
+         - VIEW_FULL: Returns full information about a bucket.
       type: string
       enum:
       - VIEW_BASIC
       - VIEW_ACL
       - VIEW_FULL
     HTTPSConfig:
+      description: A resource for HTTPS configuration of a bucket.
       type: object
       properties:
         name:
+          description: Name of the bucket.
           type: string
         sourceType:
           $ref: '#/components/schemas/HTTPSConfigSourceType_in_HTTPSConfig_sourceType'
         issuer:
+          description: Issuer of the TLS certificate.
           type: string
         subject:
+          description: Subject of the TLS certificate.
           type: string
         dnsNames:
+          description: List of DNS names of the TLS certificate (Subject Alternative
+            Name field).
           type: array
           items:
             type: string
         notBefore:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Start of the TLS certificate validity period (Not Before field).
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         notAfter:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            End of the TLS certificate validity period (Not After field)
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         certificateId:
+          description: |-
+            ID of the TLS certificate in Yandex Certificate Manager.
+
+            To get information about the certificate from Certificate Manager, make a
+            [get](/docs/certificate-manager/api-ref/Certificate/get) request.
           type: string
     HTTPSConfigSourceType:
+      description: |-
+        A resource for type of TLS certificate source.
+
+         - SOURCE_TYPE_SELF_MANAGED: Your certificate, uploaded directly.
+         - SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER: Certificate managed by Yandex Certificate Manager.
       type: string
       enum:
       - SOURCE_TYPE_SELF_MANAGED
-      - SOURCE_TYPE_MANAGED
+      - SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
     LifecycleRule:
+      description: |-
+        An object lifecycle rule resource for the bucket.
+        For details about the concept, see [documentation](/docs/storage/concepts/lifecycles).
       type: object
       properties:
         id:
+          description: ID of the rule. Provided by the client or generated at creation
+            time.
           type: string
         enabled:
+          description: Indicates whether the rule is in effect.
           type: boolean
           format: boolean
         filter:
@@ -638,6 +779,16 @@ components:
         expiration:
           $ref: '#/components/schemas/LifecycleRuleExpiration_in_LifecycleRule_expiration'
         transitions:
+          description: |-
+            List of transition rules.
+
+            The transition of an object is described as follows.
+
+            For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_DISABLED`), the object is transitioned to the
+            specified storage class.
+
+            For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_ENABLED`) or suspended
+            (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
           type: array
           items:
             $ref: '#/components/schemas/LifecycleRuleTransition'
@@ -646,6 +797,11 @@ components:
         noncurrentExpiration:
           $ref: '#/components/schemas/LifecycleRuleNoncurrentExpiration_in_LifecycleRule_noncurrentExpiration'
         noncurrentTransitions:
+          description: |-
+            List of transition rules for non-current versions of objects in a bucket with versioning enabled
+            ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+
+            At transition, the non-current version of the object is transitioned to the specified storage class.
           type: array
           items:
             $ref: '#/components/schemas/LifecycleRuleNoncurrentTransition'
@@ -653,6 +809,9 @@ components:
       type: object
       properties:
         daysAfterExpiration:
+          description: |-
+            Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
+            aborted.
           type: integer
           format: int64
     LifecycleRuleExpiration:
@@ -660,67 +819,118 @@ components:
       properties:
         date:
           description: |-
-            If date is set, days parameter not allowed
+            Specific date of object expiration.
+
+            The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
+            immediately.
+
+            Exactly one of `date`, `days`, and `expiredObjectDeleteMarker` fields can be specified.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         days:
-          description: If days are set, date parameter not allowed
+          description: |-
+            Time period, in number of days from the creation or modification of the object, after which an object expires.
+
+            Exactly one of `days`, `date`, and `expiredObjectDeleteMarker` fields can be specified.
           type: integer
           format: int64
         expiredObjectDeleteMarker:
           description: |-
-            if expired_object_delete_marker is set, other parameters
-            are not allowed.
+            Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
+            delete marker) is removed at the object's expiration.
+
+            Exactly one of `expiredObjectDeleteMarker`, `date`, and `days` fields can be specified.
           type: boolean
           format: boolean
     LifecycleRuleNoncurrentExpiration:
       type: object
       properties:
         noncurrentDays:
+          description: |-
+            Time period, in number of days since the version of an object was classified as non-current, after which the
+            version expires.
           type: integer
           format: int64
     LifecycleRuleNoncurrentTransition:
+      description: |-
+        List of transition rules for non-current versions of objects in a bucket with versioning enabled
+        ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+
+        At transition, the non-current version of the object is transitioned to the specified storage class.
       type: object
       properties:
         noncurrentDays:
+          description: |-
+            Time period, in number of days since the version of an object was classified as non-current, after which the
+            version is transitioned.
           type: integer
           format: int64
         storageClass:
-          description: Required.
+          description: |-
+            Required.
+            Storage class to which a non-current version of an object is transitioned.
+
+            The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+            to standard storage are not allowed.
           type: string
     LifecycleRuleRuleFilter:
       type: object
       properties:
         prefix:
+          description: Key prefix that the object must have in order for the rule
+            to apply.
           type: string
     LifecycleRuleTransition:
+      description: |-
+        List of transition rules.
+
+        The transition of an object is described as follows.
+
+        For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_DISABLED`), the object is transitioned to the
+        specified storage class.
+
+        For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_ENABLED`) or suspended
+        (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
       type: object
       properties:
         date:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Specific date of object transition.
+
+            The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are
+            transitioned immediately.
+
+            At most one of `date` and `days` fields can be specified.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         days:
+          description: |-
+            Time period, in number of days from the creation or modification of the object, after which an object is
+            transitioned.
+
+            At most one of `days` and `date` fields can be specified.
           type: integer
           format: int64
         storageClass:
-          description: Required.
+          description: |-
+            Required.
+            Storage class to which an object is transitioned.
+
+            The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+            to standard storage are not allowed.
           type: string
     ListBucketsResponse:
       type: object
       properties:
         buckets:
-          description: list of buckets that satisfies request.
+          description: List of buckets in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/Bucket'
-    ManagedHTTPSConfigParams:
-      description: ManagedHTTPSConfigParams allows manage HTTPS by our services.
-      type: object
-      properties: {}
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -779,30 +989,41 @@ components:
               Any method that returns a long-running operation should document the response type, if any.
             type: object
     OptionalSizeByClass:
+      description: A resource for size of available space in a bucket for a storage
+        class.
       type: object
       properties:
         storageClass:
+          description: |-
+            Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
+            `NEARLINE` all synonyms).
+            For details, see [documentation](/docs/storage/concepts/storage-class).
           type: string
         classSize:
+          description: Size of available space in the bucket for the storage class.
           type: integer
           format: int64
     SelfManagedHTTPSConfigParams:
-      description: |-
-        SelfManagedHTTPSConfigParams accepts created by yourself a pair
-        or certificate and private key and uses it to serve https connection.
-        For more information, see [Own certificate](/docs/storage/operations/hosting/certificate#own)
       type: object
       properties:
         certificatePem:
-          description: The maximum string length in characters is 3145728.
+          description: |-
+            [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate.
+
+            The maximum string length in characters is 3145728.
           type: string
         privateKeyPem:
-          description: The maximum string length in characters is 3145728.
+          description: |-
+            [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate.
+
+            The maximum string length in characters is 3145728.
           type: string
     SetBucketHTTPSConfigMetadata:
       type: object
       properties:
         name:
+          description: Name of the bucket the HTTPS configuration is being updated
+            for.
           type: string
     SetBucketHTTPSConfigRequest:
       type: object
@@ -813,16 +1034,29 @@ components:
         properties:
           selfManaged:
             $ref: '#/components/schemas/SelfManagedHTTPSConfigParams'
-          managed:
-            $ref: '#/components/schemas/ManagedHTTPSConfigParams'
+            description: |-
+              Your TLS certificate, uploaded directly.
+
+              Object Storage only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates.
           certificateManager:
             $ref: '#/components/schemas/CertificateManagerHTTPSConfigParams'
+            description: |-
+              TLS certificate from Yandex Certificate Manager.
+
+              To create a certificate in Certificate Manager, make a
+              [create](/docs/certificate-manager/api-ref/Certificate/create) request.
     SizeByClass:
+      description: A resource for size of used space in a bucket for a storage class.
       type: object
       properties:
         storageClass:
+          description: |-
+            Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
+            `NEARLINE` all synonyms).
+            For details, see [documentation](/docs/storage/concepts/storage-class).
           type: string
         classSize:
+          description: Size of used space in the bucket for the storage class.
           type: string
           format: int64
     Status:
@@ -845,17 +1079,9 @@ components:
       type: object
       properties:
         name:
+          description: Name of the bucket that is being updated.
           type: string
     UpdateBucketRequest:
-      description: |-
-        UpdateBucketRequest acts like patch method in HTTP world
-        In order to update most of the properties, the user must
-        have the appropriate permissions.
-
-        In most cases, storage.editor permission should be enough, but
-        might be limited by the bucket's Policy.
-
-        For more information, see [Policy](/docs/storage/concepts/policy)
       type: object
       properties:
         fieldMask:
@@ -864,19 +1090,20 @@ components:
           $ref: '#/components/schemas/AnonymousAccessFlags_in_UpdateBucketRequest_anonymousAccessFlags'
         defaultStorageClass:
           description: |-
-            Storage class of bucket.
-            For more information, see [Storage Class](/docs/storage/concepts/storage-class)
+            Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
+            cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
+            For details, see [documentation](/docs/storage/concepts/storage-class).
           type: string
         maxSize:
           description: |-
-            Maximum size of bucket.
-            For more information, see [Size limits](/docs/storage/operations/buckets/limit-max-volume)
+            Maximum size of the bucket, in bytes.
+            For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume).
           type: string
           format: int64
         cors:
           description: |-
-            CORS settings for bucket, hosted as website.
-            For more information, see [CORS](/docs/storage/concepts/cors)
+            List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS).
+            For details, see [documentation](/docs/storage/concepts/cors).
           type: array
           items:
             $ref: '#/components/schemas/CorsRule'
@@ -886,19 +1113,36 @@ components:
           $ref: '#/components/schemas/Versioning_in_UpdateBucketRequest_versioning'
         lifecycleRules:
           description: |-
-            Objects's lifecycle rules.
-            For more information, see [Lifecycles](/docs/storage/concepts/lifecycles)
+            List of object lifecycle rules for the bucket.
+            For details, see [documentation](/docs/storage/concepts/lifecycles).
           type: array
           items:
             $ref: '#/components/schemas/LifecycleRule'
         policy:
           description: |-
-            Bucket's policy.
-            For more information, see [Bucket Policy](/docs/storage/concepts/policy)
+            Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects.
+            For details, see [documentation](/docs/storage/concepts/policy).
           type: object
         acl:
           $ref: '#/components/schemas/ACL_in_UpdateBucketRequest_acl'
     Versioning:
+      description: |2-
+         - VERSIONING_DISABLED: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
+        Objects that are stored in the bucket have a version ID of `null`.
+
+        To enable versioning, change status to `VERSIONING_ENABLED` via a [update](/docs/storage/api-ref/Bucket/update) request. Note that this
+        action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.
+         - VERSIONING_ENABLED: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that
+        already existed at the time versioning was enabled will be versioned and given a unique version ID when modified
+        by future requests.
+
+        To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [update](/docs/storage/api-ref/Bucket/update) request. You cannot
+        disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep
+        them.
+         - VERSIONING_SUSPENDED: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time
+        versioning was suspended are still versioned and keep their version IDs.
+
+        To resume versioning, change status to `VERSIONING_ENABLED` via a [update](/docs/storage/api-ref/Bucket/update) request.
       type: string
       enum:
       - VERSIONING_DISABLED
@@ -909,15 +1153,20 @@ components:
       properties:
         index:
           description: |-
-            index points to entrypoint of the website.
-            Either property "index" or "redirect_all_requests"
-            should be set in order to operate.
+            Key of the index page object that is returned when a response is made to the root of the website.
+
+            Either `index` or `redirectAllRequests` must be specified in order for the bucket to host a static website.
+
+            If specified, the index page object must be located in the root of the bucket.
           type: string
         error:
+          description: Key of the error page object that is returned when an error
+            occurs.
           type: string
         redirectAllRequests:
           $ref: '#/components/schemas/WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests'
         routingRules:
+          description: List of redirect rules.
           type: array
           items:
             $ref: '#/components/schemas/WebsiteSettingsRoutingRule'
@@ -925,10 +1174,16 @@ components:
       type: object
       properties:
         httpErrorCodeReturnedEquals:
+          description: HTTP status code (number only) that must match for the redirect
+            to apply.
           type: string
         keyPrefixEquals:
+          description: Prefix of the object key from which requests are redirected.
           type: string
     WebsiteSettingsProtocol:
+      description: |2-
+         - PROTOCOL_HTTP: `http` scheme.
+         - PROTOCOL_HTTPS: `https` scheme.
       type: string
       enum:
       - PROTOCOL_HTTP
@@ -937,21 +1192,32 @@ components:
       type: object
       properties:
         hostname:
+          description: Hostname of the redirect URI.
           type: string
         httpRedirectCode:
           description: |-
-            http_redirect_code allowed values ranges between 301 and 399.
-            by default value 301 will be used.
+            HTTP status code of the redirect response.
+
+            Default value: `"301"`.
 
             Value must match the regular expression `` 3(0[1-9]|[1-9][0-9]) ``.
           type: string
         protocol:
           $ref: '#/components/schemas/WebsiteSettingsProtocol_in_WebsiteSettingsRedirect_protocol'
         replaceKeyPrefixWith:
+          description: |-
+            Substitution for the prefix of the object key specified in `keyPrefixEquals`.
+
+            At most one of `replaceKeyPrefixWith` and `replaceKeyWith` can be specified.
           type: string
         replaceKeyWith:
+          description: |-
+            New object key.
+
+            At most one of `replaceKeyWith` and `replaceKeyPrefixWith` can be specified.
           type: string
     WebsiteSettingsRoutingRule:
+      description: List of redirect rules.
       type: object
       properties:
         condition:
@@ -959,21 +1225,42 @@ components:
         redirect:
           $ref: '#/components/schemas/WebsiteSettingsRedirect_in_WebsiteSettingsRoutingRule_redirect'
     WebsiteSettingsScheme:
+      description: A configuration resource for redirecting all requests sent to the
+        website.
       type: object
       properties:
         protocol:
           $ref: '#/components/schemas/WebsiteSettingsProtocol_in_WebsiteSettingsScheme_protocol'
         hostname:
+          description: Hostname of the redirect URI.
           type: string
     ACLGrantPermission_in_ACLGrant_permission:
       description: |-
         Required.
+        Permission granted by the grant.
 
-         - PERMISSION_FULL_CONTROL: header X-Amz-Grant-Full-Control
-         - PERMISSION_WRITE: header X-Amz-Grant-Write
-         - PERMISSION_WRITE_ACP: header X-Amz-Grant-Write-Acp
-         - PERMISSION_READ: header X-Amz-Grant-Read
-         - PERMISSION_READ_ACP: header X-Amz-Grant-Read-Acp
+         - PERMISSION_FULL_CONTROL: Allows grantee the `PERMISSION_WRITE`, `PERMISSION_WRITE_ACP`, `PERMISSION_READ`, and `PERMISSION_READ_ACP`
+        on the bucket.
+
+        Maps to `x-amz-grant-full-control` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+        Amazon S3-compatible HTTP API.
+         - PERMISSION_WRITE: Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also
+        allows deletions and overwrites of those objects.
+
+        Maps to `x-amz-grant-write` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
+        S3-compatible HTTP API.
+         - PERMISSION_WRITE_ACP: Allows grantee to write the ACL for the bucket.
+
+        Maps to `x-amz-grant-write-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+        Amazon S3-compatible HTTP API.
+         - PERMISSION_READ: Allows grantee to list the objects in the bucket.
+
+        Maps to `x-amz-grant-read` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
+        S3-compatible HTTP API.
+         - PERMISSION_READ_ACP: Allows grantee to read the bucket ACL
+
+        Maps to `x-amz-grant-read-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+        Amazon S3-compatible HTTP API.
       type: string
       enum:
       - PERMISSION_FULL_CONTROL
@@ -984,10 +1271,26 @@ components:
     ACLGrantGrantType_in_ACLGrant_grantType:
       description: |-
         Required.
+        The grantee type for the grant.
 
-         - GRANT_TYPE_ACCOUNT: equal to 'id' grantee value
-         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: equal to 'uri' authenticated users
-         - GRANT_TYPE_ALL_USERS: equal to 'uri' all users
+         - GRANT_TYPE_ACCOUNT: A grantee is a [Yandex Cloud account](/docs/iam/concepts/#accounts).
+
+        For this grantee type, you need to specify the user ID in [Bucket.acl.grants.granteeId](/docs/storage/api-ref/Bucket#representation) field. To get user ID, see
+        [instruction](/docs/iam/operations/users/get).
+
+        Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
+        method of Amazon S3-compatible HTTP API).
+         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated Yandex.Cloud users, both from your clouds and other users' clouds. Access
+        permission to this group allows any Yandex.Cloud account to access the resource via a signed (authenticated)
+        request.
+
+        Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
+        header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
+         - GRANT_TYPE_ALL_USERS: Grantees are all internet users. Access permission to this group allows anyone in the world access to the
+        resource via signed (authenticated) or unsigned (anonymous) requests.
+
+        Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for `x-amz-grant-*` header
+        ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
       type: string
       enum:
       - GRANT_TYPE_ACCOUNT
@@ -995,23 +1298,48 @@ components:
       - GRANT_TYPE_ALL_USERS
     AnonymousAccessFlags_in_Bucket_anonymousAccessFlags:
       description: |-
-        Access flags for anonymous access.
-        For more information, see [Bucket Access](/docs/storage/concepts/bucket#bucket-access)
+        Flags for configuring public (anonymous) access to the bucket's content and settings.
+        For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
       type: object
       properties:
         read:
+          description: Specifies whether public (anonymous) access to read objects
+            in the bucket is enabled.
           type: boolean
           format: boolean
         list:
+          description: Specifies whether public (anonymous) access to the list of
+            objects in the bucket is enabled.
           type: boolean
           format: boolean
         configRead:
+          description: |-
+            Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
+            [static website hosting](/docs/storage/concepts/hosting), and
+            [object lifecycles](/docs/storage/concepts/lifecycles) settings of the bucket is enabled.
           type: boolean
           format: boolean
     Versioning_in_Bucket_versioning:
       description: |-
-        Bucket's versioning mode.
-        For more information, see [Versioning](/docs/storage/concepts/versioning)
+        Bucket versioning status.
+        For details, see [documentation](/docs/storage/concepts/versioning).
+
+         - VERSIONING_DISABLED: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
+        Objects that are stored in the bucket have a version ID of `null`.
+
+        To enable versioning, change status to `VERSIONING_ENABLED` via a [update](/docs/storage/api-ref/Bucket/update) request. Note that this
+        action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.
+         - VERSIONING_ENABLED: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that
+        already existed at the time versioning was enabled will be versioned and given a unique version ID when modified
+        by future requests.
+
+        To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [update](/docs/storage/api-ref/Bucket/update) request. You cannot
+        disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep
+        them.
+         - VERSIONING_SUSPENDED: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time
+        versioning was suspended are still versioned and keep their version IDs.
+
+        To resume versioning, change status to `VERSIONING_ENABLED` via a [update](/docs/storage/api-ref/Bucket/update) request.
       type: string
       enum:
       - VERSIONING_DISABLED
@@ -1019,145 +1347,226 @@ components:
       - VERSIONING_SUSPENDED
     ACL_in_Bucket_acl:
       description: |-
-        Bucket's ACL.
-        For more information, see [ACL](/docs/storage/concepts/acl)
-
-        ACL model.
+        Access control list (ACL) of the bucket.
+        For details, see [documentation](/docs/storage/concepts/acl).
       type: object
       properties:
         grants:
+          description: List of permissions granted and the grantees.
           type: array
           items:
             $ref: '#/components/schemas/ACLGrant'
     WebsiteSettings_in_Bucket_websiteSettings:
       description: |-
-        Website settings of bucket.
-        For more information, see [Static site hosting](/docs/storage/concepts/hosting)
+        Configuration for hosting a static website in the bucket.
+        For details, see [documentation](/docs/storage/concepts/hosting).
       type: object
       properties:
         index:
           description: |-
-            index points to entrypoint of the website.
-            Either property "index" or "redirect_all_requests"
-            should be set in order to operate.
+            Key of the index page object that is returned when a response is made to the root of the website.
+
+            Either `index` or `redirectAllRequests` must be specified in order for the bucket to host a static website.
+
+            If specified, the index page object must be located in the root of the bucket.
           type: string
         error:
+          description: Key of the error page object that is returned when an error
+            occurs.
           type: string
         redirectAllRequests:
           $ref: '#/components/schemas/WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests'
         routingRules:
+          description: List of redirect rules.
           type: array
           items:
             $ref: '#/components/schemas/WebsiteSettingsRoutingRule'
     AnonymousAccessFlags_in_BucketStats_anonymousAccessFlags:
+      description: |-
+        Flags for configuring public (anonymous) access to the bucket's content and settings.
+        For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
       type: object
       properties:
         read:
+          description: Specifies whether public (anonymous) access to read objects
+            in the bucket is enabled.
           type: boolean
           format: boolean
         list:
+          description: Specifies whether public (anonymous) access to the list of
+            objects in the bucket is enabled.
           type: boolean
           format: boolean
         configRead:
+          description: |-
+            Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
+            [static website hosting](/docs/storage/concepts/hosting), and
+            [object lifecycles](/docs/storage/concepts/lifecycles) settings of the bucket is enabled.
           type: boolean
           format: boolean
     Counters_in_CountersByClass_counters:
+      description: Object-related statistics for the storage class by type of upload.
       type: object
       properties:
         simpleObjectSize:
+          description: Total size of objects uploaded in single operation, in bytes.
           type: string
           format: int64
         simpleObjectCount:
+          description: Number of objects uploaded in single operation.
           type: string
           format: int64
         objectsPartsSize:
+          description: Total size of uploaded parts in incomplete multipart uploads,
+            in bytes.
           type: string
           format: int64
         objectsPartsCount:
+          description: Number of uploaded parts in incomplete multipart uploads.
           type: string
           format: int64
         multipartObjectsSize:
+          description: Total size of objects uploaded in multiple parts, in bytes.
           type: string
           format: int64
         multipartObjectsCount:
+          description: Number of objects uploaded in multiple parts.
           type: string
           format: int64
         activeMultipartCount:
+          description: Number of incomplete multipart uploads.
           type: string
           format: int64
     AnonymousAccessFlags_in_CreateBucketRequest_anonymousAccessFlags:
       description: |-
-        Access flags for anonymous access.
-        For more information, see [Bucket Access](/docs/storage/concepts/bucket#bucket-access)
+        Flags for configuring public (anonymous) access to the bucket's content and settings.
+        For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
       type: object
       properties:
         read:
+          description: Specifies whether public (anonymous) access to read objects
+            in the bucket is enabled.
           type: boolean
           format: boolean
         list:
+          description: Specifies whether public (anonymous) access to the list of
+            objects in the bucket is enabled.
           type: boolean
           format: boolean
         configRead:
+          description: |-
+            Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
+            [static website hosting](/docs/storage/concepts/hosting), and
+            [object lifecycles](/docs/storage/concepts/lifecycles) settings of the bucket is enabled.
           type: boolean
           format: boolean
     ACL_in_CreateBucketRequest_acl:
       description: |-
-        ACL of bucket.
-        For more information, see [Bucket Policy](/docs/storage/concepts/acl)
-
-        ACL model.
+        Access control list (ACL) of the bucket.
+        For details, see [documentation](/docs/storage/concepts/acl).
       type: object
       properties:
         grants:
+          description: List of permissions granted and the grantees.
           type: array
           items:
             $ref: '#/components/schemas/ACLGrant'
     HTTPSConfigSourceType_in_HTTPSConfig_sourceType:
+      description: |-
+        Type of TLS certificate source.
+
+        A resource for type of TLS certificate source.
+
+         - SOURCE_TYPE_SELF_MANAGED: Your certificate, uploaded directly.
+         - SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER: Certificate managed by Yandex Certificate Manager.
       type: string
       enum:
       - SOURCE_TYPE_SELF_MANAGED
-      - SOURCE_TYPE_MANAGED
+      - SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
     LifecycleRuleRuleFilter_in_LifecycleRule_filter:
+      description: |-
+        Filter that identifies the objects to which the rule applies.
+
+        If not specified, the rule applies to all objects in the bucket.
       type: object
       properties:
         prefix:
+          description: Key prefix that the object must have in order for the rule
+            to apply.
           type: string
     LifecycleRuleExpiration_in_LifecycleRule_expiration:
+      description: |-
+        Expiration rule.
+
+        The expiration of an object is described as follows.
+
+        For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_DISABLED`), the object is deleted and cannot be
+        recovered.
+
+        For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_ENABLED`), the current version of the
+        object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes
+        the current version of the object.
+
+        For the bucket with versioning suspended ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is `VERSIONING_SUSPENDED`), the current version of
+        the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a
+        delete marker becomes the current version of the object.
       type: object
       properties:
         date:
           description: |-
-            If date is set, days parameter not allowed
+            Specific date of object expiration.
+
+            The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
+            immediately.
+
+            Exactly one of `date`, `days`, and `expiredObjectDeleteMarker` fields can be specified.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         days:
-          description: If days are set, date parameter not allowed
+          description: |-
+            Time period, in number of days from the creation or modification of the object, after which an object expires.
+
+            Exactly one of `days`, `date`, and `expiredObjectDeleteMarker` fields can be specified.
           type: integer
           format: int64
         expiredObjectDeleteMarker:
           description: |-
-            if expired_object_delete_marker is set, other parameters
-            are not allowed.
+            Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
+            delete marker) is removed at the object's expiration.
+
+            Exactly one of `expiredObjectDeleteMarker`, `date`, and `days` fields can be specified.
           type: boolean
           format: boolean
     LifecycleRuleAfterDays_in_LifecycleRule_abortIncompleteMultipartUpload:
+      description: Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart).
       type: object
       properties:
         daysAfterExpiration:
+          description: |-
+            Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
+            aborted.
           type: integer
           format: int64
     LifecycleRuleNoncurrentExpiration_in_LifecycleRule_noncurrentExpiration:
+      description: |-
+        Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket#representation) is
+        `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+
+        At expiration, the non-current version of the object is deleted and cannot be recovered.
       type: object
       properties:
         noncurrentDays:
+          description: |-
+            Time period, in number of days since the version of an object was classified as non-current, after which the
+            version expires.
           type: integer
           format: int64
     FieldMask_in_UpdateBucketRequest_fieldMask:
       description: |-
         Required.
-        field_maks defines fields that should be updated.
+        Field mask that specifies which attributes of the bucket should be updated.
 
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
@@ -1170,43 +1579,73 @@ components:
       type: string
     AnonymousAccessFlags_in_UpdateBucketRequest_anonymousAccessFlags:
       description: |-
-        Access flags for anonymous access.
-        For more information, see [Bucket Access](/docs/storage/concepts/bucket#bucket-access)
+        Flags for configuring public (anonymous) access to the bucket's content and settings.
+        For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
       type: object
       properties:
         read:
+          description: Specifies whether public (anonymous) access to read objects
+            in the bucket is enabled.
           type: boolean
           format: boolean
         list:
+          description: Specifies whether public (anonymous) access to the list of
+            objects in the bucket is enabled.
           type: boolean
           format: boolean
         configRead:
+          description: |-
+            Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
+            [static website hosting](/docs/storage/concepts/hosting), and
+            [object lifecycles](/docs/storage/concepts/lifecycles) settings of the bucket is enabled.
           type: boolean
           format: boolean
     WebsiteSettings_in_UpdateBucketRequest_websiteSettings:
       description: |-
-        Website settings of bucket.
-        For more information, see [Static site hosting](/docs/storage/concepts/hosting)
+        Configuration for hosting a static website in the bucket.
+        For details, see [documentation](/docs/storage/concepts/hosting).
       type: object
       properties:
         index:
           description: |-
-            index points to entrypoint of the website.
-            Either property "index" or "redirect_all_requests"
-            should be set in order to operate.
+            Key of the index page object that is returned when a response is made to the root of the website.
+
+            Either `index` or `redirectAllRequests` must be specified in order for the bucket to host a static website.
+
+            If specified, the index page object must be located in the root of the bucket.
           type: string
         error:
+          description: Key of the error page object that is returned when an error
+            occurs.
           type: string
         redirectAllRequests:
           $ref: '#/components/schemas/WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests'
         routingRules:
+          description: List of redirect rules.
           type: array
           items:
             $ref: '#/components/schemas/WebsiteSettingsRoutingRule'
     Versioning_in_UpdateBucketRequest_versioning:
       description: |-
-        Bucket's versioning mode.
-        For more information, see [Versioning](/docs/storage/concepts/versioning)
+        Bucket versioning status.
+        For details, see [documentation](/docs/storage/concepts/versioning).
+
+         - VERSIONING_DISABLED: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
+        Objects that are stored in the bucket have a version ID of `null`.
+
+        To enable versioning, change status to `VERSIONING_ENABLED` via a [update](/docs/storage/api-ref/Bucket/update) request. Note that this
+        action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.
+         - VERSIONING_ENABLED: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that
+        already existed at the time versioning was enabled will be versioned and given a unique version ID when modified
+        by future requests.
+
+        To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [update](/docs/storage/api-ref/Bucket/update) request. You cannot
+        disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep
+        them.
+         - VERSIONING_SUSPENDED: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time
+        versioning was suspended are still versioned and keep their version IDs.
+
+        To resume versioning, change status to `VERSIONING_ENABLED` via a [update](/docs/storage/api-ref/Bucket/update) request.
       type: string
       enum:
       - VERSIONING_DISABLED
@@ -1214,64 +1653,90 @@ components:
       - VERSIONING_SUSPENDED
     ACL_in_UpdateBucketRequest_acl:
       description: |-
-        Bucket's ACL.
-        For more information, see [ACL](/docs/storage/concepts/acl)
-
-        ACL model.
+        Access control list (ACL) of the bucket.
+        For details, see [documentation](/docs/storage/concepts/acl).
       type: object
       properties:
         grants:
+          description: List of permissions granted and the grantees.
           type: array
           items:
             $ref: '#/components/schemas/ACLGrant'
     WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests:
       description: |-
-        redirect_all_requests redirects all requests to other uri.
-        If this field  used, no other fields should be defined.
+        Configuration for redirecting all requests sent to the website.
+
+        Either `redirectAllRequests` or `index` must be specified in order for the bucket to host a static website.
+        If `redirectAllRequests` is specified, it must be the only field in [Bucket.websiteSettings](/docs/storage/api-ref/Bucket#representation).
+
+        A configuration resource for redirecting all requests sent to the website.
       type: object
       properties:
         protocol:
           $ref: '#/components/schemas/WebsiteSettingsProtocol_in_WebsiteSettingsScheme_protocol'
         hostname:
+          description: Hostname of the redirect URI.
           type: string
     WebsiteSettingsProtocol_in_WebsiteSettingsRedirect_protocol:
+      description: |-
+        Scheme of the redirect URI.
+
+         - PROTOCOL_HTTP: `http` scheme.
+         - PROTOCOL_HTTPS: `https` scheme.
       type: string
       enum:
       - PROTOCOL_HTTP
       - PROTOCOL_HTTPS
     WebsiteSettingsCondition_in_WebsiteSettingsRoutingRule_condition:
+      description: Redirect condition.
       type: object
       properties:
         httpErrorCodeReturnedEquals:
+          description: HTTP status code (number only) that must match for the redirect
+            to apply.
           type: string
         keyPrefixEquals:
+          description: Prefix of the object key from which requests are redirected.
           type: string
     WebsiteSettingsRedirect_in_WebsiteSettingsRoutingRule_redirect:
+      description: Redirect instructions.
       type: object
       properties:
         hostname:
+          description: Hostname of the redirect URI.
           type: string
         httpRedirectCode:
           description: |-
-            http_redirect_code allowed values ranges between 301 and 399.
-            by default value 301 will be used.
+            HTTP status code of the redirect response.
+
+            Default value: `"301"`.
 
             Value must match the regular expression `` 3(0[1-9]|[1-9][0-9]) ``.
           type: string
         protocol:
           $ref: '#/components/schemas/WebsiteSettingsProtocol_in_WebsiteSettingsRedirect_protocol'
         replaceKeyPrefixWith:
+          description: |-
+            Substitution for the prefix of the object key specified in `keyPrefixEquals`.
+
+            At most one of `replaceKeyPrefixWith` and `replaceKeyWith` can be specified.
           type: string
         replaceKeyWith:
+          description: |-
+            New object key.
+
+            At most one of `replaceKeyWith` and `replaceKeyPrefixWith` can be specified.
           type: string
     WebsiteSettingsProtocol_in_WebsiteSettingsScheme_protocol:
-      description: by default, http will be used.
+      description: |-
+        Scheme of the redirect URI.
+
+         - PROTOCOL_HTTP: `http` scheme.
+         - PROTOCOL_HTTPS: `https` scheme.
       type: string
       enum:
       - PROTOCOL_HTTP
       - PROTOCOL_HTTPS
 tags:
 - name: Bucket
-  description: |-
-    BucketService is a control plane for managing buckets inside object
-    storage.
+  description: A set of methods for managing buckets.

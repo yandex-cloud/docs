@@ -4,20 +4,22 @@ editable: false
 
 # DatabaseService
 
-A set of methods for managing MySQL databases.
+A set of methods for managing MySQL databases in a cluster. 
+
+See [the documentation](/docs/managed-mysql/operations/databases) for details.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified MySQL database. |
-| [List](#List) | Retrieves the list of MySQL databases in the specified cluster. |
-| [Create](#Create) | Creates a new MySQL database in the specified cluster. |
-| [Delete](#Delete) | Deletes the specified MySQL database. |
+| [Get](#Get) | Retrieves information about the specified database. |
+| [List](#List) | Retrieves the list of databases in a cluster. |
+| [Create](#Create) | Creates a new database in a cluster. |
+| [Delete](#Delete) | Deletes a database from a cluster. |
 
 ## Calls DatabaseService {#calls}
 
 ## Get {#Get}
 
-Returns the specified MySQL database. <br>To get the list of available MySQL databases, make a [List](#List) request.
+Retrieves information about the specified database.
 
 **rpc Get ([GetDatabaseRequest](#GetDatabaseRequest)) returns ([Database](#Database))**
 
@@ -25,8 +27,8 @@ Returns the specified MySQL database. <br>To get the list of available MySQL dat
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster that the database belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the MySQL database to return. To get the name of the database use a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster that the database belongs to. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the database to return information about. <br>To get this name, make a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Database {#Database}
@@ -34,12 +36,12 @@ database_name | **string**<br>Required. Name of the MySQL database to return. To
 Field | Description
 --- | ---
 name | **string**<br>Name of the database. 
-cluster_id | **string**<br>ID of the MySQL cluster that the database belongs to. 
+cluster_id | **string**<br>ID of the cluster that the database belongs to. 
 
 
 ## List {#List}
 
-Retrieves the list of MySQL databases in the specified cluster.
+Retrieves the list of databases in a cluster.
 
 **rpc List ([ListDatabasesRequest](#ListDatabasesRequest)) returns ([ListDatabasesResponse](#ListDatabasesResponse))**
 
@@ -47,17 +49,17 @@ Retrieves the list of MySQL databases in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to list databases in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, Set `page_token` to the [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the cluster to list databases in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) that can be used to get the next page of results in the subsequent [DatabaseService.List](#List) requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListDatabasesResponse.next_page_token](#ListDatabasesResponse) returned by the previous [DatabaseService.List](#List) request. The maximum string length in characters is 100.
 
 
 ### ListDatabasesResponse {#ListDatabasesResponse}
 
 Field | Description
 --- | ---
-databases[] | **[Database](#Database1)**<br>List of MySQL databases. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDatabasesRequest.page_size](#ListDatabasesRequest), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#ListDatabasesRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+databases[] | **[Database](#Database1)**<br>List of databases. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListDatabasesRequest.page_size](#ListDatabasesRequest), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#ListDatabasesRequest) in the subsequent [DatabaseService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [DatabaseService.List] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Database {#Database1}
@@ -65,12 +67,12 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 name | **string**<br>Name of the database. 
-cluster_id | **string**<br>ID of the MySQL cluster that the database belongs to. 
+cluster_id | **string**<br>ID of the cluster that the database belongs to. 
 
 
 ## Create {#Create}
 
-Creates a new MySQL database in the specified cluster.
+Creates a new database in a cluster.
 
 **rpc Create ([CreateDatabaseRequest](#CreateDatabaseRequest)) returns ([operation.Operation](#Operation))**
 
@@ -82,15 +84,15 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to create a database in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of the database to create. 
+cluster_id | **string**<br>Required. ID of the cluster to create the database in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+database_spec | **[DatabaseSpec](#DatabaseSpec)**<br>Required. Configuration of the database. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MySQL database. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Required. Name of the database. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation}
@@ -113,8 +115,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster where a database is being created. 
-database_name | **string**<br>Name of the MySQL database that is being created. 
+cluster_id | **string**<br>ID of the cluster the database is being created in. 
+database_name | **string**<br>Name of the database that is being created. 
 
 
 ### Database {#Database2}
@@ -122,12 +124,12 @@ database_name | **string**<br>Name of the MySQL database that is being created.
 Field | Description
 --- | ---
 name | **string**<br>Name of the database. 
-cluster_id | **string**<br>ID of the MySQL cluster that the database belongs to. 
+cluster_id | **string**<br>ID of the cluster that the database belongs to. 
 
 
 ## Delete {#Delete}
 
-Deletes the specified MySQL database.
+Deletes a database from a cluster.
 
 **rpc Delete ([DeleteDatabaseRequest](#DeleteDatabaseRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -139,8 +141,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to delete a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-database_name | **string**<br>Required. Name of the database to delete. To get the name of the database, use a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster to delete the database from. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the database to delete. <br>To get this name, make a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation1}
@@ -163,7 +165,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster where a database is being deleted. 
-database_name | **string**<br>Name of the MySQL database that is being deleted. 
+cluster_id | **string**<br>ID of the cluster the database is being deleted from. 
+database_name | **string**<br>Name of the database that is being deleted. 
 
 

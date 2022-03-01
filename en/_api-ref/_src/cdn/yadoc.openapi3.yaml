@@ -14,6 +14,7 @@ paths:
       - Cache
       summary: Removes specified files from the cache of the specified resource. For
         details about purging, see [documentation](/docs/cdn/concepts/caching#purge).
+      description: Purging may take up to 15 minutes.
       operationId: CachePurge
       parameters:
       - name: resourceId
@@ -221,7 +222,10 @@ paths:
     patch:
       tags:
       - OriginGroup
-      summary: Updates origin group.
+      summary: Updates the specified origin group.
+      description: |-
+        Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge cache of the resources that
+        use the origin group via a [purge](/docs/cdn/api-ref/Cache/purge) request.
       operationId: OriginGroupUpdate
       requestBody:
         content:
@@ -313,7 +317,10 @@ paths:
     patch:
       tags:
       - Origin
-      summary: Updates origin from origin group.
+      summary: Updates the specified origin from the origin group.
+      description: |-
+        Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge cache of the resources that
+        use the origin via a [purge](/docs/cdn/api-ref/Cache/purge) request.
       operationId: OriginUpdate
       parameters:
       - name: originId
@@ -604,7 +611,12 @@ paths:
     patch:
       tags:
       - Resource
-      summary: Updates of client's CDN resource. (PATCH behavior)
+      summary: Updates the specified CDN resource.
+      description: |-
+        The method implements patch behaviour, i.e. only the fields specified in the request are updated in the resource.
+
+        Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge the resource's cache via a
+        [purge](/docs/cdn/api-ref/Cache/purge) request.
       operationId: ResourceUpdate
       parameters:
       - name: resourceId
@@ -683,7 +695,8 @@ paths:
     post:
       tags:
       - Resource
-      summary: Creates client's CDN resource.
+      summary: Creates a CDN resource in the specified folder.
+      description: Creation may take up to 15 minutes.
       operationId: ResourceCreate
       requestBody:
         content:

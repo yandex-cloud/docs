@@ -36,6 +36,8 @@ paths:
       tags:
       - Operation
       summary: Cancels the specified operation.
+      description: Note that currently Yandex Object Storage API does not support
+        cancelling operations.
       operationId: OperationCancel
       parameters:
       - name: operationId

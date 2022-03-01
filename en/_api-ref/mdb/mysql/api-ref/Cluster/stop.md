@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method stop
-Stops the specified MySQL cluster.
+Stops a cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:stop
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MySQL cluster to stop.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to stop.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -27,6 +27,14 @@ items:
         href: api-ref/Cluster/stop.md
       - name: update
         href: api-ref/Cluster/update.md
+  - name: ResourcePreset
+    items:
+      - name: Overview
+        href: api-ref/ResourcePreset/index.md
+      - name: get
+        href: api-ref/ResourcePreset/get.md
+      - name: list
+        href: api-ref/ResourcePreset/list.md
   - name: Operation
     items:
       - name: Overview

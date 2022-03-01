@@ -7,8 +7,8 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[Backup](Backup/index.md) | A set of methods for managing MySQL backups.
+[Backup](Backup/index.md) | A set of methods for managing MySQL backups.  See [the documentation](/docs/managed-mysql/operations/cluster-backups) for details.
 [Cluster](Cluster/index.md) | A set of methods for managing MySQL clusters.
-[Database](Database/index.md) | A set of methods for managing MySQL databases.
-[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets.
-[User](User/index.md) | A set of methods for managing MySQL users.
+[Database](Database/index.md) | A set of methods for managing MySQL databases in a cluster.  See [the documentation](/docs/managed-mysql/operations/databases) for details.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing MySQL resource presets.  See [the documentation](/docs/managed-mysql/concepts/instance-types) for details.
+[User](User/index.md) | A set of methods for managing MySQL users.  See [the documentation](/docs/managed-mysql/operations/cluster-users) for details.

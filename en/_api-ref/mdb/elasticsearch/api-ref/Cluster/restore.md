@@ -64,7 +64,14 @@ POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters:restore
   ],
   "serviceAccountId": "string",
   "deletionProtection": true,
-  "folderId": "string"
+  "folderId": "string",
+  "extensionSpecs": [
+    {
+      "name": "string",
+      "uri": "string",
+      "disabled": true
+    }
+  ]
 }
 ```
 
@@ -106,6 +113,10 @@ securityGroupIds[] | **string**<br><p>User security groups</p>
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 folderId | **string**<br><p>Required. ID of the folder to create the ElasticSearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
+extensionSpecs[] | **object**<br>
+extensionSpecs[].<br>name | **string**<br><p>Required. Name of the extension.</p> <p>The maximum string length in characters is 50.</p> 
+extensionSpecs[].<br>uri | **string**<br><p>URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
+extensionSpecs[].<br>disabled | **boolean** (boolean)<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

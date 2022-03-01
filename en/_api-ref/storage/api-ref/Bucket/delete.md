@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Delete the specified bucket.
+Deletes the specified bucket.
  
 
  
@@ -16,7 +16,7 @@ DELETE https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}
  
 Parameter | Description
 --- | ---
-name | Required. Unique name of the bucket. To get the bucket name, use [list](/docs/storage/api-ref/Bucket/list) request.
+name | Required. Name of the bucket to update.  To get the bucket name, make a [list](/docs/storage/api-ref/Bucket/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

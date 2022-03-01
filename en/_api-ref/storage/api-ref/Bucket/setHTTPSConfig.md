@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method setHTTPSConfig
-Inserts HTTPS configuration for bucket.
+Updates the HTTPS configuration for the specified bucket.
  
-
+The updated configuration could take up to 30 minutes to apply to the bucket.
  
 ## HTTP request {#https-request}
 ```
@@ -16,19 +16,18 @@ POST https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}:setHttpsConf
  
 Parameter | Description
 --- | ---
-name | Required. Bucket name
+name | Required. Name of the bucket to update the HTTPS configuration for.
  
 ## Body parameters {#body_params}
  
 ```json 
 {
 
-  //  includes only one of the fields `selfManaged`, `managed`, `certificateManager`
+  //  includes only one of the fields `selfManaged`, `certificateManager`
   "selfManaged": {
     "certificatePem": "string",
     "privateKeyPem": "string"
   },
-  "managed": {},
   "certificateManager": {
     "certificateId": "string"
   },
@@ -40,12 +39,11 @@ name | Required. Bucket name
  
 Field | Description
 --- | ---
-selfManaged | **object** <br> includes only one of the fields `selfManaged`, `managed`, `certificateManager`<br><br><p>SelfManagedHTTPSConfigParams accepts created by yourself a pair or certificate and private key and uses it to serve https connection. For more information, see <a href="/docs/storage/operations/hosting/certificate#own">Own certificate</a></p> 
-selfManaged.<br>certificatePem | **string**<br><p>The maximum string length in characters is 3145728.</p> 
-selfManaged.<br>privateKeyPem | **string**<br><p>The maximum string length in characters is 3145728.</p> 
-managed | **object** <br> includes only one of the fields `selfManaged`, `managed`, `certificateManager`<br><br><p>ManagedHTTPSConfigParams allows manage HTTPS by our services.</p> 
-certificateManager | **object** <br> includes only one of the fields `selfManaged`, `managed`, `certificateManager`<br><br><p>CertificateManagerHTTPSConfigParams allows to set existing certificate from certificate manager. For more information, see <a href="/docs/storage/operations/hosting/certificate#cert-manager">Own certificate</a></p> 
-certificateManager.<br>certificateId | **string**<br>
+selfManaged | **object**<br>Your TLS certificate, uploaded directly.  Object Storage only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates. <br> includes only one of the fields `selfManaged`, `certificateManager`<br><br>
+selfManaged.<br>certificatePem | **string**<br><p><a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">PEM</a>-encoded certificate.</p> <p>The maximum string length in characters is 3145728.</p> 
+selfManaged.<br>privateKeyPem | **string**<br><p><a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">PEM</a>-encoded private key for the certificate.</p> <p>The maximum string length in characters is 3145728.</p> 
+certificateManager | **object**<br>TLS certificate from Yandex Certificate Manager.  To create a certificate in Certificate Manager, make a [create](/docs/certificate-manager/api-ref/Certificate/create) request. <br> includes only one of the fields `selfManaged`, `certificateManager`<br><br><p>A resource for a TLS certificate from Yandex Certificate Manager.</p> 
+certificateManager.<br>certificateId | **string**<br><p>ID of the certificate.</p> <p>To get the list of all available certificates, make a <a href="/docs/certificate-manager/api-ref/Certificate/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

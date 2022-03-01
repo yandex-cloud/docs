@@ -67,6 +67,20 @@ items:
         href: api-ref/Cluster/streamLogs.md
       - name: update
         href: api-ref/Cluster/update.md
+  - name: Extension
+    items:
+      - name: Overview
+        href: api-ref/Extension/index.md
+      - name: create
+        href: api-ref/Extension/create.md
+      - name: delete
+        href: api-ref/Extension/delete.md
+      - name: get
+        href: api-ref/Extension/get.md
+      - name: list
+        href: api-ref/Extension/list.md
+      - name: update
+        href: api-ref/Extension/update.md
   - name: ResourcePreset
     items:
       - name: Overview

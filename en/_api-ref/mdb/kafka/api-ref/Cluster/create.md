@@ -313,7 +313,7 @@ topicSpecs[].<br>topicConfig_2_8.<br>minInsyncReplicas | **integer** (int64)<br>
 topicSpecs[].<br>topicConfig_2_8.<br>segmentBytes | **integer** (int64)<br><p>This configuration controls the segment file size for the log. Retention and cleaning is always done a file at a time so a larger segment size means fewer files but less granular control over retention.</p> <p>This setting overrides the cluster-level ``logSegmentBytes`` setting on the topic level.</p> 
 topicSpecs[].<br>topicConfig_2_8.<br>preallocate | **boolean** (boolean)<br><p>True if we should preallocate the file on disk when creating a new log segment.</p> <p>This setting overrides the cluster-level ``logPreallocate`` setting on the topic level.</p> 
 userSpecs[] | **object**<br><p>Configurations of accounts to be created in the Apache Kafka® cluster.</p> 
-userSpecs[].<br>name | **string**<br><p>Required. Name of the Kafka user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userSpecs[].<br>name | **string**<br><p>Required. Name of the Kafka user.</p> <p>The string length in characters must be 1-256. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
 userSpecs[].<br>password | **string**<br><p>Required. Password of the Kafka user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpecs[].<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
 userSpecs[].<br>permissions[].<br>topicName | **string**<br><p>Name or prefix-pattern with wildcard for the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 

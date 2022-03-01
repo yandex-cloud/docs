@@ -95,7 +95,7 @@ paths:
           folder contains more endpoints than page_size, next_page_token will be included
           in the response message. Include it into the subsequent ListEndpointRequest to
           fetch the next page. Defaults to 100 if not specified. The maximum allowed value
-          for this field is 100.
+          for this field is 500.
         schema:
           type: string
           format: int64
@@ -246,7 +246,7 @@ paths:
           folder contains more transfers than page_size, next_page_token will be included
           in the response message. Include it into the subsequent ListTransfersRequest to
           fetch the next page. Defaults to 100 if not specified. The maximum allowed value
-          for this field is 100.
+          for this field is 500.
         schema:
           type: string
           format: int64
@@ -332,6 +332,12 @@ components:
     ActivateTransferRequest:
       type: object
       properties: {}
+    CleanupPolicy:
+      type: string
+      enum:
+      - DISABLED
+      - DROP
+      - TRUNCATE
     CreateEndpointMetadata:
       type: object
       properties:
@@ -585,6 +591,14 @@ components:
             Is used for parsing timestamps for saving source timezones. Accepts values from
             IANA timezone database. Default: local timezone.
           type: string
+        cleanupPolicy:
+          $ref: '#/components/schemas/CleanupPolicy_in_MysqlTarget_cleanupPolicy'
+        serviceDatabase:
+          description: |-
+            Database schema for service table
+
+            Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
+          type: string
     ObjectTransferStage:
       type: string
       enum:
@@ -766,8 +780,8 @@ components:
           description: |-
             Included tables
 
-            If none or empty list is presented, all tables are replicated. Can contain
-            regular expression.
+            If none or empty list is presented, all tables are replicated. Full table name
+            with schema. Can contain schema_name.* patterns.
           type: array
           items:
             type: string
@@ -775,8 +789,8 @@ components:
           description: |-
             Excluded tables
 
-            If none or empty list is presented, all tables are replicated. Can contain
-            regular expression.
+            If none or empty list is presented, all tables are replicated. Full table name
+            with schema. Can contain schema_name.* patterns.
           type: array
           items:
             type: string
@@ -814,6 +828,8 @@ components:
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_PostgresTarget_password'
+        cleanupPolicy:
+          $ref: '#/components/schemas/CleanupPolicy_in_PostgresTarget_cleanupPolicy'
     Secret:
       type: object
       allOf:
@@ -1107,6 +1123,17 @@ components:
           raw:
             description: Password
             type: string
+    CleanupPolicy_in_MysqlTarget_cleanupPolicy:
+      description: |-
+        Cleanup policy
+
+        Cleanup policy for activate, reactivate and reupload processes. Default is
+        DISABLED.
+      type: string
+      enum:
+      - DISABLED
+      - DROP
+      - TRUNCATE
     TLSMode_in_OnPremiseMysql_tlsMode:
       description: |-
         TLS mode
@@ -1410,6 +1437,17 @@ components:
           raw:
             description: Password
             type: string
+    CleanupPolicy_in_PostgresTarget_cleanupPolicy:
+      description: |-
+        Cleanup policy
+
+        Cleanup policy for activate, reactivate and reupload processes. Default is
+        DISABLED.
+      type: string
+      enum:
+      - DISABLED
+      - DROP
+      - TRUNCATE
     Endpoint_in_Transfer_source:
       type: object
       properties:

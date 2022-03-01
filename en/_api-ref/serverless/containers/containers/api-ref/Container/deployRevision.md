@@ -40,7 +40,15 @@ POST https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions:
     "environment": "object",
     "workingDir": "string"
   },
-  "concurrency": "string"
+  "concurrency": "string",
+  "secrets": [
+    {
+      "id": "string",
+      "versionId": "string",
+      "key": "string",
+      "environmentVariable": "string"
+    }
+  ]
 }
 ```
 
@@ -64,6 +72,11 @@ imageSpec.<br>args.<br>args[] | **string**<br>
 imageSpec.<br>environment | **object**<br><p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
 imageSpec.<br>workingDir | **string**<br>
 concurrency | **string** (int64)<br>
+secrets[] | **object**<br>
+secrets[].<br>id | **string**<br>
+secrets[].<br>versionId | **string**<br>
+secrets[].<br>key | **string**<br>
+secrets[].<br>environmentVariable | **string**<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

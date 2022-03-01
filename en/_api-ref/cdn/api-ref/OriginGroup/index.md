@@ -70,4 +70,4 @@ Method | Description
 [delete](delete.md) | Deletes origin group with specified origin group id.
 [get](get.md) | Gets origin group with specified origin group id.
 [list](list.md) | Lists origins of origin group.
-[update](update.md) | Updates origin group.
+[update](update.md) | Updates the specified origin group.

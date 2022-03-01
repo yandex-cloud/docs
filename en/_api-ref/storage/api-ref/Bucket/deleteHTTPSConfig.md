@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method deleteHTTPSConfig
-
+Deletes the HTTPS configuration for the specified bucket.
  
 
  
@@ -16,7 +16,7 @@ POST https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}:deleteHttpsC
  
 Parameter | Description
 --- | ---
-name | Required.
+name | Required. Name of the bucket to delete the HTTPS configuration for.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

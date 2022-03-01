@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method get
-Returns the specified resource preset.
+Retrieves information about a resource preset.
  
-To get the list of available resource presets, make a [list](/docs/managed-mysql/api-ref/ResourcePreset/list) request.
+
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/resourcePresets/{resourceP
  
 Parameter | Description
 --- | ---
-resourcePresetId | Required. ID of the resource preset to return. To get the resource preset ID, use a [list](/docs/managed-mysql/api-ref/ResourcePreset/list) request.
+resourcePresetId | Required. ID of the resource preset to return information about.  To get this ID, make a [list](/docs/managed-mysql/api-ref/ResourcePreset/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -31,11 +31,14 @@ resourcePresetId | Required. ID of the resource preset to return. To get the res
   "memory": "string"
 }
 ```
-A preset of resources for hardware configuration of MySQL hosts.
+An object that represents MySQL resource preset.
+A resource preset defines hardware configuration for cluster hosts.
+
+See [the documentation](/docs/managed-mysql/concepts/instance-types) for details.
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the resource preset.</p> 
+id | **string**<br><p>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host.</p> 
 zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
 cores | **string** (int64)<br><p>Number of CPU cores for a MySQL host created with the preset.</p> 
 memory | **string** (int64)<br><p>RAM volume for a MySQL host created with the preset, in bytes.</p> 

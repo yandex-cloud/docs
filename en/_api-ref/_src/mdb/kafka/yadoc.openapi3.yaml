@@ -3373,7 +3373,7 @@ components:
             Required.
             Name of the Kafka user.
 
-            The string length in characters must be 1-63.
+            The string length in characters must be 1-256.
             Value must match the regular expression `` [a-zA-Z0-9_]* ``.
           type: string
         password:
@@ -3843,7 +3843,7 @@ components:
             Required.
             Name of the Kafka user.
 
-            The string length in characters must be 1-63.
+            The string length in characters must be 1-256.
             Value must match the regular expression `` [a-zA-Z0-9_]* ``.
           type: string
         password:

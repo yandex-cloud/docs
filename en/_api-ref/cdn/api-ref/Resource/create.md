@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method create
-Creates client's CDN resource.
+Creates a CDN resource in the specified folder.
  
-
+Creation may take up to 15 minutes.
  
 ## HTTP request {#https-request}
 ```

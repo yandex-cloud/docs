@@ -283,6 +283,7 @@ security_group_ids[] | **string**<br>User security groups
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
+extension_specs[] | **[ExtensionSpec](#ExtensionSpec)**<br> 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -358,6 +359,15 @@ Field | Description
 --- | ---
 day | enum **WeekDay**<br> <ul><ul/>
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### ExtensionSpec {#ExtensionSpec}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the extension. The maximum string length in characters is 50.
+uri | **string**<br>URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
+disabled | **bool**<br> 
 
 
 ### Operation {#Operation}
@@ -1325,6 +1335,7 @@ security_group_ids[] | **string**<br>User security groups
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 folder_id | **string**<br>Required. ID of the folder to create the ElasticSearch cluster in. The maximum string length in characters is 50.
+extension_specs[] | **[ExtensionSpec](#ExtensionSpec1)**<br> 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -1371,6 +1382,15 @@ subnet_id | **string**<br>ID of the subnet the host resides in. The maximum stri
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
 type | **[Host.Type](#Host)**<br>Required. Host type. 
 shard_name | **string**<br>The shard name to create on the host. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+
+
+### ExtensionSpec {#ExtensionSpec1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the extension. The maximum string length in characters is 50.
+uri | **string**<br>URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
+disabled | **bool**<br> 
 
 
 ### Operation {#Operation7}

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method addHosts
-Creates new hosts for a cluster.
+Adds new hosts in a cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/host
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MySQL cluster to add hosts to. To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to add hosts to.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -28,7 +28,8 @@ clusterId | Required. ID of the MySQL cluster to add hosts to. To get the MySQL 
       "subnetId": "string",
       "assignPublicIp": true,
       "replicationSource": "string",
-      "backupPriority": "string"
+      "backupPriority": "string",
+      "priority": "string"
     }
   ]
 }
@@ -37,12 +38,13 @@ clusterId | Required. ID of the MySQL cluster to add hosts to. To get the MySQL 
  
 Field | Description
 --- | ---
-hostSpecs[] | **object**<br><p>Required. Configurations for MySQL hosts that should be added to the cluster.</p> <p>Must contain at least one element.</p> 
-hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-mysql/api-ref/Cluster#representation">Cluster.networkId</a>.</p> <p>The maximum string length in characters is 50.</p> 
-hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with ``assignPublicIp`` set as needed.</p> <p>Possible values:</p> <ul> <li>false - don't assign a public IP to the host.</li> <li>true - the host should have a public IP address.</li> </ul> 
+hostSpecs[] | **object**<br><p>Required. Configuration of the newly added hosts.</p> <p>Must contain at least one element.</p> 
+hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> <p>To get a list of available zones, make the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet to assign to the host.</p> <p>This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id]).</p> <p>The maximum string length in characters is 50.</p> 
+hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Option that enables public IP address for the host so that the host can be accessed from the internet.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP address, or to assign a public IP address to a host without one, recreate the host with the appropriate ``assignPublicIp`` value set.</p> <p>Possible values:</p> <ul> <li>``false`` - don't assign a public IP address to the host.</li> <li>``true`` - assign a public IP address to the host.</li> </ul> 
 hostSpecs[].<br>replicationSource | **string**<br><p>``name`` of the host to be used as the replication source (for cascading replication).</p> 
-hostSpecs[].<br>backupPriority | **string** (int64)<br><p>Host backup priority</p> 
+hostSpecs[].<br>backupPriority | **string** (int64)<br><p>Host backup priority</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
+hostSpecs[].<br>priority | **string** (int64)<br><p>Host master promotion priority</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

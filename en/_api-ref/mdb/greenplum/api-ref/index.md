@@ -8,3 +8,4 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [Cluster](Cluster/index.md) | A set of methods for managing Greenplum® clusters.
+[ResourcePreset](ResourcePreset/index.md) | A set of methods for managing resource presets.

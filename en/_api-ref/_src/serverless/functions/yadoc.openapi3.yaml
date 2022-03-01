@@ -1277,7 +1277,7 @@ components:
           description: |-
             Amount of memory available to the version, specified in bytes.
 
-            Acceptable values are 134217728 to 2147483648, inclusive.
+            Acceptable values are 134217728 to 4294967296, inclusive.
           type: string
           format: int64
     ScalingPolicy:
@@ -1711,7 +1711,7 @@ components:
           description: |-
             Amount of memory available to the version, specified in bytes.
 
-            Acceptable values are 134217728 to 2147483648, inclusive.
+            Acceptable values are 134217728 to 4294967296, inclusive.
           type: string
           format: int64
     VersionStatus_in_Version_status:

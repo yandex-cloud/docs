@@ -3,9 +3,9 @@ editable: false
 ---
 
 # Method get
-Returns the specified MySQL backup.
+Retrieves information about the specified backup.
  
-To get the list of available MySQL backups, make a [list](/docs/managed-mysql/api-ref/Backup/list) request.
+
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups/{backupId}
  
 Parameter | Description
 --- | ---
-backupId | Required. ID of the backup to return information about. To get the backup ID, use a [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups) request.
+backupId | Required. ID of the backup to return information about.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Backup/list) request (lists all backups in a folder) or a [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups) request (lists all backups for an existing cluster).
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -30,13 +30,14 @@ backupId | Required. ID of the backup to return information about. To get the ba
   "startedAt": "string"
 }
 ```
-A MySQL backup. For more information, see
-the [documentation](/docs/managed-mysql/concepts/backup).
+An object that represents MySQL backup.
+
+See [the documentation](/docs/managed-mysql/concepts/backup) for details.
  
 Field | Description
 --- | ---
 id | **string**<br><p>Required. ID of the backup.</p> 
 folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
-createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-sourceClusterId | **string**<br><p>ID of the MySQL cluster that the backup was created for.</p> 
-startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp (the time when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceClusterId | **string**<br><p>ID of the cluster that the backup was created for.</p> 
+startedAt | **string** (date-time)<br><p>Start timestamp (the time when the backup operation was started).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

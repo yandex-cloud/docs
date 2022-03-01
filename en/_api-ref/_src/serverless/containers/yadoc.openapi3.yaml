@@ -497,6 +497,10 @@ components:
         concurrency:
           type: string
           format: int64
+        secrets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Secret'
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -694,12 +698,33 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/RevisionStatus_in_Revision_status'
+        secrets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Secret'
     RevisionStatus:
       type: string
       enum:
       - CREATING
       - ACTIVE
       - OBSOLETE
+    Secret:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+          versionId:
+            type: string
+          key:
+            type: string
+      - title: reference
+        type: object
+        maxProperties: 1
+        properties:
+          environmentVariable:
+            type: string
     SetAccessBindingsMetadata:
       type: object
       properties:

@@ -5141,6 +5141,10 @@ components:
           type: object
           additionalProperties:
             type: string
+        size:
+          description: Size of the filesystem, specified in bytes.
+          type: string
+          format: int64
     UpdateHostGroupMetadata:
       type: object
       properties:
@@ -5350,6 +5354,8 @@ components:
           $ref: '#/components/schemas/NetworkSettings_in_UpdateInstanceRequest_networkSettings'
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_UpdateInstanceRequest_placementPolicy'
+        schedulingPolicy:
+          $ref: '#/components/schemas/SchedulingPolicy_in_UpdateInstanceRequest_schedulingPolicy'
     UpdatePlacementGroupMetadata:
       type: object
       properties:
@@ -6227,6 +6233,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
+    SchedulingPolicy_in_UpdateInstanceRequest_schedulingPolicy:
+      description: Scheduling policy configuration.
+      type: object
+      properties:
+        preemptible:
+          description: True for short-lived compute instances. For more information,
+            see [Preemptible VMs](/docs/compute/concepts/preemptible-vm).
+          type: boolean
+          format: boolean
     FieldMask_in_UpdatePlacementGroupRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the PlacementGroup resource should be updated.

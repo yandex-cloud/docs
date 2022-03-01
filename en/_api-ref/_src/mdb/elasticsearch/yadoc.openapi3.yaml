@@ -1093,6 +1093,195 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-elasticsearch/api-ref/Cluster#representation)'
+  /managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}:
+    get:
+      tags:
+      - Extension
+      summary: Returns the specified extension of Elasticsearch cluster.
+      operationId: ExtensionGet
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: extensionId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the extension to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Extension'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Extension
+      summary: Deletes the specified extension.
+      operationId: ExtensionDelete
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: extensionId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the extension to delete.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteExtensionMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Extension
+      summary: Updates the specified extension.
+      operationId: ExtensionUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: extensionId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the extension to delete.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateExtensionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateExtensionMetadata'
+      x-y-operation-response: '[Extension](/docs/managed-elasticsearch/api-ref/Extension#representation)'
+  /managed-elasticsearch/v1/clusters/{clusterId}/extensions:
+    get:
+      tags:
+      - Extension
+      summary: Returns the list of available extensions for the specified Elasticsearch
+        cluster.
+      operationId: ExtensionList
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the cluster to list extensions in.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListBackups requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListExtensionsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Extension
+      summary: Creates new extension version.
+      operationId: ExtensionCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateExtensionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateExtensionMetadata'
+      x-y-operation-response: '[Extension](/docs/managed-elasticsearch/api-ref/Extension#representation)'
   /managed-elasticsearch/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -1760,6 +1949,44 @@ components:
           format: boolean
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow'
+        extensionSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtensionSpec'
+    CreateExtensionMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            Required. ID of the cluster.
+
+            The maximum string length in characters is 50.
+          type: string
+        extensionId:
+          description: |-
+            Required.
+            Required. ID of the extension.
+          type: string
+    CreateExtensionRequest:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the extension.
+
+            The maximum string length in characters is 50.
+          type: string
+        uri:
+          description: |-
+            Required.
+            URI of the zip arhive to create the new extension from.
+            Currently only supports links that are stored in Yandex Object Storage.
+          type: string
+        disabled:
+          type: boolean
+          format: boolean
     CreateUserMetadata:
       type: object
       properties:
@@ -1814,6 +2041,21 @@ components:
       properties:
         clusterId:
           description: ID of the Elasticsearch cluster that is being deleted.
+          type: string
+    DeleteExtensionMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            Required. ID of the cluster.
+
+            The maximum string length in characters is 50.
+          type: string
+        extensionId:
+          description: |-
+            Required.
+            Required. ID of the extension to delete.
           type: string
     DeleteUserMetadata:
       type: object
@@ -1936,6 +2178,44 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    Extension:
+      type: object
+      properties:
+        name:
+          description: Name of the extension.
+          type: string
+        id:
+          description: Extension unique ID
+          type: string
+        clusterId:
+          description: ID of the Elasticsearch cluster the extension belongs to.
+          type: string
+        version:
+          description: Extension version
+          type: string
+          format: int64
+        active:
+          description: Flag is extension active now
+          type: boolean
+          format: boolean
+    ExtensionSpec:
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Name of the extension.
+
+            The maximum string length in characters is 50.
+          type: string
+        uri:
+          description: |-
+            URI of the zip arhive to create the new extension from.
+            Currently only supports links that are stored in Yandex Object Storage.
+          type: string
+        disabled:
+          type: boolean
+          format: boolean
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -2140,6 +2420,22 @@ components:
             If the number of results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params), use `next_page_token` as the value
             for the [pageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#query_params) parameter in the next list request.
             Each subsequent list request will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListExtensionsResponse:
+      type: object
+      properties:
+        extensions:
+          description: Requested list of extensions.
+          type: array
+          items:
+            $ref: '#/components/schemas/Extension'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListBackups requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListBackups request. Subsequent ListBackups
+            requests will have their own `next_page_token` to continue paging through the results.
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -2460,6 +2756,10 @@ components:
 
             The maximum string length in characters is 50.
           type: string
+        extensionSpecs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExtensionSpec'
     SamlSettings:
       type: object
       properties:
@@ -2630,6 +2930,27 @@ components:
           format: boolean
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
+    UpdateExtensionMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            Required. ID of the cluster.
+
+            The maximum string length in characters is 50.
+          type: string
+        extensionId:
+          description: |-
+            Required.
+            Required. ID of the extension.
+          type: string
+    UpdateExtensionRequest:
+      type: object
+      properties:
+        active:
+          type: boolean
+          format: boolean
     UpdateUserMetadata:
       type: object
       properties:
@@ -3337,6 +3658,7 @@ tags:
 - name: Backup
 - name: Cluster
   description: A set of methods for managing Elasticsearch clusters.
+- name: Extension
 - name: ResourcePreset
   description: A set of methods for managing Elasticsearch resource presets.
 - name: User

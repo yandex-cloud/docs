@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/host
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MySQL cluster to remove hosts from. To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to delete hosts from.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -31,7 +31,7 @@ clusterId | Required. ID of the MySQL cluster to remove hosts from. To get the M
  
 Field | Description
 --- | ---
-hostNames[] | **string**<br><p>Required. Names of hosts to delete.</p> <p>Must contain at least one element. The maximum string length in characters for each value is 253.</p> 
+hostNames[] | **string**<br><p>Required. Names of hosts to delete.</p> <p>To get these names, make a <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> request.</p> <p>Must contain at least one element. The maximum string length in characters for each value is 253.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

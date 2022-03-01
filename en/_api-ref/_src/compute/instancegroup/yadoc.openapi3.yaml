@@ -804,7 +804,7 @@ components:
             description: |-
               Size of the disk, specified in bytes.
 
-              Acceptable values are 4194304 to 4398046511104, inclusive.
+              Acceptable values are 4194304 to 28587302322176, inclusive.
             type: string
             format: int64
           preserveAfterInstanceDelete:
@@ -2359,7 +2359,7 @@ components:
             description: |-
               Size of the disk, specified in bytes.
 
-              Acceptable values are 4194304 to 4398046511104, inclusive.
+              Acceptable values are 4194304 to 28587302322176, inclusive.
             type: string
             format: int64
           preserveAfterInstanceDelete:

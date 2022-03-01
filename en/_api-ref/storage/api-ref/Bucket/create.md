@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Create a new bucket in specified folder.
+Creates a bucket in the specified folder.
  
 
  
@@ -36,23 +36,23 @@ POST https://storage.api.cloud.yandex.net/storage/v1/buckets
   }
 }
 ```
-CreateBucketRequest creates bucket for S3.
+
  
 Field | Description
 --- | ---
-name | **string**<br><p>Required. Unique name of the bucket. This name is treated as unique identifier and used among the whole Cloud. For naming limitations and rules, see <a href="/docs/storage/concepts/bucket#naming">Bucket naming</a></p> 
-folderId | **string**<br><p>Required. ID of the folder to create a bucket in. To get the folder ID, use <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
-defaultStorageClass | **string**<br><p>Class of the storage. For more information, see <a href="/docs/storage/concepts/storage-class">Storage Class</a></p> 
-maxSize | **string** (int64)<br><p>Maximum size of bucket. For more information, see <a href="/docs/storage/operations/buckets/limit-max-volume">Size limits</a></p> 
-anonymousAccessFlags | **object**<br><p>Access flags for anonymous access. For more information, see <a href="/docs/storage/concepts/bucket#bucket-access">Bucket Access</a></p> 
-anonymousAccessFlags.<br>read | **boolean** (boolean)<br>
-anonymousAccessFlags.<br>list | **boolean** (boolean)<br>
-anonymousAccessFlags.<br>configRead | **boolean** (boolean)<br>
-acl | **object**<br><p>ACL of bucket. For more information, see <a href="/docs/storage/concepts/acl">Bucket Policy</a></p> <p>ACL model.</p> 
-acl.<br>grants[] | **object**<br>
-acl.<br>grants[].<br>permission | **string**<br><p>Required.</p> <ul> <li>PERMISSION_FULL_CONTROL: header X-Amz-Grant-Full-Control</li> <li>PERMISSION_WRITE: header X-Amz-Grant-Write</li> <li>PERMISSION_WRITE_ACP: header X-Amz-Grant-Write-Acp</li> <li>PERMISSION_READ: header X-Amz-Grant-Read</li> <li>PERMISSION_READ_ACP: header X-Amz-Grant-Read-Acp</li> </ul> 
-acl.<br>grants[].<br>grantType | **string**<br><p>Required.</p> <ul> <li>GRANT_TYPE_ACCOUNT: equal to 'id' grantee value</li> <li>GRANT_TYPE_ALL_AUTHENTICATED_USERS: equal to 'uri' authenticated users</li> <li>GRANT_TYPE_ALL_USERS: equal to 'uri' all users</li> </ul> 
-acl.<br>grants[].<br>granteeId | **string**<br><p>[semi-optional] grantee id is used only when grant_type is TO_ACCOUNT</p> 
+name | **string**<br><p>Required. Name of the bucket.</p> <p>The name must be unique within Yandex.Cloud. For naming limitations and rules, see <a href="/docs/storage/concepts/bucket#naming">documentation</a>.</p> 
+folderId | **string**<br><p>Required. ID of the folder to create a bucket in.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+defaultStorageClass | **string**<br><p>Default storage class for objects in the bucket. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
+maxSize | **string** (int64)<br><p>Maximum size of the bucket. For details, see <a href="/docs/storage/operations/buckets/limit-max-volume">documentation</a>.</p> 
+anonymousAccessFlags | **object**<br><p>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see <a href="/docs/storage/concepts/bucket#bucket-access">documentation</a>.</p> 
+anonymousAccessFlags.<br>read | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read objects in the bucket is enabled.</p> 
+anonymousAccessFlags.<br>list | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to the list of objects in the bucket is enabled.</p> 
+anonymousAccessFlags.<br>configRead | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read <a href="/docs/storage/concepts/cors">CORS</a>, <a href="/docs/storage/concepts/hosting">static website hosting</a>, and <a href="/docs/storage/concepts/lifecycles">object lifecycles</a> settings of the bucket is enabled.</p> 
+acl | **object**<br><p>Access control list (ACL) of the bucket. For details, see <a href="/docs/storage/concepts/acl">documentation</a>.</p> 
+acl.<br>grants[] | **object**<br><p>A grant resource, used to specify the permission granted and the grantee.</p> 
+acl.<br>grants[].<br>permission | **string**<br><p>Required. Permission granted by the grant.</p> <ul> <li>PERMISSION_FULL_CONTROL: Allows grantee the ``PERMISSION_WRITE``, ``PERMISSION_WRITE_ACP``, ``PERMISSION_READ``, and ``PERMISSION_READ_ACP`` on the bucket.</li> </ul> <p>Maps to ``x-amz-grant-full-control`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> <ul> <li>PERMISSION_WRITE: Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also allows deletions and overwrites of those objects.</li> </ul> <p>Maps to ``x-amz-grant-write`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> <ul> <li>PERMISSION_WRITE_ACP: Allows grantee to write the ACL for the bucket.</li> </ul> <p>Maps to ``x-amz-grant-write-acp`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> <ul> <li>PERMISSION_READ: Allows grantee to list the objects in the bucket.</li> </ul> <p>Maps to ``x-amz-grant-read`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> <ul> <li>PERMISSION_READ_ACP: Allows grantee to read the bucket ACL</li> </ul> <p>Maps to ``x-amz-grant-read-acp`` header for <a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API.</p> 
+acl.<br>grants[].<br>grantType | **string**<br><p>Required. The grantee type for the grant.</p> <ul> <li>GRANT_TYPE_ACCOUNT: A grantee is a <a href="/docs/iam/concepts/#accounts">Yandex Cloud account</a>.</li> </ul> <p>For this grantee type, you need to specify the user ID in <a href="/docs/storage/api-ref/Bucket#representation">Bucket.acl.grants.granteeId</a> field. To get user ID, see <a href="/docs/iam/operations/users/get">instruction</a>.</p> <p>Maps to using ``id=&quot;*&quot;`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> <ul> <li>GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated Yandex.Cloud users, both from your clouds and other users' clouds. Access permission to this group allows any Yandex.Cloud account to access the resource via a signed (authenticated) request.</li> </ul> <p>Maps to using ``uri=&quot;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&quot;`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> <ul> <li>GRANT_TYPE_ALL_USERS: Grantees are all internet users. Access permission to this group allows anyone in the world access to the resource via signed (authenticated) or unsigned (anonymous) requests.</li> </ul> <p>Maps to using ``uri=&quot;http://acs.amazonaws.com/groups/global/AllUsers&quot;`` value for ``x-amz-grant-*`` header (<a href="/docs/storage/s3/api-ref/acl/bucketput">bucketPutAcl</a> method of Amazon S3-compatible HTTP API).</p> 
+acl.<br>grants[].<br>granteeId | **string**<br><p>ID of the Yandex.Cloud user who is a grantee. Required when the ``grantType`` is ``GRANT_TYPE_ACCOUNT``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

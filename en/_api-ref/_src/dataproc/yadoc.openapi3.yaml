@@ -1384,6 +1384,11 @@ components:
           type: array
           items:
             type: string
+        initializationActions:
+          description: Set of init-actions
+          type: array
+          items:
+            $ref: '#/components/schemas/InitializationAction'
     HadoopConfigService:
       type: string
       enum:
@@ -1471,6 +1476,21 @@ components:
           type: string
         role:
           $ref: '#/components/schemas/Role_in_Host_role'
+    InitializationAction:
+      type: object
+      properties:
+        uri:
+          description: URI of the executable file
+          type: string
+        args:
+          description: Arguments to the initialization action
+          type: array
+          items:
+            type: string
+        timeout:
+          description: Execution timeout
+          type: string
+          format: int64
     Job:
       description: A Data Proc job. For details about the concept, see [documentation](/docs/dataproc/concepts/jobs).
       type: object
@@ -2294,6 +2314,11 @@ components:
           type: array
           items:
             type: string
+        initializationActions:
+          description: Set of init-actions
+          type: array
+          items:
+            $ref: '#/components/schemas/InitializationAction'
     HadoopConfig_in_CreateClusterConfigSpec_hadoop:
       description: |-
         Data Proc specific options.
@@ -2323,6 +2348,11 @@ components:
           type: array
           items:
             type: string
+        initializationActions:
+          description: Set of init-actions
+          type: array
+          items:
+            $ref: '#/components/schemas/InitializationAction'
     CreateClusterConfigSpec_in_CreateClusterRequest_configSpec:
       description: |-
         Required.
@@ -2741,6 +2771,11 @@ components:
           type: array
           items:
             type: string
+        initializationActions:
+          description: Set of init-actions
+          type: array
+          items:
+            $ref: '#/components/schemas/InitializationAction'
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the cluster should be updated.

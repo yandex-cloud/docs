@@ -383,7 +383,7 @@ preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protoc
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the Kafka user. The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+name | **string**<br>Required. Name of the Kafka user. The string length in characters must be 1-256. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 password | **string**<br>Required. Password of the Kafka user. The string length in characters must be 8-128.
 permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user. 
 

@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method startFailover
-Start a manual failover on the specified MySQL cluster.
+Starts a manual failover for a cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:star
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of MySQL cluster.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to start failover for.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -29,7 +29,7 @@ clusterId | Required. ID of MySQL cluster.  The maximum string length in charact
  
 Field | Description
 --- | ---
-hostName | **string**<br><p>New master host. Switch to the most up-to-date replica if not provided.</p> <p>The maximum string length in characters is 253.</p> 
+hostName | **string**<br><p>Host name to switch master role to. If not provided, then the master role is switched to the most up-to-date replica host.</p> <p>To get this name, make a <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> request.</p> <p>The maximum string length in characters is 253.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

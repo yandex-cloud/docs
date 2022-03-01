@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified MySQL user.
+Deletes a user in a cluster.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/us
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-userName | Required. Name of the user to delete. To get the name of the user, use a [list](/docs/managed-mysql/api-ref/User/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+clusterId | Required. ID of the cluster to delete the user from.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+userName | Required. Name of the user to delete.  To get this name, make a [list](/docs/managed-mysql/api-ref/User/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -39,7 +39,7 @@ clusterId | Required. ID of the Apache Kafka® cluster to create a user in.  To 
 Field | Description
 --- | ---
 userSpec | **object**<br><p>Required. Configuration of the user to create.</p> 
-userSpec.<br>name | **string**<br><p>Required. Name of the Kafka user.</p> <p>The string length in characters must be 1-63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+userSpec.<br>name | **string**<br><p>Required. Name of the Kafka user.</p> <p>The string length in characters must be 1-256. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
 userSpec.<br>password | **string**<br><p>Required. Password of the Kafka user.</p> <p>The string length in characters must be 8-128.</p> 
 userSpec.<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
 userSpec.<br>permissions[].<br>topicName | **string**<br><p>Name or prefix-pattern with wildcard for the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 

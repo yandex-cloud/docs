@@ -51,7 +51,15 @@ containerRevisionId | Required.
   "executionTimeout": "string",
   "concurrency": "string",
   "serviceAccountId": "string",
-  "status": "string"
+  "status": "string",
+  "secrets": [
+    {
+      "id": "string",
+      "versionId": "string",
+      "key": "string",
+      "environmentVariable": "string"
+    }
+  ]
 }
 ```
 
@@ -79,3 +87,8 @@ executionTimeout | **string**<br>
 concurrency | **string** (int64)<br>
 serviceAccountId | **string**<br>
 status | **string**<br>
+secrets[] | **object**<br>
+secrets[].<br>id | **string**<br>
+secrets[].<br>versionId | **string**<br>
+secrets[].<br>key | **string**<br>
+secrets[].<br>environmentVariable | **string**<br>

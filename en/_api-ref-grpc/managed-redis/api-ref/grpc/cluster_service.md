@@ -70,6 +70,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring}
@@ -186,6 +187,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring1}
@@ -282,6 +284,7 @@ sharded | **bool**<br>Redis cluster mode on/off.
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | **[Cluster.PersistenceMode](#Cluster2)**<br>Persistence mode 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -368,6 +371,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring2}
@@ -461,6 +465,7 @@ name | **string**<br>New name for the cluster. The maximum string length in char
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | **[Cluster.PersistenceMode](#Cluster3)**<br>Persistence mode 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -559,6 +564,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring3}
@@ -731,6 +737,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring4}
@@ -863,6 +870,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring5}
@@ -998,6 +1006,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring6}
@@ -1130,6 +1139,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring7}
@@ -1225,6 +1235,7 @@ network_id | **string**<br>Required. ID of the network to create the Redis clust
 folder_id | **string**<br>ID of the folder to create the Redis cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>TLS port and functionality on\off 
+persistence_mode | **[Cluster.PersistenceMode](#Cluster8)**<br>Persistence mode 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1312,6 +1323,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring8}
@@ -1447,6 +1459,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planne
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring9}
@@ -1581,6 +1594,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Plann
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring10}
@@ -2160,6 +2174,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Plann
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
 
 
 ### Monitoring {#Monitoring11}

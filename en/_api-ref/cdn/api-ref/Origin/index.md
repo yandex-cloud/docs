@@ -13,4 +13,4 @@ Method | Description
 [delete](delete.md) | Deletes origin from origin group.
 [get](get.md) | Get origin in origin group.
 [list](list.md) | Lists origins of origin group.
-[update](update.md) | Updates origin from origin group.
+[update](update.md) | Updates the specified origin from the origin group.

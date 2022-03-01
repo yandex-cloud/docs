@@ -264,6 +264,7 @@ execution_timeout | **[google.protobuf.Duration](https://developers.google.com/p
 service_account_id | **string**<br> 
 image_spec | **[ImageSpec](#ImageSpec)**<br>Required.  
 concurrency | **int64**<br> 
+secrets[] | **[Secret](#Secret)**<br> 
 
 
 ### Resources {#Resources}
@@ -298,6 +299,17 @@ command[] | **string**<br>
 Field | Description
 --- | ---
 args[] | **string**<br> 
+
+
+### Secret {#Secret}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+version_id | **string**<br> 
+key | **string**<br> 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br> 
 
 
 ### Operation {#Operation3}
@@ -337,6 +349,7 @@ execution_timeout | **[google.protobuf.Duration](https://developers.google.com/p
 concurrency | **int64**<br> 
 service_account_id | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
+secrets[] | **[Secret](#Secret1)**<br> 
 
 
 ### Image {#Image}
@@ -374,6 +387,17 @@ cores | **int64**<br> Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
 
 
+### Secret {#Secret1}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+version_id | **string**<br> 
+key | **string**<br> 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br> 
+
+
 ## GetRevision {#GetRevision}
 
 
@@ -401,6 +425,7 @@ execution_timeout | **[google.protobuf.Duration](https://developers.google.com/p
 concurrency | **int64**<br> 
 service_account_id | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
+secrets[] | **[Secret](#Secret2)**<br> 
 
 
 ### Image {#Image1}
@@ -436,6 +461,17 @@ Field | Description
 memory | **int64**<br> Acceptable values are 134217728 to 8589934592, inclusive.
 cores | **int64**<br> Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
+
+
+### Secret {#Secret2}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+version_id | **string**<br> 
+key | **string**<br> 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br> 
 
 
 ## ListRevisions {#ListRevisions}
@@ -478,6 +514,7 @@ execution_timeout | **[google.protobuf.Duration](https://developers.google.com/p
 concurrency | **int64**<br> 
 service_account_id | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
+secrets[] | **[Secret](#Secret3)**<br> 
 
 
 ### Image {#Image2}
@@ -513,6 +550,17 @@ Field | Description
 memory | **int64**<br> Acceptable values are 134217728 to 8589934592, inclusive.
 cores | **int64**<br> Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
+
+
+### Secret {#Secret3}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+version_id | **string**<br> 
+key | **string**<br> 
+reference | **oneof:** `environment_variable`<br>
+&nbsp;&nbsp;environment_variable | **string**<br> 
 
 
 ## ListOperations {#ListOperations}

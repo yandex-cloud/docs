@@ -2931,6 +2931,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig10BackslashQuote:
       type: string
       enum:
@@ -3378,6 +3393,21 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig10_1CBackslashQuote:
       type: string
       enum:
@@ -3845,6 +3875,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig11BackslashQuote:
       type: string
       enum:
@@ -4312,6 +4357,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11_1CPgHintPlanDebugPrint_in_PostgresqlConfig11_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig11_1CLogLevel_in_PostgresqlConfig11_1C_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig11_1CBackslashQuote:
       type: string
       enum:
@@ -4785,6 +4845,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig12BackslashQuote:
       type: string
       enum:
@@ -5264,6 +5339,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig12_1CPgHintPlanDebugPrint_in_PostgresqlConfig12_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig12_1CLogLevel_in_PostgresqlConfig12_1C_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig12_1CBackslashQuote:
       type: string
       enum:
@@ -5790,6 +5880,21 @@ components:
           description: Acceptable values are -1 to 2147483647, inclusive.
           type: integer
           format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig13BackslashQuote:
       type: string
       enum:
@@ -6333,6 +6438,21 @@ components:
           description: Acceptable values are -1 to 2147483647, inclusive.
           type: integer
           format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig14BackslashQuote:
       type: string
       enum:
@@ -11987,6 +12107,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig10_in_PostgresqlConfigSet10_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 10 cluster.
@@ -12335,6 +12470,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig10_in_PostgresqlConfigSet10_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 10 cluster.
@@ -12683,6 +12833,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig10PgHintPlanDebugPrint_in_PostgresqlConfig10_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig10LogLevel_in_PostgresqlConfig10_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_effectiveConfig:
       description: |-
         Required.
@@ -13039,6 +13204,21 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 10 1C cluster.
@@ -13393,6 +13573,21 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig10_1C_in_PostgresqlConfigSet10_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 10 1C cluster.
@@ -13747,6 +13942,21 @@ components:
         plantunerFixEmptyTable:
           type: boolean
           format: boolean
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 11 cluster (a combination of settings defined
@@ -14122,6 +14332,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 11 cluster.
@@ -14496,6 +14721,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 11 cluster.
@@ -14870,6 +15110,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11PgHintPlanDebugPrint_in_PostgresqlConfig11_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig11LogLevel_in_PostgresqlConfig11_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig11_1C_in_PostgresqlConfigSet11_1C_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 11 1C cluster (a combination of settings defined
@@ -15245,6 +15500,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11_1CPgHintPlanDebugPrint_in_PostgresqlConfig11_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig11_1CLogLevel_in_PostgresqlConfig11_1C_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig11_1C_in_PostgresqlConfigSet11_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 11 1C cluster.
@@ -15619,6 +15889,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11_1CPgHintPlanDebugPrint_in_PostgresqlConfig11_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig11_1CLogLevel_in_PostgresqlConfig11_1C_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig11_1C_in_PostgresqlConfigSet11_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 11 1C cluster.
@@ -15993,6 +16278,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig11_1CPgHintPlanDebugPrint_in_PostgresqlConfig11_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig11_1CLogLevel_in_PostgresqlConfig11_1C_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig12_in_PostgresqlConfigSet12_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 12 cluster (a combination of settings defined
@@ -16374,6 +16674,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig12_in_PostgresqlConfigSet12_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 12 cluster.
@@ -16754,6 +17069,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig12_in_PostgresqlConfigSet12_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 12 cluster.
@@ -17134,6 +17464,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig12PgHintPlanDebugPrint_in_PostgresqlConfig12_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig12LogLevel_in_PostgresqlConfig12_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig12_1C_in_PostgresqlConfigSet12_1C_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 12 1C cluster (a combination of settings defined
@@ -17515,6 +17860,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig12_1CPgHintPlanDebugPrint_in_PostgresqlConfig12_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig12_1CLogLevel_in_PostgresqlConfig12_1C_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig12_1C_in_PostgresqlConfigSet12_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 12 1C cluster.
@@ -17895,6 +18255,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig12_1CPgHintPlanDebugPrint_in_PostgresqlConfig12_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig12_1CLogLevel_in_PostgresqlConfig12_1C_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig12_1C_in_PostgresqlConfigSet12_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 12 1C cluster.
@@ -18275,6 +18650,21 @@ components:
           $ref: '#/components/schemas/PostgresqlConfig12_1CPgHintPlanDebugPrint_in_PostgresqlConfig12_1C_pgHintPlanDebugPrint'
         pgHintPlanMessageLevel:
           $ref: '#/components/schemas/PostgresqlConfig12_1CLogLevel_in_PostgresqlConfig12_1C_pgHintPlanMessageLevel'
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig13_in_PostgresqlConfigSet13_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 13 cluster (a combination of settings defined
@@ -18703,6 +19093,21 @@ components:
           description: Acceptable values are -1 to 2147483647, inclusive.
           type: integer
           format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig13_in_PostgresqlConfigSet13_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 13 cluster.
@@ -19130,6 +19535,21 @@ components:
           description: Acceptable values are -1 to 2147483647, inclusive.
           type: integer
           format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig13_in_PostgresqlConfigSet13_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 13 cluster.
@@ -19557,6 +19977,21 @@ components:
           description: Acceptable values are -1 to 2147483647, inclusive.
           type: integer
           format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig14_in_PostgresqlConfigSet14_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 14 cluster (a combination of settings defined
@@ -20002,6 +20437,21 @@ components:
           description: Acceptable values are -1 to 2147483647, inclusive.
           type: integer
           format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig14_in_PostgresqlConfigSet14_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 14 cluster.
@@ -20446,6 +20896,21 @@ components:
           description: Acceptable values are -1 to 2147483647, inclusive.
           type: integer
           format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig14_in_PostgresqlConfigSet14_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 14 cluster.
@@ -20890,6 +21355,21 @@ components:
           description: Acceptable values are -1 to 2147483647, inclusive.
           type: integer
           format: int64
+        pgQualstatsEnabled:
+          type: boolean
+          format: boolean
+        pgQualstatsTrackConstants:
+          type: boolean
+          format: boolean
+        pgQualstatsMax:
+          type: integer
+          format: int64
+        pgQualstatsResolveOids:
+          type: boolean
+          format: boolean
+        pgQualstatsSampleRate:
+          type: number
+          format: double
     PostgresqlConfig9_6_in_PostgresqlConfigSet9_6_effectiveConfig:
       description: |-
         Required.

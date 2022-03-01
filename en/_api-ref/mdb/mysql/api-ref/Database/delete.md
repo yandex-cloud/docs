@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified MySQL database.
+Deletes a database from a cluster.
  
 
  
@@ -16,8 +16,8 @@ DELETE https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/da
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MySQL cluster to delete a database in. To get the cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-databaseName | Required. Name of the database to delete. To get the name of the database, use a [list](/docs/managed-mysql/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the cluster to delete the database from.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+databaseName | Required. Name of the database to delete.  To get this name, make a [list](/docs/managed-mysql/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

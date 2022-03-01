@@ -81,7 +81,8 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore
   "securityGroupIds": [
     "string"
   ],
-  "tlsEnabled": true
+  "tlsEnabled": true,
+  "persistenceMode": "string"
 }
 ```
 
@@ -138,6 +139,7 @@ networkId | **string**<br><p>Required. ID of the network to create the Redis clu
 folderId | **string**<br><p>ID of the folder to create the Redis cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 tlsEnabled | **boolean** (boolean)<br><p>TLS port and functionality on\off</p> 
+persistenceMode | **string**<br><p>Persistence mode</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

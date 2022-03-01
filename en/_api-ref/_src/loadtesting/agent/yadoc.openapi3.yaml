@@ -43,6 +43,7 @@ components:
       - FINISHED
       - STOPPED
       - FAILED
+      - AUTOSTOPPED
     ClaimJobStatusResponse:
       type: object
       properties:
@@ -75,6 +76,17 @@ components:
         code:
           type: string
           format: int64
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     File:
       type: object
       properties:
@@ -92,6 +104,8 @@ components:
           type: string
         ammo:
           $ref: '#/components/schemas/File_in_Job_ammo'
+        loggingLogGroupId:
+          type: string
     JobSignalResponse:
       type: object
       properties:
@@ -101,15 +115,6 @@ components:
       type: string
       enum:
       - STOP
-    ListOperationsResponse:
-      type: object
-      properties:
-        operations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Operation'
-        nextPageToken:
-          type: string
     LoadSchedule:
       description: |-
         Load schedule string:
@@ -331,6 +336,7 @@ components:
       - FAILED
       - STOPPING
       - STOPPED
+      - AUTOSTOPPED
     Trail:
       type: object
       properties:
@@ -428,6 +434,11 @@ components:
         count:
           type: string
           format: int64
+    UpdateTestMetadata:
+      type: object
+      properties:
+        testId:
+          type: string
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -474,11 +485,10 @@ components:
       - INSTANCES
       - STPD_FILE
 tags:
-- name: AgentInstance
+- name: AgentRegistration
+- name: Agent
 - name: Greeter
 - name: Job
-- name: Operation
-- name: Registration
 - name: Tank
 - name: Test
 - name: Trail

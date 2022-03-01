@@ -1250,6 +1250,8 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        persistenceMode:
+          $ref: '#/components/schemas/ClusterPersistenceMode_in_Cluster_persistenceMode'
     ClusterConfig:
       type: object
       allOf:
@@ -1303,6 +1305,12 @@ components:
       - DEAD
       - DEGRADED
       default: HEALTH_UNKNOWN
+    ClusterPersistenceMode:
+      type: string
+      enum:
+      - "ON"
+      - "OFF"
+      default: "ON"
     ClusterStatus:
       description: |2-
          - STATUS_UNKNOWN: Cluster status is unknown
@@ -1431,6 +1439,8 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        persistenceMode:
+          $ref: '#/components/schemas/ClusterPersistenceMode_in_CreateClusterRequest_persistenceMode'
     DeleteClusterHostsMetadata:
       type: object
       properties:
@@ -2224,6 +2234,8 @@ components:
           description: TLS port and functionality on\off
           type: boolean
           format: boolean
+        persistenceMode:
+          $ref: '#/components/schemas/ClusterPersistenceMode_in_RestoreClusterRequest_persistenceMode'
     Service:
       type: object
       properties:
@@ -2396,6 +2408,8 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        persistenceMode:
+          $ref: '#/components/schemas/ClusterPersistenceMode_in_UpdateClusterRequest_persistenceMode'
     WeeklyMaintenanceWindow:
       description: Weelky maintenance window settings.
       type: object
@@ -2553,6 +2567,13 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+    ClusterPersistenceMode_in_Cluster_persistenceMode:
+      description: Persistence mode
+      type: string
+      enum:
+      - "ON"
+      - "OFF"
+      default: "ON"
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Required.
@@ -2596,6 +2617,13 @@ components:
             $ref: '#/components/schemas/RedisConfig6_0'
           redisConfig_6_2:
             $ref: '#/components/schemas/RedisConfig6_2'
+    ClusterPersistenceMode_in_CreateClusterRequest_persistenceMode:
+      description: Persistence mode
+      type: string
+      enum:
+      - "ON"
+      - "OFF"
+      default: "ON"
     Resources_in_Host_resources:
       description: Resources allocated to the Redis host.
       type: object
@@ -3228,6 +3256,13 @@ components:
             $ref: '#/components/schemas/RedisConfig6_0'
           redisConfig_6_2:
             $ref: '#/components/schemas/RedisConfig6_2'
+    ClusterPersistenceMode_in_RestoreClusterRequest_persistenceMode:
+      description: Persistence mode
+      type: string
+      enum:
+      - "ON"
+      - "OFF"
+      default: "ON"
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -3327,6 +3362,13 @@ components:
           weeklyMaintenanceWindow:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
             description: Maintenance operation can be scheduled on a weekly basis.
+    ClusterPersistenceMode_in_UpdateClusterRequest_persistenceMode:
+      description: Persistence mode
+      type: string
+      enum:
+      - "ON"
+      - "OFF"
+      default: "ON"
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       description: Day of the week (in `DDD` format).
       type: string
