@@ -30,15 +30,16 @@ keywords:
 
   Чтобы создать кластер:
 
-  1. В консоли управления выберите каталог, в котором нужно создать кластер.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
   1. Выберите сервис **{{ mes-name }}**.
   1. Нажмите кнопку **Создать кластер**.
   1. В блоке **Базовые параметры**:
 
      1. Введите имя кластера и, при необходимости, его описание. Имя кластера должно быть уникальным в рамках каталога.
      1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
-        - `PRODUCTION` — для стабильных версий ваших приложений.
-        - `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mes-name }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
+        
+        * `PRODUCTION` — для стабильных версий ваших приложений.
+        * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mes-name }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
      1. Выберите из списка версию {{ ES }}.
      1. Выберите из списка [редакцию {{ ES }}](../concepts/es-editions.md).
 
@@ -66,8 +67,8 @@ keywords:
 
             При изменении хоста можно: {#change-data-node-settings}
 
-            - Выбрать зону доступности и подсеть.
-            - Включить публичный доступ.
+            * Выбрать зону доступности и подсеть.
+            * Включить публичный доступ.
 
                 {% note warning %}
 
@@ -87,8 +88,8 @@ keywords:
 
         При изменении хоста можно: {#change-master-node-settings}
 
-        - Выбрать зону доступности и подсеть.
-        - Включить публичный доступ.
+        * Выбрать зону доступности и подсеть.
+        * Включить публичный доступ.
 
             {% note tip %}
 
@@ -99,6 +100,10 @@ keywords:
   1. При необходимости задайте дополнительные настройки кластера:
 
       {% include [Дополнительные настройки кластера MES](../../_includes/mdb/mes/extra-settings.md) %}
+
+  1. При необходимости задайте настройки СУБД:
+
+      Доступна настройка параметра `Fielddata cache size` — процент или абсолютное значение области динамической памяти, которая выделена для кеша `fielddata`, например: 10% или 512 МБ.
 
   1. Нажмите кнопку **Создать**.
 
@@ -118,11 +123,11 @@ keywords:
 
         {% if audience != "internal" %}
         
-        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-full-name }}.
         
         {% else %}
         
-        Если ни одной подсети в каталоге нет, создайте нужные подсети в сервисе {{ vpc-short-name }}.
+        Если ни одной подсети в каталоге нет, создайте нужные подсети в сервисе {{ vpc-full-name }}.
         
         {% endif %}
 
@@ -136,21 +141,21 @@ keywords:
 
         ```bash
         {{ yc-mdb-es }} cluster create \
-           --name <имя кластера> \
-           --environment <окружение: prestable или production> \
-           --network-name <имя сети> \
-           --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,assign-public-ip=<публичный доступ>,type=<тип хоста: datanode или masternode> \
-           --datanode-resource-preset <класс хостов c ролью DataNode> \
-           --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью DataNode> \
-           --datanode-disk-type <тип хранилища для хостов с ролью DataNode> \
-           --masternode-resource-preset <класс хостов с ролью MasterNode> \
-           --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью MasterNode> \
-           --masternode-disk-type <тип хранилища для хостов с ролью MasterNode> \
-           --security-group-ids <список идентификаторов групп безопасности> \
-           --version <версия {{ ES }}> \
-           --edition <редакция {{ ES }}: basic, gold или platinum> \
-           --admin-password <пароль пользователя admin> \
-           --deletion-protection=<защита от удаления кластера: true или fasle>
+          --name <имя кластера> \
+          --environment <окружение: prestable или production> \
+          --network-name <имя сети> \
+          --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,assign-public-ip=<публичный доступ>,type=<тип хоста: datanode или masternode> \
+          --datanode-resource-preset <класс хостов c ролью Data node> \
+          --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью Data node> \
+          --datanode-disk-type <тип хранилища для хостов с ролью Data node> \
+          --masternode-resource-preset <класс хостов с ролью Master node> \
+          --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node> \
+          --masternode-disk-type <тип хранилища для хостов с ролью Master node> \
+          --security-group-ids <список идентификаторов групп безопасности> \
+          --version <версия {{ ES }}> \
+          --edition <редакция {{ ES }}: basic, gold или platinum> \
+          --admin-password <пароль пользователя admin> \
+          --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
         Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности больше одной подсети.
@@ -259,16 +264,17 @@ keywords:
 - API
 
   Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
-    - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-    - Имя кластера в параметре `name`.
-    - Версию {{ ES }} в параметре `configSpec.version`.
-    - Редакцию {{ ES }} в параметре `configSpec.edition`.
-    - Конфигурацию кластера в параметре `configSpec`, в том числе:
-        - Класс хостов с ролью _Master node_ в параметре `configSpec.elasticsearchSpec.masterNode.resources`. Чтобы не создавать выделенных хостов с ролью _Master node_ — не задавайте значения для группы параметров `configSpec.elasticsearchSpec.masterNode`.
-        - Класс хостов с ролью _Data node_ в параметре `configSpec.elasticsearchSpec.dataNode.resources`.
-    - Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
-    - Идентификатор сети в параметре `networkId`.
-    - Идентификаторы групп безопасности в параметре `securityGroupIds`.
+    * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+    * Имя кластера в параметре `name`.
+    * Версию {{ ES }} в параметре `configSpec.version`.
+    * Редакцию {{ ES }} в параметре `configSpec.edition`.
+    * Конфигурацию кластера в параметре `configSpec`, в том числе:
+        
+        * Класс хостов с ролью _Master node_ в параметре `configSpec.elasticsearchSpec.masterNode.resources`. Чтобы не создавать выделенных хостов с ролью _Master node_ — не задавайте значения для группы параметров `configSpec.elasticsearchSpec.masterNode`.
+        * Класс хостов с ролью _Data node_ в параметре `configSpec.elasticsearchSpec.dataNode.resources`.
+    * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
+    * Идентификатор сети в параметре `networkId`.
+    * Идентификаторы групп безопасности в параметре `securityGroupIds`.
 
 {% endlist %}
 
@@ -290,50 +296,50 @@ keywords:
 
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 
-    - С именем `my-es-clstr`.
-    - Версии `7.10`.
-    - Редакции `Platinum`.
-    - В окружении `PRODUCTION`.
-    - В сети `default`.
-    - В группе безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
-    - С одним публично доступным хостом с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
-    - С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
-    - С паролем `esadminpwd` для пользователя `admin`.
-    - С защитой от случайного удаления кластера.
+    * Имя `my-es-clstr`.
+    * Версия `7.10`.
+    * Редакция `Platinum`.
+    * Окружение `PRODUCTION`.
+    * Сеть `default`.
+    * Группа безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
+    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
+    * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
+    * Пароль `esadminpwd` для пользователя `admin`.
+    * Защита от случайного удаления кластера.
 
     Запустите следующую команду:
 
     ```bash
     {{ yc-mdb-es }} cluster create \
-       --name my-es-clstr \
-       --environment production \
-       --network-name default \
-       --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
-       --datanode-resource-preset {{ host-class }} \
-       --datanode-disk-type={{ disk-type-example }} \
-       --datanode-disk-size=20 \
-       --admin-password=esadminpwd \
-       --security-group-ids enpp2s8l3irhk5eromd7 \
-       --version 7.10 \
-       --edition platinum \
-       --deletion-protection=true
+      --name my-es-clstr \
+      --environment production \
+      --network-name default \
+      --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
+      --datanode-resource-preset {{ host-class }} \
+      --datanode-disk-type={{ disk-type-example }} \
+      --datanode-disk-size=20 \
+      --admin-password=esadminpwd \
+      --security-group-ids enpp2s8l3irhk5eromd7 \
+      --version 7.10 \
+      --edition platinum \
+      --deletion-protection=true
     ```
 
 - Terraform
 
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 
-    - С именем `my-es-clstr`.
-    - Версии `7.13`.
-    - С редакцией `Basic`.
-    - В окружении `PRODUCTION`.
-    - В облаке с идентификатором `{{ tf-cloud-id }}`.
-    - В каталоге с идентификатором `{{ tf-folder-id }}`.
-    - В новой сети `mynet`.
-    - В новой группе безопасности `es-sg`, разрешающей подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
-    - С одним публично доступным хостом с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    - С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
-    - С паролем `esadminpwd` для пользователя `admin`.
+    * Имя `my-es-clstr`.
+    * Версия `7.13`.
+    * Редакция `Basic`.
+    * Окружение `PRODUCTION`.
+    * Облако с идентификатором `{{ tf-cloud-id }}`.
+    * Каталог с идентификатором `{{ tf-folder-id }}`.
+    * Новая сеть `mynet`.
+    * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
+    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
+    * Пароль `esadminpwd` для пользователя `admin`.
 
     Конфигурационный файл для такого кластера выглядит так:
 

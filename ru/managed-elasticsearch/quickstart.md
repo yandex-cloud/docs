@@ -50,14 +50,14 @@
 
 ## Создайте кластер {#cluster-create}
 
-1. В консоли управления выберите каталог, в котором нужно создать кластер.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
 1. Выберите сервис **{{ mes-name }}**.
 1. Нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
 1. Задайте параметры кластера.
 
    Чтобы получить доступ к веб-интерфейсу Kibana, запросите публичный доступ:
 
-   1. Измените настройки хоста с ролью _Data node_, нажав значок ![image](../_assets/pencil.svg) для хоста.
+   1. В блоке **Хосты** измените настройки хоста с ролью _Data node_, нажав значок ![image](../_assets/pencil.svg) для хоста.
    1. Выберите опцию **Публичный доступ**.
    1. Нажмите кнопку **Сохранить**.
 
@@ -65,8 +65,8 @@
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
-1. Нажмите кнопку **Создать кластер**.
-1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mes-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+1. Нажмите кнопку **Создать**.
+1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mes-short-name }} сменится на **Creating** и далее — на **Alive**. Это может занять некоторое время.
 
 ## Настройте группы безопасности {#configuring-security-groups}
 
@@ -80,16 +80,16 @@
 
 1. Установите SSL-сертификат:
 
-   ```
-   $ mkdir -p ~/.elasticsearch
-   $ wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
-   $ chmod 0600 ~/.elasticsearch/root.crt
+   ```bash
+   mkdir -p ~/.elasticsearch
+   wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
+   chmod 0600 ~/.elasticsearch/root.crt
    ```
 
 1. Подключитесь к кластеру с помошью утилиты [cURL](https://curl.haxx.se/):
 
-   ```
-   $ curl \
+   ```bash
+   curl \
      --user <имя пользователя>:<пароль> \
      --cacert ~/.elasticsearch/root.crt \
      -X GET 'https://<FQDN публично доступного хоста {{ ES }} с ролью Data node>:9200'
@@ -99,7 +99,7 @@
 
    При успешном подключении будет выведено похожее сообщение:
 
-   ```
+   ```bash
    {
      "name" : "....mdb.yandexcloud.net",
      "cluster_name" : "...",

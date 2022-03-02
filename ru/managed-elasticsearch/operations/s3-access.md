@@ -29,29 +29,42 @@
 
 
 ## Настроить права доступа {#configure-acl}
-{% if audience != "internal" %}
 
-1. В консоли управления выберите каталог, в котором хранится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его.
+{% list tabs %}
 
-{% else %}
+- Консоль управления
 
-1. В консоли управления выберите каталог, в котором хранится нужный бакет. Если бакета не существует — создайте его.
+    {% if audience != "internal" %}
 
-{% endif %}
-1. Выберите сервис **{{ objstorage-name }}**.
-1. Выберите вкладку **Бакеты**.
-1. {% if audience != "internal" %}Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md){% else %}Настройте ACL бакета{% endif %}:
-    1. В выпадающем списке **Выберите пользователя** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
-    1. Задайте разрешения `READ + WRITE` для выбранного сервисного аккаунта.
-    1. Нажмите кнопку **Добавить**.
-    1. Нажмите кнопку **Сохранить**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хранится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его.
 
+    {% else %}
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хранится нужный бакет. Если бакета не существует — создайте его.
+
+    {% endif %}
+
+    1. Выберите сервис **{{ objstorage-name }}**.
+    1. Выберите вкладку **Бакеты**.
+    1. {% if audience != "internal" %}Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md){% else %}Настройте ACL бакета{% endif %}:
+        1. В выпадающем списке **Выберите пользователя** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
+        1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
+        1. Нажмите кнопку **Добавить**.
+        1. Нажмите кнопку **Сохранить**.
+
+{% endlist %}
 
 ## Подключить репозиторий снапшотов {#register-snapshot-repository}
 
 {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
-1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера подключите расширение [repository-s3](../concepts/plugins.md).
+1. [Подключитесь](./cluster-connect.md) к кластеру.
+1. Установите расширение [repository-s3](../concepts/plugins.md):
+
+    ```bash
+    sudo bin/elasticsearch-plugin install repository-s3
+    ```
+
 1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/put-snapshot-repo-api.html):
 
     ```http
