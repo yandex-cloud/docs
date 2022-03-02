@@ -118,7 +118,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -500,7 +500,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -861,7 +861,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -1199,7 +1199,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -1597,7 +1597,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -1958,7 +1958,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -2279,7 +2279,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -2677,7 +2677,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -3074,7 +3074,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -3471,7 +3471,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -3998,7 +3998,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -4396,7 +4396,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -5026,7 +5026,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.
@@ -5423,7 +5423,7 @@ Field | Description
 --- | ---
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>Required. ID of the disk type. 
-size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
+size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 4194304 to 28587302322176, inclusive.
 source_oneof | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image that will be used for disk creation. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot that will be used for disk creation. The maximum string length in characters is 50.

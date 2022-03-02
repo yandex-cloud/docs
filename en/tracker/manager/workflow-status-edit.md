@@ -8,7 +8,30 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 You can choose a set of available statuses for each individual workflow. These statuses can be assigned to issues under your workflow.
 
-## Adding a status {#section_dcl_jdv_vbb}
+
+## Creating a status {#create-status}
+
+{% note warning %}
+
+Only the company admin can create new issue statuses. The created status can't be deleted or edited.
+
+{% endnote %}
+
+A status is an issue attribute that reflects the current state of the issue completion process. For example: <q>Open</q>, <q>In progress</q>, <q>Testing</q>, and <q>Closed</q>.
+
+The most popular issue statuses are available in {{ tracker-name }} by default. If you need something different, create a new one:
+
+1. Make sure that you are logged in as an administrator in {{ tracker-full-name }}.
+
+1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+
+1. Go to the **Issue statuses** tab.
+
+1. Click **Create status**.
+
+1. Fill in the fields and click **Create**.
+
+## Adding a status in a workflow {#section_dcl_jdv_vbb}
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
@@ -24,11 +47,11 @@ You can choose a set of available statuses for each individual workflow. These s
     | **Transition button name in Russian** | The name of the button in the English {{ tracker-name }} interface that will switch the issue to this status. |
 
    
-   The most popular statuses are available in {{ tracker-name }} by default. If you don't see the status you need, your company's admin can [create one](create-status.md).
+   The most popular statuses are available in {{ tracker-name }} by default. If you don't see the status you need, your company's admin can [create one](#create-status).
 
 1. Click **Save**.
 
-## Changing the status {#section_q4q_nfv_vbb}
+## Changing the status in a workflow {#section_q4q_nfv_vbb}
 
 #### Making a status the initial status
 
@@ -84,7 +107,7 @@ You can add transitions between statuses available in your workflow:
 
 1. [Edit your transition](workflow-action-edit.md) if you want to add conditions or auto actions.
 
-## Removing a status {#section_mqt_5fv_vbb}
+## Removing a status from a workflow {#section_mqt_5fv_vbb}
 
 {% note warning %}
 

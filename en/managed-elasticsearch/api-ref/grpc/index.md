@@ -11,6 +11,7 @@ Service | Description
 [AuthService](./auth_service.md) | A set of methods for managing Elasticsearch Authentication resources.
 [BackupService](./backup_service.md) | 
 [ClusterService](./cluster_service.md) | A set of methods for managing Elasticsearch clusters.
+[ExtensionService](./extension_service.md) | 
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing Elasticsearch resource presets.
 [UserService](./user_service.md) | A set of methods for managing Elasticsearch users.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

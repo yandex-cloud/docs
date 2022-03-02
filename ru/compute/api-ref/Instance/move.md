@@ -5,9 +5,12 @@ sourcePath: en/_api-ref/compute/api-ref/Instance/move.md
 
 
 # Method move
-Moves the specified instance between folders
+Moves the specified instance to another folder of the same cloud.
  
+The instance must be stopped before moving. To stop the instance, make a [stop](/docs/compute/api-ref/Instance/stop) request.
 
+After moving, the instance will start recording its Yandex Monitoring default metrics to its new folder. Metrics
+that have been recorded to the source folder prior to moving will be retained.
  
 ## HTTP request {#https-request}
 ```
@@ -18,7 +21,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:move
  
 Parameter | Description
 --- | ---
-instanceId | Required. ID of the instance that is being moved.  The maximum string length in characters is 50.
+instanceId | Required. ID of the instance to move.  To get the instance ID, make a [list](/docs/compute/api-ref/Instance/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -31,7 +34,7 @@ instanceId | Required. ID of the instance that is being moved.  The maximum stri
  
 Field | Description
 --- | ---
-destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>The maximum string length in characters is 50.</p> 
+destinationFolderId | **string**<br><p>Required. ID of the folder to move the instance to.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

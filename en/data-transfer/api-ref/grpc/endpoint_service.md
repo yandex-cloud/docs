@@ -128,8 +128,8 @@ connection | **[PostgresConnection](#PostgresConnection)**<br>Connection setting
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
 password | **[Secret](#Secret1)**<br>Password <br>Password for database access. 
-include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Can contain regular expression. 
-exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Can contain regular expression. 
+include_tables[] | **string**<br><ul><li>patterns.</li></ul> 
+exclude_tables[] | **string**<br><ul><li>patterns.</li></ul> 
 slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
 service_schema | **string**<br>Database schema for service table <br>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder). 
 object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
@@ -211,6 +211,8 @@ password | **[Secret](#Secret2)**<br>Password <br>Password for database access.
 sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><ul/>
+service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
 ### MysqlConnection {#MysqlConnection1}
@@ -264,6 +266,7 @@ connection | **[PostgresConnection](#PostgresConnection1)**<br>Connection settin
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
 password | **[Secret](#Secret3)**<br>Password <br>Password for database access. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><ul/>
 
 
 ### PostgresConnection {#PostgresConnection1}
@@ -320,7 +323,7 @@ value | **oneof:** `raw`<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Identifier of the folder containing the endpoints to be listed. 
-page_size | **int64**<br>The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than page_size, next_page_token will be included in the response message. Include it into the subsequent ListEndpointRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 100. 
+page_size | **int64**<br>The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than page_size, next_page_token will be included in the response message. Include it into the subsequent ListEndpointRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 500. 
 page_token | **string**<br>Opaque value identifying the endpoints page to be fetched. Should be empty in the first ListEndpointsRequest. Subsequent request should have this field filled with the next_page_token from the previous ListEndpointsResponse. 
 
 
@@ -429,8 +432,8 @@ connection | **[PostgresConnection](#PostgresConnection2)**<br>Connection settin
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
 password | **[Secret](#Secret5)**<br>Password <br>Password for database access. 
-include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Can contain regular expression. 
-exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Can contain regular expression. 
+include_tables[] | **string**<br><ul><li>patterns.</li></ul> 
+exclude_tables[] | **string**<br><ul><li>patterns.</li></ul> 
 slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
 service_schema | **string**<br>Database schema for service table <br>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder). 
 object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings1)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
@@ -512,6 +515,8 @@ password | **[Secret](#Secret6)**<br>Password <br>Password for database access.
 sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><ul/>
+service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
 ### MysqlConnection {#MysqlConnection3}
@@ -565,6 +570,7 @@ connection | **[PostgresConnection](#PostgresConnection3)**<br>Connection settin
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
 password | **[Secret](#Secret7)**<br>Password <br>Password for database access. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><ul/>
 
 
 ### PostgresConnection {#PostgresConnection3}
@@ -712,8 +718,8 @@ connection | **[PostgresConnection](#PostgresConnection4)**<br>Connection settin
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
 password | **[Secret](#Secret9)**<br>Password <br>Password for database access. 
-include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Can contain regular expression. 
-exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Can contain regular expression. 
+include_tables[] | **string**<br><ul><li>patterns.</li></ul> 
+exclude_tables[] | **string**<br><ul><li>patterns.</li></ul> 
 slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
 service_schema | **string**<br>Database schema for service table <br>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder). 
 object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings2)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
@@ -795,6 +801,8 @@ password | **[Secret](#Secret10)**<br>Password <br>Password for database access.
 sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><ul/>
+service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
 ### MysqlConnection {#MysqlConnection5}
@@ -848,6 +856,7 @@ connection | **[PostgresConnection](#PostgresConnection5)**<br>Connection settin
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
 password | **[Secret](#Secret11)**<br>Password <br>Password for database access. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><ul/>
 
 
 ### PostgresConnection {#PostgresConnection5}
@@ -1012,8 +1021,8 @@ connection | **[PostgresConnection](#PostgresConnection6)**<br>Connection settin
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
 password | **[Secret](#Secret13)**<br>Password <br>Password for database access. 
-include_tables[] | **string**<br>Included tables <br>If none or empty list is presented, all tables are replicated. Can contain regular expression. 
-exclude_tables[] | **string**<br>Excluded tables <br>If none or empty list is presented, all tables are replicated. Can contain regular expression. 
+include_tables[] | **string**<br><ul><li>patterns.</li></ul> 
+exclude_tables[] | **string**<br><ul><li>patterns.</li></ul> 
 slot_byte_lag_limit | **int64**<br>Maximum WAL size for the replication slot <br>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default. 
 service_schema | **string**<br>Database schema for service table <br>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder). 
 object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTransferSettings3)**<br>Schema migration <br>Select database objects to be transferred during activation or deactivation. 
@@ -1095,6 +1104,8 @@ password | **[Secret](#Secret14)**<br>Password <br>Password for database access.
 sql_mode | **string**<br>sql_mode <br>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. 
 skip_constraint_checks | **bool**<br>Disable constraints checks <br>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. 
 timezone | **string**<br>Database timezone <br>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><ul/>
+service_database | **string**<br>Database schema for service table <br>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). 
 
 
 ### MysqlConnection {#MysqlConnection7}
@@ -1148,6 +1159,7 @@ connection | **[PostgresConnection](#PostgresConnection7)**<br>Connection settin
 database | **string**<br>Database name 
 user | **string**<br>Username <br>User for database access. 
 password | **[Secret](#Secret15)**<br>Password <br>Password for database access. 
+cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED. <ul><ul/>
 
 
 ### PostgresConnection {#PostgresConnection7}

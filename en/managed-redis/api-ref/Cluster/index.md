@@ -154,7 +154,8 @@ A set of methods for managing Redis clusters.
     "string"
   ],
   "tlsEnabled": true,
-  "deletionProtection": true
+  "deletionProtection": true,
+  "persistenceMode": "string"
 }
 ```
  
@@ -274,6 +275,7 @@ plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>Time until whic
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 tlsEnabled | **boolean** (boolean)<br><p>TLS port and functionality on\off</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+persistenceMode | **string**<br><p>Persistence mode</p> 
 
 ## Methods {#methods}
 Method | Description

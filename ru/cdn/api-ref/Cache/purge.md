@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/cdn/api-ref/Cache/purge.md
 # Method purge
 Removes specified files from the cache of the specified resource. For details about purging, see [documentation](/docs/cdn/concepts/caching#purge).
  
-
+Purging may take up to 15 minutes.
  
 ## HTTP request {#https-request}
 ```

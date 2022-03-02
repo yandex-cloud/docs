@@ -52,6 +52,15 @@ filter | A filter expression that filters clusters listed in the response.  The 
           "properties": "object",
           "sshPublicKeys": [
             "string"
+          ],
+          "initializationActions": [
+            {
+              "uri": "string",
+              "args": [
+                "string"
+              ],
+              "timeout": "string"
+            }
           ]
         }
       },
@@ -95,6 +104,10 @@ clusters[].<br>config.<br>hadoop | **object**<br><p>Data Proc specific configura
 clusters[].<br>config.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
 clusters[].<br>config.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in ``*-site.xml`` configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the ``dfs.replication`` property in the file ``/etc/hadoop/conf/hdfs-site.xml``.</p> 
 clusters[].<br>config.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of public SSH keys to access to cluster hosts.</p> 
+clusters[].<br>config.<br>hadoop.<br>initializationActions[] | **object**<br><p>Set of init-actions</p> 
+clusters[].<br>config.<br>hadoop.<br>initializationActions[].<br>uri | **string**<br><p>URI of the executable file</p> 
+clusters[].<br>config.<br>hadoop.<br>initializationActions[].<br>args[] | **string**<br><p>Arguments to the initialization action</p> 
+clusters[].<br>config.<br>hadoop.<br>initializationActions[].<br>timeout | **string** (int64)<br><p>Execution timeout</p> 
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 clusters[].<br>zoneId | **string**<br><p>ID of the availability zone where the cluster resides.</p> 

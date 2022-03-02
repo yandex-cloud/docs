@@ -5,9 +5,9 @@ sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/backup.md
 
 
 # Method backup
-Creates a backup for the specified MySQL cluster.
+Creates a backup for a cluster.
  
-
+To get information about a backup, make a [get](/docs/managed-mysql/api-ref/Backup/get) request.
  
 ## HTTP request {#https-request}
 ```
@@ -18,7 +18,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:back
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MySQL cluster to back up. To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to back up.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

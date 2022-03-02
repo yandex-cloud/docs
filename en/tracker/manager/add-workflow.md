@@ -12,7 +12,7 @@ Your workflow sets acceptable issue statuses and their sequence. To add a new wo
 
 1. Open the queue page.
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to the **Workflow** tab.
 
@@ -30,7 +30,7 @@ If you have already set up a suitable workflow in another queue, you can copy it
 
 1. Open the queue page.
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to the **Workflow** tab.
 
@@ -56,7 +56,7 @@ To delete a workflow that you created:
 
 1. Open the queue page.
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to the **Workflow** tab.
 

@@ -173,6 +173,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>New name of the filesystem. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description of the filesystem. The maximum string length in characters is 256.
 labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [FilesystemService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+size | **int64**<br>Size of the filesystem, specified in bytes. 
 
 
 ### Operation {#Operation1}

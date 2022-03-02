@@ -77,14 +77,6 @@ If you restore data using the ```ydb tools restore``` utility, billing is based 
 
 {% endnote %}
 
-## Discount for committed volumes {#cvos}
-
-You can get a guaranteed discount on service resource usage when you commit for a month, year, or three years.
-
-{{ ydb-name }} serverless mode provides a [CVoS](../../billing/concepts/cvos.md) for a particular number of requests in RU per second. You can choose the committed volume in 100 RU/sec increments.
-
-When calculating the actual consumption, the number of requests is averaged every five minutes. This means that if the commitment is 100 RU/s, you don't have to consume 100 RU every second. Within the averaging interval, the load might vary and be 150 RU/s at one point and 50 RU/s at another.
-
 ## Pricing {#prices}
 
 

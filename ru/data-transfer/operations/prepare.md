@@ -59,7 +59,7 @@
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-    1. Убедитесь, что мажорная версия {{ MG }} на приемнике не ниже `4.0`.
+    1. Убедитесь, что версия {{ MG }} на приемнике не ниже `4.0`.
 
     1. [Настройте кластер-источник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из интернета:
 

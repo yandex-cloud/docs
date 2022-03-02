@@ -66,5 +66,5 @@ Method | Description
 [get](get.md) | Returns the specified Disk resource.
 [list](list.md) | Retrieves the list of Disk resources in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified disk.
-[move](move.md) | Moves disk between folders.
+[move](move.md) | Moves the specified disk to another folder of the same cloud.
 [update](update.md) | Updates the specified disk.

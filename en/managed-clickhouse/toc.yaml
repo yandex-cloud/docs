@@ -217,6 +217,8 @@ items:
                 href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
+              - name: updateHosts
+                href: api-ref/Cluster/updateHosts.md
               - name: updateShard
                 href: api-ref/Cluster/updateShard.md
               - name: updateShardGroup

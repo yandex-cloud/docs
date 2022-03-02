@@ -54,7 +54,7 @@ backendGroupId | Required. ID of the backend group to return.  To get the backen
             "unhealthyThreshold": "string",
             "healthcheckPort": "string",
 
-            // `http.backends[].healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`
+            // `http.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`
             "stream": {
               "send": {
                 "text": "string"
@@ -73,6 +73,18 @@ backendGroupId | Required. ID of the backend group to return.  To get the backen
             },
             // end of the list of possible fields`http.backends[].healthchecks[]`
 
+            "plaintext": {},
+            "tls": {
+              "sni": "string",
+              "validationContext": {
+
+                // `http.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
+                "trustedCaId": "string",
+                "trustedCaBytes": "string",
+                // end of the list of possible fields`http.backends[].healthchecks[].tls.validationContext`
+
+              }
+            }
           }
         ],
         "tls": {
@@ -137,7 +149,7 @@ backendGroupId | Required. ID of the backend group to return.  To get the backen
             "unhealthyThreshold": "string",
             "healthcheckPort": "string",
 
-            // `grpc.backends[].healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`
+            // `grpc.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`
             "stream": {
               "send": {
                 "text": "string"
@@ -156,6 +168,18 @@ backendGroupId | Required. ID of the backend group to return.  To get the backen
             },
             // end of the list of possible fields`grpc.backends[].healthchecks[]`
 
+            "plaintext": {},
+            "tls": {
+              "sni": "string",
+              "validationContext": {
+
+                // `grpc.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
+                "trustedCaId": "string",
+                "trustedCaBytes": "string",
+                // end of the list of possible fields`grpc.backends[].healthchecks[].tls.validationContext`
+
+              }
+            }
           }
         ],
         "tls": {
@@ -212,7 +236,7 @@ backendGroupId | Required. ID of the backend group to return.  To get the backen
             "unhealthyThreshold": "string",
             "healthcheckPort": "string",
 
-            // `stream.backends[].healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`
+            // `stream.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`
             "stream": {
               "send": {
                 "text": "string"
@@ -231,6 +255,18 @@ backendGroupId | Required. ID of the backend group to return.  To get the backen
             },
             // end of the list of possible fields`stream.backends[].healthchecks[]`
 
+            "plaintext": {},
+            "tls": {
+              "sni": "string",
+              "validationContext": {
+
+                // `stream.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`
+                "trustedCaId": "string",
+                "trustedCaBytes": "string",
+                // end of the list of possible fields`stream.backends[].healthchecks[].tls.validationContext`
+
+              }
+            }
           }
         ],
         "tls": {
@@ -298,6 +334,12 @@ http.<br>backends[].<br>healthchecks[].<br>http.<br>path | **string**<br><p>Requ
 http.<br>backends[].<br>healthchecks[].<br>http.<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP/2 usage in health checks.</p> <p>Default value: ``false``, HTTP/1.1 is used.</p> 
 http.<br>backends[].<br>healthchecks[].<br>grpc | **object**<br>gRPC health check settings. <br>`http.backends[].healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`<br><br><p>A resource for gRPC health check settings.</p> 
 http.<br>backends[].<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Name of the gRPC service to be checked.</p> <p>If not specified, overall health is checked.</p> <p>For details about the concept, see <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health Checking Protocol</a>.</p> 
+http.<br>backends[].<br>healthchecks[].<br>plaintext | **object** <br>`http.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+http.<br>backends[].<br>healthchecks[].<br>tls | **object** <br>`http.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+http.<br>backends[].<br>healthchecks[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
+http.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> <p>A TLS validation context resource.</p> 
+http.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
+http.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`http.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 http.<br>backends[].<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted HTTP connections with targets.<br><p>A resource for backend TLS settings.</p> 
 http.<br>backends[].<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for TLS connections.</p> 
 http.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
@@ -314,7 +356,7 @@ http.<br>header | **object**<br>HTTP-header-field-based session affinity configu
 http.<br>header.<br>headerName | **string**<br><p>Name of the HTTP header field that is used for session affinity.</p> <p>The string length in characters must be 1-256.</p> 
 http.<br>cookie | **object**<br>Cookie-based session affinity configuration. <br>`http` includes only one of the fields `connection`, `header`, `cookie`<br><br><p>A resource for cookie-based session affinity configuration.</p> 
 http.<br>cookie.<br>name | **string**<br><p>Name of the cookie that is used for session affinity.</p> <p>The string length in characters must be 1-256.</p> 
-http.<br>cookie.<br>ttl | **string**<br><p>Maximum age of cookies that are generated for sessions.</p> <p>If set to ``0``, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts.</p> <p>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity.</p> 
+http.<br>cookie.<br>ttl | **string**<br><p>Maximum age of cookies that are generated for sessions.</p> <p>If set to ``0``, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts.</p> <p>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity.</p> 
 grpc | **object**<br>List of gRPC backends that the backend group consists of. <br> includes only one of the fields `http`, `grpc`, `stream`<br><br><p>A gRPC backend group resource.</p> 
 grpc.<br>backends[] | **object**<br>gRPC backend to add to the backend group.<br><p>A gRPC backend resource.</p> 
 grpc.<br>backends[].<br>name | **string**<br><p>Required. Name of the backend.</p> <p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
@@ -343,6 +385,12 @@ grpc.<br>backends[].<br>healthchecks[].<br>http.<br>path | **string**<br><p>Requ
 grpc.<br>backends[].<br>healthchecks[].<br>http.<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP/2 usage in health checks.</p> <p>Default value: ``false``, HTTP/1.1 is used.</p> 
 grpc.<br>backends[].<br>healthchecks[].<br>grpc | **object**<br>gRPC health check settings. <br>`grpc.backends[].healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`<br><br><p>A resource for gRPC health check settings.</p> 
 grpc.<br>backends[].<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Name of the gRPC service to be checked.</p> <p>If not specified, overall health is checked.</p> <p>For details about the concept, see <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health Checking Protocol</a>.</p> 
+grpc.<br>backends[].<br>healthchecks[].<br>plaintext | **object** <br>`grpc.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+grpc.<br>backends[].<br>healthchecks[].<br>tls | **object** <br>`grpc.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+grpc.<br>backends[].<br>healthchecks[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
+grpc.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> <p>A TLS validation context resource.</p> 
+grpc.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`grpc.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
+grpc.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`grpc.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 grpc.<br>backends[].<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted HTTP connections with targets.<br><p>A resource for backend TLS settings.</p> 
 grpc.<br>backends[].<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for TLS connections.</p> 
 grpc.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
@@ -356,7 +404,7 @@ grpc.<br>header | **object**<br>HTTP-header-field-based session affinity configu
 grpc.<br>header.<br>headerName | **string**<br><p>Name of the HTTP header field that is used for session affinity.</p> <p>The string length in characters must be 1-256.</p> 
 grpc.<br>cookie | **object**<br>Cookie-based session affinity configuration. <br>`grpc` includes only one of the fields `connection`, `header`, `cookie`<br><br><p>A resource for cookie-based session affinity configuration.</p> 
 grpc.<br>cookie.<br>name | **string**<br><p>Name of the cookie that is used for session affinity.</p> <p>The string length in characters must be 1-256.</p> 
-grpc.<br>cookie.<br>ttl | **string**<br><p>Maximum age of cookies that are generated for sessions.</p> <p>If set to ``0``, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts.</p> <p>if not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity.</p> 
+grpc.<br>cookie.<br>ttl | **string**<br><p>Maximum age of cookies that are generated for sessions.</p> <p>If set to ``0``, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts.</p> <p>If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity.</p> 
 stream | **object**<br>List of stream backends that the backend group consist of. <br> includes only one of the fields `http`, `grpc`, `stream`<br><br><p>A Stream backend group resource.</p> 
 stream.<br>backends[] | **object**<br>New settings for the Stream backend.<br><p>A stream backend resource.</p> 
 stream.<br>backends[].<br>name | **string**<br><p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
@@ -385,6 +433,12 @@ stream.<br>backends[].<br>healthchecks[].<br>http.<br>path | **string**<br><p>Re
 stream.<br>backends[].<br>healthchecks[].<br>http.<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP/2 usage in health checks.</p> <p>Default value: ``false``, HTTP/1.1 is used.</p> 
 stream.<br>backends[].<br>healthchecks[].<br>grpc | **object**<br>gRPC health check settings. <br>`stream.backends[].healthchecks[]` includes only one of the fields `stream`, `http`, `grpc`<br><br><p>A resource for gRPC health check settings.</p> 
 stream.<br>backends[].<br>healthchecks[].<br>grpc.<br>serviceName | **string**<br><p>Name of the gRPC service to be checked.</p> <p>If not specified, overall health is checked.</p> <p>For details about the concept, see <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health Checking Protocol</a>.</p> 
+stream.<br>backends[].<br>healthchecks[].<br>plaintext | **object** <br>`stream.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+stream.<br>backends[].<br>healthchecks[].<br>tls | **object** <br>`stream.backends[].healthchecks[]` includes only one of the fields `plaintext`, `tls`<br><br><p>Transport settings to be used instead of the settings configured per-cluster</p> 
+stream.<br>backends[].<br>healthchecks[].<br>tls.<br>sni | **string**<br><p>SNI string for TLS connections.</p> 
+stream.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext | **object**<br><p>Validation context for backend TLS connections.</p> <p>A TLS validation context resource.</p> 
+stream.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`stream.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
+stream.<br>backends[].<br>healthchecks[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`stream.backends[].healthchecks[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 stream.<br>backends[].<br>tls | **object**<br>Settings for TLS connections between load balancer nodes and backend targets.  If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in `validationContext`. If not specified, the load balancer establishes unencrypted HTTP connections with targets.<br><p>A resource for backend TLS settings.</p> 
 stream.<br>backends[].<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string for TLS connections.</p> 
 stream.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 

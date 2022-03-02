@@ -7,7 +7,6 @@ description: "Из статьи вы узнаете, как работать с 
 
 [{#T}](activate-commercial.md)
 
-[{#T}](purchase-cvos.md)
 
 [{#T}](activate-promocode.md)
 

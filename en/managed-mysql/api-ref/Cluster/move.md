@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/move.md
 
 
 # Method move
-Moves the specified MySQL cluster to the specified folder.
+Moves a cluster to a folder.
  
 
  
@@ -18,7 +18,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:move
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MySQL cluster to move.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to move.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -31,7 +31,7 @@ clusterId | Required. ID of the MySQL cluster to move.  The maximum string lengt
  
 Field | Description
 --- | ---
-destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>The maximum string length in characters is 50.</p> 
+destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>To get this ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

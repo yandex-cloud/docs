@@ -28,7 +28,7 @@ A set of methods for managing Instance resources.
 | [RemoveOneToOneNat](#RemoveOneToOneNat) | Removes One-to-one NAT from the network interface. |
 | [UpdateNetworkInterface](#UpdateNetworkInterface) | Updates the specified instance network interface. |
 | [ListOperations](#ListOperations) | Lists operations for the specified instance. |
-| [Move](#Move) | Moves the specified instance between folders |
+| [Move](#Move) | Moves the specified instance to another folder of the same cloud. |
 
 ## Calls InstanceService {#calls}
 
@@ -684,6 +684,7 @@ metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings4)**<br>Network settings. 
 placement_policy | **[PlacementPolicy](#PlacementPolicy4)**<br>Placement policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -718,6 +719,13 @@ Field | Description
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
 op | enum **Operator**<br>Include or exclude action <ul><ul/>
 values[] | **string**<br>Affinity value or host ID or host group ID 
+
+
+### SchedulingPolicy {#SchedulingPolicy4}
+
+Field | Description
+--- | ---
+preemptible | **bool**<br>True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm). 
 
 
 ### Operation {#Operation1}
@@ -763,7 +771,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk3)**<br>Array of secondary dis
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem3)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface3)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy4)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings5)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy5)**<br>Placement policy configuration. 
@@ -848,7 +856,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy4}
+### SchedulingPolicy {#SchedulingPolicy5}
 
 Field | Description
 --- | ---
@@ -981,7 +989,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk4)**<br>Array of secondary dis
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem4)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface4)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy5)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings6)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy6)**<br>Placement policy configuration. 
@@ -1066,7 +1074,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy5}
+### SchedulingPolicy {#SchedulingPolicy6}
 
 Field | Description
 --- | ---
@@ -1218,7 +1226,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk5)**<br>Array of secondary dis
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem5)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface5)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy6)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings7)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy7)**<br>Placement policy configuration. 
@@ -1303,7 +1311,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy6}
+### SchedulingPolicy {#SchedulingPolicy7}
 
 Field | Description
 --- | ---
@@ -1463,7 +1471,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk6)**<br>Array of secondary dis
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem6)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface6)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy7)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings8)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy8)**<br>Placement policy configuration. 
@@ -1548,7 +1556,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy7}
+### SchedulingPolicy {#SchedulingPolicy8}
 
 Field | Description
 --- | ---
@@ -1643,7 +1651,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk7)**<br>Array of secondary dis
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem7)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface7)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy8)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings9)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy9)**<br>Placement policy configuration. 
@@ -1728,7 +1736,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy8}
+### SchedulingPolicy {#SchedulingPolicy9}
 
 Field | Description
 --- | ---
@@ -1830,7 +1838,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk8)**<br>Array of secondary dis
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem8)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface8)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy9)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings10)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy10)**<br>Placement policy configuration. 
@@ -1915,7 +1923,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy9}
+### SchedulingPolicy {#SchedulingPolicy10}
 
 Field | Description
 --- | ---
@@ -2010,7 +2018,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk9)**<br>Array of secondary dis
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem9)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface9)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy10)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings11)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy11)**<br>Placement policy configuration. 
@@ -2095,7 +2103,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy10}
+### SchedulingPolicy {#SchedulingPolicy11}
 
 Field | Description
 --- | ---
@@ -2208,7 +2216,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk10)**<br>Array of secondary di
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem10)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface10)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy11)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings12)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy12)**<br>Placement policy configuration. 
@@ -2293,7 +2301,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy11}
+### SchedulingPolicy {#SchedulingPolicy12}
 
 Field | Description
 --- | ---
@@ -2386,7 +2394,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk11)**<br>Array of secondary di
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem11)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface11)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy12)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings13)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy13)**<br>Placement policy configuration. 
@@ -2471,7 +2479,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy12}
+### SchedulingPolicy {#SchedulingPolicy13}
 
 Field | Description
 --- | ---
@@ -2607,7 +2615,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk12)**<br>Array of secondary di
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem12)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface12)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy13)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy14)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings14)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy14)**<br>Placement policy configuration. 
@@ -2692,7 +2700,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy13}
+### SchedulingPolicy {#SchedulingPolicy14}
 
 Field | Description
 --- | ---
@@ -2764,7 +2772,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## Move {#Move}
 
-Moves the specified instance between folders
+Moves the specified instance to another folder of the same cloud. <br>The instance must be stopped before moving. To stop the instance, make a [Stop](#Stop) request. <br>After moving, the instance will start recording its Yandex Monitoring default metrics to its new folder. Metrics that have been recorded to the source folder prior to moving will be retained.
 
 **rpc Move ([MoveInstanceRequest](#MoveInstanceRequest)) returns ([operation.Operation](#Operation15))**
 
@@ -2776,8 +2784,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-instance_id | **string**<br>Required. ID of the instance that is being moved. The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
+instance_id | **string**<br>Required. ID of the instance to move. <br>To get the instance ID, make a [InstanceService.List](#List) request. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the folder to move the instance to. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation15}
@@ -2801,8 +2809,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 instance_id | **string**<br>ID of the instance that is being moved. 
-source_folder_id | **string**<br>ID of the source folder. 
-destination_folder_id | **string**<br>ID of the destination folder. 
+source_folder_id | **string**<br>ID of the folder that the instance is being moved from. 
+destination_folder_id | **string**<br>ID of the folder that the instance is being moved to. 
 
 
 ### Instance {#Instance13}
@@ -2825,7 +2833,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk13)**<br>Array of secondary di
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem13)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface13)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
-scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy14)**<br>Scheduling policy configuration. 
+scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy15)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings15)**<br>Network Settings 
 placement_policy | **[PlacementPolicy](#PlacementPolicy15)**<br>Placement policy configuration. 
@@ -2910,7 +2918,7 @@ ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
 
 
-### SchedulingPolicy {#SchedulingPolicy14}
+### SchedulingPolicy {#SchedulingPolicy15}
 
 Field | Description
 --- | ---

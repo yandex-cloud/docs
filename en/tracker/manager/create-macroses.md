@@ -14,7 +14,7 @@ Each {{ tracker-name }} queue has its own set of macros. To create a new queue m
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. On the left-hand panel, select **Automation** → **Macros** and click **Create macro**.
 
@@ -36,7 +36,7 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. On the left-hand panel, select **Automation** → **Macros** and hover over the macro you need.
 

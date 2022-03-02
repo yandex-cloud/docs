@@ -12,8 +12,8 @@ Provider's resources management service.
 | --- | --- |
 | [Get](#Get) | Get client's CDN resource by resource id. |
 | [List](#List) | Lists CDN resources. |
-| [Create](#Create) | Creates client's CDN resource. |
-| [Update](#Update) | Updates of client's CDN resource. |
+| [Create](#Create) | Creates a CDN resource in the specified folder. |
+| [Update](#Update) | Updates the specified CDN resource. |
 | [Delete](#Delete) | Deletes client's CDN resource. |
 | [GetProviderCName](#GetProviderCName) | Get Provider's CNAME (edge endpoint) bind to specified folder id. |
 
@@ -435,7 +435,7 @@ id | **string**<br>ID of the custom certificate.
 
 ## Create {#Create}
 
-Creates client's CDN resource.
+Creates a CDN resource in the specified folder. <br>Creation may take up to 15 minutes.
 
 **rpc Create ([CreateResourceRequest](#CreateResourceRequest)) returns ([operation.Operation](#Operation))**
 
@@ -895,7 +895,7 @@ id | **string**<br>ID of the custom certificate.
 
 ## Update {#Update}
 
-Updates of client's CDN resource. (PATCH behavior)
+Updates the specified CDN resource. <br>The method implements patch behaviour, i.e. only the fields specified in the request are updated in the resource. <br>Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge the resource's cache via a [CacheService.Purge](./cache_service#Purge) request.
 
 **rpc Update ([UpdateResourceRequest](#UpdateResourceRequest)) returns ([operation.Operation](#Operation1))**
 

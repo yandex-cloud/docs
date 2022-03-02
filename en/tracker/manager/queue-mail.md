@@ -24,7 +24,7 @@ To add an email address to your queue, follow these steps:
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to the **Mailboxes** tab.
 
@@ -110,7 +110,7 @@ If you want to [send emails](../user/comments.md#send-comment) to external email
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to the **Basic settings** tab and click **Show advanced settings**.
 

@@ -69,6 +69,10 @@ items:
         href: security-bulletins/index.md
       - name: Правила проведения внешних сканирований безопасности
         href: compliance/pentest.md
+      - name: Инструкции
+        items:
+          - name: Удаление паспортного аккаунта из организации
+            href: security/operations/account-deletion.md
   - name: Удаление данных пользователей
     href: concepts/data-deletion.md
   - name: SLA

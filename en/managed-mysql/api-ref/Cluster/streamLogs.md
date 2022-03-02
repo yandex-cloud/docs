@@ -5,9 +5,9 @@ sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/streamLogs.md
 
 
 # Method streamLogs
-Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+Retrieves a log stream for a cluster.
  
-
+This method is similar to [listLogs](/docs/managed-mysql/api-ref/Cluster/listLogs), but uses server-side streaming, which allows for the `tail -f` command semantics.
  
 ## HTTP request {#https-request}
 ```
@@ -18,18 +18,18 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:strea
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the MySQL cluster.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster to stream logs for.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-columnFilter | Columns from logs table to get in the response.
-serviceType | <ul> <li>MYSQL_ERROR: MySQL error log.</li> <li>MYSQL_GENERAL: MySQL general query log.</li> <li>MYSQL_SLOW_QUERY: MySQL slow query log.</li> <li>MYSQL_AUDIT: MySQL audit log.</li> </ul> 
+columnFilter | Columns from the logs table to request. If no columns are specified, complete log records are returned.
+serviceType | The log type.<ul> <li>MYSQL_ERROR: MySQL error log.</li> <li>MYSQL_GENERAL: MySQL general query log.</li> <li>MYSQL_SLOW_QUERY: MySQL slow query log.</li> <li>MYSQL_AUDIT: MySQL audit log.</li> </ul> 
 fromTime | Start timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-toTime | End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-recordToken | Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`  The maximum string length in characters is 1000.
+toTime | End timestamp for the logs request. If this field is not set, all existing log records beginning from [fromTime](/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params) will be returned first, and then the new records will be returned as they appear.  In essence it has `tail -f` command semantics.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+recordToken | Record token that can be used to control logs streaming.  Set [recordToken](/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params) to the `nextRecordToken`, returned by the previous [streamLogs](/docs/managed-mysql/api-ref/Cluster/streamLogs) request to start streaming from the next log record.  The maximum string length in characters is 100.
+filter | A filter expression that selects clusters logs listed in the response.  The expression must specify: 1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -43,11 +43,11 @@ filter | A filter expression that filters resources listed in the response. The 
   "nextRecordToken": "string"
 }
 ```
-
+A single log record in the logs stream.
  
 Field | Description
 --- | ---
-record | **object**<br><p>One of the requested log records.</p> 
-record.<br>timestamp | **string** (date-time)<br><p>Log record timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+record | **object**<br><p>One of the requested log records.</p> <p>A single log record.</p> 
+record.<br>timestamp | **string** (date-time)<br><p>Timestamp of the log record.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 record.<br>message | **object**<br><p>Contents of the log record.</p> 
-nextRecordToken | **string**<br><p>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of ``next_record_token`` as value for ``record_token`` parameter in the next StreamLogs request. This value is interchangeable with ``next_page_token`` from ListLogs method.</p> 
+nextRecordToken | **string**<br><p>The token that can be used to continue streaming logs starting from the exact same record. To continue streaming, specify value of ``nextRecordToken`` as the <a href="/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params">recordToken</a> value in the next <a href="/docs/managed-mysql/api-ref/Cluster/streamLogs">streamLogs</a> request.</p> <p>This value is interchangeable with <a href="/docs/managed-mysql/api-ref/Cluster/listLogs#responses">nextPageToken</a> from <a href="/docs/managed-mysql/api-ref/Cluster/listLogs">listLogs</a> method.</p> 

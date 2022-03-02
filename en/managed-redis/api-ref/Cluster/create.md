@@ -84,7 +84,8 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters
     "string"
   ],
   "tlsEnabled": true,
-  "deletionProtection": true
+  "deletionProtection": true,
+  "persistenceMode": "string"
 }
 ```
 
@@ -142,6 +143,7 @@ sharded | **boolean** (boolean)<br><p>Redis cluster mode on/off.</p>
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 tlsEnabled | **boolean** (boolean)<br><p>TLS port and functionality on\off</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+persistenceMode | **string**<br><p>Persistence mode</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
