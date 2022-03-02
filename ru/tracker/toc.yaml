@@ -389,6 +389,14 @@ items:
     repo: docs
     path: ru/tracker/api-ref/toc.yaml
 - name: Вопросы и ответы
+  when: audience == "external"
+  items:
+    - name: Общие вопросы
+      href: faq.md
+    - name: Оплата
+      href: payment.md  
+- name: Вопросы и ответы
+  when: audience == "internal"
   href: faq.md
 - name: Служба поддержки
   href: troubleshooting.md
