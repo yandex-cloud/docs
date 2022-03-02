@@ -60,6 +60,8 @@
 
 ### Цена единицы записываемых данных {#event}
 
+Каждый месяц не тарифицируются первые 2 000 000 сообщений.
+
 {% if region == "ru"%}
 
 {% include [rub.md](../_pricing/data-streams/rub-event.md) %}
