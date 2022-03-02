@@ -1,3 +1,24 @@
+| Ресурс        | Цена за 1 час                                      | 
+|---------------|----------------------------------------------------|-
+| **Intel Broadwell** |
+| 5% vCPU       | {{ sku|RUB|mdb.cluster.mysql.v1.cpu.c5|string }}   | 
+| 20% vCPU      | {{ sku|RUB|mdb.cluster.mysql.v1.cpu.c20|string }}  | 
+| 50% vCPU      | {{ sku|RUB|mdb.cluster.mysql.v1.cpu.c50|string }}  | 
+| 100% vCPU     | {{ sku|RUB|mdb.cluster.mysql.v1.cpu.c100|string }} | 
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mysql.v1.ram|string }}      | 
+| **Intel Cascade Lake** |
+| 5% vCPU       | {{ sku|RUB|mdb.cluster.mysql.v2.cpu.c5|string }}   | 
+| 20% vCPU      | {{ sku|RUB|mdb.cluster.mysql.v2.cpu.c20|string }}  | 
+| 50% vCPU      | {{ sku|RUB|mdb.cluster.mysql.v2.cpu.c50|string }}  | 
+| 100% vCPU     | {{ sku|RUB|mdb.cluster.mysql.v2.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mysql.v2.ram|string }}      |
+| **Intel Ice Lake** |
+| 50% vCPU      | {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c50|string }}  | 
+| 100% vCPU     | {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|string }} | 
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mysql.v3.ram|string }}      | 
+
+{% if audience == "cvos" %}
+
 | Ресурс        | Цена за 1 час                                      | Цена с CVoS на 1 год | Цена с CVoS на 3 года |
 |---------------|----------------------------------------------------|----------------------|-----------------------|
 | **Intel Broadwell** |
@@ -16,3 +37,5 @@
 | 50% vCPU      | {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c50|string }}  | —               | —               |
 | 100% vCPU     | {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|string }} | 0,7300 ₽ (-31%) | 0,5700 ₽ (-46%) |
 | RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mysql.v3.ram|string }}      | 0,1900 ₽ (-34%) | 0,1440 ₽ (-50%) |
+
+{% endif %}

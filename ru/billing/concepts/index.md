@@ -13,4 +13,6 @@ description: "В биллинге Yandex.Cloud используются след
 * [{#T}](billing-account.md)
 * [{#T}](promo-code.md)
 * [{#T}](trial-period.md)
+{% if audience == "cvos" %}
 * [{#T}](cvos.md)
+{% endif %}

@@ -6,6 +6,16 @@ The cost for computing resources depends on the selected {{ ES }} edition.
 
 - BASIC
 
+   | Resource       | Cost for 1 hour                                             |
+   |----------------|-------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                       |
+   | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v2.cpu.c100|string }}  |
+   | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v2.ram.basic|string }} |
+   | **Intel Ice Lake**                                                           |
+   | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  |
+   | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.basic|string }} |
+
+   {% if audience == "cvos" %}
    | Resource       | Cost for 1 hour                                             | Cost with CVoS for 1 year                                                  | Cost with CVoS for 3 years                                                 |
    |----------------|-------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
    | **Intel Cascade Lake**                                                                                                                                                                                                                 |
@@ -14,9 +24,20 @@ The cost for computing resources depends on the selected {{ ES }} edition.
    | **Intel Ice Lake**                                                                                                                                                                                                                     |
    | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  | $0.009615 (-29%)                                                           | $0.007436 (-45%)                                                           |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.basic|string }} | $0.015769 (-6%)                                                            | $0.015256 (-9%)                                                            |
+   {% endif %}
 
 - GOLD
 
+   | Resource         | Cost for 1 hour                                            |
+   |------------------|------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                        |
+   | 100% vCPU        | {{ sku|USD|mdb.cluster.elasticsearch.v2.cpu.c100|string }} |
+   | RAM (for 1 GB)   | {{ sku|USD|mdb.cluster.elasticsearch.v2.ram.gold|string }} |
+   | **Intel Ice Lake**                                                            |
+   | 100% vCPU        | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }} |
+   | RAM (for 1 GB)   | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
+
+   {% if audience == "cvos" %}
    | Resource         | Cost for 1 hour                                            | Cost with CVoS for 1 year                                                  | Cost with CVoS for 3 years                                                 |
    |------------------|------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
    | **Intel Cascade Lake**                                                                                                                                                                                                                  |
@@ -25,9 +46,20 @@ The cost for computing resources depends on the selected {{ ES }} edition.
    | **Intel Ice Lake**                                                                                                                                                                                                                      |
    | 100% vCPU        | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }} | $0.009615 (-29%)                                                           | $0.007436 (-45%)                                                           |
    | RAM (for 1 GB)   | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.gold|string }} | $0.018590 (-6%)                                                            | $0.017949 (-9%)                                                            |
+   {% endif %}
 
 - PLATINUM
+   
+   | Resource       | Cost for 1 hour                                                |
+   |----------------|----------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                          |
+   | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v2.cpu.c100|string }}     |
+   | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v2.ram.platinum|string }} |
+   | **Intel Ice Lake**                                                              |
+   | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     |
+   | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.platinum|string }} |
 
+   {% if audience == "cvos" %}
    | Resource       | Cost for 1 hour                                                | Cost with CVoS for 1 year                                                     | Cost with CVoS for 3 years                                                    |
    |----------------|----------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
    | **Intel Cascade Lake**                                                                                                                                                                                                                          |
@@ -36,6 +68,7 @@ The cost for computing resources depends on the selected {{ ES }} edition.
    | **Intel Ice Lake**                                                                                                                                                                                                                              |
    | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     | $0.009615 (-29%)                                                              | $0.007436 (-45%)                                                              |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.platinum|string }} | $0.021410 (-6%)                                                               | $0.020641 (-9%)                                                               |
+   {% endif %}
 
 {% endlist %}
 

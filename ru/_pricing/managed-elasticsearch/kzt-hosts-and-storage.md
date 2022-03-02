@@ -5,7 +5,17 @@
 {% list tabs %}
 
 - BASIC
-
+   
+   | Ресурс        | Цена за 1 час                                               |
+   |---------------|-------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                      |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}  |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.basic|string }} |
+   | **Intel Ice Lake**                                                          |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.basic|string }} |
+   
+   {% if audience == "cvos" %}
    | Ресурс        | Цена за 1 час                                               | Цена с CVoS на 1 год                                                       | Цена с CVoS на 3 года                                                      |
    |---------------|-------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
    | **Intel Cascade Lake**                                                                                                                                                                                                                |
@@ -14,9 +24,20 @@
    | **Intel Ice Lake**                                                                                                                                                                                                                    |
    | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  | 4,5000 ₸ (-29%)                                                            | 3,4800 ₸ (-45%)                                                            |
    | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.basic|string }} | 7,3800 ₸ (-6%)                                                             | 7,1400 ₸ (-9%)                                                             |
+   {% endif %}
 
 - GOLD
 
+   | Ресурс        | Цена за 1 час                                              |
+   |---------------|------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                     |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }} |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.gold|string }} |
+   | **Intel Ice Lake**                                                         |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }} |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
+
+   {% if audience == "cvos" %}
    | Ресурс        | Цена за 1 час                                              | Цена с CVoS на 1 год                                                       | Цена с CVoS на 3 года                                                      |
    |---------------|------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
    | **Intel Cascade Lake**                                                                                                                                                                                                               |
@@ -25,9 +46,20 @@
    | **Intel Ice Lake**                                                                                                                                                                                                                   |
    | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }} | 4,5000 ₸ (-29%)                                                            | 3,4800 ₸ (-45%)                                                            |
    | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.gold|string }} | 8,7000 ₸ (-6%)                                                             | 8,4000 ₸ (-9%)                                                             |
+   {% endif %}
 
 - PLATINUM
 
+   | Ресурс        | Цена за 1 час                                                  |
+   |---------------|----------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                         |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}     |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.platinum|string }} |
+   | **Intel Ice Lake**                                                             |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.platinum|string }} |
+
+   {% if audience == "cvos" %}
    | Ресурс        | Цена за 1 час                                                  | Цена с CVoS на 1 год                                                          | Цена с CVoS на 3 года                                                         |
    |---------------|----------------------------------------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
    | **Intel Cascade Lake**                                                                                                                                                                                                                         |
@@ -36,6 +68,7 @@
    | **Intel Ice Lake**                                                                                                                                                                                                                             |
    | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     | 4,5000 ₸ (-29%)                                                               | 3,4800 ₸ (-45%)                                                               |
    | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.platinum|string }} | 10,0200 ₸ (-6%)                                                               | 9,6600 ₸ (-9%)                                                                |
+   {% endif %}
 
 {% endlist %}
 

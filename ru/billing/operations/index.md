@@ -7,7 +7,9 @@ description: "Из статьи вы узнаете, как работать с 
 
 [{#T}](activate-commercial.md)
 
+{% if audience == "cvos" %}
 [{#T}](purchase-cvos.md)
+{% endif %}
 
 [{#T}](activate-promocode.md)
 

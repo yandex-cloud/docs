@@ -96,6 +96,8 @@ editable: false
 
 {% endif %}
 
+{% if audience == "cvos" %}
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -108,6 +110,7 @@ editable: false
 
 {% endnote %}
 
+{% endif %}
 
 ## Цены {#prices}
 

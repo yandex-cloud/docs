@@ -1,3 +1,24 @@
+| Resource       | Rate for 1 hour                                    | 
+|----------------|----------------------------------------------------|
+| **Intel Broadwell** |
+| 5% vCPU        | {{ sku|USD|mdb.cluster.mysql.v1.cpu.c5|string }}   | 
+| 20% vCPU       | {{ sku|USD|mdb.cluster.mysql.v1.cpu.c20|string }}  | 
+| 50% vCPU       | {{ sku|USD|mdb.cluster.mysql.v1.cpu.c50|string }}  | 
+| 100% vCPU      | {{ sku|USD|mdb.cluster.mysql.v1.cpu.c100|string }} | 
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.v1.ram|string }}      | 
+| **Intel Cascade Lake** |
+| 5% vCPU        | {{ sku|USD|mdb.cluster.mysql.v2.cpu.c5|string }}   | 
+| 20% vCPU       | {{ sku|USD|mdb.cluster.mysql.v2.cpu.c20|string }}  | 
+| 50% vCPU       | {{ sku|USD|mdb.cluster.mysql.v2.cpu.c50|string }}  | 
+| 100% vCPU      | {{ sku|USD|mdb.cluster.mysql.v2.cpu.c100|string }} |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.v2.ram|string }}      |
+| **Intel Ice Lake** |
+| 50% vCPU       | {{ sku|USD|mdb.cluster.mysql.v3.cpu.c50|string }}  | 
+| 100% vCPU      | {{ sku|USD|mdb.cluster.mysql.v3.cpu.c100|string }} | 
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.v3.ram|string }}      | 
+
+{% if audience == "cvos" %}
+
 | Resource       | Rate for 1 hour                                    | With CVoS for 1 year | With CVoS for 3 years |
 |----------------|----------------------------------------------------|----------------------|-----------------------|
 | **Intel Broadwell** |
@@ -16,3 +37,5 @@
 | 50% vCPU       | {{ sku|USD|mdb.cluster.mysql.v3.cpu.c50|string }}  | —                | —                |
 | 100% vCPU      | {{ sku|USD|mdb.cluster.mysql.v3.cpu.c100|string }} | $0.009359 (-31%) | $0.007308 (-46%) |
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.v3.ram|string }}      | $0.002436 (-34%) | $0.001846 (-50%) |
+
+{% endif %}

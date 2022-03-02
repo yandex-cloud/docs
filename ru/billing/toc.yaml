@@ -12,6 +12,7 @@ items:
         href: operations/activate-commercial.md
       - name: Зарезервировать потребление (CVoS)
         href: operations/purchase-cvos.md
+        when: audience == "cvos"
       - name: Активировать промокод
         href: operations/activate-promocode.md
       - name: Посмотреть детализацию
@@ -68,6 +69,7 @@ items:
         href: concepts/trial-period.md
       - name: Резервируемое потребление (CVoS)
         href: concepts/cvos.md
+        when: audience == "cvos"
       - name: Free tier экосистемы бессерверных вычислений
         href: concepts/serverless-free-tier.md
       - name: Бюджет

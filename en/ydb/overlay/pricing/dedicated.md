@@ -43,18 +43,6 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
-## Discount for committed volumes of services (CVoS) {#cvos}
-
-You can get a guaranteed discount on service resource usage when you commit for a month, year, or three years.
-
-Yandex Database provides two types of [CVoS](../../billing/concepts/cvos.md): for vCPUs and RAM for the DB hosts. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for DBs that use a specific class of VMs.
-
-{% note info %}
-
-You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
-
-{% endnote %}
-
 ## Pricing {#prices}
 
 All prices are shown with VAT. Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
