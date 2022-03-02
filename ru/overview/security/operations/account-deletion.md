@@ -99,7 +99,7 @@
 Настройте Audit trails на действия с сервисным аккаунтом и федеративной учетной записью, которые обладают ролью `resource-manager.organization.owner`:
 
 1. [Настройте сбор аудитных логов с уровня организации](../../../audit-trails/quickstart.md) в Audit Trails .
-1. Отслеживайте как минимум следующие события (в [Object Storagage](../../../audit-trails/operations/search-bucket.md), [лог-группе](../../../audit-trails/operations/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main), [в вашем SIEM](../../../audit-trails/concepts/export-siem.md)):
+1. Отслеживайте как минимум следующие события (в [Object Storagage](../../../audit-trails/tutorials/search-bucket.md), [лог-группе](../../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main), [в вашем SIEM](../../../audit-trails/concepts/export-siem.md)):
 
     * Создание ключей для сервисного аккаунта (события: `yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey` и `authentication.subject_id = <идентификатор сервисного аккаунта>`).
     * Назначение прав доступа на сервисный аккаунт (событие: `UpdateServiceAccountAccessBindings` и `details.service_account_id = <идентификатор сервисного аккаунта>`).
