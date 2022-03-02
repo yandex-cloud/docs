@@ -288,9 +288,9 @@ sslCertificate.<br>data.<br>cm.<br>id | **string**<br><p>ID of the custom certif
 ## Methods {#methods}
 Method | Description
 --- | ---
-[create](create.md) | Creates client's CDN resource.
+[create](create.md) | Creates a CDN resource in the specified folder.
 [delete](delete.md) | Deletes client's CDN resource.
 [get](get.md) | Get client's CDN resource by resource id.
 [getProviderCName](getProviderCName.md) | Get Provider's CNAME (edge endpoint) bind to specified folder id. Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
 [list](list.md) | Lists CDN resources.
-[update](update.md) | Updates of client's CDN resource. (PATCH behavior)
+[update](update.md) | Updates the specified CDN resource.

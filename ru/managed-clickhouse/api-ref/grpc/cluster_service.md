@@ -28,6 +28,7 @@ A set of methods for managing ClickHouse clusters.
 | [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified ClickHouse cluster. |
 | [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified cluster. |
 | [AddHosts](#AddHosts) | Creates new hosts for a cluster. |
+| [UpdateHosts](#UpdateHosts) | Updates the specified hosts. |
 | [DeleteHosts](#DeleteHosts) | Deletes the specified hosts for a cluster. |
 | [GetShard](#GetShard) | Returns the specified shard. |
 | [ListShards](#ListShards) | Retrieves a list of shards that belong to the specified cluster. |
@@ -2336,11 +2337,62 @@ cluster_id | **string**<br>ID of the ClickHouse cluster to which the hosts are b
 host_names[] | **string**<br>Names of hosts that are being added to the cluster. 
 
 
+## UpdateHosts {#UpdateHosts}
+
+Updates the specified hosts.
+
+**rpc UpdateHosts ([UpdateClusterHostsRequest](#UpdateClusterHostsRequest)) returns ([operation.Operation](#Operation12))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterHostsMetadata](#UpdateClusterHostsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### UpdateClusterHostsRequest {#UpdateClusterHostsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the ClickHouse cluster to update hosts in. To get the ClickHouse cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configurations to apply to hosts. The number of elements must be greater than 0.
+
+
+### UpdateHostSpec {#UpdateHostSpec}
+
+Field | Description
+--- | ---
+host_name | **string**<br>Required. Name of the host to update. To get the ClickHouse host name, use a [ClusterService.ListHosts](#ListHosts) request. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ClickHouse host should be updated. 
+assign_public_ip | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Whether the host should get a public IP address on creation. 
+
+
+### Operation {#Operation12}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterHostsMetadata](#UpdateClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### UpdateClusterHostsMetadata {#UpdateClusterHostsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the ClickHouse cluster to modify hosts in. 
+host_names[] | **string**<br>Names of hosts that are being modified. 
+
+
 ## DeleteHosts {#DeleteHosts}
 
 Deletes the specified hosts for a cluster.
 
-**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation12))**
+**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation13))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)<br>
@@ -2354,7 +2406,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster to remove host
 host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation12}
+### Operation {#Operation13}
 
 Field | Description
 --- | ---
@@ -2469,7 +2521,7 @@ weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-b
 
 Creates a new shard in the specified cluster.
 
-**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation13))**
+**rpc AddShard ([AddClusterShardRequest](#AddClusterShardRequest)) returns ([operation.Operation](#Operation14))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddClusterShardMetadata](#AddClusterShardMetadata)<br>
@@ -2513,7 +2565,7 @@ assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the h
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation13}
+### Operation {#Operation14}
 
 Field | Description
 --- | ---
@@ -2566,7 +2618,7 @@ weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-b
 
 Modifies the specified shard.
 
-**rpc UpdateShard ([UpdateClusterShardRequest](#UpdateClusterShardRequest)) returns ([operation.Operation](#Operation14))**
+**rpc UpdateShard ([UpdateClusterShardRequest](#UpdateClusterShardRequest)) returns ([operation.Operation](#Operation15))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardMetadata](#UpdateClusterShardMetadata)<br>
@@ -2598,7 +2650,7 @@ resources | **[Resources](#Resources2)**<br>Computational resources for the shar
 weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Relative weight of the shard considered when writing data to the cluster. For details, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/distributed/). 
 
 
-### Operation {#Operation14}
+### Operation {#Operation15}
 
 Field | Description
 --- | ---
@@ -2651,7 +2703,7 @@ weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-b
 
 Deletes the specified shard.
 
-**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation15))**
+**rpc DeleteShard ([DeleteClusterShardRequest](#DeleteClusterShardRequest)) returns ([operation.Operation](#Operation16))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardMetadata](#DeleteClusterShardMetadata)<br>
@@ -2665,7 +2717,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster the shard belo
 shard_name | **string**<br>Required. Name of the shard to be deleted. To get the name of a shard, use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation15}
+### Operation {#Operation16}
 
 Field | Description
 --- | ---
@@ -2750,7 +2802,7 @@ shard_names[] | **string**<br>List of shard names contained in the shard group.
 
 Creates a new shard group in the specified cluster.
 
-**rpc CreateShardGroup ([CreateClusterShardGroupRequest](#CreateClusterShardGroupRequest)) returns ([operation.Operation](#Operation16))**
+**rpc CreateShardGroup ([CreateClusterShardGroupRequest](#CreateClusterShardGroupRequest)) returns ([operation.Operation](#Operation17))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterShardGroupMetadata](#CreateClusterShardGroupMetadata)<br>
@@ -2766,7 +2818,7 @@ description | **string**<br>Description of the new shard group. 0-256 characters
 shard_names[] | **string**<br>List of shard names that should be put into the new group. <br>To get the list, make a [ClusterService.ListShardGroups](#ListShardGroups) request. 
 
 
-### Operation {#Operation16}
+### Operation {#Operation17}
 
 Field | Description
 --- | ---
@@ -2804,7 +2856,7 @@ shard_names[] | **string**<br>List of shard names contained in the shard group.
 
 Updates the specified shard group.
 
-**rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation17))**
+**rpc UpdateShardGroup ([UpdateClusterShardGroupRequest](#UpdateClusterShardGroupRequest)) returns ([operation.Operation](#Operation18))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterShardGroupMetadata](#UpdateClusterShardGroupMetadata)<br>
@@ -2821,7 +2873,7 @@ description | **string**<br>Updated description of the shard group. 0-256 charac
 shard_names[] | **string**<br>Updated list of shard names that belongs to the shard group. 
 
 
-### Operation {#Operation17}
+### Operation {#Operation18}
 
 Field | Description
 --- | ---
@@ -2859,7 +2911,7 @@ shard_names[] | **string**<br>List of shard names contained in the shard group.
 
 Deletes the specified shard group.
 
-**rpc DeleteShardGroup ([DeleteClusterShardGroupRequest](#DeleteClusterShardGroupRequest)) returns ([operation.Operation](#Operation18))**
+**rpc DeleteShardGroup ([DeleteClusterShardGroupRequest](#DeleteClusterShardGroupRequest)) returns ([operation.Operation](#Operation19))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterShardGroupMetadata](#DeleteClusterShardGroupMetadata)<br>
@@ -2873,7 +2925,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster that contains 
 shard_group_name | **string**<br>Required. Name of the shard group that should be deleted. <br>To get the name, make a [ClusterService.ListShardGroups](#ListShardGroups) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation18}
+### Operation {#Operation19}
 
 Field | Description
 --- | ---
@@ -2901,7 +2953,7 @@ shard_group_name | **string**<br>Name of the shard group that is being deleted.
 
 Creates an external dictionary for the specified ClickHouse cluster.
 
-**rpc CreateExternalDictionary ([CreateClusterExternalDictionaryRequest](#CreateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation19))**
+**rpc CreateExternalDictionary ([CreateClusterExternalDictionaryRequest](#CreateClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation20))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateClusterExternalDictionaryMetadata](#CreateClusterExternalDictionaryMetadata)<br>
@@ -2915,7 +2967,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster to create the 
 external_dictionary | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>Configuration of the external dictionary. 
 
 
-### Operation {#Operation19}
+### Operation {#Operation20}
 
 Field | Description
 --- | ---
@@ -3052,7 +3104,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Deletes the specified external dictionary.
 
-**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation20))**
+**rpc DeleteExternalDictionary ([DeleteClusterExternalDictionaryRequest](#DeleteClusterExternalDictionaryRequest)) returns ([operation.Operation](#Operation21))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterExternalDictionaryMetadata](#DeleteClusterExternalDictionaryMetadata)<br>
@@ -3066,7 +3118,7 @@ cluster_id | **string**<br>Required. ID of the ClickHouse cluster to delete the 
 external_dictionary_name | **string**<br>Name of the external dictionary to delete. 
 
 
-### Operation {#Operation20}
+### Operation {#Operation21}
 
 Field | Description
 --- | ---

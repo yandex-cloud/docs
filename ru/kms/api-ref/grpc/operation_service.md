@@ -46,7 +46,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## Cancel {#Cancel}
 
-Cancels the specified operation.
+Cancels the specified operation. <br>Note that currently Yandex Object Storage API does not support cancelling operations.
 
 **rpc Cancel ([CancelOperationRequest](#CancelOperationRequest)) returns ([Operation](#Operation1))**
 

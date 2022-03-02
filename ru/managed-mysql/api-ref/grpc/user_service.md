@@ -6,23 +6,25 @@ sourcePath: en/_api-ref-grpc/managed-mysql/api-ref/grpc/user_service.md
 
 # UserService
 
-A set of methods for managing MySQL users.
+A set of methods for managing MySQL users. 
+
+See [the documentation](/docs/managed-mysql/operations/cluster-users) for details.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified MySQL user. |
-| [List](#List) | Retrieves a list of MySQL users in the specified cluster. |
-| [Create](#Create) | Creates a MySQL user in the specified cluster. |
-| [Update](#Update) | Modifies the specified MySQL user. |
-| [Delete](#Delete) | Deletes the specified MySQL user. |
-| [GrantPermission](#GrantPermission) | Grants a permission to the specified MySQL user. |
-| [RevokePermission](#RevokePermission) | Revokes a permission from the specified MySQL user. |
+| [Get](#Get) | Retrieves information about the specified user. |
+| [List](#List) | Retrieves the list of users in a cluster. |
+| [Create](#Create) | Creates a user in a cluster. |
+| [Update](#Update) | Updates a user in a cluster. |
+| [Delete](#Delete) | Deletes a user in a cluster. |
+| [GrantPermission](#GrantPermission) | Grants permission to access a database to a user in a cluster. |
+| [RevokePermission](#RevokePermission) | Revokes permission to access a database from a user in a cluster. |
 
 ## Calls UserService {#calls}
 
 ## Get {#Get}
 
-Returns the specified MySQL user. <br>To get the list of available MySQL users, make a [List](#List) request.
+Retrieves information about the specified user.
 
 **rpc Get ([GetUserRequest](#GetUserRequest)) returns ([User](#User))**
 
@@ -30,18 +32,18 @@ Returns the specified MySQL user. <br>To get the list of available MySQL users, 
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Required. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the cluster the user belongs to. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to return information about. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### User {#User}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the MySQL user. 
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+name | **string**<br>Name of the user. 
+cluster_id | **string**<br>ID of the cluster the user belongs to. 
 permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -51,7 +53,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits}
@@ -66,7 +68,7 @@ max_user_connections | **[google.protobuf.Int64Value](https://developers.google.
 
 ## List {#List}
 
-Retrieves a list of MySQL users in the specified cluster.
+Retrieves the list of users in a cluster.
 
 **rpc List ([ListUsersRequest](#ListUsersRequest)) returns ([ListUsersResponse](#ListUsersResponse))**
 
@@ -74,27 +76,27 @@ Retrieves a list of MySQL users in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the cluster to list MySQL users in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the cluster to list the users in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListUsersResponse.next_page_token](#ListUsersResponse) that can be used to get the next page of results in the subsequent [UserService.List](#List) requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#ListUsersResponse) returned by the previous [UserService.List](#List) request. The maximum string length in characters is 100.
 
 
 ### ListUsersResponse {#ListUsersResponse}
 
 Field | Description
 --- | ---
-users[] | **[User](#User1)**<br>Requested list of MySQL users. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+users[] | **[User](#User1)**<br>List of users. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) in the subsequent [UserService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [UserService.List] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### User {#User1}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the MySQL user. 
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+name | **string**<br>Name of the user. 
+cluster_id | **string**<br>ID of the cluster the user belongs to. 
 permissions[] | **[Permission](#Permission1)**<br>Set of permissions granted to the user. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits1)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -104,7 +106,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits1}
@@ -119,7 +121,7 @@ max_user_connections | **[google.protobuf.Int64Value](https://developers.google.
 
 ## Create {#Create}
 
-Creates a MySQL user in the specified cluster.
+Creates a user in a cluster.
 
 **rpc Create ([CreateUserRequest](#CreateUserRequest)) returns ([operation.Operation](#Operation))**
 
@@ -131,18 +133,18 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to create a user for. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_spec | **[UserSpec](#UserSpec)**<br>Required. Properties of the user to be created. 
+cluster_id | **string**<br>Required. ID of the cluster to create the user in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_spec | **[UserSpec](#UserSpec)**<br>Required. Configuration of the user. 
 
 
 ### UserSpec {#UserSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MySQL user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the MySQL user. The string length in characters must be 8-128.
-permissions[] | **[Permission](#Permission2)**<br>Set of permissions to grant to the user. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+name | **string**<br>Required. Name of the user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the user. The string length in characters must be 8-128.
+permissions[] | **[Permission](#Permission2)**<br>Set of permissions granted to the user to access specific databases. One permission per database. <br>When a permission for a database is set, the user will have access to the database. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits2)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -152,7 +154,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits2}
@@ -185,7 +187,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster the user is being created for. 
+cluster_id | **string**<br>ID of the cluster the user is being created in. 
 user_name | **string**<br>Name of the user that is being created. 
 
 
@@ -193,10 +195,10 @@ user_name | **string**<br>Name of the user that is being created.
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the MySQL user. 
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+name | **string**<br>Name of the user. 
+cluster_id | **string**<br>ID of the cluster the user belongs to. 
 permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to the user. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits3)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -206,7 +208,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits3}
@@ -221,7 +223,7 @@ max_user_connections | **[google.protobuf.Int64Value](https://developers.google.
 
 ## Update {#Update}
 
-Modifies the specified MySQL user.
+Updates a user in a cluster.
 
 **rpc Update ([UpdateUserRequest](#UpdateUserRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -233,12 +235,12 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster the user belongs to. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to be updated. To get the name of the user use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MySQL user should be updated. 
+cluster_id | **string**<br>Required. ID of the cluster to update the user in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to update. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which settings of the user should be updated. 
 password | **string**<br>New password for the user. The string length in characters must be 8-128.
-permissions[] | **[Permission](#Permission4)**<br>New set of permissions for the user. 
-global_permissions[] | enum **GlobalPermission**<br>New set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+permissions[] | **[Permission](#Permission4)**<br>A new set of permissions that should be granted to the user. 
+global_permissions[] | enum **GlobalPermission**<br>New set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits4)**<br>Set of changed user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>New user authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -248,7 +250,7 @@ authentication_plugin | enum **AuthPlugin**<br>New user authentication plugin. <
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits4}
@@ -281,7 +283,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+cluster_id | **string**<br>ID of the cluster the user is being updated in. 
 user_name | **string**<br>Name of the user that is being updated. 
 
 
@@ -289,10 +291,10 @@ user_name | **string**<br>Name of the user that is being updated.
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the MySQL user. 
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+name | **string**<br>Name of the user. 
+cluster_id | **string**<br>ID of the cluster the user belongs to. 
 permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to the user. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits5)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -302,7 +304,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits5}
@@ -317,7 +319,7 @@ max_user_connections | **[google.protobuf.Int64Value](https://developers.google.
 
 ## Delete {#Delete}
 
-Deletes the specified MySQL user.
+Deletes a user in a cluster.
 
 **rpc Delete ([DeleteUserRequest](#DeleteUserRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -329,8 +331,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to delete. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the cluster to delete the user from. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to delete. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 
 
 ### Operation {#Operation2}
@@ -353,13 +355,13 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+cluster_id | **string**<br>ID of the cluster the user is being deleted from. 
 user_name | **string**<br>Name of the user that is being deleted. 
 
 
 ## GrantPermission {#GrantPermission}
 
-Grants a permission to the specified MySQL user.
+Grants permission to access a database to a user in a cluster.
 
 **rpc GrantPermission ([GrantUserPermissionRequest](#GrantUserPermissionRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -371,8 +373,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to grant the permission to. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+cluster_id | **string**<br>Required. ID of the cluster to grant permission to the user in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to grant permission to. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 permission | **[Permission](#Permission6)**<br>Required. Permission that should be granted to the specified user. 
 
 
@@ -381,7 +383,7 @@ permission | **[Permission](#Permission6)**<br>Required. Permission that should 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### Operation {#Operation3}
@@ -404,7 +406,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. 
+cluster_id | **string**<br>ID of the cluster the user is being granted a permission in. 
 user_name | **string**<br>Name of the user that is being granted a permission. 
 
 
@@ -412,10 +414,10 @@ user_name | **string**<br>Name of the user that is being granted a permission.
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the MySQL user. 
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+name | **string**<br>Name of the user. 
+cluster_id | **string**<br>ID of the cluster the user belongs to. 
 permissions[] | **[Permission](#Permission7)**<br>Set of permissions granted to the user. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits6)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -425,7 +427,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits6}
@@ -440,7 +442,7 @@ max_user_connections | **[google.protobuf.Int64Value](https://developers.google.
 
 ## RevokePermission {#RevokePermission}
 
-Revokes a permission from the specified MySQL user.
+Revokes permission to access a database from a user in a cluster.
 
 **rpc RevokePermission ([RevokeUserPermissionRequest](#RevokeUserPermissionRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -452,9 +454,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster the user belongs to. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-user_name | **string**<br>Required. Name of the user to revoke a permission from. To get the name of the user, use a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-permission | **[Permission](#Permission8)**<br>Required. Permission that should be revoked from the specified user. 
+cluster_id | **string**<br>Required. ID of the cluster to revoke permission from the user in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+user_name | **string**<br>Required. Name of the user to revoke permission from. <br>To get this name, make a [UserService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+permission | **[Permission](#Permission8)**<br>Required. Permission that should be revoked from the user. 
 
 
 ### Permission {#Permission8}
@@ -462,7 +464,7 @@ permission | **[Permission](#Permission8)**<br>Required. Permission that should 
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### Operation {#Operation4}
@@ -485,7 +487,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+cluster_id | **string**<br>ID of the cluster the user is being revoked a permission in. 
 user_name | **string**<br>Name of the user whose permission is being revoked. 
 
 
@@ -493,10 +495,10 @@ user_name | **string**<br>Name of the user whose permission is being revoked.
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the MySQL user. 
-cluster_id | **string**<br>ID of the MySQL cluster the user belongs to. 
+name | **string**<br>Name of the user. 
+cluster_id | **string**<br>ID of the cluster the user belongs to. 
 permissions[] | **[Permission](#Permission9)**<br>Set of permissions granted to the user. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits7)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -506,7 +508,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits7}

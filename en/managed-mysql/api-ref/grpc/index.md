@@ -8,9 +8,9 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
-[BackupService](./backup_service.md) | A set of methods for managing MySQL backups.
+[BackupService](./backup_service.md) | A set of methods for managing MySQL backups. <br>See [the documentation](/docs/managed-mysql/operations/cluster-backups) for details.
 [ClusterService](./cluster_service.md) | A set of methods for managing MySQL clusters.
-[DatabaseService](./database_service.md) | A set of methods for managing MySQL databases.
-[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing resource presets.
-[UserService](./user_service.md) | A set of methods for managing MySQL users.
+[DatabaseService](./database_service.md) | A set of methods for managing MySQL databases in a cluster. <br>See [the documentation](/docs/managed-mysql/operations/databases) for details.
+[ResourcePresetService](./resource_preset_service.md) | A set of methods for managing MySQL resource presets. <br>See [the documentation](/docs/managed-mysql/concepts/instance-types) for details.
+[UserService](./user_service.md) | A set of methods for managing MySQL users. <br>See [the documentation](/docs/managed-mysql/operations/cluster-users) for details.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

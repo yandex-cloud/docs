@@ -10,24 +10,24 @@ A set of methods for managing MySQL clusters.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified MySQL cluster. |
-| [List](#List) | Retrieves the list of MySQL clusters that belong to the specified folder. |
-| [Create](#Create) | Creates a MySQL cluster in the specified folder. |
-| [Update](#Update) | Modifies the specified MySQL cluster. |
-| [Delete](#Delete) | Deletes the specified MySQL cluster. |
-| [Start](#Start) | Starts the specified MySQL cluster. |
-| [Stop](#Stop) | Stops the specified MySQL cluster. |
-| [Move](#Move) | Moves the specified MySQL cluster to the specified folder. |
-| [Backup](#Backup) | Creates a backup for the specified MySQL cluster. |
-| [Restore](#Restore) | Creates a new MySQL cluster using the specified backup. |
+| [Get](#Get) | Retrieves information about a cluster. |
+| [List](#List) | Retrieves the list of clusters in a folder. |
+| [Create](#Create) | Creates a cluster in a folder. |
+| [Update](#Update) | Updates a cluster. |
+| [Delete](#Delete) | Deletes a cluster. |
+| [Start](#Start) | Starts a cluster. |
+| [Stop](#Stop) | Stops a cluster. |
+| [Move](#Move) | Moves a cluster to a folder. |
+| [Backup](#Backup) | Creates a backup for a cluster. |
+| [Restore](#Restore) | Restores a backup to a new cluster. |
 | [RescheduleMaintenance](#RescheduleMaintenance) | Reschedules planned maintenance operation. |
-| [StartFailover](#StartFailover) | Start a manual failover on the specified MySQL cluster. |
-| [ListLogs](#ListLogs) | Retrieves logs for the specified MySQL cluster. |
-| [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
-| [ListOperations](#ListOperations) | Retrieves the list of operations for the specified MySQL cluster. |
-| [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified MySQL cluster. |
-| [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified MySQL cluster. |
-| [AddHosts](#AddHosts) | Creates new hosts for a cluster. |
+| [StartFailover](#StartFailover) | Starts a manual failover for a cluster. |
+| [ListLogs](#ListLogs) | Retrieves logs for a cluster. |
+| [StreamLogs](#StreamLogs) | Retrieves a log stream for a cluster. |
+| [ListOperations](#ListOperations) | Retrieves a list of operations for a cluster. |
+| [ListBackups](#ListBackups) | Retrieves a list of backups for a cluster. |
+| [ListHosts](#ListHosts) | Retrieves a list of hosts for a cluster. |
+| [AddHosts](#AddHosts) | Adds new hosts in a cluster. |
 | [UpdateHosts](#UpdateHosts) | Updates the specified hosts. |
 | [DeleteHosts](#DeleteHosts) | Deletes the specified hosts for a cluster. |
 
@@ -35,7 +35,7 @@ A set of methods for managing MySQL clusters.
 
 ## Get {#Get}
 
-Returns the specified MySQL cluster. <br>To get the list of available MySQL clusters, make a [List](#List) request.
+Retrieves information about a cluster.
 
 **rpc Get ([GetClusterRequest](#GetClusterRequest)) returns ([Cluster](#Cluster))**
 
@@ -43,29 +43,29 @@ Returns the specified MySQL cluster. <br>To get the list of available MySQL clus
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to return. To get the cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to return information about. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Cluster {#Cluster}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring}
@@ -74,37 +74,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access)**<br>Access policy to DB 
+access | **[Access](#Access)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -138,7 +138,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## List {#List}
 
-Retrieves the list of MySQL clusters that belong to the specified folder.
+Retrieves the list of clusters in a folder.
 
 **rpc List ([ListClustersRequest](#ListClustersRequest)) returns ([ListClustersResponse](#ListClustersResponse))**
 
@@ -146,9 +146,9 @@ Retrieves the list of MySQL clusters that belong to the specified folder.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to list MySQL clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
+folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in the subsequent [ClusterService.List](#List) requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by the previous [ClusterService.List](#List) request. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.</li></ol> The maximum string length in characters is 1000.
 
 
@@ -156,30 +156,30 @@ filter | **string**<br><ol><li>The field name. Currently you can only use filter
 
 Field | Description
 --- | ---
-clusters[] | **[Cluster](#Cluster1)**<br>List of MySQL clusters. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+clusters[] | **[Cluster](#Cluster1)**<br>List of clusters. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) in the subsequent [ClusterService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.List] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Cluster {#Cluster1}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring1)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring1}
@@ -188,37 +188,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig1}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources1)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources1)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access1)**<br>Access policy to DB 
+access | **[Access](#Access1)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources1}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access1}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -252,7 +252,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## Create {#Create}
 
-Creates a MySQL cluster in the specified folder.
+Creates a cluster in a folder.
 
 **rpc Create ([CreateClusterRequest](#CreateClusterRequest)) returns ([operation.Operation](#Operation))**
 
@@ -264,65 +264,65 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. ID of the folder to create the MySQL cluster in. The maximum string length in characters is 50.
-name | **string**<br>Required. Name of the MySQL cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Description of the MySQL cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the MySQL cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration and resources for hosts that should be created for the MySQL cluster. 
-database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Descriptions of databases to be created in the MySQL cluster. 
-user_specs[] | **[UserSpec](#UserSpec)**<br>Descriptions of database users to be created in the MySQL cluster. 
-host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the MySQL cluster. 
+folder_id | **string**<br>Required. ID of the folder to create the cluster in. <br>To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+name | **string**<br>Required. Name of the cluster. The name must be unique within the folder. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster2)**<br>Deployment environment of the cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration of the cluster. 
+database_specs[] | **[DatabaseSpec](#DatabaseSpec)**<br>Configuration of databases in the cluster. 
+user_specs[] | **[UserSpec](#UserSpec)**<br>Configuration of database users in the cluster. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of hosts in the cluster. 
 network_id | **string**<br>ID of the network to create the cluster in. The maximum string length in characters is 50.
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>List of security group IDs to apply to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec}
 
 Field | Description
 --- | ---
-version | **string**<br><ul><li>5.7 </li><li>8.0</li></ul> 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration of a MySQL cluster.
+version | **string**<br>Version of MySQL used in the cluster. <br>Possible values: `5.7`, `8.0`. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfig5_7](#MysqlConfig5_7)**<br>Configuration for a MySQL 5.7 cluster. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfig8_0](#MysqlConfig8_0)**<br>Configuration for a MySQL 8.0 cluster. 
-resources | **[Resources](#Resources2)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources2)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access2)**<br>Access policy to DB 
+access | **[Access](#Access2)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
 
 
 ### Resources {#Resources2}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access2}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MySQL database. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+name | **string**<br>Required. Name of the database. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### UserSpec {#UserSpec}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the MySQL user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
-password | **string**<br>Required. Password of the MySQL user. The string length in characters must be 8-128.
-permissions[] | **[Permission](#Permission)**<br>Set of permissions to grant to the user. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the SHOW MASTER STATUS, SHOW SLAVE STATUS, and SHOW BINARY LOGS statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the SHOW SLAVE HOSTS, SHOW RELAYLOG EVENTS, and SHOW BINLOG EVENTS statements.</li><li>`PROCESS`: Enables display of information about the threads executing within the server (that is, information about the statements being executed by sessions). The privilege enables use of SHOW PROCESSLIST or mysqladmin processlist to see threads belonging to other accounts; you can always see your own threads. The PROCESS privilege also enables use of SHOW ENGINE.</li><ul/>
+name | **string**<br>Required. Name of the user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Required. Password of the user. The string length in characters must be 8-128.
+permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user to access specific databases. One permission per database. <br>When a permission for a database is set, the user will have access to the database. 
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
 connection_limits | **[ConnectionLimits](#ConnectionLimits)**<br>Set of user connection limits. 
 authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
 
@@ -332,7 +332,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines (stored procedures and functions).</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using LOCK TABLES statement for tables available with SELECT privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some SELECT statements can be allowed without the SELECT privilege. All statements that read column values require the SELECT privilege. See details in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_select).</li><li>`SHOW_VIEW`: Using the SHOW CREATE VIEW statement. Also needed for views used with EXPLAIN.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
 
 
 ### ConnectionLimits {#ConnectionLimits}
@@ -349,11 +349,12 @@ max_user_connections | **[google.protobuf.Int64Value](https://developers.google.
 
 Field | Description
 --- | ---
-zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet to assign to the host. <br>This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id](./cluster_service#CreateClusterRequest)). The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
-backup_priority | **int64**<br>Host backup priority 
+backup_priority | **int64**<br>Host backup priority Acceptable values are 0 to 100, inclusive.
+priority | **int64**<br>Host master promotion priority Acceptable values are 0 to 100, inclusive.
 
 
 ### Operation {#Operation}
@@ -376,29 +377,29 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster that is being created. 
+cluster_id | **string**<br>ID of the cluster that is being created. 
 
 
 ### Cluster {#Cluster2}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring2)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring2}
@@ -407,37 +408,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig2}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources3)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources3)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access3)**<br>Access policy to DB 
+access | **[Access](#Access3)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources3}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access3}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -471,7 +472,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## Update {#Update}
 
-Modifies the specified MySQL cluster.
+Updates a cluster.
 
 **rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -483,45 +484,45 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to update. To get the MySQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MySQL cluster should be updated. 
-description | **string**<br>New description of the MySQL cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
-name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+cluster_id | **string**<br>Required. ID of the cluster to update. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which settings of the cluster should be updated. 
+description | **string**<br>New description of the cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>New set of custom labels for the cluster as `key:value` pairs. <br>This set will completely replace the current one. To add a label, request the current label set with the [ClusterService.Get](#Get) request, then send an [ClusterService.Update](#Update) request with the new label added to the current set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration of the cluster. 
+name | **string**<br>New name of the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Configuration of a maintenance window in an MySQL cluster. 
+security_group_ids[] | **string**<br>New list of security group IDs to apply to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec1}
 
 Field | Description
 --- | ---
-version | **string**<br><ul><li>5.7 </li><li>8.0</li></ul> 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration of a MySQL cluster.
+version | **string**<br>Version of MySQL used in the cluster. <br>Possible values: `5.7`, `8.0`. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfig5_7](#MysqlConfig5_7)**<br>Configuration for a MySQL 5.7 cluster. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfig8_0](#MysqlConfig8_0)**<br>Configuration for a MySQL 8.0 cluster. 
-resources | **[Resources](#Resources4)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources4)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access4)**<br>Access policy to DB 
+access | **[Access](#Access4)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
 
 
 ### Resources {#Resources4}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access4}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -565,29 +566,29 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster that is being modified. 
+cluster_id | **string**<br>ID of the cluster that is being updated. 
 
 
 ### Cluster {#Cluster3}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring3)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring3}
@@ -596,37 +597,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig3}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources5)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources5)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access5)**<br>Access policy to DB 
+access | **[Access](#Access5)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources5}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access5}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -660,7 +661,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## Delete {#Delete}
 
-Deletes the specified MySQL cluster.
+Deletes a cluster.
 
 **rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -672,7 +673,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to delete. To get the MySQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to delete. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation2}
@@ -695,12 +696,12 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster that is being deleted. 
+cluster_id | **string**<br>ID of the cluster that is being deleted. 
 
 
 ## Start {#Start}
 
-Starts the specified MySQL cluster.
+Starts a cluster.
 
 **rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -712,7 +713,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to start. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to start. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation3}
@@ -735,29 +736,29 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster being started. 
+cluster_id | **string**<br>ID of the cluster that is being started. 
 
 
 ### Cluster {#Cluster4}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring4)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring4}
@@ -766,37 +767,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig4}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources6)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources6)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access6)**<br>Access policy to DB 
+access | **[Access](#Access6)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources6}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access6}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -830,7 +831,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## Stop {#Stop}
 
-Stops the specified MySQL cluster.
+Stops a cluster.
 
 **rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -842,7 +843,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to stop. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to stop. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation4}
@@ -865,29 +866,29 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster being stopped. 
+cluster_id | **string**<br>ID of the cluster that is being stopped. 
 
 
 ### Cluster {#Cluster5}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring5}
@@ -896,37 +897,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig5}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources7)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources7)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access7)**<br>Access policy to DB 
+access | **[Access](#Access7)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources7}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access7}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -960,7 +961,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## Move {#Move}
 
-Moves the specified MySQL cluster to the specified folder.
+Moves a cluster to a folder.
 
 **rpc Move ([MoveClusterRequest](#MoveClusterRequest)) returns ([operation.Operation](#Operation5))**
 
@@ -972,8 +973,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to move. The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to move. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the destination folder. <br>To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation5}
@@ -996,31 +997,31 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster being moved. 
+cluster_id | **string**<br>ID of the cluster that is being moved. 
 source_folder_id | **string**<br>ID of the source folder. 
-destination_folder_id | **string**<br>ID of the destnation folder. 
+destination_folder_id | **string**<br>ID of the destination folder. 
 
 
 ### Cluster {#Cluster6}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring6)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring6}
@@ -1029,37 +1030,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig6}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources8)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources8)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access8)**<br>Access policy to DB 
+access | **[Access](#Access8)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources8}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access8}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1093,7 +1094,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## Backup {#Backup}
 
-Creates a backup for the specified MySQL cluster.
+Creates a backup for a cluster. <br>To get information about a backup, make a [BackupService.Get](./backup_service#Get) request.
 
 **rpc Backup ([BackupClusterRequest](#BackupClusterRequest)) returns ([operation.Operation](#Operation6))**
 
@@ -1105,7 +1106,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to back up. To get the MySQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to back up. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation6}
@@ -1128,29 +1129,29 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster that is being backed up. 
+cluster_id | **string**<br>ID of the cluster that is being backed up. 
 
 
 ### Cluster {#Cluster7}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring7)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring7}
@@ -1159,37 +1160,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig7}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources9)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources9)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access9)**<br>Access policy to DB 
+access | **[Access](#Access9)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources9}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access9}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -1223,7 +1224,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## Restore {#Restore}
 
-Creates a new MySQL cluster using the specified backup.
+Restores a backup to a new cluster. <br>See [the documentation](/docs/managed-mysql/concepts/backup) for details.
 
 **rpc Restore ([RestoreClusterRequest](#RestoreClusterRequest)) returns ([operation.Operation](#Operation7))**
 
@@ -1235,58 +1236,59 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-backup_id | **string**<br>Required. ID of the backup to create a cluster from. To get the backup ID, use a [ClusterService.ListBackups](#ListBackups) request. 
+backup_id | **string**<br>Required. ID of the backup to restore from. <br>To get this ID, make a [BackupService.List](./backup_service#List) request (lists all backups in a folder) or a [ClusterService.ListBackups](#ListBackups) request (lists all backups for an existing cluster). 
 time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the moment to which the MySQL cluster should be restored. 
-name | **string**<br>Required. Name of the new MySQL cluster. The name must be unique within the folder. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-description | **string**<br>Description of the new MySQL cluster. The maximum string length in characters is 256.
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-environment | **[Cluster.Environment](#Cluster8)**<br>Deployment environment of the new MySQL cluster. 
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration for the MySQL cluster to be created. 
-host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for MySQL hosts that should be added to the cluster that is being created from the backup. 
-network_id | **string**<br>ID of the network to create the MySQL cluster in. The maximum string length in characters is 50.
-folder_id | **string**<br>ID of the folder to create the MySQL cluster in. The maximum string length in characters is 50.
-security_group_ids[] | **string**<br>User security groups 
+name | **string**<br>Required. Name of the new MySQL cluster the backup will be restored to. The name must be unique within the folder. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+description | **string**<br>Description of the new cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the new cluster as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+environment | **[Cluster.Environment](#Cluster8)**<br>Deployment environment for the new cluster. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Configuration of the new cluster. 
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of hosts in the new cluster. 
+network_id | **string**<br>ID of the network to create the new cluster in. The maximum string length in characters is 50.
+folder_id | **string**<br>ID of the folder to create the new cluster in. The maximum string length in characters is 50.
+security_group_ids[] | **string**<br>List of security group IDs to apply to the new cluster. 
 
 
 ### ConfigSpec {#ConfigSpec2}
 
 Field | Description
 --- | ---
-version | **string**<br><ul><li>5.7 </li><li>8.0</li></ul> 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration of a MySQL cluster.
+version | **string**<br>Version of MySQL used in the cluster. <br>Possible values: `5.7`, `8.0`. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfig5_7](#MysqlConfig5_7)**<br>Configuration for a MySQL 5.7 cluster. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfig8_0](#MysqlConfig8_0)**<br>Configuration for a MySQL 8.0 cluster. 
-resources | **[Resources](#Resources10)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources10)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access10)**<br>Access policy to DB 
+access | **[Access](#Access10)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
 
 
 ### Resources {#Resources10}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access10}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### HostSpec {#HostSpec1}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet to assign to the host. <br>This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id](./cluster_service#CreateClusterRequest)). The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
-backup_priority | **int64**<br>Host backup priority 
+backup_priority | **int64**<br>Host backup priority Acceptable values are 0 to 100, inclusive.
+priority | **int64**<br>Host master promotion priority Acceptable values are 0 to 100, inclusive.
 
 
 ### Operation {#Operation7}
@@ -1309,7 +1311,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the new MySQL cluster that is being created from a backup. 
+cluster_id | **string**<br>ID of the new cluster that is being created from a backup. 
 backup_id | **string**<br>ID of the backup that is being used for creating a cluster. 
 
 
@@ -1317,22 +1319,22 @@ backup_id | **string**<br>ID of the backup that is being used for creating a clu
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring8)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring8}
@@ -1341,37 +1343,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig8}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources11)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources11)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access11)**<br>Access policy to DB 
+access | **[Access](#Access11)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources11}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access11}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -1417,9 +1419,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to reschedule the maintenance operation for. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster to reschedule the maintenance operation for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 reschedule_type | enum **RescheduleType**<br>Required. The type of reschedule request. <ul><li>`IMMEDIATE`: Start the maintenance operation immediately.</li><li>`NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.</li><li>`SPECIFIC_TIME`: Start the maintenance operation at the specific time.</li><ul/>
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if `reschedule_type.IMMEDIATE` reschedule type is chosen. 
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if `IMMEDIATE` reschedule type is chosen. 
 
 
 ### Operation {#Operation8}
@@ -1442,30 +1444,30 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster. 
-delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. The time until which this maintenance operation is to be delayed. 
+cluster_id | **string**<br>ID of the cluster the maintenance operation is being rescheduled for. 
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time until which this maintenance operation is to be delayed. 
 
 
 ### Cluster {#Cluster9}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring9)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring9)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring9}
@@ -1474,37 +1476,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig9}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources12)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources12)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access12)**<br>Access policy to DB 
+access | **[Access](#Access12)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources12}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access12}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}
@@ -1538,7 +1540,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## StartFailover {#StartFailover}
 
-Start a manual failover on the specified MySQL cluster.
+Starts a manual failover for a cluster.
 
 **rpc StartFailover ([StartClusterFailoverRequest](#StartClusterFailoverRequest)) returns ([operation.Operation](#Operation9))**
 
@@ -1550,8 +1552,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of MySQL cluster. The maximum string length in characters is 50.
-host_name | **string**<br>New master host. Switch to the most up-to-date replica if not provided. The maximum string length in characters is 253.
+cluster_id | **string**<br>Required. ID of the cluster to start failover for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_name | **string**<br>Host name to switch master role to. If not provided, then the master role is switched to the most up-to-date replica host. <br>To get this name, make a [ClusterService.ListHosts](#ListHosts) request. The maximum string length in characters is 253.
 
 
 ### Operation {#Operation9}
@@ -1574,29 +1576,29 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster being failovered. 
+cluster_id | **string**<br>ID of the cluster that is being failovered. 
 
 
 ### Cluster {#Cluster10}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the MySQL cluster. This ID is assigned by Managed Service for MySQL at creation time. 
-folder_id | **string**<br>ID of the folder that the MySQL cluster belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the MySQL cluster. The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
-description | **string**<br>Description of the MySQL cluster. 0-256 characters long. 
-labels | **map<string,string>**<br>Custom labels for the MySQL cluster as `key:value` pairs. Maximum 64 per resource. 
-environment | enum **Environment**<br>Deployment environment of the MySQL cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
-monitoring[] | **[Monitoring](#Monitoring10)**<br>Description of monitoring systems relevant to the MySQL cluster. 
-config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the MySQL cluster. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+folder_id | **string**<br>ID of the folder that the cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
+name | **string**<br>Name of the cluster. 
+description | **string**<br>Description of the cluster. 
+labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring10)**<br>Monitoring systems data that is relevant to the cluster. 
+config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
-security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
+deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
 
 
 ### Monitoring {#Monitoring10}
@@ -1605,37 +1607,37 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the monitoring system. 
 description | **string**<br>Description of the monitoring system. 
-link | **string**<br>Link to the monitoring system charts for the MySQL cluster. 
+link | **string**<br>Link to the monitoring system charts for the cluster. 
 
 
 ### ClusterConfig {#ClusterConfig10}
 
 Field | Description
 --- | ---
-version | **string**<br>Version of MySQL server software. 
-mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Configuration for MySQL servers in the cluster.
+version | **string**<br>Version of MySQL used in the cluster. 
+mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wide MySQL configuration.
 &nbsp;&nbsp;mysql_config_5_7 | **[config.MysqlConfigSet5_7](#MysqlConfigSet5_7)**<br>Configuration of a MySQL 5.7 server. 
 &nbsp;&nbsp;mysql_config_8_0 | **[config.MysqlConfigSet8_0](#MysqlConfigSet8_0)**<br>Configuration of a MySQL 8.0 server. 
-resources | **[Resources](#Resources13)**<br>Resources allocated to MySQL hosts. 
+resources | **[Resources](#Resources13)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access13)**<br>Access policy to DB 
+access | **[Access](#Access13)**<br>Access policy for external services. 
 
 
 ### Resources {#Resources13}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Access {#Access13}
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-mysql/operations/web-sql-query) for more details. 
+data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow11}
@@ -1669,7 +1671,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 ## ListLogs {#ListLogs}
 
-Retrieves logs for the specified MySQL cluster.
+Retrieves logs for a cluster. <br>Alternatively, logs can be streamed using [StreamLogs](#StreamLogs).
 
 **rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
 
@@ -1677,14 +1679,14 @@ Retrieves logs for the specified MySQL cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to request logs for. To get the MySQL cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
-service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`MYSQL_ERROR`: MySQL error log.</li><li>`MYSQL_GENERAL`: MySQL general query log.</li><li>`MYSQL_SLOW_QUERY`: MySQL slow query log.</li><li>`MYSQL_AUDIT`: MySQL audit log.</li><ul/>
-from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. 
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
-always_next_page_token | **bool**<br>Always return `next_page_token`, even if current page is empty. 
+cluster_id | **string**<br>Required. ID of the cluster to request logs for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, complete log records are returned. 
+service_type | enum **ServiceType**<br>The log type. <ul><li>`MYSQL_ERROR`: MySQL error log.</li><li>`MYSQL_GENERAL`: MySQL general query log.</li><li>`MYSQL_SLOW_QUERY`: MySQL slow query log.</li><li>`MYSQL_AUDIT`: MySQL audit log.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. The logs in the response will be within `from_time` to `to_time` range. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. The logs in the response will be within `from_time` to `to_time` range. 
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request. The maximum string length in characters is 100.
+always_next_page_token | **bool**<br>Option that controls the behavior of result pagination. If it is set to `true`, then [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) will always be returned, even if the current page is empty. 
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
@@ -1692,20 +1694,20 @@ always_next_page_token | **bool**<br>Always return `next_page_token`, even if cu
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with `next_record_token` from StreamLogs method. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) in the subsequent [ClusterService.ListLogs](#ListLogs)(#ListLogs) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListLogs] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. <br>This value is interchangeable with [StreamLogRecord.next_record_token](#StreamLogRecord) from [ClusterService.StreamLogs](#StreamLogs) method. 
 
 
 ### LogRecord {#LogRecord}
 
 Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp of the log record. 
 message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## StreamLogs {#StreamLogs}
 
-Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+Retrieves a log stream for a cluster. <br>This method is similar to [ListLogs](#ListLogs), but uses server-side streaming, which allows for the `tail -f` command semantics.
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
 
@@ -1713,12 +1715,12 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the MySQL cluster. The maximum string length in characters is 50.
-column_filter[] | **string**<br>Columns from logs table to get in the response. 
-service_type | enum **ServiceType**<br> <ul><li>`MYSQL_ERROR`: MySQL error log.</li><li>`MYSQL_GENERAL`: MySQL general query log.</li><li>`MYSQL_SLOW_QUERY`: MySQL slow query log.</li><li>`MYSQL_AUDIT`: MySQL audit log.</li><ul/>
+cluster_id | **string**<br>Required. ID of the cluster to stream logs for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, complete log records are returned. 
+service_type | enum **ServiceType**<br>The log type. <ul><li>`MYSQL_ERROR`: MySQL error log.</li><li>`MYSQL_GENERAL`: MySQL general query log.</li><li>`MYSQL_SLOW_QUERY`: MySQL slow query log.</li><li>`MYSQL_AUDIT`: MySQL audit log.</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
-to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
-record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing log records beginning from `from_time` will be returned first, and then the new records will be returned as they appear. <br>In essence it has `tail -f` command semantics. 
+record_token | **string**<br>Record token that can be used to control logs streaming. <br>Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record. The maximum string length in characters is 100.
 filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
@@ -1727,20 +1729,20 @@ filter | **string**<br><ol><li>The field name. Currently filtering can be applie
 Field | Description
 --- | ---
 record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
-next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
+next_record_token | **string**<br>The token that can be used to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as the [StreamClusterLogsRequest.record_token](#StreamClusterLogsRequest) value in the next [ClusterService.StreamLogs](#StreamLogs) request. <br>This value is interchangeable with [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) from [ClusterService.ListLogs](#ListLogs) method. 
 
 
 ### LogRecord {#LogRecord1}
 
 Field | Description
 --- | ---
-timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp of the log record. 
 message | **map<string,string>**<br>Contents of the log record. 
 
 
 ## ListOperations {#ListOperations}
 
-Retrieves the list of operations for the specified MySQL cluster.
+Retrieves a list of operations for a cluster.
 
 **rpc ListOperations ([ListClusterOperationsRequest](#ListClusterOperationsRequest)) returns ([ListClusterOperationsResponse](#ListClusterOperationsResponse))**
 
@@ -1748,17 +1750,17 @@ Retrieves the list of operations for the specified MySQL cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to list operations for. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the cluster to list operations for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListOperations](#ListOperations) requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#ListClusterOperationsResponse) returned by the previous [ClusterService.ListOperations](#ListOperations) request. The maximum string length in characters is 100.
 
 
 ### ListClusterOperationsResponse {#ListClusterOperationsResponse}
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation10)**<br>List of operations for the specified MySQL cluster. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+operations[] | **[operation.Operation](#Operation10)**<br>List of operations in the cluster. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) in the subsequent [ClusterService.ListOperations](#ListOperations)(#ListOperations) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListOperations] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Operation {#Operation10}
@@ -1779,7 +1781,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListBackups {#ListBackups}
 
-Retrieves the list of available backups for the specified MySQL cluster.
+Retrieves a list of backups for a cluster. <br>To list all backups in a folder, make a [BackupService.List](./backup_service#List) request.
 
 **rpc ListBackups ([ListClusterBackupsRequest](#ListClusterBackupsRequest)) returns ([ListClusterBackupsResponse](#ListClusterBackupsResponse))**
 
@@ -1787,17 +1789,17 @@ Retrieves the list of available backups for the specified MySQL cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster. To get the MySQL cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the cluster to list backups for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListBackups](#ListBackups) requests. The maximum value is 1000.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#ListClusterBackupsResponse) returned by the previous [ClusterService.ListBackups](#ListBackups) request. The maximum string length in characters is 100.
 
 
 ### ListClusterBackupsResponse {#ListClusterBackupsResponse}
 
 Field | Description
 --- | ---
-backups[] | **[Backup](#Backup)**<br>List of MySQL backups. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+backups[] | **[Backup](#Backup)**<br>List of the cluster backups. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) in the subsequent [ClusterService.ListBackups](#ListBackups)(#ListBackups) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListBackups] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Backup {#Backup}
@@ -1806,14 +1808,14 @@ Field | Description
 --- | ---
 id | **string**<br>Required. ID of the backup. 
 folder_id | **string**<br>ID of the folder that the backup belongs to. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-source_cluster_id | **string**<br>ID of the MySQL cluster that the backup was created for. 
-started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp (the time when the backup operation was completed). 
+source_cluster_id | **string**<br>ID of the cluster that the backup was created for. 
+started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp (the time when the backup operation was started). 
 
 
 ## ListHosts {#ListHosts}
 
-Retrieves a list of hosts for the specified MySQL cluster.
+Retrieves a list of hosts for a cluster.
 
 **rpc ListHosts ([ListClusterHostsRequest](#ListClusterHostsRequest)) returns ([ListClusterHostsResponse](#ListClusterHostsResponse))**
 
@@ -1821,43 +1823,44 @@ Retrieves a list of hosts for the specified MySQL cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster. To get the MySQL cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the cluster to list hosts for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request. The maximum string length in characters is 100.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}
 
 Field | Description
 --- | ---
-hosts[] | **[Host](#Host)**<br>List of MySQL hosts. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+hosts[] | **[Host](#Host)**<br>List of hosts in the cluster. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) in the subsequent [ClusterService.ListHosts](#ListHosts)(#ListHosts) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListHosts] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Host {#Host}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the MySQL host. The host name is assigned by Managed Service for MySQL at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing database hosts in Yandex.Cloud, as it defines the FQDN of the host. 
-cluster_id | **string**<br>ID of the MySQL host. The ID is assigned by Managed Service for MySQL at creation time. 
-zone_id | **string**<br>ID of the availability zone where the MySQL host resides. 
+name | **string**<br>Name of the host. <br>This name is assigned by Yandex.Cloud at the time of creation. The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. 
+cluster_id | **string**<br>ID of the cluster the host belongs to. 
+zone_id | **string**<br>ID of the availability zone where the host resides. 
 resources | **[Resources](#Resources14)**<br>Resources allocated to the host. 
-role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master MySQL server in the cluster.</li><li>`REPLICA`: Host is a replica MySQL server in the cluster.</li><ul/>
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li><ul/>
-services[] | **[Service](#Service)**<br>Services provided by the host. 
+role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host is unknown.</li><li>`MASTER`: Host is the master.</li><li>`REPLICA`: Host is a replica.</li><ul/>
+health | enum **Health**<br>Aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: Host is performing all its functions normally.</li><li>`DEAD`: Host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: Host is degraded, and can perform only some of its essential functions.</li><ul/>
+services[] | **[Service](#Service)**<br>List of services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
-assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
+assign_public_ip | **bool**<br>Flag that shows if public IP address is assigned to the host so that the host can be accessed from the internet. 
 replication_source | **string**<br>Name of the host to be used as the replication source for cascading replication. 
-backup_priority | **int64**<br>Host backup priority 
+backup_priority | **int64**<br>Host backup priority. Acceptable values are 0 to 100, inclusive.
+priority | **int64**<br>Host master promotion priority. Acceptable values are 0 to 100, inclusive.
 
 
 ### Resources {#Resources14}
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-mysql/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
+disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
 
 
 ### Service {#Service}
@@ -1865,12 +1868,12 @@ disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>l
 Field | Description
 --- | ---
 type | enum **Type**<br>Type of the service provided by the host. <ul><li>`MYSQL`: The host is a MySQL server.</li><ul/>
-health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li><ul/>
+health | enum **Health**<br>Aggregated health of the service. <ul><li>`HEALTH_UNKNOWN`: Health of the service is unknown.</li><li>`ALIVE`: The service is working normally.</li><li>`DEAD`: The service is dead or unresponsive.</li><ul/>
 
 
 ## AddHosts {#AddHosts}
 
-Creates new hosts for a cluster.
+Adds new hosts in a cluster.
 
 **rpc AddHosts ([AddClusterHostsRequest](#AddClusterHostsRequest)) returns ([operation.Operation](#Operation11))**
 
@@ -1882,19 +1885,20 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to add hosts to. To get the MySQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for MySQL hosts that should be added to the cluster. The number of elements must be greater than 0.
+cluster_id | **string**<br>Required. ID of the cluster to add hosts to. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of the newly added hosts. The number of elements must be greater than 0.
 
 
 ### HostSpec {#HostSpec2}
 
 Field | Description
 --- | ---
-zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet to assign to the host. <br>This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id](./cluster_service#CreateClusterRequest)). The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). 
-backup_priority | **int64**<br>Host backup priority 
+backup_priority | **int64**<br>Host backup priority Acceptable values are 0 to 100, inclusive.
+priority | **int64**<br>Host master promotion priority Acceptable values are 0 to 100, inclusive.
 
 
 ### Operation {#Operation11}
@@ -1917,8 +1921,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster to which the hosts are being added. 
-host_names[] | **string**<br>Names of hosts that are being added to the cluster. 
+cluster_id | **string**<br>ID of the cluster to which the hosts are being added. 
+host_names[] | **string**<br>Names of hosts that are being added. 
 
 
 ## UpdateHosts {#UpdateHosts}
@@ -1943,11 +1947,12 @@ update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configuration
 
 Field | Description
 --- | ---
-host_name | **string**<br>Required. Name of the host to update. To get the MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
-replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). To get the MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MySQL host should be updated. 
-backup_priority | **int64**<br>Host backup priority 
+host_name | **string**<br>Required. Name of the host to update. To get a MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
+replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). To get a MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which settings of the MySQL host should be updated. 
+backup_priority | **int64**<br>Host backup priority. Acceptable values are 0 to 100, inclusive.
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. 
+priority | **int64**<br>Host master promotion priority. Acceptable values are 0 to 100, inclusive.
 
 
 ### Operation {#Operation12}
@@ -1970,8 +1975,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster to modify hosts in. 
-host_names[] | **string**<br>Names of hosts that are being modified. 
+cluster_id | **string**<br>ID of the cluster in which the hosts are being updated. 
+host_names[] | **string**<br>Names of hosts that are being updated. 
 
 
 ## DeleteHosts {#DeleteHosts}
@@ -1988,8 +1993,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the MySQL cluster to remove hosts from. To get the MySQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
+cluster_id | **string**<br>Required. ID of the cluster to delete hosts from. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+host_names[] | **string**<br>Names of hosts to delete. <br>To get these names, make a [ClusterService.ListHosts](#ListHosts) request. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
 ### Operation {#Operation13}
@@ -2012,7 +2017,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the MySQL cluster to remove hosts from. 
+cluster_id | **string**<br>ID of the cluster from which the hosts are being deleted. 
 host_names[] | **string**<br>Names of hosts that are being deleted. 
 
 

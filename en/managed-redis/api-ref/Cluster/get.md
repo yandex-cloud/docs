@@ -170,7 +170,8 @@ clusterId | Required. ID of the Redis cluster to return. To get the cluster ID u
     "string"
   ],
   "tlsEnabled": true,
-  "deletionProtection": true
+  "deletionProtection": true,
+  "persistenceMode": "string"
 }
 ```
 Description of a Redis cluster. For more information, see
@@ -292,3 +293,4 @@ plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>Time until whic
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 tlsEnabled | **boolean** (boolean)<br><p>TLS port and functionality on\off</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+persistenceMode | **string**<br><p>Persistence mode</p> 

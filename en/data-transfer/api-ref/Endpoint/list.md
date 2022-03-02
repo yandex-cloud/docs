@@ -24,7 +24,7 @@ folderId | Identifier of the folder containing the endpoints to be listed.
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than page_size, next_page_token will be included in the response message. Include it into the subsequent ListEndpointRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 100.
+pageSize | The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than page_size, next_page_token will be included in the response message. Include it into the subsequent ListEndpointRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 500.
 pageToken | Opaque value identifying the endpoints page to be fetched. Should be empty in the first ListEndpointsRequest. Subsequent request should have this field filled with the next_page_token from the previous ListEndpointsResponse.
  
 ## Response {#responses}
@@ -174,7 +174,9 @@ pageToken | Opaque value identifying the endpoints page to be fetched. Should be
           },
           "sqlMode": "string",
           "skipConstraintChecks": true,
-          "timezone": "string"
+          "timezone": "string",
+          "cleanupPolicy": "string",
+          "serviceDatabase": "string"
         },
         "postgresTarget": {
           "connection": {
@@ -205,7 +207,8 @@ pageToken | Opaque value identifying the endpoints page to be fetched. Should be
           "user": "string",
           "password": {
             "raw": "string"
-          }
+          },
+          "cleanupPolicy": "string"
         },
         // end of the list of possible fields`endpoints[].settings`
 
@@ -265,8 +268,8 @@ endpoints[].<br>settings.<br>postgresSource.<br>database | **string**<br><p>Data
 endpoints[].<br>settings.<br>postgresSource.<br>user | **string**<br><p>Username</p> <p>User for database access.</p> 
 endpoints[].<br>settings.<br>postgresSource.<br>password | **object**<br><p>Password</p> <p>Password for database access.</p> 
 endpoints[].<br>settings.<br>postgresSource.<br>password.<br>raw | **string**<br><p>Password</p> 
-endpoints[].<br>settings.<br>postgresSource.<br>includeTables[] | **string**<br><p>Included tables</p> <p>If none or empty list is presented, all tables are replicated. Can contain regular expression.</p> 
-endpoints[].<br>settings.<br>postgresSource.<br>excludeTables[] | **string**<br><p>Excluded tables</p> <p>If none or empty list is presented, all tables are replicated. Can contain regular expression.</p> 
+endpoints[].<br>settings.<br>postgresSource.<br>includeTables[] | **string**<br><p>Included tables</p> <p>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns.</p> 
+endpoints[].<br>settings.<br>postgresSource.<br>excludeTables[] | **string**<br><p>Excluded tables</p> <p>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns.</p> 
 endpoints[].<br>settings.<br>postgresSource.<br>slotByteLagLimit | **string** (int64)<br><p>Maximum WAL size for the replication slot</p> <p>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default.</p> 
 endpoints[].<br>settings.<br>postgresSource.<br>serviceSchema | **string**<br><p>Database schema for service table</p> <p>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder).</p> 
 endpoints[].<br>settings.<br>postgresSource.<br>objectTransferSettings | **object**<br><p>Schema migration</p> <p>Select database objects to be transferred during activation or deactivation.</p> 
@@ -305,6 +308,8 @@ endpoints[].<br>settings.<br>mysqlTarget.<br>password.<br>raw | **string**<br><p
 endpoints[].<br>settings.<br>mysqlTarget.<br>sqlMode | **string**<br><p>sql_mode</p> <p>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION.</p> 
 endpoints[].<br>settings.<br>mysqlTarget.<br>skipConstraintChecks | **boolean** (boolean)<br><p>Disable constraints checks</p> <p>Recommend to disable for increase replication speed, but if schema contain cascading operations we don't recommend to disable. This option set FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0.</p> 
 endpoints[].<br>settings.<br>mysqlTarget.<br>timezone | **string**<br><p>Database timezone</p> <p>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone.</p> 
+endpoints[].<br>settings.<br>mysqlTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> <p>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED.</p> 
+endpoints[].<br>settings.<br>mysqlTarget.<br>serviceDatabase | **string**<br><p>Database schema for service table</p> <p>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
 endpoints[].<br>settings.<br>postgresTarget | **object** <br>`endpoints[].settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 endpoints[].<br>settings.<br>postgresTarget.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
 endpoints[].<br>settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`endpoints[].settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed PostgreSQL cluster ID</p> 
@@ -321,4 +326,5 @@ endpoints[].<br>settings.<br>postgresTarget.<br>database | **string**<br><p>Data
 endpoints[].<br>settings.<br>postgresTarget.<br>user | **string**<br><p>Username</p> <p>User for database access.</p> 
 endpoints[].<br>settings.<br>postgresTarget.<br>password | **object**<br><p>Password</p> <p>Password for database access.</p> 
 endpoints[].<br>settings.<br>postgresTarget.<br>password.<br>raw | **string**<br><p>Password</p> 
+endpoints[].<br>settings.<br>postgresTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> <p>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED.</p> 
 nextPageToken | **string**<br><p>Opaque value identifying the next endpoints page. This field is empty if there are no more endpoints in the folder. Otherwise it is non-empty and should be included in the subsequent ListEndpointsRequest to fetch the next endpoints page.</p> 

@@ -302,7 +302,7 @@ secrets[] | **[Secret](#Secret)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity}
@@ -364,7 +364,7 @@ secrets[] | **[Secret](#Secret1)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity1}
@@ -427,7 +427,7 @@ secrets[] | **[Secret](#Secret2)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity2}
@@ -490,7 +490,7 @@ secrets[] | **[Secret](#Secret3)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity3}
@@ -565,7 +565,7 @@ secrets[] | **[Secret](#Secret4)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity4}
@@ -640,7 +640,7 @@ secrets[] | **[Secret](#Secret5)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity5}
@@ -730,7 +730,7 @@ secrets[] | **[Secret](#Secret6)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity6}
@@ -820,7 +820,7 @@ secrets[] | **[Secret](#Secret7)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity7}
@@ -950,7 +950,7 @@ secrets[] | **[Secret](#Secret8)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Package {#Package}
@@ -1031,7 +1031,7 @@ secrets[] | **[Secret](#Secret9)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity9}
@@ -1089,7 +1089,7 @@ secrets[] | **[Secret](#Secret10)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Package {#Package1}
@@ -1170,7 +1170,7 @@ secrets[] | **[Secret](#Secret11)**<br>Lockbox secrets to be used by the version
 
 Field | Description
 --- | ---
-memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 2147483648, inclusive.
+memory | **int64**<br>Amount of memory available to the version, specified in bytes. Acceptable values are 134217728 to 4294967296, inclusive.
 
 
 ### Connectivity {#Connectivity11}

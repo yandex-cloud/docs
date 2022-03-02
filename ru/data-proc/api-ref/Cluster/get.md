@@ -47,6 +47,15 @@ clusterId | Required. ID of the Data Proc cluster.  To get a cluster ID make a [
       "properties": "object",
       "sshPublicKeys": [
         "string"
+      ],
+      "initializationActions": [
+        {
+          "uri": "string",
+          "args": [
+            "string"
+          ],
+          "timeout": "string"
+        }
       ]
     }
   },
@@ -81,11 +90,15 @@ monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p>
 monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
 monitoring[].<br>link | **string**<br><p>Link to the monitoring system.</p> 
 config | **object**<br><p>Configuration of the cluster.</p> 
-config.<br>versionId | **string**<br><p>Image version for cluster provisioning. All available versions are listed in the <a href="/docs/data-proc/concepts/environment#current-images">documentation</a>.</p> 
+config.<br>versionId | **string**<br><p>Image version for cluster provisioning. All available versions are listed in the <a href="/docs/managed-hadoop/concepts/image-versions">documentation</a>.</p> 
 config.<br>hadoop | **object**<br><p>Data Proc specific configuration options.</p> <p>Hadoop configuration that describes services installed in a cluster, their properties and settings.</p> 
 config.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
 config.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in ``*-site.xml`` configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the ``dfs.replication`` property in the file ``/etc/hadoop/conf/hdfs-site.xml``.</p> 
 config.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of public SSH keys to access to cluster hosts.</p> 
+config.<br>hadoop.<br>initializationActions[] | **object**<br><p>Set of init-actions</p> 
+config.<br>hadoop.<br>initializationActions[].<br>uri | **string**<br><p>URI of the executable file</p> 
+config.<br>hadoop.<br>initializationActions[].<br>args[] | **string**<br><p>Arguments to the initialization action</p> 
+config.<br>hadoop.<br>initializationActions[].<br>timeout | **string** (int64)<br><p>Execution timeout</p> 
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
 status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 zoneId | **string**<br><p>ID of the availability zone where the cluster resides.</p> 

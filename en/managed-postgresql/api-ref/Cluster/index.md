@@ -421,7 +421,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanDebugPrint": "string",
         "pgHintPlanMessageLevel": "string",
         "onlineAnalyzeEnable": true,
-        "plantunerFixEmptyTable": true
+        "plantunerFixEmptyTable": true,
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -538,7 +543,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanDebugPrint": "string",
         "pgHintPlanMessageLevel": "string",
         "onlineAnalyzeEnable": true,
-        "plantunerFixEmptyTable": true
+        "plantunerFixEmptyTable": true,
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -655,7 +665,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanDebugPrint": "string",
         "pgHintPlanMessageLevel": "string",
         "onlineAnalyzeEnable": true,
-        "plantunerFixEmptyTable": true
+        "plantunerFixEmptyTable": true,
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       }
     },
     "postgresqlConfig_10": {
@@ -772,7 +787,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -887,7 +907,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -1002,7 +1027,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       }
     },
     "postgresqlConfig_11": {
@@ -1127,7 +1157,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -1250,7 +1285,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -1373,7 +1413,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       }
     },
     "postgresqlConfig_11_1C": {
@@ -1498,7 +1543,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -1621,7 +1671,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -1744,7 +1799,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       }
     },
     "postgresqlConfig_12": {
@@ -1871,7 +1931,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -1996,7 +2061,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -2121,7 +2191,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       }
     },
     "postgresqlConfig_12_1C": {
@@ -2248,7 +2323,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -2373,7 +2453,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -2498,7 +2583,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "pgHintPlanEnableHint": true,
         "pgHintPlanEnableHintTable": true,
         "pgHintPlanDebugPrint": "string",
-        "pgHintPlanMessageLevel": "string"
+        "pgHintPlanMessageLevel": "string",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       }
     },
     "postgresqlConfig_13": {
@@ -2637,7 +2727,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "logMinDurationSample": "integer",
         "logStatementSampleRate": "number",
         "logParameterMaxLength": "integer",
-        "logParameterMaxLengthOnError": "integer"
+        "logParameterMaxLengthOnError": "integer",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -2774,7 +2869,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "logMinDurationSample": "integer",
         "logStatementSampleRate": "number",
         "logParameterMaxLength": "integer",
-        "logParameterMaxLengthOnError": "integer"
+        "logParameterMaxLengthOnError": "integer",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -2911,7 +3011,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "logMinDurationSample": "integer",
         "logStatementSampleRate": "number",
         "logParameterMaxLength": "integer",
-        "logParameterMaxLengthOnError": "integer"
+        "logParameterMaxLengthOnError": "integer",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       }
     },
     "postgresqlConfig_14": {
@@ -3055,7 +3160,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "enableMemoize": true,
         "logRecoveryConflictWaits": true,
         "vacuumFailsafeAge": "integer",
-        "vacuumMultixactFailsafeAge": "integer"
+        "vacuumMultixactFailsafeAge": "integer",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "userConfig": {
         "maxConnections": "integer",
@@ -3197,7 +3307,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "enableMemoize": true,
         "logRecoveryConflictWaits": true,
         "vacuumFailsafeAge": "integer",
-        "vacuumMultixactFailsafeAge": "integer"
+        "vacuumMultixactFailsafeAge": "integer",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       },
       "defaultConfig": {
         "maxConnections": "integer",
@@ -3339,7 +3454,12 @@ A set of methods for managing PostgreSQL Cluster resources.
         "enableMemoize": true,
         "logRecoveryConflictWaits": true,
         "vacuumFailsafeAge": "integer",
-        "vacuumMultixactFailsafeAge": "integer"
+        "vacuumMultixactFailsafeAge": "integer",
+        "pgQualstatsEnabled": true,
+        "pgQualstatsTrackConstants": true,
+        "pgQualstatsMax": "integer",
+        "pgQualstatsResolveOids": true,
+        "pgQualstatsSampleRate": "number"
       }
     },
     // end of the list of possible fields`config`
@@ -3769,6 +3889,11 @@ config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgHintPlanDebugPrint |
 config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
 config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>onlineAnalyzeEnable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>plantunerFixEmptyTable | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>effectiveConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_10_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 10 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -3883,6 +4008,11 @@ config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgHintPlanDebugPrint | **st
 config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
 config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>onlineAnalyzeEnable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>plantunerFixEmptyTable | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>userConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_10_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 10 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -3997,6 +4127,11 @@ config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgHintPlanDebugPrint | *
 config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
 config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>onlineAnalyzeEnable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>plantunerFixEmptyTable | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10_1C.<br>defaultConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_10 | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br>
 config.<br>postgresqlConfig_10.<br>effectiveConfig | **object**<br><p>Required. Effective settings for a PostgreSQL 10 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
@@ -4110,6 +4245,11 @@ config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgHintPlanEnableHint | **
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>effectiveConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_10.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 10 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_10.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_10.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -4222,6 +4362,11 @@ config.<br>postgresqlConfig_10.<br>userConfig.<br>pgHintPlanEnableHint | **boole
 config.<br>postgresqlConfig_10.<br>userConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_10.<br>userConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_10.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_10.<br>userConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>userConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>userConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_10.<br>userConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>userConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_10.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 10 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -4334,6 +4479,11 @@ config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgHintPlanEnableHint | **bo
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_10.<br>defaultConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_11 | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br>
 config.<br>postgresqlConfig_11.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 11 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
@@ -4455,6 +4605,11 @@ config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgHintPlanEnableHint | **
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>effectiveConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_11.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 11 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_11.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -4575,6 +4730,11 @@ config.<br>postgresqlConfig_11.<br>userConfig.<br>pgHintPlanEnableHint | **boole
 config.<br>postgresqlConfig_11.<br>userConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_11.<br>userConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_11.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_11.<br>userConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>userConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>userConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_11.<br>userConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>userConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_11.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 11 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -4695,6 +4855,11 @@ config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgHintPlanEnableHint | **bo
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11.<br>defaultConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_11_1C | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br>
 config.<br>postgresqlConfig_11_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 11 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
@@ -4816,6 +4981,11 @@ config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgHintPlanEnableHint |
 config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>effectiveConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_11_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 11 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -4936,6 +5106,11 @@ config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgHintPlanEnableHint | **bo
 config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>userConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_11_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 11 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -5056,6 +5231,11 @@ config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgHintPlanEnableHint | *
 config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_11_1C.<br>defaultConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_12 | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br>
 config.<br>postgresqlConfig_12.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 12 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
@@ -5179,6 +5359,11 @@ config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgHintPlanEnableHint | **
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>effectiveConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_12.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 12 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_12.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -5301,6 +5486,11 @@ config.<br>postgresqlConfig_12.<br>userConfig.<br>pgHintPlanEnableHint | **boole
 config.<br>postgresqlConfig_12.<br>userConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_12.<br>userConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_12.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_12.<br>userConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>userConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>userConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_12.<br>userConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>userConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_12.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 12 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -5423,6 +5613,11 @@ config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanEnableHint | **bo
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12.<br>defaultConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_12_1C | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br>
 config.<br>postgresqlConfig_12_1C.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 12 1C cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
@@ -5546,6 +5741,11 @@ config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanEnableHint |
 config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>effectiveConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_12_1C.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 12 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -5668,6 +5868,11 @@ config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanEnableHint | **bo
 config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>userConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_12_1C.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 12 1C cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -5790,6 +5995,11 @@ config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanEnableHint | *
 config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanEnableHintTable | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanDebugPrint | **string**<br>
 config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgHintPlanMessageLevel | **string**<br>
+config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_12_1C.<br>defaultConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_13 | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br>
 config.<br>postgresqlConfig_13.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 13 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
@@ -5925,6 +6135,11 @@ config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>logMinDurationSample | **
 config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>logStatementSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>logParameterMaxLength | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>logParameterMaxLengthOnError | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>effectiveConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_13.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 13 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_13.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_13.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -6059,6 +6274,11 @@ config.<br>postgresqlConfig_13.<br>userConfig.<br>logMinDurationSample | **integ
 config.<br>postgresqlConfig_13.<br>userConfig.<br>logStatementSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>userConfig.<br>logParameterMaxLength | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>userConfig.<br>logParameterMaxLengthOnError | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+config.<br>postgresqlConfig_13.<br>userConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>userConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>userConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_13.<br>userConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>userConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_13.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 13 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -6193,6 +6413,11 @@ config.<br>postgresqlConfig_13.<br>defaultConfig.<br>logMinDurationSample | **in
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>logStatementSampleRate | **number** (double)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>logParameterMaxLength | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 config.<br>postgresqlConfig_13.<br>defaultConfig.<br>logParameterMaxLengthOnError | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_13.<br>defaultConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_14 | **object** <br>`config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br>
 config.<br>postgresqlConfig_14.<br>effectiveConfig | **object**<br><p>Effective settings for a PostgreSQL 14 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>maxConnections | **integer** (int64)<br>
@@ -6333,6 +6558,11 @@ config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>enableMemoize | **boolean
 config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>logRecoveryConflictWaits | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>vacuumFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>vacuumMultixactFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>effectiveConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_14.<br>userConfig | **object**<br><p>User-defined settings for a PostgreSQL 14 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_14.<br>userConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_14.<br>userConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -6472,6 +6702,11 @@ config.<br>postgresqlConfig_14.<br>userConfig.<br>enableMemoize | **boolean** (b
 config.<br>postgresqlConfig_14.<br>userConfig.<br>logRecoveryConflictWaits | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_14.<br>userConfig.<br>vacuumFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>userConfig.<br>vacuumMultixactFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+config.<br>postgresqlConfig_14.<br>userConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>userConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>userConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_14.<br>userConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>userConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 config.<br>postgresqlConfig_14.<br>defaultConfig | **object**<br><p>Default configuration for a PostgreSQL 14 cluster.</p> <p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br>
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>sharedBuffers | **integer** (int64)<br>
@@ -6611,6 +6846,11 @@ config.<br>postgresqlConfig_14.<br>defaultConfig.<br>enableMemoize | **boolean**
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>logRecoveryConflictWaits | **boolean** (boolean)<br>
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>vacuumFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
 config.<br>postgresqlConfig_14.<br>defaultConfig.<br>vacuumMultixactFailsafeAge | **integer** (int64)<br><p>Acceptable values are -1 to 2147483647, inclusive.</p> 
+config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgQualstatsEnabled | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgQualstatsTrackConstants | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgQualstatsMax | **integer** (int64)<br>
+config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgQualstatsResolveOids | **boolean** (boolean)<br>
+config.<br>postgresqlConfig_14.<br>defaultConfig.<br>pgQualstatsSampleRate | **number** (double)<br>
 networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

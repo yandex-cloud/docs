@@ -16,7 +16,7 @@ A set of methods for managing Disk resources.
 | [Update](#Update) | Updates the specified disk. |
 | [Delete](#Delete) | Deletes the specified disk. |
 | [ListOperations](#ListOperations) | Lists operations for the specified disk. |
-| [Move](#Move) | Moves disk between folders. |
+| [Move](#Move) | Moves the specified disk to another folder of the same cloud. |
 
 ## Calls DiskService {#calls}
 
@@ -369,7 +369,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## Move {#Move}
 
-Moves disk between folders.
+Moves the specified disk to another folder of the same cloud.
 
 **rpc Move ([MoveDiskRequest](#MoveDiskRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -381,8 +381,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-disk_id | **string**<br>Required. ID of the disk that is being moved. The maximum string length in characters is 50.
-destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
+disk_id | **string**<br>Required. ID of the disk to move. <br>To get the disk ID, make a [DiskService.List](#List) request. The maximum string length in characters is 50.
+destination_folder_id | **string**<br>Required. ID of the folder to move the disk to. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation4}
@@ -406,8 +406,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 disk_id | **string**<br>ID of the disk that is being moved. 
-source_folder_id | **string**<br>ID of the source folder. 
-destination_folder_id | **string**<br>ID of the destination folder. 
+source_folder_id | **string**<br>ID of the folder that the disk is being moved from. 
+destination_folder_id | **string**<br>ID of the folder that the disk is being moved to. 
 
 
 ### Disk {#Disk4}

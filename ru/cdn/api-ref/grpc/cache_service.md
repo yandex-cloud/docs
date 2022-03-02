@@ -17,7 +17,7 @@ A set of methods for managing Cache Service resources.
 
 ## Purge {#Purge}
 
-Removes specified files from the cache of the specified resource. For details about purging, see [documentation](/docs/cdn/concepts/caching#purge).
+Removes specified files from the cache of the specified resource. For details about purging, see [documentation](/docs/cdn/concepts/caching#purge). <br>Purging may take up to 15 minutes.
 
 **rpc Purge ([PurgeCacheRequest](#PurgeCacheRequest)) returns ([operation.Operation](#Operation))**
 

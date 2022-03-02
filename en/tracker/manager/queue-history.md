@@ -12,7 +12,7 @@ The changelog displays all changes to the issue queue. Each entry contains infor
 
 1. Open the queue page.
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Go to the **Changelog** tab.
 

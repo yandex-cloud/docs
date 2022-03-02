@@ -61,6 +61,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [copy-into-folder](../../_includes/datalens/qa/copy-into-folder.md) %}
 
+{% include [revoke-token.md](../../_includes/datalens/qa/revoke-token.md) %}
+
 ## Connections {#connections}
 
 {% include [postgre-type.md](../../_includes/datalens/qa/postgre-type.md) %}

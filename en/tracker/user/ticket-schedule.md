@@ -14,7 +14,7 @@ To set up scheduled issue creation:
 
 1. Open the [queue page](../user/queue.md).
 
-1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. Select **Automation** → **Auto actions** in the left-hand panel and click **Create auto action**.
 

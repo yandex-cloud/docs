@@ -21,3 +21,8 @@
 Новый шаблон будет доступен на [странице шаблонов]({{ link-tracker-templates }}).
 
 
+Чтобы другие пользователи могли применять ваш шаблон:
+
+1. [Настройте общий доступ к шаблону](share-template.md#section_nmn_prs_zz).
+
+1. Попросите коллег [подключить шаблон](share-template.md#section_vkg_trs_zz) на странице [Управление шаблонами](https://tracker.yandex.ru/settings/templates/issues).

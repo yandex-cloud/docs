@@ -27,7 +27,8 @@ filesystemId | Required. ID of the filesystem to update.  To get the filesystem 
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "object"
+  "labels": "object",
+  "size": "string"
 }
 ```
 
@@ -38,6 +39,7 @@ updateMask | **string**<br><p>Field mask that specifies which attributes of the 
 name | **string**<br><p>New name of the filesystem. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>New description of the filesystem.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>New filesystem labels as ``key:value`` pairs. For details about the concept, see <a href="/docs/overview/concepts/services#labels">documentation</a>.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label:</p> <ol> <li>Get the current set of labels with a <a href="/docs/compute/api-ref/Filesystem/get">get</a> request.</li> <li>Add or remove a label in this set.</li> <li>Send the new set in this field.</li> </ol> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+size | **string** (int64)<br><p>Size of the filesystem, specified in bytes.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

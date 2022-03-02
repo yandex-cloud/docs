@@ -12,7 +12,7 @@ You can add different issue types to a single queue, such as <q>New feature</q>,
 
 To configure a workflow for a particular issue type:
 
-1. Go to the queue page and select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
+1. Go to the queue page and select ![](../../_assets/tracker/icon-settings.png) → **Configure**.
 
 1. [Add a new issue type to the queue](add-ticket-type.md) and choose the workflow and resolution set.
 

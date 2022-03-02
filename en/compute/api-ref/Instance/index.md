@@ -218,7 +218,7 @@ Method | Description
 [getSerialPortOutput](getSerialPortOutput.md) | Returns the serial port output of the specified Instance resource.
 [list](list.md) | Retrieves the list of Instance resources in the specified folder.
 [listOperations](listOperations.md) | Lists operations for the specified instance.
-[move](move.md) | Moves the specified instance between folders
+[move](move.md) | Moves the specified instance to another folder of the same cloud.
 [removeOneToOneNat](removeOneToOneNat.md) | Removes One-to-one NAT from the network interface.
 [restart](restart.md) | Restarts the running instance.
 [start](start.md) | Starts the stopped instance.

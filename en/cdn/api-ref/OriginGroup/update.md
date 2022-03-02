@@ -5,9 +5,10 @@ sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/update.md
 
 
 # Method update
-Updates origin group.
+Updates the specified origin group.
  
-
+Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge cache of the resources that
+use the origin group via a [purge](/docs/cdn/api-ref/Cache/purge) request.
  
 ## HTTP request {#https-request}
 ```

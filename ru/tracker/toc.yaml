@@ -101,14 +101,8 @@ items:
             href: manager/workflow-status-edit.md
           - name: Настроить переходы
             href: manager/workflow-action-edit.md
-          - name: Добавить типы задач, статусы, резолюции
-            items:
-              - name: Создать тип задачи
-                href: manager/create-ticket-type.md
-              - name: Создать статус
-                href: manager/create-status.md
-              - name: Создать резолюцию
-                href: manager/create-resolution.md
+          - name: Настроить резолюции
+            href: manager/create-resolution.md
       - name: Локальные поля задач
         href: local-fields.md
       - name: Добавить команду очереди
@@ -580,7 +574,11 @@ items:
       - name: Возможные коды ответа
         href: error-codes.md
   - name: Вопросы и ответы
-    href: faq.md
+    items:
+      - name: Общие вопросы
+        href: faq.md
+      - name: Оплата
+        href: payment.md
   - name: Служба поддержки
     href: troubleshooting.md
 base: ru/tracker

@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/compute/api-ref/Disk/move.md
 
 
 # Method move
-Moves disk between folders.
+Moves the specified disk to another folder of the same cloud.
  
 
  
@@ -18,7 +18,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}:move
  
 Parameter | Description
 --- | ---
-diskId | Required. ID of the disk that is being moved.  The maximum string length in characters is 50.
+diskId | Required. ID of the disk to move.  To get the disk ID, make a [list](/docs/compute/api-ref/Disk/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -31,7 +31,7 @@ diskId | Required. ID of the disk that is being moved.  The maximum string lengt
  
 Field | Description
 --- | ---
-destinationFolderId | **string**<br><p>Required. ID of the destination folder.</p> <p>The maximum string length in characters is 50.</p> 
+destinationFolderId | **string**<br><p>Required. ID of the folder to move the disk to.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

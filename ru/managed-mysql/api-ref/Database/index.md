@@ -5,7 +5,9 @@ sourcePath: en/_api-ref/mdb/mysql/api-ref/Database/index.md
 
 
 # Database
-A set of methods for managing MySQL databases.
+A set of methods for managing MySQL databases in a cluster.
+
+See [the documentation](/docs/managed-mysql/operations/databases) for details.
 ## JSON Representation {#representation}
 ```json 
 {
@@ -17,12 +19,12 @@ A set of methods for managing MySQL databases.
 Field | Description
 --- | ---
 name | **string**<br><p>Name of the database.</p> 
-clusterId | **string**<br><p>ID of the MySQL cluster that the database belongs to.</p> 
+clusterId | **string**<br><p>ID of the cluster that the database belongs to.</p> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
-[create](create.md) | Creates a new MySQL database in the specified cluster.
-[delete](delete.md) | Deletes the specified MySQL database.
-[get](get.md) | Returns the specified MySQL database.
-[list](list.md) | Retrieves the list of MySQL databases in the specified cluster.
+[create](create.md) | Creates a new database in a cluster.
+[delete](delete.md) | Deletes a database from a cluster.
+[get](get.md) | Retrieves information about the specified database.
+[list](list.md) | Retrieves the list of databases in a cluster.

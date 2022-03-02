@@ -76,7 +76,7 @@ You'll get access if you upload a podcast to Yandex Music. The podcast is linked
 
 1. Enter a name for the connection like **My Podcast** (it can be anything).
 
-1. Click **Get key**. If this is your first connection to a Yandex Music podcast, grant the necessary permissions to the service.
+1. Click **Get key**. If this is your first time creating a connection to a Yandex Music podcast, grant the service the required permissions (these can be [revoked](../../../datalens/qa/index.md#revoke-token) at any time).
 
     ![image](../../../_assets/datalens/solution-10/30-get-key-oauth.png)
 

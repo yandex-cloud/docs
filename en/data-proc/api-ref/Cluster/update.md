@@ -56,6 +56,15 @@ clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/
       "properties": "object",
       "sshPublicKeys": [
         "string"
+      ],
+      "initializationActions": [
+        {
+          "uri": "string",
+          "args": [
+            "string"
+          ],
+          "timeout": "string"
+        }
       ]
     }
   },
@@ -99,6 +108,10 @@ configSpec.<br>hadoop | **object**<br><p>Hadoop specific options</p> <p>Hadoop c
 configSpec.<br>hadoop.<br>services[] | **string**<br><p>Set of services used in the cluster (if empty, the default set is used).</p> 
 configSpec.<br>hadoop.<br>properties | **object**<br><p>Properties set for all hosts in ``*-site.xml`` configurations. The key should indicate the service and the property.</p> <p>For example, use the key 'hdfs:dfs.replication' to set the ``dfs.replication`` property in the file ``/etc/hadoop/conf/hdfs-site.xml``.</p> 
 configSpec.<br>hadoop.<br>sshPublicKeys[] | **string**<br><p>List of public SSH keys to access to cluster hosts.</p> 
+configSpec.<br>hadoop.<br>initializationActions[] | **object**<br><p>Set of init-actions</p> 
+configSpec.<br>hadoop.<br>initializationActions[].<br>uri | **string**<br><p>URI of the executable file</p> 
+configSpec.<br>hadoop.<br>initializationActions[].<br>args[] | **string**<br><p>Arguments to the initialization action</p> 
+configSpec.<br>hadoop.<br>initializationActions[].<br>timeout | **string** (int64)<br><p>Execution timeout</p> 
 name | **string**<br><p>New name for the Data Proc cluster. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 serviceAccountId | **string**<br><p>ID of the new service account to be used by the Data Proc manager agent.</p> 
 bucket | **string**<br><p>Name of the new Object Storage bucket to use for Data Proc jobs.</p> 
