@@ -6,7 +6,7 @@
 
 * [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size) (доступно только для [типов хранилищ](../concepts/storage.md) `network-hdd` и `network-ssd`).
+* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
 
 * [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
 
@@ -171,7 +171,7 @@
 
 {% endnote %}
 
-{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+Проверьте, что нужный кластер не использует хранилище на нереплицируемых SSD-дисках. Увеличить размер хранилища на нереплицируемых SSD-дисках невозможно.
 
 {% list tabs %}
 
@@ -272,7 +272,7 @@
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-cluster-settings), нажав на кнопку **Настроить** в блоке **Настройки СУБД**:
+  1. Измените [настройки {{ CH }}](../concepts/settings-list.md#dbms-cluster-settings), нажав на кнопку **Настроить** в блоке **Настройки СУБД**.
   1. Нажмите кнопку **Сохранить изменения**.
 
 - Terraform

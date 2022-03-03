@@ -1,24 +1,12 @@
 # Изменение настроек кластера
 
-{% if api != "noshow" %}
-
 После создания кластера {{ KF }} вы можете:
 
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (доступно только для [типов хранилищ](../concepts/storage.md) `network-hdd` и `network-ssd`).
+* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
 * [Изменить настройки {{ KF }}](#change-kafka-settings).
 * [Переместить кластер](#move-cluster) из текущего каталога в другой каталог.
 * [Изменить группы безопасности кластера](#change-sg-set).
-
-{% else %}
-
-После создания кластера {{ KF }} вы можете:
-
-* [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size).
-* [Изменить настройки {{ KF }}](#change-kafka-settings).
-
-{% endif %}
 
 ## Изменить класс и количество хостов {#change-resource-preset}
 
@@ -153,7 +141,7 @@
 
 {% endnote %}
 
-{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+Проверьте, что нужный кластер не использует хранилище на нереплицируемых SSD-дисках. Увеличить размер хранилища на нереплицируемых SSD-дисках невозможно.
 
 {% list tabs %}
 
