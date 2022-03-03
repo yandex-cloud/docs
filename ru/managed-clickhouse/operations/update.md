@@ -8,6 +8,8 @@
 
 * [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
 
+* [{#T}](#SQL-management)
+
 * [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
@@ -261,6 +263,86 @@
   * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
 
     {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Включить управление пользователями и базами данных через SQL {#SQL-management}
+
+Сервис {{ mch-name }} позволяет включить управление [пользователями](./cluster-users.md#sql-user-management) и [базами данных](./databases.md#sql-database-management) кластера через SQL.
+
+{% note alert %}
+
+Включенные однажды настройки управления пользователями или базами данных через SQL невозможно выключить.
+
+{% endnote %}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+  1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
+  1. Для [управления пользователями через SQL](./cluster-users.md#sql-user-management) включите настройку **Управление пользователями через SQL** и укажите пароль пользователя `admin`.
+  1. Для [управления базами данных через SQL](./databases.md#sql-database-management), включите настройки **Управление пользователями через SQL** и **Управление базами данных через SQL**, укажите пароль пользователя `admin`.
+  1. Нажмите кнопку **Сохранить изменения**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Чтобы включить [режим управления пользователями через SQL](./cluster-users.md#sql-user-management):
+
+        * задайте значение `true` для параметра `--enable-sql-user-management`;
+        * задайте пароль для пользователя `admin` в параметре `--admin-password`.
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
+           ...
+           --enable-sql-user-management true \
+           --admin-password "<пароль пользователя admin>"
+        ```
+
+    1. Чтобы включить [режим управления базами данных через SQL](./databases.md#sql-database-management):
+
+        * задайте значение `true` для параметров `--enable-sql-user-management` и `--enable-sql-database-management`;
+        * задайте пароль для пользователя `admin` в параметре `--admin-password`.
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
+           ...
+           --enable-sql-user-management true \
+           --enable-sql-database-management true \
+           --admin-password "<пароль пользователя admin>"
+        ```
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. {% include [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+
+    1. {% include [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-mch }}).
+
+- API
+
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`:
+    * `sqlUserManagement` — задайте значение `true` для включения режима [управления пользователями через SQL](cluster-users.md#sql-user-management).
+    * `sqlDatabaseManagement` — задайте значение `true` для включения режима [управления базами данных через SQL](databases.md#sql-database-management). Необходимо, чтобы был включен режим управления пользователями через SQL.
+    * `adminPassword` — задайте пароль пользователя `admin`, с помощью которого осуществляется управление.
 
 {% endlist %}
 

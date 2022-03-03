@@ -347,7 +347,7 @@
         }
         ```
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}}
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Проверьте корректность настроек.
 
