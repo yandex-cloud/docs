@@ -9,8 +9,12 @@
 {% list tabs %}
 
 - Консоль управления
-  
-  1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
-  2. На странице **Пользователи и роли** в строке с нужным пользователем нажмите значок ![image](../../../_assets/options.svg) и выберите в меню команду **Удалить**.
+
+    1. Войдите в [консоль управления]({{ link-console-main }}).
+    1. [Выберите облако](../../../resource-manager/operations/cloud/switch-cloud.md).
+    1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl)  (кнопка **Права доступа** на панели слева).
+    1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
+    1. Нажмите кнопку **Отозвать роли**.
+    1. Подтвердите отзыв всех ролей у пользователя.
   
 {% endlist %}
