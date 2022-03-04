@@ -103,7 +103,7 @@ The cost of fast local storage also depends on the type of hosts.
   {% if region == "kz" %} {% include notitle [KZT: standard hosts](../../_pricing/managed-greenplum/kzt-hosts-standard.md) %}{% endif %}
   {% if region == "int" %} {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}{% endif %}
 
-{% if audience==draft %}
+{% if audience == "draft" %}
 
 - Dedicated hosts
 
@@ -129,7 +129,7 @@ The cost of fast local storage also depends on the type of hosts.
   {% if region == "kz" %} {% include notitle [kzt-storage-standard.md](../../_pricing/managed-greenplum/kzt-storage-standard.md) %} {% endif %}
   {% if region == "int" %} {% include notitle [usd-storage-standard.md](../../_pricing/managed-greenplum/usd-storage-standard.md) %} {% endif %}
 
-{% if audience==draft %}
+{% if audience== "draft" %}
 
 - Dedicated hosts
 
