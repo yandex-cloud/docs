@@ -31,7 +31,7 @@ The cost of {{ mgp-name }} usage is based on:
 
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are listed in the [{#T}](../concepts/instance-types.md) section. Prices for using vCPU and RAM are given in the [Prices](#prices) section.
 
-{% if audience==draft %}
+{% if audience == "draft" %}
 
 There are different ways to calculate the cost depending on the [host type](../concepts/):
 
@@ -43,7 +43,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
   You only pay for [{{ compute-full-name }} computing resources](../../compute/pricing.md#prices-dedicated-host).
 
-  {% if audience==draft %}The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.{% endif %}
+  {% if audience == "draft" %}The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.{% endif %}
 
 {% endif %}
 
