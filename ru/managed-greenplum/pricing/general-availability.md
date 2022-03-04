@@ -12,9 +12,9 @@ editable: false
 
 {% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
-{% include [pricing-status.md](../../_includes/mdb/pricing-status.md) %}
+{% include [pricing-status](../../_includes/mdb/pricing-status.md) %}
 
-{% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
+{% include [pricing-status-warning](../../_includes/mdb/pricing-status-warning.md) %}
 
 ## Из чего складывается стоимость использования {{ mgp-short-name }} {#rules}
 
@@ -33,7 +33,7 @@ editable: false
 
 {% if audience==draft %}
 
-В зависимости от [типа хоста](../concepts/index.md) стоимость вычисляется по-разному:
+В зависимости от [типа хоста](../concepts/) стоимость вычисляется по-разному:
 
 * Стандартные хосты
 
@@ -110,7 +110,7 @@ editable: false
 
   {% if region == "ru" %} {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}{% endif %}
   {% if region == "kz" %} {% include notitle [KZT: standard hosts](../../_pricing/managed-greenplum/kzt-hosts-standard.md) %}{% endif %}
-  {% if region == "int" %}{% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}{% endif %}
+  {% if region == "int" %} {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}{% endif %}
 
 {% if audience==draft %}
 
@@ -120,7 +120,7 @@ editable: false
 
   {% if region == "ru" %} {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}{% endif %}
   {% if region == "kz" %} {% include notitle [KZT: dedicated hosts](../../_pricing/managed-greenplum/kzt-hosts-dedicated.md) %}{% endif %}
-  {% if region == "int" %}{% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}{% endif %}
+  {% if region == "int" %} {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}{% endif %}
 
 {% endif %}
 
@@ -156,22 +156,8 @@ editable: false
 
 ### Исходящий трафик {#prices-traffic}
 
-{% if region == "ru" %}
-
-{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
-
-{% endif %}
+{% if region == "ru" %} {% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %} {% endif %}
+{% if region == "kz" %} {% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %} {% endif %}
+{% if region == "int" %} {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %} {% endif %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
