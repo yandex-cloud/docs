@@ -14,8 +14,6 @@ items:
         href: concepts/index.md
       - name: Agent
         href: concepts/agent.md
-      - name: Yandex.Tank
-        href: concepts/tank.md
       - name: Load generator
         href: concepts/load-generator.md
       - name: Load profile

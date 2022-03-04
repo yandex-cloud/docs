@@ -6,7 +6,6 @@ description: "In the article you will learn how to work with billing in Yandex.C
 
 [{#T}](activate-commercial.md)
 
-[{#T}](purchase-cvos.md)
 
 [{#T}](activate-promocode.md)
 

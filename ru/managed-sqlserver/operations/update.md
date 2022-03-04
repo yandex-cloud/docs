@@ -3,7 +3,7 @@
 После создания кластера вы можете:
 
 - [Изменить класс хостов](#change-resource-preset).
-- [Увеличить размер хранилища](#change-disk-size) (доступно только для [типов хранилищ](../concepts/storage.md) `network-hdd` и `network-ssd`).
+- [{#T}](#change-disk-size) (доступно только для [хранилищ](../concepts/storage.md) на сетевых HDD-дисках и сетевых SSD-дисках).
 - [Изменить настройки](#change-sqlserver-config) {{ MS }} согласно документации {{ MS }}.
 - [{#T}](#change-additional-settings).
 - [Переместить кластер](#move-cluster) в другой каталог.
@@ -71,7 +71,7 @@
 
 ## Увеличить размер хранилища {#change-disk-size}
 
-{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+Проверьте, что нужный кластер использует хранилище на сетевых HDD-дисках или на сетевых SSD-дисках. Увеличить размер хранилища на локальных SSD-дисках или на нереплицируемых SSD-дисках невозможно.
 
 {% list tabs %}
 

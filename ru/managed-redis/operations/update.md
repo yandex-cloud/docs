@@ -6,7 +6,9 @@
 
 - [{#T}](#change-resource-preset).
 
-- [{#T}](#change-disk-size) (доступно только для [типа хранилища](../concepts/storage.md) `network-ssd`).
+- [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+
+
 
 - [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
@@ -191,7 +193,7 @@
 
 ## Увеличить размер хранилища {#change-disk-size}
 
-{% include [storage type check](../../_includes/mdb/mrd/note-change-disk-size.md) %}
+Проверьте, что нужный кластер использует хранилище на сетевых или локальных SSD-дисках. Увеличить размер хранилища на нереплицируемых SSD-дисках невозможно.
 
 {% list tabs %}
 

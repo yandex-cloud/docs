@@ -12,8 +12,6 @@ items:
         href: operations/index.md
       - name: Activate the paid version
         href: operations/activate-commercial.md
-      - name: Purchase a committed volume of services (CVoS)
-        href: operations/purchase-cvos.md
       - name: Activate a promo code
         href: operations/activate-promocode.md
       - name: View usage details
@@ -66,8 +64,6 @@ items:
         href: concepts/personal-account.md
       - name: Grant
         href: concepts/bonus-account.md
-      - name: Committed volume of services (CVoS)
-        href: concepts/cvos.md
       - name: Free tier of serverless ecosystem
         href: concepts/serverless-free-tier.md
       - name: Budget

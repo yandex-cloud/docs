@@ -4,7 +4,7 @@
 
 - [Изменить класс хостов](#change-resource-preset).
 
-- [Увеличить размер хранилища](#change-disk-size) (доступно только для [типов хранилищ](../concepts/storage.md) `network-hdd` и `network-ssd`).
+- [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
 
 - [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
 
@@ -102,7 +102,7 @@
 
 ## Увеличить размер хранилища {#change-disk-size}
 
-{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+Проверьте, что нужный кластер не использует хранилище на нереплицируемых SSD-дисках. Увеличить размер хранилища на нереплицируемых SSD-дисках невозможно.
 
 {% list tabs %}
 
@@ -322,7 +322,7 @@
         }
         ```
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}}
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Проверьте корректность настроек.
 

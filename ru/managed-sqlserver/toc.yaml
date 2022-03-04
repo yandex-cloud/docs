@@ -66,11 +66,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    items:
-      - name: Действующие правила тарификации
-        href: pricing/index.md
-      - name: Правила тарификации с 1 марта 2022 года
-        href: pricing/pricing-01032022.md
+    href: pricing/index.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

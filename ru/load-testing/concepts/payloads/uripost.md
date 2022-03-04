@@ -19,7 +19,7 @@ uripost
 
 ```
 phantom:
-  ammo_type: uripost # Обязательно, иначе Яндекс.Танк не сможет их отличить от uri-style.
+  ammo_type: uripost # Обязательно, иначе инструмент для тестирования не сможет их отличить от uri-style.
   ammofile: /path/to/ammo_file # или HTTP-ссылка
 ```
 

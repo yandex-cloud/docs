@@ -1,6 +1,6 @@
 # Getting started with {{ load-testing-full-name }}
 
-In this guide, you'll create an agent in your cloud (a VM with [Yandex.Tank](concepts/tank.md) installed), configure a simple load test, and view its results.
+In this guide, you'll create an agent in your cloud (a VM with load testing tool installed), configure a simple load test, and view its results.
 
 ## Before you start
 
@@ -25,7 +25,7 @@ In this guide, you'll create an agent in your cloud (a VM with [Yandex.Tank](con
 1. Specify the previously created security group.
 1. Click **Create**.
 
-This creates a VM with preconfigured Yandex.Tank in your folder. You can use this VM to perform load testing of targets within the selected subnet.
+This creates a VM with preconfigured load testing tool in your folder. You can use this VM to perform load testing of targets within the selected subnet.
 
 ## Running a test {#run-test}
 

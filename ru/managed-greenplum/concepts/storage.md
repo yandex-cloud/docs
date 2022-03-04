@@ -6,7 +6,7 @@
 
 В кластере {{ mgp-name }} тип хранилища у хостов-мастеров и хостов-сегментов может отличаться.
 
-{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
+{% include [ice-lake-local-ssd-note](../../_includes/ice-lake-local-ssd-note.md) %}
 
 ## Особенности хранилища на локальных SSD-дисках {#local-storage-features}
 

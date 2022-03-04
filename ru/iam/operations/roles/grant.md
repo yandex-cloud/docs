@@ -10,70 +10,88 @@
 
 - Консоль управления
 
-  В консоли управления можно назначить роль только на облако или каталог:
+    В консоли управления можно назначить роль только на облако или каталог:
 
-  {% include [grant-role-console](../../../_includes/grant-role-console.md) %}
-
+    1. Добавьте пользователя в облако через [Консоль управления](../users/create.md#console-user) или [{{ org-full-name }}](../users/create.md#organization-user).
+    1. Назначьте пользователю роль в облаке:
+        1. [Выберите облако](../../../resource-manager/operations/cloud/switch-cloud.md).
+        1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl) (кнопка **Права доступа** на панели слева).
+        1. Установите переключатель **Наследуемые роли** в активное состояние, чтобы в списке отобразились пользователи, добавленные в организацию.
+        1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
+        1. Нажмите кнопку **Изменить роли**.
+        1. В окне **Настройка прав доступа** облака нажмите кнопку **Добавить роль**.
+        1. Выберите роль в облаке.
+        1. Нажмите кнопку **Сохранить**.
+    1. Назначьте пользователю роль в каталоге:
+        1. Откройте страницу каталога. Вы можете выбрать каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака.
+        1. Перейдите в раздел **Права доступа в каталоге** (кнопка **Права доступа** на панели слева).
+        1. Нажмите кнопку **Назначить роли**.
+        1. В окне **Настройка прав доступа** каталога нажмите кнопку **Добавить пользователя**.
+        1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
+        1. Нажмите кнопку **Добавить роль**.
+        1. Выберите роль в каталоге.
+        1. Нажмите **Сохранить**.
 
 - CLI
 
-  1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
-  1. [Получите идентификатор пользователя](../users/get.md).
-  1. Назначьте роль с помощью команды:
+    1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
+    1. [Получите идентификатор пользователя](../users/get.md).
+    1. Назначьте роль с помощью команды:
 
-      ```
-      yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
-          --role <ROLE-ID> \
-          --subject userAccount:<USER-ACCOUNT-ID>
-      ```
+        ```
+        yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
+            --role <ROLE-ID> \
+            --subject userAccount:<USER-ACCOUNT-ID>
+        ```
 
-      где:
+        где:
 
-      * `<SERVICE-NAME>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-      * `<RESOURCE>` — категория ресурса, например `cloud`.
-      * `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-      * `<RESOURCE-ID>` — идентификатор ресурса.
-      * `<ROLE-ID>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-      * `<USER-ACCOUNT-ID>` — идентификатор аккаунта пользователя, которому назначается роль.
+        * `<SERVICE-NAME>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
+        * `<RESOURCE>` — категория ресурса, например `cloud`.
+        * `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
+        * `<RESOURCE-ID>` — идентификатор ресурса.
+        * `<ROLE-ID>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
+        * `<USER-ACCOUNT-ID>` — идентификатор аккаунта пользователя, которому назначается роль.
 
-      Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
+        Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
 
-      ```
-      $ yc resource-manager cloud add-access-binding mycloud \
-          --role viewer \
-          --subject userAccount:aje6o61dvog2h6g9a33s
-      ```
+        ```
+        $ yc resource-manager cloud add-access-binding mycloud \
+            --role viewer \
+            --subject userAccount:aje6o61dvog2h6g9a33s
+        ```
 
 - API
 
-  Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
+    Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
 
-  1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
-  1. [Получите идентификатор пользователя](../users/get.md).
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+    1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
+    1. [Получите идентификатор пользователя](../users/get.md).
+    1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
 
-      **body.json:**
-      ```json
-      {
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "gfei8n54hmfhuk5nogse",
-                      "type": "userAccount"
-                      }
-                  }
-              }
-          ]
-      }
-      ```
-  1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
+        **body.json:**
+        ```json
+        {
+            "accessBindingDeltas": [{
+                "action": "ADD",
+                "accessBinding": {
+                    "roleId": "editor",
+                    "subject": {
+                        "id": "gfei8n54hmfhuk5nogse",
+                        "type": "userAccount"
+                        }
+                    }
+                }
+            ]
+        }
+        ```
 
-  Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
-  * [{#T}](../sa/set-access-bindings.md)
-  * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
-  * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
+    1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
+
+    Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
+    * [{#T}](../sa/set-access-bindings.md)
+    * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
+    * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
 
 {% endlist %}
 
@@ -186,29 +204,44 @@
 
 {% endlist %}
 
-
 ### Доступ к ресурсу для сервисного аккаунта {#access-to-sa}
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
 ### Доступ к ресурсу для федеративного пользователя {#access-to-federated-user}
 
-{% include [include](../../../_includes/saml-assign-role-note.md) %}
+{% include [saml-assign-role-note](../../../_includes/saml-assign-role-note.md) %}
 
-Сейчас [федеративному пользователю](../../../organization/add-federation.md) можно назначить роль только в консоли управления.
+В консоли управления [федеративному пользователю](../../../organization/add-federation.md) можно назначить роль на отдельное облако или каталог.
 
 {% list tabs %}
 
 - Консоль управления
 
-  Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
+    Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
 
-  В консоли управления можно назначить роль только на облако или каталог:
+    В консоли управления можно назначить роль только на облако или каталог:
 
-  {% include [grant-role-console](../../../_includes/grant-role-console.md) %}
+    1. Назначьте пользователю роль в облаке:
+        1. [Выберите облако](../../../resource-manager/operations/cloud/switch-cloud.md).
+        1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl) (кнопка **Права доступа** на панели слева).
+        1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
+        1. Нажмите кнопку **Изменить роли**.
+        1. В окне **Настройка прав доступа** облака нажмите кнопку **Добавить роль**.
+        1. Выберите роль в облаке.
+        1. Нажмите кнопку **Сохранить**.
+    1. Назначьте пользователю роль в каталоге:
+        1. Откройте страницу каталога. Вы можете выбрать каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака.
+        1. Перейдите в раздел **Права доступа в каталоге** (кнопка **Права доступа** на панели слева).
+        1. Нажмите кнопку **Назначить роли**.
+        1. В окне **Настройка прав доступа** каталога нажмите кнопку **Добавить пользователя**.
+        1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
+        1. Нажмите кнопку **Добавить роль**.
+        1. Выберите роль в каталоге.
+        1. Нажмите **Сохранить**.
 
 {% endlist %}
 
 ### Доступ к ресурсу всем пользователям {#access-to-all}
 
-{% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-all.md) %}
+{% include [grant-role-for-all](../../../_includes/iam/grant-role-for-all.md) %}

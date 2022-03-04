@@ -1,6 +1,6 @@
 # Load generators
 
-_A load generator_ is a tool that lets you simulate the load on a service based on a given configuration. Yandex.Tank, which is used in {{ load-testing-name }}, uses Pandora and Phantom load generators.
+_A load generator_ is a tool that lets you simulate the load on a service based on a given configuration. Load testing tool, which is used in {{ load-testing-name }}, uses Pandora and Phantom load generators.
 
 ## Pandora {#pandora}
 

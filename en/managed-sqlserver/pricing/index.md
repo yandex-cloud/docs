@@ -4,13 +4,6 @@ editable: false
 
 # Pricing for {{ mms-name }}
 
-{% note info %}
-
-* This pricing policy is valid through February 28, 2022.
-* For the pricing policy that will be in effect starting March 1, 2022, see [{#T}](pricing-01032022.md).
-
-{% endnote %}
-
 ## Cluster status {#running-stopped}
 
 Pricing is applied differently depending on the cluster status:
@@ -20,7 +13,7 @@ Pricing is applied differently depending on the cluster status:
 
   {% note alert %}
 
-  If a cluster uses local SSD storage (`local-ssd`), its computing resources are not released when it is stopped and are charged in full.
+  If a cluster uses local storage (`local-ssd`), its computing resources are not released when it's stopped and are charged in full.
 
   {% endnote %}
 
@@ -39,11 +32,11 @@ The cost of {{ mms-name }} usage is based on:
 You're charged for using licenses on an pre-payment basis. This means that a fee is charged at the beginning of a billing period before you actually start using the service resources. In this case:
 
 * The billing period is one calendar month.
-* If you create a new cluster during the billing period, the license cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll pay 7/30 of the monthly license cost.
+* If you create a new cluster at some point during a billing cycle, you will be charged the full cost of the licenses for the entire billing cycle.
 * If you stop or delete your cluster during the billing period, license costs for this period are not refunded.
 * If you start a cluster that was stopped in the previous period, you need to pay the full license cost for the entire billing period. If you stop and start a cluster multiple times within one period, you need to pay the license cost only at the first start.
 * If you change the cluster configuration and reduce resource consumption, the cost of released licenses for this period is not refunded. A new cost is valid from the first day of the following month.
-* If you change the cluster configuration and increase resource consumption, you need additional licenses. Their cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll additionally pay 7/30 of the monthly cost of new licenses.
+* If you change your cluster configuration and increase resource usage, you will need additional licenses. If this is the case, you will be charged the full cost of these licenses for the entire billing period.
 * Multi-host {{ MS }} clusters with [unreadable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) require only one Microsoft SQL Server Enterprise license: for the primary replica.
 * Multi-host {{ MS }} clusters with [readable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) require a Microsoft SQL Server Enterprise license for each replica.
 
@@ -59,11 +52,11 @@ The disk space usage fee is charged in accordance with the agreement. The follow
 
 * Storage allocated for DB clusters.
 
-    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-       * For Intel Cascade Lake: In increments of 100 GB.
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts:
+       * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
-    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
+    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 

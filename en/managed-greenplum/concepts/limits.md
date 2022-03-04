@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Quotas and limits
 
 {{ mgp-name }} has the following limits:
@@ -10,4 +11,3 @@ editable: false
 {% include [mgp-limits](../../_includes/mdb/mgp/limits.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-

@@ -1,42 +1,48 @@
 {% include [include](../sa-assign-role-note.md) %}
 
-Через консоль управления сервисному аккаунту можно назначить роль только на каталог, в котором он был создан. Чтобы назначить ему роль на другой ресурс, используйте CLI или API.
+Через консоль управления сервисному аккаунту можно назначить роль только на каталоги, которые находятся в том же облаке, что и каталог, в котором был создан сервисный аккаунт. Чтобы назначить ему роль на другой ресурс, используйте CLI или API.
 
 {% list tabs %}
 
 - Консоль управления
 
-  Чтобы назначить сервисному аккаунту роль на каталог, в котором он был создан:
+    Чтобы назначить сервисному аккаунту роль на каталог:
 
-  {% include [grant-role-console-sa](../grant-role-console-sa.md) %}
+    1. Откройте страницу каталога. Вы можете выбрать каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака.
+    1. Перейдите в раздел **Права доступа в каталоге** (кнопка **Права доступа** на панели слева).
+    1. Установите переключатель **Наследуемые роли** в активное состояние, чтобы в списке отобразились сервисные аккаунты, которые не принадлежат текущему каталогу.
+    1. Нажмите значок ![image](../../_assets/options.svg) напротив имени сервисного аккаунта.
+    1. Нажмите кнопку **Изменить роли**.
+    1. Нажмите кнопку **Добавить роль** и выберите роль, которую хотите добавить.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI
 
-  {% include [default-catalogue](../default-catalogue.md) %}
+    {% include [default-catalogue](../default-catalogue.md) %}
 
-  Чтобы назначить сервисному аккаунту роль на ресурс, выполните команду:
+    Чтобы назначить сервисному аккаунту роль на ресурс, выполните команду:
 
-  ```
-  yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
-      --role <ROLE-ID> \
-      --subject serviceAccount:<SERVICE-ACCOUNT-ID>
-  ```
+    ```
+    yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
+        --role <ROLE-ID> \
+        --subject serviceAccount:<SERVICE-ACCOUNT-ID>
+    ```
 
-  где:
+    где:
 
-  * `<SERVICE-NAME>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-  * `<RESOURCE>` — категория ресурса, например `cloud`.
-  * `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-  * `<RESOURCE-ID>` — идентификатор ресурса.
-  * `<ROLE-ID>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-  * `<SERVICE-ACCOUNT-ID>` — идентификатор сервисного аккаунта, которому назначается роль.
+    * `<SERVICE-NAME>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
+    * `<RESOURCE>` — категория ресурса, например `cloud`.
+    * `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
+    * `<RESOURCE-ID>` — идентификатор ресурса.
+    * `<ROLE-ID>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
+    * `<SERVICE-ACCOUNT-ID>` — идентификатор сервисного аккаунта, которому назначается роль.
 
-  Например, чтобы назначить сервисному аккаунту роль `viewer` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `my-folder`:
+    Например, чтобы назначить сервисному аккаунту роль `viewer` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `my-folder`:
 
-  {% include [grant-role-for-sa-to-folder-via-cli](grant-role-for-sa-to-folder-via-cli.md) %}
+    {% include [grant-role-for-sa-to-folder-via-cli](grant-role-for-sa-to-folder-via-cli.md) %}
 
 - API
 
-  {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
+    {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
 
 {% endlist %}

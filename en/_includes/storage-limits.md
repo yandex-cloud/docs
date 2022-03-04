@@ -2,7 +2,7 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Storage volume in a cloud | 5 TB |
+| Storage volume in a cloud | 1 TB |
 | Number of buckets per cloud | 25 |
 
 #### Limits {#storage-limits}

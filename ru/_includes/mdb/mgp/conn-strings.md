@@ -10,7 +10,7 @@ sudo apt update && sudo apt install -y postgresql-client
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
   ```bash
   psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
@@ -20,7 +20,7 @@ sudo apt update && sudo apt install -y postgresql-client
         user=<имя пользователя>"
   ```
 
-* Подключение с SSL
+- Подключение с SSL
 
   ```bash
   psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
@@ -48,7 +48,7 @@ SELECT version();
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`
@@ -59,7 +59,7 @@ SELECT version();
       user=<имя пользователя>"
   ```
 
-* Подключение c SSL
+- Подключение c SSL
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`
