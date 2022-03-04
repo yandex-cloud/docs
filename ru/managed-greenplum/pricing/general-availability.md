@@ -12,9 +12,9 @@ editable: false
 
 {% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
-{% include [pricing-status.md](../../_includes/mdb/pricing-status.md) %}
+{% include [pricing-status](../../_includes/mdb/pricing-status.md) %}
 
-{% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
+{% include [pricing-status-warning](../../_includes/mdb/pricing-status-warning.md) %}
 
 ## Из чего складывается стоимость использования {{ mgp-short-name }} {#rules}
 
@@ -91,9 +91,6 @@ editable: false
 
 ### Исходящий трафик {#prices-traffic}
 
-
 {% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
-
-
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

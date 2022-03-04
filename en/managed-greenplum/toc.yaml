@@ -1,4 +1,4 @@
-title: Yandex Managed Service for Greenplum<sup>®</sup>
+title: Yandex Managed Service for Greenplum®
 href: index.yaml
 stage: preview
 items:
@@ -6,17 +6,47 @@ items:
     href: quickstart.md
   - name: Step-by-step instructions
     items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Calculating cluster configuration
+        href: operations/calculate-specs.md
+      - name: Creating clusters
+        href: operations/cluster-create.md
+      - name: Connecting to a database
+        href: operations/connect.md
+      - name: Managing hosts in a cluster
+        href: operations/cluster-hosts.md
       - name: Using external tables
-        href: operations/pxf-tables.md
+        href: operations/external-tables.md
+      - name: Deleting clusters
+        href: operations/cluster-delete.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
   - name: Concepts
     items:
+      - name: Relationships between service resources
+        href: concepts/index.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: DB network and clusters
+        href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Storage types
+        href: concepts/storage.md
+      - name: Sharding
+        href: concepts/sharding.md
+      - name: Types of data storage
+        href: concepts/tables.md
   - name: Pricing policy
-    href: pricing.md
+    items:
+      - name: Current pricing policy
+        href: pricing/index.md
+      - name: Pricing policy at the General Availability stage
+        href: pricing/general-availability.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

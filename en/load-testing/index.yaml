@@ -6,10 +6,10 @@ description:
   - >-
     With Yandex Load Testing, you can run load tests to analyze the performance
     of your services and applications.
-  - >-
+  - |-
     Use the service to: <ul>
-      <li>Create a preconfigured load generator in your cloud based on <a
-    href="https://cloud.yandex.com/en/docs/load-testing/concepts/tank">Yandex.Tank</a>.
+      <li>Create a preconfigured <a
+    href="/docs/load-testing/concepts/agent">load generator</a> in your cloud.
       <li>Configure a test in the interface and generate the load from the created generator.</li>
       <li>View test reports.</li>
       <li>Store and manage data on previously conducted tests.</li>

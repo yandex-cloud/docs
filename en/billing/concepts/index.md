@@ -12,5 +12,4 @@ description: "The following basic concepts are used in Yandex.Cloud billing - re
 * [{#T}](personal-account.md)
 * [{#T}](billing-account.md)
 * [{#T}](promo-code.md)
-* [{#T}](cvos.md)
 

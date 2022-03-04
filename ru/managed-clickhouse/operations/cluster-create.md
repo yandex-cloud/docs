@@ -57,11 +57,14 @@
       * Имя пользователя.
       * Пароль пользователя. Минимум 8 символов.
 
-  1. Для [управления пользователями через SQL](cluster-users.md#sql-user-management) включите настройку **Управление пользователями через SQL** и укажите пароль пользователя `admin`.
+  1. Пользователями и базами данных кластера можно управлять через SQL.
 
-  1. Для [управления базами данных через SQL](databases.md#sql-database-management), включите настройки **Управление пользователями через SQL** и **Управление базами данных через SQL**, укажите пароль пользователя `admin`.
+      {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-     {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
+      * Для [управления пользователями через SQL](./cluster-users.md#sql-user-management) включите настройку **Управление пользователями через SQL**.
+      * Для [управления базами данных через SQL](./databases.md#sql-database-management) включите настройки **Управление пользователями через SQL** и **Управление базами данных через SQL**.
+
+      При использовании этих настроек укажите пароль пользователя `admin`.
 
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
@@ -120,53 +123,57 @@
 
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. Чтобы включить [режим управления пользователями через SQL](cluster-users.md#sql-user-management):
+     Пользователями и базами данных в кластере можно управлять через SQL.
 
-          {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
+     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-          * Задайте значение `true` для параметра `--enable-sql-user-management`.
-          * Задайте пароль для пользователя `admin` в параметре `--admin-password`.
+     1. Чтобы включить [режим управления пользователями через SQL](./cluster-users.md#sql-user-management):
 
-          ```bash
-          {{ yc-mdb-ch }} cluster create \
-             ...
-             --enable-sql-user-management=true \
-             --admin-password <пароль пользователя admin>
-          ```
+         * задайте значение `true` для параметра `--enable-sql-user-management`;
+         * задайте пароль для пользователя `admin` в параметре `--admin-password`.
 
-      1. Чтобы включить [режим управления базами данных через SQL](databases.md#sql-database-management):
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
+            ...
+            --enable-sql-user-management true \
+            --admin-password "<пароль пользователя admin>"
+         ```
 
-          * Задайте значение `true` для параметров `--enable-sql-user-management` и `--enable-sql-database-management`.
-          * Задайте пароль для пользователя `admin` в параметре `--admin-password`.
+     1. Чтобы включить [режим управления базами данных через SQL](./databases.md#sql-database-management):
 
-          ```bash
-          {{ yc-mdb-ch }} cluster create \
-             ...
-             --enable-sql-user-management=true \
-             --enable-sql-database-management=true \
-             --admin-password <пароль пользователя admin>
-          ```
-            1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+         * задайте значение `true` для параметров `--enable-sql-user-management` и `--enable-sql-database-management`;
+         * задайте пароль для пользователя `admin` в параметре `--admin-password`.
 
-      1. Чтобы включить [{{ CK }}](../concepts/replication.md#ck) в кластере:
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
+            ...
+            --enable-sql-user-management true \
+            --enable-sql-database-management true \
+            --admin-password "<пароль пользователя admin>"
+         ```
 
-         * Задайте версию {{ CH }} (не ниже {{ mch-ck-version }}) в параметре `--version`.
-         * Задайте значение `true` для параметра `--embedded-keeper`.
+     
+     1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-          ```bash
-          {{ yc-mdb-ch }} cluster create \
-             ...
-             --version "<версия {{ CH }}: не ниже {{ mch-ck-version }}>" \
-             --embedded-keeper true
-          ```
+     1. Чтобы включить [{{ CK }}](../concepts/replication.md#ck) в кластере:
 
-          {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+        * Задайте версию {{ CH }} (не ниже {{ mch-ck-version }}) в параметре `--version`.
+        * Задайте значение `true` для параметра `--embedded-keeper`.
 
-          Чтобы получить список доступных версий {{ CH }}, выполните команду:
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
+            ...
+            --version "<версия {{ CH }}: не ниже {{ mch-ck-version }}>" \
+            --embedded-keeper true
+         ```
 
-          ```bash
-          {{ yc-mdb-ch }} version list
-          ```
+         {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+
+         Чтобы получить список доступных версий {{ CH }}, выполните команду:
+
+         ```bash
+         {{ yc-mdb-ch }} version list
+         ```
 
 - Terraform
 
@@ -179,9 +186,8 @@
         1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     
     1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
-
-       Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-       Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+        * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+        * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
 
        Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
        
@@ -198,12 +204,16 @@
 
     1. Создайте конфигурационный файл с описанием кластера и его хостов.
 
-       При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
+        * Кластер базы данных — описание кластера и его хостов. Здесь же при необходимости:
+            * Задайте [настройки СУБД](../concepts/settings-list.md).
+            * Включите защиту от удаления.
+
+                {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
        Пример структуры конфигурационного файла, в котором описывается кластер из одного хоста:
 
        ```hcl
-       resource "yandex_mdb_clickhouse_cluster" "<имя кластера в {{ TF }}>" {
+       resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
          name                = "<имя кластера>"
          environment         = "<окружение>"
          network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
@@ -238,7 +248,7 @@
        }
        ```
 
-       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
        Чтобы разрешить доступ из других сервисов {{ yandex-cloud }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), добавьте блок `access` с нужными вам настройками:
 
@@ -255,7 +265,15 @@
         }
         ```
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
+       Пользователями и базами данных в кластере можно управлять через SQL.
+
+       {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+
+       * {% include notitle [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
+
+       * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
+
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mch }}).
 
     1. Проверьте корректность файлов конфигурации {{ TF }}:
 
@@ -282,7 +300,9 @@
   * `configSpec.sqlUserManagement` — задайте значение `true` для включения режима [управления пользователями через SQL](cluster-users.md#sql-user-management).
   * `configSpec.sqlDatabaseManagement` — задайте значение `true` для включения режима [управления базами данных через SQL](databases.md#sql-database-management). Необходимо, чтобы был включен режим управления пользователями через SQL.
   * `configSpec.adminPassword` — задайте пароль пользователя `admin`, с помощью которого осуществляется управление.
-  
+
+  {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
   При создании кластера из нескольких хостов:
@@ -295,8 +315,9 @@
 
   * Если значение параметра `embeddedKeeper` не задано или равно `false`, для управления репликацией и распределением запросов будет использоваться {{ ZK }}.
 
-        Если в [облачной сети](../../vpc/concepts/network.md) кластера есть подсети в каждой из [зон доступности](../../overview/concepts/geo-scope.md), а настройки хостов {{ ZK }} не заданы, в каждую подсеть будет автоматически добавлено по одному такому хосту.
     
+    Если в [облачной сети](../../vpc/concepts/network.md) кластера есть подсети в каждой из [зон доступности](../../overview/concepts/geo-scope.md), а настройки хостов {{ ZK }} не заданы, в каждую подсеть будет автоматически добавлено по одному такому хосту.
+
     Если подсети в сети кластера есть только в некоторых зонах доступности, укажите настройки хостов {{ ZK }} явно.
 
 {% endlist %}

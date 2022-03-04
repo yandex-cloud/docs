@@ -40,26 +40,6 @@ The minimum billing unit is one minute (for example, the cost of 1.5 minutes of 
 You pay for the storage allocated for DB clusters. The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
 
 
-## Discount for committed volumes of services (CVoS) {#cvos}
-
-You can get a guaranteed discount on Yandex.Cloud resource usage when you plan for one or three years ahead.
-
-{{mes-name}} provides four types of CVoS:
-
-* For vCPU.
-* For RAM in the BASIC edition.
-* For RAM in the GOLD edition.
-* For RAM in the PLATINUM edition.
-
-A CVoS guarantees a discount on usage, but doesn't guarantee the availability of the resources ordered. To enable CVoS, contact [support](../support/overview.md).
-
-Read more about CVoS in the [Billing documentation](../billing/concepts/cvos.md).
-
-{% note info %}
-
-You can't order storage or internet traffic using the CVoS model.
-
-{% endnote %}
 
 ## Pricing {#prices}
 
