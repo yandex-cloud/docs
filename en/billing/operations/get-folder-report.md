@@ -78,7 +78,9 @@ The table contains the following columns:
 * `credit`: Discount amount. The decimal separator is a dot.
 * `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot.
 * `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a dot.
+{% if audience == "cvos" %}
 * `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment is equal to the difference between the `cost` and `credit` column values. The decimal separator is a dot.
+{% endif %}
 * `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a dot.
 * `label.user_labels.<label name>`: Labels set for resources. How to manage tags is described in [Service resource labels](../../overview/concepts/services.md#labels).
 * `locale`: Language of each exported line. The value of this field determines the `sku_name` column language. Possible values: `en` and `ru`.

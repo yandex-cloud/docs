@@ -14,6 +14,7 @@ items:
         href: operations/activate-commercial.md
       - name: Purchase a committed volume of services (CVoS)
         href: operations/purchase-cvos.md
+        when: audience == "cvos"
       - name: Activate a promo code
         href: operations/activate-promocode.md
       - name: View usage details
@@ -68,6 +69,7 @@ items:
         href: concepts/bonus-account.md
       - name: Committed volume of services (CVoS)
         href: concepts/cvos.md
+        when: audience == "cvos"
       - name: Free tier of serverless ecosystem
         href: concepts/serverless-free-tier.md
       - name: Budget

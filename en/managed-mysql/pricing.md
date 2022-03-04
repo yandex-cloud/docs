@@ -44,6 +44,8 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
 
+{% if audience == "cvos" %}
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -56,6 +58,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
+{% endif %}
 
 ## Pricing {#prices}
 

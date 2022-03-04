@@ -6,6 +6,45 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 - BASIC
 
+   | Resource       | Cost for 1 hour                                             |
+   |----------------|-------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                       |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}  |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.basic|string }} |
+   | **Intel Ice Lake**                                                           |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.basic|string }} |
+
+- GOLD
+
+   | Resource       | Cost for 1 hour                                            |
+   |----------------|------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                      |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }} |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.gold|string }} |
+   | **Intel Ice Lake**                                                          |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }} |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
+
+- PLATINUM
+
+   | Resource       | Cost for 1 hour                                                |
+   |----------------|----------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                          |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}     |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.platinum|string }} |
+   | **Intel Ice Lake**                                                              |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.platinum|string }} |
+
+{% endlist %}
+
+{% if audience == "cvos" %}
+
+{% list tabs %}
+
+- BASIC
+
    | Resource       | Cost for 1 hour                                             | Cost with CVoS for 1 year                                                  | Cost with CVoS for 3 years                                                 |
    |----------------|-------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------|
    | **Intel Cascade Lake**                                                                                                                                                                                                                 |
@@ -38,6 +77,8 @@ The cost for computing resources depends on the selected {{ ES }} edition:
    | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.platinum|string }} | ₸10.0200 (-6%)                                                                | ₸9.6600 (-9%)                                                                 |
 
 {% endlist %}
+
+{% endif %}
 
 ### Storage {#prices-storage}
 

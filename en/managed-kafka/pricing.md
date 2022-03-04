@@ -68,6 +68,8 @@ Total cluster cost per month (hosts and storage): `720 × ₽18.36 + 100 × ₽2
 
 {% endif %}
 
+{% if audience == "cvos" %}
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -79,6 +81,8 @@ Total cluster cost per month (hosts and storage): `720 × ₽18.36 + 100 × ₽2
 You can use a CVoS to order certain types of resources. For non-supported resources, CVoS columns contain dashes under [Prices](#prices). You currently can't order storage or web traffic this way.
 
 {% endnote %}
+
+{% endif %}
 
 ## Pricing {#prices}
 

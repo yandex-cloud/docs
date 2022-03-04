@@ -6,7 +6,9 @@ description: "In the article you will learn how to work with billing in Yandex.C
 
 [{#T}](activate-commercial.md)
 
+{% if audience == "cvos" %}
 [{#T}](purchase-cvos.md)
+{% endif %}
 
 [{#T}](activate-promocode.md)
 
