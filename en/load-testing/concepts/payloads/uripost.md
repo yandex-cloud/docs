@@ -19,7 +19,7 @@ uripost
 
 ```
 phantom:
-  ammo_type: uripost # Required, otherwise Yandex.Tank won't be able to distinguish it from uri-style.
+  ammo_type: uripost # Required, otherwise load testing tool won't be able to distinguish it from uri-style.
   ammofile: /path/to/ammo_file # or an HTTP link
 ```
 

@@ -4,7 +4,7 @@ _An agent_ is a VM that provides computing resources to generate load on the tar
 
 Please note that, during load generation, you need to monitor an agent's system resources: vCPU, memory, disks, and network usage. Correct load generation and accurate response measurements are impossible if you run out of any resource.
 
-[Yandex.Tank](tank.md) and a connector that enables interactions between it and {{ load-testing-name }} are installed on agents.
+Load testing tool and a connector that enables interactions between it and {{ load-testing-name }} are installed on agents.
 
 ## Agent performance {#benchmark}
 
