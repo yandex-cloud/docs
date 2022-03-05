@@ -37,6 +37,39 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} C
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md) and the username with the [list of users](cluster-users.md#list-users).
 
+- Terraform
+
+  To assign roles to a cluster user:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mpg-name }} cluster description, find the `user` block for the required user.
+
+    1. Add an attribute named `grants` with a list of required roles:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+          ...
+          user {
+            name   = "<username>"
+            ...
+            grants = [ "<role1>","<role2>" ]
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+
 - API
 
   To pass the list of required user roles, you can use the [update](../api-ref/User/update.md) method.

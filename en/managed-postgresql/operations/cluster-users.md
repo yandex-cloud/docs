@@ -46,7 +46,10 @@ You can use SQL commands to assign privileges to users, but you can't use them t
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click **Add**.
-  1. Enter a database username and password (from 8 to 128 characters).
+  1. Enter the database username and password.
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
   1. Select one or more databases that the user should have access to:
      1. Select the database from the **Database** drop-down list.
      1. Click **Add** to the right of the drop-down list.
@@ -73,9 +76,48 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
   This command configures only the main user settings.
 
+  {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
   To customize the DBMS for the user, use the parameters described in [User settings](../concepts/settings-list.md#dbms-user-settings).
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+     For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Add a `user` block to the {{ mpg-name }} cluster description.
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        user {
+          name       = "<username>"
+          password   = "<password>"
+          grants     = [ "<list of privileges>" ]
+          login      = <allow logging in to the DB: true or false>
+          conn_limit = <maximum number of connections>
+          settings   = [ "<list of DB settings>" ]
+          permission {
+            database_name = "<database name>"
+          }
+        }
+      }
+      ```
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
 
 {% endlist %}
 
@@ -91,7 +133,6 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
 - Management console
 
-  To change the user's password:
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
@@ -113,7 +154,40 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. In the {{ mpg-name }} cluster description, find the `user` block for the required user.
+
+  1. Change the value of the `password` field:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        user {
+          name     = "<username>"
+          password = "<new password>"
+          ...
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+
 {% endlist %}
+
+ {% include [password-limits](../../_includes/mdb/mms/note-info-password-limits.md) %}
 
 ## Changing user settings {#update-settings}
 
@@ -177,6 +251,60 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
 
      The cluster name can be requested with a [list of folder clusters](#list-clusters).
 
+- Terraform
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. To grant the user permissions to access certain databases:
+
+        1. In the {{ mpg-name }} cluster description, find the `user` block for the required user.
+
+        1. Add `permission` blocks with the appropriate DB names:
+
+            ```hcl
+            resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+              ...
+              user {
+                name     = "<username>"
+                permission {
+                  database_name = "<database name>"
+                }
+                permission {
+                  database_name = "<database name>"
+                }
+                ...
+              }
+            }
+            ```
+
+    1. To revoke the user's permission to access a specific database, delete the `permission` block with the name of this DB from the configuration file.
+
+    1. To change the  [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, pass their parameters in the `settings` block:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+          ...
+          user {
+            name       = "<username>"
+            ...
+            settings   = [ "<list of DB settings>" ]
+            }
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+
 {% endlist %}
 
 ## Deleting a user {#removeuser}
@@ -202,6 +330,24 @@ For information on setting up user privileges and roles, see [{#T}](grant.md).
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+     For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Delete the `user` block with a description of the required user from the {{ mpg-name  }} cluster description.
+
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
 
 {% endlist %}
 

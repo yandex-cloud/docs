@@ -27,7 +27,7 @@ To isolate applications from each other, put resources in different security gro
 
 When assigning public IP addresses to your cloud resources, enable the built-in [DDoS protection](../../../vpc/ddos-protection/index.md) at L4. If you need DDoS protection at L7, contact your manager.
 
-## Setting up remote access and communication channels
+## Setting up remote access and communication channels {#remote-access}
 
 To enable administrators to establish remote connections to your cloud resources, use one of the following:
 
