@@ -55,6 +55,8 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
       {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
 - CLI
@@ -175,7 +177,7 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [{{ TF }} documentation]({{ tf-provider-mpg }}).
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
 
 - API
 

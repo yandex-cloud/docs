@@ -1,57 +1,58 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ alb-full-name }}
 
-## What goes into the cost of using {{ alb-name }}
+## What goes into the cost of using {{ alb-name }} {#rules}
 
-When using the {{ alb-name }} service, you pay for the actual use of computing resources of each active load balancer. The bill for using the service is hourly.
+When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer. The service is charged on an hourly basis.
 
-The use of a load balancer is measured in _capacity units_. A capacity unit includes:
+The load balancer consumption is measured in _resource units_. One resource unit includes:
 
 * 1000 requests per second (RPS).
-* 4000 active connections.
+* 4000 concurrently active connections.
 * 200 new connections per second.
-* 22 MB (176 MBit) of processed traffic per second.
+* 22 MB (176 Mbit) of traffic per second.
 
-The hourly amount of a load balancer capacity units is calculated by taking one of four metrics which was consumed the most in relation to its threshold and applying the ceiling function to the value.
+The amount of load balancer's resource units consumed per hour is calculated based on the indicator demonstrating the highest consumption rate compared to the threshold. Calculated values of resource units are rounded up to an integer.
 
-For each availability zone the amount of capacity units is calculated separately. The minimum amount of units for an availability zone is 2. You are not charged for the use of a load balancer in a disabled availability zone.
+The number of resource units is calculated separately for each availability zone. The minimum number of units per hour per zone is 2. The load balancer usage isn't charged in the availability zones where the inbound traffic is disabled.
 
-The amount of capacity units is calculated based on maximum values of the metrics in an hour.
+When calculating the number of resource units, hourly maximums for indicators are used.
 
 ### Example of cost calculation {#example}
 
-A load balancer with a single availability zone enabled had worked for an hour. The metrics measured for that hour are as follows:
+A load balancer located in one availability zone, ran for an hour with the following indicators:
 
 * 1500 RPS.
-* 6000 active connections.
+* 6000 parallel active connections.
 * 50 new connections per second.
-* 2 MB of processed traffic per second.
+* 2 MB of traffic per second.
 
-The hourly bill and the monthly bill, given that the month is 720 hours of the same consumption, are calculated as follows:
+Here's the calculation of the cost for this hour and for the month comprised of 720 hours with the same indicators:
 
 > RPS: 1500 / 1000 = 1.5 ~ 2
 > Active connections: 6000 / 4000 = 1.5 ~ 2
 > New connections: 50 / 200 = 0.25 ~ 1
 > Traffic: 2 / 22 = 0.0909... ~ 1
-> The minimum amount of capacity units for a zone: 2
+> Minimum number of resource units in the zone: 2
 >
-> The amount of capacity units: 2
+> Number of resource units: 2
 >
 > 
 > 
 > 2 × 0.017806 = $0.035612
 >
-> Total (hourly): $0.035612
-> Total (monthly): 0.035612 × 720 = $25.64064
+> Hourly total: $0.035612
+> Monthly total: 0.035612 × 720 = $25.64064
 
-Here, $0.017806 is the price of a capacity unit. 
+Here $0.017806 is the cost per resource unit.
 
 ## Pricing {#prices}
 
 
 
 
-{% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}  
+{% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}
 

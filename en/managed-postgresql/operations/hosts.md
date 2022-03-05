@@ -141,8 +141,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
             zone                    = "<availability zone>"
             subnet_id               = "<subnet ID>"
             priority                = <priority for selecting a synchronous replica>
-            replication_source_name = "<replication source: the name attribute of the appropriate host block>"
-            assign_public_ip        = <host public access: true or false>
+            replication_source_name = "<replication source: the name  attribute of the appropriate host block>"
           }
         }
         ```
@@ -155,7 +154,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+    For more information, see [provider's documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -247,6 +246,36 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
 
     For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
 
+- Terraform
+
+    To change the parameters of the cluster host:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mpg-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+          ...
+          host {
+            priority                = <priority for selecting a synchronous replica>
+            replication_source_name = "<replication source>"
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+
 - API
 
   To change the parameters of the {{ PG }} host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
@@ -293,6 +322,26 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
   ```
 
   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+  To remove a host from a cluster:
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Delete the corresponding `host` block from the {{ mpg-name }} cluster description.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the deletion of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
 
 - API
 
