@@ -129,6 +129,90 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% endif %}
 
+- Terraform
+
+  Use Terraform to restore:
+   * An existing cluster from a backup.
+   * A cluster created and deleted via the management console, CLI, or API.
+
+   To restore a cluster, you'll need the backup ID. Get a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
+
+   ```bash
+   {{ yc-mdb-pg }} backup list
+   
+   +--------------------------+----------------------+----------------------+----------------------+
+   |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+   +--------------------------+----------------------+----------------------+----------------------+
+   | c9qlk4v13uq79r9cgcku...  | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
+   | ...                                                                                           |
+   +--------------------------+----------------------+----------------------+----------------------+
+   ```
+
+   **To restore an existing cluster from a backup:**
+
+   1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
+
+      {% note info %}
+
+      Do not specify DB and user settings under `database` and `user`, they will be restored from the backup.
+
+      {% endnote %}
+
+   1. Add a block named `restore` to the configuration file:
+
+       ```hcl
+       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+         ...
+         restore {
+           backup_id = "<name of the desired backup>"
+           time      = "<timestamp of the time of recovery in yyyy-mm-ddThh:mm:ssZ format>"
+         }
+       }
+       ```
+
+       In the `time` parameter, specify the time point from which you want to restore the state of the {{ PG }} cluster, starting from the time when the selected backup was created to the current time.
+
+       {% note info %}
+
+       If you don't specify the `time` parameter, the cluster is restored to the state when the backup was completed.
+
+       {% endnote %}
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Terraform creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
+
+  **To restore a previously deleted cluster from a backup:**
+
+  1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
+
+      {% note info %}
+
+      Do not specify DB and user settings under `database` and `user`, they will be restored from the backup.
+
+      {% endnote %}
+
+  1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        restore {
+            backup_id = "<ID of the deleted cluster's backup"
+        }
+      }
+      ```
+
+  Terraform creates a new cluster. The databases and users are deployed from the backup.
+
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+
 {% endlist %}
 
 ## Creating a backup {#create-backup}
@@ -239,7 +323,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is given in `HH:MM:SS` format.
 
   ```bash
   $ {{ yc-mdb-pg }} cluster create \
@@ -262,5 +346,36 @@ When restoring to the current state, the new cluster will reflect the state of:
      --backup-window-start 11:25:00
   ```
 
-{% endlist %}
+- Terraform
 
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+       For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a block named `backup_window_start` to the {{ mpg-name }} cluster description under `config`:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+          ...
+          config {
+            ...
+            backup_window_start {
+              hours   = <backup starting hour (UTC)>
+              minutes = <backup starting minute (UTC)>
+            }
+            ...
+          }
+          ...
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+
+{% endlist %}

@@ -124,7 +124,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -226,7 +226,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -240,10 +240,9 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 You can change the DBMS settings of the hosts in your cluster.
 
-{% note warning %}
+{% note info %}
 
-* You can't change {{ PG }} settings using SQL commands.
-* Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
+Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
 
@@ -593,6 +592,34 @@ To switch the master:
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
+- Terraform
+
+    To switch the master:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the `host_master_name` parameter, specify the name of the replica host to switch to.
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+            ...
+            host_master_name = "<replica host name: the name attribute of the appropriate host block>"
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [provider's documentation]({{ tf-provider-mpg }}).
 
 - API
 
