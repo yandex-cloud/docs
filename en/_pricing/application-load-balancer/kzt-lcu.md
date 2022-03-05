@@ -1,3 +1,3 @@
 Number | Price, with VAT
 ----- | ---- |
-One capacity unit | {{ sku|KZT|alb.balancer.active|string }}
+One resource unit | {{ sku|KZT|alb.balancer.active|string }}
