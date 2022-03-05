@@ -126,7 +126,7 @@
 
 {% list tabs %}
 
-- DataGrip
+* DataGrip
 
   1. Создайте источник данных:
       1. Выберите в меню **File** → **New** → **Data Source** → **{{ GP }}**.
