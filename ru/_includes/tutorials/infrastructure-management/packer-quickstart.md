@@ -41,6 +41,12 @@ Packer создаст и запустит виртуальную машину с
 
 Скачайте дистрибутив Packer и установите его по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
+Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.website.yandexcloud.net/packer/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
+
+```
+export PATH=$PATH:/path/to/packer
+```
+
 ## Подготовьте конфигурацию образа {#prepare-image-config}
 
 1. Подготовьте идентификатор каталога, выполнив команду `yc config list`.
