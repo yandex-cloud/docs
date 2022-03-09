@@ -73,6 +73,8 @@ items:
         href: troubleshooting/mongodb.md
       - name: "{{ MY }}"
         href: troubleshooting/mysql.md
+      - name: "{{ PG }}"
+        href: troubleshooting/postgresql.md
       - name: "{{ ydb-full-name }} и {{ yds-full-name }}"
         href: troubleshooting/ydb.md
   - name: Управление доступом
