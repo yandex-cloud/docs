@@ -25,7 +25,7 @@
 
 1. Перед тем, как создавать БД для работы с Graphite, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-    {% include [prepare-register-billing](../solutions/_common/prepare-register-billing.md) %}
+    {% include [prepare-register-billing](../tutorials/_common/prepare-register-billing.md) %}
 
 1. Если у вас есть активный платежный аккаунт, перейдите в [консоль управления]({{ link-console-main }}) и [создайте](../../resource-manager/operations/folder/create.md) или выбрите каталог, в котором будет работать ваша БД.
 

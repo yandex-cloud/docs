@@ -6,9 +6,12 @@
   
   Чтобы отключить [целевую группу](../concepts/target-resources.md) от сетевого балансировщика:
   
-  1. Откройте раздел **Load Balancer** в каталоге, где требуется отключить целевую группу от балансировщика.
-  1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке балансировщика, от которого требуется отключить целевую группу.
-  1. В открывшемся меню нажмите **Отключить целевую группу**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется отключить целевую группу от балансировщика.
+  1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
+  1. Выберите балансировщик, от которого требуется отключить целевую группу.
+  1. В блоке **Целевые группы** в строке с нужной целевой группой нажмите значок ![image](../../_assets/horizontal-ellipsis.svg).
+  1. В открывшемся меню нажмите **Отключить**.
+  1. Подтвердите действие.
   
 - CLI
   
@@ -19,13 +22,18 @@
   1. Посмотрите описание команды CLI для отключения целевой группы от сетевого балансировщика:
   
      ```
-     $ yc load-balancer network-load-balancer detach-target-group --help
+     yc load-balancer network-load-balancer detach-target-group --help
      ```
   
   1. Получите список балансировщиков:
   
      ```
-     $ load-balancer network-load-balancer list
+     load-balancer network-load-balancer list
+     ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
@@ -39,7 +47,7 @@
   1. Отключите выбранную группу от балансировщика:
   
      ```
-     $ yc load-balancer network-load-balancer detach-target-group b7r97ah2jn5rmo6k1dsk \
+     yc load-balancer network-load-balancer detach-target-group b7r97ah2jn5rmo6k1dsk \
        --target-group-id=b7roi767je4c574iivrk
      ```
   

@@ -61,7 +61,7 @@ For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 1. [Delete the target endpoint](../../data-transfer/operations/target-endpoint.md#delete-endpoint).
 
-For a real example of database migration {{ MY }} using {{ data-transfer-name }}, see [{#T}](../../solutions/dataplatform/sync-mysql.md).
+For a real example of database migration {{ MY }} using {{ data-transfer-name }}, see [Syncing MySQL data using {{ data-transfer-full-name }}](../../tutorials/dataplatform/sync-mysql.md).
 
 ## Transferring data by creating and restoring a logical dump {#logical-dump}
 

@@ -6,10 +6,12 @@
   
   Чтобы подключить [целевую группу](../concepts/target-resources.md) к сетевому балансировщику:
   
-  1. Откройте раздел **Load Balancer** в каталоге, где требуется подключить целевую группу к балансировщику.
-  1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке балансировщика, к которому требуется подключить целевую группу. Если у вас уже есть созданная целевая группа, выберите ее. Если целевой группы нет, [создайте ее](target-group-create.md).
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется подключить целевую группу к балансировщику.
+  1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
+  1. В строке балансировщика, к которому требуется подключить целевую группу, нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Подключить целевую группу**.
+  1. Выберите целевую группу или [создайте новую](target-group-create.md).
   1. Задайте настройки проверки состояния.
-  1. Нажмите кнопку **Подключить**
+  1. Нажмите кнопку **Подключить целевую группу**
   
 - CLI
   
@@ -20,13 +22,18 @@
   1. Посмотрите описание команды CLI для подключения целевой группы к сетевому балансировщику:
   
      ```
-     $ yc load-balancer network-load-balancer attach-target-group --help
+     yc load-balancer network-load-balancer attach-target-group --help
      ```
   
   1. Получите список балансировщиков:
   
      ```
-     $ yc load-balancer network-load-balancer list
+     yc load-balancer network-load-balancer list
+     ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
@@ -39,7 +46,12 @@
   1. Получите список целевых групп:
   
      ```
-     $ yc load-balancer target-group list
+     yc load-balancer target-group list
+     ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+-------------------+---------------------+-------------+--------------+
      |          ID          |       NAME        |       CREATED       |  REGION ID  | TARGET COUNT |
      +----------------------+-------------------+---------------------+-------------+--------------+
@@ -53,7 +65,7 @@
   1. Подключите нужную группу к выбранному балансировщику, указав настройки проверки состояния в соответствующих параметрах команды:
   
      ```
-     $ yc load-balancer network-load-balancer attach-target-group b7r97ah2jn5rmo6k1dsk \
+     yc load-balancer network-load-balancer attach-target-group b7r97ah2jn5rmo6k1dsk \
        --target-group target-group-id=b7roi767je4c574iivrk,healthcheck-name=test-health-check,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
      ```
   

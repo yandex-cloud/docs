@@ -30,8 +30,8 @@
     Результат запишите в файл, например в `output.json`:
 
     ```bash
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://compute.api.cloud.yandex.net/compute/v1/images?folderId=standard-images&pageSize=1000" > output.json
+    export IAM_TOKEN=CggaATEVAgA...
+    curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://compute.api.cloud.yandex.net/compute/v1/images?folderId=standard-images&pageSize=1000" > output.json
     ```
 
 {% endlist %}

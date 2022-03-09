@@ -56,3 +56,8 @@ If the file is cached based on the [query parameters](#cookie-and-query) (that i
 
 There are technical [limits](limits.md) for cache purging.
 
+#### See also {#see-also}
+
+* [Instructions for configuring caching](../operations/resources/configure-caching.md).
+* [Instructions for preloading content](../operations/resources/prefetch-files.md).
+* [Instructions for purging the cache](../operations/resources/purge-cache.md).

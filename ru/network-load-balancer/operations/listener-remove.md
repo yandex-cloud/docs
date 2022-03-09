@@ -1,4 +1,4 @@
-# Удаление обработчика
+# Удалить обработчик
 
 {% list tabs %}
 
@@ -22,7 +22,12 @@
   1. Посмотрите список балансировщиков:
   
      ```
-     $ yc load-balancer network-load-balancer list
+     yc load-balancer network-load-balancer list
+     ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
@@ -36,7 +41,12 @@
   1. Получите сведения о выбранном балансировщике:
   
      ```
-     $ yc load-balancer network-load-balancer get c58r8boim8qfkcqtuioj
+     yc load-balancer network-load-balancer get c58r8boim8qfkcqtuioj
+     ```
+	 
+	 Результат:
+	 
+	 ```
      id: c58r8boim8qfkcqtuioj
      folder_id: aoerb349v3h4bupphtaf
      created_at: "2019-04-01T09:29:25Z"
@@ -54,7 +64,12 @@
   1. Удалите выбранный обработчик, указав идентификатор балансировщика и имя удаляемого обработчика:
   
      ```
-     $ yc load-balancer network-load-balancer remove-listener c58r8boim8qfkcqtuioj --listener-name test-listener
+     yc load-balancer network-load-balancer remove-listener c58r8boim8qfkcqtuioj --listener-name test-listener
+     ```
+	 
+	 Результат:
+	 
+	 ```
      .......done
      id: c58r8boim8qfkcqtuioj
      folder_id: aoerb349v3h4bupphtaf

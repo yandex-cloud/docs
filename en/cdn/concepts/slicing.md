@@ -20,3 +20,6 @@ If this setting is enabled:
 
 * If [caching is enabled on CDN servers](caching.md#server-side), the file parts will continue to be stored on the server.
 
+#### See also {#see-also}
+
+* [Instructions for enabling file segmentation](../operations/resources/enable-segmentation.md).

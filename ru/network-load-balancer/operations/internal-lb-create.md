@@ -28,10 +28,10 @@
   
      ```
      yc load-balancer network-load-balancer create \
-     --name internal-lb-test \
-     --type internal \
-     --region-id ru-central1 \
-     --listener name=test-listener,port=80,internal-subnet-id=<идентификатор подсети>,internal-address=<внутренний IP-адрес из диапазона подсети>
+       --name internal-lb-test \
+       --type internal \
+       --region-id ru-central1 \
+       --listener name=test-listener,port=80,internal-subnet-id=<идентификатор подсети>,internal-address=<внутренний IP-адрес из диапазона подсети>
      ```
   
   1. Получите список всех балансировщиков, чтобы убедиться, что балансировщик создан:
@@ -88,22 +88,22 @@
      
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
      
-  2. Проверьте корректность конфигурационных файлов.
+  1. Проверьте корректность конфигурационных файлов.
      
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     2. Выполните проверку с помощью команды:
+     1. Выполните проверку с помощью команды:
         ```
         terraform plan
         ```
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
         
-  3. Разверните облачные ресурсы.
+  1. Разверните облачные ресурсы.
 
      1. Если в конфигурации нет ошибок, выполните команду:
         ```
         terraform apply
         ```
-     2. Подтвердите создание ресурсов.
+     1. Подтвердите создание ресурсов.
      
      После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
@@ -121,9 +121,9 @@
   
   ```
   yc load-balancer network-load-balancer create \
-  --name internal-lb-test-1 \
-  --type internal \
-  --region-id ru-central1
+    --name internal-lb-test-1 \
+    --type internal \
+    --region-id ru-central1
   ```
   
 {% endlist %}
@@ -138,6 +138,11 @@
   
      ```
      yc load-balancer target-group list
+     ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+------------------+---------------------+-------------+--------------+
      |          ID          |       NAME       |       CREATED       |  REGION ID  | TARGET COUNT |
      +----------------------+------------------+---------------------+-------------+--------------+
@@ -149,12 +154,13 @@
   
      ```
      load-balancer network-load-balancer create \
-     --name internal-lb-test-3 \
-     --type internal \
-     --region-id ru-central1 \
-     --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14 \
-     --target-group target-group-id=b7rv80bfibkph3ekqqle,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
+       --name internal-lb-test-3 \
+       --type internal \
+       --region-id ru-central1 \
+       --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14 \
+       --target-group target-group-id=b7rv80bfibkph3ekqqle,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
      ```
-     Обратите внимание на формат параметров `healthcheck-interval` и `healthcheck-timeout`: необходимо указывать значение в формате `Ns`, где `N` — значение в секундах.
+     
+	 Обратите внимание на формат параметров `healthcheck-interval` и `healthcheck-timeout`: необходимо указывать значение в формате `Ns`, где `N` — значение в секундах.
   
 {% endlist %}

@@ -54,9 +54,9 @@
       ```bash
       yc cdn provider activate --type gcore
       ```
-  
+
   1. Посмотрите описание команды CLI для создания ресурсов:
-  
+
       ```bash
       yc cdn resource create --help
       ```
@@ -167,9 +167,9 @@
      ```
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -197,7 +197,6 @@
 {% endlist %}
 
 Создание ресурса занимает около 15 минут.
-
 
 ## Примеры {#examples}
 

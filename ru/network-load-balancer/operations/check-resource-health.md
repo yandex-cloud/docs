@@ -11,13 +11,18 @@
   1. Посмотрите описание команды CLI для получения состояний подключенных ресурсов:
   
      ```
-     $ yc load-balancer network-load-balancer target-states --help
+     yc load-balancer network-load-balancer target-states --help
      ```
   
   1. Получите список всех сетевых балансировщиков:
   
      ```
-     $ yc load-balancer network-load-balancer list
+     yc load-balancer network-load-balancer list
+     ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
@@ -31,12 +36,18 @@
   1. Запросите состояния ресурсов целевой группы:
   
      ```
-     $ yc load-balancer network-load-balancer target-states b7r97ah2jn5rmo6k1dsk --target-group-id b7roi767je4c574iivrk
+     yc load-balancer network-load-balancer target-states b7r97ah2jn5rmo6k1dsk --target-group-id b7roi767je4c574iivrk
+     ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+-----------+-----------+
      |      SUBNET ID       |  ADDRESS  |  STATUS   |
      +----------------------+-----------+-----------+
      | e9bc0iisdf7b00b7d4v0 | 10.10.0.4 | UNHEALTHY |
      | e9bc0iisdf7b00b7d4v0 | 10.10.0.7 | UNHEALTHY |
-     +----------------------+-----------+-----------+
-     ```
+     +----------------------+-----------+-----------+	 
+	 ```
+	 
 {% endlist %}

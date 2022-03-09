@@ -35,13 +35,13 @@
   1. Нажмите кнопку **Сохранить**.
 
 - CLI
-  
+
   {% include [include](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
   1. Посмотрите описание команды CLI для редактирования ресурсов:
-  
+
       ```bash
       yc cdn resource update --help
       ```
@@ -51,7 +51,7 @@
       ```bash
       yc cdn resource list --format yaml
       ```
-  
+
       Результат:
 
       ```bash
@@ -120,9 +120,7 @@
       * Блок `options` содержит дополнительные параметры CDN-ресурсов:
          * `static_response_headers` — пользовательские заголовки, которые CDN-серверы отправляют в ответ клиенту. Необязательный параметр.
 
-
       Пример структуры конфигурационного файла:
-
 
       ```hcl
       terraform {
@@ -159,16 +157,15 @@
 
       Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
 
-
   1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
 
   1. Проверьте конфигурацию командой:
      ```
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -177,14 +174,14 @@
      ```
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Примените изменения конфигурации:
      ```
      terraform apply
      ```
-     
+
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить изменение CDN-ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):

@@ -15,7 +15,7 @@
 
 Перед тем, как разворачивать сервер с SAP, зарегистрируйтесь в {{ yandex-cloud }} и создайте платежный аккаунт:
 
-{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша ВМ, на [странице облака]({{ link-console-cloud }}).
 

@@ -1,6 +1,6 @@
 # Getting information about a VM
 
-To get basic details of each virtual machine you created, open the virtual machine page in [management console]({{ link-console-main }}). To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
+To get basic details of each virtual machine you created, open the virtual machine page in the [management console]({{ link-console-main }}). To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.
 
 You can also get the basic details and metadata [from inside a VM](#inside-instance).
 
@@ -15,11 +15,14 @@ You can also get the basic details and metadata [from inside a VM](#inside-insta
   For more information about a certain VM, click its name.
 
   Tabs:
-  - **Overview** shows general information about the VM, including the IP addresses assigned to it.
-  - **Disks** provides information about the disks attached to the VM.
-  - **Operations** lists operations on the VM and resources attached to it, such as disks.
-  - **Monitoring** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
-  - **Serial port** provides information that is output by the VM to the serial port. To get this information via the API or CLI, use the instructions [{#T}](get-serial-port-output.md).
+  
+  * **Overview** shows general information about the VM, including the IP addresses assigned to it.
+  * **Disks** provides information about the disks attached to the VM.
+  * **File storages** provides information about the file storages attached.
+  * **Operations** lists operations on the VM and resources attached to it, such as disks.
+  * **Monitoring** shows information about resource consumption on the VM. You can only get this information from the management console or from inside the VM.
+  * **Serial console** provides access to the serial console if enabled when creating the VM.
+  * **Serial port** provides information that is output by the VM to the serial port. To get this information via the API or CLI, use the instructions [{#T}](get-serial-port-output.md).
 
 - CLI
 
@@ -28,7 +31,7 @@ You can also get the basic details and metadata [from inside a VM](#inside-insta
   1. View the description of the command to get serial port output:
 
       ```
-      $ yc compute instance get --help
+      yc compute instance get --help
       ```
 
   1. Select a VM, for example, `first-instance`:
@@ -38,13 +41,13 @@ You can also get the basic details and metadata [from inside a VM](#inside-insta
   1. Get basic information about a VM:
 
       ```
-      $ yc compute instance get first-instance
+      yc compute instance get first-instance
       ```
 
       To get information about a VM with [metadata](../../concepts/vm-metadata.md), use the `--full` flag:
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
 - API
@@ -88,19 +91,19 @@ Metadata-Flavor: Google
 Find out the ID of a VM from inside it:
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
+curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
 ```
 
 Get metadata in JSON format:
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
+curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
 ```
 
 Get metadata in an easy-to-read format. Use the [jq](https://stedolan.github.io/jq/) utility:
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
+curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
 #### List of returned elements {#list-of-returned-items}
@@ -124,7 +127,8 @@ Other elements, such as `project`, which are used for backward compatibility and
 
 ### Amazon EC2 {#ec2-metadata}
 
-The {{ yandex-cloud }} metadata service lets you return metadata in Amazon EC2 format. This format has no support for user-defined metadata fields.
+The {{ yandex-cloud }} metadata service lets you return metadata in Amazon EC2 format.
+This format has no support for user-defined metadata fields.
 
 #### HTTP request {#ec2-http}
 
@@ -164,5 +168,5 @@ The angle brackets contain parameters that need to be replaced with values. For 
 Get an internal IP address from inside a VM:
 
 ```
-$ curl http://169.254.169.254/latest/meta-data/local-ipv4
+curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
