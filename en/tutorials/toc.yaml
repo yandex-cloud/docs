@@ -22,6 +22,8 @@ items:
         href: web/wordpress.md
       - name: WordPress website on a MySQL database
         href: web/wordpress-mysql.md
+      - name: Transferring a WordPress website from a different hosting provider to Yandex.Cloud
+        href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
       - name: Blue-green and canary deployment of service versions
