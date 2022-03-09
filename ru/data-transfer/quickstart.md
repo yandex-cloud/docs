@@ -61,6 +61,7 @@
 
 * [{{ KF }}](operations/prepare.md#source-kf);
 * [{{ CH }}](operations/prepare.md#source-ch);
+* [{{ GP }}](operations/prepare.md#source-gp);
 * [{{ MG }}](operations/prepare.md#source-mg);
 * [{{ MY }}](operations/prepare.md#source-my);
 * [{{ PG }}](operations/prepare.md#source-pg);
@@ -129,3 +130,5 @@
 * Изучите [концепции сервиса](concepts/index.md).
 * Узнайте больше о [подготовке баз данных для использования сервиса](operations/prepare.md) и [настройке трансферов](operations/transfer.md).
 * Ознакомьтесь с [вопросами и ответами](qa/index.md).
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

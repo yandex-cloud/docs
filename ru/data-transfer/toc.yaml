@@ -20,6 +20,8 @@ items:
                 href: operations/endpoint/source/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
+              - name: Greenplum®
+                href: operations/endpoint/source/greenplum.md
               - name: MongoDB
                 href: operations/endpoint/source/mongodb.md
               - name: MySQL
