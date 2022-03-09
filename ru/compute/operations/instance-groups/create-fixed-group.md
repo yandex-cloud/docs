@@ -236,6 +236,7 @@
        name               = "fixed-ig"
        folder_id          = "<идентификатор каталога>"
        service_account_id = "${yandex_iam_service_account.ig-sa.id}"
+       depends_on          = [yandex_resourcemanager_folder_iam_binding.editor]
        instance_template {
          platform_id = "standard-v3"
          resources {
