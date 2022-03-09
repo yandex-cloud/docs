@@ -1,4 +1,4 @@
-# Добавление обработчика к сетевому балансировщику
+# Добавить обработчик к сетевому балансировщику
 
 {% list tabs %}
 
@@ -6,11 +6,14 @@
   
   Чтобы добавить [обработчик](../concepts/listener.md) к сетевому балансировщику:
   
-  1. Откройте раздел **Load Balancer** в каталоге, где требуется добавить обработчик к балансировщику.
-  1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке балансировщика, к которому нужно добавить обработчик.
-  1. В открывшемся меню нажмите кнопку **Добавить обработчик**.
-  1. Введите порт для обработчика.
-  1. Нажмите кнопку **Добавить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется добавить обработчик к балансировщику.
+  1. В списке сервисов выберите **{{ network-load-balancer-name }}**.
+  1. В строке балансировщика, к которому нужно добавить обработчик, нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Добавить обработчик**.
+  1. В открывшемся окне:
+     
+	 * Укажите порт, на котором обработчик будет принимать входящий трафик, из диапазона от 1 до 32767.
+	 * Укажите целевой порт, на который балансировщик будет направлять трафик, из диапазона от 1 до 32767.
+	 * Нажмите **Добавить**.
   
 - CLI
   
@@ -23,7 +26,7 @@
   1. Получите список балансировщиков:
   
      ```
-     $ yc load-balancer network-load-balancer list
+     yc load-balancer network-load-balancer list
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
@@ -35,8 +38,8 @@
   1. Добавьте обработчик, указав его имя, порт и версию IP-адреса:
   
      ```
-     $ yc load-balancer network-load-balancer add-listener c580id04kvumgn7ssfh1 \
-          --listener name=test-listener,port=80,external-ip-version=ipv4
+     yc load-balancer network-load-balancer add-listener c580id04kvumgn7ssfh1 \
+       --listener name=test-listener,port=80,external-ip-version=ipv4
      .....done
      id: c58r8boim8qfkcqtuioj
      folder_id: aoerb349v3h4bupphtaf
@@ -70,7 +73,7 @@
   
   ```
   yc load-balancer network-load-balancer add-listener b7rc2h753djb3a5dej1i \
-  --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14
+    --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14
   ```
   
 {% endlist %}
