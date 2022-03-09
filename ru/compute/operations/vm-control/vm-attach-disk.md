@@ -155,7 +155,7 @@
      lsblk
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
@@ -167,7 +167,7 @@
 
      Обычно пустой диск имеет метку вида /dev/vdb.
 
-  1. Разметьте диск. Для этого создайте на нем [разделы]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} с помощью [cfdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %}, [fdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %}, или [parted]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %}.
+  1. Разметьте диск. Для этого создайте на нем [разделы]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} с помощью [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %} `cfdisk`, [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %} `fdisk` или [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %} `parted`.
 
   1. Для примера создадим разделы с помощью команды `fdisk`. Используйте команду `sudo` или выполняйте команды от имени пользователя `root`: для этого выполните команду `sudo su -`.
      
@@ -175,41 +175,73 @@
      sudo fdisk /dev/vdb
      ```
 
-     Вы попадете в меню программы `fdisk`. Список доступных команд можно получить введя `m`.
+     Вы попадете в меню программы `fdisk`. Чтобы получить список доступных команд нажмите кнопку `m`.
 
   1. Создайте новый раздел — нажмите `n`. 
   1. Укажите, что раздел будет основным — нажмите `p`. 
   1. Появится предложение выбрать номер раздела. Нажмите `Enter`, чтобы создать первый раздел. 
   1. Номера первого и последнего секторов раздела оставьте по умолчанию — два раза нажмите `Enter`.
-  1. Убедитесь, что раздел создан — выведите список разделов диска командой `p`. Пример созданного раздела:
+  1. Убедитесь, что раздел успешно создан. Для этого нажмите клавишу `p` и выведите список разделов диска. Пример созданного раздела:
 
-     ```
+     ```bash
      Device     Boot Start      End  Sectors Size Id Type
      /dev/vdb1        2048 41943039 41940992  20G 83 Linux
      ```
 
-  1. Сохраните внесенные изменения командой `w`.
+  1. Для сохранения внесенных изменений нажмите клавишу `w`.
      
-  1. Отформатируйте диск в нужную файловую систему, например, с помощью утилиты [mkfs](https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0). Введите команду, чтобы отформатировать раздел в ext4:
+  1. Отформатируйте диск в нужную файловую систему, например, с помощью [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html){% endif %} `mkfs`. Например, чтобы отформатировать раздел в ext4 введите команду:
 
      ```bash
      sudo mkfs.ext4 /dev/vdb1
      ```
 
-  1. Смонтируйте разделы диска с помощью утилиты `mount`. Например, смонтируйте раздел `vdb1` в папку `/mnt/vdb1`:
+  1. Смонтируйте разделы диска с помощью [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=mount&category=8&russian=0){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/mount.8.html){% endif %} `mount`. Для того, чтобы монтировать раздел `vdb1` в папку `/mnt/vdb1` выполните:
 
      ```bash
      sudo mkdir /mnt/vdb1
      sudo mount /dev/vdb1 /mnt/vdb1
      ```
+   
+  1. Настройте разрешения на чтение и запись на диске с помощью [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=chmod&russian=0&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/jammy/en/man1/chmod.1.html){% endif %} `chmod`. Например, для предоставления доступа на запись к диску всем пользователям, выполните команду:
 
+     ```bash
+     sudo chmod a+w /mnt/vdb1
+     ```   
+
+  1. Получите идентификатор (`UUID`) диска с помощью [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=blkid&russian=0&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/blkid.8.html){% endif %} `blkid`:
+
+     ```bash
+     sudo blkid /dev/vdb1
+     ```     
+
+     Результат:
+
+     ```bash
+     /dev/vdb1: UUID="397f9660-e740-40bf-8e59-ecb88958b50e" TYPE="ext4" PARTUUID="e34d0d32-01"
+     ```
+  
+  1. Чтобы настроить автоматическое монтирование раздела после перезапуска ВМ:
+      1. Откройте файл `/etc/fstab` с помощью текстового редактора `nano`:
+
+          ```bash
+          sudo nano /etc/fstab
+          ```       
+
+      1. Допишите в файл следующую строку, указав в параметре `UUID` идентификатор вашего диска, например:
+
+          ```
+          UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdb1 ext4 defaults 0 2
+          ```
+
+      1. Сохраните изменения в файле.
   1. Проверьте состояние файловых систем:
 
      ```bash
      df
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      Filesystem     1K-blocks    Used Available Use% Mounted on
