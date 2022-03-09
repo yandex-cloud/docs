@@ -19,6 +19,8 @@ items:
                 href: operations/endpoint/source/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
+              - name: Greenplum®
+                href: operations/endpoint/source/greenplum.md
               - name: MongoDB
                 href: operations/endpoint/source/mongodb.md
               - name: MySQL
@@ -67,6 +69,8 @@ items:
         href: troubleshooting/mongodb.md
       - name: '{{ MY }}'
         href: troubleshooting/mysql.md
+      - name: '{{ PG }}'
+        href: troubleshooting/postgresql.md
       - name: '{{ ydb-full-name }} и {{ yds-full-name }}'
         href: troubleshooting/ydb.md
   - name: Управление доступом

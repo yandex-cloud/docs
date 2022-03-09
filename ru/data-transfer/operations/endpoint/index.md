@@ -18,6 +18,7 @@
         * Источники:
             * [{{ KF }}](source/kafka.md).
             * [{{ CH }}](source/clickhouse.md).
+            * [{{ GP }}](source/greenplum.md).
             * [{{ MG }}](source/mongodb.md).
             * [{{ MY }}](source/mysql.md).
             * [Oracle](source/oracle.md).
@@ -113,8 +114,9 @@
     1. На вкладке **Эндпоинты** выберите эндпоинт и нажмите кнопку ![pencil](../../../_assets/pencil.svg) **Редактировать** на панели сверху.
     1. Отредактируйте параметры эндпоинта:
         * Источники:
-            * [{{ CH }}](source/clickhouse.md).
             * [{{ KF }}](source/kafka.md).
+            * [{{ CH }}](source/clickhouse.md).
+            * [{{ GP }}](source/greenplum.md).
             * [{{ MG }}](source/mongodb.md).
             * [{{ MY }}](source/mysql.md).
             * [{{ PG }}](source/postgresql.md).
@@ -205,3 +207,5 @@
     1. На вкладке **Эндпоинты** нажмите на нужный эндпоинт.
 
 {% endlist %}
+
+{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

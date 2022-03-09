@@ -31,7 +31,7 @@
   1. Посмотрите описание команды для получения вывода последовательного порта:
 
       ```
-      $ yc compute instance get --help
+      yc compute instance get --help
       ```
 
   1. Выберите виртуальную машину, например `first-instance`:
@@ -41,13 +41,13 @@
   1. Получите основную информацию о виртуальной машине:
 
       ```
-      $ yc compute instance get first-instance
+      yc compute instance get first-instance
       ```
 
       Чтобы получить информацию о виртуальной машине вместе с [метаданными](../../concepts/vm-metadata.md), используйте флаг `--full`:
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
 - API
@@ -91,19 +91,19 @@ Metadata-Flavor: Google
 Узнать идентификатор виртуальной машины изнутри машины:
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
+curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/id
 ```
 
 Получить метаданные в формате JSON:
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
+curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true
 ```
 
 Получить метаданные в удобном для чтения формате. Воспользуйтесь утилитой [jq](https://stedolan.github.io/jq/):
 
 ```
-$ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
+curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recursive=true | jq -r '.'
 ```
 
 #### Список возвращаемых элементов {#list-of-returned-items}
@@ -168,5 +168,5 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 Получить внутренний IP-адрес изнутри виртуальной машины:
 
 ```
-$ curl http://169.254.169.254/latest/meta-data/local-ipv4
+curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```

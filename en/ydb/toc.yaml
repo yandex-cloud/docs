@@ -75,25 +75,25 @@ items:
                 href: deploy/orchestrated/operate.md
       - name: Useful links
         href: getting_started/useful_links.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
       - name: Deploying a web application
-        href: solutions/java-servlet-todo-list.md
+        href: tutorials/java-servlet-todo-list.md
       - name: Developing a Slack bot
-        href: solutions/slack-bot-serverless.md
+        href: tutorials/slack-bot-serverless.md
       - name: Using the YDB Docker container
-        href: solutions/ydb_docker.md
+        href: tutorials/ydb_docker.md
         hidden: true
       - name: Connecting to YDB from a Python function in Yandex Cloud Functions
-        href: solutions/connect-from-cf.md
+        href: tutorials/connect-from-cf.md
       - name: >-
           Connecting to a YDB database from a Yandex Cloud Functions function in
           Node.js
-        href: solutions/connect-from-cf-nodejs.md
+        href: tutorials/connect-from-cf-nodejs.md
       - name: Converting a video to a GIF in Python
-        href: solutions/video-converting-queue.md
+        href: tutorials/video-converting-queue.md
       - name: Developing a skill for Alice and a website with authorization
-        href: solutions/alice-shareable-todolist.md
+        href: tutorials/alice-shareable-todolist.md
   - name: Concepts
     items:
       - name: Overview

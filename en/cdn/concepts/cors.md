@@ -1,6 +1,6 @@
 # CORS
 
-{{ cdn-full-name }} supports [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) cross-domain requests (cross-origin resource sharing).
+{{ cdn-full-name }} supports cross-domain requests through [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (cross-origin resource sharing).
 
 In the resource settings, you can:
 
@@ -10,3 +10,6 @@ In the resource settings, you can:
 
 CORS settings apply to all files of the resource.
 
+#### See also {#see-also}
+
+* [Instructions for configuring CORS](../operations/resources/configure-cors.md).

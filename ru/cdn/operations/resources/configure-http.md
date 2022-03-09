@@ -15,13 +15,13 @@
   1. Нажмите кнопку **Сохранить**.
 
 - CLI
-  
+
   {% include [include](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для редактирования ресурсов:
-  
+
       ```bash
       yc cdn resource update --help
       ```
@@ -79,7 +79,7 @@
       yc cdn resource update <идентификатор ресурса> \
         --allowed-http-methods <разрешенные методы>
       ```
-      
+
       Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
 - Terraform
@@ -136,9 +136,9 @@
      ```
      terraform validate
      ```
-     
+
      Если конфигурация является корректной, появится сообщение:
-     
+
      ```
      Success! The configuration is valid.
      ```
@@ -147,14 +147,14 @@
      ```
      terraform plan
      ```
-  
+
      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Примените изменения конфигурации:
      ```
      terraform apply
      ```
-     
+
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
      Проверить изменение CDN-ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
@@ -172,7 +172,7 @@
 {% list tabs %}
 
 - CLI
-  
+
   Добавьте ресурсу разрешенный метод GET:
 
     ```bash
@@ -188,7 +188,7 @@
 
     cname: testexample.com
     active: true
-    
+
     ...
 
     allowed_http_methods:

@@ -12,50 +12,71 @@ Make sure the uploaded image is in the `READY` status.
 
 - Management console
 
-  1. Open the folder where the VM will be created.
+  To create a VM:
 
-  1. Click **Create resource**.
+  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the list of services, select **{{ compute-name }}**.
+  1. Click **Create VM**.
+  1. Under **Basic parameters**:
 
-  1. Select **Virtual machine**.
+      * Enter a name and description for the VM. Naming requirements:
 
-  1. In the **Name** field, enter a name for the VM.
+          {% include [name-format](../../../_includes/name-format.md) %}
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+      * Select the [availability zone](../../../overview/concepts/geo-scope.md) to host the VM in.
 
-  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to host the VM in.
+  1. Under **Image/boot disk selection**, select one of the [images](../../operations/images-with-pre-installed-software/get-list.md).
+  1. Under **Disks**, click **Add disk**:
+      * Enter the disk name.
+      * Select the [disk type](../../concepts/disk.md#disks_types).
+      * Specify the desired block size.
+      * Specify the necessary disk size.
+      * (optional) Enable the **Delete with the VM** option if you need to automatically delete the disk when deleting the VM it will be attached to.
+      * In the **Content** section, choose **Image**.
+      * Select the necessary image.
+      * Click **Add**.
 
-  1. In the **Disks** section, click **Add disk**.
-     1. In the **Name** field, enter the disk name.
-     1. Set the required disk size.
-     1. In the **Disk designation** section, choose **Boot**.
-     1. Select the [disk type](../../concepts/disk.md#disks_types): **HDD** or **SSD**.
-     1. In the **Content** section, choose **Image**. A list of images that you uploaded opens.
-     1. Select the necessary image.
-     1. Click **Add**.
-
+  1. (optional) Under **File storages**, attach the [file storage](../../concepts/filesystem.md) and enter the device name.
   1. Under **Computing resources**:
-      - Choose a [platform](../../concepts/vm-platforms.md).
-      - Specify the necessary number of vCPUs and amount of RAM.
+      * Choose a [platform](../../concepts/vm-platforms.md).
+      * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and number of vCPUs and RAM you need.
+      * If necessary, make your VM [preemptible](../../concepts/preemptible-vm.md).
+      * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
 
-  1. Under **Network settings**, select a network from the list or create a new one by clicking **Create new network**.
+  1. Under **Network settings**:
+      * Specify the subnet ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
+          If you don't have a network, click **Create network** to create one:
+          * In the window that opens, enter the network name and folder to host the network.
+          * (optional) To automatically create subnets, select the **Create subnets** option.
+          * Click **Create**.
+          Each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Add subnet**.
+      * In the **Public IP** field, choose a method for assigning an IP address:
+          * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool. In this case, you can enable [protection from DDoS attacks](../../../vpc/ddos-protection/index.md) using the option below.
+          * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
+          * **No address**: Don't assign a public IP address.
+      * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.
+      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more information, see [Yandex Cloud DNS integration with Yandex Compute Cloud](../../../dns/concepts/compute-integration.md).
+      * Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
 
-  1. In the window that opens, select the subnet to connect the VM to while being created.
+  1. Under **Access**, specify the data required to access the VM:
 
-  1. In **Public address**, choose:
-      - **Automatically** — to set a public IP address automatically. The address is allocated from the {{ yandex-cloud }} address pool.
-      - **List** — to select a public IP address from the list of static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} documentation.
-      - **No address** — don't assign a public IP address.
+      * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
+      * Enter the username in the **Login** field.
 
-  1. Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
+          {% note alert %}
 
-  1. Specify data required for accessing the VM:
-      - Enter the username in the **Login** field.
-      - In the **SSH key** field, paste the contents of the public key file.
-          You need to create a key pair for an SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
+          Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
+
+          {% endnote %}
+
+      * In the **SSH key** field, paste the contents of the [public key file](../../operations/vm-connect/ssh.md#creating-ssh-keys).
+      * If required, grant access to the [serial console](../../operations/serial-console/index.md).
 
   1. Click **Create VM**.
+
+  The virtual machine appears in the list. When a VM is being created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
 - CLI
 
@@ -173,11 +194,11 @@ Make sure the uploaded image is in the `READY` status.
 
      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
-  2. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are correct.
 
      1. In the command line, go to the directory where you created the configuration file.
 
-     2. Run the check using the command:
+     1. Run the check using the command:
 
         ```
         terraform plan
@@ -185,7 +206,7 @@ Make sure the uploaded image is in the `READY` status.
 
      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
-  3. Deploy the cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration doesn't contain any errors, run the command:
 
@@ -193,7 +214,7 @@ Make sure the uploaded image is in the `READY` status.
         terraform apply
         ```
 
-     2. Confirm that you want to create the resources.
+     1. Confirm that you want to create the resources.
 
      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 

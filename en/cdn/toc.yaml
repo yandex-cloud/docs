@@ -57,18 +57,30 @@ items:
         href: concepts/index.md
       - name: Resource
         href: concepts/resource.md
-      - name: Caching content
-        href: concepts/caching.md
-      - name: CORS
-        href: concepts/cors.md
-      - name: Compressing content
-        href: concepts/compression.md
-      - name: Segmenting content
-        href: concepts/slicing.md
       - name: Origins and origin groups
         href: concepts/origins.md
-      - name: Origin shielding
-        href: concepts/origins-shielding.md
+      - name: Exchanging data between clients and the CDN
+        items:
+          - name: Overview
+            href: concepts/clients-to-servers.md
+          - name: TLS certificates
+            href: concepts/clients-to-servers-tls.md
+          - name: CORS
+            href: concepts/cors.md
+          - name: Compressing content
+            href: concepts/compression.md
+      - name: Exchanging data between the CDN and origins
+        items:
+          - name: Overview
+            href: concepts/servers-to-origins.md
+          - name: Host header
+            href: concepts/servers-to-origins-host.md
+          - name: Segmenting content
+            href: concepts/slicing.md
+          - name: Origin shielding
+            href: concepts/origins-shielding.md
+      - name: Caching content
+        href: concepts/caching.md
       - name: Exporting logs
         href: concepts/logs.md
       - name: Quotas and limits
