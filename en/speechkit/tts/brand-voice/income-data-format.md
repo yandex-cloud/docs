@@ -2,20 +2,23 @@
 
 {{ brand-voice-name }} Adaptive is a platform for training interactive robots. It synthesizes phrases based on the recordings of the speaker's voice using templates.
 
+Below is a description of the requirements applicable to the training of a synthesis model using {{ brand-voice-full-name }} Adaptive.
+
 ## Audio sample requirements {#recording}
 
 | Requirement | Value |
 | --- | --- |
 | Sampling frequency | 48 kHz |
-| Bit rate | Audio bit depth: 16-bit PCM |
-| Channel | Mono |
-| Format | .wav |
+| Audio bit depth | 16 bit PCM |
+| Number of channels | 1 (mono) |
+| Format | [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} |
 
 The following conditions must also be met:
 
 * No echo.
 * No background noise.
 * Minimal post-processing.
+* The silence at the beginning and end of a recording is no longer than 1 second.
 
 ### Equipment and recording requirements {#hardware}
 
@@ -37,9 +40,8 @@ We recommend that you make all recordings in the same conditions and in the same
 ## Requirements for resulting data {#data}
 
 To train a voice model, you need:
-
-* ZIP archive of audio recordings in [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} format, including:
-   1. The main set (the basic bucket) consists of phrases specially prepared by the {{ yandex-cloud }} team. They must be spoken and recorded. You can't change this set. You can only skip some phrases.
+* A ZIP archive of audio recordings in WAV format, which contains:
+   1. Primary set (basic bucket). A basic bucket contains a set of phrases to pronounce and record that has been specifically prepared by the {{ yandex-cloud }} team. You can't change this set. You can only skip some phrases.
    1. A set for making phrases (a specific bucket). Recorded patterns are used as texts. They are then synthesized, taking variables into account. This set is based on user data and must be reviewed before recording.
 
 * Text transcripts of audio recordings in [TSV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/TSV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Tab-separated_values){% endif %} table format. The table with texts should consist of two columns:
@@ -55,9 +57,8 @@ The text transcript must be in UTF-8 encoding, the table must have no title.
 * Each audio recording must have an absolutely accurate text transcript.
 * Transcripts must not have any grammatical errors.
 * To name files, use phrase numbers.
-* Spelling must be accurate.
-* Misspelt words, such as <q>necessery</q> instead of <q>necessary</q> are not acceptable.
-* Abbreviations must be denormalized (BBC → <q>biːbiːsiː</q>) or expanded.
+* Sounds such as <q>th</q> must be pronunced. Misspelt words, such as <q>necessery</q> instead of <q>necessary</q> are not acceptable.
+* Abbreviations must be denormalized (BBC -> <q>biːbiːsiː</q>) or expanded.
 
 ### Pattern requirements {#pattern-requirements}
 
@@ -81,6 +82,8 @@ The text transcript must be in UTF-8 encoding, the table must have no title.
    > _<q>The +import of goods from foreign countries</q>_: The first syllable is stressed.
    > _<q>Goods they im+port from China</q>_: The second syllable is stressed.
 
+{% if lang == "ru" %}1. Explicitly specify the letter <q>ё</q>.{% endif %}
+
 1. In questions, it's necessary to specify which word should be \*\*logically stressed\*\* to indicate the intonation of an interrogative sentence.
 
    {% note warning %}
@@ -90,13 +93,13 @@ The text transcript must be in UTF-8 encoding, the table must have no title.
    {% endnote %}
 
    > The sentence <q>Did the cat go to the forest?</q> can be read three different ways:
-   > * Did the \*\*cat\*\* go to the forest?: This means <q>Who went to the forest? Was it really the cat?</q>
-   > * Did the cat  \*\*go\*\* to the forest?: This means <q>Did the cat walk or run?</q> or <q>Was the action itself performed? Is the cat gone or not?</q>
-   > * Did the cat go \*\*to the forest\*\*?: This means <q>Where did the cat go or what for? To the forest, outside, to look for a sausage?</q>
+   > * Did the \*\*cat\*\* go to the forest? Meaning, <q>Who was it that went to the forest? Was it really the cat?</q>
+   > * Did the cat \*\*go\*\* to the forest? Meaning, <q>Did the cat walk or run?</q> or <q>Was the action itself performed? Is the cat gone or not?</q>
+   > * Did the cat go \*\*to the forest\*\*? Meaning, <q>Where did the cat go and why? To the forest, outside, to look for a sausage?</q>
    >
    > In all sentences, the logical stress emphasizes the main meaning of the sentence.
 
-1. The total phrase length must not exceed 160 characters, including the variable part.
+1. The length of the sentence, including the variable portion, must not exceed {{ tts-v3-count }} characters.
 
 ### Example of a summary text table {#example}
 
@@ -112,3 +115,8 @@ The file encoding is UTF-8.
 | 4.wav | We are offering the wonderful book {book_name=Eugene Onegin} for just \{price=five hundred rubles forty-eight kopecks}. |
 | 5.wav | You are scheduled for {date=tomorrow} at \{time=fifteen oh clock}. |
 | 6.wav | You are scheduled for {date=October the fourth} at \{time=nine in the morning}. |
+
+#### What's next {#what-is-next}
+
+* [{{ brand-voice-name }} API](../../api-ref/authentication.md).
+* [{#T}](import-data.md).
