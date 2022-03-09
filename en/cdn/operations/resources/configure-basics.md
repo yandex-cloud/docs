@@ -90,7 +90,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
 - Terraform
 
-  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To update the parameters of a CDN resource created using Terraform:
 

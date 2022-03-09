@@ -117,7 +117,7 @@ To create a [resource](../../concepts/resource.md):
   yc cdn provider activate --folder-id <folder ID> --type gcore
   ```
 
-  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. In the configuration file, describe the parameters of a CDN resource to create:
 
