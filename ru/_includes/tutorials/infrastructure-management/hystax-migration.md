@@ -20,7 +20,7 @@
 
 Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-{% include [prepare-register-billing](../../../_includes/solutions/_common/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../../_includes/tutorials/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]({{ link-console-cloud }}).
 

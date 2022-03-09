@@ -1,1 +1,0 @@
-{% include [data-from-metrica-yc-visualization](../../_includes/tutorials/data-from-appmetrica-yc-visualization.md) %}

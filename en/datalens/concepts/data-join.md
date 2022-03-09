@@ -30,7 +30,7 @@ It's also possible to combine data based on [multiple CSV connections](#add-conn
 
 #### Adding tables {#ui-join}
 
-You can combine data through the dataset creation interface by dragging tables to the workspace and configuring links between them via the [JOIN operator](dataset/data-model.md#source). For an example of combining data by adding tables, see the [use case](../../solutions/datalens/data-from-ch-visualization.md#step2). 
+You can combine data through the dataset creation interface by dragging tables to the workspace and configuring links between them via the [JOIN operator](dataset/data-model.md#source). For an example of combining data by adding tables, see the [practical guide](../../tutorials/datalens/data-from-ch-visualization.md#step2). 
 
 #### Adding a connection {#add-connection}
 

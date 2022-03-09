@@ -24,7 +24,7 @@ items:
   - include: { mode: link, path: getting_started/toc_i.yaml }
 
 # Main
-- { name: Use cases,                  include: { mode: link, path: solutions/toc_i.yaml } }
+- { name: Practical guidelines,                  include: { mode: link, path: tutorials/toc_i.yaml } }
 - { name: Concepts,                               include: { mode: link, path: concepts/toc_p.yaml } }
 - { name: Step-by-step instructions,                    include: { mode: link, path: operations/toc_i.yaml } }
 
