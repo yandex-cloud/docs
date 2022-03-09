@@ -2,8 +2,8 @@
 
 [{{ alb-full-name }}](../../application-load-balancer/) is designed for load balancing and traffic distribution across applications. To use it for managing incoming traffic of applications running in a {{ managed-k8s-name }} cluster, you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
-To set up access to the applications running in your cluster via the {{ alb-name }}:
-1. [{#T}](#create-namespace-and-secret).
+To set up access to the applications running in your cluster via {{ alb-name }}:
+1. [{#T}](#create-namespace).
 1. [{#T}](#install-alb).
 1. [{#T}](#create-ingress-and-apps).
 1. [{#T}](#verify-setup).
@@ -16,9 +16,10 @@ To set up access to the applications running in your cluster via the {{ alb-name
 
 1. [Create](../../iam/operations/sa/create.md) [a service account](../../iam/concepts/index.md#sa) for the Ingress controller to run.
    1. [Assign it the following roles](../../iam/operations/sa/assign-role-for-sa.md):
-      * `alb.editor`: To create resources.
+      * `alb.editor`: To create the required resources.
       * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
       * `certificate-manager.certificates.downloader`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
+      * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in [target groups](../../application-load-balancer/concepts/target-group.md) of the load balancer.
    1. Create an [authorized key](../../iam/operations/sa/create-access-key.md) for the service account and save it to `sa-key.json`:
 
       ```bash
@@ -33,7 +34,7 @@ To set up access to the applications running in your cluster via the {{ alb-name
    * **Version {{ k8s }}**: 1.19 or higher.
    * **Public address**: `Auto`.
 1. [Create a node group](../operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.19 or higher.
-1. [Configure cluster security groups and node groups](../operations/security-groups.md).
+1. [Configure cluster security groups and node groups](../operations/security-groups.md). A security group for a group of nodes must allow incoming TCP traffic from the load balancer subnets on ports 10501 and 10502 or from the load balancer security group (you will need to specify the subnets and the group to [create an Ingress controller](#create-ingress-and-apps) later).
 1. [Install the Helm package manager]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} version 3.7.0 or higher.
 1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [set it up for working with the cluster](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) created.
 1. Check that you can connect to the cluster using `kubectl`:
@@ -42,39 +43,30 @@ To set up access to the applications running in your cluster via the {{ alb-name
    kubectl cluster-info
    ```
 
-## Create a namespace and a secret for the {{ alb-name }} Ingress controller {#create-namespace-and-secret}
+## Create a namespace for the {{ alb-name }} Ingress controller {#create-namespace}
 
-1. Create a [namespace](../concepts/index.md#namespace):
+To create a [namespace](../concepts/index.md#namespace), run the following command:
 
-   ```bash
-   kubectl create namespace yc-alb-ingress
-   ```
-
-1. Create a secret:
-
-   ```bash
-   kubectl create secret generic yc-alb-ingress-controller-sa-key \
-     --namespace yc-alb-ingress \
-     --from-file=sa-key.json
-   ```
-
-   Learn more about secrets in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/configuration/secret/).
+```bash
+kubectl create namespace yc-alb-ingress
+```
 
 ## Install the {{ alb-name }} Ingress controller {#install-alb}
 
 To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), run the commands:
 
 ```bash
-export VERSION=v0.0.7
-export HELM_EXPERIMENTAL_OCI=1
-helm pull \
-  --version ${VERSION} \
-  oci://cr.yandex/yc/yc-alb-ingress-controller-chart
+export HELM_EXPERIMENTAL_OCI=1 && \
+cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+helm pull oci://cr.yandex/yc/yc-alb-ingress-controller-chart \
+     --version=v{{ alb-ingress-version }} \
+     --untar && \
 helm install \
-  --namespace yc-alb-ingress \
-  --set folderId=<folder ID> \
-  --set clusterId=<cluster ID> \
-  yc-alb-ingress-controller ./yc-alb-ingress-controller-chart-${VERSION}.tgz
+     --namespace yc-alb-ingress \
+     --set folderId=<folder ID> \
+     --set clusterId=<cluster ID> \
+     --set-file saKeySecretKey=sa-key.json \
+     yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
 ```
 
 You can find out the cluster ID [in a list of clusters in the](../operations/kubernetes-cluster/kubernetes-cluster-list.md) folder.
@@ -144,12 +136,12 @@ Command output:
                    service:
                      name: alb-demo-2
                      port:
-                       number: 80
+                       name: http
      ```
 
      Where:
      * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
-     * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If the parameter is omitted, the default security group is used.
+     * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If the parameter is omitted, the default security group is used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
      * `ingress.alb.yc.io/external-ipv4-address`: Provide public online access to {{ alb-name }}. Enter [the IP address you obtained](../../vpc/operations/get-static-ip.md) or use the `auto` value to obtain a new IP address.
      * `ingress.alb.yc.io/group-name`: Grouping of {{ k8s }} Ingress resources, with each group served by a separate {{ alb-name }} instance. Enter the name of the group.
 
@@ -163,6 +155,18 @@ Command output:
        {% endnote %}
 
      * `ingress.alb.yc.io/internal-alb-subnet`: The subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
+     * `ingress.alb.yc.io/protocol`: The connection protocol used by the load balancer and the backends:
+       
+       * `http`: HTTP/1.1. Default value.
+       * `http2`: HTTP/2.
+       * `grpc`: gRPC.
+
+     * `ingress.alb.yc.io/transport-security`: The encryption protocol used by the connections between the load balancer and the backends:
+       
+       * `tls`: TLS with no certificate challenge.
+
+       If no annotation is specified, the load balancer connects to the backends without encryption.
+
      * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
      * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
      * `ingress.alb.yc.io/request-timeout`: The maximum period for which the connection can be established.
@@ -592,6 +596,12 @@ Command output:
         {% endnote %}
 
       * `ingress.alb.yc.io/internal-alb-subnet`: The subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
+      * `ingress.alb.yc.io/protocol`: The connection protocol used by the load balancer and the backends:
+
+         * `http`: HTTP/1.1. Default value.
+         * `http2`: HTTP/2.
+         * `grpc`: gRPC.
+      
       * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
       * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
       * `ingress.alb.yc.io/request-timeout`: The maximum period for which the connection can be established.

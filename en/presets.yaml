@@ -511,6 +511,8 @@ default:
   port-mrd-tls: 6380
   port-mrd: 6379
   port-ssh: 22
+  
+  alb-ingress-version: 0.0.8
 
   __system:
     dislikeVariants:
