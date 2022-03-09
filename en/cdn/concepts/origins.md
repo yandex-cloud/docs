@@ -24,3 +24,12 @@ Origins in the group can be active or backup. Requests from CDN servers are dist
 
 If the active origin responded to the CDN server with HTTP status code 5xx, the request is sent to one of the backup origins. If there are no backup origins in the origin group or the response includes code 5xx again, the CDN server sends the response with code 5xx to the client.
 
+{% note tip %}
+
+If you publish content in two or more buckets, combine them into a group of L7 load balancer backends and use the load balancer as an origin as shown in the [blue-green and canary deployment](../tutorials/blue-green-canary-deployment.md) scenario. Otherwise, you'll need to support in the service sending requests to the CDN with different [`Host` header](servers-to-origins-host.md) values corresponding to different buckets.
+
+{% endnote %}
+
+#### See also {#see-also}
+
+* [Instructions for operations with origins](../operations/index.md#origins).
