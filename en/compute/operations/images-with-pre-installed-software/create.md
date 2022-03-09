@@ -2,44 +2,50 @@
 
 To create a VM:
 
-1. Open the folder where the VM will be created.
+{% list tabs %}
 
-1. Click **Create resource**.
+- Management console
 
-1. Select **Virtual machine**.
+  1. In the [management console]({{ link-console-main }}), open the folder where the VM will be created.
+  1. Click **Create resource**.
+  1. Select **Virtual machine**.
+  1. In the **Name** field, enter a name for the VM.
 
-1. In the **Name** field, enter a name for the VM.
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-    {% include [name-format](../../../_includes/name-format.md) %}
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to host the VM in.
+  1. Select a public image with the software you want to use.
+  1. (optional) If you want to add additional disks to the instance, [select them](../vm-create/create-from-disks.md) in the **Disks** section.
+  1. (optional) If you want to add more file storages to the VM, add them under **File storages**. [Create](../filesystem/create.md) the storages first.
+  1. Under **Computing resources**:
+      * Choose a [platform](../../concepts/vm-platforms.md).
+      * Specify the [guaranteed share](../../concepts/performance-levels.md), the necessary number of vCPUs, and the amount of RAM.
 
-1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to host the VM in.
+      {% note info %}
 
-1. Select a public image with the software you want to use.
+      To create a VM from a [GitLab]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537){% endif %} image, you need at least 4 vCPUs and 8 GB RAM.
 
-1. Under **Computing resources**:
-    - Choose a [platform](../../concepts/vm-platforms.md).
-    - Specify the necessary number of vCPUs and amount of RAM.
+      {% endnote %}
 
-    {% note info %}
+  1. Under **Network settings**:
+      * Specify the subnet ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list. You can select the search scope: in the current folder or in all folders. If you don't have a network, click **Create network** to create one:
+          * In the window that opens, enter the folder to host the new network, as well as the network name.
+          * Enable the option **Create subnets**: each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet).
+          * Click **Create**.
+      * In the **Public IP** field, choose a method for assigning an IP address:
+          * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
+          * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
+          * **No address**: Don't assign a public IP address.
+      * (optional) If necessary, enable [DDoS protection](../../../vpc/ddos-protection/index.md).
+      * Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
+  1. Under **Access**, specify the data required to access the VM:
+      * (optional) Select or create a [service account](../../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
+      * Enter the username in the **Login** field.
+      * In the **SSH key** field, paste the contents of the [public key](../vm-connect/ssh.md#creating-ssh-keys) file.
+      * (optional) If necessary, enable access to the [serial console](../index.md#serial-console).
+  1. Specify data required for accessing the VM.
+  1. Click **Create VM**.
 
-    To create a VM from a [GitLab]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537){% endif %} image, at least 4 virtual cores (100% vCPU) and 4 GB of RAM are required.
+  VM creation takes several minutes. When the VM status changes to `RUNNING`, proceed to [configuring software](setup.md). You can monitor VM statuses on the list of VMs in the folder.
 
-    {% endnote %}
-
-1. In the **Network settings** section, click **Add network**.
-
-1. In the window that opens, select the subnet to connect the VM to while being created.
-
-1. In **Public address**, choose:
-    - **Automatically** — to set a public IP address automatically. The address is allocated from the {{ yandex-cloud }} address pool.
-    - **List** — to select a public IP address from the list of static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} documentation.
-    - **No address** — don't assign a public IP address.
-
-1. Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
-
-1. Specify data required for accessing the VM.
-
-1. Click **Create VM**.
-
-VM creation takes several minutes. When the VM status changes to `RUNNING`, proceed to [configuring software](setup.md). You can monitor VM statuses on the list of VMs in the folder.
-
+{% endlist %}
