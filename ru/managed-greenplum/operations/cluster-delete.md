@@ -15,10 +15,6 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
   1. Нажмите на значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
 
-* Terraform
-
-    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
-
 {% endlist %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
