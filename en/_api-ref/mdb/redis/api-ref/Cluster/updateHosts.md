@@ -2,33 +2,32 @@
 editable: false
 ---
 
-# Method setAccessBindings
-Sets access bindings for the service account.
+# Method updateHosts
+Updates the specified hosts.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{resourceId}:setAccessBindings
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/hosts:batchUpdate
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource for which access bindings are being set.  To get the resource ID, use a corresponding List request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Redis cluster to update hosts in. To get the Redis cluster ID, use a [list](/docs/managed-redis/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "accessBindings": [
+  "updateHostSpecs": [
     {
-      "roleId": "string",
-      "subject": {
-        "id": "string",
-        "type": "string"
-      }
+      "hostName": "string",
+      "replicaPriority": "integer",
+      "assignPublicIp": true,
+      "updateMask": "string"
     }
   ]
 }
@@ -37,11 +36,11 @@ resourceId | Required. ID of the resource for which access bindings are being se
  
 Field | Description
 --- | ---
-accessBindings[] | **object**<br><p>Required. Access bindings to be set. For more information, see <a href="/docs/iam/concepts/access-control/#access-bindings">Access Bindings</a>.</p> 
-accessBindings[].<br>roleId | **string**<br><p>Required. ID of the <a href="/docs/iam/api-ref/Role#representation">Role</a> that is assigned to the ``subject``.</p> <p>The maximum string length in characters is 50.</p> 
-accessBindings[].<br>subject | **object**<br><p>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier.</p> 
-accessBindings[].<br>subject.<br>id | **string**<br><p>Required. ID of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li>``allAuthenticatedUsers``: A special system identifier that represents anyone who is authenticated. It can be used only if the ``type`` is ``system``.</li> <li>``allUsers``: A special system identifier that represents anyone. No authentication is required. For example, you don't need to specify the IAM token in an API query.</li> <li>``&lt;cloud generated id&gt;``: An identifier that represents a user account. It can be used only if the ``type`` is ``userAccount``, ``federatedUser`` or ``serviceAccount``.</li> </ul> <p>The maximum string length in characters is 50.</p> 
-accessBindings[].<br>subject.<br>type | **string**<br><p>Required. Type of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li>``userAccount``: An account on Yandex or Yandex Connect, added to Yandex Cloud.</li> <li>``serviceAccount``: A service account. This type represents the <a href="/docs/iam/api-ref/ServiceAccount#representation">ServiceAccount</a> resource.</li> <li>``federatedUser``: A federated account. This type represents a user from an identity federation, like Active Directory.</li> <li>``system``: System group. This type represents several accounts with a common system identifier.</li> </ul> <p>For more information, see <a href="/docs/iam/concepts/access-control/#subject">Subject to which the role is assigned</a>.</p> <p>The maximum string length in characters is 100.</p> 
+updateHostSpecs[] | **object**<br><p>Required. New configurations to apply to hosts.</p> <p>Must contain at least one element.</p> 
+updateHostSpecs[].<br>hostName | **string**<br><p>Required. Name of the host to update. To get the Redis host name, use a <a href="/docs/managed-redis/api-ref/Cluster/listHosts">listHosts</a> request.</p> 
+updateHostSpecs[].<br>replicaPriority | **integer** (int64)<br><p>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100.</p> 
+updateHostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on update.</p> 
+updateHostSpecs[].<br>updateMask | **string**<br><p>Field mask that specifies which fields of the Redis host should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

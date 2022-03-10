@@ -48,7 +48,7 @@ cluster_id | **string**<br>Required. ID of the cluster to return information abo
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -102,7 +102,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -162,7 +162,7 @@ next_page_token | **string**<br>The token that can be used to get the next page 
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -216,7 +216,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -303,7 +303,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -382,7 +382,7 @@ cluster_id | **string**<br>ID of the cluster that is being created.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -436,7 +436,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -520,7 +520,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -571,7 +571,7 @@ cluster_id | **string**<br>ID of the cluster that is being updated.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -625,7 +625,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -741,7 +741,7 @@ cluster_id | **string**<br>ID of the cluster that is being started.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -795,7 +795,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -871,7 +871,7 @@ cluster_id | **string**<br>ID of the cluster that is being stopped.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -925,7 +925,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -1004,7 +1004,7 @@ destination_folder_id | **string**<br>ID of the destination folder.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1058,7 +1058,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1134,7 +1134,7 @@ cluster_id | **string**<br>ID of the cluster that is being backed up.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1188,7 +1188,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -1274,7 +1274,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### HostSpec {#HostSpec1}
@@ -1317,7 +1317,7 @@ backup_id | **string**<br>ID of the backup that is being used for creating a clu
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1371,7 +1371,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -1450,7 +1450,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1504,7 +1504,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}
@@ -1581,7 +1581,7 @@ cluster_id | **string**<br>ID of the cluster that is being failovered.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex.Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1635,7 +1635,7 @@ disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex.Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow11}
@@ -1838,7 +1838,7 @@ next_page_token | **string**<br>The token that can be used to get the next page 
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the host. <br>This name is assigned by Yandex.Cloud at the time of creation. The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. 
+name | **string**<br>Name of the host. <br>This name is assigned by Yandex Cloud at the time of creation. The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the cluster the host belongs to. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
 resources | **[Resources](#Resources14)**<br>Resources allocated to the host. 

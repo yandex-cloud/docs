@@ -24,7 +24,7 @@ Creates an IAM token for the specified identity.
 Field | Description
 --- | ---
 identity | **oneof:** `yandex_passport_oauth_token` or `jwt`<br>
-&nbsp;&nbsp;yandex_passport_oauth_token | **string**<br>OAuth token for a Yandex.Passport account. For more information, see [OAuth token](/docs/iam/concepts/authorization/oauth-token). 
+&nbsp;&nbsp;yandex_passport_oauth_token | **string**<br>OAuth token for a Yandex account. For more information, see [OAuth token](/docs/iam/concepts/authorization/oauth-token). 
 &nbsp;&nbsp;jwt | **string**<br>JSON Web Token (JWT) for a service account. For more information, see [Get IAM token for a service account](/docs/iam/operations/iam-token/create-for-sa). 
 
 

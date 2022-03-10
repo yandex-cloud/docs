@@ -121,7 +121,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -264,7 +264,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -380,7 +380,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -572,7 +572,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -685,7 +685,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -819,7 +819,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -1018,7 +1018,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -1177,7 +1177,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -1339,7 +1339,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -1498,7 +1498,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -1614,7 +1614,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -1756,7 +1756,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -1918,7 +1918,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -2078,7 +2078,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 
 
@@ -2294,7 +2294,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the PostgreSQL host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. 
+name | **string**<br>Name of the PostgreSQL host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the PostgreSQL host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the PostgreSQL host resides. 
 resources | **[Resources](#Resources14)**<br>Resources allocated to the PostgreSQL host. 

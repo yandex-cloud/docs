@@ -186,6 +186,20 @@ components:
           normalizedText:
             $ref: '#/components/schemas/AlternativeUpdate'
             description: normalized text instead of raw one
+    LanguageRestrictionOptions:
+      type: object
+      properties:
+        restrictionType:
+          $ref: '#/components/schemas/LanguageRestrictionOptionsLanguageRestrictionType_in_LanguageRestrictionOptions_restrictionType'
+        languageCode:
+          type: array
+          items:
+            type: string
+    LanguageRestrictionOptionsLanguageRestrictionType:
+      type: string
+      enum:
+      - WHITELIST
+      - BLACKLIST
     RawAudio:
       description: RAW Audio format spec (no container to infer type). used in AudioFormat
         options
@@ -216,6 +230,15 @@ components:
           $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
+        languageRestriction:
+          $ref: '#/components/schemas/LanguageRestrictionOptions_in_RecognitionModelOptions_languageRestriction'
+        audioProcessingType:
+          $ref: '#/components/schemas/RecognitionModelOptionsAudioProcessingType_in_RecognitionModelOptions_audioProcessingType'
+    RecognitionModelOptionsAudioProcessingType:
+      type: string
+      enum:
+      - REAL_TIME
+      - FULL_DATA
     SessionUuid:
       description: session identifier
       type: object
@@ -354,6 +377,11 @@ components:
       enum:
       - DEFAULT
       - HIGH
+    LanguageRestrictionOptionsLanguageRestrictionType_in_LanguageRestrictionOptions_restrictionType:
+      type: string
+      enum:
+      - WHITELIST
+      - BLACKLIST
     RawAudioAudioEncoding_in_RawAudio_audioEncoding:
       description: type of audio encoding
       type: string
@@ -393,6 +421,23 @@ components:
           description: 'Rewrite text in literature style (default: false)'
           type: boolean
           format: boolean
+    LanguageRestrictionOptions_in_RecognitionModelOptions_languageRestriction:
+      description: possible languages in audio
+      type: object
+      properties:
+        restrictionType:
+          $ref: '#/components/schemas/LanguageRestrictionOptionsLanguageRestrictionType_in_LanguageRestrictionOptions_restrictionType'
+        languageCode:
+          type: array
+          items:
+            type: string
+    RecognitionModelOptionsAudioProcessingType_in_RecognitionModelOptions_audioProcessingType:
+      description: how to deal with audio data (in real time, after all data is received,
+        etc). Default is REAL_TIME
+      type: string
+      enum:
+      - REAL_TIME
+      - FULL_DATA
     CodeType_in_StatusCode_codeType:
       description: code type
       type: string
@@ -411,6 +456,10 @@ components:
           $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
+        languageRestriction:
+          $ref: '#/components/schemas/LanguageRestrictionOptions_in_RecognitionModelOptions_languageRestriction'
+        audioProcessingType:
+          $ref: '#/components/schemas/RecognitionModelOptionsAudioProcessingType_in_RecognitionModelOptions_audioProcessingType'
     EouClassifierOptions_in_StreamingOptions_eouClassifier:
       description: configuration for end of utterance detection model
       type: object

@@ -1463,7 +1463,7 @@ components:
           format: boolean
         webSql:
           description: |-
-            Allows SQL queries to the cluster databases from Yandex.Cloud management console.
+            Allows SQL queries to the cluster databases from Yandex Cloud management console.
 
             See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details.
           type: boolean
@@ -1543,7 +1543,7 @@ components:
           description: |-
             ID of the cluster.
 
-            This ID is assigned by Yandex.Cloud at the time of creation.
+            This ID is assigned by Yandex Cloud at the time of creation.
           type: string
         folderId:
           description: ID of the folder that the cluster belongs to.
@@ -1961,8 +1961,8 @@ components:
           description: |-
             Name of the host.
 
-            This name is assigned by Yandex.Cloud at the time of creation.
-            The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host.
+            This name is assigned by Yandex Cloud at the time of creation.
+            The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
           type: string
         clusterId:
           description: ID of the cluster the host belongs to.

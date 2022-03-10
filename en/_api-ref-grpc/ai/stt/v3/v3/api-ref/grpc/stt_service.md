@@ -44,6 +44,8 @@ Field | Description
 model | **string**<br>model name 
 audio_format | **[AudioFormatOptions](#AudioFormatOptions)**<br>config for input audio 
 text_normalization | **[TextNormalizationOptions](#TextNormalizationOptions)**<br>text normalization options 
+language_restriction | **[LanguageRestrictionOptions](#LanguageRestrictionOptions)**<br>possible languages in audio 
+audio_processing_type | enum **AudioProcessingType**<br>how to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME <ul><ul/>
 
 
 ### AudioFormatOptions {#AudioFormatOptions}
@@ -78,6 +80,14 @@ Field | Description
 text_normalization | enum **TextNormalization**<br>Normalization <ul><li>`TEXT_NORMALIZATION_ENABLED`: Enable normalization</li><li>`TEXT_NORMALIZATION_DISABLED`: Disable normalization</li><ul/>
 profanity_filter | **bool**<br>Filter profanity (default: false) 
 literature_text | **bool**<br>Rewrite text in literature style (default: false) 
+
+
+### LanguageRestrictionOptions {#LanguageRestrictionOptions}
+
+Field | Description
+--- | ---
+restriction_type | enum **LanguageRestrictionType**<br> <ul><ul/>
+language_code[] | **string**<br> 
 
 
 ### EouClassifierOptions {#EouClassifierOptions}

@@ -1115,7 +1115,7 @@ components:
           type: boolean
           format: boolean
     UserAccount:
-      description: Currently represents only [Yandex.Passport account](/docs/iam/concepts/#passport).
+      description: Currently represents only [Yandex account](/docs/iam/concepts/#passport).
       type: object
       allOf:
       - type: object
@@ -1136,14 +1136,14 @@ components:
     YandexPassportUserAccount:
       description: |-
         A YandexPassportUserAccount resource.
-        For more information, see [Yandex.Passport account](/docs/iam/concepts/#passport).
+        For more information, see [Yandex account](/docs/iam/concepts/#passport).
       type: object
       properties:
         login:
-          description: Login of the Yandex.Passport user account.
+          description: Login of the Yandex user account.
           type: string
         defaultEmail:
-          description: Default email of the Yandex.Passport user account.
+          description: Default email of the Yandex user account.
           type: string
     BindingType_in_CreateFederationRequest_ssoBinding:
       description: |-

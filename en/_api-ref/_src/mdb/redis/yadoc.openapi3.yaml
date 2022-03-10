@@ -823,6 +823,41 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
+  /managed-redis/v1/clusters/{clusterId}/hosts:batchUpdate:
+    post:
+      tags:
+      - Cluster
+      summary: Updates the specified hosts.
+      operationId: ClusterUpdateHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Redis cluster to update hosts in.
+          To get the Redis cluster ID, use a [list](/docs/managed-redis/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterHostsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateHosts
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterHostsMetadata'
+      x-y-operation-response: Empty
   /managed-redis/v1/clusters/{clusterId}/shards/{shardName}:
     get:
       tags:
@@ -1503,7 +1538,7 @@ components:
             Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed.
             1-63 characters long.
 
-            The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host.
+            The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
           type: string
         clusterId:
           description: ID of the Redis cluster. The ID is assigned by MDB at creation
@@ -1528,6 +1563,17 @@ components:
             $ref: '#/components/schemas/Service'
         shardName:
           type: string
+        replicaPriority:
+          description: |-
+            A replica with a low priority number is considered better for promotion.
+            A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
+            Works only for non-sharded clusters. Default value is 100.
+          type: integer
+          format: int64
+        assignPublicIp:
+          description: Flag showing public IP assignment status to this host.
+          type: boolean
+          format: boolean
     HostHealth:
       description: |2-
          - HEALTH_UNKNOWN: Health of the host is unknown.
@@ -1574,6 +1620,22 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        replicaPriority:
+          description: |-
+            A replica with a low priority number is considered better for promotion.
+            A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
+            Works only for non-sharded clusters. Default value is 100.
+          type: integer
+          format: int64
+        assignPublicIp:
+          description: |-
+            Whether the host should get a public IP address on creation.
+
+            Possible values:
+            * false - don't assign a public IP to the host.
+            * true - the host should have a public IP address.
+          type: boolean
+          format: boolean
     ListBackupsResponse:
       type: object
       properties:
@@ -1892,6 +1954,34 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAt]{0,12} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitNormal'
+    RedisConfig5_0ClientOutputBufferLimit:
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
     RedisConfig5_0MaxmemoryPolicy:
       description: |2-
          - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
@@ -1961,6 +2051,34 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitNormal'
+    RedisConfig6_0ClientOutputBufferLimit:
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
     RedisConfig6_0MaxmemoryPolicy:
       description: |2-
          - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
@@ -2030,6 +2148,34 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitNormal'
+    RedisConfig6_2ClientOutputBufferLimit:
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
     RedisConfig6_2MaxmemoryPolicy:
       description: |2-
          - VOLATILE_LRU: Try to remove less recently used (LRU) keys with `expire set`.
@@ -2355,6 +2501,29 @@ components:
           description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
+    UpdateClusterHostsMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the Redis cluster to update hosts in.
+          type: string
+        hostNames:
+          description: Names of hosts that are being updated.
+          type: array
+          items:
+            type: string
+    UpdateClusterHostsRequest:
+      type: object
+      properties:
+        updateHostSpecs:
+          description: |-
+            Required.
+            New configurations to apply to hosts.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateHostSpec'
     UpdateClusterMetadata:
       type: object
       properties:
@@ -2410,6 +2579,28 @@ components:
           format: boolean
         persistenceMode:
           $ref: '#/components/schemas/ClusterPersistenceMode_in_UpdateClusterRequest_persistenceMode'
+    UpdateHostSpec:
+      type: object
+      properties:
+        hostName:
+          description: |-
+            Required.
+            Name of the host to update.
+            To get the Redis host name, use a [listHosts](/docs/managed-redis/api-ref/Cluster/listHosts) request.
+          type: string
+        replicaPriority:
+          description: |-
+            A replica with a low priority number is considered better for promotion.
+            A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
+            Works only for non-sharded clusters. Default value is 100.
+          type: integer
+          format: int64
+        assignPublicIp:
+          description: Whether the host should get a public IP address on update.
+          type: boolean
+          format: boolean
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateHostSpec_updateMask'
     WeeklyMaintenanceWindow:
       description: Weelky maintenance window settings.
       type: object
@@ -2700,6 +2891,56 @@ components:
       - ALLKEYS_RANDOM
       - VOLATILE_TTL
       - NOEVICTION
+    RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitPubsub:
+      description: Redis connection output buffers limits for pubsub operations.
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+    RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitNormal:
+      description: Redis connection output buffers limits for clients.
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
     RedisConfig6_0MaxmemoryPolicy_in_RedisConfig6_0_maxmemoryPolicy:
       description: |-
         Redis key eviction policy for a dataset that reaches maximum memory,
@@ -2728,6 +2969,56 @@ components:
       - ALLKEYS_RANDOM
       - VOLATILE_TTL
       - NOEVICTION
+    RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitPubsub:
+      description: Redis connection output buffers limits for pubsub operations.
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+    RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitNormal:
+      description: Redis connection output buffers limits for clients.
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
     RedisConfig6_2MaxmemoryPolicy_in_RedisConfig6_2_maxmemoryPolicy:
       description: |-
         Redis key eviction policy for a dataset that reaches maximum memory,
@@ -2756,6 +3047,56 @@ components:
       - ALLKEYS_RANDOM
       - VOLATILE_TTL
       - NOEVICTION
+    RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitPubsub:
+      description: Redis connection output buffers limits for pubsub operations.
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+    RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitNormal:
+      description: Redis connection output buffers limits for clients.
+      type: object
+      properties:
+        hardLimit:
+          description: |-
+            Total limit in bytes.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softLimit:
+          description: |-
+            Limit in bytes during certain time period.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
+        softSeconds:
+          description: |-
+            Seconds for soft limit.
+
+            The minimum value is 0.
+          type: integer
+          format: int64
     RedisConfig5_0_in_RedisConfigSet5_0_effectiveConfig:
       description: |-
         Effective settings for a Redis 5.0 cluster (a combination of settings
@@ -2806,6 +3147,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAt]{0,12} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitNormal'
     RedisConfig5_0_in_RedisConfigSet5_0_userConfig:
       description: |-
         User-defined settings for a Redis 5.0 cluster.
@@ -2855,6 +3200,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAt]{0,12} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitNormal'
     RedisConfig5_0_in_RedisConfigSet5_0_defaultConfig:
       description: |-
         Default configuration for a Redis 5.0 cluster.
@@ -2904,6 +3253,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAt]{0,12} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig5_0ClientOutputBufferLimit_in_RedisConfig5_0_clientOutputBufferLimitNormal'
     RedisConfig6_0_in_RedisConfigSet6_0_effectiveConfig:
       description: |-
         Effective settings for a Redis 6.0 cluster (a combination of settings
@@ -2954,6 +3307,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitNormal'
     RedisConfig6_0_in_RedisConfigSet6_0_userConfig:
       description: |-
         User-defined settings for a Redis 6.0 cluster.
@@ -3003,6 +3360,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitNormal'
     RedisConfig6_0_in_RedisConfigSet6_0_defaultConfig:
       description: |-
         Default configuration for a Redis 6.0 cluster.
@@ -3052,6 +3413,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig6_0ClientOutputBufferLimit_in_RedisConfig6_0_clientOutputBufferLimitNormal'
     RedisConfig6_2_in_RedisConfigSet6_2_effectiveConfig:
       description: |-
         Effective settings for a Redis 6.2 cluster (a combination of settings
@@ -3102,6 +3467,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitNormal'
     RedisConfig6_2_in_RedisConfigSet6_2_userConfig:
       description: |-
         User-defined settings for a Redis 6.2 cluster.
@@ -3151,6 +3520,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitNormal'
     RedisConfig6_2_in_RedisConfigSet6_2_defaultConfig:
       description: |-
         Default configuration for a Redis 6.2 cluster.
@@ -3200,6 +3573,10 @@ components:
 
             Value must match the regular expression `` [KEg$lshzxeAtm]{0,13} ``.
           type: string
+        clientOutputBufferLimitPubsub:
+          $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitPubsub'
+        clientOutputBufferLimitNormal:
+          $ref: '#/components/schemas/RedisConfig6_2ClientOutputBufferLimit_in_RedisConfig6_2_clientOutputBufferLimitNormal'
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
       description: |-
         Required.
@@ -3369,6 +3746,19 @@ components:
       - "ON"
       - "OFF"
       default: "ON"
+    FieldMask_in_UpdateHostSpec_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Redis host should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       description: Day of the week (in `DDD` format).
       type: string

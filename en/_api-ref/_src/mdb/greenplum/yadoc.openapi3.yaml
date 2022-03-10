@@ -546,8 +546,8 @@ components:
           type: boolean
           format: boolean
         webSql:
-          description: Allows SQL queries to the cluster databases from the Yandex.Cloud
-            management console.
+          description: Allows SQL queries to the cluster databases from the Yandex
+            Cloud management console.
           type: boolean
           format: boolean
     AnytimeMaintenanceWindow:
@@ -561,7 +561,7 @@ components:
         id:
           description: |-
             ID of the Greenplum® cluster.
-            This ID is assigned by Yandex.Cloud at the time of cluster creation.
+            This ID is assigned by Yandex Cloud at the time of cluster creation.
           type: string
         folderId:
           description: ID of the folder that the Greenplum® cluster belongs to.
@@ -1042,16 +1042,16 @@ components:
         name:
           description: |-
             Required.
-            Name of the Greenplum® host. The host name is assigned by Yandex.Cloud at creation time and cannot be changed.
+            Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed.
             1-63 characters long.
 
-            The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host.
+            The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
 
             The maximum string length in characters is 63.
           type: string
         clusterId:
-          description: ID of the Greenplum® cluster. The ID is assigned by Yandex.Cloud
-            at creation time.
+          description: ID of the Greenplum® cluster. The ID is assigned by Yandex
+            Cloud at creation time.
           type: string
         zoneId:
           description: ID of the availability zone the Greenplum® host belongs to.
@@ -1913,8 +1913,8 @@ components:
           type: boolean
           format: boolean
         webSql:
-          description: Allows SQL queries to the cluster databases from the Yandex.Cloud
-            management console.
+          description: Allows SQL queries to the cluster databases from the Yandex
+            Cloud management console.
           type: boolean
           format: boolean
     GreenplumConfig6_17_in_GreenplumConfigSet6_17_effectiveConfig:

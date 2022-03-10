@@ -46,7 +46,17 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore
       "databases": "integer",
       "slowlogLogSlowerThan": "integer",
       "slowlogMaxLen": "integer",
-      "notifyKeyspaceEvents": "string"
+      "notifyKeyspaceEvents": "string",
+      "clientOutputBufferLimitPubsub": {
+        "hardLimit": "integer",
+        "softLimit": "integer",
+        "softSeconds": "integer"
+      },
+      "clientOutputBufferLimitNormal": {
+        "hardLimit": "integer",
+        "softLimit": "integer",
+        "softSeconds": "integer"
+      }
     },
     "redisConfig_6_0": {
       "maxmemoryPolicy": "string",
@@ -55,7 +65,17 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore
       "databases": "integer",
       "slowlogLogSlowerThan": "integer",
       "slowlogMaxLen": "integer",
-      "notifyKeyspaceEvents": "string"
+      "notifyKeyspaceEvents": "string",
+      "clientOutputBufferLimitPubsub": {
+        "hardLimit": "integer",
+        "softLimit": "integer",
+        "softSeconds": "integer"
+      },
+      "clientOutputBufferLimitNormal": {
+        "hardLimit": "integer",
+        "softLimit": "integer",
+        "softSeconds": "integer"
+      }
     },
     "redisConfig_6_2": {
       "maxmemoryPolicy": "string",
@@ -64,7 +84,17 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore
       "databases": "integer",
       "slowlogLogSlowerThan": "integer",
       "slowlogMaxLen": "integer",
-      "notifyKeyspaceEvents": "string"
+      "notifyKeyspaceEvents": "string",
+      "clientOutputBufferLimitPubsub": {
+        "hardLimit": "integer",
+        "softLimit": "integer",
+        "softSeconds": "integer"
+      },
+      "clientOutputBufferLimitNormal": {
+        "hardLimit": "integer",
+        "softLimit": "integer",
+        "softSeconds": "integer"
+      }
     },
     // end of the list of possible fields`configSpec`
 
@@ -73,7 +103,9 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters:restore
     {
       "zoneId": "string",
       "subnetId": "string",
-      "shardName": "string"
+      "shardName": "string",
+      "replicaPriority": "integer",
+      "assignPublicIp": true
     }
   ],
   "networkId": "string",
@@ -115,6 +147,14 @@ configSpec.<br>redisConfig_5_0.<br>databases | **integer** (int64)<br><p>Number 
 configSpec.<br>redisConfig_5_0.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_5_0.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_5_0.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAt.</p> <p>Value must match the regular expression ``[KEg$lshzxeAt]{0,12}``.</p> 
+configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
+configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
+configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_5_0.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_0 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 configSpec.<br>redisConfig_6_0.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 configSpec.<br>redisConfig_6_0.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
@@ -123,6 +163,14 @@ configSpec.<br>redisConfig_6_0.<br>databases | **integer** (int64)<br><p>Number 
 configSpec.<br>redisConfig_6_0.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_0.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_0.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAtm.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
+configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
+configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
+configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_0.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_2 | **object** <br>`configSpec` includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`<br><br><p>Fields and structure of ``RedisConfig`` reflects Redis configuration file parameters.</p> 
 configSpec.<br>redisConfig_6_2.<br>maxmemoryPolicy | **string**<br><p>Redis key eviction policy for a dataset that reaches maximum memory, available to the host. Redis maxmemory setting depends on Managed Service for Redis <a href="/docs/managed-redis/concepts/instance-types">host class</a>.</p> <p>All policies are described in detail in <a href="https://redis.io/topics/lru-cache">Redis documentation</a>.</p> <ul> <li>VOLATILE_LRU: Try to remove less recently used (LRU) keys with ``expire set``.</li> <li>ALLKEYS_LRU: Remove less recently used (LRU) keys.</li> <li>VOLATILE_LFU: Try to remove least frequently used (LFU) keys with ``expire set``.</li> <li>ALLKEYS_LFU: Remove least frequently used (LFU) keys.</li> <li>VOLATILE_RANDOM: Try to remove keys with ``expire set`` randomly.</li> <li>ALLKEYS_RANDOM: Remove keys randomly.</li> <li>VOLATILE_TTL: Try to remove less recently used (LRU) keys with ``expire set`` and shorter TTL first.</li> <li>NOEVICTION: Return errors when memory limit was reached and commands could require more memory to be used.</li> </ul> 
 configSpec.<br>redisConfig_6_2.<br>timeout | **integer** (int64)<br><p>Time that Redis keeps the connection open while the client is idle. If no new command is sent during that time, the connection is closed.</p> 
@@ -131,10 +179,20 @@ configSpec.<br>redisConfig_6_2.<br>databases | **integer** (int64)<br><p>Number 
 configSpec.<br>redisConfig_6_2.<br>slowlogLogSlowerThan | **integer** (int64)<br><p>Threshold for logging slow requests to server in microseconds (log only slower than it).</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_2.<br>slowlogMaxLen | **integer** (int64)<br><p>Max slow requests number to log.</p> <p>The minimum value is 0.</p> 
 configSpec.<br>redisConfig_6_2.<br>notifyKeyspaceEvents | **string**<br><p>String setting for pub\sub functionality; subset of KEg$lshzxeAtm.</p> <p>Value must match the regular expression ``[KEg$lshzxeAtm]{0,13}``.</p> 
+configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitPubsub | **object**<br><p>Redis connection output buffers limits for pubsub operations.</p> 
+configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitPubsub.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitPubsub.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitPubsub.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal | **object**<br><p>Redis connection output buffers limits for clients.</p> 
+configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>hardLimit | **integer** (int64)<br><p>Total limit in bytes.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>softLimit | **integer** (int64)<br><p>Limit in bytes during certain time period.</p> <p>The minimum value is 0.</p> 
+configSpec.<br>redisConfig_6_2.<br>clientOutputBufferLimitNormal.<br>softSeconds | **integer** (int64)<br><p>Seconds for soft limit.</p> <p>The minimum value is 0.</p> 
 hostSpecs[] | **object**<br><p>Required. Configurations for Redis hosts that should be created for the cluster that is being created from the backup.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-redis/api-ref/Cluster#representation">Cluster.networkId</a>.</p> 
 hostSpecs[].<br>shardName | **string**<br><p>ID of the Redis shard the host belongs to. To get the shard ID use a <a href="/docs/managed-redis/api-ref/Cluster/listShards">listShards</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+hostSpecs[].<br>replicaPriority | **integer** (int64)<br><p>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100.</p> 
+hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>Possible values:</p> <ul> <li>false - don't assign a public IP to the host.</li> <li>true - the host should have a public IP address.</li> </ul> 
 networkId | **string**<br><p>Required. ID of the network to create the Redis cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 folderId | **string**<br><p>ID of the folder to create the Redis cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 

@@ -426,7 +426,7 @@ transfers[].<br>source.<br>labels | **object**<br>
 transfers[].<br>source.<br>settings | **object**<br>
 transfers[].<br>source.<br>settings.<br>mysqlSource | **object** <br>`transfers[].source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 transfers[].<br>source.<br>settings.<br>mysqlSource.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-transfers[].<br>source.<br>settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed MySQL cluster ID</p> 
+transfers[].<br>source.<br>settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for MySQL cluster ID</p> 
 transfers[].<br>source.<br>settings.<br>mysqlSource.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise MySQL <br>`transfers[].source.settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 transfers[].<br>source.<br>settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 transfers[].<br>source.<br>settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Default: 3306.</p> 
@@ -449,7 +449,7 @@ transfers[].<br>source.<br>settings.<br>mysqlSource.<br>objectTransferSettings.<
 transfers[].<br>source.<br>settings.<br>mysqlSource.<br>objectTransferSettings.<br>trigger | **string**<br><p>Triggers</p> <p>CREATE TRIGGER ...</p> 
 transfers[].<br>source.<br>settings.<br>postgresSource | **object** <br>`transfers[].source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 transfers[].<br>source.<br>settings.<br>postgresSource.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-transfers[].<br>source.<br>settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed PostgreSQL cluster ID</p> 
+transfers[].<br>source.<br>settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for PostgreSQL cluster ID</p> 
 transfers[].<br>source.<br>settings.<br>postgresSource.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise PostgreSQL <br>`transfers[].source.settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 transfers[].<br>source.<br>settings.<br>postgresSource.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 transfers[].<br>source.<br>settings.<br>postgresSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Will be used if the cluster ID is not specified. Default: 6432.</p> 
@@ -486,7 +486,7 @@ transfers[].<br>source.<br>settings.<br>postgresSource.<br>objectTransferSetting
 transfers[].<br>source.<br>settings.<br>postgresSource.<br>objectTransferSettings.<br>cast | **string**<br><p>Casts</p> <p>CREATE CAST ...</p> 
 transfers[].<br>source.<br>settings.<br>mysqlTarget | **object** <br>`transfers[].source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed MySQL cluster ID</p> 
+transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for MySQL cluster ID</p> 
 transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise MySQL <br>`transfers[].source.settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Default: 3306.</p> 
@@ -507,7 +507,7 @@ transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>cleanupPolicy | **string
 transfers[].<br>source.<br>settings.<br>mysqlTarget.<br>serviceDatabase | **string**<br><p>Database schema for service table</p> <p>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
 transfers[].<br>source.<br>settings.<br>postgresTarget | **object** <br>`transfers[].source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 transfers[].<br>source.<br>settings.<br>postgresTarget.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-transfers[].<br>source.<br>settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed PostgreSQL cluster ID</p> 
+transfers[].<br>source.<br>settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].source.settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for PostgreSQL cluster ID</p> 
 transfers[].<br>source.<br>settings.<br>postgresTarget.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise PostgreSQL <br>`transfers[].source.settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 transfers[].<br>source.<br>settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 transfers[].<br>source.<br>settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Will be used if the cluster ID is not specified. Default: 6432.</p> 
@@ -531,7 +531,7 @@ transfers[].<br>target.<br>labels | **object**<br>
 transfers[].<br>target.<br>settings | **object**<br>
 transfers[].<br>target.<br>settings.<br>mysqlSource | **object** <br>`transfers[].target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 transfers[].<br>target.<br>settings.<br>mysqlSource.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-transfers[].<br>target.<br>settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed MySQL cluster ID</p> 
+transfers[].<br>target.<br>settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for MySQL cluster ID</p> 
 transfers[].<br>target.<br>settings.<br>mysqlSource.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise MySQL <br>`transfers[].target.settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 transfers[].<br>target.<br>settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 transfers[].<br>target.<br>settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Default: 3306.</p> 
@@ -554,7 +554,7 @@ transfers[].<br>target.<br>settings.<br>mysqlSource.<br>objectTransferSettings.<
 transfers[].<br>target.<br>settings.<br>mysqlSource.<br>objectTransferSettings.<br>trigger | **string**<br><p>Triggers</p> <p>CREATE TRIGGER ...</p> 
 transfers[].<br>target.<br>settings.<br>postgresSource | **object** <br>`transfers[].target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 transfers[].<br>target.<br>settings.<br>postgresSource.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-transfers[].<br>target.<br>settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed PostgreSQL cluster ID</p> 
+transfers[].<br>target.<br>settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for PostgreSQL cluster ID</p> 
 transfers[].<br>target.<br>settings.<br>postgresSource.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise PostgreSQL <br>`transfers[].target.settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 transfers[].<br>target.<br>settings.<br>postgresSource.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 transfers[].<br>target.<br>settings.<br>postgresSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Will be used if the cluster ID is not specified. Default: 6432.</p> 
@@ -591,7 +591,7 @@ transfers[].<br>target.<br>settings.<br>postgresSource.<br>objectTransferSetting
 transfers[].<br>target.<br>settings.<br>postgresSource.<br>objectTransferSettings.<br>cast | **string**<br><p>Casts</p> <p>CREATE CAST ...</p> 
 transfers[].<br>target.<br>settings.<br>mysqlTarget | **object** <br>`transfers[].target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed MySQL cluster ID</p> 
+transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for MySQL cluster ID</p> 
 transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise MySQL <br>`transfers[].target.settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Default: 3306.</p> 
@@ -612,7 +612,7 @@ transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>cleanupPolicy | **string
 transfers[].<br>target.<br>settings.<br>mysqlTarget.<br>serviceDatabase | **string**<br><p>Database schema for service table</p> <p>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
 transfers[].<br>target.<br>settings.<br>postgresTarget | **object** <br>`transfers[].target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 transfers[].<br>target.<br>settings.<br>postgresTarget.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-transfers[].<br>target.<br>settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed PostgreSQL cluster ID</p> 
+transfers[].<br>target.<br>settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`transfers[].target.settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for PostgreSQL cluster ID</p> 
 transfers[].<br>target.<br>settings.<br>postgresTarget.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise PostgreSQL <br>`transfers[].target.settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 transfers[].<br>target.<br>settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 transfers[].<br>target.<br>settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Will be used if the cluster ID is not specified. Default: 6432.</p> 

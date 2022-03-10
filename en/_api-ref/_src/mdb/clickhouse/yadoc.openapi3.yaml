@@ -2295,16 +2295,16 @@ components:
           format: boolean
         webSql:
           description: |-
-            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+            Allow SQL queries to the cluster databases from the Yandex Cloud management console.
 
             See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
           description: |-
-            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+            Allow to import data from Yandex Metrica and AppMetrica to the cluster.
 
-            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
+            See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
@@ -3804,7 +3804,7 @@ components:
             Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed.
             1-63 characters long.
 
-            The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host.
+            The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
           type: string
         clusterId:
           description: ID of the ClickHouse host. The ID is assigned by MDB at creation
@@ -6905,16 +6905,16 @@ components:
           format: boolean
         webSql:
           description: |-
-            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+            Allow SQL queries to the cluster databases from the Yandex Cloud management console.
 
             See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
           description: |-
-            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+            Allow to import data from Yandex Metrica and AppMetrica to the cluster.
 
-            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
+            See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
@@ -7045,16 +7045,16 @@ components:
           format: boolean
         webSql:
           description: |-
-            Allow SQL queries to the cluster databases from the Yandex.Cloud management console.
+            Allow SQL queries to the cluster databases from the Yandex Cloud management console.
 
             See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
           format: boolean
         metrika:
           description: |-
-            Allow to import data from Yandex.Metrica and AppMetrica to the cluster.
+            Allow to import data from Yandex Metrica and AppMetrica to the cluster.
 
-            See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
+            See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:

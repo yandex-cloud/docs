@@ -123,8 +123,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -257,8 +257,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -366,8 +366,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -617,8 +617,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -722,8 +722,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -847,8 +847,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -1037,8 +1037,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -1187,8 +1187,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -1340,8 +1340,8 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -1512,8 +1512,8 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -1662,8 +1662,8 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -1769,8 +1769,8 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -1885,8 +1885,8 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -2038,8 +2038,8 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -2252,7 +2252,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. 
+name | **string**<br>Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the ClickHouse host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the ClickHouse host resides. 
 type | enum **Type**<br>Type of the host. <ul><li>`CLICKHOUSE`: ClickHouse host.</li><li>`ZOOKEEPER`: ZooKeeper host.</li><ul/>
@@ -3055,8 +3055,8 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hos
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 
@@ -3206,8 +3206,8 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hos
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex.Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
 yandex_query | **bool**<br>Allow access for YandexQuery 

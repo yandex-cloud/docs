@@ -71,7 +71,7 @@ object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferS
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed MySQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for MySQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
@@ -138,7 +138,7 @@ object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTra
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed PostgreSQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for PostgreSQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 
@@ -218,7 +218,7 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed MySQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for MySQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql1)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
@@ -272,7 +272,7 @@ cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed PostgreSQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for PostgreSQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres1)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 
@@ -375,7 +375,7 @@ object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferS
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed MySQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for MySQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql2)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
@@ -442,7 +442,7 @@ object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTra
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed PostgreSQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for PostgreSQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres2)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 
@@ -522,7 +522,7 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed MySQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for MySQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql3)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
@@ -576,7 +576,7 @@ cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed PostgreSQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for PostgreSQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres3)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 
@@ -661,7 +661,7 @@ object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferS
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed MySQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for MySQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql4)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
@@ -728,7 +728,7 @@ object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTra
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed PostgreSQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for PostgreSQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres4)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 
@@ -808,7 +808,7 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed MySQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for MySQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql5)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
@@ -862,7 +862,7 @@ cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed PostgreSQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for PostgreSQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres5)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 
@@ -964,7 +964,7 @@ object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferS
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed MySQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for MySQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql6)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
@@ -1031,7 +1031,7 @@ object_transfer_settings | **[PostgresObjectTransferSettings](#PostgresObjectTra
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed PostgreSQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for PostgreSQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres6)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 
@@ -1111,7 +1111,7 @@ service_database | **string**<br>Database schema for service table <br>Default: 
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed MySQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for MySQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremiseMysql](#OnPremiseMysql7)**<br>On-premise <br>Connection options for on-premise MySQL 
 
 
@@ -1165,7 +1165,7 @@ cleanup_policy | enum **CleanupPolicy**<br>Cleanup policy <br>Cleanup policy for
 Field | Description
 --- | ---
 connection | **oneof:** `mdb_cluster_id` or `on_premise`<br>
-&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex.Cloud Managed PostgreSQL cluster ID 
+&nbsp;&nbsp;mdb_cluster_id | **string**<br>Managed cluster <br>Yandex Managed Service for PostgreSQL cluster ID 
 &nbsp;&nbsp;on_premise | **[OnPremisePostgres](#OnPremisePostgres7)**<br>On-premise <br>Connection options for on-premise PostgreSQL 
 
 

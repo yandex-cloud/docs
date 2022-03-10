@@ -40,7 +40,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-subject_claims | **yandex.cloud.oauth.SubjectClaims**<br>OpenID standard claims with additional Yandex.Organization claims. 
+subject_claims | **yandex.cloud.oauth.SubjectClaims**<br>OpenID standard claims with additional Yandex Cloud Organization claims. 
 
 
 ## DeleteMembership {#DeleteMembership}

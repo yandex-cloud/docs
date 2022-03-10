@@ -1018,7 +1018,7 @@ components:
         properties:
           yandexPassportOauthToken:
             description: |-
-              OAuth token for a Yandex.Passport account.
+              OAuth token for a Yandex account.
               For more information, see [OAuth token](/docs/iam/concepts/authorization/oauth-token).
             type: string
           jwt:
@@ -1516,7 +1516,7 @@ components:
             Type of the subject.
 
             It can contain one of the following values:
-            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
             * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
             * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
             * `system`: System group. This type represents several accounts with a common system identifier.
@@ -1615,7 +1615,7 @@ components:
           additionalProperties:
             type: string
     UserAccount:
-      description: Currently represents only [Yandex.Passport account](/docs/iam/concepts/#passport).
+      description: Currently represents only [Yandex account](/docs/iam/concepts/#passport).
       type: object
       allOf:
       - type: object
@@ -1636,14 +1636,14 @@ components:
     YandexPassportUserAccount:
       description: |-
         A YandexPassportUserAccount resource.
-        For more information, see [Yandex.Passport account](/docs/iam/concepts/#passport).
+        For more information, see [Yandex account](/docs/iam/concepts/#passport).
       type: object
       properties:
         login:
-          description: Login of the Yandex.Passport user account.
+          description: Login of the Yandex user account.
           type: string
         defaultEmail:
-          description: Default email of the Yandex.Passport user account.
+          description: Default email of the Yandex user account.
           type: string
     Subject_in_AccessBinding_subject:
       description: |-
@@ -1673,7 +1673,7 @@ components:
             Type of the subject.
 
             It can contain one of the following values:
-            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
             * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
             * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
             * `system`: System group. This type represents several accounts with a common system identifier.
@@ -1840,6 +1840,6 @@ tags:
   description: A set of methods for managing ServiceAccount resources.
 - name: UserAccount
   description: A set of methods for managing user accounts. Currently applicable only
-    for [Yandex.Passport accounts](/docs/iam/concepts/#passport).
+    for [Yandex accounts](/docs/iam/concepts/#passport).
 - name: YandexPassportUserAccount
   description: A set of methods for managing YandexPassportUserAccount resources.

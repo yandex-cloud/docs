@@ -494,7 +494,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed MySQL cluster ID
+              Yandex Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -717,7 +717,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed PostgreSQL cluster ID
+              Yandex Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
@@ -1051,7 +1051,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed MySQL cluster ID
+              Yandex Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -1101,7 +1101,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed MySQL cluster ID
+              Yandex Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -1339,7 +1339,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed PostgreSQL cluster ID
+              Yandex Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
@@ -1415,7 +1415,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed PostgreSQL cluster ID
+              Yandex Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'

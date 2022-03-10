@@ -286,7 +286,7 @@ components:
         grantType:
           $ref: '#/components/schemas/ACLGrantGrantType_in_ACLGrant_grantType'
         granteeId:
-          description: ID of the Yandex.Cloud user who is a grantee. Required when
+          description: ID of the Yandex Cloud user who is a grantee. Required when
             the `grantType` is `GRANT_TYPE_ACCOUNT`.
           type: string
     ACLGrantGrantType:
@@ -298,8 +298,8 @@ components:
 
         Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
         method of Amazon S3-compatible HTTP API).
-         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated Yandex.Cloud users, both from your clouds and other users' clouds. Access
-        permission to this group allows any Yandex.Cloud account to access the resource via a signed (authenticated)
+         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated Yandex Cloud users, both from your clouds and other users' clouds. Access
+        permission to this group allows any Yandex Cloud account to access the resource via a signed (authenticated)
         request.
 
         Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
@@ -379,7 +379,7 @@ components:
           description: |-
             Name of the bucket.
 
-            The name is unique within Yandex.Cloud. For naming limitations and rules, see
+            The name is unique within Yandex Cloud. For naming limitations and rules, see
             [documentation](/docs/storage/concepts/bucket#naming).
           type: string
         folderId:
@@ -637,7 +637,7 @@ components:
             Required.
             Name of the bucket.
 
-            The name must be unique within Yandex.Cloud. For naming limitations and rules, see
+            The name must be unique within Yandex Cloud. For naming limitations and rules, see
             [documentation](/docs/storage/concepts/bucket#naming).
           type: string
         folderId:
@@ -1280,8 +1280,8 @@ components:
 
         Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
         method of Amazon S3-compatible HTTP API).
-         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated Yandex.Cloud users, both from your clouds and other users' clouds. Access
-        permission to this group allows any Yandex.Cloud account to access the resource via a signed (authenticated)
+         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: Grantees are all authenticated Yandex Cloud users, both from your clouds and other users' clouds. Access
+        permission to this group allows any Yandex Cloud account to access the resource via a signed (authenticated)
         request.
 
         Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
