@@ -176,9 +176,9 @@ Create a [function](../functions/concepts/function.md) for each servlet:
 
   Use the [create](../functions/functions/api-ref/Function/create) and [createVersion](../functions/functions/api-ref/Function/createVersion) API methods.
 
-- Yandex.Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-  You can create a function and its version using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/ru-ru/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+  You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/ru-ru/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -313,9 +313,9 @@ Create a [function](../functions/concepts/function.md) for each servlet:
           log_group_id: ckg2hdmevnvcngprqvqb
           ```
 
-    - Yandex.Cloud Toolkit
+    - {{ yandex-cloud }} Toolkit
 
-      You can create an API gateway using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/ru-ru/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+      You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/ru-ru/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
     {% endlist %}
 

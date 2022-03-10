@@ -2,7 +2,7 @@ If you don't spend the full amount of the [initial grant](../billing/concepts/bo
 
 - The grant **expires before** you upgrade to the paid version.
 
-  The remaining amount expires and you can't use it to pay for Yandex.Cloud services after upgrading to the paid version.
+  The remaining amount expires and you can't use it to pay for {{ yandex-cloud }} services after upgrading to the paid version.
 
 - The grant **expires after** you upgrade to the paid version.
 

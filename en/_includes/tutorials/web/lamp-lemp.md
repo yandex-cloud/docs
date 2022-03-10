@@ -2,7 +2,7 @@
 
 [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle)) ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), [PHP](https://www.php.net/)) and its variant LEMP (which uses [Nginx](https://www.nginx.com/) instead of Apache as its web server) are popular component bundles for web apps and dynamic website deployment.
 
-In this tutorial, you'll learn how to deploy LAMP in the Yandex.Cloud infrastructure: as a result, you'll launch a VM running your site's web server.
+In this tutorial, you'll learn how to deploy LAMP in the {{ yandex-cloud }} infrastructure: as a result, you'll launch a VM running your site's web server.
 
 To set up a LAMP or LEMP-based website:
 
@@ -16,11 +16,11 @@ If you no longer need the website, [delete all its resources](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -59,7 +59,7 @@ The cost for maintaining a LAMP server includes:
 
 1. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
 
-1. In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
+1. In the **Public address** field, leave the **Auto** value to assign a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
 1. Specify data required for accessing the VM:
 

@@ -191,7 +191,7 @@ Each result in the `chunks[]` list contains the following fields:
 
 To use the service, create an app that will send audio fragments and process responses with recognition results.
 
-To enable the app to send requests and get results, you need to generate the client interface code for the programming language you use. Generate this code from the files [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) and [operation_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) in [the Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository.
+To enable the app to send requests and get results, you need to generate the client interface code for the programming language you use. Generate this code from the files [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) and [operation_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation_service.proto) in [the {{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository.
 
 See the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
 

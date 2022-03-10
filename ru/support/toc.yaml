@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Порядок оказания технической поддержки
     href: overview.md
-  - name: Оповещения от Yandex.Cloud
+  - name: Оповещения от Yandex Cloud
     href: notify.md
   - name: Запросы данных
     href: request.md

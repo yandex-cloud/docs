@@ -4,7 +4,7 @@ The payment method can only be changed for the billing account of the **Business
 
 {% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
-Your request will be reviewed within three business days. As soon as the decision is made, a Yandex.Cloud manager will contact you.
+Your request will be reviewed within three business days. As soon as the decision is made, a {{ yandex-cloud }} manager will contact you.
 
 {% note info %}
 

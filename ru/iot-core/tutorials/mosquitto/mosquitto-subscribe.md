@@ -39,75 +39,75 @@
     - Подпишите реестр на топик одного устройства:
 
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID устройства>/events' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID устройства>/events' \
+          -q 1
         ```
 		
     - Подпишите реестр на перманентный топик устройства:
 
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID устройства>/state' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID устройства>/state' \
+          -q 1
         ```
 
     - Подпишите реестр на топики нескольких устройств:
 
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID первого устройства>/events' \
-        -t '$devices/<ID второго устройства>/events' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID первого устройства>/events' \
+          -t '$devices/<ID второго устройства>/events' \
+          -q 1
         ```
 		
     - Подпишите реестр на перманентные топики нескольких устройств:
 
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID первого устройства>/state' \
-        -t '$devices/<ID второго устройства>/state' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID первого устройства>/state' \
+          -t '$devices/<ID второго устройства>/state' \
+          -q 1
         ```
 
     - Подпишите реестр на топики всех устройств:
 
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$registries/<ID реестра>/events' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$registries/<ID реестра>/events' \
+          -q 1
         ```
 
     - Подпишите реестр на перманентные топики всех устройств:
 
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$registries/<ID реестра>/state' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$registries/<ID реестра>/state' \
+          -q 1
         ```
 
         Реестр будет получать данные только от тех устройств, которые отправляют сообщения в топик `$registries/<ID реестра>/events` или '$registries/<ID реестра>/state'.
@@ -136,49 +136,49 @@
     - Подпишите устройство на топики — команды для конкретного устройства:
     
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$devices/<ID устройства>/commands' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$devices/<ID устройства>/commands' \
+          -q 1
         ```
 
     - Подпишите устройство на перманентные топики — команды для конкретного устройства:
     
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$devices/<ID устройства>/config' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$devices/<ID устройства>/config' \
+          -q 1
         ```
 
 	- Подпишите устройство на топики — команды для всех устройств:
         
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$registries/<ID реестра>/commands' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$registries/<ID реестра>/commands' \
+          -q 1
         ```
 
 	- Подпишите устройство на перманентные топики — команды для всех устройств:
         
         ```
-        $ mosquitto_sub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$registries/<ID реестра>/config' \
-        -q 1
+        mosquitto_sub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$registries/<ID реестра>/config' \
+          -q 1
         ```
 		
         Команды будут получать только устройства, подписанные на топик `$registries/<ID реестра>/commands` или '$registries/<ID реестра>/config'.

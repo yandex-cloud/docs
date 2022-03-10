@@ -1,4 +1,4 @@
-# Emergency recovery to Yandex.Cloud using Hystax Acura
+# Emergency recovery to {{ yandex-cloud }} using Hystax Acura
 
 You can protect your infrastructure using Hystax Acura. Hystax Disaster Recovery ensures your resources are backed up regardless of where they're located. They can be hosted in private data centers on virtual machines or physical servers, or they can be on virtual machines from a cloud service provider.
 
@@ -14,7 +14,7 @@ Supported platforms:
 * OpenStack.
 * Physical servers.
 
-To perform disaster recovery, create an auxiliary VM with Hystax Acura in your cloud. This VM will set up and run your disaster recovery scenario. The recovery process is run by the auxiliary VM with Hystax Acura Cloud Agent. It restores your resources to Yandex.Cloud. Once you start the process, replicas are created for deploying the infrastructure. Hystax Acura Cloud Agent also backs up the disaster recovery VM.
+To perform disaster recovery, create an auxiliary VM with Hystax Acura in your cloud. This VM will set up and run your disaster recovery scenario. The recovery process is run by the auxiliary VM with Hystax Acura Cloud Agent. It restores your resources to {{ yandex-cloud }}. Once you start the process, replicas are created for deploying the infrastructure. Hystax Acura Cloud Agent also backs up the disaster recovery VM.
 
 To run a disaster recovery scenario:
 
@@ -30,11 +30,11 @@ To run a disaster recovery scenario:
 
 ## Before you start {#before-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.ru/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.ru/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -97,7 +97,7 @@ Create a VM with a boot disk from an `acura` image:
 
 1. Click **Next**.
 
-1. Set up your Yandex.Cloud connection parameters:
+1. Set up your {{ yandex-cloud }} connection parameters:
    - **Service Account id**: The ID of your service account.
    - **Key id**: The ID of the authorized key of your service account.
    - **Private Key**: The private part of the authorized key of your service account.
@@ -128,7 +128,7 @@ Specify a platform for disaster recovery:
 
 ## Prepare and install the agents for disaster recovery {#prepare-agent}
 
-Agents are installed on virtual machines to be recovered to Yandex.Cloud. To download and install an agent:
+Agents are installed on virtual machines to be recovered to {{ yandex-cloud }}. To download and install an agent:
 
 1. In the Hystax Acura Control Panel, click the **Download agents** tab.
 

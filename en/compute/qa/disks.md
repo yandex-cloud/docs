@@ -6,7 +6,7 @@ For disk limitations, see [{#T}](../concepts/limits.md).
 
 #### Can I resize a disk? {#disk-resize}
 
-Yes, you can change the disk size via the Yandex.Cloud API.
+Yes, you can change the disk size via the {{ yandex-cloud }} API.
 
 #### What happens to my data when a VM is deleted? {#delete-vm}
 

@@ -10,15 +10,15 @@
 
 - [Группы безопасности](../../../vpc/concepts/security-groups.md).
 
-  Встроенный механизм групп безопасности позволяет управлять доступом виртуальных машин к ресурсам и группам безопасности Yandex.Cloud или ресурсам в интернете. Группа безопасности — это набор правил для входящего и исходящего трафика, который можно назначить на сетевой интерфейс виртуальной машины. Группы безопасности работают как stateful firewall, то есть отслеживают состояние сессий: если правило разрешает создать сессию, ответный трафик будет автоматически разрешен. Инструкцию по настройке групп безопасности см. в разделе [{#T}](../../../vpc/operations/security-group-create.md). Указать группу безопасности можно в настройках ВМ.
+  Встроенный механизм групп безопасности позволяет управлять доступом виртуальных машин к ресурсам и группам безопасности {{ yandex-cloud }} или ресурсам в интернете. Группа безопасности — это набор правил для входящего и исходящего трафика, который можно назначить на сетевой интерфейс виртуальной машины. Группы безопасности работают как stateful firewall, то есть отслеживают состояние сессий: если правило разрешает создать сессию, ответный трафик будет автоматически разрешен. Инструкцию по настройке групп безопасности см. в разделе [{#T}](../../../vpc/operations/security-group-create.md). Указать группу безопасности можно в настройках ВМ.
 
   ![](../../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 
-- Отдельная виртуальная машина — межсетевой экран на основе образа NGFW из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=network).
+- Отдельная виртуальная машина — межсетевой экран на основе образа NGFW из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace?categories=network).
 
-  ![](../../../_assets/overview/solution-library-icon.svg)[Решение: установка в Yandex.Cloud ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Решение: установка в {{ yandex-cloud }} ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 
-- Схема Router-on-a-Stick на основе [Cloud Interconnect](../../../interconnect/index.yaml): вы можете подключить собственный файрвол к инфраструктуре Yandex.Cloud по выделенному каналу и маршрутизировать трафик в облачные сети через этот файрвол.
+- Схема Router-on-a-Stick на основе [Cloud Interconnect](../../../interconnect/index.yaml): вы можете подключить собственный файрвол к инфраструктуре {{ yandex-cloud }} по выделенному каналу и маршрутизировать трафик в облачные сети через этот файрвол.
 
 Для доставки трафика в приложение, находящееся в облачной инфраструктуре, рекомендуется использовать сетевой балансировщик нагрузки, например [Yandex Application Load Balancer](../../../application-load-balancer/index.yaml), который пропускает трафик только по заданным портам. Сетевой балансировщик нагрузки рекомендуется использовать совместно с группами безопасности для ограничения списка IP-адресов, имеющих доступ к приложению.
 
@@ -32,17 +32,17 @@
 
 Чтобы обеспечить удаленное подключение администраторов к облачным ресурсам, используйте одно из следующих решений:
 
-- Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе образа из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=network).
+- Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе образа из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace?categories=network).
 
   Варианты настройки:
 
   - [Создание туннеля IPSec VPN с использованием демона strongSwan](../../../tutorials/routing/ipsec-vpn.md)
-  - ![](../../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с Yandex.Cloud с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
+  - ![](../../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
-- Client VPN между удаленными устройствами и Yandex.Cloud. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе образа из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=network). См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../../tutorials/routing/openvpn.md).
-- Приватное выделенное соединение между удаленной площадкой и Yandex.Cloud c помощью услуги [Cloud Interconnect](../../../interconnect/index.yaml).
+- Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе образа из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace?categories=network). См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../../tutorials/routing/openvpn.md).
+- Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} c помощью услуги [Cloud Interconnect](../../../interconnect/index.yaml).
 {#gost-vpn}
-- ГОСТ VPN. Если требуется организовать защищенный канал с аппаратных сертифицированных СКЗИ, обратитесь к своему менеджеру. Услуга ГОСТ VPN включает установку аппаратного криптошлюза на стороне Yandex.Cloud и, при необходимости, на стороне клиента, а также настройку и дальнейшую поддержку защищенного канала. Криптошлюзы предоставляются в аренду. Услуга оказывается совместно с партнером Yandex.Cloud.
+- ГОСТ VPN. Если требуется организовать защищенный канал с аппаратных сертифицированных СКЗИ, обратитесь к своему менеджеру. Услуга ГОСТ VPN включает установку аппаратного криптошлюза на стороне {{ yandex-cloud }} и, при необходимости, на стороне клиента, а также настройку и дальнейшую поддержку защищенного канала. Криптошлюзы предоставляются в аренду. Услуга оказывается совместно с партнером {{ yandex-cloud }}.
 
 Для доступа в инфраструктуру по управляющим протоколам (например, SSH, RDP) рекомендуется создать бастионную виртуальную машину. Для этого можно использовать бесплатное решение [Teleport](https://goteleport.com/). Доступ к бастионной виртуальной машине или VPN-шлюзу из интернета должен быть ограничен.
 
@@ -55,8 +55,8 @@
 Возможные варианты организации исходящего доступа в интернет:
 
 - [Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Адрес назначается ВМ по принципу one-to-one NAT. 
-- [Egress NAT](../../../vpc/operations/enable-nat.md). Включает доступ в интернет для подсети через общий пул публичных адресов Yandex.Cloud. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры. 
-- [NAT-инстанс](../../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace/products/f2etqeet87jshce7o7j8).
+- [Egress NAT](../../../vpc/operations/enable-nat.md). Включает доступ в интернет для подсети через общий пул публичных адресов {{ yandex-cloud }}. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры. 
+- [NAT-инстанс](../../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace/products/f2etqeet87jshce7o7j8).
 
 Сравнение способов доступа в интернет:
 

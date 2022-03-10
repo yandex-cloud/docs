@@ -1,6 +1,6 @@
 # Grant
 
-A grant is a discount given to a business or individual to use with any of the Yandex.Cloud services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed.
+A grant is a discount given to a business or individual to use with any of the {{ yandex-cloud }} services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed.
 
 {% include [currency](../_includes/currency.md) %}
 
@@ -16,7 +16,7 @@ Only one initial grant can be given to an individual or business.
 
 ## Additional grants {#additional}
 
-Additional grants can be provided by the decision of a Yandex.Cloud manager or upon your request to the support service. You can view the amount of additional grants and their validity period in the management console.
+Additional grants can be provided by the decision of a {{ yandex-cloud }} manager or upon your request to the support service. You can view the amount of additional grants and their validity period in the management console.
 
 ## How to use grants {#how-to-use}
 

@@ -1,27 +1,27 @@
-title: Yandex.Cloud overview
+title: Yandex Cloud overview
 description:
   - >-
-    Yandex.Cloud is a service suite that lets you quickly and securely get as
+    Yandex Cloud is a service suite that lets you quickly and securely get as
     much computing power as you need on a pay-as-you-go model. Computing power
     is accessed over the internet. This approach to computing resource usage is
     called <i>cloud computing</i>.
   - >-
     Cloud computing can replace or supplement traditional data centers and local
-    servers on the consumer's premises. Yandex.Cloud assumes all responsibility
+    servers on the consumer's premises. Yandex Cloud assumes all responsibility
     for maintaining the health and performance of cloud platform hardware and
     software.
   - >-
-    Yandex.Cloud offers different categories of cloud resources, such as virtual
+    Yandex Cloud offers different categories of cloud resources, such as virtual
     machines, block storage, and databases. You can manage resources in each
     category using the appropriate service.
   - >-
-    The Yandex.Cloud infrastructure <a
+    The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
     complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
 meta:
-  title: Yandex.Cloud overview
+  title: Yandex Cloud overview
 links:
-  - title: Yandex.Cloud services
+  - title: Yandex Cloud services
     description: ''
     href: concepts/services
   - title: Mobile app

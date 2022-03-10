@@ -41,7 +41,7 @@ cluster_id | **string**<br>Required. ID of the Greenplum® Cluster resource to r
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex.Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -84,7 +84,7 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex.Cloud management console. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
 
 
 ### Monitoring {#Monitoring}
@@ -257,7 +257,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex.Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -300,7 +300,7 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex.Cloud management console. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
 
 
 ### Monitoring {#Monitoring1}
@@ -497,7 +497,7 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex.Cloud management console. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
 
 
 ### MasterSubclusterConfigSpec {#MasterSubclusterConfigSpec}
@@ -625,7 +625,7 @@ cluster_id | **string**<br>ID of the Greenplum® cluster that is being created.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex.Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -668,7 +668,7 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex.Cloud management console. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
 
 
 ### Monitoring {#Monitoring2}
@@ -857,7 +857,7 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex.Cloud management console. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
 
 
 ### MasterSubclusterConfigSpec {#MasterSubclusterConfigSpec1}
@@ -940,7 +940,7 @@ cluster_id | **string**<br>ID of the Greenplum® Cluster resource that is being 
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex.Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -983,7 +983,7 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex.Cloud management console. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
 
 
 ### Monitoring {#Monitoring3}
@@ -1212,7 +1212,7 @@ cluster_id | **string**<br>ID of the Greenplum® cluster being started.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex.Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -1255,7 +1255,7 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex.Cloud management console. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
 
 
 ### Monitoring {#Monitoring4}
@@ -1444,7 +1444,7 @@ cluster_id | **string**<br>ID of the Greenplum® cluster being stopped.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex.Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -1487,7 +1487,7 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex.Cloud management console. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
 
 
 ### Monitoring {#Monitoring5}
@@ -1698,8 +1698,8 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by Yandex.Cloud at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. The maximum string length in characters is 63.
-cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by Yandex.Cloud at creation time. 
+name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. The maximum string length in characters is 63.
+cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by Yandex Cloud at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
 type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li><ul/>
 resources | **[Resources](#Resources16)**<br>Resources allocated to the Greenplum® host. 
@@ -1744,8 +1744,8 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by Yandex.Cloud at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex.Cloud, as it defines the FQDN of the host. The maximum string length in characters is 63.
-cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by Yandex.Cloud at creation time. 
+name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. The maximum string length in characters is 63.
+cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by Yandex Cloud at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
 type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li><ul/>
 resources | **[Resources](#Resources17)**<br>Resources allocated to the Greenplum® host. 

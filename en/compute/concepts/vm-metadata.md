@@ -63,7 +63,7 @@ The metadata, including the user-defined metadata, is available in unencrypted f
 
 ## Keys processed in public images {#keys-processed-in-public-images}
 
-The list of keys that are processed in Yandex.Cloud's public images depends on the operating system.
+The list of keys that are processed in {{ yandex-cloud }}'s public images depends on the operating system.
 
 {% list tabs %}
 

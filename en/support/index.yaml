@@ -1,12 +1,12 @@
-title: Yandex.Cloud Technical Support
-description: "Technical support for Yandex.Cloud is provided in accordance with the <a href=\"https://yandex.ru/legal/cloud_technicalregulations\">\rMaintenance Regulations</a> in English and Russian."
+title: Yandex Cloud Technical Support
+description: "Technical support for Yandex Cloud is provided in accordance with the <a href=\"https://yandex.ru/legal/cloud_technicalregulations\">\rMaintenance Regulations</a> in English and Russian."
 meta:
-  title: Yandex.Cloud technical support
+  title: Yandex Cloud technical support
 links:
   - title: Requesting technical support
     description: How to contact technical support
     href: overview
-  - title: Notifications from Yandex.Cloud support
+  - title: Notifications from Yandex Cloud support
     description: What events technical support notifies you about and how
     href: notify
   - title: Data requests

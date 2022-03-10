@@ -2,9 +2,9 @@
 
 [Hive](https://hive.apache.org/) is a tool for accessing data storage in the Hadoop ecosystem. It lets you work with data in different formats and DBMS using an SQL-like query language. It's mainly used for working with data in HDFS, HBase, S3-compatible storage, and relational databases.
 
-You can run Hive jobs from the [Yandex.Cloud CLI](#run-hive-job-cli) and directly on the server using the [Hive CLI](#run-job-hive-shell).
+You can run Hive jobs from the [{{ yandex-cloud }} CLI](#run-hive-job-cli) and directly on the server using the [Hive CLI](#run-job-hive-shell).
 
-## Running jobs using the Yandex.Cloud CLI {#run-hive-job-cli}
+## Running jobs using the {{ yandex-cloud }} CLI {#run-hive-job-cli}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 

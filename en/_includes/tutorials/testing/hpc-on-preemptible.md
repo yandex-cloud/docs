@@ -57,7 +57,7 @@ To create a VM:
 
 1. Under **Network settings**:
    - Select the **Network** and **Subnet** to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
-   - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
+   - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
 1. Under **Access**, specify the information required to access the VM:
    - In the **Login** field, enter a username to be created on the VM.

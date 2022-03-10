@@ -23,7 +23,7 @@
    Чтобы добавить пароль уже созданному реестру:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить пароль уже созданному реестру.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке нужный реестр.
    1. В блоке **Пароли** нажмите кнопку **Добавить пароль**.
    1. В поле **Пароль** введите пароль, который вы будете использовать для доступа к реестру.<br/>Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).<br/>Не забудьте сохранить пароль, он вам понадобится.
@@ -37,7 +37,11 @@
     1. Получите список реестров в каталоге: 
     
         ```
-        $ yc iot registry list
+        yc iot registry list
+		```
+		
+		Результат:
+		```
         +----------------------+-------------------+
         |          ID          |       NAME        |
         +----------------------+-------------------+
@@ -47,8 +51,12 @@
     1. Добавьте пароль реестру:
     
         ```
-        $ yc iot registry password add --registry-name my-registry --password Passw0rdForRegistry
-        registry_id: arenou2oj4ct42eq8g3n
+        yc iot registry password add --registry-name my-registry --password Passw0rdForRegistry
+        ```
+		
+		Результат:
+		```
+		registry_id: arenou2oj4ct42eq8g3n
         id: areuu2hgsv6klgbd4e6d
         created_at: "2019-12-16T15:32:46.655139Z"
         ```
@@ -72,8 +80,12 @@
     Создайте реестр с паролем:       
     
     ```
-    $ yc iot registry create --name registry-with-pass --password Passw0rdForDevice
-    done (1s)
+    yc iot registry create --name registry-with-pass --password Passw0rdForDevice
+    ```
+	
+	Результат:
+	```
+	done (1s)
     id: areg96c8loruvvudj54t
     folder_id: b1g88tflru0ek1omtfd3
     created_at: "2019-12-16T15:34:25.563Z"
@@ -93,7 +105,7 @@
    Чтобы просмотреть список паролей реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите получить список паролей реестра.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке нужный реестр.
    1. На странице **Обзор** перейдите к разделу **Пароли**.
 
@@ -107,7 +119,11 @@
     1. Получите список реестров в каталоге: 
     
         ```
-        $ yc iot registry list
+        yc iot registry list
+		```
+		
+		Результат:
+		```
         +----------------------+--------------------+
         |          ID          |        NAME        |
         +----------------------+--------------------+
@@ -118,8 +134,12 @@
     1. Получите список паролей реестра: 
     
         ```
-        $ yc iot registry password list --registry-name registry-with-pass
-        +----------------------+---------------------+
+        yc iot registry password list --registry-name registry-with-pass
+        ```
+		
+		Результат:
+		```
+		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
         +----------------------+---------------------+
         | are0gffs957egmoksgf4 | 2019-12-16 15:34:25 |
@@ -137,9 +157,9 @@
    Чтобы удалить пароль реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить пароль реестра.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке нужный реестр.
-   1. Справа от удаляемого пароля нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Удалить**.
+   1. В строке с нужным паролем нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Удалить**.
    1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
@@ -152,8 +172,12 @@
     1. Получите список паролей реестра: 
     
         ```
-        $ yc iot registry password list --registry-name registry-with-pass
-        +----------------------+---------------------+
+        yc iot registry password list --registry-name registry-with-pass
+        ```
+		
+		Результат:
+		```
+		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
         +----------------------+---------------------+
         | are0gffs957egmoksgf4 | 2019-12-16 15:34:25 |
@@ -162,13 +186,17 @@
     1. Удалите пароль: 
     
         ```
-        $ yc iot registry password delete --registry-name registry-with-pass --password-id are0gffs957egmoksgf4
+        yc iot registry password delete --registry-name registry-with-pass --password-id are0gffs957egmoksgf4
         ```
     1. Убедитесь, что пароль действительно удален: 
         
         ```
-        $ yc iot registry password list --registry-name registry-with-pass
-        +----+------------+
+        yc iot registry password list --registry-name registry-with-pass
+        ```
+		
+		Результат:
+		```
+		+----+------------+
         | ID | CREATED AT |
         +----+------------+
         +----+------------+

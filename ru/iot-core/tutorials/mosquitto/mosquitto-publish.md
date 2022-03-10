@@ -38,27 +38,27 @@
     - Отправьте данные в топик устройства:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$devices/<ID устройства>/events' \
-        -m 'Test data' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$devices/<ID устройства>/events' \
+          -m 'Test data' \
+          -q 1
         ```
 
     - Отправьте данные в перманентный топик устройства:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$devices/<ID устройства>/state' \
-        -m 'Test data' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$devices/<ID устройства>/state' \
+          -m 'Test data' \
+          -q 1
         ```
 		
         Реестр, подписанный на данный топик, будет знать, какое именно устройство отправило данные, так как в топике присутствует уникальный идентификатор устройства.
@@ -66,27 +66,27 @@
 	- Отправьте данные в топик реестра:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$registries/<ID реестра>/events' \
-        -m 'Test data' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$registries/<ID реестра>/events' \
+          -m 'Test data' \
+          -q 1
         ```
 
     - Отправьте данные в перманентный топик реестра:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$registries/<ID реестра>/state' \
-        -m 'Test data' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$registries/<ID реестра>/state' \
+          -m 'Test data' \
+          -q 1
         ```
 		
         Реестр, подписанный на данный топик, не будет знать, какое именно устройство отправило данные, так как в топике отсутствует уникальный идентификатор устройства.
@@ -116,81 +116,81 @@
     - Отправьте команду одному устройству:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID устройства>/commands' \
-        -m 'Test command for first device' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID устройства>/commands' \
+          -m 'Test command for first device' \
+          -q 1
         ```
 		
     - Отправьте команду одному устройству, используя перманентный топик:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID устройства>/config' \
-        -m 'Test command for first device via permanent topic' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID устройства>/config' \
+          -m 'Test command for first device via permanent topic' \
+          -q 1
         ```
 		
     - Отправьте команду двум устройствам:
         
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile cert.pem \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID первого устройства>/commands' \
-        -t '$devices/<ID второго устройства>/commands' \
-        -m 'Test command for first and second device' \
-        -q 1 # Уровень качества обслуживания QoS 1.
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile cert.pem \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID первого устройства>/commands' \
+          -t '$devices/<ID второго устройства>/commands' \
+          -m 'Test command for first and second device' \
+         -q 1 # Уровень качества обслуживания QoS 1.
         ```
 		
     - Отправьте команду двум устройствам, используя перманентный топик:
         
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile cert.pem \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID первого устройства>/config' \
-        -t '$devices/<ID второго устройства>/config' \
-        -m 'Test command for first and second devices via permanent topic' \
-        -q 1 # Уровень качества обслуживания QoS 1.
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile cert.pem \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID первого устройства>/config' \
+          -t '$devices/<ID второго устройства>/config' \
+          -m 'Test command for first and second devices via permanent topic' \
+          -q 1 # Уровень качества обслуживания QoS 1.
         ```
 		
     - Отправьте команду всем устройствам, добавленным в реестр:
             
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile cert.pem \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$registries/<ID реестра>/commands' \
-        -m 'Test command for all devices' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile cert.pem \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$registries/<ID реестра>/commands' \
+          -m 'Test command for all devices' \
+          -q 1
         ```
 		
     - Отправьте команду всем устройствам, добавленным в реестр, используя перманентный топик:
             
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile cert.pem \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$registries/<ID реестра>/config' \
-        -m 'Test command for all devices via permanent topic' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile cert.pem \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$registries/<ID реестра>/config' \
+          -m 'Test command for all devices via permanent topic' \
+          -q 1
         ```
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
 title: Questions and answers (QA) – Virtual machines
-description: Answers to frequently asked questions about virtual machines in Yandex.Cloud infrastructure. Technical characteristics, operations with virtual machines. What virtual machine configuration (memory, processor) you can use.
+description: Answers to frequently asked questions about virtual machines in Yandex Cloud infrastructure. Technical characteristics, operations with virtual machines. What virtual machine configuration (memory, processor) you can use.
 keywords:
   - vm
   - virtual machines

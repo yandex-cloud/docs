@@ -32,7 +32,7 @@ Make sure the billing account is active:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder on the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder on the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 

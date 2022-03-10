@@ -7,13 +7,13 @@ description:
     href="https://cloud.yandex.com/docs/vpc/concepts/network#network">networks</a>
     and <a
     href="https://cloud.yandex.com/docs/vpc/concepts/network#subnet">subnets</a>
-    in Yandex.Cloud availability zones, assign private and public <a
+    in Yandex Cloud availability zones, assign private and public <a
     href="https://cloud.yandex.com/docs/vpc/concepts/address">IP addresses</a>
     to cloud resources, and provides dedicated <a
     href="https://cloud.yandex.com/docs/vpc/ddos-protection/">DDoS
     protection</a>.
   - >-
-    The Yandex.Cloud infrastructure <a
+    The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">
     fully complies</a> with the Russian Federal Law on Personal Data (No.
     152-FZ).

@@ -1,6 +1,6 @@
 # Joomla-based website with PostgreSQL
 
-In these instructions, you'll learn how to deploy a website in Joomla CMS on a database running PostgreSQL in the Yandex.Cloud infrastructure.
+In these instructions, you'll learn how to deploy a website in Joomla CMS on a database running PostgreSQL in the {{ yandex-cloud }} infrastructure.
 
 To set up a static website on Joomla:
 1. [Create a VM for Joomla](#create-vm).
@@ -16,11 +16,11 @@ If you no longer need the website, [delete all its resources](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -32,7 +32,7 @@ The cost of hosting a website in Joomla includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * A fee for the PostgreSQL database cluster (see [pricing for {{ mpg-full-name }}](../../../managed-postgresql/pricing.md)).
-* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
 
 ## Create a VM for Joomla {#create-vm}
 

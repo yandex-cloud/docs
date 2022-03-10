@@ -6,7 +6,7 @@ sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/user_account_service.md
 
 # UserAccountService
 
-A set of methods for managing user accounts. Currently applicable only for [Yandex.Passport accounts](/docs/iam/concepts/#passport).
+A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/#passport).
 
 | Call | Description |
 | --- | --- |
@@ -41,8 +41,8 @@ user_account | **oneof:** `yandex_passport_user_account` or `saml_user_account`<
 
 Field | Description
 --- | ---
-login | **string**<br>Login of the Yandex.Passport user account. 
-default_email | **string**<br>Default email of the Yandex.Passport user account. 
+login | **string**<br>Login of the Yandex user account. 
+default_email | **string**<br>Default email of the Yandex user account. 
 
 
 ### SamlUserAccount {#SamlUserAccount}

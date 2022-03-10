@@ -519,7 +519,7 @@ filter | A filter expression that selects clusters listed in the response.  The 
 Field | Description
 --- | ---
 clusters[] | **object**<br><p>An object that represents MySQL cluster.</p> <p>See <a href="/docs/managed-mysql/concepts">the documentation</a> for details.</p> 
-clusters[].<br>id | **string**<br><p>ID of the cluster.</p> <p>This ID is assigned by Yandex.Cloud at the time of creation.</p> 
+clusters[].<br>id | **string**<br><p>ID of the cluster.</p> <p>This ID is assigned by Yandex Cloud at the time of creation.</p> 
 clusters[].<br>folderId | **string**<br><p>ID of the folder that the cluster belongs to.</p> 
 clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp of the cluster.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 clusters[].<br>name | **string**<br><p>Name of the cluster.</p> 
@@ -543,7 +543,7 @@ clusters[].<br>config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br
 clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 clusters[].<br>config.<br>access | **object**<br>Access policy for external services.<br>
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows access from DataLens.</p> <p>See <a href="/docs/managed-mysql/operations/datalens-connect">the documentation</a> for details.</p> 
-clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from Yandex.Cloud management console.</p> <p>See <a href="/docs/managed-mysql/operations/web-sql-query">the documentation</a> for details.</p> 
+clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from Yandex Cloud management console.</p> <p>See <a href="/docs/managed-mysql/operations/web-sql-query">the documentation</a> for details.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7 | **object**<br>Configuration of a MySQL 5.7 server. <br>`clusters[].config` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br><br>
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig | **object**<br><p>Effective settings for a MySQL 5.7 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 

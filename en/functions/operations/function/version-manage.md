@@ -108,9 +108,9 @@ When creating a version, set the following parameters:
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
-- Yandex.Cloud Toolkit
+- Yandex Cloud Toolkit
 
-    You can create a function version using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can create a function version using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -178,9 +178,9 @@ When you add environment variables, a new version of the function is created. Yo
 
     You can add environment variables using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
-- Yandex.Cloud Toolkit
+- Yandex Cloud Toolkit
 
-    You can add environment labels using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can add environment labels using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -229,9 +229,9 @@ To access the function version, use its unique ID. For information about how to 
 
     You can add a tag using the [setTag](../../functions/api-ref/Function/setTag.md) API method.
 
-- Yandex.Cloud Toolkit
+- Yandex Cloud Toolkit
 
-    You can add a tag using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can add a tag using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -273,9 +273,9 @@ To access the function version, use its unique ID. For information about how to 
 
     You can remove a tag using the [removeTag](../../functions/api-ref/Function/removeTag.md) API method.
 
-- Yandex.Cloud Toolkit
+- Yandex Cloud Toolkit
 
-    You can remove a tag using [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can remove a tag using [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

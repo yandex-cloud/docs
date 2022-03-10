@@ -94,7 +94,7 @@
 
 ## Создайте ВМ с Hystax Acura {#create-acura-vm}
 
-Создайте ВМ с загрузочным диском из образа `Hystax Acura Disaster Recovery to Yandex.Cloud`.
+Создайте ВМ с загрузочным диском из образа `Hystax Acura Disaster Recovery to Yandex Cloud`.
 
 ### Запустите ВМ
 
@@ -114,7 +114,7 @@
 
       * Перейдите на вкладку **{{ marketplace-name }}**.
       * Нажмите кнопку **Посмотреть больше**.
-      * В списке публичных образов выберите **Hystax Acura Disaster Recovery to Yandex.Cloud** и нажмите кнопку **Использовать**.
+      * В списке публичных образов выберите **Hystax Acura Disaster Recovery to {{ yandex-cloud }}** и нажмите кнопку **Использовать**.
 
    1. В блоке **Диски** укажите размер диска 80 ГБ.
 

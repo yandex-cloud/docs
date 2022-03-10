@@ -15,15 +15,15 @@ If you no longer need the created image, [delete it](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying your applications, sign up for Yandex.Cloud and create a billing account:
+Before deploying your applications, sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
-* Install the Yandex.Cloud [command line interface](../../../cli/quickstart.md#install).
+* Install the {{ yandex-cloud }} [command line interface](../../../cli/quickstart.md#install).
 * [Create](../../../vpc/quickstart.md) a cloud network with one subnet in your folder.
 * [Get](../../../iam/concepts/authorization/oauth-token.md) an OAuth token.
 
@@ -35,7 +35,7 @@ You pay for storing created images (see [pricing for {{ compute-full-name }}](..
 
 {% note info %}
 
-Yandex.Cloud requires Packer 1.5 and higher.
+{{ yandex-cloud }} requires Packer 1.5 and higher.
 
 {% endnote %}
 

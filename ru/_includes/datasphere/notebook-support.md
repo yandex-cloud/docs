@@ -7,4 +7,4 @@
 1. Нажмите кнопку **Report a bug**.
    На ваш почтовый ящик придет письмо с номером обращения.
 
-Следить за состоянием запроса можно через мобильное приложение Yandex.Cloud для [iOS](https://apps.apple.com/ru/app/yandex-cloud/id1515465314) или [Android](https://play.google.com/store/apps/details?id=ru.yandex.cloud), а также в разделе [Поддержка]({{ link-console-support }}) в консоли управления.
+Следить за состоянием запроса можно через мобильное приложение {{ yandex-cloud }} для [iOS](https://apps.apple.com/ru/app/yandex-cloud/id1515465314) или [Android](https://play.google.com/store/apps/details?id=ru.yandex.cloud), а также в разделе [Поддержка]({{ link-console-support }}) в консоли управления.

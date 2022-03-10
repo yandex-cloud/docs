@@ -15,11 +15,11 @@ To set up your online store on OpenCart:
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, sign in to Yandex.Cloud and create a billing account:
+Before deploying the server, sign in to {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [Yandex.Cloud home page](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in Yandex.Cloud](../../../resource-manager/concepts/resources-hierarchy.md).
+If you have an active billing account, you can create or select a folder to run your VM in. Go to the [{{ yandex-cloud }} home page](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources
 
@@ -55,7 +55,7 @@ To create a VM:
 
 1. Under **Network settings**:
    - Select the network and subnet to connect the VM to. If you don't have a network or subnet yet, you can create them on the VM creation page: click **Create new network** or **Create new subnet**.
-   - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
+   - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
 1. Under **Access**, specify the information required to access the VM:
    - In the **Login** field, enter your preferred username to be created on the VM, for example, `ubuntu`.

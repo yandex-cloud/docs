@@ -1,4 +1,4 @@
-1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
+1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 
 1. On the folder page, click **Create resource** and select **Bucket**.
 

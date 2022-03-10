@@ -1,6 +1,6 @@
 # yc config
 
-The 'yc config' command group lets you set, view and unset properties used by Yandex.Cloud CLI.
+The 'yc config' command group lets you set, view and unset properties used by Yandex Cloud CLI.
 
 #### Command Usage
 

@@ -2,10 +2,10 @@ title: Yandex Managed Service for SQL Server™
 description:
   - >-
     Managed Service for SQL Server помогает разворачивать и поддерживать
-    кластеры серверов SQL Server в инфраструктуре Yandex.Cloud. Сервис
+    кластеры серверов SQL Server в инфраструктуре Yandex Cloud. Сервис
     поддерживает SQL Server версий 2016 SP2, 2017 и 2019.
   - >-
-    Инфраструктура Yandex.Cloud <a
+    Инфраструктура Yandex Cloud <a
     href="https://cloud.yandex.ru/docs/overview/security/conform"> защищена</a>
     в соответствии со следующими стандартами: <ul> <li>Федеральный закон
     Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Генеральный

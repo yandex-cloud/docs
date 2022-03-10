@@ -6,15 +6,15 @@ To create [file storage](../../concepts/filesystem.md):
 
 - Management console
 
-  1. In the management console, select the folder where you want to create a file store.
+  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your file storage.
   1. Select **{{ compute-name }}**.
   1. Go to the **File storages** tab.
   1. Click **Create file storage**.
   1. Name the storage.
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+     {% include [name-format-2](../../../_includes/name-format-2.md) %}
 
-  1. If required, add a storage description.
+  1. (optional) Add a description.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) for your storage. You can only attach it to VMs from the same availability zone.
   1. Select the [storage type](../../concepts/filesystem.md#types).
 
@@ -24,8 +24,8 @@ To create [file storage](../../concepts/filesystem.md):
 
      {% endnote %}
 
-  1. Specify the required storage size.
-  1. Click **Create file storage**.
+  1. Specify the block and storage disk size.
+  1. Click **Create**.
 
 - API
 

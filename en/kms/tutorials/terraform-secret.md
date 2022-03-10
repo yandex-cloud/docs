@@ -1,6 +1,6 @@
 # Encrypting secrets in Hashicorp Terraform
 
-[The Terraform provider for Yandex.Cloud](https://www.terraform.io/docs/providers/yandex/index.html) lets you encrypt secrets with a {{ kms-short-name }} key to use them later in a Terraform configuration.
+[The Terraform provider for {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html) lets you encrypt secrets with a {{ kms-short-name }} key to use them later in a Terraform configuration.
 
 Specify the plaintext and {{ kms-short-name }} key to be used for encryption in the [yandex_kms_secret_ciphertext](https://www.terraform.io/docs/providers/yandex/r/kms_secret_ciphertext.html) block:
 
@@ -27,7 +27,7 @@ Using `yandex_kms_secret_ciphertext` lets you hide secrets when deploying an inf
 
 ## See also {#see-also}
 
-* [Getting started with Terraform in Yandex.Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md).
-* [Yandex.Cloud provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+* [Getting started with Terraform in {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [{{ yandex-cloud }} provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 * [Sensitive Data in State](https://www.terraform.io/docs/state/sensitive-data.html).
 

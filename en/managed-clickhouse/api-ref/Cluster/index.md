@@ -1165,8 +1165,8 @@ config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of 
 config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 config.<br>access | **object**<br><p>Access policy for external services.</p> 
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow to export data from the cluster to Yandex DataLens.</p> 
-config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex.Cloud management console.</p> <p>See <a href="/docs/managed-clickhouse/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
-config.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow to import data from Yandex.Metrica and AppMetrica to the cluster.</p> <p>See <a href="https://appmetrica.yandex.com/docs/cloud/index.html">Export data to Yandex.Cloud</a> for more details.</p> 
+config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex Cloud management console.</p> <p>See <a href="/docs/managed-clickhouse/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
+config.<br>access.<br>metrika | **boolean** (boolean)<br><p>Allow to import data from Yandex Metrica and AppMetrica to the cluster.</p> <p>See <a href="https://appmetrica.yandex.com/docs/cloud/index.html">Export data to Yandex Cloud</a> for more details.</p> 
 config.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access to cluster for Serverless.</p> 
 config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer</p> 
 config.<br>access.<br>yandexQuery | **boolean** (boolean)<br><p>Allow access for YandexQuery</p> 

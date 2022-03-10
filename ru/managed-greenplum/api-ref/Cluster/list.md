@@ -194,7 +194,7 @@ filter | A filter expression that filters resources listed in the response. The 
 Field | Description
 --- | ---
 clusters[] | **object**<br><p>A Greenplum® cluster resource.</p> 
-clusters[].<br>id | **string**<br><p>ID of the Greenplum® cluster. This ID is assigned by Yandex.Cloud at the time of cluster creation.</p> 
+clusters[].<br>id | **string**<br><p>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation.</p> 
 clusters[].<br>folderId | **string**<br><p>ID of the folder that the Greenplum® cluster belongs to.</p> 
 clusters[].<br>createdAt | **string** (date-time)<br><p>Cluster creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 clusters[].<br>name | **string**<br><p>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long.</p> <p>The maximum string length in characters is 63.</p> 
@@ -207,7 +207,7 @@ clusters[].<br>config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br
 clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 clusters[].<br>config.<br>access | **object**<br><p>Access policy for external services.</p> <p>Greenplum® cluster access options.</p> 
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows data export from the cluster to Yandex DataLens.</p> 
-clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from the Yandex.Cloud management console.</p> 
+clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from the Yandex Cloud management console.</p> 
 clusters[].<br>config.<br>zoneId | **string**<br><p>ID of the availability zone the cluster belongs to. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 clusters[].<br>config.<br>subnetId | **string**<br><p>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see <a href="/docs/managed-greenplum/api-ref/Cluster#representation">Cluster.networkId</a>).</p> <p>The maximum string length in characters is 50.</p> 
 clusters[].<br>config.<br>assignPublicIp | **boolean** (boolean)<br><p>Whether or not the cluster has a public IP address.</p> <p>After the cluster has been created, this setting cannot be changed.</p> 

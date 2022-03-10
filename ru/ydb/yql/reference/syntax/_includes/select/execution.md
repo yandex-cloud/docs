@@ -15,8 +15,8 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/executi
 * выполняется [WHERE](#where) &mdash; все данные не удовлетворяющие предикату отфильтровываются;
 * выполняется [GROUP BY](../../group_by.md), вычисляются значения агрегатных функций;
 * выполняется фильтрация [HAVING](../../group_by.md#having);
-* ввычисляются значения [оконных функций](../../window.md)
-* вычисляются выражения в `SELECT`
+* вычисляются значения [оконных функций](../../window.md);
+* вычисляются выражения в `SELECT`;
 * выражениям в `SELECT` назначаются имена заданные алиасами;
 * к полученным таким образом колонкам применяется top-level [DISTINCT](#distinct);
 * таким же образом вычисляются все подзапросы в [UNION ALL](#unionall), выполняется их объединение (см. [PRAGMA AnsiOrderByLimitInUnionAll](../../pragma.md#pragmas));

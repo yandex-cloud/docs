@@ -14,7 +14,7 @@ To create a {{ PG }} connection:
 
    {% list tabs %}
 
-    - Select in Yandex.Cloud
+    - Select in {{ yandex-cloud }}
 
       Specify the connection parameters for the {{ PG }} DB available in {{ yandex-cloud }}:
 

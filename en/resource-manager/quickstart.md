@@ -1,6 +1,6 @@
 # Getting started with {{ resmgr-full-name }}
 
-When a user registers with Yandex.Cloud, a _cloud_ is created for the user. The cloud is a separate workspace with this user as the owner.
+When a user registers with {{ yandex-cloud }}, a _cloud_ is created for the user. The cloud is a separate workspace with this user as the owner.
 
 The owner can create folders and resources in this cloud, and manage access rights to them.
 

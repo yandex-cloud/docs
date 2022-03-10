@@ -5,6 +5,7 @@ To get a list of instance groups:
 {% list tabs %}
 
 - Management console
+
   1. Open the folder page in the management console.
   1. Select **{{ compute-full-name }}**.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.

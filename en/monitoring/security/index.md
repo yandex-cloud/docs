@@ -5,7 +5,7 @@ description: "Access management in the monitoring service, which allows you to c
 
 # Access management
 
-Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them.
+{{ yandex-cloud }} users can only perform operations on resources that are permitted under the roles assigned to them.
 If a user doesn't have any roles assigned, almost all operations are forbidden.
 
 To allow access to resources in the {{ monitoring-full-name }} service, assign the required roles to the user from the list below. Roles can currently only be assigned to parent resources (folders or clouds), whose roles are inherited by nested resources.

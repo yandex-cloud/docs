@@ -5,7 +5,7 @@
 Вы можете размещать свои ресурсы в следующих зонах доступности:
 - `ru-central1-a`;
 - `ru-central1-b`;
-- `ru-central1-c`.
+- `ru-central1-c` (с ограничениями — см. [подробности](ru-central1-c-deprecation.md)).
 
 {% note info %}
 

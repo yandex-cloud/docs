@@ -22,5 +22,5 @@ Users with a Yandex or [federated account](../organization/add-federation.md) ne
 
 * [How to assign a folder role](../resource-manager/operations/folder/set-access-bindings.md)
 * [How to assign a cloud role](../resource-manager/operations/cloud/set-access-bindings.md)
-* [Learn more about roles in Yandex.Cloud](../iam/concepts/access-control/roles.md)
+* [Learn more about roles in {{ yandex-cloud }}](../iam/concepts/access-control/roles.md)
 

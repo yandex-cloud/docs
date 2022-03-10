@@ -1,6 +1,6 @@
 # Disk snapshots
 
-_A disk snapshot_ in Yandex.Cloud is a copy of the disk file system at a certain point in time.
+_A disk snapshot_ in {{ yandex-cloud }} is a copy of the disk file system at a certain point in time.
 
 You can use disk snapshots for various purposes, such as:
 
@@ -14,7 +14,7 @@ If you need to create multiple disks with the same content, use [images](image.m
 
 {% endnote %}
 
-## Disk snapshots as a Yandex.Cloud resource {#concept_pdw_xtc_v2b}
+## Disk snapshots as a {{ yandex-cloud }} resource {#concept_pdw_xtc_v2b}
 
 A disk snapshot is a resource like the disk itself. Snapshots are created in a folder. Access rights to a snapshot are inherited from rights to the folder.
 

@@ -39,9 +39,9 @@ items:
         items:
           - name: Какой способ шифрования выбрать?
             href: tutorials/encrypt/index.md
-          - name: Шифрование с помощью CLI и API Yandex.Cloud
+          - name: Шифрование с помощью CLI и API Yandex Cloud
             href: tutorials/encrypt/cli-api.md
-          - name: Шифрование с помощью SDK Yandex.Cloud
+          - name: Шифрование с помощью SDK Yandex Cloud
             href: tutorials/encrypt/sdk.md
           - name: Шифрование с помощью AWS Encryption SDK
             href: tutorials/encrypt/aws-encryption-sdk.md

@@ -1,5 +1,5 @@
 ---
-description: Network Time Protocol Servers (NTP) – allows you to configure synchronization with public NTP time servers on Yandex.Cloud VMs running Windows Server and Linux. The procedure for configuring servers for synchronization is described.
+description: Network Time Protocol Servers (NTP) – allows you to configure synchronization with public NTP time servers on {{ yandex-cloud }} VMs running Windows Server and Linux. The procedure for configuring servers for synchronization is described.
 keywords:
   - ntp
   - ntp server
@@ -10,9 +10,9 @@ keywords:
 
 # Configuring clock synchronization using NTP
 
-You can sync virtual machines in Yandex.Cloud with public time servers via [NTPv4](https://tools.ietf.org/html/rfc5905):
+You can sync virtual machines in {{ yandex-cloud }} with public time servers via [NTPv4](https://tools.ietf.org/html/rfc5905):
 * For VMs running Windows Server, give three preferred servers in the time synchronization settings.
-* On Linux-based VMs, enable a DHCP client with option 42, `Network Time Protocol Servers`. This lets you automatically apply the list of sync servers sent by the DHCP server. In images provided by Yandex.Cloud, operating systems are already configured properly.
+* On Linux-based VMs, enable a DHCP client with option 42, `Network Time Protocol Servers`. This lets you automatically apply the list of sync servers sent by the DHCP server. In images provided by {{ yandex-cloud }}, operating systems are already configured properly.
 
   In the system settings, specify the backup sync servers to use if the DHCP server goes down or is unavailable. To do this, follow the [instructions](#setup).
 
@@ -23,7 +23,7 @@ Recommended sync servers:
 * `ntps1-1.cs.tu-berlin.de`
 * `ntp.ix.ru`
 
-The list of recommended servers may change. Yandex.Cloud notifies you 72 hours before you need to make changes to a VM configuration.
+The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 hours before you need to make changes to a VM configuration.
 
 ## Setup {#setup}
 

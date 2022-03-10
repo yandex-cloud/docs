@@ -41,9 +41,9 @@ items:
             href: operations/folder/notify.md
   - name: Концепции
     items:
-      - name: Иерархия ресурсов Yandex.Cloud
+      - name: Иерархия ресурсов Yandex Cloud
         href: concepts/resources-hierarchy.md
-      - name: Оповещения от Yandex.Cloud
+      - name: Оповещения от Yandex Cloud
         href: concepts/notify.md
       - name: Квоты и лимиты
         href: concepts/limits.md

@@ -1,6 +1,6 @@
 # yc container registry configure-docker
 
-Configure docker to use Yandex.Cloud credential helper.
+Configure docker to use Yandex Cloud credential helper.
 
 #### Command Usage
 

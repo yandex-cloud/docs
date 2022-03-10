@@ -11,7 +11,7 @@ items:
         href: operations/cluster-list.md
       - name: Создание кластера
         href: operations/cluster-create.md
-      - name: Миграция базы данных в Yandex.Cloud
+      - name: Миграция базы данных в Yandex Cloud
         href: operations/data-migration.md
       - name: Подключение к базе данных
         href: operations/connect.md

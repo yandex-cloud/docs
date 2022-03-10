@@ -219,7 +219,7 @@ When the identity provider (IdP) informs {{org-full-name}} that a user has been 
 
 {% note tip %}
 
-To ensure that authentication isn't interrupted when the certificate expires, we recommend adding several certificates to the federation: the current one and the ones that will be used after. If a certificate turns out to be invalid, Yandex.Cloud will attempt to verify the signature with another certificate.
+To ensure that authentication isn't interrupted when the certificate expires, we recommend adding several certificates to the federation: the current one and the ones that will be used after. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
 
 {% endnote %}
 

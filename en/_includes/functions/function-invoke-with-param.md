@@ -73,9 +73,9 @@ To allow any user to invoke your function, [make it public](../../functions/oper
     Hello, Username!
     ```
 
-- Yandex.Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-    You can invoke a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can invoke a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

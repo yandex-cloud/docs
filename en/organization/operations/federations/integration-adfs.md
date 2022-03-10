@@ -257,7 +257,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. Select **Enter data about the relying party manually** and click **Next**.
 
-1. Enter a name, like <q>Yandex.Cloud</q>, and click **Next**.
+1. Enter a name, like <q>{{ yandex-cloud }}</q>, and click **Next**.
 
 1. In the next step, you are asked to specify a certificate for signing tokens. This step is optional, so click **Next**.
 

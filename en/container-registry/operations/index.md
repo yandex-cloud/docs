@@ -1,6 +1,6 @@
 ---
 title: "How to work with Docker images. Step-by-step instructions"
-description: "Step-by-step instructions for working with Docker images in Yandex.Cloud. From the article you will learn how to manage a Docker image, registry, repository and automatic policies. We will tell you in detail about creating, deleting, uploading and downloading Docker images."
+description: "Step-by-step instructions for working with Docker images in {{ yandex-cloud }}. From the article you will learn how to manage a Docker image, registry, repository and automatic policies. We will tell you in detail about creating, deleting, uploading and downloading Docker images."
 ---
 
 # Step-by-step instructions for {{ container-registry-name }}

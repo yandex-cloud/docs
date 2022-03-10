@@ -4,7 +4,7 @@
 
 {{ vpc-short-name }} ({{ vpc-full-name }}) is a way to connect and organize cloud resources using virtual networks.
 
-#### Which network technologies are available to Yandex.Cloud users? {#available-network-techs}
+#### Which network technologies are available to {{ yandex-cloud }} users? {#available-network-techs}
 
 {{ vpc-short-name }} allows you to assign internal and external IP addresses to VMs and create cloud networks and subnets.
 

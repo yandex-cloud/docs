@@ -39,9 +39,9 @@ items:
         items:
           - name: Which encryption method should I choose?
             href: tutorials/encrypt/index.md
-          - name: Encrypting data using the Yandex.Cloud CLI and API
+          - name: Encrypting data using the Yandex Cloud CLI and API
             href: tutorials/encrypt/cli-api.md
-          - name: Encrypting data using the Yandex.Cloud SDK
+          - name: Encrypting data using the Yandex Cloud SDK
             href: tutorials/encrypt/sdk.md
           - name: Encrypting data using the AWS Encryption SDK
             href: tutorials/encrypt/aws-encryption-sdk.md

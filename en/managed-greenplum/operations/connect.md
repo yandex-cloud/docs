@@ -25,7 +25,7 @@ Settings of rules depend on the connection method you select:
   * Source type: `CIDR`.
   * Source: `0.0.0.0/0`.
 
-- With a VM in Yandex.Cloud
+- With a VM in {{ yandex-cloud }}
 
   1. Configure all security groups in the cluster to allow incoming traffic from those security groups that contain the virtual machine, on port {{ port-mgp }}. To do this, [create a rule](../../vpc/operations/security-group-update.md#add-rule) for incoming traffic:
 

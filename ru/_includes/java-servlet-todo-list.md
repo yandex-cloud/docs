@@ -173,9 +173,9 @@
 
   Воспользуйтесь API методами [create](../functions/functions/api-ref/Function/create) и [createVersion](../functions/functions/api-ref/Function/createVersion).
 
-- Yandex.Cloud Toolkit
+- Yandex Cloud Toolkit
 
-  Создать функцию и ее версию можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+  Создать функцию и ее версию можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -308,9 +308,9 @@
           log_group_id: ckg2hdmevnvcngprqvqb
           ```
 
-    - Yandex.Cloud Toolkit
+    - Yandex Cloud Toolkit
 
-      Создать API-шлюз можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+      Создать API-шлюз можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
     {% endlist %}
 

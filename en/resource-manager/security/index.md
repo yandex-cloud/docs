@@ -1,6 +1,6 @@
 ---
 title: Access management in Yandex Resource Manager
-description: "Access management in a service that allows you to structure Yandex.Cloud resources using directories — Yandex Resource Manager. The section describes which resources you can assign a role to, which roles operate in the service, which roles are required for a particular action."
+description: "Access management in a service that allows you to structure {{ yandex-cloud }} resources using directories — Yandex Resource Manager. The section describes which resources you can assign a role to, which roles operate in the service, which roles are required for a particular action."
 ---
 
 # Access management in {{ resmgr-name }}
@@ -55,6 +55,6 @@ The table below lists the roles needed to perform a given action. You can always
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
-* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
+* [Read more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

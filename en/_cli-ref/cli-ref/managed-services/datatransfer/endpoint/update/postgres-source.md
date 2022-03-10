@@ -17,7 +17,7 @@ Syntax:
 |`--host`|<b>`value[,value]`</b><br/> PostgreSQL server host name or IP address|
 |`--port`|<b>`int`</b><br/> PostgreSQL server port|
 |`--ca-certificate`|<b>`string`</b><br/> Path to the CA certificate of the PostgreSQL server. Implies enabled TLS|
-|`--subnet-id`|<b>`string`</b><br/> Yandex.Cloud VPC subnet ID to access the MySQL server through|
+|`--subnet-id`|<b>`string`</b><br/> Yandex Virtual Private Cloud subnet ID to access the MySQL server through|
 |`--database`|<b>`string`</b><br/> Database name|
 |`--user`|<b>`string`</b><br/> User name|
 |`--raw-password`|<b>`string`</b><br/> Raw password value (unsafe, consider --password-file)|

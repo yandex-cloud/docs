@@ -15,11 +15,11 @@ If you no longer need the website, [delete its files from storage](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before using {{ objstorage-full-name }}, sign up for Yandex.Cloud and create a billing account:
+Before using {{ objstorage-full-name }}, sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in Yandex.Cloud](../../../resource-manager/concepts/resources-hierarchy.md).
+If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -27,13 +27,13 @@ The cost of hosting a static website includes:
 
 * A fee for storing static website data (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md#prices-storage)).
 * A fee for data operations (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md#prices-operations)).
-* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md#prices-traffic)).
+* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md#prices-traffic)).
 
 ## Create a public bucket {#create-public-bucket}
 
 To create a bucket for static website files:
 
-1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
+1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 
 1. On the folder page, click **Create resource** and select **Bucket**.
 

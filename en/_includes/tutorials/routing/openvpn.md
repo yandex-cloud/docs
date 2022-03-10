@@ -8,7 +8,7 @@ keywords:
 
 # Creating a VPN connection using OpenVPN
 
-This scenario describes how to configure an OpenVPN instance to access Yandex.Cloud VMs over an encrypted connection. It considers the option to configure an OpenVPN gateway with username and password-based access.
+This scenario describes how to configure an OpenVPN instance to access {{ yandex-cloud }} VMs over an encrypted connection. It considers the option to configure an OpenVPN gateway with username and password-based access.
 
 To set up a VPN tunnel:
 
@@ -23,11 +23,11 @@ If you no longer need the OpenVPN instance, [delete it](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -46,7 +46,7 @@ Create a test [VM](../../../compute/operations/vm-create/create-linux-vm.md) wit
 
 ## Create an OpenVPN instance {#create-openvpn-instance}
 
-Create a VM in Yandex.Cloud to serve as a gateway for a VPN tunnel.
+Create a VM in {{ yandex-cloud }} to serve as a gateway for a VPN tunnel.
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 

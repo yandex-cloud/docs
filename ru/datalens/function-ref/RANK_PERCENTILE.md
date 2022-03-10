@@ -38,21 +38,77 @@ RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFO
 
 #### Примеры {#examples}
 
-```
-RANK_PERCENTILE([Profit])
-```
+{% cut "Пример с двумя аргументами" %}
 
-```
-RANK_PERCENTILE([Profit] TOTAL)
-```
 
-```
-RANK_PERCENTILE([Profit] WITHIN [Country])
-```
+Исходные данные
 
-```
-RANK_PERCENTILE([Profit], "asc" AMONG [Date])
-```
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
+
+Группировка по `[City]`.
+
+Сортировка по `[City]`.
+
+Результат
+
+| **[City]**        | **SUM([Orders])**   | **RANK_PERCENTILE(SUM([Orders]), "desc")**   | **RANK_PERCENTILE(SUM([Orders]), "asc")**   |
+|:------------------|:--------------------|:---------------------------------------------|:--------------------------------------------|
+| `'Detroit'`       | `32`                | `0.00`                                       | `1.00`                                      |
+| `'London'`        | `11`                | `0.67`                                       | `0.33`                                      |
+| `'Moscow'`        | `6`                 | `1.00`                                       | `0.00`                                      |
+| `'San Francisco'` | `28`                | `0.33`                                       | `0.67`                                      |
+
+{% endcut %}
+
+{% cut "Пример с группировкой" %}
+
+
+Исходные данные
+
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
+
+Группировка по `[City]`, `[Category]`.
+
+Сортировка по `[City]`, `[Category]`.
+
+Результат
+
+| **[City]**        | **[Category]**      | **SUM([Orders])**   | **RANK_PERCENTILE(SUM([Orders]) TOTAL)**   | **RANK_PERCENTILE(SUM([Orders]) WITHIN [City])**   | **RANK_PERCENTILE(SUM([Orders]) AMONG [City])**   |
+|:------------------|:--------------------|:--------------------|:-------------------------------------------|:---------------------------------------------------|:--------------------------------------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`                 | `0.43`                                     | `1.00`                                             | `0.00`                                            |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `0.00`                                     | `0.00`                                             | `0.00`                                            |
+| `'London'`        | `'Furniture'`       | `1`                 | `1.00`                                     | `1.00`                                             | `1.00`                                            |
+| `'London'`        | `'Office Supplies'` | `10`                | `0.29`                                     | `0.00`                                             | `0.67`                                            |
+| `'Moscow'`        | `'Furniture'`       | `2`                 | `0.86`                                     | `1.00`                                             | `0.67`                                            |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `0.71`                                     | `0.00`                                             | `1.00`                                            |
+| `'San Francisco'` | `'Furniture'`       | `5`                 | `0.57`                                     | `1.00`                                             | `0.33`                                            |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `0.14`                                     | `0.00`                                             | `0.33`                                            |
+
+{% endcut %}
 
 
 #### Поддержка источников данных {#data-source-support}

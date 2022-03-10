@@ -1,10 +1,10 @@
-# Hierarchy of Yandex.Cloud resources
+# Hierarchy of Yandex Cloud resources
 
-When you get access to Yandex.Cloud, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
+When you get access to Yandex Cloud, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
 
 Folders contain resources such as virtual machines, disks, and others. When you create a resource, you specify a folder where it is created. Nested folders are not supported for now.
 
-{{ resmgr-name }} provides the standard resource model shown in the following image. This model is used in most of the Yandex.Cloud services.
+{{ resmgr-name }} provides the standard resource model shown in the following image. This model is used in most of the Yandex Cloud services.
 
 ![image](../../_assets/resource-structure.png)
 
@@ -14,7 +14,7 @@ Resource access rights are inherited within the cloud. Rights to access the clou
 
 Some types of resources are not created in folders, so they have a separate logic for verifying access rights. For example, when a user manages access keys for a service account, the rights to access this service account are verified.
 
-## Clouds as a Yandex.Cloud resource {#cloud}
+## Clouds as a {{ yandex-cloud }} resource {#cloud}
 
 _A cloud_ is an isolated space where folders are created.
 
@@ -50,11 +50,11 @@ The `{{ roles-cloud-member }}` role isn't necessary for cloud owners and service
 
 You can make your cloud (and any of its resources) public [by assigning a role to the system group](../../iam/operations/roles/grant.md#access-to-all). Then to access a resource, you don't have to be a cloud member. You just need to know the resource ID. Learn more about [system groups](../../iam/concepts/access-control/system-group.md).
 
-## Folders as a Yandex.Cloud resource {#folder}
+## Folders as a {{ yandex-cloud }} resource {#folder}
 
-_A folder_ is an isolated space where Yandex.Cloud resources are created and grouped.
+_A folder_ is an isolated space where {{ yandex-cloud }} resources are created and grouped.
 
-Just like folders in your file system, folders in Yandex.Cloud make resource management easier for you. You can group your resources into folders by the resource type, project, department that uses those resources, or any other criteria of your choice.
+Just like folders in your file system, folders in {{ yandex-cloud }} make resource management easier for you. You can group your resources into folders by the resource type, project, department that uses those resources, or any other criteria of your choice.
 
 You can manage access rights for all resources in the folder at once. Let's say your company has employees working with virtual machines only. You can create a folder containing virtual machines only and grant employees access to this folder.
 

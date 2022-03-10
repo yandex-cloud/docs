@@ -6,7 +6,7 @@ description:
     речи (Text-to-Speech).
   - Для доступа к SpeechKit используйте HTTP API.
   - >-
-    Инфраструктура Yandex.Cloud <a
+    Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
@@ -31,7 +31,7 @@ links:
     description: Технология синтеза речи с уникальным голосом
     href: tts/brand-voice/
   - title: SpeechKit Hybrid
-    description: Голосовые технологии Yandex.Cloud на собственной инфраструктуре
+    description: Голосовые технологии Yandex Cloud на собственной инфраструктуре
     href: hybrid-speechkit/conception
   - title: Аутентификация в API
     description: Получите токен авторизации и используйте его в запросах

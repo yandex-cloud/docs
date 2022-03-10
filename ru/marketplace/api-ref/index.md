@@ -2,11 +2,11 @@
 editable: false
 ---
 
-# Yandex.Cloud Marketplace Metering API
+# {{ yandex-cloud }} Marketplace Metering API
 
-Этот справочник API содержит описание методов Yandex.Cloud Marketplace Metering API. 
+Этот справочник API содержит описание методов {{ yandex-cloud }} Marketplace Metering API. 
 
-Поставщики Yandex.Cloud Marketplace могут использовать этот API, чтобы отправлять информацию о потреблении продукта.
+Поставщики {{ yandex-cloud }} Marketplace могут использовать этот API, чтобы отправлять информацию о потреблении продукта.
 
 Методы API организованы по ресурсам, все методы представлены на этой странице. 
 

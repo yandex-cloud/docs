@@ -12,7 +12,7 @@ To run Spark applications in {{ dataproc-name }} clusters, [prepare data](#prepa
 
 * [Spark Shell](#spark-shell) (a command shell for Scala and Python programming languages). Learn more in the [Spark documentation](https://spark.apache.org/docs/latest/quick-start).
 * [The spark-submit](#spark-submit) script. You can find a detailed description of this method in the [Spark documentation](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications).
-* [Yandex.Cloud CLI commands](#run-cli-jobs).
+* [{{ yandex-cloud }} CLI commands](#run-cli-jobs).
 
 ## Preparing data {#prepare-data}
 
@@ -32,7 +32,7 @@ $ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
 
 {% note info %}
 
-Before you begin setting up access to Yandex.Cloud services and internet resources, make sure that the cluster network is [configured properly](./configure-network.md).
+Before you begin setting up access to {{ yandex-cloud }} services and internet resources, make sure that the cluster network is [configured properly](./configure-network.md).
 
 {% endnote %}
 
@@ -214,7 +214,7 @@ By default, the resources of the running application are managed by the YARN com
 
 You can learn more about YARN commands on the [YARN Commands](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YarnCommands.html) page.
 
-## Running jobs using the Yandex.Cloud CLI {#run-cli-jobs}
+## Running jobs using the {{ yandex-cloud }} CLI {#run-cli-jobs}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 

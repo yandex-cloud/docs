@@ -2,7 +2,7 @@
 
 [Tink](https://github.com/google/tink) is Google's cryptographic library, an alternative to [AWS Encryption](aws-encryption-sdk.md). The library helps you focus on encrypting and decrypting data without the need to choose the correct encryption algorithm and parameters.
 
-It supports [Java](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink) and [Go](https://github.com/yandex-cloud/kms-clients-go) Tink client versions, which provide encryption and decryption of data using Yandex.Cloud {{ kms-short-name }} keys. Data is encrypted using [envelope encryption](../../concepts/envelope.md) (the size of plaintext is not limited).
+It supports [Java](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink) and [Go](https://github.com/yandex-cloud/kms-clients-go) Tink client versions, which provide encryption and decryption of data using {{ yandex-cloud }} {{ kms-short-name }} keys. Data is encrypted using [envelope encryption](../../concepts/envelope.md) (the size of plaintext is not limited).
 
 ## Adding dependencies {#dependency}
 
@@ -36,7 +36,7 @@ Before you start, you need to add dependencies.
 
 The code uses the following variables:
 
-* `credentials`: Determines the authentication method (for more information, see [Authentication in the Yandex.Cloud SDK](sdk.md#auth)).
+* `credentials`: Determines the authentication method (for more information, see [Authentication in the {{ yandex-cloud }} SDK](sdk.md#auth)).
 * `keyId`: ID of the [key in {{ kms-short-name }}](../../concepts/key.md).
 * `plaintext`: Unencrypted text.
 * `ciphertext`: Encrypted text.

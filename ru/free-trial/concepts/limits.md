@@ -16,7 +16,7 @@ editable: false
 
 Во время пробного периода техническая поддержка предоставляется в полном объеме. Подробнее читайте в разделе [Порядок оказания технической поддержки](../../support/overview.md).
 
-##  Yandex Cloud Marketplace {#marketplace}
+##  {{ yandex-cloud }} Marketplace {#marketplace}
 
 Во время пробного периода недоступны следующие продукты:
 * Microsoft SQL Server

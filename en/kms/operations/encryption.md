@@ -1,4 +1,4 @@
-# Encrypting data using the Yandex.Cloud CLI and API
+# Encrypting data using the {{ yandex-cloud }} CLI and API
 
 In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up to 32 KB). For more information about available encryption methods, see [{#T}](../tutorials/encrypt/index.md)
 
@@ -31,7 +31,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
     Use the [encrypt](../api-ref/SymmetricCrypto/encrypt) method for the `SymmetricCrypto` resource.
 
-- Yandex.Cloud SDK
+- {{ yandex-cloud }} SDK
 
     {% include [yc-sdk](../../_includes/kms/sdk-encypt.md) %}
 
@@ -69,7 +69,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
     Use the [decrypt](../api-ref/SymmetricCrypto/decrypt) method for the `SymmetricCrypto` resource.
 
-- Yandex.Cloud SDK
+- {{ yandex-cloud }} SDK
 
     {% include [yc-sdk](../../_includes/kms/sdk-encypt.md) %}
 

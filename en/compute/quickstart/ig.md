@@ -1,6 +1,6 @@
 # Creating instance groups
 
-Create an instance group using the [Instance Groups](../concepts/instance-groups/index.md) component in the Yandex.Cloud management console.
+Create an instance group using the [Instance Groups](../concepts/instance-groups/index.md) component in the {{ yandex-cloud }} management console.
 
 ## Before you start {#before-you-begin}
 
@@ -29,7 +29,7 @@ To create an instance group:
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
     - Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
-1. In the **Allocation** section, select the desired availability zones. Group instances may reside in different availability zones and regions. [Learn more about Yandex.Cloud geography](../../overview/concepts/geo-scope.md).
+1. In the **Allocation** section, select the desired availability zones. Group instances may reside in different availability zones and regions. [Learn more about {{ yandex-cloud }} geography](../../overview/concepts/geo-scope.md).
 1. In the **Instance template** section, click **Set** to set the basic instance configuration:
     - Under **Basic parameters**:
         - Enter a description for the basic instance.
@@ -50,7 +50,7 @@ To create an instance group:
             - Select a subnet or create a new one. Each network must have at least one subnet.
             - Click **Create**.
         - In the **Public IP** field, choose a method for assigning an IP address:
-            - **Auto**: Assign a random IP address from the Yandex.Cloud IP pool.
+            - **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
             - **No address**: Don't assign a public IP address.
     - Under **Access**:
         - If you selected a Linux-based public image:
@@ -98,7 +98,7 @@ The instance group appears in the list.
 
 ## What's next {#what-is-next}
 
-- Watch [tutorials for creating web services in Yandex.Cloud](../../tutorials/web/index.md).
+- Watch [tutorials for creating web services in {{ yandex-cloud }}](../../tutorials/web/index.md).
 - Learn [how to work with instance groups](../operations/index.md).
 - Read [answers to frequently asked questions](../qa/general.md).
 

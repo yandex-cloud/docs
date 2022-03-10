@@ -8,9 +8,9 @@ To pause processes in an instance group:
 
 - Management console
 
-  1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
-  1. On the **Virtual machines** page, go to the **Instance groups** tab.
+  1. Open the folder page in the [management console]({{ link-console-main }}).
+  1. Select **{{ compute-name }}**.
+  1. Go to the **Instance groups** tab.
   1. Select an instance group, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Pause**.
   1. Confirm the action.
 

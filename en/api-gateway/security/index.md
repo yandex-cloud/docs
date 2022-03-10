@@ -5,7 +5,7 @@ description: "Access management in the API gateway service that supports the Ope
 
 # Access management in {{ api-gw-name }}
 
-Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them.
+Yandex Cloud users can only perform operations on resources that are permitted under the roles assigned to them.
 If a user doesn't have any roles assigned, almost all operations are forbidden.
 
 To allow access to resources (API gateways) in {{ api-gw-name }}, assign the required roles to the user from the list below. For now, a role can only be assigned for a parent resource (folder or cloud).

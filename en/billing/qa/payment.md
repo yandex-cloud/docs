@@ -71,15 +71,15 @@ If the [cloud was previously linked](../operations/pin-cloud.md) to another bill
 
 - For residents of Russia
 
-  You can learn more about the terms of the agreement in the section [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
+  You can learn more about the terms of the agreement in the section [Yandex Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
 
 - For residents of Kazakhstan
 
-  You can learn more about the terms of the agreement in the section [Yandex.Legal documents](https://yandex.com/legal/cloud_oferta_kz/?lang=en).
+  You can learn more about the terms of the agreement in the section [Yandex Legal documents](https://yandex.com/legal/cloud_oferta_kz/?lang=en).
 
 - For non-residents of Russia and Kazakhstan
 
-  You can learn more about the terms of the agreement in the section [Yandex.Legal documents](https://yandex.com/legal/cloud_customer_agreement/?lang=en).
+  You can learn more about the terms of the agreement in the section [Yandex Legal documents](https://yandex.com/legal/cloud_customer_agreement/?lang=en).
 
 {% endlist %}
 

@@ -1,13 +1,13 @@
-title: Документация Yandex.Cloud
+title: Документация Yandex Cloud
 meta:
-  title: Yandex.Cloud
+  title: Yandex Cloud
   noIndex: true
 links:
-  - title: API Yandex.Cloud
-    description: Архитектура API Yandex.Cloud
+  - title: API Yandex Cloud
+    description: Архитектура API Yandex Cloud
     href: api-design-guide/
   - title: API Gateway
-    description: Интеграция с сервисами Yandex.Cloud при помощи API
+    description: Интеграция с сервисами Yandex Cloud при помощи API
     href: api-gateway/
   - title: Application Load Balancer
     description: Балансировщики нагрузки уровня приложения
@@ -18,7 +18,7 @@ links:
   - title: Certificate Manager
     description: Управление TLS-сертификатами
     href: certificate-manager/
-  - title: CLI Yandex.Cloud
+  - title: CLI Yandex Cloud
     description: Интерфейс командной строки
     href: cli/
   - title: Cloud Logging
@@ -52,7 +52,7 @@ links:
     description: Управление доменными именами
     href: dns/
   - title: Пробный период
-    description: Описание пробного периода использования Yandex.Cloud
+    description: Описание пробного периода использования Yandex Cloud
     href: getting-started\free-trial\concepts\quickstart.md
   - title: Cloud Functions
     description: Запуск вашего кода в виде функции
@@ -117,10 +117,10 @@ links:
   - title: Cloud Organization
     description: Облачные сервисы для корпоративных клиентов
     href: organization/
-  - title: Обзор платформы Yandex.Cloud
-    description: Обзор облачных ресурсов Yandex.Cloud
+  - title: Обзор платформы Yandex Cloud
+    description: Обзор облачных ресурсов Yandex Cloud
     href: overview/
-  - title: Партнерская программа Yandex.Cloud
+  - title: Партнерская программа Yandex Cloud
     description: Описание партнерской программы
     href: partner/
   - title: Resource Manager
@@ -129,7 +129,7 @@ links:
   - title: Serverless Containers
     description: Запуск контейнеров без Kubernetes®
     href: serverless-containers/
-  - title: Практические руководства платформы Yandex.Cloud
+  - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
   - title: SpeechKit
@@ -138,7 +138,7 @@ links:
   - title: Object Storage
     description: Масштабируемое хранилище данных
     href: storage/
-  - title: Техническая поддержка Yandex.Cloud
+  - title: Техническая поддержка Yandex Cloud
     description: Техническая поддержка
     href: support/
   - title: Tracker

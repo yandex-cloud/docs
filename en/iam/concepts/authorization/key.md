@@ -6,7 +6,7 @@ A private key is returned when creating a new pair of keys, while a public key i
 
 {% note alert %}
 
-The private key of a service account is the confidential information which allows you to perform operations in Yandex.Cloud. Keep your private key in a secure location.
+The private key of a service account is the confidential information which allows you to perform operations in {{ yandex-cloud }}. Keep your private key in a secure location.
 
 {% endnote %}
 

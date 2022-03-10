@@ -1,6 +1,6 @@
 ---
 title: How to work with Yandex Cloud Functions. Instructions
-description: "From the article you will learn how to work with Yandex Cloud Functions in Yandex.Cloud. We will tell you how to manage a function (create, change, call and delete a function), how to manage a trigger (create a timer, create a trigger for Message Queue, Yandex IoT Core, Container Registry, Cloud Logs). "
+description: "From the article you will learn how to work with Yandex Cloud Functions in Yandex Cloud. We will tell you how to manage a function (create, change, call and delete a function), how to manage a trigger (create a timer, create a trigger for Message Queue, Yandex IoT Core, Container Registry, Cloud Logs). "
 ---
 
 # Step-by-step instructions for {{ sf-name }}

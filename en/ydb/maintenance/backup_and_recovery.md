@@ -17,7 +17,7 @@ In this section, the target system is [{{ objstorage-full-name }}](../../storage
 
 {% include [s3_prerequisites.md](_includes/backup_and_recovery/06_s3_2_prerequisites.md) %}
 
-When working with [{{ objstorage-full-name }}](https://cloud.yandex.ru/services/storage), the [Yandex.Cloud Object Storage bucket](https://cloud.yandex.ru/docs/storage/concepts/bucket) is used.
+When working with [{{ objstorage-full-name }}](https://cloud.yandex.ru/services/storage), the [{{ yandex-cloud }} Object Storage bucket](https://cloud.yandex.ru/docs/storage/concepts/bucket) is used.
 
 {% include [s3_access_keys.md](_includes/backup_and_recovery/06_s3_3_access_keys.md) %}
 

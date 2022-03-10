@@ -1,8 +1,8 @@
 # Creating an IPSec VPN tunnel
 
-This scenario describes how to configure an IPSec instance to route traffic from Yandex.Cloud VMs to an IPSec VPN tunnel using the [strongSwan](https://www.strongswan.org/) daemon.
+This scenario describes how to configure an IPSec instance to route traffic from {{ yandex-cloud }} VMs to an IPSec VPN tunnel using the [strongSwan](https://www.strongswan.org/) daemon.
 
-In the example, we set up a tunnel between two VPN gateways. To test the tunnel, you need to configure gateways on both sides of it. You can do this using a different network in Yandex.Cloud or your local network.
+In the example, we set up a tunnel between two VPN gateways. To test the tunnel, you need to configure gateways on both sides of it. You can do this using a different network in {{ yandex-cloud }} or your local network.
 
 To set up a VPN tunnel:
 
@@ -17,11 +17,11 @@ If you no longer need the IPSec instance, [delete it](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -38,7 +38,7 @@ To connect cloud resources to the internet, make sure you have [networks](../../
 
 ## Create an IPSec instance {#create-ipsec-instance}
 
-Create a VM in Yandex.Cloud to serve as a gateway for an IPSec tunnel.
+Create a VM in {{ yandex-cloud }} to serve as a gateway for an IPSec tunnel.
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 

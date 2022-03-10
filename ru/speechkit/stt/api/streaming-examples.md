@@ -2,7 +2,7 @@
 
 Чтобы попробовать примеры в этом разделе:
 
-1. Склонируйте репозиторий [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi):
+1. Склонируйте репозиторий [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi):
     ```
     git clone https://github.com/yandex-cloud/cloudapi
     ```
@@ -24,7 +24,7 @@
        pip install grpcio-tools
        ```
 
-   1. Перейдите в директорию с репозиторием [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi), создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
+   1. Перейдите в директорию с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi), создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
 
        ```bash
        cd cloudapi
@@ -121,7 +121,7 @@
    
 - Node.js
 
-   1. Перейдите в директорию с репозиторием [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi), создайте директорию `src` и сгенерируйте в ней файл зависимостей `package.json`:
+   1. Перейдите в директорию с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi), создайте директорию `src` и сгенерируйте в ней файл зависимостей `package.json`:
 
        ```bash
        cd cloudapi

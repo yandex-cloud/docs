@@ -22,7 +22,7 @@ For speech recognition, the app should first send a [message with recognition se
 
 While the audio fragments are sent, the service simultaneously returns [recognized text fragments](#response) for processing (such as outputting them to the console).
 
-To enable the app to access the service, you need to generate the client interface code for the programming language you use. Generate this code from the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file hosted in the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository.
+To enable the app to access the service, you need to generate the client interface code for the programming language you use. Generate this code from the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file hosted in the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository.
 
 See [examples](#examples) of client apps below. See also the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and implement client apps in various programming languages.
 
@@ -119,7 +119,7 @@ List of possible gRPC errors returned by the service:
 
 To try the examples in this section:
 
-1. Clone the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository:
+1. Clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository:
 
     ```
     git clone https://github.com/yandex-cloud/cloudapi
@@ -143,7 +143,7 @@ Then proceed to creating a client app.
       $ pip install grpcio-tools
       ```
 
-  1. Go to the directory hosting the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository, create an `output` directory, and generate the client interface code there:
+  1. Go to the directory hosting the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository, create an `output` directory, and generate the client interface code there:
 
       ```bash
       $ cd cloudapi
@@ -241,7 +241,7 @@ Then proceed to creating a client app.
 
 - Node.js
 
-  1. Go to the directory with the [Yandex.Cloud API](https://github.com/yandex-cloud/cloudapi) repository, create a direct named `src`, and generate a dependency file named `package.json` in it:
+  1. Go to the directory with the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository, create a direct named `src`, and generate a dependency file named `package.json` in it:
 
       ```bash
       $ cd cloudapi

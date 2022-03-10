@@ -32,7 +32,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
     1. Откройте сервис **{{ sf-name }}**.
-    1. Перейдите на вкладку **Триггеры**.
+    1. На панели слева нажмите ![image](../../_assets/functions/triggers.svg) **Триггеры**.
     1. Нажмите кнопку **Создать триггер**.
     1. В блоке **Базовые параметры**:
         * Введите имя и описание триггера.
@@ -62,16 +62,16 @@
 
     ```
     yc serverless trigger create internet-of-things \
-        --name <имя триггера> \
-        --registry-id <идентификатор реестра> \
-        --device-id <идентификатор устройства> \
-        --mqtt-topic '$devices/<идентификатор устройства>/events' \
-        --invoke-function-id <идентификатор функции> \
-        --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
-        --retry-attempts 1 \
-        --retry-interval 10s \
-        --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
-        --dlq-service-account-id <идентификатор сервисного аккаунта>
+      --name <имя триггера> \
+      --registry-id <идентификатор реестра> \
+      --device-id <идентификатор устройства> \
+      --mqtt-topic '$devices/<идентификатор устройства>/events' \
+      --invoke-function-id <идентификатор функции> \
+      --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
+      --retry-attempts 1 \
+      --retry-interval 10s \
+      --dlq-queue-id <идентификатор очереди Dead Letter Queue> \
+      --dlq-service-account-id <идентификатор сервисного аккаунта>
     ```
 
     Где:

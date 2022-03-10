@@ -10,23 +10,23 @@ description: 'The Identity and Access Management (IAM) service controls access t
 With {{ iam-short-name }}, you can:
 
 * [Grant access to resources](#access).
-* [Manage accounts in Yandex.Cloud](#accounts).
+* [Manage accounts in {{ yandex-cloud }}](#accounts).
 * [Manage authorization keys](#keys).
-* [Log in to Yandex.Cloud](#auth).
+* [Log in to {{ yandex-cloud }}](#auth).
 
 ## Resource access {#access}
 
 To grant a user access to a resource, you assign them [roles](access-control/roles.md) for the resource. Each role consists of a set of permissions that describe operations that can be performed with the resource.
 
-Before performing an operation with a certain resource (such as creating a VM), Yandex.Cloud sends a request to the IAM service to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions to the list of permissions granted to the user performing this operation. If some of the permissions are missing, the operation is not allowed and Yandex.Cloud returns an error. For more information, see [{#T}](access-control/index.md).
+Before performing an operation with a certain resource (such as creating a VM), {{ yandex-cloud }} sends a request to the IAM service to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions to the list of permissions granted to the user performing this operation. If some of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error. For more information, see [{#T}](access-control/index.md).
 
-## Accounts in Yandex.Cloud {#accounts}
+## Accounts in {{ yandex-cloud }} {#accounts}
 
 To identify users performing operations with resources, use [Yandex accounts](#passport), [service accounts](#sa), or [federated accounts](#saml-federation).
 
 {% note info %}
 
-Billing accounts aren't used for managing resources in Yandex.Cloud and aren't part of {{ iam-short-name }}. For more information, see [{#T}](../../billing/concepts/billing-account.md) in the billing documentation.
+Billing accounts aren't used for managing resources in {{ yandex-cloud }} and aren't part of {{ iam-short-name }}. For more information, see [{#T}](../../billing/concepts/billing-account.md) in the billing documentation.
 
 {% endnote %}
 
@@ -56,7 +56,7 @@ For more information, see [{#T}](../../organization/add-federation.md).
 
 ## Authorization keys {#keys}
 
-There are three different kinds of authorization keys in Yandex.Cloud:
+There are three different kinds of authorization keys in {{ yandex-cloud }}:
 
 * [API keys](authorization/api-key.md): Used instead of IAM tokens for simplified authorization.
 * [Authorized keys](authorization/key.md): Used to obtain IAM tokens for service accounts.

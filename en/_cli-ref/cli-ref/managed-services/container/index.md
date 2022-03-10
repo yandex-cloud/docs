@@ -26,7 +26,7 @@ Syntax:
 	- [yc container registry set-ip-permissions](registry/set-ip-permissions.md) — Set ip permissions for the specified registry and delete all existing ip permission if there were any
 	- [yc container registry add-ip-permissions](registry/add-ip-permissions.md) — Add ip permissions for the specified registry
 	- [yc container registry remove-ip-permissions](registry/remove-ip-permissions.md) — Remove ip permissions for the specified registry
-	- [yc container registry configure-docker](registry/configure-docker.md) — Configure docker to use Yandex.Cloud credential helper.
+	- [yc container registry configure-docker](registry/configure-docker.md) — Configure docker to use Yandex Cloud credential helper.
 - [yc container repository](repository/index.md) — Manage Docker image repositories.
 	- [yc container repository get](repository/get.md) — Get information about a Docker image repository.
 	- [yc container repository list](repository/list.md) — List Docker image repositories.

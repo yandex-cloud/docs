@@ -1,6 +1,6 @@
 # Deploying Microsoft Exchange
 
-This scenario describes how to deploy Microsoft Exchange servers in Yandex.Cloud. The following Microsoft Exchange servers will be installed in `ru-central1-a` and `ru-central1-b` availability zones: two mail servers, two Active Directory servers, and two Edge Transport servers. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `ru-central1-c` availability zone will manage all the servers.
+This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. The following Microsoft Exchange servers will be installed in `ru-central1-a` and `ru-central1-b` availability zones: two mail servers, two Active Directory servers, and two Edge Transport servers. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `ru-central1-c` availability zone will manage all the servers.
 
 1. Prepare for deployment:
    1. [Before you start](#before-you-begin).
@@ -31,11 +31,11 @@ This scenario describes how to deploy Microsoft Exchange servers in Yandex.Cloud
 
 ## Before you start {#before-you-begin}
 
-Before deploying servers, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying servers, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -46,7 +46,7 @@ The cost of a Microsoft Exchange installation includes:
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../../compute/pricing.md)).
 * A fee for load balancing (see [pricing{{ network-load-balancer-full-name }}](../../../network-load-balancer/pricing.md)).
 * A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../../vpc/pricing.md)).
-* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
 

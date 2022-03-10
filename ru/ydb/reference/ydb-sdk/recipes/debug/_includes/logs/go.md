@@ -2,9 +2,9 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/_includes/logs/go.md
 ---
 Есть несколько способов включить логи в приложении, использующем `ydb-go-sdk`:
-1. Выставить переменную окружения `YDB_LOG_SEVERITY_LEVEL=info` (доступные значения `trace`, `debug`, `info`, `warn`, `error`, `fatal`, `quiet`, по умолчанию `quiet`). 
-    Данная переменная окружения включает встроенный в `ydb-go-sdk` логгер (синхронный, неблочный) с выводом в стандартный поток вывода. 
-2. {% cut "Подключить сторонний логгер `go.uber.org/zap`" %}
+* Выставить переменную окружения `YDB_LOG_SEVERITY_LEVEL=info` (доступные значения `trace`, `debug`, `info`, `warn`, `error`, `fatal`, `quiet`, по умолчанию `quiet`).
+    Данная переменная окружения включает встроенный в `ydb-go-sdk` логгер (синхронный, неблочный) с выводом в стандартный поток вывода.
+* {% cut "Подключить сторонний логгер `go.uber.org/zap`" %}
     ```go
     package main
 
@@ -43,7 +43,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/_includ
     }
     ```
     {% endcut %}
-3. {% cut "Подключить сторонний логгер `github.com/rs/zerolog`" %} 
+* {% cut "Подключить сторонний логгер `github.com/rs/zerolog`" %}
     ```go
     package main
 
@@ -83,4 +83,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/_includ
     }
     ```
     {% endcut %}
-4. Реализовать собственный пакет логгирования на основе пакета трассировки `github.com/ydb-platform/ydb-go-sdk/v3/trace`
+
+{% include [overlay](go_appendix.md) %}
+
+* Реализовать собственный пакет логгирования на основе пакета трассировки `github.com/ydb-platform/ydb-go-sdk/v3/trace`

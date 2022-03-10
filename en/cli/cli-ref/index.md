@@ -3,7 +3,7 @@ sourcePath: en/_cli-ref/cli-ref/index.md
 ---
 # yc
 
-Command line interface helps you interact with Yandex.Cloud services
+Command line interface helps you interact with Yandex Cloud services
 
 #### Command Usage
 
@@ -14,9 +14,9 @@ Syntax:
 #### CLI manage
 
 - [yc init](managed-yc/init.md) — CLI initialization
-- [yc version](managed-yc/version.md) — Display Yandex.Cloud CLI version.
+- [yc version](managed-yc/version.md) — Display Yandex Cloud CLI version.
 - [yc help](managed-yc/help.md) — Help provides help for any command in the application. Simply type yc help [path to command] for full details.
-- [yc config](managed-yc/config/index.md) — The 'yc config' command group lets you set, view and unset properties used by Yandex.Cloud CLI.
+- [yc config](managed-yc/config/index.md) — The 'yc config' command group lets you set, view and unset properties used by Yandex Cloud CLI.
 - [yc components](managed-yc/components/index.md) — Manage installed components
 
 #### Operations manage

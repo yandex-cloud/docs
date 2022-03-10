@@ -57,7 +57,7 @@ items:
         href: concepts/imported-certificate.md
       - name: Check rights for domain
         href: concepts/challenges.md
-      - name: Integration with Yandex.Cloud services
+      - name: Integration with Yandex Cloud services
         href: concepts/services.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -65,7 +65,7 @@ items:
         items:
           - name: Overview
             href: concepts/domains/index.md
-          - name: Integration with Yandex.Cloud services
+          - name: Integration with Yandex Cloud services
             href: concepts/domains/services.md
   - name: Access management
     href: security/index.md

@@ -1,6 +1,6 @@
 # Recommendations on how to use the network load balancer
 
-This article provides a set of recommendations for using the Yandex.Cloud network load balancer.
+This article provides a set of recommendations for using the {{ yandex-cloud }} network load balancer.
 
 #### Create resources in different availability zones {#targets-in-different-azs}
 
@@ -16,7 +16,7 @@ If one of the VMs in a certain availability zone fails, that availability zone w
 
 #### Use different load balancers for different applications {#logical-distribution}
 
-If you use the Yandex.Cloud infrastructure to deploy multiple applications, you need to configure separate load balancers to serve them.
+If you use the {{ yandex-cloud }} infrastructure to deploy multiple applications, you need to configure separate load balancers to serve them.
 
 #### Set up a multi-layer infrastructure {#multi-layer-architecture}
 

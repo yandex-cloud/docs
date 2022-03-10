@@ -40,26 +40,28 @@
 1. Создайте сертификат для реестра: 
     
    ```shell script
-    $ openssl req -x509 \
-        -newkey rsa:4096 \
-        -keyout registry-key.pem \
-        -out registry-cert.pem \
-        -nodes \
-        -days 365 \
-        -subj '/CN=localhost'
-    ```
+   openssl req -x509 \
+     -newkey rsa:4096 \
+     -keyout registry-key.pem \
+     -out registry-cert.pem \
+     -nodes \
+     -days 365 \
+     -subj '/CN=localhost'
+   ```
+   
 1. Создайте реестр:
     
-    ```shell script
-    $ yc iot registry create --name my-registry
-    ```
+   ```shell script
+   yc iot registry create --name my-registry
+   ```
+   
 1. Добавьте сертификат реестру:
 
-    ```shell script
-    $ yc iot registry certificate add \
-    --registry-name my-registry \ # Имя реестра.
-    --certificate-file registry-cert.pem # Путь к публичной части сертификата.
-    ```
+   ```shell script
+   yc iot registry certificate add \
+     --registry-name my-registry \ # Имя реестра.
+     --certificate-file registry-cert.pem # Путь к публичной части сертификата.
+   ```
    
 ### Создайте устройство и добавьте ему сертификат {#device}
 
@@ -68,27 +70,29 @@
 1. Создайте сертификат для устройства: 
     
    ```shell script
-    $ openssl req -x509 \
-        -newkey rsa:4096 \
-        -keyout device-key.pem \
-        -out device-cert.pem \
-        -nodes \
-        -days 365 \
-        -subj '/CN=localhost'
-    ```
+   openssl req -x509 \
+     -newkey rsa:4096 \
+     -keyout device-key.pem \
+     -out device-cert.pem \
+     -nodes \
+     -days 365 \
+     -subj '/CN=localhost'
+   ```
+   
 1. [Посмотрите список реестров](../operations/registry/registry-list.md#registry-list), в которых можно создать устройство, или [создайте новый реестр](../operations/registry/registry-create.md).
 1. Создайте устройство:
     
-    ```shell script
-    $ yc iot device create --registry-name my-registry --name my-device
-    ```
+   ```shell script
+   yc iot device create --registry-name my-registry --name my-device
+   ```
+   
 1. Добавьте сертификат устройству:
 
-    ```shell script
-    $ yc iot device certificate add \
-    --device-name my-device \ # Имя устройства.
-    --certificate-file device-cert.pem # Путь к публичной части сертификата.
-    ```
+   ```shell script
+   yc iot device certificate add \
+     --device-name my-device \ # Имя устройства.
+     --certificate-file device-cert.pem # Путь к публичной части сертификата.
+   ```
 
 ## Подключитесь к {{ iot-full-name }} {#configure}
 

@@ -1,6 +1,6 @@
 # Resource identification
 
-Each resource in the Yandex.Cloud API has its own unique ID. IDs are generated on the service side. An ID is a string consisting of Latin letters and numbers.
+Each resource in the Yandex Cloud API has its own unique ID. IDs are generated on the service side. An ID is a string consisting of Latin letters and numbers.
 
 IDs should be passed in API requests when accessing resources.
 
@@ -90,6 +90,6 @@ Where:
 
 #### See also {#see-also}
 
-- [Yandex.Cloud API repository](https://github.com/yandex-cloud/cloudapi) —The link to the .proto specifications of the API.
-- [Yandex Resource Manager documentation](../../resource-manager/concepts/resources-hierarchy.md) — The link to the <q>Hierarchy of Yandex.Cloud resources</q> section.
+- [Yandex Cloud API repository](https://github.com/yandex-cloud/cloudapi) —The link to the .proto specifications of the API.
+- [Yandex Resource Manager documentation](../../resource-manager/concepts/resources-hierarchy.md) — The link to the <q>Hierarchy of Yandex Cloud resources</q> section.
 

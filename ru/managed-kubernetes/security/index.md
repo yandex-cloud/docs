@@ -1,6 +1,6 @@
 ---
 title: Управление доступом в Managed Service for Kubernetes
-description: "Управление доступом в сервисе для работы с контейнеризованными приложениями Managed Service for Kubernetes. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы сервисным аккаунтам кластера Managed Service for Kubernetes, какие роли нужны для работы с Managed Service for Kubernetes через консоль управления Yandex.Cloud."
+description: "Управление доступом в сервисе для работы с контейнеризованными приложениями Managed Service for Kubernetes. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы сервисным аккаунтам кластера Managed Service for Kubernetes, какие роли нужны для работы с Managed Service for Kubernetes через консоль управления Yandex Cloud."
 ---
 
 # Управление доступом в {{ managed-k8s-name }}

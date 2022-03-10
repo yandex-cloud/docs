@@ -11,7 +11,7 @@
    Чтобы создать алиас:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать алиас.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **Устройства**.
    1. Нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **Редактировать**.
@@ -30,9 +30,12 @@
     Создайте алиас: 
     
     ```
-    $ yc iot device add-topic-aliases arenak5ciqss6pbas6js
-    --topic-aliases commands='$devices/arenak5ciqss6pbas6js/commands'
-    
+    yc iot device add-topic-aliases arenak5ciqss6pbas6js
+      --topic-aliases commands='$devices/arenak5ciqss6pbas6js/commands'
+    ```
+	
+	Результат:
+	```
     id: arenak5ciqss6pbas6js
     registry_id: arenou2oj4ct42eq8g3n
     created_at: "2019-09-16T12:32:48.911Z"
@@ -44,10 +47,10 @@
     Также вы можете добавить алиас при [создании устройства](../device-create.md). Для этого вместо уникального идентификатора в топике устройства указывается `{id}`, так как уникальный идентификатор еще неизвестен:
     
     ```
-    $ yc iot device create 
-    --registry-name <имя реестра> 
-    --name <имя устройства> 
-    --topic-aliases <имя алиаса>='$devices/{id}/<events, state, commands или config>'
+    yc iot device create 
+      --registry-name <имя реестра> 
+      --name <имя устройства> 
+      --topic-aliases <имя алиаса>='$devices/{id}/<events, state, commands или config>'
     ```
     
 {% endlist %}

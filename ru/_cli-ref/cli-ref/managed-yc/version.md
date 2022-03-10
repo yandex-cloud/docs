@@ -1,6 +1,6 @@
 # yc version
 
-Display Yandex.Cloud CLI version.
+Display Yandex Cloud CLI version.
 
 #### Command Usage
 

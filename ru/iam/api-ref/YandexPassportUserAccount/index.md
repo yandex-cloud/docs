@@ -16,8 +16,8 @@ A set of methods for managing YandexPassportUserAccount resources.
  
 Field | Description
 --- | ---
-login | **string**<br><p>Login of the Yandex.Passport user account.</p> 
-defaultEmail | **string**<br><p>Default email of the Yandex.Passport user account.</p> 
+login | **string**<br><p>Login of the Yandex user account.</p> 
+defaultEmail | **string**<br><p>Default email of the Yandex user account.</p> 
 
 ## Methods {#methods}
 Method | Description

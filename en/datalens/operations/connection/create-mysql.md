@@ -14,7 +14,7 @@ To create a {{ MY }} connection:
 
    {% list tabs %}
 
-    - Select in Yandex.Cloud
+    - Select in {{ yandex-cloud }}
 
       Specify the connection parameters for the {{ MY }} DB available in {{ yandex-cloud }}:
 

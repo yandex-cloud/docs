@@ -1,8 +1,8 @@
-title: Практические руководства платформы Yandex.Cloud
+title: Практические руководства платформы Yandex Cloud
 description:
   - >-
     Подробные пошаговые инструкции, которые помогут вам решать различные задачи
-    с помощью сервисов Yandex.Cloud.
+    с помощью сервисов Yandex Cloud.
 meta:
   title: Практические руководства
 links:
@@ -13,7 +13,7 @@ links:
     description: Открывайте интернет-магазины на различных платформах
     href: internet-store/
   - title: Архив данных
-    description: Настройте резервное копирование данных в Yandex.Cloud
+    description: Настройте резервное копирование данных в Yandex Cloud
     href: archive/
   - title: Тестовая среда
     description: Тестируйте приложения на виртуальных машинах
@@ -24,13 +24,13 @@ links:
       ресурсами
     href: infrastructure-management/
   - title: Data Platform
-    description: Создавайте Data Platform с помощью Yandex.Cloud
+    description: Создавайте Data Platform с помощью Yandex Cloud
     href: dataplatform/
   - title: Сетевая маршрутизация
     description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
     href: routing/
   - title: Windows в облаке
-    description: Используйте службы Windows в Yandex.Cloud
+    description: Используйте службы Windows в Yandex Cloud
     href: windows/
   - title: Визуализация и анализ данных
     description: Собирайте, визуализируйте и анализируйте данные из различных источников

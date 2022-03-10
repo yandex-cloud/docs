@@ -1,6 +1,6 @@
 # Deploying Active Directory
 
-The scenario provides an example of how to deploy Active Directory in Yandex.Cloud.
+The scenario provides an example of how to deploy Active Directory in {{ yandex-cloud }}.
 
 To deploy the Active Directory infrastructure:
 
@@ -17,11 +17,11 @@ To deploy the Active Directory infrastructure:
 
 ## Before you start {#before-you-begin}
 
-Before deploying servers, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying servers, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -31,7 +31,7 @@ The cost of an Active Directory installation includes:
 
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../../compute/pricing.md)).
 * A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../../vpc/pricing.md)).
-* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
 

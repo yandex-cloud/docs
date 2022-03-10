@@ -1,10 +1,10 @@
-# Working with Yandex.Cloud from inside a VM
+# Working with {{ yandex-cloud }} from inside a VM
 
-This section describes how to work with Yandex.Cloud from inside a VM via the API or CLI.
+This section describes how to work with {{ yandex-cloud }} from inside a VM via the API or CLI.
 
-To automate operations with Yandex.Cloud from inside a VM, we recommend using [service accounts](../../../iam/concepts/users/service-accounts.md). This is more secure since you don't need to save your OAuth token on a VM and can restrict access rights for service accounts.
+To automate operations with {{ yandex-cloud }} from inside a VM, we recommend using [service accounts](../../../iam/concepts/users/service-accounts.md). This is more secure since you don't need to save your OAuth token on a VM and can restrict access rights for service accounts.
 
-Yandex.Cloud provides simplified authentication via the API and CLI from inside a VM for service accounts. To authenticate:
+{{ yandex-cloud }} provides simplified authentication via the API and CLI from inside a VM for service accounts. To authenticate:
 
 1. If you don't have a service account, [create one](../../../iam/operations/sa/create.md) and [set up its access rights](../../../iam/operations/sa/assign-role-for-sa.md).
 1. [Link the service account](#link-sa-with-instance) to a VM.
