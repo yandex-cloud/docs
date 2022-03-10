@@ -1,7 +1,7 @@
 
 {% include [concepts/index/intro.md](_includes/index/intro.md) %}
 
-## YDB в Yandex.Cloud
+## YDB в {{ yandex-cloud }}
 
 Вы можете создать базу данных в бессерверной (Serverless) конфигурации или с выделенными серверами (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [Serverless и Dedicated режимы работы](serverless_and_dedicated.md).
 

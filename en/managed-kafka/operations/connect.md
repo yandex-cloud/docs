@@ -40,7 +40,7 @@ Settings of rules depend on the connection method you select:
   * Source type: `CIDR`.
   * Source: `0.0.0.0/0`.
 
-- With a VM in Yandex.Cloud
+- With a VM in {{ yandex-cloud }}
 
   1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on ports 9091, 9092 from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
      * Protocol: `TCP`.

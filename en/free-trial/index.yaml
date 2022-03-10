@@ -1,7 +1,7 @@
 title: Trial period
 description:
   - >-
-    The free trial lets you get hands-on experience using Yandex.Cloud without
+    The free trial lets you get hands-on experience using Yandex Cloud without
     paying for the resources that you use.
   - >-
     During the trial period, a <a
@@ -9,13 +9,13 @@ description:
     billing account that expires in 60 days. The grant terms of use differ for
     individual and business accounts.
   - >-
-    You can upgrade to the paid version of Yandex.Cloud at any time during the
+    You can upgrade to the paid version of Yandex Cloud at any time during the
     free trial or 60 days after it expires with no data loss.
 meta:
   title: Trial period
 links:
   - title: How to use the free trial
-    description: How to use Yandex.Cloud during the trial period and who can access it
+    description: How to use Yandex Cloud during the trial period and who can access it
     href: concepts/quickstart
   - title: Trial period restrictions
     description: Usage limits during the trial period

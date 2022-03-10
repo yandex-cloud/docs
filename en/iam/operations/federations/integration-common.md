@@ -47,7 +47,7 @@ To create a federation in {{ iam-short-name }}:
 
   1. Enable **Automatically create users** to automatically add authenticated users to the cloud. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-      If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+      If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use {{ yandex-cloud }}.
 
 - CLI
 
@@ -78,7 +78,7 @@ To create a federation in {{ iam-short-name }}:
 
         * `auto-create-account-on-login`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use {{ yandex-cloud }}.
 
         * `cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
@@ -114,7 +114,7 @@ To create a federation in {{ iam-short-name }}:
 
       * `autocreateUsers`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-          If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+          If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use {{ yandex-cloud }}.
 
       * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
@@ -203,7 +203,7 @@ Example of an SAML message:
 
 When setting up the message:
 
-* In the `InResponseTo` attribute of the  `Response` and `SubjectConfirmationData` elements, specify the ID from the SAML authentication request that Yandex.Cloud sent.
+* In the `InResponseTo` attribute of the  `Response` and `SubjectConfirmationData` elements, specify the ID from the SAML authentication request that {{ yandex-cloud }} sent.
 
 * Enter the [console login link](#get-link) in the following elements:
   * In the `Destination` attribute of `Response`.
@@ -216,9 +216,9 @@ When setting up the message:
 
 * Enter a signed message in the `SignatureValue` element and the certificate it was signed with in the `KeyInfo` element.
 
-* Note that Yandex.Cloud validates that the response was received in the interval specified in the attributes of the `Conditions` or `SubjectConfimirationsData` element.
+* Note that {{ yandex-cloud }} validates that the response was received in the interval specified in the attributes of the `Conditions` or `SubjectConfimirationsData` element.
 
-* For the user to be able to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.com/support), pass their email address and name in the `AttributeStatement` element. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
+* For the user to be able to contact {{ yandex-cloud }} technical support from the [management console](https://console.cloud.yandex.com/support), pass their email address and name in the `AttributeStatement` element. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
 
     ```
     <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">

@@ -3,7 +3,7 @@ description:
   - >-
     Yandex Key Management Service helps you create and manage
     encryption keys that you can use to protect your data in the
-    Yandex.Cloud infrastructure and encrypt or decrypt any data.
+    Yandex Cloud infrastructure and encrypt or decrypt any data.
 meta:
   title: Yandex Key Management Service
 links:

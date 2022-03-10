@@ -4,7 +4,7 @@
 
 - Access Token
 
-  * В режиме Access Token применяется [IAM токен Yandex.Cloud](../../../../iam/concepts/authorization/iam-token.md), процедура получения которого описана в статье [получение IAM-токена для аккаунта на Яндексе](../../../../iam/operations/iam-token/create.md).
+  * В режиме Access Token применяется [IAM токен {{ yandex-cloud }}](../../../../iam/concepts/authorization/iam-token.md), процедура получения которого описана в статье [получение IAM-токена для аккаунта на Яндексе](../../../../iam/operations/iam-token/create.md).
 
 - Refresh Token
 

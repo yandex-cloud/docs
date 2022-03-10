@@ -1,7 +1,7 @@
 title: Обзор платформы
 href: index.yaml
 items:
-  - name: Сервисы Yandex.Cloud
+  - name: Сервисы Yandex Cloud
     href: concepts/services.md
   - name: Начало работы
     href: quickstart.md
@@ -45,7 +45,7 @@ items:
         href: security/principles.md
       - name: Разделение ответственности за обеспечение безопасности
         href: security/respons.md
-      - name: Меры безопасности на стороне Yandex.Cloud
+      - name: Меры безопасности на стороне Yandex Cloud
         href: security/standarts.md
       - name: Соответствие требованиям
         href: security/conform.md

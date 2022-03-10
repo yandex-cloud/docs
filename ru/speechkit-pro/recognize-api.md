@@ -26,12 +26,12 @@
 1. [Создайте бакет в {{ objstorage-name }}](../storage/operations/buckets/create.md) с именем `audio-examples`.
 1. [Выдайте разрешение](../storage/operations/buckets/edit-acl.md) на чтение и запись в бакет `audio-examples` для сервисного аккаунта.
 1. [Создайте проект](../datasphere/operations/projects/create.md) в {{ ml-platform-name }} и откройте его.
-1. [Склонируйте](../datasphere/operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находится исходный код Yandex.Cloud API:
+1. [Склонируйте](../datasphere/operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находится исходный код {{ yandex-cloud }} API:
 
     ```text
     https://github.com/yandex-cloud/cloudapi
     ```
-1. Склонируйте Git-репозиторий, в котором находятся ноутбуки с примерами использования Yandex.Cloud API:
+1. Склонируйте Git-репозиторий, в котором находятся ноутбуки с примерами использования {{ yandex-cloud }} API:
 
     ```text
    https://github.com/yandex-cloud/examples

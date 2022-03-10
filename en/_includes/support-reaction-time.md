@@ -5,5 +5,5 @@
 
   * For critical requests — no more than 3 hours from the moment the request is received.
 
-    A request is critical if it is due to an error in Yandex.Cloud services and this error led to partial or complete unavailability of Yandex.Cloud services.
+    A request is critical if it is due to an error in {{ yandex-cloud }} services and this error led to partial or complete unavailability of {{ yandex-cloud }} services.
 

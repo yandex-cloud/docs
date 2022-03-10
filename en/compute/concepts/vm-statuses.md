@@ -4,7 +4,7 @@
 
 A VM can have one of the following statuses:
 
-- `PROVISIONING`: Yandex.Cloud is allocating resources to the VM.
+- `PROVISIONING`: {{ yandex-cloud }} is allocating resources to the VM.
 - `STARTING`: the VM is being started.
 - `RUNNING`: the VM has been started and is running.
 - `STOPPING`: the VM is being stopped.
@@ -67,7 +67,7 @@ There are two error statuses:
 
 - `CRASHED`: an error has occurred and the VM operation cannot continue.
 
-    If the VM has switched to this status, Yandex.Cloud will try to restart it. Restart attempts will be repeated until the VM status changes to `RUNNING` or `ERROR`.
+    If the VM has switched to this status, {{ yandex-cloud }} will try to restart it. Restart attempts will be repeated until the VM status changes to `RUNNING` or `ERROR`.
 
 - `ERROR`: a fatal error has occurred and the VM cannot be recovered.
 

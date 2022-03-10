@@ -102,7 +102,7 @@ default:
   certificate-manager-short-name: Certificate Manager
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
-  yandex-cloud: Yandex.Cloud
+  yandex-cloud: Yandex Cloud
   s3-storage-host: storage.yandexcloud.net
   yc-ydb: yc ydb
   yql-full-name: Yandex Query Language

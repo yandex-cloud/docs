@@ -1,6 +1,6 @@
 {% include [concepts/index/intro.md](_includes/index/intro.md) %}
 
-## YDB in Yandex.Cloud
+## YDB in {{ yandex-cloud }}
 
 You can create a database in a Serverless configuration or with dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](serverless_and_dedicated.md).
 

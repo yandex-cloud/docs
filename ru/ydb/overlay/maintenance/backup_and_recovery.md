@@ -14,7 +14,7 @@
 
 {% include [s3_prerequisites.md](_includes/backup_and_recovery/06_s3_2_prerequisites.md) %}
 
-При работе с [{{ objstorage-full-name }}](https://cloud.yandex.ru/services/storage) используется [бакет Yandex.Cloud Object Storage](https://cloud.yandex.ru/docs/storage/concepts/bucket).
+При работе с [{{ objstorage-full-name }}](https://cloud.yandex.ru/services/storage) используется [бакет {{ yandex-cloud }} Object Storage](https://cloud.yandex.ru/docs/storage/concepts/bucket).
 
 {% include [s3_access_keys.md](_includes/backup_and_recovery/06_s3_3_access_keys.md) %}
 

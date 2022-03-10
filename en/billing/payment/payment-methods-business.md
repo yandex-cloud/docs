@@ -8,7 +8,7 @@ To have funds transferred, you should first receive a [payment invoice](../conce
 <br/>Before making a transfer, make sure the following details in the payment order are entered correctly:
 
    - Payment amount
-   - Bank details of Yandex.Cloud LLC
+   - Bank details of {{ yandex-cloud }} LLC
    - Your company's TIN or sole proprietor's TIN
    - [Personal account number](../concepts/personal-account.md#id) in the Details of Payment field
    - [Contract number](../concepts/contract.md) in the Details of Payment field
@@ -21,6 +21,6 @@ Invoices must be paid before the deadline stipulated in the [agreement](../conce
 
 {% note info %}
 
-We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the maximum amount of the credit limit, Yandex.Cloud reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
+We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the maximum amount of the credit limit, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
 
 {% endnote %}

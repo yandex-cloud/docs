@@ -1,4 +1,4 @@
-# Перенос WordPress сайта с хостинга в Yandex.Cloud
+# Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
 
 [WordPress](https://wordpress.com) — система управления контентом с открытым исходным кодом. 
 

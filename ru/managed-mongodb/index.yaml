@@ -1,7 +1,7 @@
 title: Yandex Managed Service for MongoDB
 description:
   - >-
-    Сервис Managed Service for MongoDB помогает разворачивать и поддерживать кластеры серверов <a href="https://www.mongodb.com/">MongoDB</a> 4.0, 4.2, 4.4 и 5.0 в инфраструктуре Yandex.Cloud. MongoDB — это высокопроизводительная NoSQL СУБД с открытым исходным кодом.
+    Сервис Managed Service for MongoDB помогает разворачивать и поддерживать кластеры серверов <a href="https://www.mongodb.com/">MongoDB</a> 4.0, 4.2, 4.4 и 5.0 в инфраструктуре Yandex Cloud. MongoDB — это высокопроизводительная NoSQL СУБД с открытым исходным кодом.
   - >-
     Сервис Managed Service for MongoDB позволяет: <ul>
     <li>Не указывая схему формата данных, создавать системы, в которых требуется обработка и хранение большого объема полуструктурированных и неструктурированных данных.</li>
@@ -10,9 +10,9 @@ description:
     <li>Использовать полнотекстовый поиск.</li>
     </ul>
   - >-
-    Взаимодействие с сервисом осуществляется с помощью консоли управления, интерфейса командной строки Yandex.Cloud (CLI), API или Terraform.
+    Взаимодействие с сервисом осуществляется с помощью консоли управления, интерфейса командной строки Yandex Cloud (CLI), API или Terraform.
   - >-
-    Инфраструктура Yandex.Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
+    Инфраструктура Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
     защищена</a> в соответствии со следующими стандартами:
     <ul>
     <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>

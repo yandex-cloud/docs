@@ -1,6 +1,6 @@
 # Backup to {{ objstorage-full-name }} via Bacula on Centos 7
 
-In these instructions, you'll learn how to create backups in {{ objstorage-full-name }} and recover data via [Bacula](https://www.bacula.org/) on CentOS 7 in the Yandex.Cloud infrastructure.
+In these instructions, you'll learn how to create backups in {{ objstorage-full-name }} and recover data via [Bacula](https://www.bacula.org/) on CentOS 7 in the {{ yandex-cloud }} infrastructure.
 
 Bacula consists of several components:
 
@@ -57,7 +57,7 @@ To create a VM:
 
 1. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
 
-1. In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
+1. In the **Public address** field, leave the **Auto** value to assign a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
 1. Specify data required for accessing the VM:
 
@@ -83,7 +83,7 @@ When the VM is created, it is assigned a public IP address and hostname (FQDN). 
 
 To create a bucket for backups in {{ objstorage-name }}:
 
-1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
+1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 
 1. On the folder page, click **Create resource** and select **Bucket**.
 

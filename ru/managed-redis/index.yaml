@@ -2,7 +2,7 @@ title: Yandex Managed Service for Redis
 description:
   - >-
     Сервис Managed Service for Redis помогает разворачивать и поддерживать
-    кластеры серверов <a href="https://redis.io/">Redis</a> 5 и 6 в инфраструктуре Yandex.Cloud. Redis — это высокопроизводительная СУБД класса NoSQL с открытым исходным кодом, работающая с данными типа «ключ-значение».
+    кластеры серверов <a href="https://redis.io/">Redis</a> 5 и 6 в инфраструктуре Yandex Cloud. Redis — это высокопроизводительная СУБД класса NoSQL с открытым исходным кодом, работающая с данными типа «ключ-значение».
   - >-
     Managed Service for Redis часто используется, чтобы:
     <ul>
@@ -12,9 +12,9 @@ description:
       <li>Управлять сессиями пользователей и счетчиками: количество пользователей онлайн, просмотры и т.д.</li>
     </ul>
   - >-
-    Управлять сервисом можно с помощью консоли управления, интерфейса командной строки Yandex.Cloud (CLI), API или Terraform.
+    Управлять сервисом можно с помощью консоли управления, интерфейса командной строки Yandex Cloud (CLI), API или Terraform.
   - >-
-    Инфраструктура Yandex.Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
+    Инфраструктура Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
     защищена</a> в соответствии со следующими стандартами:
     <ul>
     <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>

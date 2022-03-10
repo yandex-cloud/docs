@@ -17,7 +17,7 @@ Before using {{ objstorage-full-name }}, sign up for {{ yandex-cloud }} and crea
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.ru/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
+If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.ru/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 

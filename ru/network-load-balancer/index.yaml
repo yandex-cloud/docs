@@ -2,7 +2,7 @@
 title: "Yandex Network Load Balancer"
 description:
   - "Yandex Network Load Balancer — сервис, который помогает обеспечить отказоустойчивость приложений за счет равномерного распределения сетевой нагрузки по облачным ресурсам. Сервис позволяет создавать <a href=\"https://cloud.yandex.ru/docs/network-load-balancer/concepts/\">сетевые балансировщики</a> и объединять облачные ресурсы в <a href=\"https://cloud.yandex.ru/docs/network-load-balancer/concepts/target-resources\">целевые группы</a>, по которым нужно распределять трафик. Ресурсы из подключенной к балансировщику целевой группы регулярно опрашиваются <a href=\"https://cloud.yandex.ru/docs/network-load-balancer/concepts/health-check\">проверками состояния</a>, благодаря чему трафик подается только на рабочие ресурсы."
-  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
+  - "Инфраструктура Yandex Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
   - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_loadbalancer\">Уровень обслуживания Yandex Network Load Balancer</a>."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:

@@ -1,7 +1,7 @@
-title: Документация Yandex.Cloud
+title: Документация Yandex Cloud
 href: index.yaml
 items:
-  - name: API Yandex.Cloud
+  - name: API Yandex Cloud
     href: api-design-guide/index.yaml
     when: audience == "external"
   - name: API Gateway
@@ -16,7 +16,7 @@ items:
   - name: Certificate Manager
     href: certificate-manager/index.yaml
     when: audience == "external"
-  - name: CLI Yandex.Cloud
+  - name: CLI Yandex Cloud
     href: cli/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
@@ -109,16 +109,16 @@ items:
   - name: Cloud Organization
     href: organization/index.yaml
     when: audience == "external"
-  - name: Обзор платформы Yandex.Cloud
+  - name: Обзор платформы Yandex Cloud
     href: overview/index.yaml
     when: audience == "external"
-  - name: Партнерская программа Yandex.Cloud
+  - name: Партнерская программа Yandex Cloud
     href: partner/index.yaml
     when: audience == "external"
   - name: Resource Manager
     href: resource-manager/index.yaml
     when: audience == "external"
-  - name: Практические руководства платформы Yandex.Cloud
+  - name: Практические руководства платформы Yandex Cloud
     href: tutorials/index.yaml
     when: audience == "external"
   - name: SpeechKit
@@ -126,7 +126,7 @@ items:
     when: audience == "external"
   - name: Object Storage
     href: storage/index.yaml
-  - name: Техническая поддержка Yandex.Cloud
+  - name: Техническая поддержка Yandex Cloud
     href: support/index.yaml
     when: audience == "external"
   - name: Tracker

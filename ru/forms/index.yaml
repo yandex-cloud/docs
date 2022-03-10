@@ -6,7 +6,7 @@ description:
   - Когда пользователи заполнят форму, вы сможете получить ответы и использовать данные для интеграции с другими сервисами.
 
 # у Форм свои серверы вне облачной инфраструктуры
-#  - "Инфраструктура Yandex.Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
+#  - "Инфраструктура Yandex Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Forms"

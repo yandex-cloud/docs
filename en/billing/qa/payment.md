@@ -85,15 +85,15 @@ If the [cloud was previously linked](../operations/pin-cloud.md) to another bill
 
 - For residents of Russia
 
-  You can learn more about the terms of the agreement in the section [Yandex.Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
+  You can learn more about the terms of the agreement in the section [Yandex Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
 
 - For residents of Kazakhstan
 
-  You can learn more about the terms of the agreement in the section [Yandex.Legal documents]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang =="en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
+  You can learn more about the terms of the agreement in the section [Yandex Legal documents]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang =="en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
 
 - For non-residents of Russia and Kazakhstan
 
-  You can learn more about the terms of the agreement in the section [Yandex.Legal documents]{% if lang == "ru" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=en){% endif %}.
+  You can learn more about the terms of the agreement in the section [Yandex Legal documents]{% if lang == "ru" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=en){% endif %}.
 
 {% endlist %}
 

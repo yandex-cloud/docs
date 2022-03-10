@@ -1,10 +1,10 @@
 title: Yandex Cloud Interconnect
 description:
   - >-
-    Yandex Cloud Interconnect lets you establish a private dedicated connection between your local network infrastructure and Yandex.Cloud. 
+    Yandex Cloud Interconnect lets you establish a private dedicated connection between your local network infrastructure and Yandex Cloud. 
     Dedicated connections are more reliable, more secure, and faster than internet connections.
   - >-
-    The Yandex.Cloud infrastructure <a
+    The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">
     fully complies</a> with the Russian Federal Law on Personal Data (No.
     152-FZ).

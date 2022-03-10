@@ -1,6 +1,6 @@
 # Configuring networks for {{ dataproc-name }}
 
-According to the [network concept](../../vpc/concepts/network.md) in Yandex.Cloud, hosts without public IP addresses in {{ dataproc-name }} clusters can't access resources outside of the {{vpc-short-name}} virtual network. To interact with nodes from other networks, Yandex.Cloud service interfaces, and internet nodes, you need to set up a public IP address for the host or use egress NAT for the subnet.
+According to the [network concept](../../vpc/concepts/network.md) in {{ yandex-cloud }}, hosts without public IP addresses in {{ dataproc-name }} clusters can't access resources outside of the {{vpc-short-name}} virtual network. To interact with nodes from other networks, {{ yandex-cloud }} service interfaces, and internet nodes, you need to set up a public IP address for the host or use egress NAT for the subnet.
 
 ## Egress NAT {#nat}
 
@@ -17,7 +17,7 @@ To enable egress NAT for a subnet:
 
 When using a NAT instance, all traffic passes through an additional VM (the NAT instance):
 
-* You can monitor all outbound traffic, and when necessary, you can also deploy a [VPN between the Yandex.Cloud subnet and the resources you need](../../tutorials/routing/ipsec-vpn.md).
+* You can monitor all outbound traffic, and when necessary, you can also deploy a [VPN between the {{ yandex-cloud }} subnet and the resources you need](../../tutorials/routing/ipsec-vpn.md).
 * This creates additional expenses on the NAT instance and the bandwidth limit on a single VM port can become substantial.
 
 To use a NAT configuration, you need two virtual subnets: one subnet hosts the {{ dataproc-name }} clusters and the second hosts the VM with the public IP address.

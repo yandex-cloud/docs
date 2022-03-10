@@ -2,8 +2,8 @@
 
 ## Service reviews {#internal-service-overviews}
 
-   - [Yandex DataLens: a new data analysis and visualization service in Yandex.Cloud](https://cloud.yandex.ru/blog/posts/2019/04/data-lens)
-   - [Yandex.Metrica alternative: sharing our experience how and why to create an analytical platform in Yandex.Cloud](https://tproger.ru/articles/tproger-tracker-yandex-cloud/)
+   - [Yandex DataLens: a new data analysis and visualization service in {{ yandex-cloud }}](https://cloud.yandex.ru/blog/posts/2019/04/data-lens)
+   - [Yandex.Metrica alternative: sharing our experience how and why to create an analytical platform in {{ yandex-cloud }}](https://tproger.ru/articles/tproger-tracker-yandex-cloud/)
 
 ## Guides {#guidelines}
 
@@ -14,7 +14,7 @@
 ## News {#news}
 
    - [Yandex DataLens news](https://cloud.yandex.ru/blog/posts/2020/04/datalens-digest)
-   - [Yandex.Cloud allows access to data analysis on self-isolation and the spread of coronavirus](https://habr.com/ru/company/yandex/news/t/497766/)
+   - [{{ yandex-cloud }} allows access to data analysis on self-isolation and the spread of coronavirus](https://habr.com/ru/company/yandex/news/t/497766/)
    - [Yandex DataLens news, June 10, 2021](https://cloud.yandex.ru/blog/posts/2021/06/datalens-digest-june-2021)
    - [Yandex DataLens news, February 02, 2021](https://cloud.yandex.ru/blog/posts/2021/02/datalens-digest)
    - [Billing news: budgets and DataLens connector](https://cloud.yandex.ru/blog/posts/2021/05/billing-connector-for-datalens)
@@ -24,8 +24,8 @@
    - [How to teach a neural network to count apples and predict crop yields](https://cloud.yandex.ru/cases/bio-msu)
    - [How the largest IT company trains students: a case study of Yandex Go at MIPT](https://cloud.yandex.ru/cases/mipt)
    - [SevenTech: how to build flexible self-service analytics for employees and external partners](https://cloud.yandex.ru/cases/seventech)
-   - [How Anywayanyday boosted analytics and reduced costs with Yandex.Cloud tools](https://cloud.yandex.ru/cases/anywayanyday)
-   - [NeftTransService: Yandex.Cloud IoT solutions for industrial business analytics](https://cloud.yandex.ru/cases/ntstrans)
+   - [How Anywayanyday boosted analytics and reduced costs with {{ yandex-cloud }} tools](https://cloud.yandex.ru/cases/anywayanyday)
+   - [NeftTransService: {{ yandex-cloud }} IoT solutions for industrial business analytics](https://cloud.yandex.ru/cases/ntstrans)
    - [How Okraina and Prizma Peak moved analytics to Yandex DataLens and Managed ClickHouse](https://cloud.yandex.ru/cases/okraina)
    - [11 reasons to move to Yandex DataLens: a case study of MoneyCare](https://cloud.yandex.ru/cases/moneycare)
 

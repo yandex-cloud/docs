@@ -11,7 +11,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
   1. Click **Create new key** in the top panel.
   1. Click **Create authorized key**.
   1. Enter a description of the key so that you can easily find it in the management console.
-  1. Save both the public and private keys. The private key is not saved in Yandex.Cloud, and you won't be able to view the public key in the management console.
+  1. Save both the public and private keys. The private key is not saved in {{ yandex-cloud }}, and you won't be able to view the public key in the management console.
 
 - CLI
 

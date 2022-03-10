@@ -29,7 +29,7 @@ items:
         href: operations/shards.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
-      - name: Миграция базы данных в Yandex.Cloud
+      - name: Миграция базы данных в Yandex Cloud
         href: operations/data-migration.md
   - name: Практические руководства
     items:

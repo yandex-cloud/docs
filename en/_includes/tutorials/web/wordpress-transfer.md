@@ -1,4 +1,4 @@
-# Transferring a WordPress website from a different hosting provider to Yandex.Cloud
+# Transferring a WordPress website from a different hosting provider to {{ yandex-cloud }}
 
 [WordPress](https://wordpress.com) is an open-source content management system.
 

@@ -18,7 +18,7 @@ To create a database:
 
 1. Under **Network**, select a network and allow assigning public IP addresses to DB nodes.
 
-   If you plan to send DB requests both from the Yandex.Cloud network and the internet, select the **Assign** option next to the **Public IP addresses** field.
+   If you plan to send DB requests both from the {{ yandex-cloud }} network and the internet, select the **Assign** option next to the **Public IP addresses** field.
 
    {% include  [traffic_metering](../../ydb/_includes/traffic_metering.md) %}
 

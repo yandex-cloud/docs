@@ -1,6 +1,6 @@
 # Creating test VMs using GitLab CI
 
-You can use Yandex.Cloud to automate routine actions, such as running a specific script after each commit to the `master` branch in a git repository. In the example below, a VM is created and tested after each commit.
+You can use {{ yandex-cloud }} to automate routine actions, such as running a specific script after each commit to the `master` branch in a git repository. In the example below, a VM is created and tested after each commit.
 
 To configure CI for VM disk snapshots:
 
@@ -18,7 +18,7 @@ To configure CI for VM disk snapshots:
 
 Before creating a VM:
 
-1. Go to the Yandex.Cloud [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
+1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
 1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, select **Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../../vpc/quickstart.md).
 
 ## 1. Create a VM for the test application {#create-vm}
@@ -258,7 +258,7 @@ To make sure the test application is running and the web server is configured co
 
 To easily transfer the created application and web server configuration to VMs created with CI, you need to take a snapshot of the test VM disk.
 
-1. In the Yandex.Cloud management console, select the folder where the VM was created.
+1. In the {{ yandex-cloud }} management console, select the folder where the VM was created.
 1. Choose **Compute Cloud**.
 1. Find the `ci-tutorial-test-app` VM and select it.
 1. Click **Stop**.
@@ -270,7 +270,7 @@ To easily transfer the created application and web server configuration to VMs c
 
 ## 5. Create a virtual machine with GitLab {#create-gitlib-vm}
 
-One of the ways to set up CI in Yandex.Cloud is to take advantage of a public image with GitLab pre-installed. GitLab includes a set of tools for managing git repositories and configuring CI.
+One of the ways to set up CI in {{ yandex-cloud }} is to take advantage of a public image with GitLab pre-installed. GitLab includes a set of tools for managing git repositories and configuring CI.
 
 1. On the folder page of the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
@@ -339,7 +339,7 @@ To configure GitLab and prepare CI, you must create a new repository and enter t
 
 ## 7. Configure Runner {#configure-runner}
 
-Runner is a tool for performing tasks that a user creates. You need to install Runner on the VM and register it in GitLab. In order for Runner to perform tasks, prepare additional components: install the Yandex.Cloud CLI and create a test to check the created VM.
+Runner is a tool for performing tasks that a user creates. You need to install Runner on the VM and register it in GitLab. In order for Runner to perform tasks, prepare additional components: install the {{ yandex-cloud }} CLI and create a test to check the created VM.
 
 1. [Connect](../../../compute/operations/vm-connect/ssh.md) to the VM with GitLab over SSH.
 
@@ -386,7 +386,7 @@ Runner is a tool for performing tasks that a user creates. You need to install R
    Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
    ```
 
-1. Install the Yandex.Cloud CLI so that the CI script can create VMs:
+1. Install the {{ yandex-cloud }} CLI so that the CI script can create VMs:
 
    ```
    $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh --output install.sh
@@ -503,7 +503,7 @@ After the commit, you need to make sure that CI worked correctly. A new VM shoul
 
 To check the created VM:
 
-1. Open the Yandex.Cloud management console.
+1. Open the {{ yandex-cloud }} management console.
 1. In the folder where the VMs were created, open the **Compute Cloud** service.
 1. If everything was configured correctly, the list of VMs should include a new VM with a name like `ci-tutorial-test-app-1543910277`.
 1. Select the VM you created and copy the public address of the created VM.

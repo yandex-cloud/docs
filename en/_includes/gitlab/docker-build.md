@@ -37,7 +37,7 @@ There are two ways to authenticate in {{ container-registry-name }} from GitLab 
 #### Dynamic {#auth-dynamic}
 
 This authentication option only works if the VM with GitLab is linked to a [service account](../../iam/concepts/users/service-accounts.md). To learn how to link a service account, see
-[Working with Yandex.Cloud from inside an instance](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance).
+[Working with {{ yandex-cloud }} from inside an instance](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance).
 
 To allow Docker to get metadata from the metadata service, use a public Docker image named `cr.yandex/yc/metadata-token-docker-helper:0.1`. It runs [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper), which gets an IAM token from the metadata service. [Use this Docker image](https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml) while building your app.
 

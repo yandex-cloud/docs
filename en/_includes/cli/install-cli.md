@@ -79,7 +79,7 @@
             Add yc installation dir to your PATH? [Y/n]
             ```
 
-        1. Enter `Y`. After this, you can use the Yandex.Cloud CLI without restarting the command shell.
+        1. Enter `Y`. After this, you can use the {{ yandex-cloud }} CLI without restarting the command shell.
 
     - To install using `cmd`:
 

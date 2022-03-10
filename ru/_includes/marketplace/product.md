@@ -21,7 +21,7 @@
 
 			#### Инструкция по развертыванию {#ubuntu-deploy}
 
-			1.&nbsp;Откройте Ubuntu 20.04 LTS в маркетплейсе Yandex.Cloud.<br>
+			1.&nbsp;Откройте Ubuntu 20.04 LTS в маркетплейсе {{ yandex-cloud }}.<br>
 			2.&nbsp;Нажмите **Запустить в консоли** и [создайте](https://cloud.yandex.ru/docs/compute/operations/vm-create/create-linux-vm) виртуальную машину.
 
 			#### Информация о поддержке {#ubuntu-support}
@@ -30,9 +30,9 @@
 
 			У продукта есть платная поддержка Ubuntu Advantage. [Подробнее](https://ubuntu.com/support).
 
-			**Yandex.Cloud**
+			**{{ yandex-cloud }}**
 
-			Служба технической поддержки Yandex.Cloud отвечает на запросы 24 часа в сутки, 7 дней в неделю. Срок обработки конкретного запроса зависит от тарифного плана. [Подробнее](https://cloud.yandex.ru/docs/support/overview).
+			Служба технической поддержки {{ yandex-cloud }} отвечает на запросы 24 часа в сутки, 7 дней в неделю. Срок обработки конкретного запроса зависит от тарифного плана. [Подробнее](https://cloud.yandex.ru/docs/support/overview).
 
 			{% endcut %}
 

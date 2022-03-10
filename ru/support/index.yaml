@@ -1,10 +1,10 @@
-title: Техническая поддержка Yandex.Cloud
+title: Техническая поддержка Yandex Cloud
 description: >-
-  Техническая поддержка Yandex.Cloud предоставляется в соответствии с <a
+  Техническая поддержка Yandex Cloud предоставляется в соответствии с <a
   href="https://yandex.ru/legal/cloud_technicalregulations">Регламентом
   технического обслуживания</a> на русском и английском языках.
 meta:
-  title: Техническая поддержка Yandex.Cloud
+  title: Техническая поддержка Yandex Cloud
 links:
   - title: Порядок оказания технической поддержки
     description: Как обратиться в службу технической поддержки
@@ -13,7 +13,7 @@ links:
   - title: Как получить техническую поддержку
     href: overview
     when: audience == "internal"
-  - title: Оповещения от поддержки Yandex.Cloud
+  - title: Оповещения от поддержки Yandex Cloud
     description: О каких событиях и каким образом оповещает вас техническая поддержка
     href: notify
     when: audience != "internal"

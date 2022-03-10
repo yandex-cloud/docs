@@ -32,13 +32,13 @@ Take a look at different {{ cloud-stt-api-name }} use cases:
 
 1. [Create a project](../datasphere/operations/projects/create.md) in {{ ml-platform-name }} and open it.
 
-1. [Clone](../datasphere/operations/projects/work-with-git.md#clone) the Git repository that contains the Yandex.Cloud API source code:
+1. [Clone](../datasphere/operations/projects/work-with-git.md#clone) the Git repository that contains the {{ yandex-cloud }} API source code:
 
     ```text
     https://github.com/yandex-cloud/cloudapi
     ```
 
-1. Clone the Git repository that contains the notebooks with the Yandex.Cloud API usage examples:
+1. Clone the Git repository that contains the notebooks with the {{ yandex-cloud }} API usage examples:
 
     ```text
     https://github.com/yandex-cloud/examples

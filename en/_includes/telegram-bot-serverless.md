@@ -158,7 +158,7 @@ For the bot to respond to the `/start` and the `/help` commands and to send an i
         const { Telegraf } = require('telegraf');
         
         const bot = new Telegraf(process.env.BOT_TOKEN);
-        bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Teleram Bot \nI'm working on Cloud Function in the Yandex.Cloud.`))
+        bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Teleram Bot \nI'm working on Cloud Function in the {{ yandex-cloud }}.`))
         bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
         bot.on('text', (ctx) => {
             ctx.replyWithPhoto('<API gateway domain>/sayhello.png');
@@ -259,7 +259,7 @@ Talk to the bot:
     ```text
     Hello.
     My name Serverless Hello Teleram Bot
-    I'm working on Cloud Function in the Yandex.Cloud.
+    I'm working on Cloud Function in the {{ yandex-cloud }}.
     ```
 
 1. Send the message `/help` in the chat.

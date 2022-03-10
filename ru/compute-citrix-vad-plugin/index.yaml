@@ -1,11 +1,11 @@
-title: Плагин Yandex.Cloud для Citrix Virtual Apps and Desktops
+title: Плагин Yandex Cloud для Citrix Virtual Apps and Desktops
 description:
   - >-
     Плагин для платформы <a href="https://www.citrix.com/products/citrix-virtual-apps-and-desktops/">Citrix Virtual Apps
-    and Desktops</a>, разработанный командой Yandex.Cloud, позволяет разворачивать рабочие места под управлением этой
+    and Desktops</a>, разработанный командой Yandex Cloud, позволяет разворачивать рабочие места под управлением этой
     платформы на виртуальных машинах Yandex Compute Cloud.
 meta:
-  title: Плагин Yandex.Cloud для Citrix Virtual Apps and Desktops
+  title: Плагин Yandex Cloud для Citrix Virtual Apps and Desktops
 links:
   - title: Начало работы
     description: Создайте первый каталог рабочих мест

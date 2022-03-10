@@ -5,7 +5,7 @@ description: "Access management in the service for exchanging messages between a
 
 # Access management in {{ message-queue-name }}
 
-Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources that are permitted under the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
 
 To allow access to resources in {{ message-queue-full-name }}, assign the required roles to the user from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
 
@@ -47,5 +47,5 @@ The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permiss
 
 ## See also {#see-also}
 
-[Hierarchy of Yandex.Cloud resources](../../resource-manager/concepts/resources-hierarchy.md)
+[Hierarchy of {{ yandex-cloud }} resources](../../resource-manager/concepts/resources-hierarchy.md)
 

@@ -4,9 +4,9 @@ description:
   - >-
     <em>Сервис Yandex Managed Service for Greenplum<sup>®</sup> находится на стадии <a href="/docs/overview/concepts/launch-stages">Preview</a>.</em>
   - >-
-    Сервис Managed Service for Greenplum<sup>®</sup> помогает разворачивать и поддерживать кластеры Greenplum<sup>®</sup> в инфраструктуре Yandex.Cloud.
+    Сервис Managed Service for Greenplum<sup>®</sup> помогает разворачивать и поддерживать кластеры Greenplum<sup>®</sup> в инфраструктуре Yandex Cloud.
   - >-
-    Инфраструктура Yandex.Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
+    Инфраструктура Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
     защищена</a> в соответствии со следующими стандартами:
     <ul>
     <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>

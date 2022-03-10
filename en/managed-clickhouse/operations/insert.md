@@ -14,7 +14,7 @@ To upload large data, use data compression during transmission: for example, you
 
 **The example was tested in the following environment:**
 
-- Virtual machine in Yandex.Cloud running Ubuntu 20.04 LTS.
+- Virtual machine in {{ yandex-cloud }} running Ubuntu 20.04 LTS.
 - Bash: `5.0.16`.
 - clickhouse-client: `20.10.2.20`.
 - capnproto: `0.7.0`.

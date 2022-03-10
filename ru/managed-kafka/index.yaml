@@ -3,9 +3,9 @@ description:
   - >-
     Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и
     поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 2.1, 2.6 и 2.8 в
-    инфраструктуре Yandex.Cloud.
+    инфраструктуре Yandex Cloud.
   - >-
-    Инфраструктура Yandex.Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
+    Инфраструктура Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
     защищена</a> в соответствии со следующими стандартами:
     <ul>
     <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>

@@ -36,7 +36,7 @@ No. Currently, you cannot upload your own images with Windows.
 
 #### Can I purchase Windows Server from {{ yandex-cloud }}? {#buy-windows-server}
 
-Yes, you can [purchase]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=databases&operationSystems=WINDOWS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=databases&operationSystems=WINDOWS){% endif %} a VM with a pre-installed Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019 image from {{ yandex-cloud }}. The Windows Server license is included in the Yandex.Cloud service cost.
+Yes, you can [purchase]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=databases&operationSystems=WINDOWS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=databases&operationSystems=WINDOWS){% endif %} a VM with a pre-installed Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019 image from {{ yandex-cloud }}. The Windows Server license is included in the {{ yandex-cloud }} service cost.
 
 #### Can I deploy my own Windows Server licenses in {{ compute-name }}? {#custom-windows-server}
 

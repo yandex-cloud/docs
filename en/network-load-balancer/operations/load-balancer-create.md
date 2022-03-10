@@ -50,7 +50,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
 - CLI
 
-  If you don't have the Yandex.Cloud command-line interface, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
+  If you don't have the {{ yandex-cloud }} command-line interface, [install it](https://cloud.yandex.com/docs/cli/quickstart#install).
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 

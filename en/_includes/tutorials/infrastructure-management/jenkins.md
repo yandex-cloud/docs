@@ -1,7 +1,7 @@
 # Automating image builds using Jenkins and Packer
 
 This scenario describes how to set up automated VM image builds using Jenkins and Packer.
-Jenkins lets you to set up the continuous delivery of image configuration changes to Packer to build VM image used in Yandex.Cloud.
+Jenkins lets you to set up the continuous delivery of image configuration changes to Packer to build VM image used in {{ yandex-cloud }}.
 
 The images built can be used to create a cloud infrastructure. In this scenario, Terraform is used to deploy virtual machines from the created images.
 
@@ -20,16 +20,16 @@ If you no longer need the created VM and images, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying your applications, sign up for Yandex.Cloud and create a billing account:
+Before deploying your applications, sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
-* Install the Yandex.Cloud command line interface.
-* Install [Terraform](terraform-quickstart.md) and configure it to work with Yandex.Cloud.
+* Install the {{ yandex-cloud }} command line interface.
+* Install [Terraform](terraform-quickstart.md) and configure it to work with {{ yandex-cloud }}.
 * Configure the Git client. If you are running Windows, use [Git Bash](https://gitforwindows.org).
 * Create a [repository](https://github.com/yandex-cloud/examples) branch with examples in your GitHub account.
 * Prepare an SSH key to access the virtual machines.
@@ -101,7 +101,7 @@ Packer lets you create [virtual machine images](../../../compute/concepts/image.
 
 {% note info %}
 
-Yandex.Cloud requires Packer 1.4.1 and higher.
+{{ yandex-cloud }} requires Packer 1.4.1 and higher.
 
 {% endnote %}
 
@@ -163,7 +163,7 @@ To build images based on configurations from GitHub, configure Jenkins:
 
 ## Set up a Jenkins task {#jenkins-job}
 
-Enter your Yandex.Cloud authorization data and create a task to download changes from the github repository so that Jenkins can build images. The authorization data is used in the variables stored in the Packer configuration files.
+Enter your {{ yandex-cloud }} authorization data and create a task to download changes from the github repository so that Jenkins can build images. The authorization data is used in the variables stored in the Packer configuration files.
 
 1. Open the Jenkins administration panel.
 1. Select **Credentials**.

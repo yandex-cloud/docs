@@ -115,7 +115,7 @@ cp secure-config-template.json secure-config.json
 terraform init
 ```
 
-После успешной инициализации выполните команду, передав значение [OAuth-токена](../iam/concepts/authorization/oauth-token) для авторизации в Yandex.Cloud:
+После успешной инициализации выполните команду, передав значение [OAuth-токена](../iam/concepts/authorization/oauth-token) для авторизации в {{ yandex-cloud }}:
 ```
 terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
 ```

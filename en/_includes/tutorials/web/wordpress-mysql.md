@@ -1,6 +1,6 @@
 # WordPress website on a MySQL database cluster
 
-The following instructions explain how to deploy a website in WordPress CMS on a database cluster running MySQL in the Yandex.Cloud infrastructure.
+The following instructions explain how to deploy a website in WordPress CMS on a database cluster running MySQL in the {{ yandex-cloud }} infrastructure.
 
 To set up a WordPress website based on a MySQL cluster:
 
@@ -48,7 +48,7 @@ To create a VM:
 
 6. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
 
-7. In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
+7. In the **Public address** field, leave the **Auto** value to assign a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
 8. Specify data required for accessing the VM:
 

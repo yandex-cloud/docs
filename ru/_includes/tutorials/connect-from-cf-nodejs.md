@@ -23,7 +23,7 @@
 
 1. Клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) с помощью Git.
 1. Установите и инициализируйте следующие программы:
-    * [интерфейс командной строки Yandex.Cloud](../../cli/quickstart.md#install);
+    * [интерфейс командной строки {{ yandex-cloud }}](../../cli/quickstart.md#install);
     * [jq](https://stedolan.github.io/jq/download/);
     * [Node.js](https://nodejs.org/en/download/package-manager/);
     * `npm` и `npx`.

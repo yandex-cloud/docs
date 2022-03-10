@@ -2,11 +2,11 @@
 
 Before creating a database cluster:
 
-1. If you already have a folder in Yandex.Cloud, open the page of that folder in the management console. If there is no folder yet, create one:
+1. If you already have a folder in {{ yandex-cloud }}, open the page of that folder in the management console. If there is no folder yet, create one:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster. If you plan to connect to the database from outside Yandex.Cloud, request external IP addresses for hosts when creating a cluster.
+1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)) that you will use for accessing the DB cluster. If you plan to connect to the database from outside {{ yandex-cloud }}, request external IP addresses for hosts when creating a cluster.
 
 Follow the instructions below to quickly create a cluster and test your connection to it.
 

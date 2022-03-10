@@ -10,7 +10,7 @@ This section lists possible errors and provides descriptions for each of these l
 
 ## Request errors {#request-error}
 
-A standard error returned by Yandex.Cloud if an operation fails. For a list of error codes and descriptions, see the [API concepts](../../api-design-guide/concepts/errors.md).
+A standard error returned by {{ yandex-cloud }} if an operation fails. For a list of error codes and descriptions, see the [API concepts](../../api-design-guide/concepts/errors.md).
 
 ## File processing errors {#file-error}
 

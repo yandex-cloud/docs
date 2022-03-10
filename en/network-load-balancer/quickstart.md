@@ -34,7 +34,7 @@ To create a network load balancer:
 1. Click **Create load balancer**.
 1. Enter a name for the load balancer, like `test-load-balancer`.
 1. In the **Public IP** field, choose a method for assigning an IP address:
-    - **Auto**: Assign a random IP address from the Yandex.Cloud IP pool.
+    - **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
     - **List**: Select a public IP address from the list of previously reserved static addresses. Learn more in [{#T}](../vpc/operations/set-static-ip.md).
 1. (optional) Enable [DDoS protection](../vpc/ddos-protection/).
 1. Click **Add listener**.

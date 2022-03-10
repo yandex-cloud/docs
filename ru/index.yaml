@@ -1,14 +1,14 @@
-title: Документация Yandex.Cloud
+title: Документация Yandex Cloud
 meta:
-  title: Yandex.Cloud
+  title: Yandex Cloud
   noIndex: true
 links:
-  - title: API Yandex.Cloud
-    description: Архитектура API Yandex.Cloud
+  - title: API Yandex Cloud
+    description: Архитектура API Yandex Cloud
     href: api-design-guide/
     when: audience == "external"
   - title: API Gateway
-    description: Интеграция с сервисами Yandex.Cloud при помощи API
+    description: Интеграция с сервисами Yandex Cloud при помощи API
     href: api-gateway/
     when: audience == "external"
   - title: Application Load Balancer
@@ -23,7 +23,7 @@ links:
     description: Управление TLS-сертификатами
     href: certificate-manager/
     when: audience == "external"
-  - title: CLI Yandex.Cloud
+  - title: CLI Yandex Cloud
     description: Интерфейс командной строки
     href: cli/
   - title: Cloud Logging
@@ -65,7 +65,7 @@ links:
     href: dns/
     when: audience == "external"
   - title: Пробный период
-    description: Описание пробного периода использования Yandex.Cloud
+    description: Описание пробного периода использования Yandex Cloud
     href: getting-started\free-trial\concepts\quickstart.md
     when: audience == "external"
   - title: Cloud Functions
@@ -144,11 +144,11 @@ links:
     description: Облачные сервисы для корпоративных клиентов
     href: organization/
     when: audience == "external"
-  - title: Обзор платформы Yandex.Cloud
-    description: Обзор облачных ресурсов Yandex.Cloud
+  - title: Обзор платформы Yandex Cloud
+    description: Обзор облачных ресурсов Yandex Cloud
     href: overview/
     when: audience == "external"
-  - title: Партнерская программа Yandex.Cloud
+  - title: Партнерская программа Yandex Cloud
     description: Описание партнерской программы
     href: partner/
     when: audience == "external"
@@ -160,7 +160,7 @@ links:
     description: Запуск контейнеров без Kubernetes®
     href: serverless-containers/
     when: audience == "external"
-  - title: Практические руководства платформы Yandex.Cloud
+  - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
     when: audience == "external"
@@ -172,7 +172,7 @@ links:
     description: Масштабируемое хранилище данных
     href: storage/
     when: audience == "external"
-  - title: Техническая поддержка Yandex.Cloud
+  - title: Техническая поддержка Yandex Cloud
     description: Техническая поддержка
     href: support/
     when: audience == "external"

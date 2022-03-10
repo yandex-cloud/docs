@@ -4,7 +4,7 @@ There are several ways to get an [IAM token](../../concepts/authorization/iam-to
 
 * [Using the CLI](#via-cli) (the easiest way).
 * [Using JSON Web Token](#via-jwt). This method is better if you need to automate your API operations.
-* [Using a virtual machine](../../../compute/operations/vm-connect/auth-inside-vm.md) in {{ compute-name }}. This method is convenient for running apps on Yandex.Cloud virtual machines.
+* [Using a virtual machine](../../../compute/operations/vm-connect/auth-inside-vm.md) in {{ compute-name }}. This method is convenient for running apps on {{ yandex-cloud }} virtual machines.
 * [Using a function](../../../functions/operations/function-sa.md) in {{ sf-name }}. This method is good for getting an IAM token from your function code.
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}

@@ -125,7 +125,7 @@ Skip this section if you are using your own app data.
 
 ### 2.2. Export the data from AppMetrica {#uploading-data-from-appmetrica}
 
-To set up the connection and export the data from your app, use the instructions [Export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html).
+To set up the connection and export the data from your app, use the instructions [Export data to {{ yandex-cloud }}](https://appmetrica.yandex.com/docs/cloud/index.html).
 
 ### 2.3. {{ CH }}. Get the cluster's IP address {#getting-ch-cluster-host}
 

@@ -12,7 +12,7 @@ To train a language model:
 
 1. [Create a project](../datasphere/operations/projects/create.md) in {{ ml-platform-name }} and open it.
 
-1. [Clone](../datasphere/operations/projects/work-with-git.md#clone) the Git repository that contains the notebooks with Yandex.Cloud API usage examples:
+1. [Clone](../datasphere/operations/projects/work-with-git.md#clone) the Git repository that contains the notebooks with {{ yandex-cloud }} API usage examples:
 
     ```bash
     https://github.com/yandex-cloud/examples

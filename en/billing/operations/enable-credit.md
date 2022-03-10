@@ -1,6 +1,6 @@
 # Enable a credit limit
 
-After [activating the paid version](../operations/activate-commercial.md) and the first reporting period ends, you may be given a [credit limit](../concepts/credit-limit.md) for using Yandex.Cloud services:
+After [activating the paid version](../operations/activate-commercial.md) and the first reporting period ends, you may be given a [credit limit](../concepts/credit-limit.md) for using {{ yandex-cloud }} services:
 
 - Credit limits for individuals are enabled automatically.
 - Businesses have to submit an activation request.
@@ -16,5 +16,5 @@ To submit a request:
      - A copy of the power of attorney of the business representative (if you are a representative).
 1. Click **Send request**.
 
-Your request is reviewed within three business days. As soon as the decision is made, a Yandex.Cloud manager will contact you. If the decision is positive, all information about the credit limit is available in [management console]({{ link-console-billing }}).
+Your request is reviewed within three business days. As soon as the decision is made, a {{ yandex-cloud }} manager will contact you. If the decision is positive, all information about the credit limit is available in [management console]({{ link-console-billing }}).
 

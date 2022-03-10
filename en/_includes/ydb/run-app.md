@@ -17,7 +17,7 @@ To launch the app and connect to the database:
       sudo apt install python3-pip
       ```
 
-  1. Install the [Yandex.Cloud Python SDK](https://github.com/yandex-cloud/python-sdk):
+  1. Install the [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk):
 
       ```bash
       git clone https://github.com/yandex-cloud/python-sdk.git

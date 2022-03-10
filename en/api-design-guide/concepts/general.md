@@ -1,12 +1,12 @@
 # Basic principles
 
-Yandex.Cloud APIs are based on the [gRPC](https://grpc.io/docs/) mechanism. Methods and data structures in APIs are described using [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).
+Yandex Cloud APIs are based on the [gRPC](https://grpc.io/docs/) mechanism. Methods and data structures in APIs are described using [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).
 
-Yandex.Cloud services provide a JSON REST interface that you can access directly. REST is supported via the [gRPC-JSON transcoder](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/grpc_json_transcoder_filter). Yandex.Cloud services use this mechanism to translate incoming HTTP requests into gRPC calls. The service translates the results of request handling into an HTTP response and returns it to the client.
+Yandex Cloud services provide a JSON REST interface that you can access directly. REST is supported via the [gRPC-JSON transcoder](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/grpc_json_transcoder_filter). Yandex Cloud services use this mechanism to translate incoming HTTP requests into gRPC calls. The service translates the results of request handling into an HTTP response and returns it to the client.
 
 #### Resource-based approach {#resource-oriented-design}
 
-APIs use a resource-based approach. The principles that apply to all Yandex.Cloud APIs are described below:
+APIs use a resource-based approach. The principles that apply to all Yandex Cloud APIs are described below:
 
 - Resources in APIs are VM instances, disks, images, and so on. Each resource has a [unique ID](resources-identification.md).
 

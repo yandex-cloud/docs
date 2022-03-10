@@ -6,7 +6,7 @@ description:
     (Text-to-Speech).
   - To access SpeechKit, use the HTTP API.
   - >-
-    Yandex.Cloud <a
+    Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
     with the law No. 152-FZ of the Russian Federation "On Personal Data".
   - >-
@@ -31,7 +31,7 @@ links:
     description: Speech synthesis technology with a unique voice
     href: tts/brand-voice/
   - title: SpeechKit Hybrid
-    description: Running Yandex.Cloud voice technologies on-premise
+    description: Running Yandex Cloud voice technologies on-premise
     href: hybrid-speechkit/conception
   - title: Authentication in the API
     description: Get an access token and use it in requests

@@ -1,6 +1,6 @@
 # Deploying Microsoft Remote Desktop Services
 
-This scenario describes how to deploy Microsoft Windows Server 2019 Datacenter with pre-installed Remote Desktop Services on Yandex.Cloud. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5/10/25/50/100/250/500 users. Select the version with the necessary quota. All examples are given for a server with a quota for 5 users.
+This scenario describes how to deploy Microsoft Windows Server 2019 Datacenter with pre-installed Remote Desktop Services on {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server where Remote Desktop Services and Active Directory will be installed. Images are available with quotas for 5/10/25/50/100/250/500 users. Select the version with the necessary quota. All examples are given for a server with a quota for 5 users.
 
 {% note warning %}
 
@@ -23,11 +23,11 @@ To deploy the Remote Desktop Services infrastructure:
 
 ## Before you start {#before-you-begin}
 
-Before deploying servers, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying servers, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -37,7 +37,7 @@ The cost of installing Microsoft Windows Server with Remote Desktop Services inc
 
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../../compute/pricing.md)).
 * A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../../vpc/pricing.md)).
-* The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
 

@@ -1,4 +1,4 @@
-To start working with Yandex.Cloud:
+To start working with {{ yandex-cloud }}:
 
 - [Register and create your first payment account](../billing/quickstart/index.md)
 

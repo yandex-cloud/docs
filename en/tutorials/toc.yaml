@@ -22,7 +22,7 @@ items:
         href: web/wordpress.md
       - name: WordPress website on a MySQL database
         href: web/wordpress-mysql.md
-      - name: Transferring a WordPress website from a different hosting provider to Yandex.Cloud
+      - name: Transferring a WordPress website from a different hosting provider to Yandex Cloud
         href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
@@ -89,11 +89,11 @@ items:
       - name: >-
           Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server
         href: infrastructure-management/1c-mssql-windows.md
-      - name: Migrating to Yandex.Cloud using Hystax Acura
+      - name: Migrating to Yandex Cloud using Hystax Acura
         href: infrastructure-management/hystax-migration.md
-      - name: Emergency recovery in Yandex.Cloud using Hystax Acura
+      - name: Emergency recovery in Yandex Cloud using Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
-      - name: Configuring a fault-tolerant architecture in Yandex.Cloud
+      - name: Configuring a fault-tolerant architecture in Yandex Cloud
         href: infrastructure-management/fault-tolerance.md
   - name: Building a data platform
     items:
@@ -108,7 +108,7 @@ items:
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
-  - name: Windows in Yandex.Cloud
+  - name: Windows in Yandex Cloud
     items:
       - name: All tutorials
         href: windows/index.md

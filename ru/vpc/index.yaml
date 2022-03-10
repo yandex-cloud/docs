@@ -7,13 +7,13 @@ description:
     href="https://cloud.yandex.ru/docs/vpc/concepts/network#network">сети</a>,
     <a
     href="https://cloud.yandex.ru/docs/vpc/concepts/network#subnet">подсети</a>
-    в зонах доступности Yandex.Cloud, назначать облачным ресурсам внутренние и
+    в зонах доступности Yandex Cloud, назначать облачным ресурсам внутренние и
     публичные <a
     href="https://cloud.yandex.ru/docs/vpc/concepts/address">IP-адреса</a>, а
     также предоставляет возможность защиты от DDoS-атак с помощью компонента <a
     href="https://cloud.yandex.ru/docs/vpc/ddos-protection/">DDoS-Protection.</a>
   - >-
-    Инфраструктура Yandex.Cloud <a
+    Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
   - >-

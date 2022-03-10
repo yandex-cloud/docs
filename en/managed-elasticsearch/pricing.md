@@ -59,7 +59,7 @@ Total cost per cluster per month (hosts and storage): `720 × ₽18.36 + 100 × 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
-You can get a guaranteed discount on Yandex.Cloud resource usage when you plan for one or three years ahead.
+You can get a guaranteed discount on {{ yandex-cloud }} resource usage when you plan for one or three years ahead.
 
 {{mes-name}} provides four types of CVoS:
 

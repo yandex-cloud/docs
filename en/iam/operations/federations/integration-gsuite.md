@@ -62,7 +62,7 @@ Before you can create an identity federation in the cloud, you need to get infor
 
     1. Enable **Automatically create users** to automatically add a new user to the cloud on successful authentication. This option simplifies the user setup process, but the user only has the `resource-manager.clouds.member` role and they can't do anything with the resources in the cloud. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-        If this option is disabled, users who aren't added to the cloud can't log in, even if they have authenticated on your server. This way you can create a <q>white list</q> of users that are allowed to use Yandex.Cloud.
+        If this option is disabled, users who aren't added to the cloud can't log in, even if they have authenticated on your server. This way you can create a <q>white list</q> of users that are allowed to use {{ yandex-cloud }}.
 
 - CLI
 
@@ -93,7 +93,7 @@ Before you can create an identity federation in the cloud, you need to get infor
 
         * `auto-create-account-on-login`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use {{ yandex-cloud }}.
 
         * `cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
@@ -141,7 +141,7 @@ Before you can create an identity federation in the cloud, you need to get infor
 
         * `autocreateUsers`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use {{ yandex-cloud }}.
 
         * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
@@ -187,7 +187,7 @@ Having created a federation and obtained a console login link, finish creating t
 
 1. Enter a name for your SAML app, like <q>yandex-cloud-federation</q>. Add a description and upload a logo if necessary. Click **Next**.
 
-1. Enter information about Yandex.Cloud that acts as a Service Provider (SP):
+1. Enter information about {{ yandex-cloud }} that acts as a Service Provider (SP):
 
     * In the **ACS URL** and **Entity ID** fields, enter the previously obtained [console login link](#get-link).
 
@@ -201,7 +201,7 @@ Having created a federation and obtained a console login link, finish creating t
 
     ![image](../../../_assets/iam/federations/configure-saml-gsuite.png)
 
-1. For the user to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.com/support), click **Add new mappings** and configure the server to pass the user's email address. We also recommend that it passes the user's first and last name. Then click **Finish**.
+1. For the user to contact {{ yandex-cloud }} technical support from the [management console](https://console.cloud.yandex.com/support), click **Add new mappings** and configure the server to pass the user's email address. We also recommend that it passes the user's first and last name. Then click **Finish**.
 
     ![image](../../../_assets/iam/federations/specify-claims-mapping-gsuite.png)
 

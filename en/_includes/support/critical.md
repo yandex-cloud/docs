@@ -1,1 +1,1 @@
-A request is _critical_ if it is due to an error in Yandex.Cloud services and this error led to the partial or complete unavailability of Yandex.Cloud services.
+A request is _critical_ if it is due to an error in {{ yandex-cloud }} services and this error led to the partial or complete unavailability of {{ yandex-cloud }} services.

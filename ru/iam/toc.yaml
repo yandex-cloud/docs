@@ -96,7 +96,7 @@ items:
         href: concepts/federations.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Безопасное использование Yandex.Cloud
+  - name: Безопасное использование Yandex Cloud
     href: best-practices/using-iam-securely.md
   - name: Управление доступом
     href: security/index.md

@@ -1,6 +1,6 @@
 ---
 title: Access management in Managed Service for Kubernetes
-description: "Access management in the service of the containerized applications — Managed Service for Kubernetes. Learn about what resources can be assigned the role of what the role of action in the service, what roles are needed service account Cluster Managed Service for Kubernetes, what roles need to work with Managed Service for Kubernetes through the Yandex.Cloud management console."
+description: "Access management in the service of the containerized applications — Managed Service for Kubernetes. Learn about what resources can be assigned the role of what the role of action in the service, what roles are needed service account Cluster Managed Service for Kubernetes, what roles need to work with Managed Service for Kubernetes through the Yandex Cloud management console."
 ---
 
 # Access management in {{ managed-k8s-name }}

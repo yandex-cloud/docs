@@ -73,7 +73,7 @@ To create a disk snapshot:
 
 - Terraform
 
-  If you don't have Terraform, [install it and configure the Yandex.Cloud provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Describe the resource parameters in the `yandex_compute_snapshot` configuration file.
 

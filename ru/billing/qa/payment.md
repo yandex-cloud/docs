@@ -84,15 +84,15 @@
 
  - Резидентам РФ
 
-   С условиями договора вы можете ознакомиться в разделе [Яндекс.Правовые документы]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
+   С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
 
  - Резидентам РК
 
-   С условиями договора вы можете ознакомиться в разделе [Яндекс.Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang =="en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
+   С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang =="en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
 
  - Нерезидентам РФ и РК
 
-   С условиями договора вы можете ознакомиться в разделе [Яндекс.Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=en){% endif %}.
+   С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=en){% endif %}.
   
 {% endlist %} 
 

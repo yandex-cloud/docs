@@ -1,6 +1,6 @@
 ### Outgoing traffic {#prices-traffic}
 
-When using the service, you pay for the traffic from the Yandex.Cloud to the internet. The traffic between Yandex.Cloud services and the incoming traffic from the internet are free of charge.
+When using the service, you pay for the traffic from the {{ yandex-cloud }} to the internet. The traffic between {{ yandex-cloud }} services and the incoming traffic from the internet are free of charge.
 
 The minimum charging unit is 1 MB. The price of a gigabyte of traffic changes depending on the amount of egress traffic in a given month.
 

@@ -1,15 +1,15 @@
 # Entity naming rules
 
 This section lists conventions used for naming entities
-in Yandex.Cloud APIs. By entities we mean resources, methods, messages, fields, and so on.
+in Yandex Cloud APIs. By entities we mean resources, methods, messages, fields, and so on.
 
 ## Product naming
 
-Full names are defined for all Yandex.Cloud products. Usually, a full name is used in the service documentation and web interface. Abbreviations are allowed for some products and can also be used in documentation to make its text easier to read.
+Full names are defined for all Yandex Cloud products. Usually, a full name is used in the service documentation and web interface. Abbreviations are allowed for some products and can also be used in documentation to make its text easier to read.
 
 In addition, all services have their Russian-language names defined. They are used in legal and accounting documents.
 
-Below are the names of one of the Yandex.Cloud services.
+Below are the names of one of the Yandex Cloud services.
 
 | Type of name | Example |
 | ----- | ----- |
@@ -50,7 +50,7 @@ service DiskService {
 
 {% note info %}
 
-The term "interfaces" is introduced to avoid confusion between a service in gRPC terms and a service in Yandex.Cloud terms.
+The term "interfaces" is introduced to avoid confusion between a service in gRPC terms and a service in Yandex Cloud terms.
 
 {% endnote %}
 

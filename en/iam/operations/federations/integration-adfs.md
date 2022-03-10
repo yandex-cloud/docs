@@ -19,7 +19,7 @@ To use the instructions in this section, you need:​
 
 1. A working ADFS farm. If you didn't configure ADFS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
 
-    If you don't have a Windows machine to deploy an ADFS server, you can [create a VM](../../../compute/quickstart/quick-create-windows.md) in Yandex.Cloud.
+    If you don't have a Windows machine to deploy an ADFS server, you can [create a VM](../../../compute/quickstart/quick-create-windows.md) in {{ yandex-cloud }}.
 
     {% note tip %}
 
@@ -59,7 +59,7 @@ To use the instructions in this section, you need:​
 
   1. Enable **Automatically create users** to automatically add authenticated users to the cloud. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-      If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+      If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use {{ yandex-cloud }}.
 
 - CLI
 
@@ -90,7 +90,7 @@ To use the instructions in this section, you need:​
 
         * `auto-create-account-on-login`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+            If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use {{ yandex-cloud }}.
 
         * `cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
@@ -130,7 +130,7 @@ To use the instructions in this section, you need:​
 
       * `autocreateUsers`: Flag for automatically creating new users in the cloud after authenticating on the IdP server. This option simplifies the user setup, but users created this way are only assigned the `resource-manager.clouds.member` role by default: they can't do anything with cloud resources. Exceptions are the resources that the `allUsers` or `allAuthenticatedUsers` system group roles are assigned to.
 
-          If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use Yandex.Cloud.
+          If this option is disabled, users who aren't added to the cloud can't log in to the management console, even if they authenticate with your server. In this case, you can manage the white list of users who are allowed to use {{ yandex-cloud }}.
 
       * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
@@ -198,7 +198,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. Select **Enter data about the relying party manually** and click **Next**.
 
-1. Enter a name, like <q>Yandex.Cloud</q>, and click **Next**.
+1. Enter a name, like <q>{{ yandex-cloud }}</q>, and click **Next**.
 
 1. In the next step, you are asked to specify a certificate for signing tokens. This step is optional, so click **Next**.
 
@@ -220,7 +220,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 ### Configure Claims Mapping {#configure-claims-mapping}
 
-When ADFS authenticates a user, it sends an SAML message to Yandex.Cloud to confirm successful authentication. The `NameID` element in this message identifies the user authenticated. For this, you need to configure the user data to match the elements of the SAML message.
+When ADFS authenticates a user, it sends an SAML message to {{ yandex-cloud }} to confirm successful authentication. The `NameID` element in this message identifies the user authenticated. For this, you need to configure the user data to match the elements of the SAML message.
 
 {% note warning %}
 
@@ -244,7 +244,7 @@ To configure mapping of user data to SAML message elements:
 
         In **Outgoing Claim Type**, select `Name ID`.
 
-    1. For users to be able to contact Yandex.Cloud technical support from the [management console](https://console.cloud.yandex.com/support), configure the server to pass an email address (`E-Mail Address` and the name of the user (`Name`):
+    1. For users to be able to contact {{ yandex-cloud }} technical support from the [management console](https://console.cloud.yandex.com/support), configure the server to pass an email address (`E-Mail Address` and the name of the user (`Name`):
 
         ![image](../../../_assets/iam/federations/specify-claims-mapping-ad.png)
 

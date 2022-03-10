@@ -2,7 +2,7 @@
 
 [1C-Bitrix: Site Management](https://ru.wikipedia.org/wiki/1%D0%A1-%D0%91%D0%B8%D1%82%D1%80%D0%B8%D0%BA%D1%81:_%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%BC) is a content management system (CMS) that lets you create an online store, corporate site, or news portal and easily manage your site structure and content.
 
-In this tutorial, you'll deploy and configure an online store built on the 1C-Bitrix platform. During the configuration, you'll create a VM in Yandex.Cloud, deploy 1C-Bitrix on it, and launch the necessary services. You'll use a failover {{ mmy-name }} cluster as a database.
+In this tutorial, you'll deploy and configure an online store built on the 1C-Bitrix platform. During the configuration, you'll create a VM in {{ yandex-cloud }}, deploy 1C-Bitrix on it, and launch the necessary services. You'll use a failover {{ mmy-name }} cluster as a database.
 
 To deploy and configure 1C-Bitrix:
 
@@ -14,11 +14,11 @@ To deploy and configure 1C-Bitrix:
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -56,7 +56,7 @@ To create a VM:
 
 1. Under **Network settings**:
    - Select the **Network** and **Subnet** to connect the VM to. If you don't have a network or subnet, create them right in this section.
-   - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
+   - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
 1. Under **Access**, specify the information required to access the VM:
    - In the **Login** field, enter a username to create on the VM, such as `ubuntu`.

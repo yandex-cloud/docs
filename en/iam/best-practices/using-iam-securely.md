@@ -1,6 +1,6 @@
-# How to use Yandex.Cloud securely
+# How to use {{ yandex-cloud }} securely
 
-This section provides recommendations for using {{ iam-short-name }} features to ensure the secure operation of Yandex.Cloud services.
+This section provides recommendations for using {{ iam-short-name }} features to ensure the secure operation of {{ yandex-cloud }} services.
 
 ## Don't grant unnecessary access rights {#restrict-access}
 
@@ -8,7 +8,7 @@ For critical resources:
 
 * Assign the minimum required roles. For example, to allow the creation of virtual machines from images in {{ compute-name }}, [assign the](../operations/roles/grant.md) `compute.images.user` role instead of the `editor` role or higher.
 
-* Try to assign [service roles](../concepts/access-control/roles.md#service-roles) rather than [primitive](../concepts/access-control/roles.md#primitive-roles) roles (`viewer`, `editor`, `admin`). Primitive roles apply to resources in any Yandex.Cloud service.
+* Try to assign [service roles](../concepts/access-control/roles.md#service-roles) rather than [primitive](../concepts/access-control/roles.md#primitive-roles) roles (`viewer`, `editor`, `admin`). Primitive roles apply to resources in any {{ yandex-cloud }} service.
 
     Use primitive roles if you don't have an applicable service role or if you want to grant a user total access.
 
@@ -32,7 +32,7 @@ For critical resources:
 
 ## Use service accounts {#use-sa}
 
-Use [service accounts](../concepts/users/service-accounts.md) to automate work with Yandex.Cloud. We recommend doing the following:
+Use [service accounts](../concepts/users/service-accounts.md) to automate work with {{ yandex-cloud }}. We recommend doing the following:
 
 * Control access to your service accounts. The `editor` role for a service account lets the user perform operations permitted under the service account. If the service account has the administrator role for the cloud, the user can use it to make themselves an administrator.
 

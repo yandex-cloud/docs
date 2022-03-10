@@ -1,6 +1,6 @@
 # Idempotency
 
-Yandex.Cloud services support [idempotency](https://en.wikipedia.org/wiki/Idempotence). An idempotent operation returns the same result for multiple calls.
+Yandex Cloud services support [idempotency](https://en.wikipedia.org/wiki/Idempotence). An idempotent operation returns the same result for multiple calls.
 
 By default, some operations in the API are not idempotent (for example, operations that change the state of resources). To make them work in an idempotent manner, specify the `Idempotency-Key` header in requests. The header must contain the UUID. Generate the UUIDs for each operation separately.
 

@@ -21,7 +21,7 @@ When [purchasing a CVoS](../operations/purchase-cvos.md), you choose the followi
 * Validity period: 1 or 3 years.
 * Start date: The next calendar day or desired date.
 
-Once the CVoS is purchased and the offer is accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. You can learn more about the terms and conditions of the agreement in [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
+Once the CVoS is purchased and the offer is accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. You can learn more about the terms and conditions of the agreement in [Yandex Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
 
 Information about CVoS usage and its expiration is displayed in the management console.
 

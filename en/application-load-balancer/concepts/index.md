@@ -1,6 +1,6 @@
 ---
 title: Yandex Application Load Balancer. Service overview
-description: 'Yandex Application Load Balancer (L7-balancer, application layer load balancer) is a service for load balancing services and applications deployed in Yandex.Cloud. Application Load Balancer operates at the 7th level of the OSI model and transmits traffic over protocols HTTP and HTTPS to the backends of your applications.'
+description: 'Yandex Application Load Balancer (L7-balancer, application layer load balancer) is a service for load balancing services and applications deployed in Yandex Cloud. Application Load Balancer operates at the 7th level of the OSI model and transmits traffic over protocols HTTP and HTTPS to the backends of your applications.'
 ---
 
 # Service overview

@@ -172,7 +172,7 @@ yc container registry create --name yc-auto-cr
 
 ### Configure the Docker Credential helper {#config-ch}
 
-To facilitate authentication in {{ container-registry-name }}, configure the [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). It lets you use private Yandex.Cloud registries without running the `docker login` command.
+To facilitate authentication in {{ container-registry-name }}, configure the [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). It lets you use private {{ yandex-cloud }} registries without running the `docker login` command.
 
 To configure the Credential helper, run the following command:
 

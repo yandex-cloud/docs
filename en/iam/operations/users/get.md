@@ -1,6 +1,6 @@
 # Getting user ID or email
 
-You can get the following information about any registered Yandex.Cloud user:
+You can get the following information about any registered {{ yandex-cloud }} user:
 
 * ID
 * Login

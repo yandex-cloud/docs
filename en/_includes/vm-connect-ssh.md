@@ -10,5 +10,5 @@ The recommended method for connecting to a virtual machine over SSH is based on 
 
 You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). You can use the `ssh` tool in Linux and macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
-To connect, you have to specify the address of the VM. This can be its IP address or the FQDN. Access via FQDN is possible from another Yandex.Cloud VM, if it is connected to the same virtual network. You can find out the IP address in the management console. Go to the **Network** section on the virtual machine's page.
+To connect, you have to specify the address of the VM. This can be its IP address or the FQDN. Access via FQDN is possible from another {{ yandex-cloud }} VM, if it is connected to the same virtual network. You can find out the IP address in the management console. Go to the **Network** section on the virtual machine's page.
 

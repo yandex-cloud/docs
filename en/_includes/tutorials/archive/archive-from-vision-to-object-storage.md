@@ -4,7 +4,7 @@
 
 With this guide, you will:
 
-* Set up a Yandex.Cloud environment for Yandex Vision.
+* Set up a {{ yandex-cloud }} environment for Yandex Vision.
 * Recognize text in images using Yandex Vision.
 * Upload the results to [Yandex Object Storage](https://cloud.yandex.com/docs/storage/).
 
@@ -19,11 +19,11 @@ With this guide, you will:
 
 ## Before you start {#before-you-begin}
 
-Before creating a virtual machine, you need to sign up for Yandex.Cloud and create a billing account:
+Before creating a virtual machine, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in Yandex.Cloud](../../../resource-manager/concepts/resources-hierarchy.md).
+If you have an active billing account, you can create or select a folder to run your VM in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources
 
@@ -62,7 +62,7 @@ Infrastructure costs for recognition and data storage include:
 
 1. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet yet, you can create them on the VM creation page.
 
-1. In the **Public address** field, leave the **Automatically** value to assign a random external IP address from the Yandex.Cloud pool. To ensure that the external IP address doesn't change after the VM is stopped, [make it static](https://cloud.yandex.com/docs/vpc/operations/set-static-ip).
+1. In the **Public address** field, leave the **Automatically** value to assign a random external IP address from the {{ yandex-cloud }} pool. To ensure that the external IP address doesn't change after the VM is stopped, [make it static](https://cloud.yandex.com/docs/vpc/operations/set-static-ip).
 
 1. Specify data required for accessing the VM:
 
@@ -188,7 +188,7 @@ Creating the VM may take several minutes.
     * Leave the default value for the maximum size.
     * Bucket access: **Limited**.
     * Storage class: **Cold**.
-1. Go to the Yandex.Cloud console and make sure that the bucket is in the list:
+1. Go to the {{ yandex-cloud }} console and make sure that the bucket is in the list:
 
    ```
    https://console.cloud.yandex.com/folders/<FOLDER-ID>/storage
@@ -346,7 +346,7 @@ To make it easier to read, each step is commented in the script body.
 
 ## Check the digitized content {#check}
 
-1. Go to {{ vision-name }} in the Yandex.Cloud console.
+1. Go to {{ vision-name }} in the {{ yandex-cloud }} console.
 1. Make sure that your bucket contains the `my_pictures_text.tar` archive.
 1. Download and unpack the archive.
 1. Make sure that the text in the `<image name>.txt` file matches the text in the image.

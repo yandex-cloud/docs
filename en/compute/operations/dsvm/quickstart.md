@@ -1,6 +1,6 @@
 # Creating a VM from a public DSVM image
 
-Create a DSVM [virtual machine](../../concepts/vm.md) using {{ compute-name }} from the Yandex.Cloud management console and connect to the VM over SSH.
+Create a DSVM [virtual machine](../../concepts/vm.md) using {{ compute-name }} from the {{ yandex-cloud }} management console and connect to the VM over SSH.
 
 ## Before you start {#before-you-begin}
 

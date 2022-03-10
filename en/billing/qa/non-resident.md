@@ -1,6 +1,6 @@
 # Questions about working with non-residents of Russia
 
-#### Can I become a Yandex.Cloud customer if I am a non-resident of Russia? {#non-resident}
+#### Can I become a {{ yandex-cloud }} customer if I am a non-resident of Russia? {#non-resident}
 
 Yes, but only if your legal status is a business.
 
@@ -18,13 +18,13 @@ Residents of the countries listed below can enter into an agreement and create a
 
 Businesses that are non-residents of Russia may top up their personal accounts and pay for consumed resources using a [bank card](../payment/payment-methods-card-business.md) or by [transferring funds from their bank account](../payment/payment-methods-business.md).
 
-#### In what currency can non-residents of Russia pay for Yandex.Cloud services? {#currency}
+#### In what currency can non-residents of Russia pay for {{ yandex-cloud }} services? {#currency}
 
-Non-residents of Russia must pay for Yandex.Cloud services in US dollars ($), regardless of the country they live in.
+Non-residents of Russia must pay for {{ yandex-cloud }} services in US dollars ($), regardless of the country they live in.
 
 #### What documents do I receive after I pay for services? {#documents}
 
-Yandex.Cloud generates a [payment invoice](../concepts/bill.md) for businesses that are non-residents of Russia. A copy of the payment invoice will be sent to the email address of the billing account owner at the beginning of the next reporting period.
+{{ yandex-cloud }} generates a [payment invoice](../concepts/bill.md) for businesses that are non-residents of Russia. A copy of the payment invoice will be sent to the email address of the billing account owner at the beginning of the next reporting period.
 
 #### How are taxes factored in when paying for services? {#taxes}
 
@@ -34,7 +34,7 @@ Non-residents shall pay all taxes and fees stipulated by the laws of their count
 
 #### Why was my billing account created with the PAYMENT_NOT_CONFIRMED status?  {#pending-status}
 
-To activate a billing account for a non-resident of the Russian Federation, you must receive confirmation from Yandex.Cloud managers.
+To activate a billing account for a non-resident of the Russian Federation, you must receive confirmation from {{ yandex-cloud }} managers.
 
 When you click the **Activate** button on the **Create billing account** page, a billing account is created with the `PAYMENT_NOT_CONFIRMED` status. An email with further instructions is sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your account.
 

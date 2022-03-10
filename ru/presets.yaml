@@ -463,7 +463,7 @@ default:
   pg-docs: https://www.postgresql.org/docs/current
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
-  yandex-cloud: Yandex.Cloud
+  yandex-cloud: Yandex Cloud
   yds-short-name: Data Streams
   yds: yds
 

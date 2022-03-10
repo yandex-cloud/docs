@@ -23,7 +23,7 @@ items:
         href: web/wordpress.md
       - name: Сайт на WordPress с БД MySQL
         href: web/wordpress-mysql.md
-      - name: Перенос WordPress сайта с хостинга в Yandex.Cloud
+      - name: Перенос WordPress сайта с хостинга в Yandex Cloud
         href: web/wordpress-transfer.md
       - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
@@ -93,13 +93,13 @@ items:
           Создание кластера Windows-серверов «1С:Предприятия» с базой данных MS
           SQL Server
         href: infrastructure-management/1c-mssql-windows.md
-      - name: Миграция в Yandex.Cloud с помощью Hystax Acura
+      - name: Миграция в Yandex Cloud с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
-      - name: Настройка отказоустойчивой архитектуры в Yandex.Cloud
+      - name: Настройка отказоустойчивой архитектуры в Yandex Cloud
         href: infrastructure-management/fault-tolerance.md
-      - name: Создание SAP-программы в Yandex.Cloud
+      - name: Создание SAP-программы в Yandex Cloud
         href: infrastructure-management/sap.md
   - name: Построение Data Platform
     items:
@@ -132,7 +132,7 @@ items:
         href: dataplatform/mdb-dns-peering.md
       - name: Настройка управляемой базы данных в кластере {{ CH }} для Graphite
         href: dataplatform/clickhouse-for-graphite.md
-  - name: Windows в Yandex.Cloud
+  - name: Windows в Yandex Cloud
     items:
       - name: Все руководства
         href: windows/index.md

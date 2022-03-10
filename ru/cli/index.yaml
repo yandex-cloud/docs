@@ -1,10 +1,10 @@
 title: Интерфейс командной строки
 description:
   - >-
-    CLI Yandex.Cloud — скачиваемое программное обеспечение для управления вашими
+    CLI Yandex Cloud — скачиваемое программное обеспечение для управления вашими
     облачными ресурсами через командную строку.
 meta:
-  title: CLI Yandex.Cloud
+  title: CLI Yandex Cloud
 links:
   - title: Начало работы
     description: Установите CLI и выполните первую команду
