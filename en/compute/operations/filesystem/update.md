@@ -5,10 +5,11 @@ After creating file storage, you can change its name, description, and size.
 {% list tabs %}
 
 - Management console
-  1. In the management console, select the folder where your file store is located.
+
+  1. In the [management console]({{ link-console-main }}), select the folder where your file storage is located.
   1. Select **{{ compute-name }}**.
   1. Go to the **File storages** tab.
-  1. In the appropriate file storage line, click ![image](../../../_assets/dots.svg) and select **Edit**.
+  1. In the appropriate file storage line, click ![image](../../../_assets/options-grey.svg) and select **Edit**.
   1. Change the file storage parameters, for example, rename it by editing the **Name** field.
   1. Click **Save**.
 

@@ -3,9 +3,7 @@
 1. Dismount your file store from the VM:
 
    1. [Connect to the VM via SSH](../vm-connect/ssh.md).
-
    1. If you added a line to the `/etc/fstab` file for automatically mounting file storage to the VM at startup (for example, when [attaching storage to a VM](attach-to-vm.md)), delete the line.
-
    1. Run the command:
 
       ```bash
@@ -32,18 +30,18 @@
       ```
 
 1. [Stop the VM](../vm-control/vm-stop-and-start.md).
-
 1. Detach file storage from the VM in {{ compute-name }}:
 
    {% list tabs %}
 
    - Management console
-     1. In the management console, select the folder where your file store is located.
+
+     1. In the [management console]({{ link-console-main }}), select the folder where your file storage is located.
      1. Select **{{ compute-name }}**.
      1. Go to the **File storages** tab.
-     1. Select the desired store.
+     1. Select the desired storage.
      1. Go to the **Virtual machines** tab.
-     1. In the line with the desired VM, click ![image](../../../_assets/dots.svg) and select **Stop**.
+     1. In the line with the desired VM, click ![image](../../../_assets/options-grey.svg) and select **Detach file storage**.
      1. In the window that opens, confirm the detach operation.
 
    - API
