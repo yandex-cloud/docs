@@ -9,7 +9,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/_includes/index/intro.md
 ---
 
 
-# Обзор
+# Туториал YQL - Обзор
 
 Из этого туториала вы узнаете, как выполнять базовые операции с данными в {{ ydb-short-name }}, и познакомитесь с синтаксисом YQL. 
 

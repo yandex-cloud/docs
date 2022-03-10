@@ -3,7 +3,7 @@
 
 [1C-Bitrix: Site Management](https://www.1c-bitrix.ru/products/cms/) is a web project management system from 1C-Bitrix. It lets you easily manage the structure and content of your website without knowing programming or design. 1C-Bitrix: Site Management does the technical work for you.
 
-In this tutorial, you'll deploy and configure a website using the 1C-Bitrix information portal template. During the configuration, you'll create a VM in Yandex.Cloud, deploy the 1C-Bitrix image on it, and launch the necessary services. As a database, you'll deploy a managed MySQL database cluster and ensure its fault tolerance.
+In this tutorial, you'll deploy and configure a website using the 1C-Bitrix information portal template. During the configuration, you'll create a VM in {{ yandex-cloud }}, deploy the 1C-Bitrix image on it, and launch the necessary services. As a database, you'll deploy a managed MySQL database cluster and ensure its fault tolerance.
 
 Resources used for proper operation of 1C-Bitrix:
 * A VM running Ubuntu 18.04 LTS with access to an external network and hosting 1C-Bitrix.
@@ -18,11 +18,11 @@ To deploy and configure 1C-Bitrix:
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [Yandex.Cloud home page](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in Yandex.Cloud](../../../resource-manager/concepts/resources-hierarchy.md).
+If you have an active billing account, you can create or select a folder to run your VM in. Go to the [{{ yandex-cloud }} home page](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources
 
@@ -50,7 +50,7 @@ To create a VM:
      * **RAM**: 4 GB.
 1. Under **Network settings**:
    * Select the **Network** and **Subnet** to connect the VM to. If you don't have a network or subnet, create them right on the VM creation page.
-   * In the **Public address** field, leave the **Auto** value to assign a random external IP address from the Yandex.Cloud pool, or select a static address from the list if you reserved one in advance.
+   * In the **Public address** field, leave the **Auto** value to assign a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 1. Under **Access**, specify the information required to access the VM:
    * In the **Login** field, enter your preferred username to be created on the VM, for example, `ubuntu`.
    * In the **SSH key** field, paste your public SSH key. You need to create a key pair for an SSH connection [yourself](../../../compute/operations/vm-connect/ssh.md).
@@ -88,7 +88,7 @@ To create a MySQL database cluster:
 
 1. Click **Create cluster**.
 
-Creating the DB cluster may take several minutes. To check that the new cluster is available, select **Managed Service for MySQL** in the Yandex.Cloud management console. On the **Clusters** tab, the cluster status should be **Running** and its state should be **Alive**.
+Creating the DB cluster may take several minutes. To check that the new cluster is available, select **Managed Service for MySQL** in the {{ yandex-cloud }} management console. On the **Clusters** tab, the cluster status should be **Running** and its state should be **Alive**.
 
 ## Configure a server to work with 1C-Bitrix {#configure-server}
 

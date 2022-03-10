@@ -1,8 +1,8 @@
 # Getting started with service accounts
 
-{{ iam-short-name }} lets you create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in Yandex.Cloud. Service accounts are free-of-charge and let you flexibly manage access for your programs. Learn more in [{#T}](concepts/users/service-accounts.md).
+{{ iam-short-name }} lets you create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free-of-charge and let you flexibly manage access for your programs. Learn more in [{#T}](concepts/users/service-accounts.md).
 
-These instructions are intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](concepts/access-control/roles.md#admin) role for a cloud or folder. Users with the [`editor`](concepts/access-control/roles.md#editor) role can also create service accounts, but they can't assign roles, so they can't allow a service account to perform operations in Yandex.Cloud.
+These instructions are intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](concepts/access-control/roles.md#admin) role for a cloud or folder. Users with the [`editor`](concepts/access-control/roles.md#editor) role can also create service accounts, but they can't assign roles, so they can't allow a service account to perform operations in {{ yandex-cloud }}.
 
 You will learn how to:
 
@@ -12,7 +12,7 @@ You will learn how to:
 
 ## Before you start {#before-you-begin}
 
-1. If you aren't registered at Yandex.Cloud, go to the [management console](https://console.cloud.yandex.com).
+1. If you aren't registered at {{ yandex-cloud }}, go to the [management console](https://console.cloud.yandex.com).
 1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 
 ## Create a service account {#create-sa}

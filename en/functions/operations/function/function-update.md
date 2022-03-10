@@ -47,9 +47,9 @@ You can change the [name](function-update.md#update-name) and [description](func
 
     You can change the function name using the API method [update](../../functions/api-ref/Function/update.md).
 
-- Yandex.Cloud Toolkit
+- Yandex Cloud Toolkit
 
-    You can rename the function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can rename the function using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -97,9 +97,9 @@ You can change the [name](function-update.md#update-name) and [description](func
 
     You can update the description of a function using the API method [update](../../functions/api-ref/Function/update.md).
 
-- Yandex.Cloud Toolkit
+- Yandex Cloud Toolkit
 
-    You can update the description of a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can update the description of a function using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

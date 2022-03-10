@@ -23,7 +23,7 @@
    Чтобы добавить сертификат реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат реестра.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке нужный реестр.
    1. На странице **Обзор** перейдите к разделу **Сертификаты** и нажмите кнопку **Добавить сертификат**.
 
@@ -47,10 +47,13 @@
   Добавьте сертификат реестру:
 
   ```
-  $ yc iot registry certificate add \
-  --registry-name my-registry \ # Имя реестра.
-  --certificate-file registry-cert.pem # Путь к публичной части сертификата.
-
+  yc iot registry certificate add \
+    --registry-name my-registry \ # Имя реестра.
+    --certificate-file registry-cert.pem # Путь к публичной части сертификата.
+  ```
+  
+  Результат:
+  ```
   registry_id: b91ki3851hab9m0l68je
   fingerprint: 589ce1605...
   certificate_data: |
@@ -71,7 +74,7 @@
    Чтобы удалить сертификат реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить сертификат реестра.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке нужный реестр.
    1. На странице **Обзор** перейдите к разделу **Сертификаты**.
    1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Удалить**.
@@ -84,13 +87,18 @@
   1. Удалите сертификат реестра:
 
       ```
-      $ yc iot registry certificate delete --registry-name my-registry --fingerprint 0f...
+      yc iot registry certificate delete --registry-name my-registry --fingerprint 0f...
       ```
 
   2. Проверьте, что сертификат действительно удален:
 
       ```
-      $ yc iot registry certificate list --registry-name my-registry
+      yc iot registry certificate list --registry-name my-registry
+	  ```
+	  
+	  Результат:
+	  
+	  ```
       +-------------+------------+
       | FINGERPRINT | CREATED AT |
       +-------------+------------+

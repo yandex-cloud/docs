@@ -1,7 +1,7 @@
 title: Обзор платформы
 href: index.yaml
 items:
-  - name: Сервисы Yandex.Cloud
+  - name: Сервисы Yandex Cloud
     href: concepts/services.md
   - name: Начало работы
     href: quickstart.md
@@ -24,7 +24,11 @@ items:
       - name: Сопоставление с Microsoft Azure
         href: platform-comparison/azure.md
   - name: Зоны доступности
-    href: concepts/geo-scope.md
+    items:
+      - name: Обзор
+        href: concepts/geo-scope.md
+      - name: Вывод из эксплуатации зоны ru-central1-c
+        href: concepts/ru-central1-c-deprecation.md
   - name: Стадии готовности сервисов
     href: concepts/launch-stages.md
   - name: Квоты и лимиты
@@ -41,7 +45,7 @@ items:
         href: security/principles.md
       - name: Разделение ответственности за обеспечение безопасности
         href: security/respons.md
-      - name: Меры безопасности на стороне Yandex.Cloud
+      - name: Меры безопасности на стороне Yandex Cloud
         href: security/standarts.md
       - name: Соответствие требованиям
         href: security/conform.md

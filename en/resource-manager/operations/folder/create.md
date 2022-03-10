@@ -1,6 +1,6 @@
 # Creating a folder
 
-_A folder_ is an isolated space where Yandex.Cloud resources are created and grouped.
+_A folder_ is an isolated space where {{ yandex-cloud }} resources are created and grouped.
 
 {% note alert %}
 

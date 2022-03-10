@@ -30,19 +30,45 @@ If `value`:
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-MAX([Profit] TOTAL)
-```
 
-```
-MAX([Profit] WITHIN [Date])
-```
 
-```
-MAX([Profit] AMONG [Date])
-```
+
+Source data
+
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
+
+Grouped by `[City]`, `[Category]`.
+
+Sorted by `[City]`, `[Category]`.
+
+Result
+
+| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MAX(SUM([Orders]) TOTAL)**   | **MAX(SUM([Orders]) WITHIN [City])**   | **MAX(SUM([Orders]) AMONG [City])**   |
+|:------------------|:--------------------|:--------------------|:-------------------------------|:---------------------------------------|:--------------------------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`                 | `25`                           | `25`                                   | `7`                                   |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `25`                           | `25`                                   | `25`                                  |
+| `'London'`        | `'Furniture'`       | `1`                 | `25`                           | `10`                                   | `7`                                   |
+| `'London'`        | `'Office Supplies'` | `10`                | `25`                           | `10`                                   | `25`                                  |
+| `'Moscow'`        | `'Furniture'`       | `2`                 | `25`                           | `4`                                    | `7`                                   |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `25`                           | `4`                                    | `25`                                  |
+| `'San Francisco'` | `'Furniture'`       | `5`                 | `25`                           | `23`                                   | `7`                                   |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `25`                           | `23`                                   | `25`                                  |
+
+
 
 
 #### Data source support {#data-source-support}

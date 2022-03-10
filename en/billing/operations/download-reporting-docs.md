@@ -2,7 +2,7 @@
 
 Companies and individual entrepreneurs can download [reports](../concepts/act.md) and [invoices](../concepts/invoice.md) in the {{ yandex-cloud }} management console.
 
-Documents are generated in [Yandex.Balance](https://balance.yandex.com/) on the last day of the month. Seven business days after a reporting period closes, the relevant documents will be posted to the management console and will become available for download. Documents for previous reporting periods are also available in the management console.
+Documents are generated in [Yandex Balance](https://balance.yandex.com/) on the last day of the month. Seven business days after a reporting period closes, the relevant documents will be posted to the management console and will become available for download. Documents for previous reporting periods are also available in the management console.
 
 To download reporting documents:
 

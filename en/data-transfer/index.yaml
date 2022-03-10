@@ -4,7 +4,7 @@ description:
     Yandex Data Transfer is designed for logically transferring data between
     storages. The service helps you quickly and safely perform logical
     migrations of your databases between other cloud platforms or local
-    databases and Yandex.Cloud managed database services.
+    databases and Yandex Cloud managed database services.
   - >-
     It supports several data transfer scenarios, with every scenario run at the
     logical level. This allows you to keep your source database running and

@@ -1,6 +1,6 @@
 # Migrating to {{ yandex-cloud }} using Hystax Acura
 
-You can use Hystax Acura to migrate your cloud infrastructure to {{ yandex-cloud }} from another cloud platform. To migrate, create a VM with Hystax Acura in your cloud. This VM will be used to set up and perform the migration. The migration process is performed by an auxiliary VM with Hystax Acura Cloud Agent. It will migrate your VMs to Yandex.Cloud. Before VM migration starts, VM replicas are created. Those replicas will be used for infrastructure deployment during migration. To migrate VMs:
+You can use Hystax Acura to migrate your cloud infrastructure to {{ yandex-cloud }} from another cloud platform. To migrate, create a VM with Hystax Acura in your cloud. This VM will be used to set up and perform the migration. The migration process is performed by an auxiliary VM with Hystax Acura Cloud Agent. It will migrate your VMs to {{ yandex-cloud }}. Before VM migration starts, VM replicas are created. Those replicas will be used for infrastructure deployment during migration. To migrate VMs:
 
 1. [Before you start](#before-begin).
 1. [Required paid resources](#paid-resources).
@@ -22,7 +22,7 @@ Before deploying the server, you need to sign up for {{ yandex-cloud }} and crea
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
 
 [Learn more about clouds and folders](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -193,7 +193,7 @@ The agents are installed on virtual machines to be migrated to {{ yandex-cloud }
 
 {% note alert %}
 
-When replication starts, Hystax Acura creates a new VM with Hystax Acura Cloud Agent in Yandex.Cloud to run all the operations in your cloud.
+When replication starts, Hystax Acura creates a new VM with Hystax Acura Cloud Agent in {{ yandex-cloud }} to run all the operations in your cloud.
 
 {% endnote %}
 

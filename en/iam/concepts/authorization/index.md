@@ -1,10 +1,10 @@
-# Authorization in Yandex.Cloud
+# Authorization in {{ yandex-cloud }}
 
-When a user does something with a resource in Yandex.Cloud, IAM checks whether the user has the necessary access rights to perform this operation.
+When a user does something with a resource in {{ yandex-cloud }}, IAM checks whether the user has the necessary access rights to perform this operation.
 
 Users get permissions along with resource roles. For more information about how roles are assigned and how the list of permissions is checked, see [{#T}](../access-control/index.md).
 
-## Authentication in Yandex.Cloud {#authentication}
+## Authentication in {{ yandex-cloud }} {#authentication}
 
 Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways, depending on the type of account and the interface used:
 

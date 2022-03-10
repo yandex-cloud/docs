@@ -1,6 +1,6 @@
 # IAM token
 
-An IAM token is a unique sequence of characters issued to a user after authentication. The user needs this token for authorization in the Yandex.Cloud API and access to resources.
+An IAM token is a unique sequence of characters issued to a user after authentication. The user needs this token for authorization in the {{ yandex-cloud }} API and access to resources.
 
 ## Using the token {#use}
 

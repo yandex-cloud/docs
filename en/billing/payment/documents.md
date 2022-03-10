@@ -4,11 +4,11 @@ The Billing service sends out financial documents regarding any and all payments
 
 ## Documents for businesses and individual entrepreneurs{#docs-for-business}
 
-If you used funds from your [personal account](../concepts/personal-account.md) during the reporting period, [Yandex.Balance](https://balance.yandex.com/) will generate the following reporting documents on the last day of the month:
+If you used funds from your [personal account](../concepts/personal-account.md) during the reporting period, [Yandex Balance](https://balance.yandex.com/) will generate the following reporting documents on the last day of the month:
 * [Report](../concepts/act.md)
 * [Invoice](../concepts/invoice.md) (for residents of Russia or the Republic of Kazakhstan only, invoices for residents of the Republic of Kazakhstan are generated electronically.)
 
-Copies of documents are sent to the email address specified in the payer's card in [Yandex.Balance](https://balance.yandex.com) at the beginning of the following reporting period.
+Copies of documents are sent to the email address specified in the payer's card in [Yandex Balance](https://balance.yandex.com) at the beginning of the following reporting period.
 
 Soft and hard copies of a document are identical. To prepare your financial reports on time, you can use the number, amount, and date of the report from the email received.
 
@@ -16,7 +16,7 @@ Paper originals of documents with all signatures and seals are sent by Russian P
 
 {% note info %}
 
-Documents are sent to the email address and mailing address specified in the payer's card in [Yandex.Balance](https://balance.yandex.com). Make sure the addresses are specified correctly.
+Documents are sent to the email address and mailing address specified in the payer's card in [Yandex Balance](https://balance.yandex.com). Make sure the addresses are specified correctly.
 
 {% endnote %}
 

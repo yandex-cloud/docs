@@ -26,7 +26,7 @@ Before deploying virtual hosting, sign up for {{ yandex-cloud }} and create a bi
 
 {% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud). Make sure that you do all the actions under the use case in this folder.
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex Cloud page](https://console.cloud.yandex.com/cloud). Make sure that you do all the actions under the use case in this folder.
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 

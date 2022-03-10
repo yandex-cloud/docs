@@ -906,7 +906,7 @@ output:
 
 #### Выход yc_logs { #yc_logs_output }
 
-Выход для отправки метрик в Yandex Cloud Logging по протоколу [grpc](https://cloud.yandex.ru/docs/logging/api-ref/grpc/log_ingestion_service).
+Выход для отправки метрик в {{ yandex-cloud }} Logging по протоколу [grpc](https://cloud.yandex.ru/docs/logging/api-ref/grpc/log_ingestion_service).
 
 {% note info %}
 

@@ -1,7 +1,7 @@
-title: Документация Yandex.Cloud
+title: Документация Yandex Cloud
 href: index.yaml
 items:
-  - name: API Yandex.Cloud
+  - name: API Yandex Cloud
     href: api-design-guide/index.yaml
   - name: API Gateway
     href: api-gateway/index.yaml
@@ -11,7 +11,7 @@ items:
     href: billing/index.yaml
   - name: Certificate Manager
     href: certificate-manager/index.yaml
-  - name: CLI Yandex.Cloud
+  - name: CLI Yandex Cloud
     href: cli/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
@@ -79,19 +79,19 @@ items:
     href: network-load-balancer/index.yaml
   - name: Cloud Organization
     href: organization/index.yaml
-  - name: Обзор платформы Yandex.Cloud
+  - name: Обзор платформы Yandex Cloud
     href: overview/index.yaml
-  - name: Партнерская программа Yandex.Cloud
+  - name: Партнерская программа Yandex Cloud
     href: partner/index.yaml
   - name: Resource Manager
     href: resource-manager/index.yaml
-  - name: Практические руководства платформы Yandex.Cloud
+  - name: Практические руководства платформы Yandex Cloud
     href: tutorials/index.yaml
   - name: SpeechKit
     href: speechkit/index.yaml
   - name: Object Storage
     href: storage/index.yaml
-  - name: Техническая поддержка Yandex.Cloud
+  - name: Техническая поддержка Yandex Cloud
     href: support/index.yaml
   - name: Tracker
     href: tracker/index.yaml

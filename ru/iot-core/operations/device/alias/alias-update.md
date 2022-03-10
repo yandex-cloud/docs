@@ -9,7 +9,7 @@
    Чтобы изменить алиас:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить алиас.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **Устройства**.
    1. Нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **Редактировать**.
@@ -31,8 +31,12 @@
     {% endnote %}
     
     ```
-    $ yc iot device update first  --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
-    id: areqjd6un3afc3cefcvm
+    yc iot device update first  --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
+    ```
+	
+	Результат:
+	```
+	id: areqjd6un3afc3cefcvm
     registry_id: arenou2oj4ct42eq8g3n
     created_at: "2019-09-16T10:41:06.489Z"
     name: first

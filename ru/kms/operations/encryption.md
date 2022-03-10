@@ -14,16 +14,16 @@
      
     Команда зашифрует открытый текст, переданный в файле `--plaintext-file`, и запишет полученный шифртекст в файл `--ciphertext-file`.
 
-    * `--id` –  идентификатор [ключа KMS](../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
-    * `--name` – название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
-    * `--version-id` – (опционально) [версия](../concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
-    * `--plaintext-file` – входной файл с открытым текстом.
-    * `--aad-context-file` – (опционально) входной файл с [AAD-контекстом](../concepts/encryption.md#add-context).
-    * `--ciphertext-file` – выходной файл с шифртекстом.
+    * `--id` —  идентификатор [ключа KMS](../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
+    * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
+    * `--version-id` — (опционально) [версия](../concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
+    * `--plaintext-file` — входной файл с открытым текстом.
+    * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../concepts/encryption.md#add-context).
+    * `--ciphertext-file` — выходной файл с шифртекстом.
 
 
     ```
-    $ yc kms symmetric-crypto encrypt \
+    yc kms symmetric-crypto encrypt \
       --id abj76v82ficsmn446ri7 \
       --plaintext-file plaintext-file \
       --ciphertext-file ciphertext-file
@@ -55,14 +55,14 @@
 
     Команда расшифрует шифртекст, переданный в файле `--ciphertext-file`, и запишет полученный открытый текст в файл `--plaintext-file`:
     
-    * `--id` – идентификатор [ключа KMS](../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
-    * `--name` – название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
-    * `--ciphertext-file` – входной файл с открытым текстом.
-    * `--aad-context-file` – (опционально) входной файл с [AAD-контекстом](../concepts/encryption.md#add-context).
-    * `--plaintext-file` – выходной файл с шифртекстом.
+    * `--id` — идентификатор [ключа KMS](../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
+    * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
+    * `--ciphertext-file` — входной файл с открытым текстом.
+    * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../concepts/encryption.md#add-context).
+    * `--plaintext-file` — выходной файл с шифртекстом.
     
     ```
-    $ yc kms symmetric-crypto decrypt \
+    yc kms symmetric-crypto decrypt \
       --id abj76v82ficsmn446ri7 \
       --ciphertext-file ciphertext-file \
       --plaintext-file decrypted-file

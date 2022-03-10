@@ -1,6 +1,6 @@
 ---
 title: Connecting to an Elasticsearch cluster
-description: 'You can connect to Elasticsearch cluster hosts with the Data node role over the Internet if you have configured public access for the required host. From Yandex.Cloud virtual machines located in the same virtual network.'
+description: 'You can connect to Elasticsearch cluster hosts with the Data node role over the Internet if you have configured public access for the required host. From Yandex Cloud virtual machines located in the same virtual network.'
 keywords:
   - connecting the Elasticsearch cluster
   - Elasticsearch cluster
@@ -34,7 +34,7 @@ Settings of rules depend on the connection method you select:
 
     A separate rule is created for each port.
 
-- With a VM in Yandex.Cloud
+- With a VM in {{ yandex-cloud }}
 
     1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on ports 443 (Kibana) and 9200 ({{ ES }}) from the security group assigned to the VM. To do this, create the following rules for incoming traffic in these security groups:
         - Protocol: `TCP`.

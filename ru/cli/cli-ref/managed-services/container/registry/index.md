@@ -33,7 +33,7 @@ Aliases:
 - [yc container registry set-ip-permissions](set-ip-permissions.md) — Set ip permissions for the specified registry and delete all existing ip permission if there were any
 - [yc container registry add-ip-permissions](add-ip-permissions.md) — Add ip permissions for the specified registry
 - [yc container registry remove-ip-permissions](remove-ip-permissions.md) — Remove ip permissions for the specified registry
-- [yc container registry configure-docker](configure-docker.md) — Configure docker to use Yandex.Cloud credential helper.
+- [yc container registry configure-docker](configure-docker.md) — Configure docker to use Yandex Cloud credential helper.
 
 #### Global Flags
 

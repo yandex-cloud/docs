@@ -1,6 +1,6 @@
 # Standard fields
 
-This section lists standard fields that can be found in Yandex.Cloud resource views. These fields have the same names and semantics for all services.
+This section lists standard fields that can be found in Yandex Cloud resource views. These fields have the same names and semantics for all services.
 
 | Field name | Description |
 | ----- | ----- |

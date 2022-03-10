@@ -10,5 +10,5 @@ To perform operations via the API, you need to get an [IAM token](../iam/concept
 
 #### See also {#see-also}
 
-[Accounts in Yandex.Cloud](../iam/concepts/index.md#accounts).
+[Accounts in {{ yandex-cloud }}](../iam/concepts/index.md#accounts).
 

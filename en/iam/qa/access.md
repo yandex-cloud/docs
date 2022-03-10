@@ -8,11 +8,11 @@ If you are not logged in to your Yandex or Yandex.Connect account, click **Log i
 
 #### How are access rights verified? {#verifying-rights}
 
-Before performing an operation with a resource, such as creating a VM, {{ iam-short-name }} checks whether the user has all the necessary permissions. If the user does not have any of the permissions, the operation will not be performed and Yandex.Cloud will return an error. For more information, see [{#T}](../concepts/access-control/index.md).
+Before performing an operation with a resource, such as creating a VM, {{ iam-short-name }} checks whether the user has all the necessary permissions. If the user does not have any of the permissions, the operation will not be performed and {{ yandex-cloud }} will return an error. For more information, see [{#T}](../concepts/access-control/index.md).
 
 #### What is a resource? {#resource}
 
-_A resource_ is a Yandex.Cloud entity that you can perform operations with, such as creating, updating, viewing, or deleting it. Examples of resources: VMs, disks, service accounts, clouds, and folders. For more information, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md) in the {{ resmgr-name }} documentation.
+_A resource_ is a {{ yandex-cloud }} entity that you can perform operations with, such as creating, updating, viewing, or deleting it. Examples of resources: VMs, disks, service accounts, clouds, and folders. For more information, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md) in the {{ resmgr-name }} documentation.
 
 #### What is access binding? {#access-binding}
 

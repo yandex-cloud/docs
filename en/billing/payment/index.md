@@ -1,6 +1,6 @@
 # How to pay for resources
 
-In Yandex.Cloud, you pay for resources depending on the amount consumed.
+In {{ yandex-cloud }}, you pay for resources depending on the amount consumed.
 
 [Payment method](payment-methods.md)
 

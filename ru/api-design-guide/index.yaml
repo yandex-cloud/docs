@@ -1,12 +1,12 @@
-title: Концепции API Yandex.Cloud
+title: Концепции API Yandex Cloud
 description: >-
-  Документ описывает концепции, которые легли в основу архитектуры API
-  Yandex.Cloud.
+  Документ описывает концепции, которые легли в основу архитектуры API Yandex
+  Cloud.
 
   Документ будет полезен разработчикам, которые хотят создавать на базе API
-  Yandex.Cloud системы автоматизации, плагины и другие приложения.
+  Yandex Cloud системы автоматизации, плагины и другие приложения.
 meta:
-  title: Концепции API Yandex.Cloud
+  title: Концепции API Yandex Cloud
   keywords:
     - keyword: идеология API
     - keyword: концепции API
@@ -15,7 +15,7 @@ meta:
 links:
   - title: Основные принципы
     description: >-
-      Как устроены API Yandex.Cloud и в чем заключается ресурсо-ориентированный
+      Как устроены API Yandex Cloud и в чем заключается ресурсо-ориентированный
       подход
     href: concepts/general
   - title: Ресурсы

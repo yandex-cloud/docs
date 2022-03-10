@@ -3,7 +3,7 @@ editable: false
 ---
 # Pricing policy
 
-In Yandex.Cloud, you can use resources of both billable and non-billable services.
+In {{ yandex-cloud }}, you can use resources of both billable and non-billable services.
 
 ## Non-billable services {#free}
 
@@ -13,5 +13,5 @@ The [Yandex Identity and Access Management](../iam/pricing.md) and [Yandex Resou
 
 Billable service costs are calculated based on the resources consumed and usage timeframe. Each service implements its own logic for calculating the volume of resources consumed.
 
-For more information about Yandex.Cloud pricing as well as pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page.
+For more information about {{ yandex-cloud }} pricing as well as pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page.
 

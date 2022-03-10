@@ -1,6 +1,6 @@
 ---
 title: "Relationship of resources of the Yandex API Gateway service"
-description: "An API gateway is an interface for interacting with services within Yandex.Cloud or on the Internet. An API gateway is set declaratively using a specification. A specification is a JSON or YAML file with a description of an API gateway according to the OpenAPI 3.0 standard. In the service The API Gateway specification has been updated with extensions that you can use to integrate with other cloud platforms."
+description: "An API gateway is an interface for interacting with services within Yandex Cloud or on the Internet. An API gateway is set declaratively using a specification. A specification is a JSON or YAML file with a description of an API gateway according to the OpenAPI 3.0 standard. In the service The API Gateway specification has been updated with extensions that you can use to integrate with other cloud platforms."
 ---
 
 # Relationships between resources in {{ api-gw-name }}

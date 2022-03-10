@@ -32,9 +32,9 @@
 
     You can get a list of functions using the [list](../../functions/functions/api-ref/Function/list.md) API method.
 
-- Yandex.Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-    You can get a list of functions using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can get a list of functions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

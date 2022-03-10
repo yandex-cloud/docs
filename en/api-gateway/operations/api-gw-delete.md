@@ -25,9 +25,9 @@
 
     You can delete an API gateway using the [delete](../apigateway/api-ref/ApiGateway/delete.md) API method.
 
-- Yandex.Cloud Toolkit
+- Yandex Cloud Toolkit
 
-    You can delete an API gateway using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can delete an API gateway using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

@@ -42,7 +42,7 @@ To create an automatically scaled instance group
 
   1. In the created file, indicate the following:
 
-      - General information about the group:
+      * General information about the group:
 
           ```
           name: first-autoscaled-group
@@ -58,7 +58,7 @@ To create an automatically scaled instance group
           | `service_account_id` | ID of the service account. |
           | `description` | A description of the instance group. |
 
-      - [Instance template](../../concepts/instance-groups/instance-template.md), for example:
+      * [Instance template](../../concepts/instance-groups/instance-template.md), for example:
 
           ```
           instance_template:
@@ -97,7 +97,7 @@ To create an automatically scaled instance group
           | `scheduling_policy` | Scheduling policy configuration. |
           | `preemptible` | A flag that enables the creation of [preemptible instances](../../concepts/preemptible-vm.md). If the value is `true`, a preemptible instance is created, if `false` (default), a regular instance is created.<br>When creating a preemptible instance group, keep in mind that the instances will terminate after 24 hours of continuous operation or earlier. It's possible that {{ ig-name }} won't be able to restart them immediately due to insufficient resources. This may occur in the event of a drastic increase of the computing resource utilization in {{ yandex-cloud }}. |
 
-      - [Policies](../../concepts/instance-groups/policies/index.md):
+      * [Policies](../../concepts/instance-groups/policies/index.md):
 
           ```
           deploy_policy:
@@ -170,12 +170,12 @@ To create an automatically scaled instance group
       ```
 
       This command creates an automatically scaled instance group with the following characteristics:
-      - Named `first-autoscaled-group`.
-      - Running CentOS 7.
-      - In the `default-net` network.
-      - In the `ru-central1-a` availability zone.
-      - With 2 vCPUs and 2 GB of RAM.
-      - With a 32 GB network HDD.
+      * Named `first-autoscaled-group`.
+      * Running CentOS 7.
+      * In the `default-net` network.
+      * In the `ru-central1-a` availability zone.
+      * With 2 vCPUs and 2 GB of RAM.
+      * With a 32 GB network HDD.
 
 - API
 
@@ -199,7 +199,7 @@ To create an automatically scaled instance group
 
      * `yandex_compute_instance_group`: Description of an [instance group](../../concepts/index.md):
 
-       - General information about the group:
+       * General information about the group:
 
           | Field | Description |
           | ----- | ----- |
@@ -207,7 +207,7 @@ To create an automatically scaled instance group
           | `folder_id` | Folder ID. |
           | `service_account_id` | ID of the service account. |
 
-       - [Instance template](../../concepts/instance-groups/instance-template.md):
+       * [Instance template](../../concepts/instance-groups/instance-template.md):
 
           | Field | Description |
           | ----- | ----- |
@@ -217,7 +217,7 @@ To create an automatically scaled instance group
           | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
           | `metadata` | In the metadata, pass the public key for accessing the instance via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
 
-       - [Policies](../../concepts/instance-groups/policies/index.md):
+       * [Policies](../../concepts/instance-groups/policies/index.md):
 
           | Field | Description |
           | ----- | ----- |

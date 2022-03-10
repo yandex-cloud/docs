@@ -41,8 +41,8 @@ user_account | **oneof:** `yandex_passport_user_account` or `saml_user_account`<
 
 Field | Description
 --- | ---
-login | **string**<br>Login of the Yandex.Passport user account. 
-default_email | **string**<br>Default email of the Yandex.Passport user account. 
+login | **string**<br>Login of the Yandex user account. 
+default_email | **string**<br>Default email of the Yandex user account. 
 
 
 ### SamlUserAccount {#SamlUserAccount}

@@ -3,7 +3,7 @@ sourcePath: ru/_cli-ref/cli-ref/managed-yc/version.md
 ---
 # yc version
 
-Display Yandex.Cloud CLI version.
+Display Yandex Cloud CLI version.
 
 #### Command Usage
 

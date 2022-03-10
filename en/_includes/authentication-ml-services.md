@@ -17,7 +17,7 @@ To perform operations via the API, you need to authenticate using your account:
       {% include [api-keys-disclaimer](iam/api-keys-disclaimer.md) %}
 
       1. [Get an API key](../iam/operations/api-key/create.md).
-      2. Specify the received API key when accessing Yandex.Cloud resources via the API. Pass the API key in the `Authorization` header in the following format:
+      2. Specify the received API key when accessing {{ yandex-cloud }} resources via the API. Pass the API key in the `Authorization` header in the following format:
 
           ```
           Authorization: Api-Key <API key>

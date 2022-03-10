@@ -74,15 +74,15 @@
 
  - Резидентам РФ
 
-   С условиями договора вы можете ознакомиться в разделе [Яндекс.Правовые документы](https://yandex.ru/legal/cloud_oferta/?lang=ru).
+   С условиями договора вы можете ознакомиться в разделе [Правовые документы](https://yandex.ru/legal/cloud_oferta/?lang=ru).
 
  - Резидентам РК
 
-   С условиями договора вы можете ознакомиться в разделе [Яндекс.Правовые документы](https://yandex.com/legal/cloud_oferta_kz/?lang=ru).
+   С условиями договора вы можете ознакомиться в разделе [Правовые документы](https://yandex.com/legal/cloud_oferta_kz/?lang=ru).
 
  - Нерезидентам РФ и РК
 
-   С условиями договора вы можете ознакомиться в разделе [Яндекс.Правовые документы](https://yandex.com/legal/cloud_customer_agreement/?lang=ru).
+   С условиями договора вы можете ознакомиться в разделе [Правовые документы](https://yandex.com/legal/cloud_customer_agreement/?lang=ru).
   
 {% endlist %} 
 

@@ -1,12 +1,12 @@
 # Questions about the trial period and paid version
 
-#### Is there a trial period for Yandex.Cloud?  {#trial}
+#### Is there a trial period for {{ yandex-cloud }}?  {#trial}
 
 Yes. For more information, see the document [Trial period](../../getting-started/free-trial/concepts/quickstart.md).
 
 #### Who can use the trial period? {#who-can-use-trial}
 
-All new Yandex.Cloud customers.
+All new {{ yandex-cloud }} customers.
 
 #### Can I upgrade to the paid version if the trial period hasn't expired yet?  {#activate-commercial}
 

@@ -17,13 +17,11 @@ To delete an instance group:
 
 - Management console
 
-  1. Open the folder page in the management console.
-
-  1. Select **{{ compute-full-name }}**.
-
-  1. On the **Virtual machines** page, go to the **Instance groups** tab.
-
-  1. Click ![image](../../../_assets/vertical-ellipsis.svg) for the group you want to delete and select **Delete**.
+  1. Open the folder page in the [management console]({{ link-console-main }}).
+  1. Select **{{ compute-name }}**.
+  1. Go to the **Instance groups** tab.
+  1. Click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Delete** for the desired group.
+  1. Confirm the action.
 
 - CLI
 

@@ -1,6 +1,6 @@
 # Installing a Cisco CSR 1000v virtual router
 
-In Yandex.Cloud, you can deploy a virtual Cisco Cloud Services Router (CSR) 1000v from a VM image. To install the CSR 1000v and configure SSH access to it:
+In {{ yandex-cloud }}, you can deploy a virtual Cisco Cloud Services Router (CSR) 1000v from a VM image. To install the CSR 1000v and configure SSH access to it:
 
 1. [Before you start](#before-you-begin).
 1. [Create a VM with a Cisco Cloud Services Router](#create-router).

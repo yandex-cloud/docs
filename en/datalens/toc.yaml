@@ -595,6 +595,8 @@ items:
         href: concepts/aggregation-tutorial.md
       - name: Window functions
         href: concepts/window-function-tutorial.md
+      - name: LOD expressions and filtering in aggregate functions
+        href: concepts/lod-aggregation.md
   - name: Public materials
     items:
       - name: Educational projects

@@ -2,9 +2,9 @@
 
 After creating an instance group, you can:
 
-- [Change its name and description](#change-name).
-- [Change its computing resources](#change-compute-resources).
-- [Increase the disk size](#change-disk-size).
+* [Change its name and description](#change-name).
+* [Change its computing resources](#change-compute-resources).
+* [Increase the disk size](#change-disk-size).
 
 ## Changing the name and description {#change-name}
 
@@ -13,9 +13,10 @@ To change the name and description of an instance group:
 {% list tabs %}
 
 - Management console
-  1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
-  1. On the **Virtual machines** page, go to the **Instance groups** tab.
+
+  1. Open the folder page in the [management console]({{ link-console-main }}).
+  1. Select **{{ compute-name }}**.
+  1. Go to the **Instance groups** tab.
   1. Click on the name of the group you want to update.
   1. Click **Change** in the upper-right corner of the page.
   1. Enter the appropriate name and description for the group.
@@ -61,8 +62,8 @@ To change the name and description of an instance group:
 
 After creating an instance group, you can change:
 
-- The guaranteed vCPU share.
-- The number of vCPUs and amount of RAM.
+* The guaranteed vCPU share.
+* The number of vCPUs and amount of RAM.
 
 {% include [include](../../../_includes/instance-groups/update-stopped-group-disclaimer.md) %}
 
@@ -71,13 +72,15 @@ To change the computing resources of an instance group:
 {% list tabs %}
 
 - Management console
-  1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
-  1. On the **Virtual machines** page, go to the **Instance groups** tab.
+
+  1. Open the folder page in the [management console]({{ link-console-main }}).
+  1. Select **{{ compute-name }}**.
+  1. Go to the **Instance groups** tab.
   1. Click on the name of the group you want to update.
   1. Click **Change** in the upper-right corner of the page.
   1. Delete the current instance template and create a new one with the appropriate instance parameters.
   1. Click **Save**.
+  1. Click **Save** on the **Changing an instance group** page.
 
 - CLI
 
@@ -124,13 +127,15 @@ To increase the disk size of an instance group:
 {% list tabs %}
 
 - Management console
-  1. Open the folder page in the management console.
-  1. Select **{{ compute-full-name }}**.
-  1. On the **Virtual machines** page, go to the **Instance groups** tab.
+
+  1. Open the folder page in the [management console]({{ link-console-main }}).
+  1. Select **{{ compute-name }}**.
+  1. Go to the **Instance groups** tab.
   1. Click on the name of the group you want to update.
   1. Click **Change** in the upper-right corner of the page.
-  1. In the **Disks** section, specify the disk size:
+  1. Delete the current instance template and create a new one with the appropriate instance parameters.
   1. Click **Save**.
+  1. Click **Save** on the **Changing an instance group** page.
 
 - CLI
 

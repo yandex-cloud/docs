@@ -20,7 +20,7 @@ After the paid version is activated, the personal account balance is zero by def
 
 We recommend that you [monitor](../operations/pay-the-bill.md) and top up your personal account balance so that it is always positive.
 
-If you fail to top up your personal account on time, the use of the Yandex.Cloud services may be suspended. Prior to suspension, a payment notice will be sent to the email address specified in your billing account. You will receive payment notices seven and three days prior to suspension, as well as on the day of suspension. After you top up your personal account, access to resource consumption will be restored within 24 hours.
+If you fail to top up your personal account on time, the use of the {{ yandex-cloud }} services may be suspended. Prior to suspension, a payment notice will be sent to the email address specified in your billing account. You will receive payment notices seven and three days prior to suspension, as well as on the day of suspension. After you top up your personal account, access to resource consumption will be restored within 24 hours.
 
 ## Methods and terms of crediting funds to your personal account {#methods}
 

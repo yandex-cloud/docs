@@ -124,7 +124,7 @@ To do this, go to the folder with the app.tf config file and run the command:
 terraform init
 ```
 
-Once Terraform is initialized, run the command passing the [OAuth token](../iam/concepts/authorization/oauth-token) value to be used for authorization in Yandex.Cloud:
+Once Terraform is initialized, run the command passing the [OAuth token](../iam/concepts/authorization/oauth-token) value to be used for authorization in {{ yandex-cloud }}:
 
 ```
 terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
@@ -228,7 +228,7 @@ log_group_id: ckg57bweoekkrkddsknd
 1. Go to the [Yandex.Dialogs](https://dialogs.yandex.ru/) website and log in to the console.
 1. Click **Create dialog** and select the **Alice skill** dialog type.
 1. In the **Skill name** field, set **To-do lists**.
-1. Under **Backend**, select **Yandex.Cloud function** and choose the `todo-list-alice` function that you previously created in Yandex Cloud Functions from the list.
+1. Under **Backend**, select **{{ yandex-cloud }} function** and choose the `todo-list-alice` function that you previously created in Yandex Cloud Functions from the list.
 1. Enable **Use data storage in the skill**.
 
 Set the other parameters as you wish. For example, you can specify different word forms to activate the skill and choose a voice or skill access type.

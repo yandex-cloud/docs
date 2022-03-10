@@ -23,6 +23,10 @@ items:
             href: operations/buckets/lifecycles.md
           - name: Managing CORS configurations
             href: operations/buckets/cors.md
+          - name: Managing bucket policies
+            href: operations/buckets/policy.md
+          - name: Managing bucket versioning
+            href: operations/buckets/versioning.md
           - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
           - name: Enabling logging

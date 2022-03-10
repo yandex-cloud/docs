@@ -68,9 +68,9 @@
 
     You can get details of the function version using the [getVersion](../../functions/functions/api-ref/Function/getVersion.md) API method.
 
-- Yandex.Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-    You can get details of the function version using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+    You can get details of the function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

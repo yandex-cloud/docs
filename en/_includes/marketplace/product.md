@@ -21,7 +21,7 @@ Add information about your product to be displayed in the Marketplace public cat
 
             #### Deployment instructions {#ubuntu-deploy}
 
-            1.&nbsp;Open Ubuntu 20.04 LTS in the Yandex.Cloud marketplace.<br>
+            1.&nbsp;Open Ubuntu 20.04 LTS in the {{ yandex-cloud }} marketplace.<br>
             2.&nbsp;Click **Run in console** and [create](https://cloud.yandex.ru/docs/compute/operations/vm-create/create-linux-vm) a VM.
 
             #### Support information {#ubuntu-support}
@@ -30,9 +30,9 @@ Add information about your product to be displayed in the Marketplace public cat
 
             The product has Ubuntu Advantage paid support. [Learn more](https://ubuntu.com/support).
 
-            **Yandex.Cloud**
+            **{{ yandex-cloud }}**
 
-            Yandex.Cloud technical support responds to requests 24 hours a day, 7 days a week. The response time depends on your service plan. [Learn more](https://cloud.yandex.ru/docs/support/overview).
+            {{ yandex-cloud }} technical support responds to requests 24 hours a day, 7 days a week. The response time depends on your service plan. [Learn more](https://cloud.yandex.ru/docs/support/overview).
 
             {% endcut %}
 

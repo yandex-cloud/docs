@@ -1,6 +1,6 @@
 ---
 title: Инструкции по работе с Yandex Cloud Functions
-description: "Из статьи вы узнаете как работать с Yandex Cloud Functions в Yandex.Cloud. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для Message Queue, Yandex IoT Core, Container Registry, Cloud Logs)."
+description: "Из статьи вы узнаете как работать с Yandex Cloud Functions в Yandex Cloud. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для Message Queue, Yandex IoT Core, Container Registry, Cloud Logs)."
 ---
 
 # Пошаговые инструкции для {{ sf-name }}

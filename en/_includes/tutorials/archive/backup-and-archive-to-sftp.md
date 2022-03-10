@@ -2,7 +2,7 @@
 
 In this guide, you will learn how to:
 
-* Deploy an [SFTP](https://ru.wikipedia.org/wiki/SFTP) server in the Yandex.Cloud infrastructure.
+* Deploy an [SFTP](https://ru.wikipedia.org/wiki/SFTP) server in the {{ yandex-cloud }} infrastructure.
 * Perform scheduled backups of configuration files from the SFTP client to the SFTP server.
 
 To deploy the necessary infrastructure, follow the instructions:
@@ -21,11 +21,11 @@ To deploy the necessary infrastructure, follow the instructions:
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for Yandex.Cloud and create a billing account:
+Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [Yandex.Cloud homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in Yandex.Cloud](../../../resource-manager/concepts/resources-hierarchy.md).
+If you have an active billing account, you can create or select a folder to run your VM in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources
 
@@ -58,7 +58,7 @@ To create a VM:
 
 1. In the **Network settings** section, select the network and subnet to connect the VM to. If you don't have a network or subnet yet, you can create them on the VM creation page.
 
-1. In the **Public address** field, leave the **Automatically** value to assign a random external IP address from the Yandex.Cloud pool. To ensure that the external IP address doesn't change after the VM is stopped, [make it static](../../../vpc/operations/set-static-ip.md).
+1. In the **Public address** field, leave the **Automatically** value to assign a random external IP address from the {{ yandex-cloud }} pool. To ensure that the external IP address doesn't change after the VM is stopped, [make it static](../../../vpc/operations/set-static-ip.md).
 
 1. Specify data required for accessing the VM:
     - Enter the username in the **Login** field.
@@ -291,7 +291,7 @@ The process for creating a VM for the SFTP client is exactly the same as the one
 
    1. Log in to the SFTP server via SSH.
 
-   1. Find the public or internal IP address of the SFTP client in the Yandex.Cloud console under VM settings.
+   1. Find the public or internal IP address of the SFTP client in the {{ yandex-cloud }} console under VM settings.
 
       {% note warning %}
 

@@ -1,6 +1,6 @@
 # Alerting
 
-Alerts in {{ monitoring-full-name }} are used to notify Yandex.Cloud users when metrics change.
+Alerts in {{ monitoring-full-name }} are used to notify {{ yandex-cloud }} users when metrics change.
 For instance, you can set up an alert to be notified when your cloud resource status changes, so that you can respond to issues in time.
 
 The alerting mechanism tracks changes in selected metrics using [alerts](#alert) and notifies users through [notification channels](#notification-channel).
@@ -82,10 +82,10 @@ You can use the same channel for multiple alerts.
 
     {% note info %}
 
-    You can only specify a Yandex.Cloud account as a notification recipient.
+    You can only specify a {{ yandex-cloud }} account as a notification recipient.
 To send an SMS, link a phone number to the user account.
 
-    Learn more about Yandex.Cloud accounts in the documentation for [{{ iam-full-name }}](../../iam/concepts/index.md#accounts).
+    Learn more about {{ yandex-cloud }} accounts in the documentation for [{{ iam-full-name }}](../../iam/concepts/index.md#accounts).
 
     {% endnote %}
 

@@ -23,7 +23,7 @@ The infrastructure support cost for this scenario includes:
 
 1. Clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) using Git.
 1. Install and initialize the following software programs:
-    * [The Yandex.Cloud command line interface](../../cli/quickstart.md#install).
+    * [The {{ yandex-cloud }} command line interface](../../cli/quickstart.md#install).
     * [jq](https://stedolan.github.io/jq/download/).
     * [Node.js](https://nodejs.org/en/download/package-manager/).
     * `npm` and `npx`.

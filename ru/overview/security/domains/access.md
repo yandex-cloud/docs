@@ -22,7 +22,7 @@
 * [предоставление доступа к {{ yandex-cloud }} подрядным организациям](#contractors);
 * [разграничение ресурсов](#resourses).
 
-С целью упрощения и автоматизации управления ролевым доступом был подготовлен Yandex Cloud IAM module (на базе Terraform). Он позволяет организовать группы доступов для пользователей облака и имеет ряд других удобных функций. С {{ iam-short-name }} модулем и примерами его использования можно ознакомиться в [решении](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
+С целью упрощения и автоматизации управления ролевым доступом был подготовлен {{ yandex-cloud }} IAM module (на базе Terraform). Он позволяет организовать группы доступов для пользователей облака и имеет ряд других удобных функций. С {{ iam-short-name }} модулем и примерами его использования можно ознакомиться в [решении](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
 
 ## Централизованное управление и федерации удостоверений {#saml-federation}
 

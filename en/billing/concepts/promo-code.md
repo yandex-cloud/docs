@@ -1,6 +1,6 @@
 # Promo code
 
-**A promo code** is a password that allows you to get an additional discount on using Yandex.Cloud services.
+**A promo code** is a password that allows you to get an additional discount on using {{ yandex-cloud }} services.
 
 ## Get and activate a promo code {#activate-promocode}
 
@@ -15,6 +15,6 @@ The terms of use and the validity period are specified in the message containing
 
 {% note info %}
 
-All previously issued and unused promo codes that were provided to access the Yandex.Cloud management console are no longer valid starting November 27, 2018.
+All previously issued and unused promo codes that were provided to access the {{ yandex-cloud }} management console are no longer valid starting November 27, 2018.
 
 {% endnote %}

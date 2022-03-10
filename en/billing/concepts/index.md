@@ -1,6 +1,6 @@
 ---
 title: Basic billing concepts
-description: "The following basic concepts are used in Yandex.Cloud billing - report, payment invoice, billing account statuses, billing accounts, grant, agreement, credit limit, committed volume of services, payment receipt for individuals, invoice, personal account, promo code"
+description: "The following basic concepts are used in {{ yandex-cloud }} billing - report, payment invoice, billing account statuses, billing accounts, grant, agreement, credit limit, committed volume of services, payment receipt for individuals, invoice, personal account, promo code"
 ---
 # All concepts
 

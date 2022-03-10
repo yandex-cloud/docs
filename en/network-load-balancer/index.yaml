@@ -12,7 +12,7 @@ description:
     href="https://cloud.yandex.com/docs/network-load-balancer/concepts/health-check">health
     checks</a>. This ensures traffic is only sent to healthy resources.
   - >-
-    The Yandex.Cloud infrastructure <a
+    The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
     complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
   - >-

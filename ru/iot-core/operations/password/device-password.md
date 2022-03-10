@@ -23,7 +23,7 @@
    Чтобы добавить пароль уже созданному устройству:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить пароль уже созданному устройству.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **Устройства**.
    1. Выберите в списке нужное устройство.
@@ -39,8 +39,12 @@
     1. Получите список устройств в реестре: 
     
         ```
-        $ yc iot device --registry-name my-registry list
-        +----------------------+--------+
+        yc iot device --registry-name my-registry list
+        ```
+		
+		Результат:
+		```
+		+----------------------+--------+
         |          ID          |  NAME  |
         +----------------------+--------+
         | arenak5ciqss6pbas5tm | second |
@@ -50,8 +54,12 @@
     1. Добавьте пароль устройству:
     
         ```
-        $ yc iot device password add --device-name first --password Passw0rdForDevice
-        device_id: areqjd6un3afc3cefcvm
+        yc iot device password add --device-name first --password Passw0rdForDevice
+        ```
+		
+		Результат:
+		```
+		device_id: areqjd6un3afc3cefcvm
         id: areqjd6un3afc3cefuio
         created_at: "2019-12-16T15:11:36.892167Z"
         ```
@@ -76,7 +84,11 @@
     1. Получите список реестров в каталоге: 
         
         ```
-        $ yc iot registry list
+        yc iot registry list
+		```
+		
+		Результат:
+		```
         +----------------------+-------------------+
         |          ID          |       NAME        |
         +----------------------+-------------------+
@@ -86,8 +98,12 @@
     1. Создайте устройство с паролем:       
     
         ```
-        $ yc iot device create --registry-name my-registry --name device-with-pass --password Passw0rdForDevice
-        id: arepomfambsg5biqc25n
+        yc iot device create --registry-name my-registry --name device-with-pass --password Passw0rdForDevice
+        ```
+		
+		Результат:
+		```
+		id: arepomfambsg5biqc25n
         registry_id: arenou2oj4ct42eq8g3n
         created_at: "2019-12-16T15:18:39.358922Z"
         name: device-with-pass
@@ -104,7 +120,7 @@
    Чтобы просмотреть список паролей устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите получить список паролей устройства.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **Устройства**.
    1. Выберите в списке нужное устройство.
@@ -122,8 +138,12 @@
     1. Получите список устройств в реестре: 
     
         ```
-        $ yc iot device --registry-name my-registry list
-        +----------------------+------------------+
+        yc iot device --registry-name my-registry list
+        ```
+		
+		Результат:
+		```
+		+----------------------+------------------+
         |          ID          |       NAME       |
         +----------------------+------------------+
         | arenak5ciqss6pbas5tm | second           |
@@ -134,8 +154,12 @@
     1. Получите список паролей устройства: 
     
         ```
-        $ yc iot device password list --device-name device-with-pass
-        +----------------------+---------------------+
+        yc iot device password list --device-name device-with-pass
+        ```
+		
+		Результат:
+		```
+		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
         +----------------------+---------------------+
         | areuin5t7pndvlj6n4tr | 2019-12-16 15:18:39 |
@@ -153,11 +177,11 @@
    Чтобы удалить пароль устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить пароль устройства.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **Устройства**.
    1. Выберите в списке нужное устройство.
-   1. Справа от удаляемого пароля нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Удалить**.
+   1. В строке с нужным паролем нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Удалить**.
    1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
@@ -170,23 +194,30 @@
     1. Получите список паролей устройства: 
     
         ```
-        $ yc iot device password list --device-name device-with-pass
-        +----------------------+---------------------+
+        yc iot device password list --device-name device-with-pass
+        ```
+		
+		Результат:
+		```
+		+----------------------+---------------------+
         |          ID          |     CREATED AT      |
         +----------------------+---------------------+
         | areuin5t7pndvlj6n4tr | 2019-12-16 15:18:39 |
         +----------------------+---------------------+
         ```
     1. Удалите пароль: 
-    
         ```
-        $ yc iot device password delete --device-name device-with-pass --password-id areuin5t7pndvlj6n4tr
+        yc iot device password delete --device-name device-with-pass --password-id areuin5t7pndvlj6n4tr
         ```
     1. Убедитесь, что пароль действительно удален: 
         
         ```
-        $ yc iot device password list --device-name device-with-pass
-        +----+------------+
+        yc iot device password list --device-name device-with-pass
+        ```
+		
+		Результат:
+		```
+		+----+------------+
         | ID | CREATED AT |
         +----+------------+
         +----+------------+

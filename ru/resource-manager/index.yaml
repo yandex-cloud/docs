@@ -1,10 +1,10 @@
 title: Yandex Resource Manager
 description:
   - >-
-    Сервис Yandex Resource Manager определяет ресурсную модель Yandex.Cloud и
+    Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и
     позволяет структурировать ресурсы с помощью каталогов.
   - >-
-    Инфраструктура Yandex.Cloud <a
+    Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
@@ -18,7 +18,7 @@ links:
     description: Инструкции по выполнению рутинных операций
     href: operations/
   - title: Концепции
-    description: Узнайте про ресурсную модель Yandex.Cloud
+    description: Узнайте про ресурсную модель Yandex Cloud
     href: concepts/resources-hierarchy
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
