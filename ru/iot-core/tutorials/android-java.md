@@ -40,25 +40,26 @@
 1. Создайте сертификат для реестра (пропустите этот шаг, если у вас уже есть сертификат реестра): 
     
    ```shell script
-    $ openssl req -x509 \
-        -newkey rsa:4096 \
-        -keyout registry-key.pem \
-        -out registry-cert.pem \
-        -nodes \
-        -days 365 \
-        -subj '/CN=localhost'
+   openssl req -x509 \
+     -newkey rsa:4096 \
+     -keyout registry-key.pem \
+     -out registry-cert.pem \
+     -nodes \
+     -days 365 \
+     -subj '/CN=localhost'
     ```
 1. Создайте реестр:
     
     ```
-    $ yc iot registry create --name my-registry
+    yc iot registry create --name my-registry
     ```
+	
 1. Добавьте сертификат реестру:
 
     ```
-    $ yc iot registry certificate add \
-    --registry-name my-registry \ # Имя реестра.
-    --certificate-file registry-cert.pem # Путь к публичной части сертификата.
+    yc iot registry certificate add \
+      --registry-name my-registry \ # Имя реестра.
+      --certificate-file registry-cert.pem # Путь к публичной части сертификата.
     ```
    
 ### Создайте устройство и добавьте ему сертификат {#device}
@@ -68,26 +69,28 @@
 1. (опционально) Создайте сертификат для устройства: 
     
    ```shell script
-    $ openssl req -x509 \
-        -newkey rsa:4096 \
-        -keyout device-key.pem \
-        -out device-cert.pem \
-        -nodes \
-        -days 365 \
-        -subj '/CN=localhost'
-    ```
+   openssl req -x509 \
+     -newkey rsa:4096 \
+     -keyout device-key.pem \
+     -out device-cert.pem \
+     -nodes \
+     -days 365 \
+     -subj '/CN=localhost'
+   ```
+   
 1. Создайте устройство:
     
-    ```
-    $ yc iot registry create --name my-registry
-    ```
+   ```
+   yc iot registry create --name my-registry
+   ```
+   
 1. Добавьте сертификат устройству:
 
-    ```
-    $ yc iot registry certificate add \
-    --registry-name my-registry \ # Имя реестра.
-    --certificate-file registry-cert.pem # Путь к публичной части сертификата.
-    ```
+   ```
+   yc iot registry certificate add \
+     --registry-name my-registry \ # Имя реестра.
+     --certificate-file registry-cert.pem # Путь к публичной части сертификата.
+   ```
 
 ## Подключитесь к {{ iot-full-name }} {#connect}
 

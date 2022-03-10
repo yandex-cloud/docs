@@ -4,9 +4,9 @@
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
 
-- [Посмотреть список сертификатов устройства](device-certificates.md#list-cert)
-- [Добавить сертификат устройству](device-certificates.md#add-cert)
-- [Удалить сертификат устройства](device-certificates.md#delete-cert)
+* [Посмотреть список сертификатов устройства](device-certificates.md#list-cert)
+* [Добавить сертификат устройству](device-certificates.md#add-cert)
+* [Удалить сертификат устройства](device-certificates.md#delete-cert)
 
 Для обращения к [устройству](../../concepts/index.md#device) используйте его уникальный идентификатор или имя. Как узнать уникальный идентификатор или имя устройства, читайте в разделе [{#T}](../device/device-list.md).
 
@@ -23,7 +23,7 @@
    Чтобы добавить сертификат устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат устройства.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Нажмите на имя нужного реестра.
    1. В левом меню выберите **Устройства**.
    1. Выберите в списке нужное устройство.
@@ -49,10 +49,13 @@
   Добавьте сертификат устройству:
 
   ```
-  $ yc iot device certificate add \
-  --device-name my-device \ # Имя устройства.
-  --certificate-file device-cert.pem # Путь к публичной части сертификата.
-
+  yc iot device certificate add \
+    --device-name my-device \ # Имя устройства.
+    --certificate-file device-cert.pem # Путь к публичной части сертификата.
+  ```
+  
+  Результат:
+  ```
   device_id: b9135goeh1uc1s2i07nm
   fingerprint: 65e5b050069da5ca5996a4a8a92514098b0a5dd1
   certificate_data: |
@@ -73,12 +76,12 @@
    Чтобы удалить сертификат устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить сертификат устройства.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Нажмите на имя нужного реестра.
    1. В левом меню выберите **Устройства**.
    1. Выберите в списке нужное устройство.
    1. На странице **Обзор** перейдите к разделу **Сертификаты**.
-   1. Нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) в строке с нужным сертификатом, в выпадающем списке выберите **Удалить**.
+   1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Удалить**.
    1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
@@ -88,13 +91,18 @@
   1. Удалите сертификат устройства:
 
       ```
-      $ yc iot device certificate delete --device-name my-device --fingerprint 65...
+      yc iot device certificate delete --device-name my-device --fingerprint 65...
       ```
 
-  2. Проверьте, что сертификат действительно удален:
+  1. Проверьте, что сертификат действительно удален:
 
       ```
-      $ yc iot device certificate list --device-name my-device
+      yc iot device certificate list --device-name my-device
+	  ```
+	  
+	  Результат:
+	  
+	  ```
       +-------------+------------+
       | FINGERPRINT | CREATED AT |
       +-------------+------------+

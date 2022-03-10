@@ -9,7 +9,7 @@
    Чтобы удалить алиас:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить алиас.
-   1. Выберите сервис **{{ iot-name }}**.
+   1. Выберите сервис **{{ iot-short-name }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **Устройства**.
    1. Справа от имени нужного устройства нажмите значок ![image](../../../../_assets/horizontal-ellipsis.svg), в выпадающем списке выберите **Редактировать**.
@@ -25,8 +25,12 @@
     Удалите алиас: 
     
     ```
-    $ yc iot device remove-topic-aliases arenak5ciqss6pbas6js --topic-aliases commands
-    id: arenak5ciqss6pbas6js
+    yc iot device remove-topic-aliases arenak5ciqss6pbas6js --topic-aliases commands
+    ```
+	
+	Результат:
+	```
+	id: arenak5ciqss6pbas6js
     registry_id: arenou2oj4ct42eq8g3n
     created_at: "2019-09-16T12:32:48.911Z"
     name: second

@@ -31,22 +31,22 @@
     - Отправьте данные в топик устройства, используя авторизацию по сертификату: 
           
         ```
-        $ yc iot mqtt publish \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        --topic '$devices/<ID устройства>/events' \
-        --message 'Test data' \
-        --qos 1
+        yc iot mqtt publish \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          --topic '$devices/<ID устройства>/events' \
+          --message 'Test data' \
+          --qos 1
         ```
     - Отправьте данные в перманентный топик устройства, используя авторизацию по сертификату: 
           
         ```
-        $ yc iot mqtt publish \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        --topic '$devices/<ID устройства>/state' \
-        --message 'Test data' \
-        --qos 1
+        yc iot mqtt publish \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          --topic '$devices/<ID устройства>/state' \
+          --message 'Test data' \
+          --qos 1
         ```
 		
         Где:
@@ -58,23 +58,23 @@
 	- Отправьте данные в топик устройства, используя авторизацию по логину и паролю: 
     
         ```
-        $ yc iot mqtt publish \
-        --username <ID устройства> \
-        --password <пароль для устройства> \
-        --topic '$devices/<ID устройства>/events' \
-        --message 'Test data' \
-        --qos 1
+        yc iot mqtt publish \
+          --username <ID устройства> \
+          --password <пароль для устройства> \
+          --topic '$devices/<ID устройства>/events' \
+          --message 'Test data' \
+          --qos 1
         ```
 
 	- Отправьте данные в перманентный топик устройства, используя авторизацию по логину и паролю: 
     
         ```
-        $ yc iot mqtt publish \
-        --username <ID устройства> \
-        --password <пароль для устройства> \
-        --topic '$devices/<ID устройства>/state' \
-        --message 'Test data' \
-        --qos 1
+        yc iot mqtt publish \
+          --username <ID устройства> \
+          --password <пароль для устройства> \
+          --topic '$devices/<ID устройства>/state' \
+          --message 'Test data' \
+          --qos 1
         ```
 		
         Где:
@@ -100,23 +100,23 @@
     - Отправьте данные в топик реестра, используя авторизацию по сертификату: 
         
         ```
-        $ yc iot mqtt publish \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        --topic '$registries/<ID реестра>/events' \
-        --message 'Test data' \
-        --qos 1
+        yc iot mqtt publish \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          --topic '$registries/<ID реестра>/events' \
+          --message 'Test data' \
+          --qos 1
         ```
 
 	- Отправьте данные в перманентный топик реестра, используя авторизацию по сертификату: 
         
         ```
-        $ yc iot mqtt publish \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        --topic '$registries/<ID реестра>/state' \
-        --message 'Test data' \
-        --qos 1
+        yc iot mqtt publish \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          --topic '$registries/<ID реестра>/state' \
+          --message 'Test data' \
+          --qos 1
         ```
 		
         Где:
@@ -128,23 +128,23 @@
 	- Отправьте данные в топик реестра, используя авторизацию по логину и паролю:
     
         ```
-        $ yc iot mqtt publish \
-        --username <ID устройства> \
-        --password <пароль для устройства> \
-        --topic '$registries/<ID реестра>/events' \
-        --message 'Test data' \
-        --qos 1
+        yc iot mqtt publish \
+          --username <ID устройства> \
+          --password <пароль для устройства> \
+          --topic '$registries/<ID реестра>/events' \
+          --message 'Test data' \
+          --qos 1
         ```
 
 	- Отправьте данные в перманентный топик реестра, используя авторизацию по логину и паролю:
 	
         ```
-        $ yc iot mqtt publish \
-        --username <ID устройства> \
-        --password <пароль для устройства> \
-        --topic '$registries/<ID реестра>/state' \
-        --message 'Test data' \
-        --qos 1
+        yc iot mqtt publish \
+          --username <ID устройства> \
+          --password <пароль для устройства> \
+          --topic '$registries/<ID реестра>/state' \
+          --message 'Test data' \
+          --qos 1
         ```
 		
         Где:
@@ -174,23 +174,23 @@
     - Отправьте команду, используя авторизацию по сертификату:
 
         ```
-        $ yc iot mqtt publish \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        --topic '$devices/<ID устройства>/commands' \
-        --message 'Test command for first device' \
-        --qos 1
+        yc iot mqtt publish \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          --topic '$devices/<ID устройства>/commands' \
+          --message 'Test command for first device' \
+          --qos 1
         ```
 		
     - Отправьте команду, используя перманентный топик и авторизацию по сертификату:
 
         ```
-        $ yc iot mqtt publish \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        --topic '$devices/<ID устройства>/config' \
-        --message 'Test command for first device' \
-        --qos 1
+        yc iot mqtt publish \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          --topic '$devices/<ID устройства>/config' \
+          --message 'Test command for first device' \
+          --qos 1
         ```
       
         Где:
@@ -202,22 +202,22 @@
 	- Отправьте команду, используя авторизацию по логину и паролю: 
 
         ```
-        $ yc iot mqtt publish \
-        --username <ID реестра> \
-        --password <пароль для реестра> \
-        --topic '$devices/<ID устройства>/commands' \
-        --message 'Test command for first device' \
-        --qos 1
+        yc iot mqtt publish \
+          --username <ID реестра> \
+          --password <пароль для реестра> \
+          --topic '$devices/<ID устройства>/commands' \
+          --message 'Test command for first device' \
+          --qos 1
         ```                      
 	- Отправьте команду, используя перманентный топик и авторизацию по логину и паролю: 
 
         ```
-        $ yc iot mqtt publish \
-        --username <ID реестра> \
-        --password <пароль для реестра> \
-        --topic '$devices/<ID устройства>/config' \
-        --message 'Test command for first device' \
-        --qos 1
+        yc iot mqtt publish \
+          --username <ID реестра> \
+          --password <пароль для реестра> \
+          --topic '$devices/<ID устройства>/config' \
+          --message 'Test command for first device' \
+          --qos 1
         ```                      
 
         Где:
@@ -241,23 +241,23 @@
     - Отправьте команду всем устройствам, используя авторизацию по сертификату: 
     
         ```
-        $ yc iot mqtt publish \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        --topic '$registries/<ID реестра>/commands' \
-        --message 'Test command for all devices' \
-        --qos 1
+        yc iot mqtt publish \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          --topic '$registries/<ID реестра>/commands' \
+          --message 'Test command for all devices' \
+          --qos 1
         ```
 
     - Отправьте команду всем устройствам, используя перманентный топик и авторизацию по сертификату: 
     
         ```
-        $ yc iot mqtt publish \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        --topic '$registries/<ID реестра>/config' \
-        --message 'Test command for all devices' \
-        --qos 1
+        yc iot mqtt publish \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          --topic '$registries/<ID реестра>/config' \
+          --message 'Test command for all devices' \
+          --qos 1
         ```
 		
         Где:
@@ -269,23 +269,23 @@
 	- Отправьте команду всем устройствам, используя авторизацию по логину и паролю:
     
         ```
-        $ yc iot mqtt publish \
-        --username <ID реестра> \
-        --password <пароль для реестра> \
-        --topic '$registries/<ID реестра>/commands' \
-        --message 'Test command for all devices' \
-        --qos 1
+        yc iot mqtt publish \
+          --username <ID реестра> \
+          --password <пароль для реестра> \
+          --topic '$registries/<ID реестра>/commands' \
+          --message 'Test command for all devices' \
+          --qos 1
         ```
 
 	- Отправьте команду всем устройствам, используя перманентный топик и авторизацию по логину и паролю:
     
         ```
-        $ yc iot mqtt publish \
-        --username <ID реестра> \
-        --password <пароль для реестра> \
-        --topic '$registries/<ID реестра>/config' \
-        --message 'Test command for all devices' \
-        --qos 1
+        yc iot mqtt publish \
+          --username <ID реестра> \
+          --password <пароль для реестра> \
+          --topic '$registries/<ID реестра>/config' \
+          --message 'Test command for all devices' \
+          --qos 1
         ```
 		
         Где:

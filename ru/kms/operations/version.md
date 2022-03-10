@@ -12,7 +12,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ kms-name }}**.
-  1. На вкладке **Ключи** нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
+  1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. Нажмите значок ![menu](../../_assets/horizontal-ellipsis.svg) в строке нужной версии и выберите пункт меню **Сделать основной**.
 
 - CLI
@@ -20,8 +20,12 @@
   1. Получите список версий нужного ключа:
 
      ```
-     $ yc kms symmetric-key list-versions example-key
-
+     yc kms symmetric-key list-versions example-key
+     ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+---------+--------+-----------+
      |          ID          | PRIMARY | STATUS | ALGORITHM |
      +----------------------+---------+--------+-----------+
@@ -35,7 +39,7 @@
   1. Смените версию ключа, указав идентификатор нужной версии:
 
      ```
-     $ yc kms symmetric-key set-primary-version example-key-1 \
+     yc kms symmetric-key set-primary-version example-key-1 \
        --version-id abj8cvn99nam26f0f4a3
      ```
 
@@ -61,10 +65,10 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ kms-name }}**.
-  1. На вкладке **Ключи** нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
+  1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. Нажмите значок ![menu](../../_assets/horizontal-ellipsis.svg) в строке нужной версии и выберите пункт меню **Запланировать удаление**.
 
-  Версия перейдет в статус `Scheduled For Destruction`, а в столбце **Дата удаления** будет указан срок, на который запланировано удаление.
+  Версия перейдет в статус `Scheduled for destruction`, а в столбце **Дата удаления** будет указан срок, на который запланировано удаление.
 
 - CLI
 
@@ -73,7 +77,12 @@
   1. Получите список версий нужного ключа:
 
      ```
-     $ yc kms symmetric-key list-versions example-key
+     yc kms symmetric-key list-versions example-key
+	 ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+---------+--------+-----------+
      |          ID          | PRIMARY | STATUS | ALGORITHM |
      +----------------------+---------+--------+-----------+
@@ -87,7 +96,7 @@
   1. Запланируйте удаление нужной версии:
 
      ```
-     $ yc kms symmetric-key schedule-version-destruction example-key \
+     yc kms symmetric-key schedule-version-destruction example-key \
        --version-id abjed9ciau8eatb0pg93
      ```
 
@@ -105,7 +114,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ kms-name }}**.
-  1. На вкладке **Ключи** нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
+  1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. Нажмите значок ![menu](../../_assets/horizontal-ellipsis.svg) в строке нужной версии и выберите пункт меню **Отменить удаление**.
   
   Версия вернется в статус `Active`.
@@ -115,7 +124,12 @@
   1. Получите список версий нужного ключа:
 
      ```
-     $ yc kms symmetric-key list-versions example-key
+     yc kms symmetric-key list-versions example-key
+	 ```
+	 
+	 Результат:
+	 
+	 ```
      +----------------------+---------+---------------------------+-----------+
      |          ID          | PRIMARY |          STATUS           | ALGORITHM |
      +----------------------+---------+---------------------------+-----------+
@@ -129,7 +143,7 @@
   1. Отмените удаление нужной версии:
 
      ```
-     $ yc kms symmetric-key cancel-version-destruction example-key \
+     yc kms symmetric-key cancel-version-destruction example-key \
        --version-id abjed9ciau8eatb0pg93
      ```
 
