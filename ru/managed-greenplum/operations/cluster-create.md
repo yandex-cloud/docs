@@ -20,7 +20,7 @@
         * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mgp-full-name }}. В Prestable-окружении раньше появляются новые функциональные возможности, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
     1. Выберите версию {{ GP }}.
     1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
-       
+
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
     1. В блоке **Сетевые настройки**:
@@ -66,6 +66,94 @@
            * Выберите объем хранилища, который будет использоваться для данных.
 
     1. Нажмите кнопку **Создать кластер**.
+
+* Terraform
+
+  {% if audience != "internal" %}
+  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+  {% endif %}
+
+  Чтобы создать кластер:
+
+  1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
+
+  {% if audience != "internal" %}
+  1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
+
+      Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+      Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+      Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
+ 
+      ```hcl
+      resource "yandex_vpc_network" "<имя сети в {{ TF }}>" { name = "<имя сети>" }
+
+      resource "yandex_vpc_subnet" "<имя подсети в {{ TF }}>" {
+        name           = "<имя подсети>"
+        zone           = "<зона доступности>"
+        network_id     = yandex_vpc_network.<имя сети в {{ TF }}>.id
+        v4_cidr_blocks = ["<подсеть>"]
+      }
+      ```
+
+  {% endif %}
+
+  1. Создайте конфигурационный файл с описанием кластера и его хостов.
+
+      Пример структуры конфигурационного файла:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<имя кластера в {{ TF }}>" {
+        name                = "<имя кластера>"
+        environment         = "<окружение>"
+        network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
+        zone                = "<зона доступности>"
+        subnet_id           = yandex_vpc_subnet.<имя сети в {{ TF }}>.id
+        assign_public_ip    = <получение публичного IP-адреса: true или false>
+        deletion_protection = <защита от удаления кластера: true или false>
+        version             = "<версия Greenplum>"
+        master_host_count   = <количество хостов-мастеров: 1 или 2>
+        segment_host_count  = <количество хостов-сегментов: от 2 до 32>
+        segment_in_host     = <количество сегментов на хост>
+
+        master_subcluster {
+          resources {
+            resource_preset_id = "<класс хоста>"
+            disk_size          = <объем хранилища, ГБ>
+            disk_type_id       = "<тип хранилища>"
+          }
+        }
+
+        segment_subcluster {
+          resources {
+            resource_preset_id = "<класс хоста>"
+            disk_size          = <объем хранилища, ГБ>
+            disk_type_id       = "<тип хранилища>"
+          }
+        }
+
+        user_name     = "<имя пользователя>"
+        user_password = "<пароль>"
+
+        security_group_ids = ["<список идентификаторов групп безопасности>"]
+      }
+      ```
+
+      Включенная защита от удаления кластера не помешает подключиться вручную и удалить содержимое базы данных.
+
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mgp }}).
+
+  1. Проверьте корректность файлов конфигурации {{ TF }}:
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Создайте кластер:
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
