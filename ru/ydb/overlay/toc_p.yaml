@@ -9,19 +9,23 @@ items:
   items:
   - name: Обзор
     href: quickstart/index.md
+    hidden: true
   - name: Создание облачной базы данных
     href: quickstart/create-db.md
+    hidden: true
   - name: YQL API
+    hidden: true
     items:
-    - name: Работа с данными через консоль управления
-      href: quickstart/yql-api/ydb-ui.md
     - name: Работа с YDB CLI
       href: quickstart/yql-api/ydb-cli.md
+      hidden: true
+    - name: Работа с данными через консоль управления
+      href: quickstart/yql-api/ydb-ui.md
+      hidden: true
     - name: Работа с YDB SDK
       href: reference/ydb-sdk/index.md
-  - name: Document API, совместимый с Amazon DynamoDB
-    include: { mode: link, path: quickstart/document-api/toc_i.yaml }
-  - include: { mode: link, path: getting_started/toc_i.yaml }
+      hidden: true
+  - include: { mode: link, path: getting_started/toc_p.yaml }
 
 # Main
 - { name: Практические руководства,                  include: { mode: link, path: tutorials/toc_i.yaml } }
