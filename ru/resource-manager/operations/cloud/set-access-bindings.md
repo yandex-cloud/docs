@@ -18,13 +18,13 @@
   1. Посмотрите описание команды для назначения роли на облако:
 
       ```
-      $ yc resource-manager cloud add-access-binding --help
+      yc resource-manager cloud add-access-binding --help
       ```
 
   2. Выберите облако, например `my-cloud`:
 
       ```
-      $ yc resource-manager cloud list
+      yc resource-manager cloud list
       +----------------------+----------+
       |          ID          |   NAME   |
       +----------------------+----------+
@@ -35,7 +35,7 @@
   3. Выберите [роль](../../../iam/concepts/access-control/roles.md):
 
       ```
-      $ yc iam role list
+      yc iam role list
       +--------------------------------+-------------+
       |               ID               | DESCRIPTION |
       +--------------------------------+-------------+
@@ -48,7 +48,7 @@
   4. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
 
       ```
-      $ yc iam user-account get test-user
+      yc iam user-account get test-user
       id: gfei8n54hmfhuk5nogse
       yandex_passport_user_account:
           login: test-user
@@ -59,7 +59,7 @@
   5. Назначьте пользователю `test-user` роль `editor` на облако `my-cloud`. В субъекте укажите тип `userAccount` и ID пользователя:
 
       ```
-      $ yc resource-manager cloud add-access-binding my-cloud \
+      yc resource-manager cloud add-access-binding my-cloud \
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
       ```
@@ -70,7 +70,7 @@
 
   1. Узнайте ID облака с помощью метода [list](../../api-ref/Cloud/list.md):
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
+      curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
 
       {
@@ -85,7 +85,7 @@
       ```
   2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
+      curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
 
       {
@@ -99,7 +99,7 @@
   3. Назначьте пользователю роль `editor` на облако `my-cloud`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
           -H 'Content-Type: application/json' \
           -H "Authorization: Bearer <IAM-TOKEN>" \
           -d '{
@@ -138,11 +138,11 @@
 
   1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
       ```
-      $ yc resource-manager cloud list-access-binding my-cloud
+      yc resource-manager cloud list-access-binding my-cloud
       ```
   2. Например, назначьте роль нескольким пользователям:
       ```
-      $ yc resource-manager cloud set-access-bindings my-cloud \
+      yc resource-manager cloud set-access-bindings my-cloud \
           --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
@@ -152,7 +152,7 @@
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
   ```bash
-  $ curl -X POST \
+  curl -X POST \
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <IAM-TOKEN>" \
       -d '{
@@ -215,7 +215,7 @@
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
 
       ```
-      $ yc iam service-account list
+      yc iam service-account list
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
@@ -226,7 +226,7 @@
   2. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его ID. В типе субъекта укажите `serviceAccount`:
 
       ```
-      $ yc resource-manager cloud add-access-binding my-cloud \
+      yc resource-manager cloud add-access-binding my-cloud \
           --role editor \
           --subject serviceAccount:ajebqtreob2dpblin8pe
       ```
@@ -236,7 +236,7 @@
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
 
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
+      curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
 
       {
@@ -255,7 +255,7 @@
   2. Назначьте сервисному аккаунту `test-sa` роль `editor` на облако `my-cloud`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-cloud`:
 
   ```bash
-  $ curl -X POST \
+  curl -X POST \
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <IAM-TOKEN>" \
       -d '{
@@ -285,7 +285,7 @@
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
 
   ```
-  $ yc resource-manager cloud add-access-binding my-cloud \
+  yc resource-manager cloud add-access-binding my-cloud \
       --role viewer \
       --subject system:allAuthenticatedUsers
   ```
@@ -295,7 +295,7 @@
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
 
   ```bash
-  $ curl -X POST \
+  curl -X POST \
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <IAM-TOKEN>" \
       -d '{
