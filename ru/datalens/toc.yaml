@@ -42,7 +42,7 @@ items:
       - name: Визуализация данных из Яндекс.Форм
         when: audience == "internal"
         href: tutorials/data-from-forms-visualization.md
-      - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
+      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
         when: audience == "external"
         href: tutorials/data-from-podcasts.md
       - name: Визуализация данных с помощью QL-чарта

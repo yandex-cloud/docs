@@ -194,7 +194,7 @@ items:
       - name: Визуализация данных из отчетов Statface
         when: audience == "internal"
         href: datalens/data-from-statface-visualization.md
-      - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
+      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
         when: audience == "external"
         href: datalens/data-from-podcasts.md
       - name: Визуализация данных с помощью SQL-чарта
