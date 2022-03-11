@@ -29,7 +29,7 @@ See also [RANK](RANK.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_
 
 {% note info %}
 
-Only constant values are accepted for arguments (`direction`).
+Only constant values are accepted for the arguments (`direction`).
 
 {% endnote %}
 

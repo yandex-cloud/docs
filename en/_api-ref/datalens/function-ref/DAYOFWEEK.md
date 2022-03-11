@@ -37,7 +37,7 @@ If the additional parameter `firstday` is specified, this day is considered the 
 
 {% note info %}
 
-Only constant values are accepted for arguments (`firstday`).
+Only constant values are accepted for the arguments (`firstday`).
 
 {% endnote %}
 

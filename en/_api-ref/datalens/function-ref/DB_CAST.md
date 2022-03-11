@@ -65,7 +65,7 @@ The following type casts are supported:
 
 {% note info %}
 
-Only constant values are accepted for arguments (`native_type`).
+Only constant values are accepted for the arguments (`native_type`).
 
 {% endnote %}
 

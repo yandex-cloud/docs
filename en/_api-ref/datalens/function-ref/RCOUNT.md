@@ -44,7 +44,7 @@ See also [COUNT](COUNT.md), [MCOUNT](MCOUNT.md).
 
 {% note info %}
 
-Only constant values are accepted for arguments (`direction`).
+Only constant values are accepted for the arguments (`direction`).
 
 {% endnote %}
 

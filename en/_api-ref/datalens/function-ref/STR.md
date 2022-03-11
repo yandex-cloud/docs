@@ -22,6 +22,13 @@ Converts the `expression` expression to string type.
 
 **Return type**: `String`
 
+{% note info %}
+
+If an array is passed (only for `ClickHouse`, `PostgreSQL` sources), the conversion is performed by a function in the source database and results may vary for different data sources. For consistent results use [ARR_STR](ARR_STR.md).
+
+{% endnote %}
+
+
 #### Examples {#examples}
 
 ```
@@ -34,6 +41,22 @@ STR(1 != 1) = "False"
 
 ```
 STR(#2019-01-01#) = "2019-01-01"
+```
+
+```
+STR(ARRAY(1, 2, 3, NULL)) = {1,2,3,NULL}  PostgreSQL
+```
+
+```
+STR(ARRAY(1, 2, 3, NULL)) = [1,2,3,NULL]  ClickHouse
+```
+
+```
+STR(ARRAY('a', 'b', '', NULL)) = {a,b,,NULL}  PostgreSQL
+```
+
+```
+STR(ARRAY('a', 'b', '', NULL)) = ['a','b','',NULL]  ClickHouse
 ```
 
 

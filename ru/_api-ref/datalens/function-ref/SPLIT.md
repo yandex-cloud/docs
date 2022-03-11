@@ -10,11 +10,11 @@ editable: false
 
 
 ```
-SPLIT( orig_string, delimiter, part_index )
+SPLIT( orig_string [ , delimiter [ , part_index ] ] )
 ```
 
 #### Описание {#description}
-Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`.
+Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`. Разделитель по умолчанию – запятая. Если не передан `part_index`, то возвращается массив (только для источников `ClickHouse`, `PostgreSQL`).
 
 **Типы аргументов:**
 - `orig_string` — `Строка`
@@ -22,7 +22,7 @@ SPLIT( orig_string, delimiter, part_index )
 - `part_index` — `Целое число`
 
 
-**Возвращаемый тип**: `Строка`
+**Возвращаемый тип**: Зависит от типов аргументов
 
 {% note info %}
 

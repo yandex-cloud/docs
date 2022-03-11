@@ -29,7 +29,7 @@ See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE
 
 {% note info %}
 
-Only constant values are accepted for arguments (`direction`).
+Only constant values are accepted for the arguments (`direction`).
 
 {% endnote %}
 

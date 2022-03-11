@@ -40,7 +40,7 @@ See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 {% note info %}
 
-Only constant values are accepted for arguments (`unit`, `number`).
+Only constant values are accepted for the arguments (`unit`, `number`).
 
 {% endnote %}
 

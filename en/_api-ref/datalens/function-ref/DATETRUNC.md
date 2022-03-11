@@ -36,7 +36,7 @@ Supported units:
 
 {% note info %}
 
-Only constant values are accepted for arguments (`unit`, `number`).
+Only constant values are accepted for the arguments (`unit`, `number`).
 
 {% endnote %}
 

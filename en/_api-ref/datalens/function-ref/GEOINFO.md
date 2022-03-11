@@ -34,7 +34,7 @@ To enable the function, go to the [Service Settings]({{ link-datalens-settings }
 
 {% note info %}
 
-Only constant values are accepted for arguments (`scale`).
+Only constant values are accepted for the arguments (`scale`).
 
 {% endnote %}
 

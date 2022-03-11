@@ -2,9 +2,9 @@
 editable: false
 ---
 
-# STARTSWITH
+# STARTSWITH (строковая)
 
-
+_Функция `STARTSWITH` также доступна в следующих категориях: [Функции для работы с массивами](STARTSWITH_ARRAY.md)._
 
 #### Синтаксис {#syntax}
 

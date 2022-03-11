@@ -2,9 +2,9 @@
 editable: false
 ---
 
-# CONTAINS
+# CONTAINS (строковая)
 
-
+_Функция `CONTAINS` также доступна в следующих категориях: [Функции для работы с массивами](CONTAINS_ARRAY.md)._
 
 #### Синтаксис {#syntax}
 

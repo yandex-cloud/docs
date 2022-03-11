@@ -2,9 +2,9 @@
 editable: false
 ---
 
-# CONTAINS
+# CONTAINS (string)
 
-
+_Function `CONTAINS` is also found in the following categories: [Array functions](CONTAINS_ARRAY.md)._
 
 #### Syntax {#syntax}
 
