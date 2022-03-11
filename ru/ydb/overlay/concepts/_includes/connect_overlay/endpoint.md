@@ -31,4 +31,4 @@
 
   Значение параметра указано в столбце `ENDPOINT`: `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
-{% list tabs %}
+{% endlist %}

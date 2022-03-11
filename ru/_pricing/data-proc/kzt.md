@@ -32,4 +32,4 @@
     | 100% vCPU              | {{ sku|KZT|mdb.dataproc.v3.cpu.c100|string }}  |
     | RAM (за 1 ГБ)          | {{ sku|KZT|mdb.dataproc.v3.ram|string }}       |
 
-{% endlist  %}
+{% endlist %}
