@@ -2,7 +2,7 @@
 
 Физические лица могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью [банковской карты](#debit-card), привязанной к платежному аккаунту.
 
-{% include [payment-card-types](../_includes/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 ## Привязка банковской карты {#pin-card}
 

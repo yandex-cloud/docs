@@ -25,7 +25,7 @@ items:
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
         href: tutorials/data-from-appmetrica-visualization.md
-      - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
+      - name: "Анализ статистики подкастов Яндекс\_Музыки (для авторов подкастов)"
         href: tutorials/data-from-podcasts.md
       - name: Визуализация данных с помощью QL-чарта
         href: tutorials/data-from-ch-to-sql-chart.md
@@ -545,8 +545,20 @@ items:
         items:
           - name: Обзор
             href: function-ref/array-functions.md
+          - name: ARRAY
+            href: function-ref/ARRAY.md
+          - name: ARR_STR
+            href: function-ref/ARR_STR.md
+          - name: CONTAINS
+            href: function-ref/CONTAINS_ARRAY.md
+          - name: COUNT_ITEM
+            href: function-ref/COUNT_ITEM.md
           - name: GET_ITEM
             href: function-ref/GET_ITEM.md
+          - name: SLICE
+            href: function-ref/SLICE.md
+          - name: STARTSWITH
+            href: function-ref/STARTSWITH_ARRAY.md
           - name: UNNEST
             href: function-ref/UNNEST.md
       - name: Функции преобразования типов

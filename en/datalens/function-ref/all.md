@@ -31,12 +31,13 @@ If one of the arguments is `String` and the other is `Integer`, it returns the s
 
 Behaves differently depending on the argument types. Possible options are listed in the table:
 
-| Type of `value_1`                             | Type of `value_2`                             | Return value                                                                                                                                                                     |
-|:----------------------------------------------|:----------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <code>Fractional number &#124; Integer</code> | <code>Fractional number &#124; Integer</code> | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
-| `Date`                                        | <code>Fractional number &#124; Integer</code> | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
-| `Datetime`                                    | <code>Fractional number &#124; Integer</code> | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
-| `String`                                      | `String`                                      | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
+| Type of `value_1`                                                                         | Type of `value_2`                                                                         | Return value                                                                                                                                                                     |
+|:------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <code>Fractional number &#124; Integer</code>                                             | <code>Fractional number &#124; Integer</code>                                             | The sum of the numbers `value_1` and `value_2`.                                                                                                                                  |
+| `Date`                                                                                    | <code>Fractional number &#124; Integer</code>                                             | The date that is `value_2` days greater than `value_1` (rounded down to an integer number of days).                                                                              |
+| `Datetime`                                                                                | <code>Fractional number &#124; Integer</code>                                             | The date with time, `value_2` days greater than `value_1`. If `value_2` contains a fractional part, it is converted hours (`1/24`), minutes (`1/1440`), and seconds (`1/86400`). |
+| `String`                                                                                  | `String`                                                                                  | The merging (concatenation) of strings `value_1` and `value_2`.                                                                                                                  |
+| <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | <code>Array of fractional numbers &#124; Array of integers &#124; Array of strings</code> | The merging (concatenation) of arrays `value_1` and `value_2`.                                                                                                                   |
 
 Changing the order of arguments does not affect the result.
 
@@ -198,6 +199,24 @@ Returns `value` for the minimum value of `comp` in the group. If multiple values
 
 
 
+## [ARR_STR](ARR_STR.md)
+
+**Syntax:**`ARR_STR( array [ , delimiter [ , null_str ] ] )`
+
+Concatenates elements of the array `array` using `delimiter` as a delimiter (comma by default) and `null_str` as a null string (null items are skipped by default).
+
+See also [STR](STR.md)
+
+
+
+## [ARRAY](ARRAY.md)
+
+**Syntax:**`ARRAY( value_1, value_2, value_3 [ , ... ] )`
+
+Returns an array containing the passed values.
+
+
+
 ## [ASCII](ASCII.md)
 
 **Syntax:**`ASCII( string )`
@@ -330,7 +349,15 @@ Merges any number of strings. When non-string types are used, they're converted 
 
 
 
-## [CONTAINS](CONTAINS.md)
+## [CONTAINS (array)](CONTAINS_ARRAY.md)
+
+**Syntax:**`CONTAINS( array, value )`
+
+Returns `TRUE` if `array` contains `value`.
+
+
+
+## [CONTAINS (string)](CONTAINS.md)
 
 **Syntax:**`CONTAINS( string, substring )`
 
@@ -383,6 +410,14 @@ Returns the number of items in the group meeting the `condition` condition.
 **Syntax:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
 
 Returns the number of items in the specified window meeting the `expression` condition.
+
+
+
+## [COUNT_ITEM](COUNT_ITEM.md)
+
+**Syntax:**`COUNT_ITEM( array, value )`
+
+Returns the number of elements in the array `array` equal to `value`. Type of `value` must match type of `array` elements.
 
 
 
@@ -1446,6 +1481,14 @@ Returns the sine of `number` in radians.
 
 
 
+## [SLICE](SLICE.md)
+
+**Syntax:**`SLICE( array, offset, length )`
+
+Returns the part of array `array` of length `length` starting from index `offset`. Indexes in an array begin with one.
+
+
+
 ## [SPACE](SPACE.md)
 
 **Syntax:**`SPACE( value )`
@@ -1456,9 +1499,9 @@ Returns a string with the specified number of spaces.
 
 ## [SPLIT](SPLIT.md)
 
-**Syntax:**`SPLIT( orig_string, delimiter, part_index )`
+**Syntax:**`SPLIT( orig_string [ , delimiter [ , part_index ] ] )`
 
-Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts.
+Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts. Delimiter is a comma by default. If `part_index` is not passed, an array is returned (only for `ClickHouse`, `PostgreSQL` sources)
 
 
 
@@ -1478,7 +1521,15 @@ Returns the number `number` raised to the power of 2.
 
 
 
-## [STARTSWITH](STARTSWITH.md)
+## [STARTSWITH (array)](STARTSWITH_ARRAY.md)
+
+**Syntax:**`STARTSWITH( array_1, array_2 )`
+
+Returns `TRUE` if `array_1` starts with `array_2`.
+
+
+
+## [STARTSWITH (string)](STARTSWITH.md)
 
 **Syntax:**`STARTSWITH( string, substring )`
 

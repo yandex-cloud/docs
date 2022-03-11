@@ -12,11 +12,11 @@ sourcePath: en/_api-ref/datalens/function-ref/SPLIT.md
 
 
 ```
-SPLIT( orig_string, delimiter, part_index )
+SPLIT( orig_string [ , delimiter [ , part_index ] ] )
 ```
 
 #### Description {#description}
-Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts.
+Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts. Delimiter is a comma by default. If `part_index` is not passed, an array is returned (only for `ClickHouse`, `PostgreSQL` sources)
 
 **Argument types:**
 - `orig_string` — `String`
@@ -24,11 +24,11 @@ Returns a substring from `orig_string` using the `delimiter` delimiter character
 - `part_index` — `Integer`
 
 
-**Return type**: `String`
+**Return type**: Depends on argument types
 
 {% note info %}
 
-Only constant values are accepted for arguments (`delimiter`).
+Only constant values are accepted for the arguments (`delimiter`).
 
 {% endnote %}
 

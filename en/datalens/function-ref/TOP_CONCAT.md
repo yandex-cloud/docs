@@ -28,7 +28,7 @@ Returns a string that contains top `amount` grouped values of `expression` delim
 
 {% note info %}
 
-Only constant values are accepted for arguments (`amount`, `separator`).
+Only constant values are accepted for the arguments (`amount`, `separator`).
 
 {% endnote %}
 

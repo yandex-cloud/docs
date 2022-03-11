@@ -4,9 +4,9 @@ sourcePath: en/_api-ref/datalens/function-ref/CONTAINS.md
 ---
 
 
-# CONTAINS
+# CONTAINS (string)
 
-
+_Function `CONTAINS` is also found in the following categories: [Array functions](CONTAINS_ARRAY.md)._
 
 #### Syntax {#syntax}
 

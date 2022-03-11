@@ -184,9 +184,9 @@ Returns a string with the specified number of spaces.
 
 ## [SPLIT](SPLIT.md)
 
-**Syntax:**`SPLIT( orig_string, delimiter, part_index )`
+**Syntax:**`SPLIT( orig_string [ , delimiter [ , part_index ] ] )`
 
-Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts.
+Returns a substring from `orig_string` using the `delimiter` delimiter character to divide the string into a sequence of `part_index` parts. Delimiter is a comma by default. If `part_index` is not passed, an array is returned (only for `ClickHouse`, `PostgreSQL` sources)
 
 
 

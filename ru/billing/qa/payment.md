@@ -14,7 +14,7 @@
 {% include [change-payment-method](../_includes/change-payment-method.md) %}
 
 #### Какие карты принимаются к оплате? {#card-types}
-{% include [payment-card-types](../_includes/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 #### Существует ли минимальная сумма платежа? {#minimum}
 Минимальная сумма платежа составляет 10 ₽.

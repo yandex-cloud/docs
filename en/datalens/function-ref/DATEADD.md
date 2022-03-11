@@ -37,7 +37,7 @@ The `unit` argument takes the following values:
 
 {% note info %}
 
-Only constant values are accepted for arguments (`unit`).
+Only constant values are accepted for the arguments (`unit`).
 
 {% endnote %}
 

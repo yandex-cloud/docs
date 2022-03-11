@@ -184,9 +184,9 @@ sourcePath: ru/_api-ref/datalens/function-ref/string-functions.md
 
 ## [SPLIT](SPLIT.md)
 
-**Синтаксис:**`SPLIT( orig_string, delimiter, part_index )`
+**Синтаксис:**`SPLIT( orig_string [ , delimiter [ , part_index ] ] )`
 
-Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`.
+Возвращает подстроку из `orig_string`, используя символ разделителя `delimiter` для разделения строки на последовательность частей `part_index`. Разделитель по умолчанию – запятая. Если не передан `part_index`, то возвращается массив (только для источников `ClickHouse`, `PostgreSQL`).
 
 
 

@@ -14,7 +14,7 @@ For more information, see [How to pay for resources](../payment/index.md).
 
 #### What cards are accepted for payment? {#card-types}
 
-{% include [payment-card-types](../_includes/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 #### Is there a minimum payment amount? {#minimum}
 

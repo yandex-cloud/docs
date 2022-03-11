@@ -4,9 +4,9 @@ sourcePath: en/_api-ref/datalens/function-ref/STARTSWITH.md
 ---
 
 
-# STARTSWITH
+# STARTSWITH (string)
 
-
+_Function `STARTSWITH` is also found in the following categories: [Array functions](STARTSWITH_ARRAY.md)._
 
 #### Syntax {#syntax}
 

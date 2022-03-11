@@ -2,7 +2,7 @@
 
 Individuals can top up their personal account and pay for the resources they use with a [bank card](#debit-card) linked to their billing account.
 
-{% include [payment-card-types](../_includes/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 ## Linking a bank card {#pin-card}
 

@@ -46,7 +46,7 @@ See also [MIN](MIN.md), [RMIN](RMIN.md).
 
 {% note info %}
 
-Only constant values are accepted for arguments (`rows_1`, `rows_2`).
+Only constant values are accepted for the arguments (`rows_1`, `rows_2`).
 
 {% endnote %}
 

@@ -187,7 +187,7 @@ items:
         href: datalens/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
         href: datalens/data-from-appmetrica-visualization.md
-      - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
+      - name: "Анализ статистики подкастов Яндекс\_Музыки (для авторов подкастов)"
         href: datalens/data-from-podcasts.md
       - name: Визуализация данных с помощью SQL-чарта
         href: datalens/data-from-ch-to-sql-chart.md

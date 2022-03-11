@@ -2,7 +2,13 @@
 editable: false
 ---
 
-# Pricing for {{ mms-name }}
+# Current pricing policy for {{ mms-name }}
+
+{% note info %}
+
+The indicated prices are valid until March 21, 2022 inclusive. For information about the pricing policy starting March 22, 2022, see [Pricing policy from March 22, 2022](pricing-22032022.md).
+
+{% endnote %}
 
 ## Cluster status {#running-stopped}
 

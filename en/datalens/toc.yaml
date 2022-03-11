@@ -275,8 +275,20 @@ items:
         items:
           - name: Overview
             href: function-ref/array-functions.md
+          - name: ARRAY
+            href: function-ref/ARRAY.md
+          - name: ARR_STR
+            href: function-ref/ARR_STR.md
+          - name: CONTAINS
+            href: function-ref/CONTAINS_ARRAY.md
+          - name: COUNT_ITEM
+            href: function-ref/COUNT_ITEM.md
           - name: GET_ITEM
             href: function-ref/GET_ITEM.md
+          - name: SLICE
+            href: function-ref/SLICE.md
+          - name: STARTSWITH
+            href: function-ref/STARTSWITH_ARRAY.md
           - name: UNNEST
             href: function-ref/UNNEST.md
       - name: Date/Time functions

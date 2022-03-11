@@ -34,4 +34,4 @@ sourcePath: ru/ydb/overlay/concepts/_includes/connect_overlay/endpoint.md
 
   Значение параметра указано в столбце `ENDPOINT`: `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
-{% list tabs %}
+{% endlist %}
