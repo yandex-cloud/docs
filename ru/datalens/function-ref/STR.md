@@ -24,6 +24,13 @@ STR( expression )
 
 **Возвращаемый тип**: `Строка`
 
+{% note info %}
+
+Если передан массив (только для источников `ClickHouse`, `PostgreSQL`), то преобразование осуществляется функцией источника и результат для разных источников может отличаться. Для получения одинакового результата используйте [ARR_STR](ARR_STR.md).
+
+{% endnote %}
+
+
 #### Примеры {#examples}
 
 ```
@@ -36,6 +43,22 @@ STR(1 != 1) = "False"
 
 ```
 STR(#2019-01-01#) = "2019-01-01"
+```
+
+```
+STR(ARRAY(1, 2, 3, NULL)) = {1,2,3,NULL}  PostgreSQL
+```
+
+```
+STR(ARRAY(1, 2, 3, NULL)) = [1,2,3,NULL]  ClickHouse
+```
+
+```
+STR(ARRAY('a', 'b', '', NULL)) = {a,b,,NULL}  PostgreSQL
+```
+
+```
+STR(ARRAY('a', 'b', '', NULL)) = ['a','b','',NULL]  ClickHouse
 ```
 
 

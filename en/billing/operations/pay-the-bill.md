@@ -12,7 +12,9 @@ To top up your personal account:
 1. Select a billing account.
 1. Click **Top up**.
 1. Enter a payment amount and click **Top up balance**.
-1. Enter your card information and click **Pay**. Visa, MasterCard, and MIR bank cards are accepted.
+1. Enter your card information and click **Pay**.
+
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 Payment is processed in real time and completed within 15 minutes.
 
@@ -29,7 +31,9 @@ To top up your personal account:
 
   - Bank card transfer
 
-    Enter a payment amount and click **Top up balance**. Then enter your card information and click **Pay**. Visa, MasterCard, and MIR bank cards are accepted.
+    Enter a payment amount and click **Top up balance**. Then enter your card information and click **Pay**.
+
+    {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
     Payment is processed in real time and completed within 15 minutes.
 

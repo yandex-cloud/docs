@@ -40,7 +40,7 @@ If `expression` is a number, then the `timezone` option can be used to convert t
 
 {% note info %}
 
-Only constant values are accepted for arguments (`timezone`).
+Only constant values are accepted for the arguments (`timezone`).
 
 {% endnote %}
 

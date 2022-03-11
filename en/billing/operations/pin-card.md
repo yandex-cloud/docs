@@ -3,7 +3,7 @@
 The owner of a billing account of a **Individual account** or **Business account** may link several bank cards to it.
 Funds for the resources consumed will only be debited from the bank card that you select yourself on the billing account page.
 
-{% include [payment-card-types](../_includes/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 {% note info %}
 
@@ -34,7 +34,7 @@ To link a new or additional bank card:
 1. Click **Link**.<br/>The added bank card will appear in the list.
 1. Click **Apply**.
 
-{% include [payment-card-types](../_includes/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 {% include [yandex-account](../_includes/payment-card-validation.md) %}
 

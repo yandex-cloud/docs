@@ -42,7 +42,7 @@ If you select `"dayofweek"`, you can use the additional parameter `firstday` to 
 
 {% note info %}
 
-Only constant values are accepted for arguments (`firstday`).
+Only constant values are accepted for the arguments (`firstday`).
 
 {% endnote %}
 

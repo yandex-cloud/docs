@@ -4,6 +4,12 @@ editable: false
 
 # Pricing for {{ compute-name }}
 
+{% note alert %}
+
+The prices listed on this page are valid until March 21, 2022. On March 22, the prices for Microsoft operating systems and licences will be increased by 60%. For new prices, see [{#T}](pricing-22032022.md)
+
+{% endnote %}
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

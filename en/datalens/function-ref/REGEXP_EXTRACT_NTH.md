@@ -28,7 +28,7 @@ Returns a substring `string` that matches the regular expression pattern `patter
 
 {% note info %}
 
-Only constant values are accepted for arguments (`pattern`).
+Only constant values are accepted for the arguments (`pattern`).
 
 {% endnote %}
 

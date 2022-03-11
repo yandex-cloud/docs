@@ -27,7 +27,7 @@ Returns a string that contains all grouped values of `expression` delimited by `
 
 {% note info %}
 
-Only constant values are accepted for arguments (`separator`).
+Only constant values are accepted for the arguments (`separator`).
 
 {% endnote %}
 

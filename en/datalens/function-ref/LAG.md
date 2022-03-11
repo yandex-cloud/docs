@@ -43,7 +43,7 @@ See also [AGO](AGO.md) for a non-window function alternative.
 
 {% note info %}
 
-Only constant values are accepted for arguments (`offset`, `default`).
+Only constant values are accepted for the arguments (`offset`, `default`).
 
 {% endnote %}
 
