@@ -319,6 +319,8 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
+      - name: From March 22, 2022
+        href: pricing-22032022.md
       - name: Archive
         items:
           - name: Before January 1, 2019
