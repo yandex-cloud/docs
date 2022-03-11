@@ -26,7 +26,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
          {% include [pin-card-data](../_includes/pin-card-data.md) %}
 
-        {% include [payment-card-types](../_includes/payment-card-types.md) %}
+        {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
         {% include [pin-card-note-2](../_includes/pin-card-note-2.md) %}
 
@@ -41,7 +41,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
         {% include [pin-card-data](../_includes/pin-card-data.md) %}
 
-        {% include [payment-card-types](../_includes/payment-card-types.md) %}
+        {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
         {% include [pin-card-note](../_includes/pin-card-note.md) %}
 

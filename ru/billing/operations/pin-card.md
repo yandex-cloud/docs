@@ -3,7 +3,7 @@
 Владелец платежного аккаунта с типом **Личный аккаунт** или **Бизнес-аккаунт** может привязать к нему несколько банковских карт.
 Средства за потребленные ресурсы списываются только с той карты, которую вы самостоятельно выберите на странице платежного аккаунта.
 
-{% include [payment-card-types](../_includes/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 {% note info %}
 
@@ -32,6 +32,6 @@
 1. Нажмите кнопку **Привязать**.<br/>Добавленная карта появится в списке.
 1. Нажмите кнопку **Применить**.
 
-{% include [payment-card-types](../_includes/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 {% include [yandex-account](../_includes/payment-card-validation.md) %}
