@@ -1,9 +1,8 @@
 # Managing {{ ZK }} hosts
 
-[Shards](../concepts/sharding.md) with two or more hosts with [{{ CK }}](../concepts/replication.md#ck) support are fault-tolerant by default. If the cluster was created without {{ CK }} support, its shards with a single host are not fault-tolerant and do not ensure data replication. To make the shards of this cluster fault-tolerant:
+Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer data replication. To make such shards fault-tolerant, increase the number of hosts in them by one or more. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](./hosts.md#add-host) to the desired shard, otherwise you must first [enable fault tolerance](#add-zk) and only then will you be able to add {{ CH }} hosts.
 
-1. [Enable fault tolerance using {{ ZK }}](#add-zk).
-1. [Add additional {{ CH }}](./hosts.md#add-host) hosts to the shard.
+For more information, see [{#T}](../concepts/sharding.md).
 
 You can [add](#add-zk-host) and [delete](#delete-zk-host) {{ ZK }} hosts in a fault-tolerant cluster. A fault-tolerant cluster can contain a total of 3 to 5 {{ ZK }} hosts.
 
@@ -20,9 +19,8 @@ For more information, see [{#T}](../concepts/replication.md).
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and select the **Hosts** tab.
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
   1. Click **Set up {{ ZK }} hosts**.
   1. Specify the [host class](../concepts/instance-types.md).
   1. Set up the storage settings.
@@ -46,7 +44,7 @@ For more information, see [{#T}](../concepts/replication.md).
   1. Run the operation with the default host characteristics:
 
      ```bash
-     $ yc managed-clickhouse cluster add-zookeeper <cluster name> \
+     yc managed-clickhouse cluster add-zookeeper <cluster name> \
                             --host zone-id=ru-central1-c,subnet-name=default-c \
                             --host zone-id=ru-central1-a,subnet-name=default-a \
                             --host zone-id=ru-central1-b,subnet-name=default-b
@@ -94,7 +92,6 @@ For more information, see [{#T}](../concepts/replication.md).
     1. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
 
         {{ CH }} host requirements:
-
         * Minimum host class: `b1.medium`.
         * If there are several hosts, they must be located in different availability zones.
 
@@ -124,7 +121,6 @@ For more information, see [{#T}](../concepts/replication.md).
     1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
 
         {{ ZK }} host requirements:
-
         * Each availability zone must have at least one host.
         * Minimum host class: `b1.medium`.
         * Storage type: `network-ssd`.
@@ -167,7 +163,7 @@ For more information, see [{#T}](../concepts/replication.md).
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 
@@ -178,9 +174,10 @@ For more information, see [{#T}](../concepts/replication.md).
 {% note info %}
 
 The following characteristics are set for the {{ ZK }} hosts by default:
+
 * The `b2.medium` host class.
 * 10 GB disk size.
-* [Storage type](../concepts/storage.md): Fast network storage.
+* `network-ssd` [storage type](../concepts/storage.md).
 
 {% endnote %}
 
@@ -189,7 +186,6 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
   1. Click **Add {{ ZK }} hosts**.
@@ -203,24 +199,37 @@ The following characteristics are set for the {{ ZK }} hosts by default:
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To add a host to a cluster:
+
   1. Collect the necessary information:
+
      - Request the subnet ID by running the command:
+
        ```
-       $ yc vpc subnet list
+       yc vpc subnet list
        ```
+
+       {% if audience != "internal" %}
+
        If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+
+       {% else %}
+
+       If the required subnet is not on the list, create it.
+
+       {% endif %}
+
      - You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View a description of the CLI command for adding a host:
 
      ```
-     $ {{ yc-mdb-ch }} host add --help
+     {{ yc-mdb-ch }} host add --help
      ```
 
   1. Run the add {{ ZK }} host command:
 
      ```
-     $ {{ yc-mdb-ch }} hosts add \
+     {{ yc-mdb-ch }} hosts add \
           --cluster-name <cluster name> \
           --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
      ```
@@ -229,7 +238,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+        For information about how to create such a file, see [{#T}](cluster-create.md).
 
     1. Add a `ZOOKEEPER` type `host` block to the {{ mch-name }} cluster description:
 
@@ -268,7 +277,6 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
   1. Hover the cursor over the line of the required host and click ![image](../../_assets/cross.svg).
@@ -283,7 +291,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-ch }} hosts delete <host name> \
+  {{ yc-mdb-ch }} hosts delete <host name> \
        --cluster-name=<cluster name>
   ```
 
@@ -293,7 +301,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+        For information about how to create such a file, see [{#T}](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, delete the `ZOOKEEPER` type `host` block.
 
@@ -314,3 +322,4 @@ The following characteristics are set for the {{ ZK }} hosts by default:
   - Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
 
 {% endlist %}
+

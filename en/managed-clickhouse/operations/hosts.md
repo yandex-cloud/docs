@@ -4,10 +4,9 @@ You can add and remove cluster hosts and manage {{ CH }} settings for individual
 
 {% note warning %}
 
-If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [enable fault tolerance](./zk-hosts.md#add-zk) using {{ ZK }}hosts.
+If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [enable fault tolerance](./zk-hosts.md#add-zk) using {{ ZK }} hosts.
 
 {% endnote %}
-
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -25,7 +24,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of cluster hosts, run the command:
+  To get a list of hosts in the cluster, run the command:
 
   ```bash
   {{ yc-mdb-ch }} host list \
@@ -47,7 +46,6 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 {% endlist %}
 
-
 ## Adding a host {#add-host}
 
 The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mch-full-name }}** block.
@@ -61,7 +59,6 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and click **{{ mch-name }}**.
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
@@ -69,7 +66,6 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
   {% if audience != "internal" %}
 
   1. Specify the host parameters:
-
       * Availability zone.
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
@@ -150,7 +146,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+        For information about how to create such a file, see [{#T}](cluster-create.md).
 
     1. Add a `host` block to the {{ mch-name }} cluster description.
 
@@ -195,6 +191,12 @@ Use the copy data schema option only if the schema is the same on all replica ho
 
 You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
 
+{% note info %}
+
+A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication support must include three or more hosts.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -214,7 +216,7 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-ch }} host delete <host name>
+  {{ yc-mdb-ch }} host delete <host name>
        --cluster-name=<cluster name>
   ```
 
@@ -224,7 +226,7 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+        For information about how to create such a file, see [{#T}](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, remove the `CLICKHOUSE` type `host` block.
 
@@ -243,3 +245,4 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
 
 {% endlist %}
+
