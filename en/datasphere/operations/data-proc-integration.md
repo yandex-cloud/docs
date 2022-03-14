@@ -25,11 +25,11 @@ You can calculate the total SSD space required for different configurations usin
 <number of {{ dataproc-name }} hosts> * 256 + 128
 ```
 
-| Cluster type | Number of hosts. | SSD size |
+| Cluster type | Number of hosts | SSD size |
 | ------------ | :---------------: | ---------------- |
-| XS | 4 | 1152 GB |
-| S | 8 | 2176 GB |
-| M | 80 | 20 608 GB |
+| XS | 1 | 384 GB |
+| S | 4 | 1152 GB |
+| M | 8 | 2176 GB |
 | L | 16 | 4224 GB |
 | XL | 32 | 8320 GB |
 

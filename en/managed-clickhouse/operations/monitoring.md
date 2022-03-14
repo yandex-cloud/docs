@@ -32,6 +32,7 @@ If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used,
 {% list tabs %}
 
 * ClickHouse
+
   * **Active locks per host**: The number of active locks per host.
   * **Average insert query time per host**: The average time it takes to execute insert queries on each host.
   * **Average query time per host**: The average time it takes to execute queries on each host.
@@ -61,7 +62,7 @@ If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used,
   * **Merged data**: Data merge rate (bytes per second).
   * **Merged data per host**: Data merge rate on each host (bytes per second).
   * **Merged rows per host**: Row merge rate on each host (rows per second).
-  * **Network data received per host**: Network data receipt rate on each host (bytes per second).
+  * **Network data received per host**: The rate of network data receipt on each host (bytes per second).
   * **Network data sent per host**: Network data send rate on each host (bytes per second).
   * **Network usage per host**: The rate of data exchange over the network on each host (bytes per second).
   * **Read data**: Data read rate (bytes per second).
@@ -74,6 +75,7 @@ If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used,
   * **Waiting locks per host**: The number of pending locks on each host.
 
 * Zookeeper
+
   * **Average latency per ZooKeeper host**: The average time it takes each ZooKeeper host to respond.
   * **Average transaction time per ClickHouse host**: The average time it takes  each ClickHouse host to execute a transaction. Indicates the time spent by ClickHouse to access ZooKeeper.
   * **Connections per ZooKeeper host**: The number of connections on each ZooKeeper host.
@@ -92,6 +94,7 @@ If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used,
   For more information about Znodes, Ephemeral nodes, and Watches, see the [{{ ZK }} documentation](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
 
   {% endnote %}
+  
   * **Memory usage**: The use of RAM in bytes.
   * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed: in bytes and %).
   * **Network data received per host**: Network data receipt rate on each host (bytes per second).
@@ -115,10 +118,27 @@ To view detailed information about the status of individual {{ mch-name }} hosts
 
 This page displays charts showing the load on an individual host in the cluster:
 
-* **CPU**: The loading of processor cores. As the load goes up, the **Idle** value goes down.
+* **CPU**: The load on processor cores. As the load goes up, the **Idle** value goes down.
 * **Disk Bytes**: The speed of disk operations (bytes per second).
 * **Disk IOPS**: The number of disk operations per second.
 * **Memory**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
 * **Network Bytes**: The speed of data exchange over the network (bytes per second).
 * **Network Packets**: The number of packets exchanged over the network per second.
+
+## Cluster state and status {#cluster-health-and-status}
+
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
+
+To view a cluster's state and status:
+
+1. Go to the folder page and select **{{ mch-name }}**.
+1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+
+### Cluster states {#cluster-health}
+
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+### Cluster statuses {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
 

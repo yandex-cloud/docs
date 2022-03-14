@@ -4,7 +4,7 @@
 
 Within {{ at-name }}, audit logs are managed by [trails](./concepts/trail.md).
 
-Follow these instructions to create a new trail that will upload audit logs of your cloud resources to an {{ objstorage-name }} bucket.
+Follow these instructions to create a new trail that will upload audit logs of your organization resources to an {{ objstorage-name }} bucket.
 
 ## Before you start {#before-you-begin}
 
@@ -12,12 +12,22 @@ Follow these instructions to create a new trail that will upload audit logs of y
 1. [On the billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. Make sure that your cloud has a bucket where you can store your audit log. [Create a new bucket](../storage/quickstart.md#the-first-bucket) if necessary.
 1. Create a service account and assign the following roles to it:
-    * `storage.uploader` for the bucket or the folder.
-    * `audit-trails.viewer` for the cloud.
+    * `storage.uploader` for the folder to host the trail:
+
+        ```
+        yc resourcemanager folder add-access-binding --role storage.uploader --id <folder ID> --service-account-id <service account ID>
+        ```
+
+    * `audit-trails.viewer` for the organization whose audit logs will be collected:
+
+        ```
+        yc organization-manager organization add-access-binding --role audit-trails.viewer --id <organization ID> --service-account-id <service account ID>
+        ```
+
 1. On the [Access control]({{ link-console-access-management }}) page, make sure you have the following roles:
     * `iam.serviceAccounts.user` for the service account.
     * `audit-trails.editor` for the folder to host the trail.
-    * `audit-trails.viewer` for the cloud from which audit logs will be collected.
+    * `audit-trails.viewer` for the organization whose audit logs will be collected.
     * `storage.viewer` for the bucket or the folder.
 
 ## Creating a trail {#the-trail-creation}
@@ -25,7 +35,7 @@ Follow these instructions to create a new trail that will upload audit logs of y
 To create the first trail in {{ at-name }} and start the audit log management process:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to host the trail.
-1. Select {{ at-name }}.
+1. Select **{{ at-name }}**.
 1. Click **Create audit log** and specify:
     1. **Name**: The name of the trail being created.
     1. **Description**: A description of the trail (optional).
@@ -35,14 +45,13 @@ To create the first trail in {{ at-name }} and start the audit log management pr
         * **Bucket**: The name of the bucket where you want to upload audit logs.
         * **Object prefix**: An optional parameter used in the [full name](./concepts/format.md#log-file-name) of the audit log file.
     1. **Filter**:
-        * **Resource**: Select `Cloud`.
-        * **Cloud**: Select the name of the cloud hosting the current trail.
-        * **Folders**: Leave empty.
+        * **Resource**: Select `Organization`.
+        * **Organization**: Select the name of the organization where the current trail is located.
 1. Click **Create**.
 
 ## Viewing audit logs {#watch-logs}
 
-When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./concepts/events.md) that occurred to the cloud resources during that period to one or more files. If no events occurred during the period, no files are generated.
+When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./concepts/events.md) that occurred to the organization resources during that period to one or more files. If no events occurred during the period, no files are generated.
 
 Make sure that the audit log file is in the bucket that was specified when creating the trail.
 
@@ -51,10 +60,9 @@ Make sure that the audit log file is in the bucket that was specified when creat
 {{ at-name }} creates log files in `JSON` format.
 
 Access to the contents of the audit log file using one of the following methods:
-
 * [Download the object](../storage/operations/objects/download.md).
 * [Get a public link to the object](../storage/operations/objects/link-for-download.md).
-* Mount the bucket using  [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace): [s3fs](../storage/tools/s3fs.md) or [goofys](../storage/tools/goofys.md).
+* Mount the bucket using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace): [s3fs](../storage/tools/s3fs.md) or [goofys](../storage/tools/goofys.md).
 
 ## Exporting audit logs to SIEM systems {#watch-log-file}
 
@@ -64,4 +72,3 @@ You can [export](./concepts/export-siem.md) audit log files to your SIEM solutio
 
 * Learn more about the [audit log format](./concepts/format.md).
 * Learn more about [events](./concepts/events.md).
-

@@ -1,6 +1,5 @@
 title: Yandex Managed Service for Greenplum®
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md
@@ -38,12 +37,10 @@ items:
         href: concepts/sharding.md
       - name: Types of data storage
         href: concepts/tables.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing/index.md
-      - name: Pricing policy at the General Availability stage
-        href: pricing/general-availability.md
+    href: pricing/index.md
   - name: API reference
     items:
       - name: Authentication

@@ -14,7 +14,7 @@ instance_template:
   boot_disk_spec:
     mode: READ_WRITE # Disk access mode (read and write).
     disk_spec:
-      image_id: fd8iv792kirahcnqnt0q # ID of the public Container Optimized Image.
+      image_id: <ID of latest COI version>
     type_id: network-ssd # Disk type.
     size: 30G # Disk size.
   network_interface_specs:

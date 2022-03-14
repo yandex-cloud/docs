@@ -35,7 +35,7 @@
         yc iam service-account create --name group-coi
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: ajeabccde01d23efl1v5
@@ -79,7 +79,7 @@
         yc vpc network create --name yc-auto-network
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: enpabce123hde4ft1r3t
@@ -94,7 +94,7 @@
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-a
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: e1lnabc23r1c9d0efoje
@@ -188,7 +188,7 @@
      yc compute instance-group create --file=specification.yaml
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (48s)
@@ -223,7 +223,7 @@
      yc compute instance-group list-instances group-coi-containers
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
@@ -252,7 +252,7 @@
      ssh yc-user@84.201.128.110
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
@@ -275,7 +275,7 @@
      sudo docker ps -a
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      CONTAINER ID   IMAGE   COMMAND                  CREATED              STATUS              PORTS                NAMES

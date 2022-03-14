@@ -1,2 +1,2 @@
 default:
-  state: public-preview
+  state: ga
