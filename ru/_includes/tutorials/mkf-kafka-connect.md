@@ -91,7 +91,7 @@
 
 1. [Получите SSL-сертификат](../../managed-kafka/operations/connect#get-ssl-cert).
 
-1. {% include [Добавление сертификата в хранилище](../../_includes/mdb/keytool-importcert.md) %}
+1. {% include [keytool-importcert](../../_includes/mdb/keytool-importcert.md) %}
 
 1. Создайте каталог с настройками процесса-исполнителя и скопируйте туда хранилище:
 

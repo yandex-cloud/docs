@@ -1028,7 +1028,7 @@ sudo apt update && sudo apt install -y kafkacat
      cd /etc/security
      ```
 
-  1. {% include [Добавление сертификата в хранилище](./keytool-importcert.md) %}
+  1. {% include [keytool-importcert](./keytool-importcert.md) %}
 
   1. Пример кода для отправки сообщений в топик:
 
