@@ -71,12 +71,6 @@ Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
 Each project {{ml-platform-name }} has a storage within which data storage is not charged. If the quota for the project size is increased, the [storage volume](#project-data) over {{ ml-project-size }} is paid separately. For more information about quotas and limits of the service, see [{#T}](concepts/limits.md).
 
-{% note warning %}
-
-From December 15, 2021, a fee will be charged for all projects with a volume of more than {{ ml-project-size }}. To change the project storage, see [{#T}](operations/projects/storage-resize.md). The reduction is possible to the actual occupied volume, rounded up to GB.
-
-{% endnote %}
-
 If you need to store large amounts of data that exceed the specified limits, use the {{ objstorage-full-name }} service. In this case, data storage will be charged according to [pricing rules {{ objstorage-name }}](../storage/pricing.md).
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
