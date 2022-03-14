@@ -69,6 +69,8 @@ items:
       - name: >-
           Configuring {{ dns-full-name }} for cluster access from other cloud networks
         href: tutorials/dns-peering.md
+      - name: Analyzing Object Storage logs in DataLens
+        href: tutorials/storage-logs-analysis.md
   - name: Concepts
     items:
       - name: Relationship between service resources
