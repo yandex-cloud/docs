@@ -27,5 +27,5 @@ description: "Step-by-step instructions for working with Yandex Application Load
 
 * [{#T}](application-load-balancer-create.md)
 * [{#T}](application-load-balancer-update.md)
+* [{#T}](application-load-balancer-stop-and-start.md)
 * [{#T}](application-load-balancer-delete.md)
-

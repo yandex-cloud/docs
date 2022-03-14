@@ -43,6 +43,8 @@ items:
             href: operations/application-load-balancer-get-logs.md
           - name: Get the ID of the log group of the L7 load balancer
             href: operations/application-load-balancer-get-log-group-id.md
+          - name: Stop and restart an L7 load balancer
+            href: operations/application-load-balancer-stop-and-start.md
           - name: Delete an L7 load balancer
             href: operations/application-load-balancer-delete.md
   - name: Practical guidelines
