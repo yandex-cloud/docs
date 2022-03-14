@@ -248,6 +248,7 @@ default:
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
   mrd-max-disk-size: 4096 GB
+  mrd-memory-used: 75%
   CSI: Container Storage Interface
   CH: ClickHouse
   ES: Elasticsearch

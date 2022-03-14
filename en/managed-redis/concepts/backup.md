@@ -19,11 +19,14 @@ After a backup is created, it's compressed for storage. The exact backup size is
 
 The backup start time is set when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
-Backups in {{ mrd-name }} are created based on a consistent snapshot of the process memory image, which is obtained by copying the original {{ RD }} process through a `fork()` system call. Due to the specifics of the `fork()` implementation in Linux, writing data to a {{ mrd-name }} cluster host during a backup increases memory usage, since new, updated data is added to the total memory of the process (the [Copy-on-Write]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Копирование_при_записи){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Copy-on-write){% endif %} mechanism).
-
 {% note alert %}
 
-This may cause the {{ mrd-name }} hosts to run out of memory: they will be restarted with the backup process interrupted. We recommend that you [choose](../operations/update.md#change-additional-settings) a time to start a backup when the cluster is under the least load or increase RAM by [increasing the host class](../operations/update.md#change-resource-preset).
+When data is written intensively during backups, the cluster might become unavailable as hosts run out of memory. For more information, see [{#T}](memory-management.md).
+
+To avoid crashes:
+
+* [Make sure](../operations/update.md#change-additional-settings) to start backups when the cluster load is minimum.
+* Increase the amount of RAM [by upgrading the host class](../operations/update.md#change-resource-preset).
 
 {% endnote %}
 
@@ -54,3 +57,4 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+
