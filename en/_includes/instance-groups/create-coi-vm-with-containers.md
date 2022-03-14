@@ -2,7 +2,7 @@
 
 You can create an instance group built on a [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside.
 
-Docker containers are created based on the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
+Docker containers are created based on the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
 
 {% include [warning.md](warning.md) %}
 
@@ -19,7 +19,7 @@ Docker containers are created based on the [Docker Compose specification](../../
    {% list tabs %}
 
    - Management console
-
+     
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
      1. Go to the **Service accounts** tab.
      1. Click **Create service account**.
@@ -35,7 +35,7 @@ Docker containers are created based on the [Docker Compose specification](../../
         yc iam service-account create --name group-coi
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         id: ajeabccde01d23efl1v5
@@ -54,7 +54,7 @@ Docker containers are created based on the [Docker Compose specification](../../
 
    - API
 
-     Use the method [Create](../../iam/api-ref/ServiceAccount/create.md) for the `ServiceAccount` resource.
+     Use the method [create](../../iam/api-ref/ServiceAccount/create.md) for the `ServiceAccount` resource.
 
    {% endlist %}
 
@@ -63,7 +63,7 @@ Docker containers are created based on the [Docker Compose specification](../../
    {% list tabs %}
 
    - Management console
-
+     
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
      1. Select **{{ vpc-name }}**.
      1. Click **Create network**.
@@ -79,7 +79,7 @@ Docker containers are created based on the [Docker Compose specification](../../
         yc vpc network create --name yc-auto-network
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         id: enpabce123hde4ft1r3t
@@ -94,7 +94,7 @@ Docker containers are created based on the [Docker Compose specification](../../
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-a
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         id: e1lnabc23r1c9d0efoje
@@ -107,9 +107,9 @@ Docker containers are created based on the [Docker Compose specification](../../
         ```
 
    - API
-
-     1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the resource `Networks`.
-     1. Create a subnet in the `ru-central1-a` availability zone using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
+     
+     1. Create a network using the method [create](../../vpc/api-ref/Network/create.md) for the resource `Networks`.
+     1. Create a subnet in the `ru-central1-a` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
 
    {% endlist %}
 
@@ -131,7 +131,7 @@ Docker containers are created based on the [Docker Compose specification](../../
      boot_disk_spec:
        mode: READ_WRITE # Disk access mode (read and write).
        disk_spec:
-         image_id: fd8iv792kirahcnqnt0q # ID of the public Container Optimized Image.
+         image_id: <ID of latest COI version>
          type_id: network-hdd # Disk type.
          size: 32G # Disk size.
      network_interface_specs:
@@ -188,7 +188,7 @@ Docker containers are created based on the [Docker Compose specification](../../
      yc compute instance-group create --file=specification.yaml
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      done (48s)
@@ -202,7 +202,7 @@ Docker containers are created based on the [Docker Compose specification](../../
 
    - API
 
-     Use the [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
+     Use the [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 
@@ -211,9 +211,9 @@ Docker containers are created based on the [Docker Compose specification](../../
    {% list tabs %}
 
    - Management console
-
+     
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-     1. Select **Compute Cloud**.
+     1. Select **{{ compute-name }}**.
      1. Go to **Instance groups**.
      1. Click the `group-coi-containers` instance group name.
 
@@ -223,7 +223,7 @@ Docker containers are created based on the [Docker Compose specification](../../
      yc compute instance-group list-instances group-coi-containers
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
@@ -236,7 +236,7 @@ Docker containers are created based on the [Docker Compose specification](../../
 
    - API
 
-     View a list of created instances using the [List](../../compute/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
+     View a list of created instances using the [list](../../compute/api-ref/InstanceGroup/list.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 
@@ -252,11 +252,11 @@ Docker containers are created based on the [Docker Compose specification](../../
      ssh yc-user@84.201.128.110
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
-
+     
       * Documentation:  https://help.ubuntu.com
       * Management:     https://landscape.canonical.com
       * Support:        https://ubuntu.com/advantage
@@ -275,7 +275,7 @@ Docker containers are created based on the [Docker Compose specification](../../
      sudo docker ps -a
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      CONTAINER ID   IMAGE   COMMAND                  CREATED              STATUS              PORTS                NAMES

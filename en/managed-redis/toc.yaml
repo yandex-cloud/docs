@@ -51,7 +51,9 @@ items:
         href: concepts/replication.md
       - name: Supported clients
         href: concepts/supported-clients.md
-      - name: Limitations of Managed Service for Redis
+      - name: Managing memory in Yandex Managed Service for Redis
+        href: concepts/memory-management.md
+      - name: Supported commands in Yandex Managed Service for Redis
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md

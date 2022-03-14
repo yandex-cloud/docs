@@ -12,7 +12,7 @@ To view the statistics:
 1. Go to the **Monitoring** tab.
 1. Select the time period for which you wish to view statistics.
 
-## Viewing statistics itemized by resources {#resources}
+## View statistics itemized by resources {#resources}
 
 {{ monitoring-name }} provides load balancer runtime statistics itemized by associated load balancer resources, such as HTTP routers, virtual hosts, routes and so on.
 

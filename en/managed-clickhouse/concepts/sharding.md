@@ -6,7 +6,7 @@ _Sharding_ is a horizontal cluster scaling strategy that puts parts of one {{ CH
 
 Sharding is often used in the following cases:
 
-- When very frequent database queries and rapid data growth are expected.
+- Very frequent database queries and rapid data growth are expected.
 - The application requires ever more resources, but a solution that uses a cluster with [replication](replication.md) can no longer be scaled using the vertical strategy (by increasing the computing power of the hosts in the cluster: drives, memory and processors).
 
 Sharding can help you:
@@ -19,7 +19,7 @@ Sharding can help you:
 
   Sharding lets you isolate individual host or replica set malfunctions. If you don't use sharding, then when one host or a set of replicas fails, the entire data they contain may become inaccessible. But if 1 shard out of 5 fails, for example, then 80% of the table data is still available.
 
-- To improve the query performance. {#processing-speed}
+- Improve the query performance. {#processing-speed}
 
   Requests compete with each other for the computing resources of cluster hosts, which can reduce the rate of request processing. This drop in the rate usually becomes obvious as the number of read operations or CPU time per query grows. In a sharded cluster where queries to the same table can be executed in parallel, competition for shared resources is eliminated and query processing time is reduced.
 
@@ -50,7 +50,7 @@ To learn more about operating distributed tables, see the [documentation for {{ 
 
 {{ mch-name }} manages shards as follows:
 
-- When [you create a cluster](../operations/cluster-create.md), one `shard1` shard is automatically added to it. This shard includes all the hosts in the cluster.
+- When [you create a cluster](../operations/cluster-create.md), one `shard1` shard is automatically added to it. This shard includes all the hosts in the cluster. When you create a cluster of multiple hosts, [replication](./replication.md) support is automatically enabled.
 
 - You can [add](../operations/shards.md#add-shard) the appropriate number of shards to the created cluster.
 
@@ -58,10 +58,9 @@ To learn more about operating distributed tables, see the [documentation for {{ 
 
 - You can [add hosts](../operations/hosts.md#add-host) to a shard.
 
-  Shards with multiple hosts require running replication. Therefore:
+    Shards with multiple hosts require running replication. Therefore:
+    * Clusters with a multi-host shard have {{ CK }} or {{ ZK }} replication mechanisms already running, which means you can immediately add hosts to the shard.
+    * In clusters with single-host shards, you need to [enable fault tolerance using {{ ZK}}](../operations/zk-hosts.md#add-zk), and only then can you add hosts to the shard.
 
-  * In a cluster with {{ CK }}, you can add hosts immediately: replication is already running.
-  * In a cluster with {{ ZK }}, you need to [enable fault tolerance](../operations/zk-hosts.md#add-zk) if it isn't enabled.
-
-  For more information about replication {{ CK }} and {{ ZK }}, see [{#T}](replication.md).
+    For more information about replication {{ CK }} and {{ ZK }}, see [{#T}](replication.md).
 

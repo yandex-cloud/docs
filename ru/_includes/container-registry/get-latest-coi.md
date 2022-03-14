@@ -10,7 +10,7 @@
   yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
   ```
 
-  Результат выполнения команды:
+  Результат:
   
   ```bash
   id: <идентификатор последней версии COI>

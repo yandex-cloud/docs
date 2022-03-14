@@ -23,7 +23,7 @@ You can't manage {{ PG }} extensions using SQL commands.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of extensions for a specific database, run the command:
+  To get a list of extensions for a database, run the command:
 
   ```
   $ {{ yc-mdb-pg }} database get <database name> \
@@ -38,7 +38,7 @@ You can't manage {{ PG }} extensions using SQL commands.
 
 {% endlist %}
 
-## How to change a set of extensions {#update-extensions}
+## How to change the list of extensions {#update-extensions}
 
 {% list tabs %}
 
@@ -74,7 +74,7 @@ You can't manage {{ PG }} extensions using SQL commands.
 
      For information about how to create this file, see [{#T}](cluster-create.md).
 
-  1. Add one or more `extension` blocks to the {{ mpg-name }} cluster description in the `database` section corresponding to the appropriate database (one block per extension):
+  1. Add one or more `extension` blocks to the {{ mpg-name }}cluster description in the `database` section corresponding to the appropriate database (one block per extension):
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
@@ -98,7 +98,7 @@ You can't manage {{ PG }} extensions using SQL commands.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -110,46 +110,49 @@ You can't manage {{ PG }} extensions using SQL commands.
 
 All supported extensions are listed here:
 
-- [address_standardizer](https://postgis.net/docs/Address_Standardizer.html)
-- [address_standardizer_data_us](https://postgis.net/docs/Address_Standardizer.html#Address_Standardizer_Tables)
-- [amcheck](https://www.postgresql.org/docs/current/amcheck.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
-- [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6)
-- [bloom](https://www.postgresql.org/docs/current/static/bloom.html)
-- [btree_gin](https://www.postgresql.org/docs/current/static/btree-gin.html)
-- [btree_gist](https://www.postgresql.org/docs/current/static/btree-gist.html)
-- [citext](https://www.postgresql.org/docs/current/static/citext.html)
-- [cube](https://www.postgresql.org/docs/current/static/cube.html)
-- [dblink](https://www.postgresql.org/docs/current/static/dblink.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
-- [dict_int](https://www.postgresql.org/docs/current/static/dict-int.html)
-- [dict_xsyn](https://www.postgresql.org/docs/current/static/dict-xsyn.html)
-- [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html)
-- [fuzzystrmatch](https://www.postgresql.org/docs/current/static/fuzzystrmatch.html)
-- [hstore](https://www.postgresql.org/docs/current/static/hstore.html)
-- [intarray](https://www.postgresql.org/docs/current/static/intarray.html)
-- [isn](https://www.postgresql.org/docs/current/static/isn.html)
-- [jsquery](https://github.com/postgrespro/jsquery)
-- [lo](https://www.postgresql.org/docs/current/static/lo.html)
-- [ltree](https://www.postgresql.org/docs/current/static/ltree.html)
-- [moddatetime](https://www.postgresql.org/docs/current/static/contrib-spi.html#id-1.11.7.45.8)
-- [pg_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
-- [pg_hint_plan](http://pghintplan.osdn.jp/)
-- [pg_partman](https://github.com/pgpartman/pg_partman)
-- [pg_repack](http://reorg.github.io/pg_repack/) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
-- [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) (some functions require the [mdb_admin](../concepts/roles.md#mdb-admin) role)
-- [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html)
-- [pg_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html)
-- [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html)
-- [pgrouting](http://pgrouting.org/)
-- [pgrowlocks](https://www.postgresql.org/docs/current/static/pgrowlocks.html)
-- [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
-- [postgis](https://postgis.net/docs/)
-- [postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)
-- [postgis_topology](https://postgis.net/docs/Topology.html)
-- [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
-- [seg](https://www.postgresql.org/docs/current/static/seg.html)
-- [smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)
-- [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)
-- [unaccent](https://www.postgresql.org/docs/current/static/unaccent.html)
-- [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html)
-- [xml2](https://www.postgresql.org/docs/current/static/xml2.html)
-
+* [address_standardizer](https://postgis.net/docs/Address_Standardizer.html)
+* [address_standardizer_data_us](https://postgis.net/docs/Address_Standardizer.html#Address_Standardizer_Tables)
+* [amcheck](https://www.postgresql.org/docs/current/amcheck.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
+* [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6)
+* [bloom](https://www.postgresql.org/docs/current/static/bloom.html)
+* [btree_gin](https://www.postgresql.org/docs/current/static/btree-gin.html)
+* [btree_gist](https://www.postgresql.org/docs/current/static/btree-gist.html)
+* [citext](https://www.postgresql.org/docs/current/static/citext.html)
+* [cube](https://www.postgresql.org/docs/current/static/cube.html)
+* [dblink](https://www.postgresql.org/docs/current/static/dblink.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
+* [dict_int](https://www.postgresql.org/docs/current/static/dict-int.html)
+* [dict_xsyn](https://www.postgresql.org/docs/current/static/dict-xsyn.html)
+* [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html)
+* [fuzzystrmatch](https://www.postgresql.org/docs/current/static/fuzzystrmatch.html)
+* [hstore](https://www.postgresql.org/docs/current/static/hstore.html)
+* [intarray](https://www.postgresql.org/docs/current/static/intarray.html)
+* [isn](https://www.postgresql.org/docs/current/static/isn.html)
+* [jsquery](https://github.com/postgrespro/jsquery)
+* [lo](https://www.postgresql.org/docs/current/static/lo.html)
+* [ltree](https://www.postgresql.org/docs/current/static/ltree.html)
+* [moddatetime](https://www.postgresql.org/docs/current/static/contrib-spi.html#id-1.11.7.45.8)
+* [oracle_fdw](https://github.com/laurenz/oracle_fdw) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
+* [pg_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
+* [pg_hint_plan](http://pghintplan.osdn.jp/)
+* [pg_partman](https://github.com/pgpartman/pg_partman)
+* [pg_repack](http://reorg.github.io/pg_repack/) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
+* [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache) (some functions require the [mdb_admin](../concepts/roles.md#mdb-admin) role)
+* [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html)
+* [pg_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html)
+* [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html)
+* [pgrouting](http://pgrouting.org/)
+* [pgrowlocks](https://www.postgresql.org/docs/current/static/pgrowlocks.html)
+* [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
+* [plv8](https://github.com/plv8/plv8)
+* [postgis](https://postgis.net/docs/)
+* [postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)
+* [postgis_topology](https://postgis.net/docs/Topology.html)
+* [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) (requires the [mdb_admin](../concepts/roles.md#mdb-admin) role)
+* [rum](https://github.com/postgrespro/rum)
+* [seg](https://www.postgresql.org/docs/current/static/seg.html)
+* [smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)
+* [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)
+* [timescaledb](https://github.com/timescale/timescaledb)
+* [unaccent](https://www.postgresql.org/docs/current/static/unaccent.html)
+* [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html)
+* [xml2](https://www.postgresql.org/docs/current/static/xml2.html)

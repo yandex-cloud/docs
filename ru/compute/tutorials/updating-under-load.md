@@ -46,7 +46,7 @@
         yc iam service-account create --name for-load
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: ajeab0cnib1pdefe21dm
@@ -93,7 +93,7 @@
         yc vpc network create --name yc-auto-network
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: enpabce123hde4ft1r3t
@@ -108,7 +108,7 @@
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-a
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: e1lnabc23r1c9d0efoje
@@ -126,7 +126,7 @@
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone ru-central1-b
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: b1csa2b3clideftjb121
@@ -198,7 +198,7 @@
         yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
         ```
 
-        Результат выполнения команды:
+        Результат:
   
         ```bash
         id: fd8iv792kirahcnqnt0q
@@ -209,8 +209,6 @@
         os:
           type: LINUX
         ```
-
-        {% endlist %}
 
      1. Сохраните спецификацию группы ВМ c сетевым балансировщиком нагрузки в файл `specification.yaml`:
 
@@ -228,7 +226,7 @@
          yc compute instance-group create --file=specification.yaml
          ```
 
-         Результат выполнения команды:
+         Результат:
 
          ```bash
          done (2m18s)
@@ -268,7 +266,7 @@
      yc compute instance-group list-instances group-for-load
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
@@ -285,7 +283,6 @@
      Посмотрите список созданных групп ВМ с помощью метода [list](../api-ref/InstanceGroup/list.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
-
 
 ### Подключите сетевой балансировщик нагрузки к созданной группе виртуальных машин {#enable-balancer}
 
@@ -324,7 +321,7 @@
         yc load-balancer target-group get load-generator | grep "^id"
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```bash
         id: enpsa475ej51enuam897
@@ -339,7 +336,7 @@
           --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<ID целевой группы>
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         done (14s)
@@ -380,7 +377,7 @@
      yc load-balancer network-load-balancer list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
@@ -414,7 +411,8 @@
      yc load-balancer network-load-balancer get load-generator | grep "address"
      ```
      
-     Результат выполнения команды:
+     Результат:
+
      ```bash
        address: 84.252.133.110
      ```
@@ -475,7 +473,7 @@
       yc compute instance-group update --name=group-for-load --file=specification.yaml
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```bash
       done (9m24s)
@@ -505,7 +503,7 @@
 
 Остановите работу `wrk`, нажав сочетание клавиш **Ctrl + C**.
 
-Результат выполнения команды:
+Результат:
 
 ```bash
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -549,8 +547,7 @@ Transfer/sec:     206.94B
       1. В блоке **Подсети**:
          1. Справа в строке подсети `yc-auto-subnet-1` нажмите кнопку ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Удалить**.
          1. В открывшемся окне нажмите кнопку **Удалить**.
-
-         Также удалите подсеть `yc-auto-subnet-2`.
+         1. Также удалите подсеть `yc-auto-subnet-2`.
       1. В правом верхнем углу нажмите кнопку **Удалить**.
 
 - CLI

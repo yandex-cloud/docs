@@ -75,6 +75,8 @@ items:
         href: tutorials/server-side-encryption.md
       - name: Blue-green and canary deployment
         href: tutorials/blue-green-canary-deployment.md
+      - name: Analyzing logs in DataLens
+        href: tutorials/storage-logs-analysis.md
   - name: Concepts
     items:
       - name: Overview
