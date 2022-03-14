@@ -16,6 +16,11 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 * [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
+* [{{ mch-short-name }}](#managed-service-for-clickhouse)
+* [{{ mmg-short-name }}](#managed-service-for-mongodb)
+* [{{ mmy-short-name }}](#managed-service-for-mysql)
+* [{{ mpg-short-name }}](#managed-service-for-postgresql)
+* [{{ mrd-short-name }}](#managed-service-for-redis)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
 * [{{ resmgr-name }}](#resmgr)
@@ -30,7 +35,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 --- | ---
 `CreateTrail` | Создание трейла
 `DeleteTrail` | Удаление трейла
-`SetTrailAccessBindings` | назначение привязок прав доступа для трейла
+`SetTrailAccessBindings` | Назначение привязок прав доступа для трейла
 `UpdateTrail` | Изменение трейла
 `UpdateTrailAccessBindings` | Обновление привязок прав доступа для трейла
 
@@ -157,6 +162,147 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 
 \* Указанное событие по умолчанию не входит в аудитный лог. Чтобы добавить это событие в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
 «Просьба включить запись событий data plane Lockbox в audit trail <id трейла>».
+
+## {{ mch-short-name }} {#managed-service-for-clickhouse}
+
+Имя сервиса — `mdb.clickhouse`.
+
+Имя события | Описание
+--- | ---
+`AddClusterHosts` | Добавление новых хостов в кластер
+`AddClusterShard` | Добавление шарда в кластер
+`AddClusterZookeeper` | Добавление подкластера ZooKeeper в кластер
+`BackupCluster` | Создание резервной копии
+`CreateCluster` | Создание кластера
+`CreateClusterExternalDictionary` | Создание внешнего словаря
+`CreateDatabase` | Создание базы данных
+`CreateFormatSchema` | Создание схемы формата данных
+`CreateMlModel` | Создание модели машинного обучения
+`CreateShardGroup` | Созданрие группы шардов
+`CreateUser` | Создание пользователя базы данных
+`DeleteCluster` | Удаление кластера
+`DeleteClusterExternalDictionary` | Изменение внешнего словаря
+`DeleteClusterHosts` | Удаление хостов из кластера
+`DeleteClusterShard` | Удаление шарда из кластера
+`DeleteDatabase` | Удаление базы данных
+`DeleteFormatSchema` | Удаление схемы формата данных
+`DeleteMlModel` | Удаление модели машинного обучения
+`DeleteShardGroup` | Удаление группы шардов
+`DeleteUser` | Удаление пользователя базы данных
+`GrantUserPermission` | Назначение прав пользователю базы данных
+`MoveCluster` | Перемещение кластера
+`RestoreCluster` | Создание нового кластера из резервной копии
+`RevokeUserPermission` | Отзыв прав у пользователя базы данных
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateClusterExternalDictionary` | Удаление внешнего словаря
+`UpdateClusterShard` | Изменение шарда в кластере
+`UpdateFormatSchema` | Изменение схемы формата данных
+`UpdateMlModel` | Изменение модели машинного обучения
+`UpdateShardGroup` | Изменение группы шардов
+`UpdateUser` | Изменение пользователя базы данных
+
+## {{ mmg-short-name }} {#managed-service-for-mongodb}
+
+Имя сервиса — `mdb.mongodb`.
+
+Имя события | Описание
+--- | ---
+`AddClusterHosts` | Добавление новых хостов в кластер
+`AddClusterShard` | Добавление шарда в кластер
+`BackupCluster` | Создание резервной копии
+`CreateCluster` | Создание кластера
+`CreateDatabase` | Создание базы данных
+`CreateUser` | Создание пользователя базы данных
+`DeleteCluster` | Удаление кластера
+`DeleteClusterHosts` | Удаление хостов из кластера
+`DeleteClusterShard` | Удаление шарда из кластера
+`DeleteDatabase` | Удаление базы данных
+`DeleteUser` | Удаление пользователя базы данных
+`EnableClusterSharding` | Включение шардирования для кластера
+`GrantUserPermission` | Назначение прав пользователю базы данных
+`MoveCluster` | Перемещение кластера
+`RestoreCluster` | Создание нового кластера из резервной копии
+`RevokeUserPermission` | Отзыв прав у пользователя базы данных
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateUser` | Изменение пользователя базы данных
+
+## {{ mmy-short-name }} {#managed-service-for-mysql}
+
+Имя сервиса — `mdb.mysql`.
+
+Имя события | Описание
+--- | ---
+`AddClusterHosts` | Добавление новых хостов в кластер
+`BackupCluster` | Создание резервной копии
+`CreateCluster` | Создание кластера
+`CreateDatabase` | Создание базы данных
+`CreateUser` | Создание пользователя базы данных
+`DeleteCluster` | Удаление кластера
+`DeleteClusterHosts` | Удаление хостов из кластера
+`DeleteDatabase` | Удаление базы данных
+`DeleteUser` | Удаление пользователя базы данных
+`GrantUserPermission` | Назначение прав пользователю базы данных
+`MoveCluster` | Перемещение кластера
+`RescheduleMaintenance` | Отложить запланированные технические работы
+`RestoreCluster` | Создание нового кластера из резервной копии
+`RevokeUserPermission` | Отзыв прав у пользователя базы данных
+`StartCluster` | Запуск кластера
+`StartClusterFailover` | Запуск переключения мастера для кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateClusterHosts` | Изменение хостов в кластере
+`UpdateUser` | Изменение пользователя базы данных
+
+## {{ mpg-short-name }} {#managed-service-for-postgresql}
+
+Имя сервиса — `mdb.postgresql`.
+
+Имя события | Описание
+--- | ---
+`AddClusterHosts` | Добавление новых хостов в кластер
+`BackupCluster` | Создание резервной копии
+`CreateCluster` | Создание кластера
+`CreateDatabase` | Создание базы данных
+`CreateUser` | Создание пользователя базы данных
+`DeleteCluster` | Удаление кластера
+`DeleteClusterHosts` | Удаление хостов из кластера
+`DeleteDatabase` | Удаление базы данных
+`DeleteUser` | Удаление пользователя базы данных
+`GrantUserPermission` | Назначение прав пользователю базы данных
+`MoveCluster` | Перемещение кластера
+`RestoreCluster` | Создание нового кластера из резервной копии
+`RevokeUserPermission` | Отзыв прав у пользователя базы данных
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateClusterHosts` | Изменение хостов в кластере
+`UpdateDatabase` | Изменение базы данных
+`UpdateUser` | Изменение пользователя базы данных
+
+## {{ mrd-short-name }} {#managed-service-for-redis}
+
+Имя сервиса — `mdb.redis`.
+
+Имя события | Описание
+--- | ---
+`AddClusterHosts` | Добавление новых хостов в кластер
+`AddClusterShard` | Добавление шарда в кластер
+`BackupCluster` | Создание резервной копии
+`CreateCluster` | Создание кластера
+`DeleteCluster` | Удаление кластера
+`DeleteClusterHosts` | Удаление хостов из кластера
+`DeleteClusterShard` | Удаление шарда из кластера
+`MoveCluster` | Перемещение кластера
+`RebalanceCluster` | Перебалансировка кластера
+`RestoreCluster` | Создание нового кластера из резервной копии
+`StartCluster` | Запуск кластера
+`StartClusterFailover` | Запуск переключения мастера для кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
