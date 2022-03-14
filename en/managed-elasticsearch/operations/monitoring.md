@@ -64,10 +64,26 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 
 This page displays charts showing the load on an individual host in the cluster:
 
-* **CPU**: The loading of processor cores. As the load goes up, the **Idle** value goes down.
+* **CPU**: The load on processor cores. As the load goes up, the **Idle** value goes down.
 * **Disk Bytes**: The speed of disk operations (bytes per second).
 * **Disk IOPS**: The number of disk operations per second.
 * **Memory**: The use of RAM in bytes. At high loads, the value of the Free parameter goes down while those of other parameters go up.
 * **Network Bytes**: The speed of data exchange over the network (bytes per second).
 * **Network Packets**: The number of packets exchanged over the network per second.
 
+## Cluster state and status {#cluster-health-and-status}
+
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
+
+To view a cluster's state and status:
+
+1. Go to the folder page and select **{{ mes-name }}**.
+1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+
+### Cluster states {#cluster-health}
+
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+### Cluster statuses {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
