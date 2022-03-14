@@ -31,7 +31,7 @@
         yc iam service-account create --name for-autoscale
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: ajelabcde12f33nol1v5
@@ -75,7 +75,7 @@
         yc vpc network create --name yc-auto-network
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: enpabce123hde4ft1r3t
@@ -90,7 +90,7 @@
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-b
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: e1lnabc23r1c9d0efoje
@@ -108,7 +108,7 @@
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone ru-central1-c
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: b1csa2b3clideftjb121
@@ -198,7 +198,7 @@
      yc compute instance-group create --file=specification.yaml
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (2m45s)
@@ -233,7 +233,7 @@
      yc compute instance-group list-instances auto-group
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
@@ -285,7 +285,7 @@
        --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=cl0hmabc1nd2hdefgb7k
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (16s)
@@ -322,7 +322,7 @@
      yc load-balancer network-load-balancer list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
@@ -360,7 +360,7 @@
      sh request.sh
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      projects/b0g12ga82bcv0cdeferg/zones/ru-central1-b
@@ -407,7 +407,7 @@
      sh load.sh
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      Running 10m test @ http://130.193.56.111/burn-cpu?time=5000&load=20
@@ -459,7 +459,7 @@
      yc load-balancer network-load-balancer delete group-balancer
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (15s)
@@ -490,7 +490,7 @@
      yc compute instance-group delete auto-group
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (1m20s)
@@ -524,7 +524,7 @@
         yc vpc subnet delete e1lnabc23r1c9d0efoje
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         done (1s)
@@ -543,7 +543,7 @@
         yc vpc subnet delete b1csa2b3clideftjb121
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         done (1s)
@@ -580,7 +580,7 @@
      yc vpc network delete yc-auto-network
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      id: enpabce123hde4ft1r3t
@@ -602,9 +602,9 @@
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-     2. Выберите вкладку **Сервисные аккаунты**.
-     3. Нажмите значок ![image](../../_assets/options.svg) напротив сервисного аккаунта и выберите **Удалить сервисный аккаунт**.
-     4. Подтвердите удаление.
+     1. Выберите вкладку **Сервисные аккаунты**.
+     1. Нажмите значок ![image](../../_assets/options.svg) напротив сервисного аккаунта и выберите **Удалить сервисный аккаунт**.
+     1. Подтвердите удаление.
 
    - CLI
 
@@ -612,7 +612,7 @@
      yc iam service-account delete for-autoscale
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (2s)
