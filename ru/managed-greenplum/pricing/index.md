@@ -25,8 +25,6 @@ editable: false
 
 Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами. Поддерживаемые конфигурации ресурсов приведены в разделе [{#T}](../concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
 
-{% if audience==draft %}
-
 В зависимости от [типа хоста](../concepts/) стоимость вычисляется по-разному:
 
 * Стандартные хосты
@@ -35,11 +33,7 @@ editable: false
 
 * Выделенные хосты
 
-  Оплачиваются только [вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host).
-
-  {% if audience==draft %}Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.{% endif %}
-
-{% endif %}
+  Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ GP }} не может выполнять свои основные функции, не тарифицируется.
 
@@ -94,7 +88,7 @@ editable: false
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
-От типа хостов также зависит цена на быстрое локальное хранилище.
+От типа хостов также зависит цена на хранилище на локальных SSD-дисках (`local-ssd`).
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
@@ -106,8 +100,6 @@ editable: false
   {% if region == "kz" %} {% include notitle [KZT: standard hosts](../../_pricing/managed-greenplum/kzt-hosts-standard.md) %}{% endif %}
   {% if region == "int" %} {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}{% endif %}
 
-{% if audience==draft %}
-
 - Выделенные хосты
   
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
@@ -115,8 +107,6 @@ editable: false
   {% if region == "ru" %} {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}{% endif %}
   {% if region == "kz" %} {% include notitle [KZT: dedicated hosts](../../_pricing/managed-greenplum/kzt-hosts-dedicated.md) %}{% endif %}
   {% if region == "int" %} {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}{% endif %}
-
-{% endif %}
 
 {% endlist %}
 
@@ -132,19 +122,15 @@ editable: false
   {% if region == "kz" %}{% include notitle [kzt-storage-standard.md](../../_pricing/managed-greenplum/kzt-storage-standard.md) %}{% endif %}
   {% if region == "int" %}{% include notitle [usd-storage-standard.md](../../_pricing/managed-greenplum/usd-storage-standard.md) %}{% endif %}
 
-{% if audience==draft %}
-
 - Выделенные хосты
 
   Стоимость начисляется из двух компонентов:
   * [цены за использование хранилища {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host);
-  * стоимость хранения резервных копий сверх свободного места в хранилище кластера.
+  * стоимости хранения резервных копий сверх свободного места в хранилище кластера:
 
-  {% if region == "ru" %}{% include notitle [rub-storage-dedicated.md](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}{% endif %}
-  {% if region == "kz" %}{% include notitle [kzt-storage-dedicated.md](../../_pricing/managed-greenplum/kzt-storage-dedicated.md) %}{% endif %}
-  {% if region == "int" %}{% include notitle [usd-storage-dedicated.md](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}{% endif %}
-
-{% endif %}
+     {% if region == "ru" %}{% include notitle [rub-storage-dedicated.md](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}{% endif %}
+     {% if region == "kz" %}{% include notitle [kzt-storage-dedicated.md](../../_pricing/managed-greenplum/kzt-storage-dedicated.md) %}{% endif %}
+     {% if region == "int" %}{% include notitle [usd-storage-dedicated.md](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}{% endif %}
 
 {% endlist %}
 
