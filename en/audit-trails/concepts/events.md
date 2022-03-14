@@ -79,13 +79,16 @@ Service name: `compute`.
 | `UpdateInstanceNetworkInterface` | Updating VM network settings |
 | `UpdateSnapshot` | Updating a disk snapshot |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
-| `instancegroup.DeleteInstanceGroup` | Deleting an instance group. |
+| `instancegroup.DeleteInstanceGroup` | Deleting an instance group |
+| `instancegroup.DeleteInstanceGroupInstances` | Removing an instance from a group |
 | `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
 | `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
+| `instancegroup.SetInstanceGroupAccessBindings` | Assigning roles to an instance group |
 | `instancegroup.StartInstanceGroup` | Starting an instance group |
 | `instancegroup.StopInstanceGroup` | Stopping an instance group |
+| `instancegroup.StopInstanceGroupInstances` | Stopping an instance from a group |
 | `instancegroup.UpdateInstanceGroup` | Updating an instance group |
-| `instancegroup.UpdateInstanceGroupAccessBindings` | Assigning a role to an instance group |
+| `instancegroup.UpdateInstanceGroupAccessBindings` | Updating roles for an instance group |
 
 ## {{ iam-name }} {#iam}
 
@@ -98,7 +101,7 @@ Service name: `iam`.
 | `CreateApiKey` | Creating API keys |
 | `CreateCertificate` | Adding a certificate for a federation |
 | `CreateFederation` | Create federation |
-| `CreateIamCookieForSubject` | Federated user login |
+| `CreateIamCookieForSubject` | Federated user login ^*^ |
 | `CreateKey` | Creating a key pair for a service account |
 | `CreateServiceAccount` | Create service account |
 | `DeleteAccessKey` | Deleting an access key |
@@ -114,6 +117,8 @@ Service name: `iam`.
 | `UpdateKey` | Updating a key pair |
 | `UpdateServiceAccount` | Updating a service account |
 | `UpdateServiceAccountAccessBindings` | Updating access bindings |
+
+\* An event gets into the audit log only if [audit log collection scope](./trail.md#collecting-area) for the trail is `Organization`.
 
 ## {{ kms-name }} {#kms}
 
@@ -185,9 +190,9 @@ Service name: `storage`.
 | `BucketPolicyUpdate` | Updating the access policies for a bucket |
 | `BucketUpdate` | Updating a bucket |
 | `BucketWebsiteUpdate` | Updating a website configuration |
-| `ObjectCreate` | Creating an object in a bucket * |
-| `ObjectDelete` | Deleting an object from a bucket * |
-| `ObjectUpdate` | Updating an object in a bucket * |
+| `ObjectCreate` | Creating an object in a bucket ^*^ |
+| `ObjectDelete` | Deleting an object from a bucket ^*^ |
+| `ObjectUpdate` | Updating an object in a bucket ^*^ |
 
 \* The audit log does not include the above events by default. To add these events to the audit log, contact [technical support]({{ link-console-support }}). Message template:
 "Please enable the recording of data plane object storage events in audit trail <trail id>."
@@ -205,7 +210,9 @@ Service name: `resourcemanager`.
 | `UpdateCloud` | Updating a cloud |
 | `UpdateCloudAccessBindings` | Updating access bindings for a cloud |
 | `UpdateFolder` | Updating a folder |
-| `UpdateFolderAccessBindings` | Updating access bindings for a folder |
+| `UpdateFolderAccessBindings` | Updating access bindings for a folder ^*^ |
+
+\* The event may not be included in the audit log if the rights to the service account were assigned using [console]({{ link-console-main }}).
 
 ## {{ vpc-name }} {#vpc}
 
