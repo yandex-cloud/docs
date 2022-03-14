@@ -216,12 +216,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
     1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-       1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+       1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     1. Create a configuration file with a description of your [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
        The cluster is hosted on a cloud network. If you already have a suitable network, you don't need to describe it again.
-Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you don't need to describe them again.
+       
+       Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you don't need to describe them again.
 
        Example structure of a configuration file that describes a cloud network with a single subnet:
 
