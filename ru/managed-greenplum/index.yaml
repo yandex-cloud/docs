@@ -2,9 +2,7 @@
 title: Yandex Managed Service for Greenplum<sup>®</sup>
 description:
   - >-
-    <em>Сервис Yandex Managed Service for Greenplum<sup>®</sup> находится на стадии <a href="/docs/overview/concepts/launch-stages">Preview</a>.</em>
-  - >-
-    Сервис Managed Service for Greenplum<sup>®</sup> помогает разворачивать и поддерживать кластеры Greenplum<sup>®</sup> в инфраструктуре Yandex Cloud.
+    Сервис Yandex Managed Service for Greenplum<sup>®</sup> помогает разворачивать и поддерживать кластеры Greenplum<sup>®</sup> в инфраструктуре Yandex Cloud.
   - >-
     Инфраструктура Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
     защищена</a> в соответствии со следующими стандартами:
@@ -42,7 +40,6 @@ links:
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/
-    when: state != "public-preview"
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
+    href: pricing/

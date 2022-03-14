@@ -47,8 +47,6 @@ keywords:
 | Создание кластеров, для которых включен публичный доступ | `create` | Либо `vpc.publicAdmin` вместе с `mdb.admin`, либо `editor` на каталог
 | Изменение, удаление кластеров и связанных ресурсов                                                                                                                                           | `update`, `delete`                                                | `mdb.admin` или `editor` на каталог с кластером   |
 | **Управление доступом к ресурсам**                                                                                                                                                           |                                                                   |                                    |
-| [Добавление](../operations/cluster-users.md#adduser), [изменение](../operations/cluster-users.md#updateuser), [удаление](../operations/cluster-users.md#removeuser) пользователей в кластере | `create`, `update`, `delete`                                      | `editor` на каталог с кластером    |
-| [Управление доступом к базам данных](../operations/grant.md) в кластере                                                                                                                      | `grantPermission`, `revokePermission`                             | `editor` на каталог с кластером    |
 | [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако                                | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот каталог или облако |
 
 

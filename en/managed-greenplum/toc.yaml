@@ -1,6 +1,5 @@
 title: Yandex Managed Service for Greenplum®
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md
@@ -16,18 +15,6 @@ items:
         href: operations/connect.md
       - name: Managing hosts in a cluster
         href: operations/cluster-hosts.md
-      - name: Managing databases
-        href: operations/databases.md
-        when: state != "public-preview"
-      - name: Managing database users
-        href: operations/cluster-users.md
-        when: state != "public-preview"
-      - name: Assigning privileges and roles
-        href: operations/grant.md
-        when: state != "public-preview"
-      - name: Managing backups
-        href: operations/cluster-backups.md
-        when: state != "public-preview"
       - name: Using external tables
         href: operations/external-tables.md
       - name: Deleting clusters
@@ -52,16 +39,11 @@ items:
         href: concepts/tables.md
   - name: Access management
     href: security/index.md
-    when: state != "public-preview"
   - name: Resources and quotas
     href: quotas.md
-    when: state != "public-preview"
+    when: audience == "internal"
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing/index.md
-      - name: Pricing policy at the General Availability stage
-        href: pricing/general-availability.md
+    href: pricing/index.md
   - name: API reference
     items:
       - name: Authentication
@@ -77,14 +59,14 @@ items:
           repo: docs
           path: en/_api-ref/mdb/greenplum/toc.yaml
   - name: Questions and answers
-    when: state != "public-preview"
+    when: audience == "draft"
     items:
       - name: General questions
         href: qa/general.md
-        when: state != "public-preview"
+        when: audience == "draft"
       - name: Questions about Greenplum Database®
         href: qa/greenplum.md
-        when: state != "public-preview"
+        when: audience == "draft"
       - name: All questions on one page
         href: qa/all.md
-        when: state != "public-preview"
+        when: audience == "draft"
