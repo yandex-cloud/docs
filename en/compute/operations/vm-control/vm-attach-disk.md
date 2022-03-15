@@ -14,7 +14,7 @@ To attach a disk to a VM:
 
 - Management console
   1. Select the folder that the VM belongs to.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **{{ compute-name }}**.
   1. Go to **Disks**.
   1. Under **Disks**, select an unmounted disk or [create](../disk-create/empty.md) a new one.
   1. Next to the desired disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Attach**.
@@ -95,7 +95,6 @@ To use the attached disk:
   Mount the disk:
 
   1. Connect to the VM [via SSH](../vm-connect/ssh.md).
-
   1. Run the `blkid` command and make sure that there are no partitions with duplicate UUIDs:
 
      ```bash
@@ -136,7 +135,7 @@ To use the attached disk:
 
 - Windows
   1. Connect to the VM [via RDP](../vm-connect/rdp.md).
-  1. Assign a letter to the attached disk. For information about how to do this, see the [Microsoft documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% endif %}.
+  1. Assign a letter to the attached disk. To learn how to do this, see [Microsoft documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% endif %}.
 
 {% endlist %}
 
@@ -154,7 +153,7 @@ To partition and mount an empty disk yourself:
      lsblk
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
@@ -166,35 +165,49 @@ To partition and mount an empty disk yourself:
 
      An empty disk is usually labeled /dev/vdb.
 
-  1. Partition your disk. To do  this, create [partitions]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} using [cfdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %}, [fdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %}, or [parted]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %}.
+  1. Partition your disk. To do this, create on it [partitions]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} using [cfdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %}, [fdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %}, or [parted]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %}.
 
-  1. For example, let's create partitions using the fdisk command. (the most convenient way is to run commands as root, to authorize as root user use the command sudo su -) To run fdisk, type:
+  1. For example, let's create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.
 
      ```bash
      sudo fdisk /dev/vdb
      ```
-     You will see the fdisk command menu, a list of available commands can be obtained by typing m
 
-     Create a partition with the n command, specify “main” with the p option. You will see Partition number - Press Enter, First sector - Press Enter, Last sector - Press Enter.
-     Display the created partitions on the screen for verification using the p option.
-     You must save your changes using the w option.
+     You will be taken to the `fdisk` program menu. To obtain the list of available commands, type `m`.
 
-  1. Format the disk for the appropriate file system. For example, you can use the [mkfs](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html) utility.
+  1. To create a new partition, click `n`.
+  1. Specify that the partition will be the primary one: click `p`.
+  1. You will be prompted to select a partition number. Press `Enter` to create the first partition.
+  1. Leave default values for the numbers of the first and last sectors of the partition: press `Enter` twice.
+  1. Make sure that the partition has been created: list the disk partitions using the `p` command. Here's an example of a created partition:
 
-     To do this, enter the command::
+     ```
+     Device     Boot Start      End  Sectors Size Id Type
+     /dev/vdb1        2048 41943039 41940992  20G 83 Linux
+     ```
+
+  1. Save your changes using the `w` command.
+
+  1. Format the disk for the appropriate file system. For example, you can use the [mkfs]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html){% endif %} utility. Enter the following command to format your partition with the ext4 file system:
+
      ```bash
      sudo mkfs.ext4 /dev/vdb1
      ```
 
-  1. {% include [include](../../../_includes/compute/mount-disk.md) %}
+  1. Mount your disk partitions using the `mount` utility. For example, mount the `vdb1` partition to the folder `/mnt/vdb1`:
 
-  1. Check the file system status:
+     ```bash
+     sudo mkdir /mnt/vdb1
+     sudo mount /dev/vdb1 /mnt/vdb1
+     ```
+
+  1. Check the status of your file systems:
 
      ```bash
      df
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      Filesystem     1K-blocks    Used Available Use% Mounted on
@@ -205,7 +218,7 @@ To partition and mount an empty disk yourself:
      tmpfs               5120       0      5120   0% /run/lock
      tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
      tmpfs             203520       0    203520   0% /run/user/1000
-     /dev/vdb1         523260    3080    520180   1% /mnt
+     /dev/vdb1         523260    3080    520180   1% /mnt/vdb1
      ```
 
 - Windows
@@ -221,11 +234,10 @@ To partition and mount an empty disk yourself:
      {% endnote %}
 
   1. Initialize the disk. To do this, right-click on the empty disk and select **Initialize Disk**. This opens the **Initialize Disk** dialog.
-
-  1. Select a [partition style]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %} and click **ОК**.
+  1. Select [partition style]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %} and click **OK**.
 
   1. Create partitions on the disk. To do this, right-click on the empty disk and select **New Simple Volume**.
 
-  1. Use the **New Simple Volume Wizard** to set the desired partition size, [assign a drive letter]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% endif %}, and specify the file system type.
+  1. Use the **New Simple Volume Wizard** to set the size of the partition, [assign a drive letter]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% endif %}, disk, and specify the file system.
 
 {% endlist %}
