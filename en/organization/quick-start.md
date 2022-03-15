@@ -4,10 +4,14 @@ To get started, create an organization and add users to it.
 
 ## Create an organization {#create}
 
-1. [Log in]({{link-passport}}) to your Yandex account. If you don't have an account yet, [create](https://yandex.com/support/passport/authorization/registration.html) one.
+1. [Log in]({{link-passport}}) to your Yandex account. If you don't have an account yet, [create]({{ support-passport-create }}) one.
+
 1. Go to [{{org-full-name}}]({{link-org-main}}).
+
 1. Read the {{yandex-cloud}} terms of use and click **Log in**.
+
 1. Enter your company name and description.
+
 1. Click **Create organization**.
 
 After registering, you become the organization owner. You'll be able to manage employee accounts, as well as connect and disable services.
@@ -23,8 +27,11 @@ If your employees have Yandex accounts (for example, `{{login-example}}`), they 
 To connect employees with Yandex accounts:
 
 1. Go to the left panel and select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+
 1. In the upper-right corner, click **Add user**.
+
 1. Enter the email addresses of the Yandex users you want to invite to the organization (for example, `{{login-example}}`).
+
 1. Click **Add**.
 
 This will give the users access to the organization.
@@ -41,7 +48,7 @@ To configure your identity federation, follow these steps:
 
 1. Enter the federation name and description.
 
-1. In the **Cookie lifetime** field, specify the period of time during which the browser won't ask the user to re-authenticate.
+1. In the **Cookie lifetime** field, specify the period of time that must elapse before the browser asks the user to re-authenticate.
 
 1. In the **IdP Issuer** field, specify the IdP server ID to be used for authentication. The IdP server must send the same ID in its response to {{org-name}} during user authentication.
 
