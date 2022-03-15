@@ -11,17 +11,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql.md) %}
 
-* CLI
+- CLI
 
     * Тип эндпоинта — `mysql-source`.
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql.md) %}
 
-* API
+- API
 
     {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql.md) %}
 
@@ -33,17 +33,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql.md) %}
 
-* CLI
+- CLI
 
     *  Тип эндпоинта — `mysql-source`.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql.md) %}
 
-* API
+- API
 
     {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql.md) %}
 
@@ -53,7 +53,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     * **Список включенных таблиц**. Будут передаваться данные только таблиц из этого списка. Задается с помощью регулярных выражений.
 
@@ -63,7 +63,7 @@
 
     * Настройки переноса схемы при активации и деактивации трансфера.
 
-* CLI
+- CLI
 
     * `--include-table-regex` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка. Задается с помощью регулярных выражений.
 
@@ -75,7 +75,7 @@
         * `--transfer-before-data` — при активации трансфера.
         * `--transfer-after-data` — при деактивации трансфера.
 
-* API
+- API
 
     * `includeTablesRegex` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка. Задается с помощью регулярных выражений.
 

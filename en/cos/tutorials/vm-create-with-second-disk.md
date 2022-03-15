@@ -1,6 +1,6 @@
 # Creating a VM from a {{ coi }} and an additional volume for a Docker container
 
-In this tutorial, you'll create a virtual machine from a [{{ coi }}](../concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional 10 GB [volume](https://docs.docker.com/storage/volumes/) attached.
+In this tutorial, you'll create a virtual machine from a [{{ coi }}](../concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional attached [volume](../../container-registry/concepts/docker-volume.md) with 10 GB.
 
 ## Before you start {#before-you-begin}
 

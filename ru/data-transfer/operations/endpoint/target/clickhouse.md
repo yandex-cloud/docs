@@ -11,7 +11,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
 
@@ -23,7 +23,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
 
@@ -33,7 +33,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     * **Имя кластера {{ CH}}** — укажите имя кластера, в который будут передаваться данные.
 

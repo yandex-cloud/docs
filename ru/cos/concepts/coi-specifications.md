@@ -18,7 +18,7 @@ Docker-контейнер в {{ coi }} описывается в специфи�
 
 ### Пример COI спецификации Docker-контейнера {#coi-spec-example}
 
-COI спецификация – это YAML-файл со следующим содержанием: 
+COI спецификация – это YAML-файл со следующим содержанием:
 
 ```yaml
 spec:
@@ -30,7 +30,7 @@ spec:
     env:
     - name: MYENV
       value: myvalue
-    image:  cr.yandex/mirror/ubuntu:16.04
+    image: cr.yandex/mirror/ubuntu:16.04
     name: my-container
     securityContext:
       privileged: false

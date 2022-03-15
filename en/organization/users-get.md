@@ -31,15 +31,15 @@ You can get the following information about an organization's registered users:
       $ yc organization-manager user list --help
       ```
 
-  2. Get user information by specifying the organization ID:
+  1. Get user information by specifying the organization ID:
 
       ```
       $ yc organization-manager user list --organization-id bof33mc4bik7bg
       +----------------------+----------+------------------+-----------------------+
       |          ID          | USERNAME |      EMAIL       |     FEDERATION ID     |
       +----------------------+----------+------------------+-----------------------+
-      | ajeebjmlsdk9guz4kejh | hatter   | hatter@yandex.com | gyuiawudhiksd21hsdjh  |
-      | bsdeoujmzsdks1guzker | alice    | alice@yandex.com  |                       |
+      | ajeebjmlsdk9guz4kejh | hatter   | hatter@{{yandex-domain}} | gyuiawudhiksd21hsdjh  |
+      | bsdeoujmzsdks1guzker | alice    | alice@{{yandex-domain}}  |                       |
       +----------------------+----------+------------------+-----------------------+
       ```
 

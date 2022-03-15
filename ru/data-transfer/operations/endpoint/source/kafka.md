@@ -11,7 +11,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Managed Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-kafka.md) %}
 
@@ -23,7 +23,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise Kafka UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-kafka.md) %}
 
@@ -35,7 +35,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Kafka/YDS additional Settings](../../../../_includes/data-transfer/kf-yds-additional-settings.md) %}
 

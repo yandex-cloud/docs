@@ -1,6 +1,6 @@
 # Bucket policy
 
-Bucket policies set permissions for actions with buckets, objects, and groups of objects.
+Bucket policies set permissions for actions with buckets, objects, and groups of objects. 
 
 A policy is triggered when a user makes a request to a resource. As a result, the request is either executed or rejected.
 
@@ -21,6 +21,8 @@ The bucket policy consists of the following basic elements:
 * A condition is specified for when a policy is in effect. For more information, see [Conditions](../s3/api-ref/policy/conditions.md).
 
 A JSON-like language is used to describe policy rules.
+
+To apply the policy to the bucket, see [instruction](../operations/buckets/policy.md).
 
 ## Bucket access via the management console {#console-access}
 

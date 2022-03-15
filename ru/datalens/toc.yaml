@@ -653,6 +653,9 @@ items:
       - name: Data source timed out
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
+      - name: Database authentication failed
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-AUTHENTICATION_FAILED.md
       - name: Division by zero
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-ZERO_DIVISION.md

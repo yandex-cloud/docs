@@ -1,32 +1,26 @@
 # Authentication using Azure Active Directory
 
-If you have an [identity federation](../../add-federation.md), you can use [Azure Active Directory](https://azure.microsoft.com/ru-ru/services/active-directory/) (hereinafter, Azure AD) to authenticate in the cloud.
+If you have an [identity federation](../../add-federation.md), you can use [Azure Active Directory]({{link-azure-ad}}) (hereinafter Azure AD) to authenticate users in the cloud.
 
-To set up authentication:
+Authentication setup consists of the following steps:
 
-1. [Begin creating an SAML application](#configure-sso-azure-start).
+1. [Creating and configuring an SAML app in Azure AD](#azure-settings).
 
-1. [Create a federation in your organization](#create-federation).
+1. [Creating and configuring a federation in {{org-full-name}}](#yc-settings).
 
-1. [Add certificates to the federation](#add-certificate).
+1. [Setting up a Single Sign-on System (SSO)](#sso-settings).
 
-1. [Get a console login link](#get-link).
-
-1. [Complete your SAML application](#configure-sso-azure-finish).
-
-1. [Add users to your SAML application](#add-users-azure).
-
-1. [Add users to your organization](#add-users-organization).
-
-1. [Test the authentication process](#test-auth).
+1. [Verifying authentication](#test-auth).
 
 ## Before you start {#before-you-begin}
 
 To use the instructions in this section, you will need an Azure account with an active subscription.
 
-## Start creating an SAML app {#configure-sso-azure-start}
+## Creating and configuring an SAML app in Azure AD {#azure-settings}
 
-Get information about the Identity Provider (IdP): your SAML application in Azure AD:
+### Create an SAML application and download the certificate {#create-app}
+
+The Identity Provider (IdP) is an SAML application in Azure AD. Start creating your app and download the certificate:
 
 1. Go to the [Azure AD portal](https://portal.azure.com/).
 
@@ -50,9 +44,31 @@ Get information about the Identity Provider (IdP): your SAML application in Azur
 
 1. Select the **SAML** single sign-on method.
 
-The **SAML-based sign-on** page will display the IdP server data. Do not close the page. You will need this information when [creating a federation](#create-federation) and [adding a certificate](#add-certificate).
+1. On the **SAML-based sign-on** page, in Section **3. SAML Signature Certificate**, download the certificate (Base64). The certificate is necessary for the identity provider to sign a message that the user has authenticated.
 
-## Create a federation in your organization {#create-federation}
+Do not close the page: you'll need the IdP server data when [creating and configuring a federation](#yc-settings).
+
+### Add users {#add-users}
+
+Add users to the IdP server:
+
+1. Go to the [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) page.
+
+1. Select the SAML application created.
+
+1. On the left-hand panel, select **Users and groups**.
+
+1. Click **Add user or group**.
+
+1. In the **Users** field, click **None Selected**.
+
+1. In the resulting window, check users and click **Select**.
+
+1. Click **Assign**.
+
+## Creating and configuring a federation in {{org-full-name}} {#yc-settings}
+
+### Create a federation {#create-federation}
 
 {% list tabs %}
 
@@ -100,14 +116,14 @@ The **SAML-based sign-on** page will display the IdP server data. Do not close t
 
     1. Create a federation:
 
-        ```
+        ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id abcdef12a1abcdefgh1a \
+            --organization-id <organization ID> \
             --auto-create-account-on-login \
             --cookie-max-age 12h \
-            --issuer "https://sts.windows.net/1a1234a1-123-12ab-a12a1-ab1a1a12a123/" \
+            --issuer "https://sts.windows.net/<SAML app ID>/" \
             --sso-binding POST \
-            --sso-url "https://login.microsoftonline.com/1a1234a1-123-12ab-a12a1-ab1a1a12a123/saml2"
+            --sso-url "https://login.microsoftonline.com/<SAML app ID>/saml2"
         ```
 
         Where:
@@ -117,9 +133,9 @@ The **SAML-based sign-on** page will display the IdP server data. Do not close t
         * `organization-id`: Your organization ID.
 
         * `auto-create-account-on-login`: A flag to enable the automatic creation of new cloud users following authentication on the IdP server.
-This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Resources with roles assigned to the `allUsers` or `allAuthenticatedUsers` system groups are the exception.
+          This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Resources with roles assigned to the [system group](../../../iam/concepts/access-control/system-group.md) `allUsers` or `allAuthenticatedUsers` are the exception.
 
-            If this option is disabled, users not added to the cloud will not be able to log in to the management console, even if they authenticate on your IdP server. This enables you to manage a white list of users allowed to use{{ yandex-cloud }} resources.
+            If this option is disabled, users not added to the organization will not be able to log in to the management console, even if they authenticate on your IdP server. This enables you to manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -149,13 +165,13 @@ This option makes it easier to create users, but users created this way won't be
 
         ```json
         {
-          "folderId": "a1ab1abc12a1a123abcd",
+          "folderId": "<folder ID>",
           "name": "my-federation",
-          "organizationId": "abcdef12a1abcdefgh1a",
+          "organizationId": "<organization ID>",
           "autoCreateAccountOnLogin": true,
           "cookieMaxAge":"43200s",
-          "issuer": "https://sts.windows.net/1a1234a1-123-12ab-a12a1-ab1a1a12a123/",
-          "ssoUrl": "https://login.microsoftonline.com/1a1234a1-123-12ab-a12a1-ab1a1a12a123/saml2",
+          "issuer": "https://sts.windows.net/<SAML app ID>/",
+          "ssoUrl": "https://login.microsoftonline.com/<SAML app ID>/saml2",
           "ssoBinding": "POST"
         }
         ```
@@ -168,9 +184,10 @@ This option makes it easier to create users, but users created this way won't be
 
         * `organizationId`: Organization ID.
 
-        * `autoCreateAccountOnLogin`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server. This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Resources with roles assigned to the `allUsers` or `allAuthenticatedUsers` system groups are the exception.
+        * `autoCreateAccountOnLogin`: A flag to activate the automatic creation of new cloud users after authenticating on the IdP server.
+          This option makes it easier to create users, but users created this way won't be able to do anything with cloud resources. Resources with roles assigned to the [system group](../../../iam/concepts/access-control/system-group.md) `allUsers` or `allAuthenticatedUsers` are the exception.
 
-            If this option is disabled, users not added to the cloud will not be able to log in to the management console, even if they authenticate on your IdP server. This enables you to manage a white list of users allowed to use{{ yandex-cloud }} resources.
+            If this option is disabled, users not added to the organization will not be able to log in to the management console, even if they authenticate on your IdP server. This enables you to manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `cookieMaxAge`: Time that must elapse before the browser asks the user to re-authenticate.
 
@@ -192,44 +209,17 @@ This option makes it easier to create users, but users created this way won't be
 
         * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
-    1. Create a federation using the [create](../../api-ref/Federation/create.md):
-
-        ```bash
-        $ curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer <IAM token>" \
-          -d '@body.json' \
-          https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations
-           {
-            "done": true,
-            "metadata": {
-            "@type": "type.googleapis.com/yandex.cloud.organization-manager.v1.saml.CreateFederationMetadata",
-            "federationId": "abcdefg0abc0ab0a00ab"
-           },
-        ...
-        ```
-
-    The `federationId` property of the response contains the federation ID to save. You'll need this ID in the next steps.
+    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
 {% endlist %}
 
-## Add certificates to a federation {#add-certificate}
+### Add certificates {#add-certificate}
 
-When the identity provider (IdP) informs {{org-full-name}} that a user has been authenticated, they sign the message with their certificate. To enable {{org-name}} to verify this certificate, add it to the created federation.
-
-{% note tip %}
-
-To ensure that authentication isn't interrupted when the certificate expires, we recommend adding several certificates to the federation: the current one and the ones that will be used after. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
-
-{% endnote %}
-
-Use the Azure AD **SAML-based sign-on** page, in Section **3. SAML Signature Certificate** to download the certificate (base64). Add the certificate to the federation created:
+When authenticating, {{org-name}} should be able to verify the IdP server certificate. To do this, add the [downloaded](#azure-settings) certificate to the federation:
 
 {% list tabs %}
 
 - Management console
-
-  1. Go to [{{org-full-name}}]({{link-org-main}}).
 
   1. In the left-hand panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png) section.
 
@@ -263,7 +253,7 @@ Use the Azure AD **SAML-based sign-on** page, in Section **3. SAML Signature Cer
 
       ```
       yc organization-manager federation saml certificate create \
-        --federation-id abcdefg0abc0ab0a00ab \
+        --federation-id <federation ID> \
         --name "my-certificate" \
         --certificate-file certificate.cer
       ```
@@ -276,13 +266,13 @@ Use the Azure AD **SAML-based sign-on** page, in Section **3. SAML Signature Cer
 
       ```json
       {
-        "federationId": "abcdefg0abc0ab0a00ab",
+        "federationId": "<federation ID>",
         "name": "my-certificate",
         "data": "-----BEGIN CERTIFICATE..."
       }
       ```
 
-  2. Send the add certificate request:
+  1. Send the add certificate request:
 
       ```bash
       $ export IAM_TOKEN=CggaATEVAgA...
@@ -295,29 +285,35 @@ Use the Azure AD **SAML-based sign-on** page, in Section **3. SAML Signature Cer
 
 {% endlist %}
 
-## Get a console login link {#get-link}
+{% note tip %}
 
-When you set up federation authentication, users can log in to the management console from a link containing the federation ID. You must specify the same link when configuring the IdP server.
+To ensure that authentication isn't interrupted when the certificate expires, we recommend adding several certificates to the federation: the current one and the ones that will be used after. If a certificate turns out to be invalid, {{ yandex-cloud }} will attempt to verify the signature with another certificate.
+
+{% endnote %}
+
+### Get a console login link {#get-link}
+
+When you set up federation authentication, users can log in to the management console from a link containing the federation ID. You need to provide the same link when [setting up a single sign-on system (SSO)](#sso-settings).
 
 Get the link:
 
 1. Copy the Federation ID:
 
-    1. Go to [{{org-full-name}}]({{link-org-main}}).
-
     1. In the left-hand panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png) section.
 
     1. Copy the ID of the federation you're configuring access for.
 
-2. Generate a link using this ID:
+1. Generate a link using this ID:
 
     `{{ link-console-main }}/federations/<federation ID>`
 
-## Finish creating your SAML app {#configure-sso-azure-finish}
+## Setting up a Single Sign-on System (SSO) {#sso-settings}
+
+### Add a link to log in to the console {#add-link}
 
 Once you create a federation and receive a link to log in to the console, finalize the SAML application in Azure AD:
 
-1. Re-open the **SAML-based sign-on** SAML application settings page.
+1. Open the **SAML-based sign-on** SAML application settings page.
 
 1. In Section **1. Basic SAML configuration**, specify information on {{ yandex-cloud }} acting as the service provider.
 
@@ -325,7 +321,7 @@ Once you create a federation and receive a link to log in to the console, finali
 
 1. Click **Save**.
 
-### Configure user attribute mapping
+### Configure user attribute mapping {#claims-mapping}
 
 Following user authentication, the IdP server will send an SAML message to {{ yandex-cloud }} containing:
 
@@ -339,33 +335,15 @@ The types of personal data supported by {{ org-full-name }} for Azure AD are lis
 
 | User data | Comments | Application Attributes |
 | ------------------- | ----------- | ------------------- |
-| Unique user ID (Name ID) | Required attribute.<br> By default, Azure AD uses User Principal Name (UPN) in `<login>_<domain>#EXT#@<supplier>.onmicrosoft.com` format as the attribute source. When [manually adding users to a federation](#add-users-organization), this Name ID format is not supported. We recommend changing the attribute source in Azure AD, replacing UPN `user.userprincipalname` with an email address `user.mail`. | **Unique user ID (ID)** claim |
+| Unique user ID (Name ID) | Required attribute.<br> By default, Azure AD uses User Principal Name (UPN) in `<login>_<domain>#EXT#@<supplier>.onmicrosoft.com` format as the attribute source. When adding users to the federation manually, this Name ID format is not supported. We recommend changing the attribute source in Azure AD, replacing UPN `user.userprincipalname` with an email address `user.mail`. | **Unique user ID (ID)** claim |
 | Last name | Displayed in {{yandex-cloud}} services. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
 | Name | Displayed in {{yandex-cloud}} services. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
 | Full name | Displayed in {{yandex-cloud}} services.<br>Example: `Ivan Ivanov` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
-| Mail | Used to send notifications from {{yandex-cloud}} services.<br>Example:&nbsp;`ivanov@example.com` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| Email | Used to send notifications from {{yandex-cloud}} services.<br>Example:&nbsp;`ivanov@example.com` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
 
-## Add users to the SAML application {#add-users-azure}
+### Add users to your organization {#add-users}
 
-Add users to the IdP server in Azure AD:
-
-1. Go to the [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) page.
-
-1. Select the SAML application created.
-
-1. On the left-hand panel, select **Users and groups**.
-
-1. Click **Add user or group**.
-
-1. In the **Users** field, click **None Selected**.
-
-1. In the resulting window, check users and click **Select**.
-
-1. Click **Assign**.
-
-## Add users to your organization {#add-users-organization}
-
-If, when [creating a federation](#create-federation), you did not enable **Automatically create users**, you can add federated users to an organization manually.
+If, when [creating a federation](#yc-settings), you did not enable **Automatically create users**, you can add federated users to an organization manually.
 
 To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
@@ -402,7 +380,7 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
   1. Add users by listing their Name IDs separated by a comma:
 
       ```
-      yc organization-manager federation saml add-user-accounts --id abcdefg0abc0ab0a00ab \
+      yc organization-manager federation saml add-user-accounts --id <federation ID> \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -428,7 +406,7 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
       }
       ```
 
-  1. Send the request replacing `<federation ID>` with the federation identifier in the settings:
+  1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
       $ curl -X POST \
@@ -440,17 +418,17 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
 
 {% endlist %}
 
-## Test the authentication process {#test-auth}
+## Verifying authentication {#test-auth}
 
-When you finish configuring the IdP server, test that everything works:
+When you finished configuring the SSO, test that everything works:
 
 1. Open your browser in guest or private browsing mode.
 
-1. Follow the [console login link](#get-link) obtained earlier. The browser should redirect you to the authentication page.
+1. Follow the [console login link](#yc-settings) obtained earlier. The browser should redirect you to the Microsoft authentication page.
 
 1. Enter your credentials and click **Next**.
 
-Following successful authentication, the IdP server will redirect you back to the management console login link and then to the console home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
+Following successful authentication, the IdP server will redirect you back to the management console login link and then to the [management console]({{ link-console-main }}) home page. In the upper-right corner, you can see that you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

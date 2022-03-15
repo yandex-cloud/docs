@@ -11,17 +11,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql.md) %}
 
-* CLI
+- CLI
 
     * Тип эндпоинта — `mysql-target`.
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql.md) %}
 
-* API
+- API
 
     {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql.md) %}
 
@@ -33,17 +33,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql.md) %}
 
-* CLI
+- CLI
 
     * Тип эндпоинта — `mysql-target`.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql.md) %}
 
-* API
+- API
 
     {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql.md) %}
 
@@ -59,7 +59,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     * **Режим sql_mode** — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
 
@@ -73,7 +73,7 @@
 
     * **Схема БД для служебных таблиц** — укажите имя схемы, в которой будут созданы служебные таблицы, необходимые для обеспечения работы трансфера.
 
-* CLI
+- CLI
 
     * `--sql-mode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
 
@@ -83,7 +83,7 @@
 
     * `--timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
 
-* API
+- API
 
     * `sqlMode` — укажите настройки, переопределяющие [стандрартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
 

@@ -2,6 +2,6 @@
 
 If you are an administrator or user of multiple organizations, you can switch between them:
 
-* To switch to another organization, click ![icon-org-switch](../_assets/organization/icon-org-switch.png) on the left panel and select the organization that you want.
-* To create a new organization, click ![icon-org-switch](../_assets/organization/icon-org-switch.png) and select **Create organization**.
+* To switch to another organization, in the left-hand panel, select **Account** or click your account photo and select from the list the organization you want to switch to.
+* To create a new organization, on the left-hand panel, select **Account** or click your account photo and then select **Create organization**.
 

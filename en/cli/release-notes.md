@@ -1,16 +1,58 @@
 # YC CLI Releases
 
-## Version 0.87.0 (18.01.22) {#latest-release}
+## Version 0.88.0 (16.02.22) {#latest-release}
+
+### Changes to the CLI {#cli}
+
+#### {{ data-transfer-name }}
+
+* Added the `list` command for `endpoint` and `transfer`:
+
+  * `yc datatransfer endpoint list`;
+  * `yc datatransfer transfer list`;
+
+* Added commands for updating `endpoint` and `transfer`:
+
+  * `yc datatransfer endpoint update postgres-source`;
+  * `yc datatransfer endpoint update postgres-target`;
+  * `yc datatransfer endpoint update mysql-source`;
+  * `yc datatransfer endpoint update mysql-target`;
+  * `yc datatransfer transfer update`;
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ dataproc-name }} {#dataproc}
+#### {{ cdn-name }} {#cdn}
+
+* Added the ability to purge a resource cache: `yc cdn cache purge --all`.
+* Fixed resource creation when the source is a bucket or balancer.
+
+#### {{ api-gw-name }} {#api-gw}
+
+* For the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands, added the `--network-id` and `--network-name` flags to specify the API gateway network as well as the `--subnet-id` and `--subnet-name` flags for a detailed subnet list.
+
+#### {{ compute-name }} {#compute}
+
+* Added the `yc compute disk move` and `yc compute instance move` to move disks and instances between folders
+
+#### Managed database services {#managed-db}
+
+**{{ mms-name }}**
+
+* For the `yc managed-sqlserver update` and `yc managed-sqlserver start` commands, added the `confirm-payment` flag to confirm the acceptance of license fees.
+
+## Previous releases {#previous-releases}
+
+### Version 0.87.0 (18.01.22) {#version0.87.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ dataproc-name }} {#dataproc}
 
 * Added the `yc dataproc job cancel <JOB-ID>|<JOB-NAME>` command.
 
   Now you can cancel unfinished tasks.
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mes-name }}**
 
@@ -24,8 +66,6 @@
 * Added the `yc managed-elasticsearch backup get` command to view information about a specific backup.
 * Added the `--host-group-ids` flag, which sets the list of hosts for hosting the cluster on dedicated servers, to the `yc managed-sqlserver cluster create` and `yc managed-sqlserver cluster restore` commands.
 * Added the `--deletion-protection` flag, which lets you set up protection against accidental cluster deletion, to the `yc managed-sqlserver cluster restore` command.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.86.0 (15.12.21) {#version0.86.0}
 

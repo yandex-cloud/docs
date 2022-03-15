@@ -11,17 +11,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Managed PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
 
-* CLI
+- CLI
 
     * Тип эндпоинта — `postgres-source`.
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
-* API
+- API
 
     {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
 
@@ -33,17 +33,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise PostgreSQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
 
-* CLI
+- CLI
 
     * Тип эндпоинта — `postgres-source`.
 
     {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-* API
+- API
 
     {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
 
@@ -53,7 +53,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     * **Список включенных таблиц**. Будут передаваться данные только таблиц из этого списка.
     * **Список исключенных таблиц**. Данные из таблиц черного списка передаваться не будут.
@@ -73,7 +73,7 @@
 
     * Настройки переноса схемы на первичной и финальной стадиях трансфера.
 
-* CLI
+- CLI
 
     * `--include-table` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка.
     * `--exclude-table` — список исключенных таблиц. Данные из таблиц черного списка передаваться не будут.
@@ -93,7 +93,7 @@
         * `--transfer-before-data` — на первичной стадии трансфера.
         * `--transfer-after-data` — на финальной стадии трансфера.
 
-* API
+- API
 
     * `includeTables` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка.
 

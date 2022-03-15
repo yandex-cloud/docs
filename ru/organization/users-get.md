@@ -30,7 +30,7 @@
       $ yc organization-manager user list --help
       ```
 
-  2. Получите информацию о пользователях, указав идентификатор организации:
+  1. Получите информацию о пользователях, указав идентификатор организации:
 
       ```
       $ yc organization-manager user list --organization-id bof33mc4bik7bg

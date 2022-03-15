@@ -9,7 +9,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Data Streams UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-data-streams.md) %}
 
@@ -21,7 +21,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Additional Settings](../../../../_includes/data-transfer/kf-yds-additional-settings.md) %}
 

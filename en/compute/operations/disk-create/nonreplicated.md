@@ -10,7 +10,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
 
 - Management console
 
-  1. In the management console, select the folder where you want to create a disk.
+  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
 
   1. Select **{{ compute-name }}**.
 
@@ -26,9 +26,11 @@ The size of a non-replicated disk must be a multiple of 93 GB.
 
   1. Select **Non-replicated SSD** as disk type.
 
+  1. Select the desired block size.
+
   1. Specify the desired disk size.
 
-  1. Click **Save disk**.
+  1. Click **Create disk**.
 
 - CLI
 
@@ -75,7 +77,7 @@ You can only create a disk in an existing disk placement group.
 
 - Management console
 
-  1. In the management console, select the folder where you want to create a disk.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
 
   1. Select **{{ compute-name }}**.
 
@@ -89,7 +91,7 @@ You can only create a disk in an existing disk placement group.
 
   1. If necessary, add a description of the disk.
 
-  1. Select an availability zone.
+  1. Select an [availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
 
       The availability zone for a disk must be the same as that of the placement group where you want to create the disk.
 
@@ -99,7 +101,7 @@ You can only create a disk in an existing disk placement group.
 
   1. Specify the desired disk size.
 
-  1. Click **Save disk**.
+  1. Click **Create disk**.
 
 - CLI
 
@@ -139,4 +141,3 @@ You can only create a disk in an existing disk placement group.
       ```
 
 {% endlist %}
-

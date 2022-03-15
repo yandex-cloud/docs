@@ -1,8 +1,19 @@
 # Изменить подсеть
 
-После создания подсети вы можете изменить ее имя, описание и метки.
+После создания подсети вы можете изменить ее имя, описание и настройки DCHP.
 
 {% list tabs %}
+
+- Консоль управления
+
+  Чтобы изменить [подсеть](../concepts/network.md#subnet):
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить подсеть.
+  1. В списке сервисов выберите **{{ vpc-name }}**.
+  1. Нажмите на имя облачной сети, в которой находится подсеть.
+  1. Нажмите значок ![image](../../_assets/options.svg) в строке подсети, которую требуется изменить.
+  1. В открывшемся меню нажмите кнопку **Редактировать**.
+  1. Внесите нужные изменения.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI
 
@@ -13,13 +24,17 @@
   1. Посмотрите описание команды CLI для обновления параметров подсети:
 
       ```
-      $ yc vpc subnet update --help
+      yc vpc subnet update --help
       ```
 
   1. Получите список всех подсетей в каталоге по умолчанию:
 
       ```
-      $ yc vpc subnet list
+      yc vpc subnet list
+      ```
+	  Результат:
+
+	  ```
       +----------------------+-----------------------+----------------------+
       |          ID          |         NAME          |         ...          |
       +----------------------+-----------------------+----------------------+
@@ -33,7 +48,7 @@
   1. Измените параметры подсети, например:
 
       ```
-      $ yc vpc subnet update e2l2prrbkbimvjuuhht2 \
+      yc vpc subnet update e2l2prrbkbimvjuuhht2 \
           --new-name test-subnet-renamed \
           --labels new_label=test_label
       id: e2l2prrbkbimvjuuhht2
@@ -48,19 +63,14 @@
       v4_cidr_blocks:
       - 192.168.0.0/24
       ```
-{% endlist %}
-
 ## Примеры {#examples}
 
 ### Изменение подсети с использованием флага имени {#using-name-flag}
 
-{% list tabs %}
-- CLI
-
   Можно изменять подсеть, используя ее имя вместо идентификатора:
 
   ```
-  $ yc vpc subnet update test-subnet-1 \
+  yc vpc subnet update test-subnet-1 \
       --new-name test-subnet-renamed \
       --labels new_label=test_label
   id: e2l2prrbkbimvjuuhht2
@@ -79,12 +89,12 @@
   Идентификатор и имя подсети можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
 
   ```
-  $ yc vpc network update --id enpavfmgapumnl7cqin8 \
+  yc vpc network update --id enpavfmgapumnl7cqin8 \
   --new-name test-network-renamed \
   --labels new_label=test_label
   ```
   ```
-  $ yc vpc network update --name test-network-1 \
+  yc vpc network update --name test-network-1 \
   --new-name test-network-renamed \
   --labels new_label=test_label
   ```

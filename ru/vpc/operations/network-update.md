@@ -13,13 +13,16 @@
   1. Посмотрите описание команды CLI для обновления параметров облачной сети:
 
       ```
-      $ yc vpc network update --help
+      yc vpc network update --help
       ```
 
   1. Получите список всех сетей в каталоге по умолчанию:
 
       ```
-      $ yc vpc network list
+      yc vpc network list
+      ```
+	  Результат:
+      ```
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
@@ -32,7 +35,10 @@
   1. Измените параметры облачной сети указав ее имя:
 
       ```
-      $ yc vpc network update enpavfmgapumnl7cqin8 --new-name test-network-renamed
+      yc vpc network update enpavfmgapumnl7cqin8 --new-name test-network-renamed
+      ```
+      Результат:
+	  ```
       id: enpavfmgapumnl7cqin8
       folder_id: b1g6ci08ma55klukmdjs
       created_at: "2018-10-23T14:05:32Z"
@@ -44,8 +50,8 @@
   Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
 
   ```
-  $ yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
-  $ yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
+  yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
+  yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
   ```
 
 {% endlist %}
@@ -61,7 +67,10 @@
 - CLI
 
   ```
-  $ yc vpc network update test-network-1 --new-name test-network-renamed --labels new_label=test_label
+  yc vpc network update test-network-1 --new-name test-network-renamed --labels new_label=test_label
+  ```
+  Результат:
+  ```
   id: enpavfmgapumnl7cqin8
   folder_id: b1g6ci08ma55klukmdjs
   created_at: "2018-10-23T14:05:32Z"

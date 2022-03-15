@@ -1,3 +1,5 @@
-# Practical guidelines
+# All tutorials
 
 * [{#T}](k8s-fluent-bit-logging.md)
+* [{#T}](vm-fluent-bit-logging.md)
+

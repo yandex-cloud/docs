@@ -7,14 +7,19 @@
 - Консоль управления
 
   Чтобы создать подсеть:
-  1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать подсеть.
+  1. В списке сервисов выберите **{{ vpc-name }}**.
   1. Нажмите на имя облачной сети.
   1. Нажмите кнопку **Добавить подсеть**.
-  1. Заполните форму: укажите название подсети, выберите зону доступности из выпадающего списка.
+  1. Укажите название подсети.
 
      {% include [name-format](../../_includes/name-format.md) %}
-
-  1. Введите CIDR подсети: IP-адрес и маску подсети. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md).
+	 
+  1. (опционально) Укажите описание.
+  1. Выберите зону доступности из выпадающего списка.
+  1. Введите CIDR подсети: IP-адрес и маску подсети. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md). 
+     Если нужно указать еще один или несколько CIDR, нажмите кнопку **Добавить CIDR**.
+  1. (опционально) Выберите опцию **NAT для доступа в интернет**, чтобы подсеть получила доступ в интернет без резервирования внешнего IP-адреса. 
   1. (опционально) Задайте **Настройки DHCP**. Для этого:
       1. Укажите [домен DNS](../concepts/dhcp-options.md) для поиска неквалифицированных имен.
       1. В поле **DNS-серверы** нажмите кнопку **Добавить DNS-сервер** и укажите адрес вашего DNS-сервера. Можно указать несколько DNS-серверов.
@@ -39,13 +44,13 @@
   1. Посмотрите описание команды CLI для создания подсети:
 
       ```
-      $ yc vpc subnet create --help
+      yc vpc subnet create --help
       ```
 
   1. Получите список облачных сетей в требуемом каталоге:
 
       ```
-      $ yc vpc network list --folder-id b1g6ci08ma55klukmdjs
+      yc vpc network list --folder-id b1g6ci08ma55klukmdjs
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
@@ -57,7 +62,7 @@
   1. Выберите `NAME` или `ID` требуемой облачной сети. Создайте подсеть в каталоге по умолчанию, указав идентификатор облачной сети с помощью флага `--network-id`:
 
       ```
-      $ yc vpc subnet create --name test-subnet-1 \
+      yc vpc subnet create --name test-subnet-1 \
         --description "My test subnet" \
         --network-id enplom7a98s1t0lhass8 \
         --zone ru-central1-b \
@@ -69,7 +74,7 @@
       {% include [name-format](../../_includes/name-format.md) %}
 
       ```
-      $ yc vpc subnet create --name test-subnet-1 \
+      yc vpc subnet create --name test-subnet-1 \
         --description "My test subnet" \
         --network-name test-network-1 \
         --zone ru-central1-b \
@@ -81,7 +86,7 @@
   1. Получите список всех подсетей в каталоге по умолчанию:
 
       ```
-      $ yc vpc subnet list
+      yc vpc subnet list
       +----------------------+-----------------------+------------------------+
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
@@ -94,7 +99,7 @@
       Получите тот же список c большим количеством деталей в формате YAML:
 
       ```
-      $ yc vpc subnet list --format yaml
+      yc vpc subnet list --format yaml
 
       ...
 
@@ -121,7 +126,7 @@
   Создайте подсеть с именем и описанием в выбранном каталоге:
 
     ```
-    $ yc vpc subnet create --name test-subnet-1 \
+    yc vpc subnet create --name test-subnet-1 \
       --description "My test subnet" \
       --folder-id b1g6ci08ma55klukmdjs \
       --network-id enplom7a98s1t0lhass8 \
@@ -131,7 +136,7 @@
 
     Создайте подсеть с настройками DHCP:
     ```
-    $ yc vpc subnet create --name test-subnet-1 \
+    yc vpc subnet create --name test-subnet-1 \
       --description "My test subnet" \
       --folder-id b1g6ci08ma55klukmdjs \
       --network-id enplom7a98s1t0lhass8 \

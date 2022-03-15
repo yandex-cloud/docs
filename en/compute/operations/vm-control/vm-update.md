@@ -10,7 +10,7 @@ For more information about how to update a VM configuration, see [{#T}](vm-updat
 
    To update a VM:
    1. Open the folder that the VM belongs to.
-   1. Select **{{ compute-full-name }}**.
+   1. Select **{{ compute-name }}**.
    1. Click on the VM name.
    1. Click **Edit VM**.
    1. Change the VM parameters, for example, rename it by editing the **Name** field.

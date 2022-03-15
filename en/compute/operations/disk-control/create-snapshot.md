@@ -28,13 +28,13 @@ To create a disk snapshot:
 
 - Management console
 
-  1. In the management console, select the folder where the disk is located.
+  1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
 
   1. Select **{{ compute-name }}**.
 
-  1. On the **Virtual machines** page, go to the **Disks** tab.
+  1. Go to the **Disks** tab.
 
-  1. In the line with the disk name, click ![image](../../../_assets/dots.svg) and select the **Create snapshot** command.
+  1. In the line with the disk name, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Create snapshot**.
 
   1. Enter a name for the snapshot.
 
@@ -42,7 +42,7 @@ To create a disk snapshot:
 
   1. If necessary, enter a description of the snapshot.
 
-  1. Click **Create snapshot**.
+  1. Click **Create**.
 
 - CLI
 

@@ -13,8 +13,8 @@ To create an instance group with an L7 load balancer:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your instance group.
-  1. From the list of services, select {{ compute-name }}.
-  1. On the **Virtual machines** page, go to the **Instance groups** tab.
+  1. From the list of services, select **{{ compute-name }}**.
+  1. Go to the **Instance groups** tab.
   1. Click **Create group**.
   1. Under **Basic parameters**:
       * Enter the **Name** and **Description** of the instance group. Naming requirements:
@@ -23,7 +23,8 @@ To create an instance group with an L7 load balancer:
 
           {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * Select [Service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
+      * Select [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
+      * Enable **Deletion protection** if needed. You can't delete a group with this option enabled.
   1. In the **Allocation** section, select the desired **availability zones**. Group instances may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
   1. In the **Instance template** section, click **Set** to set the basic instance configuration:
       * Under **Basic parameters**, enter the template **Description**:
@@ -381,11 +382,11 @@ To create an instance group with an L7 load balancer:
 
      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
-  2. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are correct.
 
      1. In the command line, go to the directory where you created the configuration file.
 
-     2. Run the check using the command:
+     1. Run the check using the command:
 
         ```
         terraform plan
@@ -393,7 +394,7 @@ To create an instance group with an L7 load balancer:
 
      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
-  3. Deploy the cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration doesn't contain any errors, run the command:
 
@@ -401,9 +402,8 @@ To create an instance group with an L7 load balancer:
         terraform apply
         ```
 
-     2. Confirm that you want to create the resources.
+     1. Confirm that you want to create the resources.
 
      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}
-

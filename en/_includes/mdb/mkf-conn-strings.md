@@ -1024,14 +1024,13 @@ Before connecting:
 
 - Connecting via SSL
 
-  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set the password using the `--storepass` parameter for additional storage protection:
+  1. Go to the folder where the Java certificate store will be located:
 
      ```bash
-     cd /etc/security && \
-     sudo keytool -importcert -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
-            -keystore ssl -storepass <certificate store password> \
-            --noprompt
+     cd /etc/security
      ```
+
+  1. {% include [keytool-importcert](./keytool-importcert.md) %}
 
   1. Example code for delivering messages to a topic:
 

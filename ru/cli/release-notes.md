@@ -28,9 +28,7 @@
 
 #### {{ api-gw-name }} {#api-gw}
 
-* В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены флаги `--network-id`
-  и `--network-name` для указания сети API-шлюза, а также флаги `--subnet-id` и `--subnet-name` для детального списка
-  подсетей.
+* В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены флаги `--network-id` и `--network-name` для указания сети API-шлюза, а также флаги `--subnet-id` и `--subnet-name` для детального списка подсетей.
 
 #### {{ compute-name }} {#compute}
 

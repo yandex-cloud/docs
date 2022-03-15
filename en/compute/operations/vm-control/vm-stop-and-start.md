@@ -18,39 +18,37 @@ To stop a VM:
 {% list tabs %}
 
 - Management console
-  
-  1. In the management console, select the folder the VM belongs to.
-  
+
+  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ compute-name }}**.
-  
-  1. To stop a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Stop**.
-  
-      To do this with multiple VMs, select the VMs you need to stop from the list → click **Stop** at the bottom of the screen.
-  
+  1. To stop a single VM, select the machine → click ![image](../../../_assets/options.svg) → select **Stop**.
+
+      To do this with multiple VMs, select the VMs you need to stop from the list → click **Stop** at the bottom of the screen → confirm the action.
+
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
-  1. View a description of the CLI's stop VM command:
-  
+
+  1. See the description of the CLI's stop VM command:
+
       ```
       $ yc compute instance stop --help
       ```
-  
+
   1. Get a list of all VMs in the default folder:
-  
+
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  
-  1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
-  
+
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+
   1. Stop the VM:
-  
+
       ```
       $ yc compute instance stop first-instance
       ```
-  
+
 {% endlist %}
 
 ## Start {#start}
@@ -62,39 +60,36 @@ To start a VM:
 {% list tabs %}
 
 - Management console
-  
-  1. In the management console, select the folder the VM belongs to.
-  
+
+  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ compute-name }}**.
-  
-  1. To start a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Start**.
-  
-      To do this with multiple VMs, select the VMs you need to start from the list → click **Start** at the bottom of the screen.
-  
+  1. To start a single VM, select the machine → click ![image](../../../_assets/options.svg) → select **Start**.
+
+      To do this with multiple VMs, select the VMs you need to stop from the list → click **Start** at the bottom of the screen → confirm the action.
+
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
-  1. View a description of the CLI's start VM command:
-  
+
+  1. See the description of the CLI's start VM command:
+
       ```
       $ yc compute instance start --help
       ```
-  
+
   1. Get a list of all VMs in the default folder:
-  
+
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  
-  1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
-  
+
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
   1. Start the VM:
-  
+
       ```
       $ yc compute instance start first-instance
       ```
-  
+
 {% endlist %}
 
 ## Restart {#restart}
@@ -106,38 +101,34 @@ To restart a VM:
 {% list tabs %}
 
 - Management console
-  
-  1. In the management console, select the folder the VM belongs to.
-  
+
+  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ compute-name }}**.
-  
-  1. To restart a single VM, select the machine → click ![image](../../../_assets/dots.svg) → select **Restart**.
-  
-      To do this with multiple VMs, select the VMs you need to restart from the list → click **Restart** at the bottom of the screen.
-  
+  1. To restart a single VM, select the machine → click ![image](../../../_assets/options.svg) → select **Restart**.
+
+      To do this with multiple VMs, select the VMs you need to stop from the list → click **Restart** at the bottom of the screen → confirm the action.
+
 - CLI
-  
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
-  
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
-  1. View a description of the CLI's restart VM command:
-  
+
+  1. See the description of the CLI's restart VM command:
+
       ```
       $ yc compute instance restart --help
       ```
-  
+
   1. Get a list of all VMs in the default folder:
-  
+
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  
-  1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
-  
+
+  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
   1. Restart the VM:
-  
+
       ```
       $ yc compute instance restart first-instance
       ```
-  
-{% endlist %}
 
+{% endlist %}

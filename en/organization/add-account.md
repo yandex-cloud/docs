@@ -7,10 +7,15 @@ If your employees have Yandex accounts (for example, `{{login-example}}`), they 
 To add employee accounts to the organization, follow these steps:
 
 1. [Log in]({{link-passport}}) to the organization's administrator account.
+
 1. Go to [{{org-full-name}}]({{link-org-main}}).
+
 1. Go to the left panel and select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+
 1. In the upper-right corner, click **Add user**.
+
 1. Enter the email addresses of the Yandex users you want to invite to the organization (for example, `{{login-example}}`).
+
 1. Click **Add**. This will give the users access to the organization.
 
 To access the organization's enabled services, invited users simply need to log in to their Yandex account.
@@ -26,12 +31,19 @@ To add federation users to an organization:
 {% list tabs %}
 
 - Management console
+
   1. [Log in]({{link-passport}}) to the organization's administrator account.
+
   1. Go to [{{org-full-name}}]({{link-org-main}}).
+
   1. Go to the left panel and select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+
   1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+
   1. Select the identity federation to add users from.
+
   1. List the Name IDs of users, separating them with line breaks.
+
   1. Click **Add**. This will give the users access to the organization.
 
 - CLI

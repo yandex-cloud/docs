@@ -12,7 +12,8 @@
 - Консоль управления
 
   Чтобы удалить [подсеть](../concepts/network.md#subnet):
-  1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется удалить подсеть.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить подсеть.
+  1. В списке сервисов выберите **{{ vpc-name }}**.
   1. Нажмите на имя облачной сети, в которой находится подсеть.
   1. Нажмите значок ![image](../../_assets/options.svg) в строке подсети, которую требуется удалить.
   1. В открывшемся меню нажмите кнопку **Удалить**.
@@ -27,12 +28,12 @@
   1. Посмотрите описание команды CLI для удаления подсети:
 
       ```
-      $ yc vpc subnet delete --help
+      yc vpc subnet delete --help
       ```
   1. Получите список всех подсетей в каталоге по умолчанию:
 
       ```
-      $ yc vpc subnet list
+      yc vpc subnet list
       +----------------------+-----------------------+------------------------+
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
@@ -45,7 +46,7 @@
   1. Удалите подсеть из каталога по умолчанию:
 
       ```
-      $ yc vpc subnet delete test-subnet-1
+      yc vpc subnet delete test-subnet-1
       ```
 {% endlist %}
 
@@ -59,18 +60,18 @@
   Чтобы удалить подсеть из другого каталога, используйте флаги `--folder-id` или `--folder-name`.
 
   ```
-  $ yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
+  yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
   ```
   ```
-  $ yc vpc subnet delete test-subnet-2 --folder-name test-folder
+  yc vpc subnet delete test-subnet-2 --folder-name test-folder
   ```
 
   Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
 
   ```
-  $ yc vpc subnet delete --id enpavfmgapumnl7cqin8
+  yc vpc subnet delete --id enpavfmgapumnl7cqin8
   ```
   ```
-  $ yc vpc subnet delete --name test-network-1
+  yc vpc subnet delete --name test-network-1
   ```
 {% endlist %}
