@@ -1,0 +1,3 @@
+common:
+    - from: /solutions/([^/]+\.md)
+      to: /tutorials/$1
