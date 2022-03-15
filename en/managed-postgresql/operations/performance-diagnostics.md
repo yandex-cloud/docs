@@ -4,57 +4,67 @@
 
 ## Enabling statistics collection {#activate-stats-collector}
 
-To use the diagnostics tool, enable the **Collect statistics** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default).
+Enable the **Collect statistics** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default).
 
-If necessary, set intervals for gathering statistics for sessions and queries.
+Set the **Sessions sampling interval** and **Statements sampling interval**. Both are measured in seconds.
 
-## Getting information about sessions {#get-sessions}
+## Getting session statistics {#get-sessions}
 
-You can get the history of queries run during a session as well as session statistics, such as:
+1. In the management console, go to the folder page and select **{{ mpg-name }}**.
 
-- A chart with the number of sessions for the selected data segment. You can hide or show individual categories in the chart by clicking on the category name in the chart legend.
-- A table with statistics for sessions and queries.
+1. Click on the name of the desired cluster and select **Performance diagnostics** → **Sessions**.
+
+    To view session statistics or the history of queries made within a session, select the appropriate tab.
+
+    {% list tabs %}
+
+    * Statistics
+
+        To view session statistics:
+        1. Specify the desired time interval.
+        1. (Optional) Set filters.
+        1. Select the desired data segment.
+
+        To show or hide individual categories, click on the category name in the chart legend.
+
+    * History
+
+        To view the history of queries run during a session:
+        1. Specify the desired time interval.
+        1. (Optional) Set filters.
+
+    {% endlist %}
 
 For more information about what statistics you can get, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
-{% list tabs %}
+## Getting query statistics {#get-queries}
 
-- Session statistics
-  1. In the management console, go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster and select the **Performance diagnostics** tab.
-  1. Select **Sessions → Statistics**.
-  1. Specify the time interval and, if necessary, set filters.
-  1. Choose the desired [data segment](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) from the list.
+1. In the management console, go to the folder page and select **{{ mpg-name }}**.
 
-- Query history
-  1. In the management console, go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster and select the **Performance diagnostics** tab.
-  1. Select **Sessions → History**.
-  1. Specify the time interval and, if necessary, set filters.
+1. Click on the name of the desired cluster and select **Performance diagnostics** → **Queries**.
 
-{% endlist %}
+    To view query statistics or compare them in two time intervals, select the appropriate tab.
 
-## Getting information about queries {#get-queries}
+    {% list tabs %}
 
-You can get query statistics and compare statistic data for two time intervals.
+    * Interval
 
-For example, 10 `SELECT * FROM cities` queries were executed in the first interval and 20 in the second. When comparing statistics, the difference by the "number of queries" metric (the `Calls` column in the table) will be `+100%`.
+        To view query statistics:
+        1. Select the desired time interval.
+        1. (Optional) Set filters.
+
+    * Two intervals
+
+        To get information about the relative change in the query statistics:
+        1. In the **Interval 1** field, select the time interval to be used as a calculation basis for statistics.
+        1. In the **Interval 2** field, select the time interval to compare the statistics for interval 1 with.
+        1. (Optional) Set filters.
+
+        For example, 10 `SELECT * FROM cities` queries were executed in the first interval and 20 in the second. When comparing the statistics, the difference by the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
+
+    {% endlist %}
 
 For more information about what statistics you can get, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
-
-{% list tabs %}
-
-- Query statistics
-  1. In the management console, go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster and select the **Performance diagnostics** tab.
-  1. Select **Queries → Interval**.
-  1. Specify the time interval and, if necessary, set filters.
-
-- Comparing queries
-  1. In the management console, go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster and select the **Performance diagnostics** tab.
-  1. Select **Queries → 2 Intervals**.
-  1. Specify the desired intervals and, if necessary, set filters.
 
 {% endlist %}
 
@@ -75,7 +85,7 @@ To enable query logging, [change the DBMS settings](update.md#change-postgresql-
     Selecting `0` for **Auto explain log min duration** or enabling **Auto explain log timing** can significantly reduce cluster performance.
 
     {% endnote %}
-	
+
     * [**Auto explain log buffers**](../concepts/settings-list.md#setting-auto-explain-log-buffers)
     * [**Auto explain log min duration**](../concepts/settings-list.md#setting-auto-explain-log-min-duration)
     * [**Auto explain log nested statements**](../concepts/settings-list.md#setting-auto-explain-log-nested-statements)
