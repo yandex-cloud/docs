@@ -221,6 +221,8 @@ items:
         href: tutorials/updating-under-load.md
       - name: Deploying Remote Desktop Gateway
         href: tutorials/rds-gw.md
+      - name: Transferring logs from a VM instance to Yandex Cloud Logging
+        href: tutorials/vm-fluent-bit-logging.md
   - name: Concepts
     items:
       - name: Relationship between resources

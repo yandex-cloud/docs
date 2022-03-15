@@ -27,10 +27,12 @@ items:
           href: operations/delete-group.md
   - name: Practical guidelines
     items:
-      - name: All guidelines
+      - name: All tutorials
         href: tutorials/index.md
       - name: Transmitting the Managed Service for Kubernetes cluster logs to Cloud Logging
         href: tutorials/k8s-fluent-bit-logging.md
+      - name: Transferring logs from a VM instance to Cloud Logging
+        href: tutorials/vm-fluent-bit-logging.md
   - name: Concepts
     items:
       - name: Log group
