@@ -2,8 +2,8 @@
 
 {{ mch-name }} lets you manage users and their individual settings in two ways:
 
-- {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
-- SQL queries to the cluster. Select this method if you wish to use your existing solution to create and manage users or if you are using [RBAC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Управление_доступом_на_основе_ролей){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Role-based_access_control){% endif %}.
+- Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+- SQL queries to the cluster. This method is suitable if you wish to use your existing solution to create and manage users, or if you are using [RBAC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Management_post_of_the main_role){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Role-based_access_control){% endif %}.
 
 ## Managing users via SQL {#sql-user-management}
 
@@ -45,7 +45,6 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 - SQL
 
   1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
-
   1. Get a list of users:
 
       ```sql
@@ -60,9 +59,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Management console
 
-  To create a user in a cluster:
   1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click **Add**.
   1. Enter the database username and password.
 
@@ -73,14 +71,12 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
      1. Click **Add** to the right of the drop-down list.
      1. Repeat the previous two steps until all the required databases are selected.
      1. To delete a database that was added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name in the **Permissions** list.
-
   1. Configure [additional settings](../concepts/settings-list.md) for the user:
      1. Set [quotas](../concepts/settings-list.md#quota-settings) in **Additional settings → Quotas**:
         1. To add a quota, click ![image](../../_assets/plus.svg) or **+ Quotas**. You can add multiple quotas that will be valid at the same time.
         1. To delete a quota, click ![image](../../_assets/vertical-ellipsis.svg) to the right of the quota name and select **Delete**.
         1. To change a quota, set the required values of its settings.
      1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **Additional settings → Settings**.
-
   1. Click **Add**.
 
   See also: [Example of creating a read-only user](#example-create-readonly-user).
@@ -154,11 +150,10 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 - SQL
 
   1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
-
   1. Create a user:
 
       ```sql
-      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password>';
+      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user password>';
       ```
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
@@ -173,9 +168,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Management console
 
-  To change the user's password:
   1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
   1. Set a new password and click **Edit**.
 
@@ -248,15 +242,93 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 {% endlist %}
 
+## Changing the admin password {#admin-password-change}
+
+{% list tabs %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change the `admin` password, run the command below:
+
+    ```bash
+    {{ yc-mdb-ch }} cluster update <cluster name or ID> \
+       --admin-password <new admin password>
+    ```
+
+    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    {% note tip %}
+	
+    * For increased security, instead of `--admin-password`, use the `--read-admin-password` parameter: you will need to enter the new password using the keyboard, and it will not be saved in the command history.
+    * To generate a password automatically, use `--generate-admin-password`. The command output will contain the new password.
+
+    {% endnote %}
+
+- Terraform
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Change the value of the `admin_password` field:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          admin_password = "<admin password>"
+          ...
+        }
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+
+- SQL
+
+    1. [Connect](./connect.md) to the cluster  as the `admin` [user](#sql-user-management).
+    1. Execute the SQL query below:
+
+        ```sql
+        ALTER USER admin IDENTIFIED BY '<new password>';
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    For more information, see the [{{ CH }} documentation ](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/).
+
+- API
+
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+	
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    * The new password in the `configSpec.adminPassword` parameter.
+    * The list of cluster configuration fields to be edited (`ConfigSpec.adminPassword` in this case) in the `updateMask` parameter.
+
+    {% include [note-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+
+{% endlist %}
+
 ## Changing user settings {#update-settings}
 
 {% list tabs %}
 
 - Management console
 
-  To change the user settings:
   1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Settings**.
   1. Set up user permissions to access certain databases:
      1. To grant access to the required databases:
@@ -269,7 +341,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
      1. To delete a quota, click ![image](../../_assets/vertical-ellipsis.svg) to the right of the quota name and select **Delete**.
      1. To change a quota, set the required values of its settings.
   1. Change the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) for the user in **Additional settings → Settings**.
-  1. Click **Save**.
+  1. Tap **Save**.
 
 - CLI
 
@@ -432,7 +504,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Management console
   1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
 
 - CLI
