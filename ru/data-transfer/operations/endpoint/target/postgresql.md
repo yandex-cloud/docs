@@ -11,17 +11,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Managed Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/managed-postgresql.md) %}
 
-* CLI
+- CLI
 
     * Тип эндпоинта — `postgres-target`.
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
-* API
+- API
 
     {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
 
@@ -33,17 +33,17 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise Postgresql](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-postgresql.md) %}
 
-* CLI
+- CLI
 
     * Тип эндпоинта — `postgres-target`.
 
     {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-* API
+- API
 
     {% include [On premise PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-postgresql.md) %}
 
@@ -53,7 +53,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 

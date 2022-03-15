@@ -18,7 +18,7 @@
 
     1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) для учетной записи на нужный топик.
 
-    1. (Опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
+    1. (опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
 
@@ -94,12 +94,12 @@
 
 * {{ mmg-name }}
 
-    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
+    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10 000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
     1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
 
 * {{ MG }}
 
-    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ MG }}. Если нагрузка на базы выше 10000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
+    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ MG }}. Если нагрузка на базы выше 10 000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -185,7 +185,7 @@
 
     1. [Включите режим полного бинарного лога](../../managed-mysql/operations/update.md#change-mysql-config) на источнике с помощью параметра **Binlog row image**.
 
-    1. (Опционально) [Настройте лимит](../../managed-mysql/operations/update.md#change-mysql-config) на размер отправляемых кусков данных (chunk) с помощью параметра **Max allowed packet**.
+    1. (опционально) [Настройте лимит](../../managed-mysql/operations/update.md#change-mysql-config) на размер отправляемых кусков данных (chunk) с помощью параметра **Max allowed packet**.
 
     1. [Создайте пользователя](../../managed-mysql/operations/cluster-users.md#adduser) для подключения к источнику.
 
@@ -217,7 +217,7 @@
 
         В обоих случаях это позволит продолжить репликацию в случае смены хоста-мастера.
 
-    1. (Опционально) [Настройте лимит](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) на размер отправляемых кусков данных (chunk) с помощью параметра `max_allowed_packet`.
+    1. (опционально) [Настройте лимит](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) на размер отправляемых кусков данных (chunk) с помощью параметра `max_allowed_packet`.
 
     1. Создайте пользователя для подключения к источнику и выдайте ему необходимые привилегии:
 
@@ -392,10 +392,10 @@
 
 {% if audience == "external" %}
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
-1. (Опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
+1. (опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 {% else %}
 1. Создайте поток данных.
-1. (Опционально) Создайте функцию обработки.
+1. (опционально) Создайте функцию обработки.
 {% endif %}
 
     {% cut "Пример функции обработки" %}
@@ -457,7 +457,7 @@
 
     {% endcut %}
 
-1. (Опционально) Подготовьте файл схемы данных в формате JSON.
+1. (опционально) Подготовьте файл схемы данных в формате JSON.
 
     Пример файла со схемой данных:
 
@@ -476,21 +476,22 @@
     ```
 
     Список допустимых типов:
-
-    * `int64`
-    * `int32`
-    * `int16`
-    * `int8`
-    * `uint64`
-    * `uint32`
-    * `uint16`
-    * `uint8`
-    * `double`
-    * `boolean`
-    * `string`
-    * `utf8`
+	
     * `any`
+    * `boolean`
     * `datetime`
+    * `double`
+    * `int8`
+    * `int16`
+    * `int32`
+    * `int64`
+    * `string`
+    * `uint8`
+    * `uint16`
+    * `uint32`
+    * `uint64`
+    * `utf8`
+
 
 ## Подготовка приемника {#target}
 

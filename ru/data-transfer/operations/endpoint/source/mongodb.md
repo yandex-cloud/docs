@@ -11,7 +11,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
@@ -23,7 +23,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
 
@@ -33,7 +33,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     * **Список включенных коллекций** — будут передаваться данные только из перечисленных коллекций. По умолчанию передаются все коллекции.
 

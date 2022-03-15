@@ -8,7 +8,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise Oracle UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-oracle.md) %}
 
