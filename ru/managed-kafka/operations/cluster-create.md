@@ -17,7 +17,8 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. В списке сервисов выберите **{{ mkf-name }}**.
   1. Нажмите кнопку **Создать кластер**.
   1. В блоке **Базовые параметры**:
      1. Введите имя кластера и, при необходимости, его описание. Имя кластера должно быть уникальным в рамках каталога.
@@ -82,19 +83,21 @@
         {% endnote %}
 
   1. В блоке **Хосты**:
+  
      1. Укажите количество [хостов-брокеров](../concepts/brokers.md) {{ KF }} для размещения в каждой выбранной зоне доступности.
 
-         При выборе количества хостов учитывайте, что:
+        При выборе количества хостов учитывайте, что:
 
-         * Хосты кластера {{ KF }} будут равномерно расположены в выбранных зонах доступности. Количество зон и хостов в зоне следует выбирать исходя из требуемой модели отказоустойчивости и нагрузки на кластер.
-         * Репликация возможна при наличии как минимум двух хостов в кластере.
-         * Если в блоке **Хранилище** выбран тип `local-ssd` или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
-         * Добавление в кластер более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
-     {% if audience != "internal" %}
-     1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
+        * Хосты кластера {{ KF }} будут равномерно расположены в выбранных зонах доступности. Количество зон и хостов в зоне следует выбирать исходя из требуемой модели отказоустойчивости и нагрузки на кластер.
+        * Репликация возможна при наличии как минимум двух хостов в кластере.
+        * Если в блоке **Хранилище** выбран тип `local-ssd` или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
+        * Добавление в кластер более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
+     
+	 {% if audience != "internal" %}
+     1. (опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
 
-         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-     {% endif %}
+        {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}{% endif %}
+     
   1. Если вы указали более одного хоста-брокера, то в блоке **Класс хоста {{ ZK }}** укажите характеристики [хостов {{ ZK }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
 
   1. При необходимости задайте дополнительные настройки кластера:
@@ -123,17 +126,17 @@
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
-         --name <имя кластера> \
-         --environment <окружение: prestable или production> \
-         --version <версия: 2.1, 2.6 или 2.8> \
-         --network-name <имя сети> \
-         --brokers-count <количество брокеров в зоне> \
-         --resource-preset <класс хоста> \
-         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-         --disk-size <размер хранилища в гигабайтах> \
-         --assign-public-ip <публичный доступ> \
-         --security-group-ids <список идентификаторов групп безопасности> \
-         --deletion-protection=<защита от удаления кластера: true или false>
+        --name <имя кластера> \
+        --environment <окружение: prestable или production> \
+        --version <версия: 2.1, 2.6 или 2.8> \
+        --network-name <имя сети> \
+        --brokers-count <количество брокеров в зоне> \
+        --resource-preset <класс хоста> \
+        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --disk-size <размер хранилища в гигабайтах> \
+        --assign-public-ip <публичный доступ> \
+        --security-group-ids <список идентификаторов групп безопасности> \
+        --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -148,8 +151,8 @@
 
           ```bash
           {{ yc-mdb-kf }} cluster create \
-             ...
-             --unmanaged-topics true
+            ...
+            --unmanaged-topics true
           ```
 
       1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
@@ -160,8 +163,8 @@
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
-         ...
-         --host-group-ids <идентификаторы групп выделенных хостов>
+        ...
+        --host-group-ids <идентификаторы групп выделенных хостов>
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -344,36 +347,36 @@
 
   ```bash
   {{ yc-mdb-kf }} cluster create \
-     --name mykf \
-     --environment production \
-     --version 2.6 \
-     --network-name {{ network-name }} \
-     --zone-ids {{ zone-id }} \
-     --brokers-count 1 \
-     --resource-preset {{ host-class }} \
-     --disk-size 10 \
-     --disk-type {{ disk-type-example }} \
-     --assign-public-ip \
-     --security-group-ids {{ security-group }} \
-     --deletion-protection=true
+    --name mykf \
+    --environment production \
+    --version 2.6 \
+    --network-name {{ network-name }} \
+    --zone-ids {{ zone-id }} \
+    --brokers-count 1 \
+    --resource-preset {{ host-class }} \
+    --disk-size 10 \
+    --disk-type {{ disk-type-example }} \
+    --assign-public-ip \
+    --security-group-ids {{ security-group }} \
+    --deletion-protection=true
   ```
 
   {% else %}
 
   ```bash
   {{ yc-mdb-kf }} cluster create \
-     --name mykf \
-     --environment production \
-     --version 2.6 \
-     --network-name {{ network-name }} \
-     --zone-ids {{ zone-id }} \
-     --brokers-count 1 \
-     --resource-preset {{ host-class }} \
-     --disk-size 10 \
-     --disk-type {{ disk-type-example }} \
-     --assign-public-ip \
-     --security-group-ids {{ security-group }} \
-     --deletion-protection=true
+    --name mykf \
+    --environment production \
+    --version 2.6 \
+    --network-name {{ network-name }} \
+    --zone-ids {{ zone-id }} \
+    --brokers-count 1 \
+    --resource-preset {{ host-class }} \
+    --disk-size 10 \
+    --disk-type {{ disk-type-example }} \
+    --assign-public-ip \
+    --security-group-ids {{ security-group }} \
+    --deletion-protection=true
   ```
 
   {% endif %}
