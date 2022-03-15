@@ -49,7 +49,6 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      yc compute instance create-with-container \
        --name coi-vm \
        --zone ru-central1-a \
-       --public-ip \
        --create-boot-disk size=30 \
        --create-disk name=data-disk,size=10,device-name=coi-data \
        --network-interface subnet-name=<subnet name>,nat-ip-version=ipv4 \
