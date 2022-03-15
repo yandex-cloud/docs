@@ -18,14 +18,16 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 ## Before you start {#before-you-begin}
 
 1. [Create a {{ mrd-name }} cluster](../operations/cluster-create.md) with any desirable configuration.
+
 1. [Set up security groups](../operations/connect.md#configuring-security-groups) for the cluster and the intermediate VM. {#configure-security-groups}
-1. (Optional) Install utilities for downloading and uploading files over SSH, for example:
-    * [WinSCP](https://winscp.net/eng/index.php)
+
+1. (Optional) Install utilities on the local machine for downloading and uploading files over SSH, such as:
+    * [WinSCP]{% if lang == "ru" %}(https://winscp.net/eng/docs/lang:ru){% endif %}{% if lang == "en" %}(https://winscp.net/eng/index.php){% endif %}
     * [Putty SCP](https://www.putty.org/)
 
 1. Make sure that [GNU Screen](https://www.gnu.org/software/screen/) is installed on the source cluster.
 
-     It might take a long time to create and restore a dump. To keep these processes alive when your SSH session times out, start them using this utility. If your SSH connection breaks while creating or restoring the dump, reconnect and restore the session state using the command:
+    It might take a long time to create and restore a dump. To keep these processes alive when your SSH session times out, start them using this utility. If your SSH connection breaks while creating or restoring the dump, reconnect and restore the session state using the command:
 
     ```bash
     screen -R
@@ -33,7 +35,8 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
 ## Connect to the source cluster and create a logical dump {#create-dump}
 
-1. Connect to the source cluster however is convenient.
+1. Connect to the source cluster's master host via SSH.
+
 1. Download the archive with the `redis-dump-go`  utility from the [project page](https://github.com/yannh/redis-dump-go/releases). In the following examples, we'll use version `0.5.1`.
 
     ```bash
@@ -64,11 +67,11 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
     screen
     ```
 
-1. Start creating a logical dump (some parameters are omitted from the example):
+1. Launch the creation of a logical dump:
 
     ```bash
     ./redis-dump-go \
-        -host <{{ RD }} cluster IP address or FQDN> \
+        -host <IP address or FQDN of master host in {{ RD }} cluster> \
         -port <{{ RD }} port> > <dump file>
     ```
 
@@ -88,16 +91,30 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
 ## Create and set up an intermediate VM {#create-vm}
 
+{% if audience != "internal" %}
+
 1. [Create a VM running Linux](../../compute/operations/vm-create/create-linux-vm.md) with the following parameters:
 
-    * Under **Image/boot disk selection**, select **Operating systems** → `Ubuntu 20.04`.
+{% else %}
+
+1. Create a Linux virtual machine with the following configuration:
+
+{% endif %}
+    * Under **Image/boot disk selection**: Select **Operating systems** → `Ubuntu 20.04`.
     * Under **Network settings**:
-        * **Subnet**: Select the subnet with at least one of the {{ mrd-name }} cluster's master hosts.
+        * **Subnet**: Select a subnet that includes at least one of the {{ mrd-name }} cluster's master hosts.
         * **Public address**: `Auto`.
         * **Internal address**: `Auto`.
         * **Security groups**: Select the [previously configured](#configure-security-groups) security groups.
+{% if audience != "internal" %}
 
 1. [Connect to the intermediate VM via SSH](../../compute/operations/vm-connect/ssh.md).
+
+{% else %}
+
+1. Connect to the intermediate virtual machine via SSH.
+
+{% endif %}
 
 1. If your {{ mrd-name }} cluster was deployed with {{ RD }} version 6 or higher and TLS support enabled:
 
@@ -216,7 +233,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
         ```bash
         redis-cli \
-            -h <FQDN of the master host> \
+            -h c-<cluster ID>.rw.{{ dns-zone }} \
             -p {{ port-mrd-tls }} \
             -a <password for the target cluster> \
             --tls \
