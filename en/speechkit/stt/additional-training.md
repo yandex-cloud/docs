@@ -1,6 +1,6 @@
 # Extending a speech recognition model
 
-{{ speechkit-name }} provides two ways of improving the quality of speech recognition.
+{{ speechkit-name }} provides two ways to improve speech recognition.
 
 ## Autotuning {#autotuning}
 
@@ -10,37 +10,30 @@ To improve the quality of speech recognition, you can use the _autotuning_ model
 
 Autotuning helps improve recognition quality while a model is running.
 
-## Model advanced training {#advanced-training}
+## Model retraining {#advanced-training}
 
-The basic speech recognition model is designed to work with everyday language, but it may not be sufficient to recognize specific vocabulary. Advanced training can help teach a model to recognize domain-specific terms from different fields:
+The basic speech recognition model is designed to work with everyday language, but it may not be sufficient to recognize specific vocabulary. Retraining can help teach a model to recognize domain-specific terms from different fields:
 
 * Medicine: Diagnoses, biological terms, and drug names.
 * Business: Company names.
 * Trade: Product ranges (jewelry, electrical goods, and so on).
 * Finance: Banking terms and names of banking products.
 
-### Data required for advanced training {#data}
+### Data required for retraining {#data}
 
-The following data is required for model advanced training:
+The following data is required for model retraining:
 
 * _Glossary_: A full list of terms. The glossary may contain words from audio recordings used for testing and other vocabulary. The glossary should be provided in a separate file, with each term placed on a separate line.
 * _Text patterns_: Homogeneous phrases that the model will use to synthesize utterances. The length of a pattern together with variables must not exceed 200 characters.
 
-The glossary and text patterns should be in [TSV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/TSV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Tab-separated_values){% endif %} format in the normalized form:
+{% include [data-formats](../../_includes/speechkit/training-data-format.md) %}
 
-* Numerals: Written as words.
-* Latin words and characters: Transcribed.
-* Abbreviations: Spelled out.
-
-> ![No](../../_assets/common/no.svg): We're giving away 2 kg of potatoes and issues of ABC magazine from 2020 for free, i.e., as a gift.
-> ![Yes](../../_assets/common/yes.svg): We're giving away two kilos of potatoes and issues of ei biː siː magazine from twenty twenty for free, that is, as a gift.
-
-Text data will be generated from the received files. Glossary terms are inserted into the variable part of the templates. Advanced training will be effective if a sufficient amount of data is used:
+Text data will be generated from the received files. Glossary terms are inserted into the variable part of the templates. Retraining will be effective if a sufficient amount of data is used:
 
 * At least 1 thousand utterances.
 * At least 3 to 5 phrases, preferably in proportion to the frequency of a term's use in real life.
 
-For example, the `first-name.tsv`, `middle-name.tsv`, and `last-name.tsv` glossary files used for advanced training a call center model may contain the first, middle, and last names of customers.
+For example, the `first-name.tsv`, `middle-name.tsv`, and `last-name.tsv` glossary files used for retraining a call center model may contain the first, middle, and last names of customers.
 
 | first-name.tsv | middle-name.tsv | last-name.tsv |
 | --- | --- | --- |
@@ -59,19 +52,22 @@ Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last
 Hello, can I talk to {first-name=first-names-possessive.tsv} {last-name=last-names-possessive.tsv} representative?
 ```
 
-### Testing the quality of advanced training {#testing}
+## Importing retraining data {#import-data}
+
+For information on importing retraining data, see [{#T}](import-training-data.md).
+
+### Testing the quality of retraining {#testing}
 
 A trained model is tested using the following data sets:
 
 1. A basket for evaluating a specific task that is created based on the received audio recordings.
 1. A basket for evaluating everyday language.
-1. (Optional) Audio recordings that are at least 1 hour long to evaluate the quality of model advanced training. The structure of the recorded utterances should repeat the provided patterns.
+1. (Optional) Audio recordings that are at least 1 hour long to evaluate the quality of model retraining. The structure of the recorded utterances should repeat the provided patterns.
 
-The quality of speech recognition is evaluated based on the [WER](https://en.wikipedia.org/wiki/Word_error_rate) (Word Error Rate) metric. The lower the resulting metric value, the more accurately a speech fragment is recognized. Model advanced training is considered successful if the quality of recognition of specific vocabulary has significantly improved, while the quality of recognition of everyday language has either improved or remained unchanged. You can judge the quality of speech recognition for yourself using [{{ ml-platform-full-name }}](../../datasphere/tutorials/speech-recognition.md).
+The quality of speech recognition is evaluated based on the [WER](https://en.wikipedia.org/wiki/Word_error_rate) (Word Error Rate) metric. The lower the resulting metric value, the more accurately a speech fragment is recognized. Model retraining is considered successful if the quality of recognition of specific vocabulary has significantly improved, while the quality of recognition of everyday language has either improved or remained unchanged. You can judge the quality of speech recognition for yourself using [{{ ml-platform-full-name }}](../../datasphere/tutorials/speech-recognition.md).
 
-If a new version of the model meets the requirements of the quality evaluation metrics after advanced training, it will be prepared for release in the `general:rc` status.
+If a new version of the model meets the requirements of the quality evaluation metrics after retraining, it will be prepared for release in the `general:rc` status.
 
 ### Model availability dates
 
 Changes are made to the `general:rc` model within 4 weeks of the standard release preparation cycle.
-
