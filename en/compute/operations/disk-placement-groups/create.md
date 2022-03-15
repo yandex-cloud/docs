@@ -6,21 +6,23 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
 
 - Management console
 
-  1. In the management console, select the folder where you want to create a disk placement group.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk placement group.
 
   1. Select **{{ compute-name }}**.
 
-  1. On the **Virtual machines** page, go to the **Placement groups** panel.
+  1. Go to the **Placement groups** tab.
 
-  1. Click the **Disk placement groups** tab.
+  1. Go to the **Non-replicated disk placement groups** tab.
 
-  1. Click **Create group**.
+  1. Click **Create non-replicated disk placement group**.
 
   1. Enter group name.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
   1. If required, add a free-form group description.
+
+  1. Specify the [availability zone](../../../overview/concepts/geo-scope.md).
 
   1. Click **Create**.
 
