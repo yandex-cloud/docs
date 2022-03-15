@@ -50,17 +50,26 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 
 ## Adding hosts to a cluster {#add-hosts}
 
+{% note warning %}
+
+You can't assign a public IP address to it after it's been created.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
 
     1. Go to the folder page and select **{{ mes-name }}**.
+
     1. Click on the name of the cluster you need and select the **Hosts** tab.
+
     1. Click **Add host**.
+
     1. Specify the host parameters:
-        - Availability zone.
-        - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
-        - Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
+        * Availability zone.
+        * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
+        * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
 
 - CLI
 
@@ -72,7 +81,7 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 
     ```bash
     {{ yc-mdb-es }} host add \
-       --cluster-name <cluster name>
+       --cluster-name <cluster name> \
        --host zone-id=<availability zone>,subnet-name=<subnet name>,assign-public-ip=<true or false>,type=<host role: datanode or masternode>
     ```
 
@@ -98,8 +107,8 @@ If you can't [connect](cluster-connect.md) to the added host, check that the clu
 
 The following restrictions apply when deleting hosts:
 
-- You can't delete a single host with the _Data node_ role.
-- If a cluster consists of multiple hosts with the _Data node_ role, you can't delete the last two hosts.
+* You can't delete a single host with the _Data node_ role.
+* If a cluster consists of multiple hosts with the _Data node_ role, you can't delete the last two hosts.
 
 {% list tabs %}
 
@@ -118,17 +127,17 @@ The following restrictions apply when deleting hosts:
     To remove a host from the cluster, run:
 
     ```bash
-    {{ yc-mdb-es }} host delete <hostname> --cluster-name <cluster name>
+    {{ yc-mdb-es }} host delete <host name> --cluster-name <cluster name>
     ```
 
     The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-    Use the `deleteHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+  Use the `deleteHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
-    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
-    In one or more `hostNames[]` parameters, specify the names of the hosts you wish to delete from the cluster.
+  In one or more `hostNames[]` parameters, specify the names of the hosts you wish to delete from the cluster.
 
 {% endlist %}
