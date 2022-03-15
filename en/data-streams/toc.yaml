@@ -93,5 +93,7 @@ items:
 #        items:
       - name: Common errors
         href: kinesisapi/common-errors.md
+      - name: Examples
+        href: kinesisapi/examples.md
   - name: Questions and answers
     href: qa/index.md
