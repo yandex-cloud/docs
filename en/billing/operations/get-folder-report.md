@@ -4,7 +4,7 @@ You can get a CSV file with your general or per-resource spending details.
 
 ## Before you start {#before-you-begin}
 
-1. If you don't have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder), [create a folder](../../resource-manager/operations/folder/create.md). In the folder name, specify the name of the project or client that is going to use this folder.
+1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create a folder](../../resource-manager/operations/folder/create.md). In the folder name, specify the name of the project or client that is going to use this folder.
 
 1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}. {{ yandex-cloud }} will save detail files to this bucket. You can save details in multiple buckets.
 
@@ -14,11 +14,14 @@ You can get a CSV file with your general or per-resource spending details.
 
    {% endnote %}
 
+1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`.
+
 ## Get expense details {#download-detail}
 
 {% list tabs %}
 
 - Management console
+
   1. In the [management console]({{ link-console-billing }}), select the account you want to get details for.
   1. On the **Overview** page, go to the **Export details** tab.
   1. Click **Create**.
@@ -37,7 +40,7 @@ The information can be updated in any daily file within a month.
 
 {% note tip %}
 
-Files with details from buckets aren't deleted automatically, but you can set up a deletion schedule. Read more in [Object lifecycle](../../storage/concepts/lifecycles.md) (in {{ objstorage-name }}, files in the bucket are called _objects_).
+Files with details from buckets aren't deleted automatically, but you can set up a deletion schedule. For more information, see [Object lifecycle](../../storage/concepts/lifecycles.md) ({{ objstorage-name }} refers to files in a bucket as _objects_).
 
 {% endnote %}
 
@@ -47,12 +50,12 @@ An uploaded file with details is a CSV table with comma-separated columns. Each 
 
 The table contains the following columns:
 
-* `billing_account_id`: ID of the [billing account](../concepts/billing-account).
+* `billing_account_id`: [Billing account](../concepts/billing-account) ID.
 * `billing_account_name`: Name of the billing account.
-* `cloud_id`: ID of the [cloud](../../resource-manager/concepts/resources-hierarchy#cloud) that details are collected for.
+* `cloud_id`: ID of the [cloud](../../resource-manager/concepts/resources-hierarchy#cloud) that details are provided for.
 * `cloud_name`: Name of the cloud.
 * `folder_id`: ID of the folder.
-* `folder_name`: Name of the folder at the time of exporting details.
+* `folder_name`: Name of the folder at the time of exporting details. This field value may be empty if you deleted the folder before exporting the details.
 * `resource_id`: Resource ID, resource name, or subscription ID. The value of this field may be empty if the use of the service refers to the entire folder or it doesn't contain any resources. Correlation between services and `resource_id` column values:
    * {{ compute-name }} and {{ marketplace-name }}: ID of the VM, disk snapshot, disk image, or other resource installed using {{ marketplace-name }}.
    * {{ objstorage-name }}: Name of the bucket.

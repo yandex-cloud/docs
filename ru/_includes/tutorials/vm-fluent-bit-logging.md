@@ -10,7 +10,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `logging.writer`  на каталог.
 1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа Linux. В настройках ВМ укажите сервисный аккаунт, который создали на предыдущем шаге.
-1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh#vm-connect.md) по SSH.
+1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
 1. Установите на ВМ:
     * [Go не ниже версии 1.17](https://go.dev/doc/install):
         ```bash
@@ -316,7 +316,7 @@
 
 {% endlist %}
 
-## Удалите созданные ресурсы
+## Удалите созданные ресурсы {#delete-resources}
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 

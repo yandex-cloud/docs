@@ -89,6 +89,8 @@ items:
             href: kinesisapi/methods/updateshardcount.md
       - name: Common errors
         href: kinesisapi/common-errors.md
+      - name: Examples
+        href: kinesisapi/examples.md
   - name: Questions and answers
     href: qa/index.md
 base: en/data-streams

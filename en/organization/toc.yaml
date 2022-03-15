@@ -33,6 +33,8 @@ items:
         href: operations/federations/integration-gworkspace.md
       - name: Authentication using Azure Active Directory
         href: operations/federations/integration-azure.md
+      - name: Authentication using Keycloak
+        href: operations/federations/integration-keycloak.md
       - name: Authentication using an SAML-compatible identity federation
         href: operations/federations/integration-common.md
   - name: Managing clouds and services

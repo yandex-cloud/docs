@@ -19,6 +19,8 @@ items:
         href: stt/models.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
+      - name: Importing data to retrain a model
+        href: stt/import-training-data.md
       - name: Marking up audio files
         href: stt/markup.md
   - name: Speech synthesis

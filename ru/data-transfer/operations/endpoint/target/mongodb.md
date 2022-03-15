@@ -21,7 +21,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     
     * {% include [Field Subnet ID](../../../../_includes/data-transfer/fields/common/ui/subnet-id.md) %}

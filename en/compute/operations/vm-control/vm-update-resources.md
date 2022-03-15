@@ -12,15 +12,17 @@ This section provides guidelines for changing the number and performance of vCPU
 
   To change vCPU and RAM of a VM:
   1. Open the folder that the VM belongs to.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **{{ compute-name }}**.
   1. Click on the VM name.
-  1. Click **Stop** in the upper-right corner of the page.
+  1. Click **Stop** in the upper-right corner of the page and confirm the action.
   1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
   1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **Computing resources** section:
       - Choose a [platform](../../concepts/vm-platforms.md).
-      - Specify the necessary number of vCPUs and amount of RAM.
+      - Specify the necessary number of vCPUs.
+      - Choose a guaranteed vCPU performance.
+      - Specify the RAM size.
   1. Click **Save changes**.
-  1. Click **Run** in the upper-right corner of the page.
+  1. Click **Run** in the upper-right corner of the page and confirm the action.
 
 - CLI
 
@@ -78,6 +80,12 @@ This section provides guidelines for changing the number and performance of vCPU
 
 {% endlist %}
 
+{% note warning %}
+
+When you edit VM resources, the PCI topology might change. Keep this in mind when working with operating systems that are sensitive to such changes. For example, if you make substantial changes in network settings in Windows Server, you may lose network connectivity and access to the VM.
+
+{% endnote %}
+
 ## Adding a GPU to an existing VM {#add-gpu}
 
 To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform and specify the number of GPUs.
@@ -88,15 +96,15 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
   To change the number of GPUs on the VM:
   1. Open the folder that the VM belongs to.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **{{ compute-name }}**.
   1. Click on the VM name.
-  1. Click **Stop** in the upper-right corner of the page.
+  1. Click **Stop** in the upper-right corner of the page and confirm the action.
   1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
   1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **Computing resources** section:
       - Choose a [platform](../../concepts/vm-platforms.md) Intel Broadwell with NVIDIA® Tesla® V100.
       - Specify the required number of GPUs.
   1. Click **Save changes**.
-  1. Click **Run** in the upper-right corner of the page.
+  1. Click **Run** in the upper-right corner of the page and confirm the action.
 
 - CLI
 
@@ -164,13 +172,13 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
   To change the number of [GPUs](../../concepts/gpus.md) on an existing VM:
   1. Open the folder that the VM belongs to.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **{{ compute-name }}**.
   1. Click on the VM name.
-  1. Click **Stop** in the upper-right corner of the page.
+  1. Click **Stop** in the upper-right corner of the page and confirm the action.
   1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
   1. Change the [configuration](../../concepts/performance-levels.md) of the VM. Under **Computing resources**, specify the required number of GPUs.
   1. Click **Save changes**.
-  1. Click **Run** in the upper-right corner of the page.
+  1. Click **Run** in the upper-right corner of the page and confirm the action.
 
 - CLI
 
@@ -239,13 +247,12 @@ This functionality is only available when agreed upon by your account manager.
 
   To enable a [software-accelerated network](../../concepts/software-accelerated-network.md) on an existing VM:
   1. Open the folder that the VM belongs to.
-  1. Select **{{ compute-full-name }}**.
+  1. Select **{{ compute-name }}**.
   1. Click on the VM name.
-  1. Click **Stop** in the upper-right corner of the page.
+  1. Click **Stop** in the upper-right corner of the page and confirm the action.
   1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
   1. Under **Computing resources**, select **Software-accelerated network**.
   1. Click **Save changes**.
-  1. Click **Run** in the upper-right corner of the page.
+  1. Click **Run** in the upper-right corner of the page and confirm the action.
 
 {% endlist %}
-

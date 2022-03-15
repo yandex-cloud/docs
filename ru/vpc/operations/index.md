@@ -4,11 +4,13 @@
 
 - [{#T}](network-create.md)
 - [{#T}](network-delete.md)
+- [{#T}](network-update.md)
 
 ## Подсеть {#subnet}
 
 - [{#T}](subnet-create.md)
 - [{#T}](subnet-delete.md)
+- [{#T}](subnet-update.md)
 - [{#T}](subnet-used-addresses.md)
 
 ## Адреса {#addresses}
@@ -28,3 +30,8 @@
 - [{#T}](security-group-create.md)
 - [{#T}](security-group-update.md)
 - [{#T}](security-group-delete.md)
+
+## Дополнительные возможности {#add-features}
+
+- [{#T}](enable-ddos-protection.md)
+- [{#T}](enable-software-accelerated-network.md)

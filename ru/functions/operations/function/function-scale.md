@@ -1,7 +1,8 @@
 # Масштабирование функции
 
 Поступающие запросы обрабатываются функцией по одному. Если функция вызывается быстрее, чем один экземпляр успевает обрабатывать запрос, {{ sf-name }} масштабирует функцию — запускает ее дополнительные экземпляры. Вы можете задать:
-*  `zone_instances_limit` — количество экземпляров функции в [зоне доступности](../../../overview/concepts/geo-scope.md);
+
+* `zone_instances_limit` — количество экземпляров функции в [зоне доступности](../../../overview/concepts/geo-scope.md);
 * `zone_requests_limit` — количество одновременно выполняемых вызовов функции в зоне доступности.
 
 {% note info %}
@@ -31,6 +32,8 @@
 	```
 	yc serverless function list-scaling-policies --id=d4eokpuol55h********
 	```
+
+	Где:
 
 	* `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
 
@@ -64,11 +67,13 @@
 
 	```
 	yc serverless function set-scaling-policy \
-		--id=d4eokpuol55h******** \
-		--tag=\$latest \
-		--zone-instances-limit=1 \
-		--zone-requests-limit=2
+	  --id=d4eokpuol55h******** \
+	  --tag=\$latest \
+	  --zone-instances-limit=1 \
+	  --zone-requests-limit=2
 	```
+
+	Где:
 
 	* `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
 	* `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
@@ -91,18 +96,18 @@
    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
    Чтобы добавить настройки масштабирования: 
-     
+
    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-      
+
         * `yandex_function_scaling_policy` — описание настроек масштабирования функции.
             * `function_id` — идентификатор функции.
             * `policy` — настройки масштабирования.
             * `policy.0.tag` — [тег](../../concepts/function.md#tag) версии функции.
             * `policy.0.zone_instances_limit` — количество экземпляров функции.
             * `policy.0.zone_requests_limit` — количество выполняемых вызовов.
-             
+
         Пример структуры конфигурационного файла:
-      
+
         ```
         provider "yandex" {
             token     = "<OAuth или статический ключ сервисного аккаунта>"
@@ -138,7 +143,7 @@
             terraform apply
             ```
         1. Подтвердите создание ресурсов.
-      
+
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API
@@ -161,9 +166,11 @@
 
 	```
 	yc serverless function remove-scaling-policy \
-		--id=d4eokpuol55h******** \
-		--tag=\$latest
+	  --id=d4eokpuol55h******** \
+	  --tag=\$latest
 	```
+
+	Где:
 
 	* `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
 	* `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
