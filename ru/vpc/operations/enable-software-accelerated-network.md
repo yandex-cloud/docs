@@ -14,6 +14,6 @@
 
 - Консоль управления
 
-  При [создании](../../compute/operations/vm-create/create-linux-vm.md) или [изменении](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) ВМ установите флаг **Программно-ускоренная сеть** в блоке **Вычислительные ресурсы**.
+  При [создании](../../compute/operations/vm-create/create-linux-vm.md) или [изменении](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) ВМ включите опцию **Программно-ускоренная сеть** в блоке **Вычислительные ресурсы**.
 
 {% endlist %}
