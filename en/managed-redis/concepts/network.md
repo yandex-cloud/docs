@@ -4,8 +4,8 @@
 
 When creating a cluster, you can:
 
-- Set the network for the cluster itself.
-- Set the subnets for each host in the cluster.
+* Set the network for the cluster itself.
+* Set the subnets for each host in the cluster.
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
@@ -35,7 +35,7 @@ You can use the FQDN to access the host within a single cloud network.
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and the connecting host.
+When connecting to a cluster from within its cloud network, be sure to [configure security groups](../operations/connect/index.md#configuring-security-groups) both for the cluster and the connecting host.
 
 {% endnote %}
 

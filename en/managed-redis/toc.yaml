@@ -15,7 +15,13 @@ items:
       - name: Changing cluster and database settings
         href: operations/update.md
       - name: Connecting to a database
-        href: operations/connect.md
+        items:
+          - name: Overview of database connection methods
+            href: operations/connect/index.md
+          - name: Connecting to a non-sharded cluster
+            href: operations/connect/non-sharded.md
+          - name: Connecting to a sharded cluster
+            href: operations/connect/sharded.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
       - name: Managing hosts in a cluster

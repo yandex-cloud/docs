@@ -118,7 +118,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
 1. If your {{ mrd-name }} cluster was deployed with {{ RD }} version 6 or higher and TLS support enabled:
 
-    1. [Get an SSL certificate](../operations/connect.md#get-ssl-cert).
+    1. [Get an SSL certificate](../operations/connect/index.md#get-ssl-cert).
 
     1. Add the official {{ RD }} repository to your list of repositories:
 
@@ -180,7 +180,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
             --pipe < <dump file>
         ```
 
-        {% include [use-special-fqdn](../../_includes/mdb/mrd-conn-strings-fqdn.md) %}
+        {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
 
         **Connecting to a sharded cluster**
 
@@ -241,7 +241,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
             --pipe < <dump file>
         ```
 
-        {% include [use-special-fqdn](../../_includes/mdb/mrd-conn-strings-fqdn.md) %}
+        {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
 
         **Connecting to a sharded cluster**
 

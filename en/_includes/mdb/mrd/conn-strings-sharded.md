@@ -1,52 +1,42 @@
 ### Bash {#bash}
 
-{% include [Install requirements](./connect/bash/install-requirements.md) %}
+{% include [install-requirements](./connect/bash/install-requirements.md) %}
 
 {% list tabs %}
 
-- Connecting without using SSL
+* Connecting without using SSL
 
     Specify the FQDN of the master host in the desired shard:
 
     ```bash
-    redis-cli \
-        -c \
-        -h <FQDN of master host in desired shard> \
-        -a <password>
-    ```
+    redis-cli -c \
+              -h <FQDN of the master host in desired shard> \
+              -a <password>
 
-- Connecting via SSL
+* Connecting via SSL
 
     Specify the FQDN of the master host in the desired shard:
 
     ```bash
-    redis-cli \
-        -c \
-        -h <FQDN of master host in desired shard> \
-        -a <password> \
-        -p {{ port-mrd-tls }} \
-        --tls \
-        --cacert ~/.redis/YandexInternalRootCA.crt \
+    redis-cli -c \
+              -h <FQDN of master host in desired shard> \
+              -a <password> \
+              -p {{ port-mrd-tls }} \
+              --tls \
+              --cacert ~/.redis/YandexInternalRootCA.crt
     ```
 
 {% endlist %}
 
-When you are connected to the cluster, run the commands:
+{% include [connect](./connect/bash/after-connect.md) %}
 
-```bash
-SET foo bar
-GET foo
-```
+### Go {go}
 
-If the `GET` request returns `nil`, it means that the entry for the `foo` key has been moved to another shard. Connect to it and repeat the request: it will return the value `bar`.
-
-### Go {#go}
-
-{% include [Install requirements](./connect/go/install-requirements.md) %}
+{% include [install-requirements](./connect/go/install-requirements.md) %}
 
 {% list tabs %}
 
-- Connecting without using SSL
+* Connecting without using SSL
 
     `connect.go`
 
@@ -89,9 +79,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
     }
     ```
 
-- Connecting via SSL
+* Connecting via SSL
 
-    `connect.go`
+  `connect.go`
 
     ```go
     package main
@@ -196,7 +186,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% list tabs %}
 
-- Connecting without using SSL
+* Connecting without using SSL
 
     `src/java/com/example/App.java`
 
@@ -234,7 +224,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
     }
     ```
 
-- Connecting via SSL
+* Connecting via SSL
 
     `src/java/com/example/App.java`
 
@@ -291,7 +281,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% list tabs %}
 
-- Connecting without using SSL
+* Connecting without using SSL
 
     `app.js`
 
@@ -336,7 +326,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
     });
     ```
 
-- Connecting via SSL
+* Connecting via SSL
 
     `app.js`
 
@@ -390,7 +380,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% endlist %}
 
-{% include [Connect to cluster](./connect/nodejs/after-connect.md) %}
+{% include [after-connect](./connect/nodejs/after-connect.md) %}
 
 ### PHP {#php}
 
@@ -398,13 +388,12 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
 
 {% list tabs %}
 
-- Connecting without using SSL
+* Connecting without using SSL
 
     `connect.php`
 
     ```php
     <?php
-    
     require "Predis/Autoloader.php";
     Predis\Autoloader::register();
     
@@ -430,13 +419,12 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
     ?>
     ```
 
-- Connecting via SSL
+* Connecting via SSL
 
    `connect.php`
 
    ```php
     <?php
-   
     require "Predis/Autoloader.php";
     Predis\Autoloader::register();
    
@@ -480,7 +468,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
 
 {% list tabs %}
 
-- Connecting without using SSL
+* Connecting without using SSL
 
     `connect.py`
 
@@ -505,7 +493,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
     print(rc.get("foo"))
     ```
 
-- Connecting via SSL
+* Connecting via SSL
 
     `connect.py`
 
@@ -543,7 +531,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
 
 {% list tabs %}
 
-- Connecting without using SSL
+* Connecting without using SSL
 
     `connect.rb`
 
@@ -569,7 +557,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
     conn.close
     ```
 
-- Connecting via SSL
+* Connecting via SSL
 
     `connect.rb`
 

@@ -2,17 +2,17 @@
 
 After creating a cluster, you can:
 
-- [{#T}](#change-name-and-description).
+* [{#T}](#change-name-and-description).
 
-- [{#T}](#change-resource-preset).
+* [{#T}](#change-resource-preset).
 
-- [{#T}](#change-disk-size).
+* [{#T}](#change-disk-size).
 
-- [Configure](#change-redis-config) {{ RD }} servers according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see the [{#T}](../concepts/settings-list.md) section and the [API reference](../api-ref/Cluster/update.md).
+* [Configure](#change-redis-config) {{ RD }} servers according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see the [{#T}](../concepts/settings-list.md) section and the [API reference](../api-ref/Cluster/update.md).
 
-- [{#T}](#change-additional-settings).
+* [{#T}](#change-additional-settings).
 
-- [{#T}](#change-sg-set).
+* [{#T}](#change-sg-set).
 
 ## Change the cluster name and description {#change-name-and-description}
 
@@ -435,7 +435,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
