@@ -129,9 +129,9 @@
     * пользователю:
         ```
         yc serverless function add-access-binding \
-            --id <идентификатор функции> \
-            --user-account-id <идентификатор пользователя> \
-            --role <роль>
+          --id <идентификатор функции> \
+          --user-account-id <идентификатор пользователя> \
+          --role <роль>
         ```
         Результат:
         ```
@@ -140,9 +140,9 @@
     * [сервисному аккаунту](../../iam/concepts/users/service-accounts.md):  
         ```
         yc serverless function add-access-binding \
-            --id <идентификатор функции> \
-            --service-account-id <идентификатор сервисного аккаунта> \
-            --role <роль>
+          --id <идентификатор функции> \
+          --service-account-id <идентификатор сервисного аккаунта> \
+          --role <роль>
         ```
         Результат:
         ```
@@ -151,9 +151,9 @@
     * всем авторизованным пользователям (системная группа `allAuthenticatedUsers`):
         ```
         yc serverless function add-access-binding \
-            --id <идентификатор функции> \
-            --all-authenticated-users \
-            --role <роль>
+          --id <идентификатор функции> \
+          --all-authenticated-users \
+          --role <роль>
         ```
         Результат:
         ```
@@ -181,9 +181,9 @@
     * у пользователя:
         ```
         yc serverless function remove-access-binding \
-            --id <идентификатор функции> \
-            --user-account-id <идентификатор пользователя> \
-            --role <роль>
+          --id <идентификатор функции> \
+          --user-account-id <идентификатор пользователя> \
+          --role <роль>
         ```
         Результат:
         ```
@@ -192,9 +192,9 @@
     * у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
         ```
         yc serverless function remove-access-binding \
-            --id <идентификатор функции> \
-            --service-account-id <идентификатор сервисного аккаунта> \
-            --role <роль>
+          --id <идентификатор функции> \
+          --service-account-id <идентификатор сервисного аккаунта> \
+          --role <роль>
         ```
         Результат:
         ```
@@ -203,9 +203,9 @@
     * у всех авторизованных пользователей (системная группа `allAuthenticatedUsers`):
         ```
         yc serverless function remove-access-binding \
-            --id <идентификатор функции> \
-            --all-authenticated-users \
-            --role <роль>
+          --id <идентификатор функции> \
+          --all-authenticated-users \
+          --role <роль>
         ```
         Результат:
         ```
