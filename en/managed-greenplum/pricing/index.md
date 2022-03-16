@@ -37,7 +37,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
   You only pay for [{{ compute-full-name }} computing resources](../../compute/pricing.md#prices-dedicated-host).
 
-  {% if audience == "draft" %}The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.{% endif %}
+  The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 
 {% endif %}
 
@@ -97,18 +97,6 @@ The cost of fast local storage also depends on the type of hosts.
   {% if region == "kz" %} {% include notitle [KZT: standard hosts](../../_pricing/managed-greenplum/kzt-hosts-standard.md) %}{% endif %}
   {% if region == "int" %} {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}{% endif %}
 
-{% if audience == "draft" %}
-
-- Dedicated hosts
-
-  The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
-
-  {% if region == "ru" %} {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}{% endif %}
-  {% if region == "kz" %} {% include notitle [KZT: dedicated hosts](../../_pricing/managed-greenplum/kzt-hosts-dedicated.md) %}{% endif %}
-  {% if region == "int" %} {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}{% endif %}
-
-{% endif %}
-
 {% endlist %}
 
 ### Storage and backups {#prices-storage}
@@ -146,4 +134,3 @@ The cost of fast local storage also depends on the type of hosts.
 {% if region == "int" %} {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %} {% endif %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
