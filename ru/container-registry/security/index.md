@@ -22,7 +22,7 @@ description: "Управление доступом в сервисе для х�
 
 ![service-roles-hierarchy](../../_assets/container-registry/service-roles-hierarchy.svg)
 
-### Сервисные роли
+### Сервисные роли {#service-roles}
 
 Роль | Разрешения
 --- | ---
