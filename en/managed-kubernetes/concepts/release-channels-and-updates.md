@@ -41,7 +41,7 @@ When an old version of {{ k8s }} is no longer supported after an update:
 * The master is automatically updated even if automatic updates are disabled.
 * Node groups are automatically updated if automatic updates are enabled. If automatic updates are disabled, the old version of {{ k8s }} remains on the node groups. In this case, the user is fully responsible for solving problems related to the node group, since the old version of {{ k8s }} is deprecated.
 
-### Updating Kubernetes cluster components {#cluster-upd}
+### Updating {{ k8s }} cluster components {#cluster-upd}
 
 The update process is different for [masters](#master) and [node groups](#node-group).
 
@@ -50,6 +50,8 @@ The update process is different for [masters](#master) and [node groups](#node-g
 Depending on the type of master, it may or may not be available during an update:
 * Zonal masters are unavailable during updates.
 * Regional masters remain available during updates.
+
+For more information, see [Updating a cluster](../operations/update-kubernetes.md#cluster-upgrade).
 
 #### Node group {#node-group}
 
@@ -68,6 +70,8 @@ Update node group algorithm:
 
 This ensures that the number of nodes in the node group never falls below the number specified when the group is created.
 
+You can specify the maximum number of instances by which you can expand or reduce the size of the group when updating it. For more information, see [Updating a node group](../operations/update-kubernetes.md#node-group-upgrade).
+
 #### Certificates {#certificates}
 
 In accordance with the safety recommendations, [cluster and node group certificates](https://kubernetes.io/docs/setup/best-practices/certificates/) are issued for a year. When a certificate expires, a cluster or node group is disabled. To avoid this, {{ managed-k8s-name }} automatically updates their certificates.
@@ -78,7 +82,6 @@ In accordance with the safety recommendations, [cluster and node group certifica
     Updates do not disrupt the operation of pods running on nodes.
 
     This applies to nodes created or updated at least once since May 2021.
-
   * If the {{ k8s }} version is lower than 1.16, certificates are updated at any cluster or node group update.
 
 For more information about updating certificates, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/tls/certificate-rotation/).
