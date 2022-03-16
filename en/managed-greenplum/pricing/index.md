@@ -65,7 +65,6 @@ The cost of fast local storage also depends on the type of hosts.
 
   {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}
 
-
 {% endlist %}
 
 ### Storage and backups {#prices-storage}
@@ -86,4 +85,3 @@ The cost of fast local storage also depends on the type of hosts.
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-

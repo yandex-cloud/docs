@@ -30,8 +30,6 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 - Management console
 
-  To create a cluster:
-
   1. In the management console, select the folder where you want to create a cluster.
 
   1. Select **{{ mes-name }}**.
@@ -41,8 +39,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
   1. Under **Basic parameters**:
      1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-        - `PRODUCTION`: For stable versions of your apps.
-        - `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+        * `PRODUCTION`: For stable versions of your apps.
+        * `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
      1. Select the {{ ES }} version from the list.
      1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
@@ -74,8 +72,9 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
             When changing the host, you can: {#change-data-node-settings}
 
-            - Select the availability zone and subnet.
-            - Enable public access.
+            * Select the availability zone and subnet.
+
+            * Enable public access.
 
                 {% note warning %}
 
@@ -99,9 +98,9 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
         When changing the host, you can: {#change-master-node-settings}
 
-        - Select the availability zone and subnet.
+        * Select the availability zone and subnet.
 
-        - Enable public access.
+        * Enable public access.
 
             {% note tip %}
 
@@ -158,7 +157,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
            --deletion-protection=<protect cluster from deletion: true or false>
         ```
 
-        Enter the subnet ID `subnet-id` if the availability zone includes more than one subnet.
+        The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
         {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -257,16 +256,16 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 - API
 
   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
-    - In the `folderId` parameter the ID of the folder where the cluster should be placed.
-    - The cluster name in the `name` parameter.
-    - The {{ ES }} version in the `configSpec.version` parameter.
-    - The {{ ES }} edition in the `configSpec.edition` parameter.
-    - Cluster configuration, in the `configSpec` parameter, including:
-        - Class of hosts with the _Master node_ role, in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you don't want to create dedicated hosts with the _Master node_ role, don't set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
-        - Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
-    - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-    - Network ID, in the `networkId` parameter.
-    - Security group IDs in the parameter `securityGroupIds`.
+    * The ID of the folder where the cluster should be placed in the `folderId` parameter.
+    * The cluster name in the `name` parameter.
+    * The {{ ES }} version in the `configSpec.version` parameter.
+    * The {{ ES }} edition in the `configSpec.edition` parameter.
+    * Cluster configuration in the `configSpec` parameter, including:
+        * Class of hosts with the _Master node_ role, in the `configSpec.elasticsearchSpec.masterNode.resources` parameter. If you don't want to create dedicated hosts with the _Master node_ role, don't set values for the group of `configSpec.elasticsearchSpec.masterNode` parameters.
+        * Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
+    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+    * Network ID, in the `networkId` parameter.
+    * Security group IDs in the parameter `securityGroupIds`.
 
 {% endlist %}
 
@@ -287,16 +286,16 @@ If you specified security group IDs when creating a cluster, you may also need t
     To create a cluster with a single host, pass a single `--host` parameter.
 
     Let's say we need to create a {{ ES }} cluster with the following characteristics:
-    - Name: `my-es-clstr`.
-    - Version: `7.10`.
-    - `Platinum` editions.
-    - In the `PRODUCTION` environment.
-    - In the `default` network.
-    - Belonging to the security group with the ID `enpp2s8l3irhk5eromd7`.
-    - With a single publicly available host acting as a `{{ host-class }}`-class _Data node_ in subnet `{{ subnet-id }}` in availability zone `{{ zone-id }}`.
-    - With 20 GB of fast network storage (`{{ disk-type-example }}`).
-    - With password `esadminpwd` and username `admin`.
-    - With protection against accidental cluster deletion.
+    * Name: `my-es-clstr`.
+    * Version: `7.10`.
+    * `Platinum` editions.
+    * In the `PRODUCTION` environment.
+    * In the `default` network.
+    * Belonging to the security group with the ID `enpp2s8l3irhk5eromd7`.
+    * With a single publicly available host acting as a `{{ host-class }}`-class _Data node_ in subnet `{{ subnet-id }}` in availability zone `{{ zone-id }}`.
+    * With 20 GB of fast network storage (`{{ disk-type-example }}`).
+    * With password `esadminpwd` and username `admin`.
+    * With protection against accidental cluster deletion.
 
     Run the command:
 

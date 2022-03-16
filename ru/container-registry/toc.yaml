@@ -45,6 +45,8 @@ items:
         items:
           - name: Получить информацию об имеющихся репозиториях
             href: operations/repository/repository-list.md
+          - name: Создать репозиторий
+            href: operations/repository/repository-create.md
       - name: Управление политиками автоматического удаления Docker-образов
         items:
           - name: Получить информацию об имеющихся политиках удаления

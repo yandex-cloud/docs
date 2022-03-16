@@ -22,6 +22,12 @@
      yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
      ```
 
+- API
+
+  Чтобы изменить политику удаления, воспользуйтесь методом [Update](../../api-ref/grpc/lifecycle_policy_service.md#Update) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md). В свойстве `lifecycle_policy_id` укажите идентификатор политики.
+
+  Получить список политик удаления можно с помощью метода [List](../../api-ref/grpc/lifecycle_policy_service.md#List) для ресурса [LifecyclePolicyService](../../api-ref/grpc/lifecycle_policy_service.md).
+
 {% endlist %}
 
 {% include [ограничения политики](../../../_includes/container-registry/lifecycle-restrictions.md) %}
@@ -165,15 +171,7 @@
   id: crp6lg1868p3i0emkv1b
   name: new-policy
   repository_id: crp3cpm16edqql0t30s2
-  description: disabled lifecycle-policy for tests
-  status: DISABLED
-  created_at: "2020-05-28T15:05:58.143719Z"
-  rules:
-  - description: remove prod images older than 60 days except 20 last ones
-    expire_period: 5184000s
-    tag_regexp: prod
-    retained_top: "20"
-  - description: remove all test and untagged images older than 48 hours
+  ...
     expire_period: 172800s
     tag_regexp: test.*
     untagged: true

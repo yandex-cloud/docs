@@ -53,6 +53,7 @@
        storage: 4Gi
      accessModes:
        - ReadWriteOnce
+     storageClassName: "" 
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4

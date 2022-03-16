@@ -17,7 +17,6 @@
       ```
 
    1. Получите список репозиториев.
-
       * Чтобы получить список всех репозиториев всех реестров текущего каталога, выполните команду:
 
          ```bash
@@ -42,7 +41,6 @@
          ```
 
          Где:
-
          * `--registry-id` — идентификатор реестра.
 
          Результат выполнения команды:
@@ -57,8 +55,8 @@
 
 - API
 
-   Чтобы получить список репозиториев в реестре, воспользуйтесь методом [list](../../api-ref/Repository/list.md) для ресурса [Repository](../../api-ref/Repository/).
-  
+  Чтобы получить список репозиториев в реестре, воспользуйтесь методом [List](../../api-ref/Repository/list.md) для ресурса [Repository](../../api-ref/Repository/).
+
 {% endlist %}
 
 ## Получить информацию о репозитории {#repository-get}
@@ -66,7 +64,7 @@
 {% list tabs %}
 
 - CLI
-  
+
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
@@ -78,15 +76,13 @@
       ```
 
    1. Получите информацию о репозитории.
-
       * По ID репозитория:
 
          ```bash
-         yc container repository get --id  crp8bu81b5afogqjrg92
+         yc container repository get --id crp8bu81b5afogqjrg92
          ```
 
          Где:
-
          * `--id` — идентификатор репозитория.
 
          Результат выполнения команды:
@@ -103,7 +99,6 @@
          ```
 
          Где:
-
          * `--name` — имя репозитория.
 
          Результат выполнения команды:
@@ -114,5 +109,17 @@
          ```
 
          Можно указать не только полное имя Docker-образа, но и префиксы. Например, информацию о репозитории `crpvplula8p3nn86jtnb/myproject/myservice` можно получить, указав `crpvplula8p3nn86jtnb/myproject/myservice`, `crpvplula8p3nn86jtnb/myproject` или `crpvplula8p3nn86jtnb`.
+
+- API
+
+  Получите информацию о репозитории.
+  * По ID репозитория:
+
+    Воспользуйтесь методом [Get](../../api-ref/Repository/get.md) для ресурса [Repository](../../api-ref/Repository/). В свойстве `repositoryId` укажите идентификатор репозитория.
+  * По имени репозитория:
+
+    Воспользуйтесь методом [GetByName](../../api-ref/Repository/getByName.md) для ресурса [Repository](../../api-ref/Repository/). В свойстве `repositoryName` укажите имя репозитория.
+
+  Получить список репозиториев в реестре можно с помощью метода [List](../../api-ref/Repository/list.md) для ресурса [Repository](../../api-ref/Repository/).
 
 {% endlist %}

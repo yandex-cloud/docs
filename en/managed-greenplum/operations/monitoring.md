@@ -31,7 +31,7 @@ The page displays the following charts:
 
 * **Group resource cpu**: processor core workload by process group:
 
-    * **admin_group**: in an administrative group.
+    * **admin_group**: in the administrative group.
     * **default_group**: in the default group.
 
 * **Group resource memory**: bytes of RAM used by process group:
@@ -78,3 +78,4 @@ This page displays graphs showing the workload of an individual cluster host (ma
 * **Network**: amount of network traffic (in bytes).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
