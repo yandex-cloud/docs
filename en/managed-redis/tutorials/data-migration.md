@@ -19,7 +19,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
 1. [Create a {{ mrd-name }} cluster](../operations/cluster-create.md) with any desirable configuration.
 
-1. [Set up security groups](../operations/connect.md#configuring-security-groups) for the cluster and the intermediate VM. {#configure-security-groups}
+1. [Set up security groups](../operations/connect/index.md#configuring-security-groups) for the cluster and the intermediate VM. {#configure-security-groups}
 
 1. (Optional) Install utilities on the local machine for downloading and uploading files over SSH, such as:
     * [WinSCP]{% if lang == "ru" %}(https://winscp.net/eng/docs/lang:ru){% endif %}{% if lang == "en" %}(https://winscp.net/eng/index.php){% endif %}
