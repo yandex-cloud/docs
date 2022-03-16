@@ -19,3 +19,6 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+  - title: Страница с демо
+    description: Посмотрите на то, как работает SmartCaptcha
+    href: https://captcha-api.yandex.ru/demo

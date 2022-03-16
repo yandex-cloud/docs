@@ -137,7 +137,7 @@
 
 ### Метод getResponse {#getresponse}
 
-Метод `getResponse` возвращает текущее значение справки пользователя.
+Метод `getResponse` возвращает текущее значение токена пользователя.
 
 ```ts
 (widgetId: WidgetId | undefined) => string;
