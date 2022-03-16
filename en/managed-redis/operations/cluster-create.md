@@ -57,7 +57,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
 
@@ -214,7 +214,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -364,7 +364,7 @@ If you specified security group IDs when creating a cluster, you may also need t
         * `subnet-b` with the `10.2.0.0/24` range.
         * `subnet-c` with the `10.3.0.0/24` range.
     * With three hosts of the `{{ host-class }}` class, one in each subnet.
-    * In the new `redis-sg` security group that allows connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect.md)) from any subnet address.
+    * In the new `redis-sg` security group that allows connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
     * With a 16 GB fast network storage (`{{ disk-type-example }}`).
     * With the `user1user1` password.
     * With protection against accidental cluster deletion.

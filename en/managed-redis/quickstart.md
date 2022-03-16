@@ -54,9 +54,9 @@ To get started with the service:
         $ chmod 0600 ~/.redis/YandexInternalRootCA.crt
         ```
 
-1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
-1. Connect to the {{ RD }} cluster master host using `redis-cli`.
+1. Connect to the cluster using `redis-cli`.
 
    {% note info %}
 
@@ -66,41 +66,71 @@ To get started with the service:
 
    {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
-   To connect:
+    {% list tabs %}
 
-   - To the master via any cluster host using [Sentinel](https://redis.io/topics/sentinel) (without SSL):
+    * Non-sharded clusters
 
-     1. Get the address of the master host by using Sentinel and any {{ RD }} host:
+        **To connect using [Sentinel](https://redis.io/topics/sentinel ) (without SSL)**:
 
-        ```bash
-        redis-cli -h <FQDN of any {{ RD }} host> -p {{ port-mrd-sentinel }} sentinel get-master-addr-by-name <{{ RD }} cluster name> | head -n 1
-        ```
+        1. Get the address of the master host by using Sentinel and any {{ RD }} host:
 
-     1. Connect to the host with this address:
+            ```bash
+            redis-cli -h <FQDN of any {{ RD }} host> \
+                      -p {{ port-mrd-sentinel }} \
+                      sentinel get-master-addr-by-name <{{ RD }} cluster name> | head -n 1
+            ```
 
-        ```bash
-        redis-cli -h <{{ RD }} master host address> -a <{{ RD }} password>
-        ```
+        1. Connect to the host with this address:
 
-   - Directly to the master host:
+            ```bash
+            redis-cli -h <{{ RD }} master host address> -a <{{ RD }} password>
+            ```
 
-      - Connecting without SSL:
-
-        ```bash
-        redis-cli -h <FQDN of {{ RD }} master host> -p {{ port-mrd }} -a <{{ RD }} password>
-        ```
-
-      - Connecting with SSL enabled:
+        **To connect directly to the master (without SSL):**
 
         ```bash
-        redis-cli -h <FQDN of {{ RD }} master host> -p {{ port-mrd-tls }} -a <{{ RD }} password> --tls --cacert ~/.redis/YandexInternalRootCA.crt
+        redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
+                  -p {{ port-mrd }} \
+                  -a <{{ RD }} password>
         ```
+
+        **To connect directly to the master (with SSL):**
+
+        ```bash
+        redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
+                  -p {{ port-mrd-tls }} \
+                  -a <{{ RD }} password> \
+                  --tls \
+                  --cacert ~/.redis/YandexInternalRootCA.crt
+        ```
+
+    * Sharded clusters
+
+       **To connect without SSL:**
+
+       ```bash
+       redis-cli -h <FQDN of the master host in any shard> \
+                 -p {{ port-mrd }} \
+                 -a <{{ RD }} password>
+       ```
+
+       **To connect with SSL:**
+
+       ```bash
+       redis-cli -h <FQDN of the master host in any shard> \
+                 -p {{ port-mrd-tls }} \
+                 -a <{{ RD }} password> \
+                 --tls \
+                 --cacert ~/.redis/YandexInternalRootCA.crt
+       ```
+
+    {% endlist %}
 
 1. Once connected, send the `PING` command. {{ RD }} should return `PONG` in response.
 
 ## What's next {#whats-next}
 
 - Read about [service concepts](./concepts/index.md).
-- Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect.md).
+- Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect/index.md).
 - Read [questions and answers](./qa/general.md).
 

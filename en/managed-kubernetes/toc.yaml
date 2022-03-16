@@ -17,6 +17,8 @@ items:
         href: operations/create-static-conf.md
       - name: Working with {{ marketplace-name }}
         href: operations/marketplace.md
+      - name: Updating {{ k8s }}
+        href: operations/update-kubernetes.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a Kubernetes cluster

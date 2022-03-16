@@ -22,7 +22,7 @@
 1. [Настройте группы безопасности](../operations/connect/index.md#configuring-security-groups) кластера и промежуточной виртуальной машины. {#configure-security-groups}
 1. (Опционально) Установите на локальный компьютер утилиты для скачивания и загрузки файлов по протоколу SSH, например:
 
-    * [WinSCP](https://winscp.net/eng/index.php)
+    * [WinSCP](https://winscp.net/eng/docs/lang:ru)
     * [Putty SCP](https://www.putty.org/)
 
 1. Убедитесь, что на кластере-источнике установлена утилита [GNU Screen](https://www.gnu.org/software/screen/).

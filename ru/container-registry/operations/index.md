@@ -36,6 +36,7 @@ description: "Пошаговые инструкции по работе с Docke
 ## Управление репозиторием {#repository}
 
 * [{#T}](repository/repository-list.md)
+* [{#T}](repository/repository-create.md)
 
 ## Управление политиками автоматического удаления Docker-образов {#lifecycle-policy}
 

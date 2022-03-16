@@ -97,7 +97,7 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 
     {% endlist %}
 
-    For more information about how to connect to clusters, see [{#T}](../operations/connect.md).
+    For more information about how to connect to clusters, see [{#T}](../operations/connect/index.md).
 
 1. Restart the web server:
     * `sudo systemctl restart apache2` for Apache.
