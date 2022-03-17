@@ -90,7 +90,6 @@ items:
         - name: Распознавание речи
           href: hybrid-speechkit/asr.md
         - name: Мониторинг
-          hidden: true
           href: hybrid-speechkit/monitoring.md
         - name: Справочники API gRPC (англ.)
           items:

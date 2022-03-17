@@ -99,7 +99,7 @@ The text transcript must be in UTF-8 encoding, the table must have no title.
    >
    > In all sentences, the logical stress emphasizes the main meaning of the sentence.
 
-1. The length of the sentence, including the variable portion, must not exceed {{ tts-v3-count }} characters.
+1. The length of the sentence, including the variable portion, must not exceed {{ tts-v3-count }}.
 
 ### Example of a summary text table {#example}
 

@@ -459,6 +459,8 @@ default:
   stt-long-audioLength: 4 hours
   stt-streaming-fileSize: 10 MB
   stt-streaming-audioLength: 5 minutes
+  tts-v3-time: 24 seconds
+  tts-v3-count: 250 characters
   ya-client-app: https://oauth.yandex.com/client/new
   ya-oauth: https://oauth.yandex.com/verification_code
   ds-api-addr: datasphere.api.cloud.yandex.net:443
