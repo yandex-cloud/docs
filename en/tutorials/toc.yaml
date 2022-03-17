@@ -99,6 +99,10 @@ items:
         href: dataplatform/index.md
       - name: Syncing MySQL data using Yandex DataTransfer
         href: dataplatform/sync-mysql.md
+      - name: >-
+          Using Confluent Schema Registry with Yandex Managed Service for Apache
+          Kafka®
+        href: dataplatform/confluent-schema-registry.md
       - name: Delivering data using Debezium
         href: dataplatform/kafka-cdc.md
       - name: Migrating databases to Managed Service for Microsoft SQL Server

@@ -174,6 +174,8 @@
 
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+     1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform-maintenance-window.md) %}
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mmg }}).
 
   1. Проверьте корректность настроек.

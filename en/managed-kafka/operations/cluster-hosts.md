@@ -1,47 +1,29 @@
-# Managing hosts {{ KF }}
+# Managing Apache Kafka® cluster hosts
 
-You can change the class of broker hosts in {{ KF }} clusters and get a list of these hosts in a cluster.
+You can get a list of broker hosts in your {{ KF }} cluster.
 
-{% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
-
-# Change the host class {#change-resource-preset}
+## Getting a list of cluster hosts {#list-hosts}
 
 {% list tabs %}
 
+- Management console
 
-- API
+  1. Go to the folder page and select **{{ mkf-name }}**.
+  1. Click on the name of the cluster you need and select the **Hosts** tab.
 
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - New [host class](../concepts/instance-types.md) in the `resourcePresetId` parameter. Restrict changes to cluster settings using the `updateMask` parameter so that only the host class is changed (otherwise, the other cluster settings will be reset to the default settings).
+- CLI
 
-    ```
-    {
-      "clusterId": "<cluster ID>",
-      "updateMask": "resourcePresetId",
-      "configSpec: {
-        "kafka": {
-          "resources": {
-            "resourcePresetId": "<new host class>"
-          }
-        }
-      }  
-    }
-    ```
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% note warning %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  This API method resets any topic settings that aren't explicitly specified in the `topicSpec` parameter to their default values.
-  To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas, as shown above).
+  To get a list of cluster hosts, run the command:
 
-  {% endnote %}
+  ```bash
+  {{ yc-mdb-kf }} cluster list-hosts <cluster name>
+  ```
 
-{% endlist %}
-
-# Getting a list of cluster hosts {#list-hosts}
-
-{% list tabs %}
-
+  You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -50,3 +32,4 @@ You can change the class of broker hosts in {{ KF }} clusters and get a list of 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+

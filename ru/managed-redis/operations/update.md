@@ -356,17 +356,21 @@
         ```bash
         {{ yc-mdb-rd }} cluster update <идентификатор или имя кластера> \
             --backup-window-start <время начала резервного копирования> \
-            --maintenance-window type=<weekly или anytime> \
+            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                                `day=<день недели для типа weekly>,`
+                                `hour=<час дня для типа weekly> \
             --deletion-protection=<защита от удаления кластера: true или fasle>
         ```
 
     Вы можете изменить следующие настройки:
 
-    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
-    {% include [Защита от удаления кластера](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 

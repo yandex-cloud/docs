@@ -1,5 +1,5 @@
-* **Окно обслуживания** — `произвольное` или `по расписанию`.
+* {% include [Maintenance window](../console/maintenance-window.md) %}
 
-* **Защита от удаления** — включите эту опцию, чтобы защитить кластер от непреднамеренного удаления пользователем вашего облака.
+* {% include [Deletion protection](../console/deletion-protection.md) %}
 
-  {% include [Ограничения защиты от удаления кластера](../deletion-protection-limits-data.md) %}
+    {% include [Ограничения защиты от удаления кластера](../deletion-protection-limits-data.md) %}

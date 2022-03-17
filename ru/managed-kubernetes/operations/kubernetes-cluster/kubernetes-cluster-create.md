@@ -1,23 +1,22 @@
 # Создание кластера {{ k8s }}
 
-Создайте кластер {{ k8s }}, а затем [создайте группу узлов](../node-group/node-group-create.md).
+Создайте [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster), а затем [создайте группу узлов](../node-group/node-group-create.md).
 
 ## Перед началом работы {#before-you-begin}
 
 Чтобы создать кластер {{ k8s }}:
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
-1. Если у вас еще нет каталога, [создайте его](../../../resource-manager/operations/folder/create.md).
+1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
 1. Установите [{{ k8s }} CLI (kubectl)](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/).
 1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
-1. Если у вас еще нет сети, [создайте ее](../../../vpc/operations/network-create.md).
-1. Если у вас еще нет подсетей, [создайте их](../../../vpc/operations/subnet-create.md) в зонах доступности, где будут созданы кластер {{ k8s }} и группа узлов.
+1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
+1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и [группа узлов](../../concepts/index.md#node-group).
 1. Создайте [сервисные аккаунты](../../../iam/operations/sa/create.md):
    * Сервисный аккаунт с ролью [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) на каталог, в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-   * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) на каталог с реестром Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+   * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
-
 1. Создайте нужные [группы безопасности](../security-groups.md).
 1. Изучите [рекомендации по использованию {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
@@ -63,14 +62,14 @@
      * `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
      * `--version` — версия {{ k8s }}.
      * `--cluster-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../concepts/index.md#pod).
-     * `--service-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для сервисов.
+     * `--service-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../../concepts/index.md#service).
      * `--security-group-ids` — список идентификаторов групп безопасности кластера.
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
      * `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
      * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
-     * `--daily-maintenance-window` — настройки окна обновлений.
+     * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
 
      Результат выполнения команды:
 
@@ -92,7 +91,7 @@
      --enable-network-policy
      ```
 
-  1. Чтобы использовать [ключ шифрования](../../concepts/encryption.md) для защиты конфиденциальной информации, передайте в команде создания кластера его имя или идентификатор:
+  1. Чтобы использовать [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md) для защиты конфиденциальной информации, передайте в команде создания кластера его имя или идентификатор:
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -104,220 +103,84 @@
 
      {% include [write-once-setitng.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-definition](../../../_includes/tutorials/terraform-definition.md) %}
 
-  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать. Вы можете добавить несколько записей одновременно.
+  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-     * `name` — имя кластера {{ k8s }}.
-     * `description` — описание кластера {{ k8s }}.
-     * `network_id` — идентификатор сети.
-     * `version` — версия {{ k8s }}.
-     * (опционально) `kms_provider` — [ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }}, который будет использоваться для защиты секретов.
+  Чтобы создать кластер:
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+     * Кластер {{ k8s }} — описание кластера.
+     * Сеть — описание [облачной сети](../../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+     * Подсети — описание [подсетей](../../../vpc/concepts/network.md#subnet), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+     * [Сервисный аккаунт](#before-you-begin) для кластера и узлов и [настройки роли](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding) для этого аккаунта. При необходимости создайте отдельные сервисные аккаунты для кластера и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
 
-       {% include [write-once-setitng.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+     >Пример структуры конфигурационного файла:
+     >
+     >```hcl
+     >resource "yandex_kubernetes_cluster" "<имя кластера>" {
+     >  network_id = yandex_vpc_network.<имя сети>.id
+     >  master {
+     >    zonal {
+     >      zone      = yandex_vpc_subnet.<имя подсети>.zone
+     >      subnet_id = yandex_vpc_subnet.<имя подсети>.id
+     >    }
+     >  }
+     >  service_account_id      = yandex_iam_service_account.<имя сервисного аккаунта>.id
+     >  node_service_account_id = yandex_iam_service_account.<имя сервисного аккаунта>.id
+     >    depends_on = [
+     >      yandex_resourcemanager_folder_iam_binding.editor,
+     >      yandex_resourcemanager_folder_iam_binding.images-puller
+     >    ]
+     > }
+     >
+     >resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+     >
+     >resource "yandex_vpc_subnet" "<имя подсети>" {
+     >  v4_cidr_blocks = ["<диапазон адресов подсети>"]
+     >  zone           = "<зона доступности>"
+     >  network_id     = yandex_vpc_network.<имя сети>.id
+     >}
+     >
+     >resource "yandex_iam_service_account" "<имя сервисного аккаунта>" {
+     >  name        = "<имя сервисного аккаунта>"
+     >  description = "<описание сервисного аккаунта>"
+     >}
+     >
+     >resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+     >  # Сервисному аккаунту назначается роль "editor".
+     >  folder_id = "<идентификатор каталога>"
+     >  role      = "editor"
+     >  members   = [
+     >    "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта>.id}"
+     >  ]
+     >}
+     >
+     >resource "yandex_resourcemanager_folder_iam_binding" "images-puller" {
+     >  # Сервисному аккаунту назначается роль "container-registry.images.puller".
+     >  folder_id = "<идентификатор каталога>"
+     >  role      = "container-registry.images.puller"
+     >  members   = [
+     >    "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта>.id}"
+     >  ]
+     >}
+     >```
 
-     * `zonal` — параметры зонального мастера:
-       * `zone` — зона доступности.
-       * `subnet_id` — идентификатор подсети. Если он не указан, а в указанной зоне есть только одна подсеть, будет выделен адрес в этой подсети.
-     * `public_ip` — флаг, который указывается, если кластеру {{ k8s }} требуется публичный IP-адрес.
-     * `service_account_id` — идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}. Указанный аккаунт службы должен иметь роль редактирования в каталоге, в которой будет расположен кластер.
-     * `node_service_account_id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
-     * `release_channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
-     {% note info %}
+  1. Проверьте корректность конфигурационных файлов.
 
-     Если права доступа для `service_account_id` или `node_service_account_id` предоставляются с использованием ресурсов Terraform, то необходимо добавить зависимость от этих ресурсов доступа в конфигурацию кластера в блоке `depends_on`.
+     {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
-     Права выдаются с некоторой задержкой, поэтому следует в соответствующих ресурсах (в данном примере это `yandex_resourcemanager_folder_iam_member`), добавить `sleep_after = 30s`.
+  1. Создайте кластер.
 
-     ```
-     depends_on = [
-       "yandex_resourcemanager_folder_iam_member.ServiceAccountResourceName",
-       "yandex_resourcemanager_folder_iam_member.NodeServiceAccountResourceName"
-     ]
-     ```
-
-     Иначе, при удалении ресурсов, Terraform удалит одновременно кластер и права доступа для учетных записей служб. Это может вызвать проблемы при удалении кластера и связанных с ним групп узлов.
-
-     {% endnote %}
-
-     ```
-     provider "yandex" {
-       token     = "key.json"
-       cloud_id  = "<идентификатор облака>"
-       folder_id = var.folder-id
-       zone      = "ru-central1-a"
-     }
-
-     variable "folder-id" {
-       default = "<идентификатор каталога>"
-     }
-
-     resource "yandex_kubernetes_cluster" "zonal_cluster_resource_name" {
-       name        = "my-cluster"
-       description = "my-cluster description"
-       network_id = "${yandex_vpc_network.this.id}"
-
-       master {
-         version = "1.17"
-         zonal {
-           zone      = "${yandex_vpc_subnet.subnet_resource_name.zone}"
-           subnet_id = "${yandex_vpc_subnet.subnet_resource_name.id}"
-         }
-         public_ip = true
-       }
-
-       service_account_id      = "${yandex_iam_service_account.this.id}"
-       node_service_account_id = "${yandex_iam_service_account.this.id}"
-       release_channel = "STABLE"
-       depends_on = ["yandex_resourcemanager_folder_iam_member.this"]
-       kms_provider {
-         key_id = "<идентификатор ключа шифрования>"
-       }
-     }
-
-     resource "yandex_vpc_network" "this" {}
-
-     resource "yandex_vpc_subnet" "subnet_resource_name" {
-       network_id     = yandex_vpc_network.this.id
-       zone           = "ru-central1-a"
-       v4_cidr_blocks = ["192.168.20.0/24"]
-     }
-
-     resource "yandex_iam_service_account" "this" {
-       name = "k8-sa"
-     }
-
-     resource "yandex_resourcemanager_folder_iam_member" "this" {
-       folder_id = var.folder-id
-
-       member = "serviceAccount:${yandex_iam_service_account.this.id}"
-       role   = "editor"
-     }
-
-     locals {
-       kubeconfig = <<KUBECONFIG
-     apiVersion: v1
-     clusters:
-     - cluster:
-         server: ${yandex_kubernetes_cluster.zonal_cluster_resource_name.master[0].external_v4_endpoint}
-         certificate-authority-data: ${base64encode(yandex_kubernetes_cluster.zonal_cluster_resource_name.master[0].cluster_ca_certificate)}
-       name: kubernetes
-     contexts:
-     - context:
-         cluster: kubernetes
-         user: yc
-       name: ycmk8s
-     current-context: ycmk8s
-     users:
-     - name: yc
-       user:
-         exec:
-           apiVersion: client.authentication.k8s.io/v1beta1
-           command: yc
-           args:
-           - k8s
-           - create-token
-     KUBECONFIG
-     }
-     output "kubeconfig" {
-       value = "${local.kubeconfig}"
-     }
-     ```
-
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, смотрите в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
-
-  1. Выполните проверку с помощью команды:
-
-     ```bash
-     terraform plan
-     ```
-
-     Результат выполнения команды:
-
-     ```
-     Refreshing Terraform state in-memory prior to plan...
-     The refreshed state will be used to calculate this plan, but will not be
-     persisted to local or remote state storage.
-     ...
-     Note: You didn't specify an "-out" parameter to save this plan, so Terraform
-     can't guarantee that exactly these actions will be performed if
-     "terraform apply" is subsequently run.
-     ```
-
-     В терминале будет выведен список ресурсов с параметрами. Это проверочный этап, ресурсы не будут созданы. Если в конфигурации есть ошибки, Terraform на них укажет.
-
-     {% note alert %}
-
-     Все созданные с помощью Terraform ресурсы тарифицируются. Внимательно проверьте план.
-
-     {% endnote %}
-
-  1. Чтобы создать ресурсы, выполните команду:
-
-     ```bash
-     terraform apply
-     ```
-
-     Результат выполнения команды:
-
-     ```
-     An execution plan has been generated and is shown below.
-     Resource actions are indicated with the following symbols:
-     + create
-     ...
-     Terraform will perform the actions described above.
-     Only 'yes' will be accepted to approve.
-
-     Enter a value:
-     ```
-
-  1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**:
-
-     ```bash
-     Enter a value: yes
-     ```
-
-     Terraform создаст все требуемые ресурсы. В результате выполнения команды, в консоли отобразится содержимое файла конфигурации `kubeconfig` — его можно использовать с [kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/).
-
-     {% note info %}
-
-     В системе должен быть установлен и инициализирован [CLI](../../../cli/quickstart.md#install) — он используется для получения токена.
-
-     {% endnote %}
-
-     ```yaml
-     apiVersion: v1
-     clusters:
-     - cluster:
-         server: https://178.154.202.231
-         certificate-authority-data: ...JKdkI0dE1ra0RzRVRSOWIzcFJ1NjNHRFRJRj==...
-       name: kubernetes
-     contexts:
-     - context:
-         cluster: kubernetes
-         user: yc
-       name: ycmk8s
-     current-context: ycmk8s
-     users:
-     - name: yc
-       user:
-         exec:
-           apiVersion: client.authentication.k8s.io/v1beta1
-           command: yc
-           args:
-           - k8s
-           - create-token
-     ```
-
-  1. Проверьте ресурсы и их настройки в [консоли управления]({{ link-console-main }}).
+     {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 - API
 
   Чтобы создать кластер {{ k8s }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster).
 
-  Чтобы использовать для защиты секретов [ключ шифрования KMS](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
+  Чтобы использовать для защиты секретов [ключ шифрования {{ kms-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 
 {% endlist %}

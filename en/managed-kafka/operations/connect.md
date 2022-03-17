@@ -25,11 +25,19 @@ Settings of rules depend on the connection method you select:
 
 {% list tabs %}
 
-- Over the Internet
+- Over the internet
 
   [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 9091 from any IP address. To do this, create the following rule for incoming traffic:
+
   * Protocol: `TCP`.
   * Port range: `9091`.
+  * Source type: `CIDR`.
+  * Source: `0.0.0.0/0`.
+
+  To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
+
+  * Protocol: `TCP`.
+  * Port range: `443`.
   * Source type: `CIDR`.
   * Source: `0.0.0.0/0`.
 
@@ -40,6 +48,12 @@ Settings of rules depend on the connection method you select:
      * Port range: `9091`.
      * Source type: `Security group`.
      * Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
+
+     To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
+       * Protocol: `TCP`.
+       * Port range: `443`.
+       * Source type: `CIDR`.
+       * Source: `0.0.0.0/0`.
 
   1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
 
@@ -65,7 +79,7 @@ Settings of rules depend on the connection method you select:
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
 
 Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
 
@@ -95,6 +109,8 @@ To use an encrypted connection, get an SSL certificate:
   ```
 
 {% endlist %}
+
+The resulting SSL certificate is also used when working with [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 
 ## Sample connection strings {#connection-string}
 

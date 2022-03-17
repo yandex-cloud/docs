@@ -187,6 +187,8 @@
 
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+     1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_mysql_cluster.html).
 
   1. Проверьте корректность конфигурационных файлов.
