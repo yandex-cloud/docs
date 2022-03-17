@@ -271,10 +271,12 @@
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update <имя кластера> \
+        {{ yc-mdb-mg }} cluster update <идентификатор или имя кластера> \
            --backup-retain-period-days=<срок хранения> \
            --backup-window-start <время начала резервного копирования> \
-           --maintenance-window type=<weekly или anytime>
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly>
         ```
 
     Вы можете изменить следующие настройки:
@@ -294,13 +296,15 @@
 
       Например, если изначальный срок хранения был 7 дней и оставшееся время жизни отдельной автоматической резервной копии при таком сроке — 1 день, то при увеличении срока хранения до 9 дней, оставшееся время жизни этой резервной копии будет уже 3 дня.
 
-    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
-    {% include [Защита от удаления кластера](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-    Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - Terraform
 
@@ -338,6 +342,8 @@
         }
         ```
 
+    1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform-maintenance-window.md) %}
+
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
         ```hcl
@@ -366,6 +372,7 @@
     * Идентификатор кластера в параметре `clusterId`.
     * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
     * Настройки доступа из других сервисов в параметре `configSpec.access`.
+    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -409,7 +416,7 @@
     1. Укажите нужные группы безопасности в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-mg }} cluster update <имя кластера> \
+        {{ yc-mdb-mg }} cluster update <идентификатор или имя кластера> \
            --security-group-ids <список групп безопасности>
         ```
 

@@ -4,6 +4,7 @@
 
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-additional-settings).
 * [Изменить настройки {{ KF }}](#change-kafka-settings).
 * [Переместить кластер](#move-cluster) из текущего каталога в другой каталог.
 * [Изменить группы безопасности кластера](#change-sg-set).
@@ -271,13 +272,21 @@
         {{ yc-mdb-kf }} cluster update --help
         ```
 
-    1. Чтобы защитить кластер от непреднамеренного удаления пользователем вашего облака, задайте значение `true` для параметра `--deletion-protection`:
+    1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
         {{ yc-mdb-kf }} cluster update <идентификатор или имя кластера> \
-          ...
-          --deletion-protection=true
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly>
+           --deletion-protection=<защита от удаления кластера: true или false>
         ```
+
+    Вы можете изменить следующие настройки:
+
+    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -288,6 +297,8 @@
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
 
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -315,6 +326,9 @@
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`.
+
+    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -364,10 +378,10 @@
     1. Измените [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings) в команде изменения кластера (в примере приведены не все настройки):
 
         ```bash
-        {{ yc-mdb-kf }} cluster update <имя кластера> \
-          --compression-type <тип сжатия> \
-          --log-flush-interval-messages <количество сообщений в логе, необходимое для их сброса на диск> \
-          --log-flush-interval-ms <максимальное время хранения сообщений в памяти перед сбросом на диск>
+        {{ yc-mdb-kf }} cluster update <идентификатор или имя кластера> \
+           --compression-type <тип сжатия> \
+           --log-flush-interval-messages <количество сообщений в логе, необходимое для их сброса на диск> \
+           --log-flush-interval-ms <максимальное время хранения сообщений в памяти перед сбросом на диск>
         ```
 
 - Terraform

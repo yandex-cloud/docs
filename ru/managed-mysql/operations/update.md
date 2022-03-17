@@ -313,22 +313,26 @@
         {{ yc-mdb-my }} cluster update <имя кластера> \
            --backup-window-start <время начала резервного копирования> \
            --datalens-access=<true или false> \
-           --maintenance-window type=<weekly или anytime> \
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly> \
            --websql-access=<true или false> \
            --deletion-protection=<защита от удаления кластера: true или fasle>
         ```
 
     Вы можете изменить следующие настройки:
 
-    {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
     * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
 
-    {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
 
-    {% include [Защита от удаления кластера](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -365,6 +369,8 @@
       }
       ```
 
+  1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
       ```hcl
@@ -393,6 +399,7 @@
     * Идентификатор кластера в параметре `clusterId`.
     * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
+    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}

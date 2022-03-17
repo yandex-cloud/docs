@@ -146,6 +146,24 @@
 
       При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
 
+  1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster create \
+      ...
+         --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                             `day=<день недели для типа weekly>,`
+                             `hour=<час дня для типа weekly>
+      ```
+
+      Где:
+
+      * `type` — тип технического обслуживания:
+          * `anytime` — в любое время.
+          * `weekly` — по расписанию.
+      * `day` — день недели для типа `weekly` в формате `DDD`. Например, `MON`.
+      * `hour` — час дня по UTC для типа `weekly` в формате `HH`. Например, `21`.
+
   1. Чтобы управлять топиками через Admin API {{ KF }}:
 
       {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
@@ -256,6 +274,8 @@
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
+        {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+
     1. Проверьте корректность настроек.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -275,6 +295,7 @@
     * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
     * Имя кластера в параметре `name`.
     * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
