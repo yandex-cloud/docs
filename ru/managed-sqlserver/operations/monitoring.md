@@ -140,6 +140,8 @@
 | Утилизация CPU                               | `win_cpu.percent_idle_time`                      | `10`                       | `20`                       |
 | Количество запросов, ожидающих выделения RAM | `mdb_performance_counters.memory_grants_pending` | `2`                        | `1`                        |
 
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+
 ## Состояние и статус кластера {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}

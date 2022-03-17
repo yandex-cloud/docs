@@ -192,6 +192,8 @@ description: "Вы можете отслеживать состояние кла
 | Количество ошибок Out of Memory, за час                                                                   | `redis_oom_count`   | `Больше 2`          | `Больше 0`          |
 | Утилизация RAM (только для [политики noeviction](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory` | 90% от объема RAM   | 75% от объема RAM   |
 
+Текущий объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+
 ## Состояние и статус кластера {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
