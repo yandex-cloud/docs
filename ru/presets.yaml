@@ -445,6 +445,7 @@ default:
   link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
   link-cloud-services: https://cloud.yandex.ru/services
   link-cloud-marketplace: https://cloud.yandex.ru/marketplace
+  link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex.ru/auth
   link-pci-dss-en: https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
