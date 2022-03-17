@@ -1,5 +1,6 @@
 {% note info %}
 
-When using **Intel Ice Lake** platform hosts, access to fast local storage (`local-ssd`) is given by request. Contact [technical support](../support/) or your account manager.
+When using standard hosts on **Intel Ice Lake**, access to storage on fast local disks (`local-ssd`) is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
+

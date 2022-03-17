@@ -1,3 +1,4 @@
+---
 title: Yandex Managed Service for Apache Kafka®
 href: index.yaml
 items:
@@ -33,12 +34,17 @@ items:
         href: operations/monitoring.md        
   - name: Practical guidelines
     items:
+      - name: All use cases
+        href: tutorials/index.md
       - name: Data delivery in Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md
       - name: Configuring Kafka Connect for Managed Service for Apache Kafka®
         href: tutorials/kafka-connect.md
       - name: Data delivery in ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
+      - name: >-
+          Using Confluent Schema Registry with Managed Service for Apache Kafka®
+        href: tutorials/confluent-schema-registry.md
       - name: Migrating with MirrorMaker 2.0
         href: tutorials/mirrormaker-unmanaged-topics.md
       - name: Delivering data using Debezium
@@ -53,6 +59,8 @@ items:
         href: concepts/brokers.md
       - name: Producers and consumers
         href: concepts/producers-consumers.md
+      - name: Managing data schemas
+        href: concepts/managed-schema-registry.md
       - name: Host classes
         href: concepts/instance-types.md
       - name: Network in Managed Service for Apache Kafka®

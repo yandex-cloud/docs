@@ -1,0 +1,11 @@
+| Resource | Cost for 1 hour |
+| --------------- | ----------------------------------------------- |
+| **Intel Cascade Lake** |
+| 50% vCPU | {{ sku|KZT|mdb.zk.kafka.v2.cpu.c50|string }} |
+| 100% vCPU | {{ sku|KZT|mdb.zk.kafka.v2.cpu.c100|string }} |
+| RAM (for 1 GB) | {{ sku|KZT|mdb.zk.kafka.v2.ram|string }} |
+| **Intel Ice Lake** |
+| 50% vCPU | {{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|string }} |
+| 100% vCPU | {{ sku|KZT|mdb.zk.kafka.v3.cpu.c100|string }} |
+| RAM (for 1 GB) | {{ sku|KZT|mdb.zk.kafka.v3.ram|string }} |
+

@@ -20,7 +20,7 @@ The cost of {{ mkf-name }} usage is based on:
 
 * Storage type and size (disk space).
 
-* Computing resources allocated to cluster hosts (including {{ ZK }} hosts).
+* Computing resources allocated to cluster hosts (including {{ ZK }} hosts) and the type of hosts.
 
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
@@ -32,6 +32,16 @@ The cost is calculated for each hour of operation of the host in accordance with
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts (as appropriate for the expected replication load).
 
+There are different ways to calculate the cost depending on the [host type](./concepts/index.md):
+
+* Standard hosts
+
+    The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
+
+* Dedicated hosts
+
+    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
 {% note warning %}
 
 When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }} hosts with the minimal host class are created automatically in three availability zones to provide replication and fault tolerance for the cluster. If you create a cluster with a single broker host, no {{ ZK }} hosts are created.
@@ -42,12 +52,11 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You pay for the storage allocated for DB clusters.
 
-* Storage allocated for clusters.
   * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more broker hosts:
       * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+      * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
   * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more broker hosts in increments of 93 GB.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
@@ -56,17 +65,22 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ### Example of cluster cost calculation {#example}
 
-For example, you created a cluster:
+{% list tabs %}
 
-* With 3 {{ KF }} broker hosts with the `s2.micro` host class (2 vCPUs, 8 GB RAM).
-* With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (2 vCPUs, 50% vCPU, 4 GB RAM).
-* With 100 GB of standard network storage.
+* Standard hosts
 
-Cost per hour for the hosts: `3 × (2 × ₽1.05 + 8 × ₽0.28) + 3 × (2 × ₽0.49 + 4 × ₽0.20) = ₽18.36`
+    For example, you created a cluster:
+    * With 3 {{ KF }} broker hosts with the `s2.micro` host class (2 vCPUs, 8 GB RAM).
+    * With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (2 vCPUs, 50% vCPU, 4 GB RAM).
+    * With 100 GB of standard network storage.
 
-Total cluster cost per month (hosts and storage): `720 × ₽18.36 + 100 × ₽2.2881 = ₽13448.01`
+    Cost per hour for the hosts: `3 × (2 × ₽1.05 + 8 × ₽0.28) + 3 × (2 × ₽0.49 + 4 × ₽0.20) = ₽18.36`
 
-{% endif %}
+    Total cluster cost per month (hosts and storage): `720 × ₽18.36 + 100 × ₽2.2881 = ₽13448.01`
+
+    {% endif %}
+
+{% endlist %}
 
 {% if audience == "cvos" %}
 
@@ -96,25 +110,61 @@ All prices are shown without VAT.
 
 {% endif %}
 
+Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+
+The cost of fast local storage also depends on the type of hosts.
+
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
 
-{% if region == "ru" %}
+{% list tabs %}
 
-{% include notitle [rub-hosts-and-storage.md](../_pricing/managed-kafka/rub-hosts-and-storage.md) %}
+* Standard hosts
 
-{% endif %}
+    {% if region == "ru" %} {% include notitle [RUB: standard broker hosts](../_pricing/managed-kafka/rub-hosts-standard.md) %}{% endif %}
+    {% if region == "kz" %} {% include notitle [KZT: standard broker hosts](../_pricing/managed-kafka/kzt-hosts-standard.md) %}{% endif %}
+    {% if region == "int" %}{% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}{% endif %}
 
-{% if region == "kz" %}
+* Dedicated hosts
 
-{% include notitle [kzt-hosts-and-storage.md](../_pricing/managed-kafka/kzt-hosts-and-storage.md) %}
+    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
-{% endif %}
+    {% if region == "ru" %} {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}{% endif %}
+    {% if region == "kz" %} {% include notitle [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-dedicated.md) %}{% endif %}
+    {% if region == "int" %}{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}{% endif %}
 
-{% if region == "int" %}
+{% endlist %}
 
-{% include notitle [usd-hosts-and-storage.md](../_pricing/managed-kafka/usd-hosts-and-storage.md) %}
+### {{ ZK }} host computing resources {#prices-zookeeper}
 
-{% endif %}
+{% note info %}
+
+You can't order {{ ZK }} host resources using a CVoS.
+
+{% endnote %}
+
+{% list tabs %}
+
+* Standard hosts
+
+    {% if region == "ru" %} {% include notitle [RUB: standard ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-standard.md) %}{% endif %}
+    {% if region == "kz" %} {% include notitle [KZT: standard ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-standard.md) %}{% endif %}
+    {% if region == "int" %}{% include notitle [USD: standard ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-standard.md) %}{% endif %}
+
+* Dedicated hosts
+
+    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+    {% if region == "ru" %} {% include notitle [RUB: dedicated ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-dedicated.md) %}{% endif %}
+    {% if region == "kz" %} {% include notitle [KZT: dedicated ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-dedicated.md) %}{% endif %}
+    {% if region == "int" %}{% include notitle [USD: dedicated ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-dedicated.md) %}{% endif %}
+
+{% endlist %}
+
+### Storage {#prices-storage}
+
+{% if region == "ru" %} {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}{% endif %}
+{% if region == "kz" %} {% include notitle [KZT: Storage prices](../_pricing/managed-kafka/kzt-storage.md) %}{% endif %}
+{% if region == "int" %}{% include notitle [USD: Storage prices](../_pricing/managed-kafka/usd-storage.md) %}{% endif %}
 
 ### Outgoing traffic {#prices-traffic}
 

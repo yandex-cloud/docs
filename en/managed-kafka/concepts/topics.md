@@ -12,6 +12,13 @@ For example, if the data producer is an online store, you can create separate to
 - Message compaction.
 - Log purging [in accordance with the policy](../operations/cluster-topics.md#create-topic) when partition messages become outdated or the specified log size is reached.
 
+### Service topics {#service-topics}
+
+While running, {{ mkf-name }} is able to create and use service topics.
+You cannot write user data to such topics.
+
+The `_schemas` service topic is used to support [{{ mkf-msr }}](./managed-schema-registry.md).
+
 ## Partitions {#partitions}
 
 A partition is a sequence of topic messages that are stored in the order they are received. The message sequence number is called an offset. Consumers read messages from the beginning to the end of a partition, that is, messages that were received earlier are consumed first. To start reading data from a specific message, consumers must pass the broker its offset.

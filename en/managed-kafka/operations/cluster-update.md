@@ -420,6 +420,7 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 - API
 
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
     * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
     * New values of [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) in the parameter:
@@ -440,8 +441,8 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 - API
 
   Use the API [move](../api-ref/Cluster/move.md) method and pass the following in the call:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - The ID of the destination folder in the `destinationFolderId` parameter.
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endif %}
 
@@ -505,9 +506,9 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-  - The list of groups in the `securityGroupIds` parameter.
-  - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+  * The list of groups in the `securityGroupIds` parameter.
+  * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
