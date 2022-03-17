@@ -227,7 +227,6 @@ keywords:
             assign_public_ip = <публичный доступ к хосту: true или false>
             subnet_id = "<идентификатор подсети>"
           }
-
         }
 
         resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
@@ -239,6 +238,8 @@ keywords:
           v4_cidr_blocks = ["<диапазон>"]
         }
         ```
+
+        1. {% include [maintenance-window](../../_includes/mdb/mes/terraform-maintenance-window.md) %}
 
         Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
@@ -253,6 +254,7 @@ keywords:
 - API
 
   Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
+
     * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
     * Имя кластера в параметре `name`.
     * Версию {{ ES }} в параметре `configSpec.version`.
@@ -263,6 +265,7 @@ keywords:
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
     * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 
 {% endlist %}
 

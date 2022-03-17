@@ -20,7 +20,7 @@ The cost of {{ mkf-name }} usage is based on:
 
 * Storage type and size (disk space).
 
-* Computing resources allocated to cluster hosts (including {{ ZK }} hosts).
+* Computing resources allocated to cluster hosts (including {{ ZK }} hosts) and the type of hosts.
 
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
@@ -32,6 +32,16 @@ The cost is calculated for each hour of operation of the host in accordance with
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts (as appropriate for the expected replication load).
 
+There are different ways to calculate the cost depending on the [host type](./concepts/index.md):
+
+* Standard hosts
+
+    The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
+
+* Dedicated hosts
+
+    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
 {% note warning %}
 
 When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }} hosts with the minimal host class are created automatically in three availability zones to provide replication and fault tolerance for the cluster. If you create a cluster with a single broker host, no {{ ZK }} hosts are created.
@@ -42,16 +52,17 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 ### Disk space usage {#rules-storage}
 
-The following is charged:
+You pay for the storage allocated for DB clusters.
 
-* Storage allocated for clusters.
   * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more broker hosts:
       * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+      * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
   * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more broker hosts in increments of 93 GB.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+
+{% endlist %}
 
 
 ## Pricing {#prices}
@@ -59,12 +70,51 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 All prices are shown without VAT.
 
+Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+
+The cost of fast local storage also depends on the type of hosts.
+
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
 
+{% list tabs %}
 
+* Standard hosts
 
+    {% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}
 
-{% include notitle [usd-hosts-and-storage.md](../_pricing/managed-kafka/usd-hosts-and-storage.md) %}
+* Dedicated hosts
+
+    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+    {% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}
+
+{% endlist %}
+
+### {{ ZK }} host computing resources {#prices-zookeeper}
+
+{% note info %}
+
+You can't order {{ ZK }} host resources using a CVoS.
+
+{% endnote %}
+
+{% list tabs %}
+
+* Standard hosts
+
+    {% include notitle [USD: standard ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-standard.md) %}
+
+* Dedicated hosts
+
+    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+    {% include notitle [USD: dedicated ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-dedicated.md) %}
+
+{% endlist %}
+
+### Storage {#prices-storage}
+
+{% include notitle [USD: Storage prices](../_pricing/managed-kafka/usd-storage.md) %}
 
 ### Outgoing traffic {#prices-traffic}
 

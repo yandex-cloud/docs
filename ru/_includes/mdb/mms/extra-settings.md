@@ -15,6 +15,6 @@
 
 - **Доступ из {{ datalens-name }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
-- **Защита от удаления** — включите эту опцию, чтобы защитить кластер от непреднамеренного удаления пользователем вашего облака.
+- {% include [Deletion protection](../console/deletion-protection.md) %}
 
     {% include [Ограничения защиты от удаления](../deletion-protection-limits-db.md) %}

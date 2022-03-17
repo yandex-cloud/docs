@@ -270,6 +270,20 @@
 
     Содержит инструменты для быстрого поиска похожих строк на основе сопоставления триграмм.
 
+* [pgcompacttable](https://github.com/dataegret/pgcompacttable) {#ext-pgcompacttable}
+
+    Позволяет реорганизовать данные в таблицах, чтобы уменьшить занимаемый ими объем, без влияния на производительность кластера.
+
+    Синтаксис использования:
+
+    ```bash
+    ./bin/pgcompacttable -h c-<идентификатор кластера>.rw.mdb.yandexcloud.net -p 6432 -U <имя пользователя> -W <пароль> -d <имя БД> -n <имя схемы> -t <имя таблицы>
+    ```
+
+    Требует включения расширения [pgstattuple](#ext-pgstattuple).
+
+    Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+
 * [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) {#ext-pgcrypto}
 
     Содержит криптографические функции.

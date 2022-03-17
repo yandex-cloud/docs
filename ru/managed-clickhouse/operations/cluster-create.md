@@ -72,7 +72,7 @@
 
   1. При необходимости задайте дополнительные настройки кластера:
      
-     {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console-new-cluster-wizard.md) %}
+     {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
      
   1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -250,20 +250,22 @@
 
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-       Чтобы разрешить доступ из других сервисов {{ yandex-cloud }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), добавьте блок `access` с нужными вам настройками:
+       1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
 
-        ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
-          ...
-          access {
-            data_lens  = <Доступ из DataLens: true или false>
-            metrika    = <Доступ из Метрики и AppMetrika: true или false>
-            serverless = <Доступ из Cloud Functions: true или false>
-            web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
-          }
-          ...
-        }
-        ```
+       1. Чтобы разрешить доступ из других сервисов {{ yandex-cloud }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), добавьте блок `access` с нужными вам настройками:
+
+           ```hcl
+           resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+             ...
+             access {
+               datalens   = <Доступ из DataLens: true или false>
+               metrika    = <Доступ из Метрики и AppMetrika: true или false>
+               serverless = <Доступ из Cloud Functions: true или false>
+               web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
+             }
+             ...
+           }
+           ```
 
        Пользователями и базами данных в кластере можно управлять через SQL.
 

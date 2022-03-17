@@ -48,10 +48,10 @@
 
      Где:
      * `--allowed-unsafe-sysctls` — разрешение на использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), через запятую.
-     * `--cluster-name` — имя кластера {{ k8s }}, в котором будет создана группа узлов.
+     * `--cluster-name` — имя [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster), в котором будет создана группа узлов.
      * `--cores` — количество vCPU для узлов.
      * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов.
-     * `--daily-maintenance-window` — настройки окна обновлений.
+     * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
      * `--disk-size` — [размер диска](../../../compute/concepts/disk.md#maximum-disk-size) узла.
      * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks_types) узла.
      * `--fixed-size` — количество узлов в группе узлов.
@@ -95,179 +95,89 @@
           --placement-group <имя или идентификатор группы размещения>
         ```
 
-- Terraform
+- {{ TF }}
 
-  В разделе [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md) вы создали кластер {{ k8s }} с помощью Terraform. Используйте тот же файл `.tf` конфигурации для создания группы узлов в кластере.
+    Чтобы создать [группу узлов](../../concepts/index.md#node-group):
+    1. Опишите в конфигурационном файле параметры группы узлов, которые необходимо создать:
+       * Имя группы узлов.
+       * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `cluster_id`.
+       * [Платформу](../../../compute/concepts/vm-platforms.md) для узлов.
+       * Настройки масштабирования в блоке `scale_policy`.
 
-  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать. Вы можете добавить несколько записей одновременно.
-     * `yandex_kubernetes_node_group` — параметры группы узлов:
-       * `cluster_id` — идентификатор кластера {{ k8s }}, в котором будет создана группа узлов.
-       * `name` — имя группы узлов {{ k8s }}.
-       * `description` — описание группы узлов.
-       * `version` — версия {{ k8s }} для группы узлов.
-     * `labels` — [набор меток](node-label-management.md) для группы узлов:
-       * `key` — значения меток.
-     * `node_taints` — метки [taint-политик](../../concepts/index.md#taints-tolerations) {{ k8s }}:
-       * `key` — значения политик.
-     * `instance_template` — описание ВМ для группы узлов:
-       * `platform_id` — [платформа](../../../compute/concepts/vm-platforms.md) для группы узлов.
-       * `network_interface` — настройки сетевого интерфейса:
-         * `nat` — флаг, который включает NAT для вычислительных экземпляров группы узлов.
-         * `subnet_ids` — идентификаторы подсетей.
-       * `resources` — ресурсы, доступные ВМ:
-         * `memory` — объем RAM.
-         * `cores` — количество ядер vCPU.
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
-         * `size` — размер диска узла Гб. Минимальный размер: 64 Гб.
-         * `type` — тип диска.
-       * `placement_policy` — (опционально) настройка группы размещения:
-         * `placement_group_id` — идентификатор [группы размещения](../../../compute/concepts/placement-groups.md) для узлов.
-       * `scheduling_policy` — настройка политики планирования:
-         * `preemptible` — флаг, который указывает, что будут созданы прерываемые ВМ.
-     * `scale_policy` — настройки [политики масштабирования](../../../compute/concepts/instance-groups/policies/scale-policy.md):
-       * `fixed_scale` — ключ определяет группу ВМ фиксированного размера.
-       * `size` — количество ВМ в группе.
-     * `allocation_policy` — настройки [политики распределения](../../../compute/concepts/instance-groups/policies/allocation-policy.md):
-       * `location` — повторяющееся поле, указывающее зоны доступности (сети и подсети), которые будут использоваться группой узлов.
-         * `zone` — зона доступности.
-     * `maintenance_policy`— настройки политики обновлений:
-       * `auto_upgrade` — флаг, который указывает, можно ли автоматически обновить группу узлов.
-       * `auto_repair` — флаг, который указывает, можно ли [автоматически восстановить](../../../compute/concepts/instance-groups/autohealing.md) группу узлов. На текущей момент не поддерживается.
-       * `maintenance_window` — настройки окна технического обслуживания. С их помощью вы можете указать предпочтительное время начала проведения операций по техническому обслуживанию узлов кластера (например, можно выбрать время, когда кластер наименее нагружен запросами). Укажите в параметрах `day`,`start_time` и `duration`: день, время начала и продолжительность технического обслуживания.
+       {% note warning %}
 
-         Чтобы указать интервал времени суток, для всех дней должен укажите только два поля: `start_time` и `duration`.
+       Файл с описанием группы узлов должен находиться в одном каталоге с [файлом описания кластера](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
 
-         Чтобы разрешить обслуживание только в определенные дни недели, укажите все поля. Для каждого дня недели допускается только один временной интервал.
+       {% endnote %}
 
-     ```hcl
-     resource "yandex_kubernetes_node_group" "my_node_group" {
-       cluster_id  = "${yandex_kubernetes_cluster.zonal_cluster_resource_name.id}"
-       name        = "MyNodes"
-       description = "MyNodes description"
-       version     = "1.17"
+       Пример структуры конфигурационного файла:
 
-       labels = {
-         "key" = "value"
-       }
-       node_taints = [
-         "key=value:effect"
-       ]
-       instance_template {
-         platform_id = "standard-v2"
-         network_interface {
-           nat        = true
-           subnet_ids = ["${yandex_vpc_subnet.subnet_resource_name.id}"]
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<имя группы узлов>" {
+         cluster_id = yandex_kubernetes_cluster.<имя кластера>.id
+         ...
+         instance_template {
+           platform_id = "<платформа для узлов>"
+           ...
          }
-         resources {
-           memory = 2
-           cores  = 2
-         }
-         boot_disk {
-           type = "network-hdd"
-           size = 64
-         }
-         placement_policy {
-           placement_group_id = "my_placement_group_id"
-         }
-         scheduling_policy {
-           preemptible = false
+         ...
+         scale_policy {
+           <настройки масштабирования группы узлов>
          }
        }
-       scale_policy {
-         fixed_scale {
-           size = 1
+       ```
+
+       * Чтобы создать группу с фиксированным количеством узлов, добавьте блок `fixed_scale`:
+
+         ```hcl
+         resource "yandex_kubernetes_node_group" "<имя группы узлов>" {
+           ...
+           scale_policy {
+             fixed_scale {
+               size = <количество узлов в группе>
+             }
+           }
          }
-       }
-       allocation_policy {
-         location {
-           zone = "ru-central1-a"
+         ```
+
+       * Чтобы создать группу с [автомасштабированием](../../concepts/node-group/cluster-autoscaler.md), добавьте блок `auto_scale`:
+
+         ```hcl
+         resource "yandex_kubernetes_node_group" "<имя группы узлов>" {
+           ...
+           scale_policy {
+             auto_scale {
+               min     = <минимальное количество узлов в группе>
+               max     = <максимальное количество узлов в группе>
+               initial = <начальное количество узлов в группе>
+             }
+           }
          }
-       }
-       maintenance_policy {
-         auto_upgrade = true
-         auto_repair  = true
-         maintenance_window {
-           day        = "monday"
-           start_time = "15:00"
-           duration   = "3h"
-         }
-         maintenance_window {
-           day        = "friday"
-           start_time = "10:00"
-           duration   = "4h30m"
-         }
-       }
-     }
-     ```
+         ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, смотрите в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+       Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
-  1. Выполните проверку с помощью команды:
+    1. Проверьте корректность конфигурационных файлов.
 
-     ```bash
-     terraform plan
-     ```
+       {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
-     Результат выполнения команды:
+    1. Создайте кластер.
 
-     ```text
-     Refreshing Terraform state in-memory prior to plan...
-     The refreshed state will be used to calculate this plan, but will not be
-     persisted to local or remote state storage.
-     ...
-     Note: You didn't specify an "-out" parameter to save this plan, so Terraform
-     can't guarantee that exactly these actions will be performed if
-     "terraform apply" is subsequently run.
-     ```
-
-     В терминале будет выведен список ресурсов с параметрами. Это проверочный этап, ресурсы не будут созданы. Если в конфигурации есть ошибки, Terraform на них укажет.
-
-     {% note alert %}
-
-     Все созданные с помощью Terraform ресурсы тарифицируются. Внимательно проверьте план.
-
-     {% endnote %}
-
-  1. Чтобы создать ресурсы, выполните команду:
-
-     ```bash
-     terraform apply
-     ```
-
-     Результат выполнения команды:
-
-     ```
-     An execution plan has been generated and is shown below.
-     Resource actions are indicated with the following symbols:
-     + create
-     ...
-     Terraform will perform the actions described above.
-     Only 'yes' will be accepted to approve.
-
-     Enter a value:
-     ```
-
-  1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**:
-
-     ```bash
-     Enter a value: yes
-     ```
-
-  1. Проверьте ресурсы и их настройки в [консоли управления]({{ link-console-main }}).
+       {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 - API
 
   Воспользуйтесь методом API [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
+  * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов в параметрах `allocationPolicy`.
-  * Настройки окна обновлений в параметрах `maintenancePolicy`.
+  * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
 
     {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
 
-  Чтобы узлы использовали нереплицируемые диски, передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
+  Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks_types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
 
   Размер нереплицируемых дисков можно менять только с шагом 93 ГБ. Максимальный размер такого диска — 4 ТБ.
 

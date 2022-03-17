@@ -235,19 +235,24 @@ keywords:
         {{ yc-mdb-es }} cluster update --help
         ```
 
-    1. Чтобы изменить список [расширений {{ ES }}](../concepts/plugins.md), доступных в кластере, передайте их список в аргументе `--plugins` команды CLI. При этом расширения, не упомянутые в списке, будут выключены.
+    1. Выполните команду, передав список настроек, которые хотите изменить:
 
         ```bash
         {{ yc-mdb-es }} cluster update <идентификатор или имя кластера> \
-          --plugins <список расширений>
+           --plugins <список расширений> \
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly> \
+           --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
-    1. Чтобы изменить настройки защиты кластера от непреднамеренного удаления пользователем, укажите нужное значение в аргументе `--deletion-protection`:
+    Вы можете изменить следующие настройки:
 
-        ```bash
-        {{ yc-mdb-es }} cluster update <идентификатор или имя кластера> \
-          --deletion-protection=<защита от удаления кластера: true или false>
-        ```
+    * `--plugins` — список [расширений {{ ES }}](../concepts/plugins.md), доступных в кластере. При этом расширения, не упомянутые в списке, будут выключены.
+
+    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -261,6 +266,8 @@ keywords:
 
     
     * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.
+
+    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 

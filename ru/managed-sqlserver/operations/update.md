@@ -190,8 +190,6 @@
     1. Измените дополнительные настройки кластера:
 
         {% include [extra-settings](../../_includes/mdb/mms/extra-settings.md) %}
-        
-          {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Нажмите кнопку **Сохранить изменения**.
 

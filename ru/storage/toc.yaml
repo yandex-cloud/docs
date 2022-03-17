@@ -149,6 +149,10 @@ items:
             href: tools/s3fs.md
           - name: goofys
             href: tools/goofys.md
+      - name: FTP
+        items:
+          - name: Docker-контейнер для (S)FTP(S)
+            href: tools/sftps.md
   - name: HTTP API, совместимый с Amazon S3
     items:
       - name: Как пользоваться API
