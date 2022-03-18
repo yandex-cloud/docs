@@ -138,6 +138,7 @@ Foo1 -[#00cc00]> Foo6 : To collections
 Foo1 -> Foo7 : To Queue
 
 @enduml
+%%
 ```
 
 {% cut "Как выглядит результат" %}
