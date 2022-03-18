@@ -50,6 +50,7 @@ default:
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   support-business-domain: https://yandex.ru/support/business/domains.html
   support-business-users: https://yandex.ru/support/business/add-users.html
+  support-business-admin: https://yandex.ru/support/business/admin.html
   
   #Внешние ссылки
   link-wiki-scrum: https://ru.wikipedia.org/wiki/SCRUM
