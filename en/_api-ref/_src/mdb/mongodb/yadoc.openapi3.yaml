@@ -3430,6 +3430,8 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseOperationProfiling_in_MongodConfig4_4_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
     MongodConfig4_4_enterpriseNetwork:
       type: object
       properties:
@@ -3464,6 +3466,34 @@ components:
       - "OFF"
       - SLOW_OP
       - ALL
+    MongodConfig4_4_enterpriseSecurity:
+      type: object
+      properties:
+        enableEncryption:
+          description: If encryption at rest should be enabled or not
+          type: boolean
+          format: boolean
+        kmip:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurityKMIP_in_MongodConfig4_4_enterpriseSecurity_kmip'
+    MongodConfig4_4_enterpriseSecurityKMIP:
+      type: object
+      properties:
+        serverName:
+          description: KMIP server name
+          type: string
+        port:
+          description: KMIP server port
+          type: integer
+          format: int64
+        serverCa:
+          description: KMIP Server CA
+          type: string
+        clientCertificate:
+          description: KMIP client certificate + private key (unencrypted)
+          type: string
+        keyIdentifier:
+          description: KMIP Key identifier (if any)
+          type: string
     MongodConfig4_4_enterpriseStorage:
       type: object
       properties:
@@ -3620,6 +3650,8 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseOperationProfiling_in_MongodConfig5_0_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
     MongodConfig5_0_enterpriseNetwork:
       type: object
       properties:
@@ -3654,6 +3686,34 @@ components:
       - "OFF"
       - SLOW_OP
       - ALL
+    MongodConfig5_0_enterpriseSecurity:
+      type: object
+      properties:
+        enableEncryption:
+          description: If encryption at rest should be enabled or not
+          type: boolean
+          format: boolean
+        kmip:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurityKMIP_in_MongodConfig5_0_enterpriseSecurity_kmip'
+    MongodConfig5_0_enterpriseSecurityKMIP:
+      type: object
+      properties:
+        serverName:
+          description: KMIP server name
+          type: string
+        port:
+          description: KMIP server port
+          type: integer
+          format: int64
+        serverCa:
+          description: KMIP Server CA
+          type: string
+        clientCertificate:
+          description: KMIP client certificate + private key (unencrypted)
+          type: string
+        keyIdentifier:
+          description: KMIP Key identifier (if any)
+          type: string
     MongodConfig5_0_enterpriseStorage:
       type: object
       properties:
@@ -6659,6 +6719,16 @@ components:
             Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
+    MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security:
+      description: '`security` section of mongod configuration.'
+      type: object
+      properties:
+        enableEncryption:
+          description: If encryption at rest should be enabled or not
+          type: boolean
+          format: boolean
+        kmip:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurityKMIP_in_MongodConfig4_4_enterpriseSecurity_kmip'
     MongodConfig4_4_enterpriseOperationProfilingMode_in_MongodConfig4_4_enterpriseOperationProfiling_mode:
       description: |-
         Mode which specifies operations that should be profiled.
@@ -6671,6 +6741,26 @@ components:
       - "OFF"
       - SLOW_OP
       - ALL
+    MongodConfig4_4_enterpriseSecurityKMIP_in_MongodConfig4_4_enterpriseSecurity_kmip:
+      description: '`kmip` section of mongod security config'
+      type: object
+      properties:
+        serverName:
+          description: KMIP server name
+          type: string
+        port:
+          description: KMIP server port
+          type: integer
+          format: int64
+        serverCa:
+          description: KMIP Server CA
+          type: string
+        clientCertificate:
+          description: KMIP client certificate + private key (unencrypted)
+          type: string
+        keyIdentifier:
+          description: KMIP Key identifier (if any)
+          type: string
     MongodConfig4_4_enterpriseStorageWiredTiger_in_MongodConfig4_4_enterpriseStorage_wiredTiger:
       description: |-
         Configuration of the WiredTiger storage engine.
@@ -6851,6 +6941,16 @@ components:
             Acceptable values are 10 to 16384, inclusive.
           type: integer
           format: int64
+    MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security:
+      description: '`security` section of mongod configuration.'
+      type: object
+      properties:
+        enableEncryption:
+          description: If encryption at rest should be enabled or not
+          type: boolean
+          format: boolean
+        kmip:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurityKMIP_in_MongodConfig5_0_enterpriseSecurity_kmip'
     MongodConfig5_0_enterpriseOperationProfilingMode_in_MongodConfig5_0_enterpriseOperationProfiling_mode:
       description: |-
         Mode which specifies operations that should be profiled.
@@ -6863,6 +6963,26 @@ components:
       - "OFF"
       - SLOW_OP
       - ALL
+    MongodConfig5_0_enterpriseSecurityKMIP_in_MongodConfig5_0_enterpriseSecurity_kmip:
+      description: '`kmip` section of mongod security config'
+      type: object
+      properties:
+        serverName:
+          description: KMIP server name
+          type: string
+        port:
+          description: KMIP server port
+          type: integer
+          format: int64
+        serverCa:
+          description: KMIP Server CA
+          type: string
+        clientCertificate:
+          description: KMIP client certificate + private key (unencrypted)
+          type: string
+        keyIdentifier:
+          description: KMIP Key identifier (if any)
+          type: string
     MongodConfig5_0_enterpriseStorageWiredTiger_in_MongodConfig5_0_enterpriseStorage_wiredTiger:
       description: |-
         Configuration of the WiredTiger storage engine.
@@ -7100,6 +7220,8 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseOperationProfiling_in_MongodConfig4_4_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
     MongodConfig4_4_enterprise_in_MongodConfigSet4_4_enterprise_userConfig:
       description: |-
         User-defined mongod settings for a MongoDB 4.4 cluster.
@@ -7114,6 +7236,8 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseOperationProfiling_in_MongodConfig4_4_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
     MongodConfig4_4_enterprise_in_MongodConfigSet4_4_enterprise_defaultConfig:
       description: |-
         Default mongod configuration for a MongoDB 4.4 cluster.
@@ -7128,6 +7252,8 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseOperationProfiling_in_MongodConfig4_4_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
     MongodConfig5_0_in_MongodConfigSet5_0_effectiveConfig:
       description: |-
         Effective mongod settings for a MongoDB 5.0 cluster (a combination of settings defined
@@ -7186,6 +7312,8 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseOperationProfiling_in_MongodConfig5_0_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
     MongodConfig5_0_enterprise_in_MongodConfigSet5_0_enterprise_userConfig:
       description: |-
         User-defined mongod settings for a MongoDB 5.0 cluster.
@@ -7200,6 +7328,8 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseOperationProfiling_in_MongodConfig5_0_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
     MongodConfig5_0_enterprise_in_MongodConfigSet5_0_enterprise_defaultConfig:
       description: |-
         Default mongod configuration for a MongoDB 5.0 cluster.
@@ -7214,6 +7344,8 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseOperationProfiling_in_MongodConfig5_0_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
     Mongodb3_6Mongod_in_Mongodb3_6_mongod:
       description: Configuration and resource allocation for mongod in a MongoDB 3.6
         cluster.
@@ -9174,6 +9306,8 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseOperationProfiling_in_MongodConfig4_4_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
     Resources_in_MongodbSpec4_4_enterpriseMongod_resources:
       description: Resources allocated to each mongod host.
       type: object
@@ -9502,6 +9636,8 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseOperationProfiling_in_MongodConfig5_0_enterprise_operationProfiling'
         net:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
+        security:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
     Resources_in_MongodbSpec5_0_enterpriseMongod_resources:
       description: Resources allocated to each mongod host.
       type: object

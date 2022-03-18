@@ -2217,6 +2217,8 @@ components:
           description: Flag that inhibits deletion of the instance group
           type: boolean
           format: boolean
+        applicationLoadBalancerSpec:
+          $ref: '#/components/schemas/ApplicationLoadBalancerSpec_in_UpdateInstanceGroupRequest_applicationLoadBalancerSpec'
     Variable:
       type: object
       properties:
@@ -3603,6 +3605,21 @@ components:
       properties:
         targetGroupSpec:
           $ref: '#/components/schemas/TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec'
+        maxOpeningTrafficDuration:
+          description: |-
+            Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded,
+            the VM will be turned off based on the deployment policy. Specified in seconds.
+
+            The minimum value is 1 seconds.
+          type: string
+    ApplicationLoadBalancerSpec_in_UpdateInstanceGroupRequest_applicationLoadBalancerSpec:
+      description: |-
+        Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts)
+        (OSI model layer 7).
+      type: object
+      properties:
+        targetGroupSpec:
+          $ref: '#/components/schemas/ApplicationTargetGroupSpec_in_ApplicationLoadBalancerSpec_targetGroupSpec'
         maxOpeningTrafficDuration:
           description: |-
             Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded,

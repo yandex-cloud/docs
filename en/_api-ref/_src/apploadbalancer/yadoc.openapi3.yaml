@@ -3746,6 +3746,10 @@ components:
               $ref: '#/components/schemas/HealthCheck'
           tls:
             $ref: '#/components/schemas/BackendTls'
+          enableProxyProtocol:
+            description: If set, proxy protocol will be enabled for this backend.
+            type: boolean
+            format: boolean
       - title: backend_type
         type: object
         maxProperties: 1

@@ -118,7 +118,6 @@ components:
         containerAudioType:
           $ref: '#/components/schemas/ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType'
     ContainerAudioContainerAudioType:
-      description: ' - MP3: transcription only'
       type: string
       enum:
       - WAV
@@ -141,7 +140,7 @@ components:
       - DEFAULT
       - HIGH
     Eou:
-      description: force EOU, works only with externalEOUClassifier
+      description: force EOU
       type: object
       properties: {}
     EouClassifierOptions:
@@ -224,7 +223,7 @@ components:
       type: object
       properties:
         model:
-          description: model name
+          description: reserved for future, do not use
           type: string
         audioFormat:
           $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
@@ -361,10 +360,7 @@ components:
           type: string
           format: int64
     ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType:
-      description: |-
-        type of audio container
-
-         - MP3: transcription only
+      description: type of audio container
       type: string
       enum:
       - WAV
@@ -450,7 +446,7 @@ components:
       type: object
       properties:
         model:
-          description: model name
+          description: reserved for future, do not use
           type: string
         audioFormat:
           $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'

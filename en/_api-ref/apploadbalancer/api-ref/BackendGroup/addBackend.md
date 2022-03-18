@@ -233,6 +233,7 @@ backendGroupId | Required. ID of the backend group to add a backend to.  To get 
 
       }
     },
+    "enableProxyProtocol": true,
     "targetGroups": {
       "targetGroupIds": [
         "string"
@@ -368,6 +369,7 @@ stream.<br>tls.<br>sni | **string**<br><p>Server Name Indication (SNI) string fo
 stream.<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
 stream.<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`stream.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
 stream.<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`stream.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
+stream.<br>enableProxyProtocol | **boolean** (boolean)<br><p>If set, proxy protocol will be enabled for this backend.</p> 
 stream.<br>targetGroups | **object**<br>Target groups that belong to the backend.<br><p>A resource for target groups that belong to the backend.</p> 
 stream.<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. List of ID's of target groups that belong to the backend.</p> <p>To get the ID's of all available target groups, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>Must contain at least one element.</p> 
  

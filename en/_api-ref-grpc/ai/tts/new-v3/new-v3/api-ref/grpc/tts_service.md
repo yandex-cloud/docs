@@ -22,7 +22,6 @@ Synthesizing text into speech.
 
 Field | Description
 --- | ---
-model | **string**<br>The name of the model. <br>Specifies basic synthesis functionality. Currently should be empty. 
 Utterance | **oneof:** `text` or `text_template`<br>Text to synthesis, one of text synthesis markups.
 &nbsp;&nbsp;text | **string**<br>Raw text (e.g. "Hello, Alice"). 
 &nbsp;&nbsp;text_template | **[TextTemplate](#TextTemplate)**<br>Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`. 
@@ -52,11 +51,12 @@ variable_value | **string**<br>The text of the variable.
 
 Field | Description
 --- | ---
-Hint | **oneof:** `voice`, `audio_template`, `speed` or `volume`<br>The hint for TTS engine to specify synthesised audio characteristics.
+Hint | **oneof:** `voice`, `audio_template`, `speed`, `volume` or `role`<br>The hint for TTS engine to specify synthesised audio characteristics.
 &nbsp;&nbsp;voice | **string**<br>Name of speaker to use. 
 &nbsp;&nbsp;audio_template | **[AudioTemplate](#AudioTemplate)**<br>Template for synthesizing. 
 &nbsp;&nbsp;speed | **double**<br>hint to change speed 
 &nbsp;&nbsp;volume | **double**<br>hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume in [-145, 0). 
+&nbsp;&nbsp;role | **string**<br>The hint for TTS engine to specify synthesised audio characteristics. 
 
 
 ### AudioTemplate {#AudioTemplate}

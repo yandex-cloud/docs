@@ -84,6 +84,11 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instances
 
     }
   ],
+  "localDiskSpecs": [
+    {
+      "size": "string"
+    }
+  ],
   "filesystemSpecs": [
     {
       "mode": "string",
@@ -213,6 +218,8 @@ secondaryDiskSpecs[].<br>diskSpec.<br>diskPlacementPolicy.<br>placementGroupId |
 secondaryDiskSpecs[].<br>diskSpec.<br>imageId | **string** <br>`secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the image to create the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 secondaryDiskSpecs[].<br>diskSpec.<br>snapshotId | **string** <br>`secondaryDiskSpecs[].diskSpec` includes only one of the fields `imageId`, `snapshotId`<br><br><p>ID of the snapshot to restore the disk from.</p> <p>The maximum string length in characters is 50.</p> 
 secondaryDiskSpecs[].<br>diskId | **string** <br>`secondaryDiskSpecs[]` includes only one of the fields `diskSpec`, `diskId`<br><br><p>ID of the disk that should be attached.</p> <p>The maximum string length in characters is 50.</p> 
+localDiskSpecs[] | **object**<br><p>Array of local disks to attach to the instance.</p> 
+localDiskSpecs[].<br>size | **string** (int64)<br><p>Required. Size of the disk, specified in bytes.</p> 
 filesystemSpecs[] | **object**<br><p>Array of filesystems to attach to the instance.</p> <p>The filesystems must reside in the same availability zone as the instance.</p> <p>To use the instance with an attached filesystem, the latter must be mounted. For details, see <a href="/docs/compute/operations/filesystem/attach-to-vm">documentation</a>.</p> 
 filesystemSpecs[].<br>mode | **string**<br><p>Mode of access to the filesystem that should be attached.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access. Default value.</li> </ul> 
 filesystemSpecs[].<br>deviceName | **string**<br><p>Name of the device representing the filesystem on the instance.</p> <p>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc.</p> <p>If not specified, a random value will be generated.</p> <p>Value must match the regular expression ``[a-z][a-z0-9-_]{,19}``.</p> 

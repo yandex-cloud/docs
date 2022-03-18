@@ -300,6 +300,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -327,6 +328,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem}

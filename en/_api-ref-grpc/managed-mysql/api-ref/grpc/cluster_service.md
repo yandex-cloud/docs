@@ -86,6 +86,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources}
@@ -103,6 +104,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -200,6 +210,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources1)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access1)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics1)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources1}
@@ -217,6 +228,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics1}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -287,6 +307,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources2)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access2)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics2)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources2}
@@ -304,6 +325,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics2}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -420,6 +450,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources3)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access3)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics3)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources3}
@@ -437,6 +468,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics3}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -504,6 +544,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources4)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access4)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources4}
@@ -521,6 +562,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics4}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -609,6 +659,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources5)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access5)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics5)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources5}
@@ -626,6 +677,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics5}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -779,6 +839,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources6)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access6)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics6)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources6}
@@ -796,6 +857,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics6}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -909,6 +979,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources7)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access7)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics7)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources7}
@@ -926,6 +997,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics7}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -1042,6 +1122,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources8)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access8)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics8)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources8}
@@ -1059,6 +1140,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics8}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1172,6 +1262,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources9)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access9)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics9)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources9}
@@ -1189,6 +1280,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics9}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -1258,6 +1358,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources10)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access10)**<br>Access policy for external services. <br>If the specific services need to access the cluster, then set the necessary values in this policy. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics10)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources10}
@@ -1275,6 +1376,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics10}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### HostSpec {#HostSpec1}
@@ -1355,6 +1465,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources11)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access11)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics11)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources11}
@@ -1372,6 +1483,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics11}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -1488,6 +1608,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources12)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access12)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics12)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources12}
@@ -1505,6 +1626,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics12}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}
@@ -1619,6 +1749,7 @@ mysql_config | **oneof:** `mysql_config_5_7` or `mysql_config_8_0`<br>Cluster-wi
 resources | **[Resources](#Resources13)**<br>Resource preset for the cluster hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
 access | **[Access](#Access13)**<br>Access policy for external services. 
+performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics13)**<br>Configuration of the performance diagnostics service. 
 
 
 ### Resources {#Resources13}
@@ -1636,6 +1767,15 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+
+
+### PerformanceDiagnostics {#PerformanceDiagnostics13}
+
+Field | Description
+--- | ---
+enabled | **bool**<br>Flag that shows if performance statistics gathering is enabled for the cluster. 
+sessions_sampling_interval | **int64**<br>Interval (in seconds) for `my_session` sampling. Acceptable values are 1 to 86400, inclusive.
+statements_sampling_interval | **int64**<br>Interval (in seconds) for `my_statements` sampling. Acceptable values are 1 to 86400, inclusive.
 
 
 ### MaintenanceWindow {#MaintenanceWindow11}

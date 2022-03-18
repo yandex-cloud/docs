@@ -86,6 +86,7 @@ components:
       enum:
       - WAV
       - OGG_OPUS
+      - MP3
     Hints:
       type: object
       allOf:
@@ -109,6 +110,8 @@ components:
               in [-145, 0).
             type: number
             format: double
+          role:
+            type: string
     RawAudio:
       type: object
       properties:
@@ -202,6 +205,7 @@ components:
       enum:
       - WAV
       - OGG_OPUS
+      - MP3
     RawAudioAudioEncoding_in_RawAudio_audioEncoding:
       description: |-
         Encoding type.

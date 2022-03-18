@@ -1,6 +1,8 @@
 items:
   - name: Overview
     href: api-ref/grpc/index.md
+  - name: BackupService
+    href: api-ref/grpc/backup_service.md
   - name: ClusterService
     href: api-ref/grpc/cluster_service.md
   - name: ResourcePresetService

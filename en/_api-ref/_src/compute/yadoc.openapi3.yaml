@@ -2861,6 +2861,29 @@ components:
       enum:
       - READ_ONLY
       - READ_WRITE
+    AttachedLocalDisk:
+      type: object
+      properties:
+        size:
+          description: Size of the disk, specified in bytes.
+          type: string
+          format: int64
+        deviceName:
+          description: |-
+            Serial number that is reflected into the /dev/disk/by-id/ tree
+            of a Linux operating system running within the instance.
+
+            This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+          type: string
+    AttachedLocalDiskSpec:
+      type: object
+      properties:
+        size:
+          description: |-
+            Required.
+            Size of the disk, specified in bytes.
+          type: string
+          format: int64
     CreateDiskMetadata:
       type: object
       properties:
@@ -3352,6 +3375,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AttachedDiskSpec'
+        localDiskSpecs:
+          description: Array of local disks to attach to the instance.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedLocalDiskSpec'
         filesystemSpecs:
           description: |-
             Array of filesystems to attach to the instance.
@@ -4092,6 +4120,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AttachedDisk'
+        localDisks:
+          description: Array of local disks that are attached to the instance.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedLocalDisk'
         filesystems:
           description: Array of filesystems that are attached to the instance.
           type: array

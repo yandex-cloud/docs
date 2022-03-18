@@ -1,6 +1,14 @@
 items:
   - name: Overview
     href: api-ref/index.md
+  - name: Backup
+    items:
+      - name: Overview
+        href: api-ref/Backup/index.md
+      - name: get
+        href: api-ref/Backup/get.md
+      - name: list
+        href: api-ref/Backup/list.md
   - name: Cluster
     items:
       - name: Overview
@@ -13,6 +21,8 @@ items:
         href: api-ref/Cluster/get.md
       - name: list
         href: api-ref/Cluster/list.md
+      - name: listBackups
+        href: api-ref/Cluster/listBackups.md
       - name: listLogs
         href: api-ref/Cluster/listLogs.md
       - name: listMasterHosts
@@ -21,6 +31,8 @@ items:
         href: api-ref/Cluster/listOperations.md
       - name: listSegmentHosts
         href: api-ref/Cluster/listSegmentHosts.md
+      - name: restore
+        href: api-ref/Cluster/restore.md
       - name: start
         href: api-ref/Cluster/start.md
       - name: stop

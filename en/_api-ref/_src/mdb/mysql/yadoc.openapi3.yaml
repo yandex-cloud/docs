@@ -1612,6 +1612,9 @@ components:
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy for external services.
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnostics'
+            description: Configuration of the performance diagnostics service.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -1690,6 +1693,9 @@ components:
               Access policy for external services.
 
               If the specific services need to access the cluster, then set the necessary values in this policy.
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnostics'
+            description: Configuration of the performance diagnostics service.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -2354,6 +2360,8 @@ components:
             Time that it takes to process a query before it is considered slow.
 
             See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time) for details.
+
+            Acceptable values are 0 to 3600, inclusive.
           type: number
           format: double
         generalLog:
@@ -2722,7 +2730,7 @@ components:
           description: |-
             The size of the binary log to hold.
 
-            Acceptable values are 1073741824 to 107374182400, inclusive.
+            Acceptable values are 1073741824 to 1099511627776, inclusive.
           type: integer
           format: int64
         interactiveTimeout:
@@ -2824,6 +2832,49 @@ components:
             Acceptable values are 4096 to 65536, inclusive.
           type: integer
           format: int64
+        innodbOnlineAlterLogMaxSize:
+          description: |-
+            The limit in bytes on the size of the temporary log files used during online DDL operations
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
+
+            Acceptable values are 65536 to 107374182400, inclusive.
+          type: integer
+          format: int64
+        innodbFtMinTokenSize:
+          description: |-
+            Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
+
+            Acceptable values are 0 to 16, inclusive.
+          type: integer
+          format: int64
+        innodbFtMaxTokenSize:
+          description: |-
+            Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
+
+            Acceptable values are 10 to 84, inclusive.
+          type: integer
+          format: int64
+        lowerCaseTableNames:
+          description: |-
+            Table names storage and comparison strategy
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
+
+            Acceptable values are 0 to 1, inclusive.
+          type: integer
+          format: int64
+        showCompatibility_56:
+          description: |-
+            Manages MySQL 5.6 compatibility
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
+          type: boolean
+          format: boolean
     MysqlConfig5_7AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
@@ -3303,7 +3354,7 @@ components:
           description: |-
             The size of the binary log to hold.
 
-            Acceptable values are 1073741824 to 107374182400, inclusive.
+            Acceptable values are 1073741824 to 1099511627776, inclusive.
           type: integer
           format: int64
         interactiveTimeout:
@@ -3400,9 +3451,45 @@ components:
           description: |-
             Specifies the page size for InnoDB tablespaces.
 
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size).
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
 
             Acceptable values are 4096 to 65536, inclusive.
+          type: integer
+          format: int64
+        innodbOnlineAlterLogMaxSize:
+          description: |-
+            The limit in bytes on the size of the temporary log files used during online DDL operations
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size) for details.
+
+            Acceptable values are 65536 to 107374182400, inclusive.
+          type: integer
+          format: int64
+        innodbFtMinTokenSize:
+          description: |-
+            Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size) for details.
+
+            Acceptable values are 0 to 16, inclusive.
+          type: integer
+          format: int64
+        innodbFtMaxTokenSize:
+          description: |-
+            Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size) for details.
+
+            Acceptable values are 10 to 84, inclusive.
+          type: integer
+          format: int64
+        lowerCaseTableNames:
+          description: |-
+            Table names storage and comparison strategy
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
+
+            Acceptable values are 0 to 1, inclusive.
           type: integer
           format: int64
     MysqlConfig8_0AuthPlugin:
@@ -3545,6 +3632,28 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    PerformanceDiagnostics:
+      type: object
+      properties:
+        enabled:
+          description: Flag that shows if performance statistics gathering is enabled
+            for the cluster.
+          type: boolean
+          format: boolean
+        sessionsSamplingInterval:
+          description: |-
+            Interval (in seconds) for `my_session` sampling.
+
+            Acceptable values are 1 to 86400, inclusive.
+          type: string
+          format: int64
+        statementsSamplingInterval:
+          description: |-
+            Interval (in seconds) for `my_statements` sampling.
+
+            Acceptable values are 1 to 86400, inclusive.
+          type: string
+          format: int64
     Permission:
       type: object
       properties:
@@ -4180,6 +4289,9 @@ components:
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy for external services.
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnostics'
+            description: Configuration of the performance diagnostics service.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -4302,6 +4414,9 @@ components:
               Access policy for external services.
 
               If the specific services need to access the cluster, then set the necessary values in this policy.
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnostics'
+            description: Configuration of the performance diagnostics service.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -4576,6 +4691,8 @@ components:
             Time that it takes to process a query before it is considered slow.
 
             See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time) for details.
+
+            Acceptable values are 0 to 3600, inclusive.
           type: number
           format: double
         generalLog:
@@ -4944,7 +5061,7 @@ components:
           description: |-
             The size of the binary log to hold.
 
-            Acceptable values are 1073741824 to 107374182400, inclusive.
+            Acceptable values are 1073741824 to 1099511627776, inclusive.
           type: integer
           format: int64
         interactiveTimeout:
@@ -5046,6 +5163,49 @@ components:
             Acceptable values are 4096 to 65536, inclusive.
           type: integer
           format: int64
+        innodbOnlineAlterLogMaxSize:
+          description: |-
+            The limit in bytes on the size of the temporary log files used during online DDL operations
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
+
+            Acceptable values are 65536 to 107374182400, inclusive.
+          type: integer
+          format: int64
+        innodbFtMinTokenSize:
+          description: |-
+            Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
+
+            Acceptable values are 0 to 16, inclusive.
+          type: integer
+          format: int64
+        innodbFtMaxTokenSize:
+          description: |-
+            Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
+
+            Acceptable values are 10 to 84, inclusive.
+          type: integer
+          format: int64
+        lowerCaseTableNames:
+          description: |-
+            Table names storage and comparison strategy
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
+
+            Acceptable values are 0 to 1, inclusive.
+          type: integer
+          format: int64
+        showCompatibility_56:
+          description: |-
+            Manages MySQL 5.6 compatibility
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
+          type: boolean
+          format: boolean
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -5076,6 +5236,8 @@ components:
             Time that it takes to process a query before it is considered slow.
 
             See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time) for details.
+
+            Acceptable values are 0 to 3600, inclusive.
           type: number
           format: double
         generalLog:
@@ -5444,7 +5606,7 @@ components:
           description: |-
             The size of the binary log to hold.
 
-            Acceptable values are 1073741824 to 107374182400, inclusive.
+            Acceptable values are 1073741824 to 1099511627776, inclusive.
           type: integer
           format: int64
         interactiveTimeout:
@@ -5546,6 +5708,49 @@ components:
             Acceptable values are 4096 to 65536, inclusive.
           type: integer
           format: int64
+        innodbOnlineAlterLogMaxSize:
+          description: |-
+            The limit in bytes on the size of the temporary log files used during online DDL operations
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
+
+            Acceptable values are 65536 to 107374182400, inclusive.
+          type: integer
+          format: int64
+        innodbFtMinTokenSize:
+          description: |-
+            Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
+
+            Acceptable values are 0 to 16, inclusive.
+          type: integer
+          format: int64
+        innodbFtMaxTokenSize:
+          description: |-
+            Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
+
+            Acceptable values are 10 to 84, inclusive.
+          type: integer
+          format: int64
+        lowerCaseTableNames:
+          description: |-
+            Table names storage and comparison strategy
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
+
+            Acceptable values are 0 to 1, inclusive.
+          type: integer
+          format: int64
+        showCompatibility_56:
+          description: |-
+            Manages MySQL 5.6 compatibility
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
+          type: boolean
+          format: boolean
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -5576,6 +5781,8 @@ components:
             Time that it takes to process a query before it is considered slow.
 
             See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time) for details.
+
+            Acceptable values are 0 to 3600, inclusive.
           type: number
           format: double
         generalLog:
@@ -5944,7 +6151,7 @@ components:
           description: |-
             The size of the binary log to hold.
 
-            Acceptable values are 1073741824 to 107374182400, inclusive.
+            Acceptable values are 1073741824 to 1099511627776, inclusive.
           type: integer
           format: int64
         interactiveTimeout:
@@ -6046,6 +6253,49 @@ components:
             Acceptable values are 4096 to 65536, inclusive.
           type: integer
           format: int64
+        innodbOnlineAlterLogMaxSize:
+          description: |-
+            The limit in bytes on the size of the temporary log files used during online DDL operations
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
+
+            Acceptable values are 65536 to 107374182400, inclusive.
+          type: integer
+          format: int64
+        innodbFtMinTokenSize:
+          description: |-
+            Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
+
+            Acceptable values are 0 to 16, inclusive.
+          type: integer
+          format: int64
+        innodbFtMaxTokenSize:
+          description: |-
+            Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
+
+            Acceptable values are 10 to 84, inclusive.
+          type: integer
+          format: int64
+        lowerCaseTableNames:
+          description: |-
+            Table names storage and comparison strategy
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
+
+            Acceptable values are 0 to 1, inclusive.
+          type: integer
+          format: int64
+        showCompatibility_56:
+          description: |-
+            Manages MySQL 5.6 compatibility
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
+          type: boolean
+          format: boolean
     MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
       description: |-
         Effective settings for a MySQL 8.0 cluster (a combination of settings defined
@@ -6454,7 +6704,7 @@ components:
           description: |-
             The size of the binary log to hold.
 
-            Acceptable values are 1073741824 to 107374182400, inclusive.
+            Acceptable values are 1073741824 to 1099511627776, inclusive.
           type: integer
           format: int64
         interactiveTimeout:
@@ -6551,9 +6801,45 @@ components:
           description: |-
             Specifies the page size for InnoDB tablespaces.
 
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size).
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
 
             Acceptable values are 4096 to 65536, inclusive.
+          type: integer
+          format: int64
+        innodbOnlineAlterLogMaxSize:
+          description: |-
+            The limit in bytes on the size of the temporary log files used during online DDL operations
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size) for details.
+
+            Acceptable values are 65536 to 107374182400, inclusive.
+          type: integer
+          format: int64
+        innodbFtMinTokenSize:
+          description: |-
+            Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size) for details.
+
+            Acceptable values are 0 to 16, inclusive.
+          type: integer
+          format: int64
+        innodbFtMaxTokenSize:
+          description: |-
+            Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size) for details.
+
+            Acceptable values are 10 to 84, inclusive.
+          type: integer
+          format: int64
+        lowerCaseTableNames:
+          description: |-
+            Table names storage and comparison strategy
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
+
+            Acceptable values are 0 to 1, inclusive.
           type: integer
           format: int64
     MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
@@ -6963,7 +7249,7 @@ components:
           description: |-
             The size of the binary log to hold.
 
-            Acceptable values are 1073741824 to 107374182400, inclusive.
+            Acceptable values are 1073741824 to 1099511627776, inclusive.
           type: integer
           format: int64
         interactiveTimeout:
@@ -7060,9 +7346,45 @@ components:
           description: |-
             Specifies the page size for InnoDB tablespaces.
 
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size).
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
 
             Acceptable values are 4096 to 65536, inclusive.
+          type: integer
+          format: int64
+        innodbOnlineAlterLogMaxSize:
+          description: |-
+            The limit in bytes on the size of the temporary log files used during online DDL operations
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size) for details.
+
+            Acceptable values are 65536 to 107374182400, inclusive.
+          type: integer
+          format: int64
+        innodbFtMinTokenSize:
+          description: |-
+            Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size) for details.
+
+            Acceptable values are 0 to 16, inclusive.
+          type: integer
+          format: int64
+        innodbFtMaxTokenSize:
+          description: |-
+            Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size) for details.
+
+            Acceptable values are 10 to 84, inclusive.
+          type: integer
+          format: int64
+        lowerCaseTableNames:
+          description: |-
+            Table names storage and comparison strategy
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
+
+            Acceptable values are 0 to 1, inclusive.
           type: integer
           format: int64
     MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
@@ -7472,7 +7794,7 @@ components:
           description: |-
             The size of the binary log to hold.
 
-            Acceptable values are 1073741824 to 107374182400, inclusive.
+            Acceptable values are 1073741824 to 1099511627776, inclusive.
           type: integer
           format: int64
         interactiveTimeout:
@@ -7569,9 +7891,45 @@ components:
           description: |-
             Specifies the page size for InnoDB tablespaces.
 
-            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size).
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
 
             Acceptable values are 4096 to 65536, inclusive.
+          type: integer
+          format: int64
+        innodbOnlineAlterLogMaxSize:
+          description: |-
+            The limit in bytes on the size of the temporary log files used during online DDL operations
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size) for details.
+
+            Acceptable values are 65536 to 107374182400, inclusive.
+          type: integer
+          format: int64
+        innodbFtMinTokenSize:
+          description: |-
+            Minimum length of words that are stored in an InnoDB FULLTEXT index
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size) for details.
+
+            Acceptable values are 0 to 16, inclusive.
+          type: integer
+          format: int64
+        innodbFtMaxTokenSize:
+          description: |-
+            Maximum length of words that are stored in an InnoDB FULLTEXT index
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size) for details.
+
+            Acceptable values are 10 to 84, inclusive.
+          type: integer
+          format: int64
+        lowerCaseTableNames:
+          description: |-
+            Table names storage and comparison strategy
+
+            See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
+
+            Acceptable values are 0 to 1, inclusive.
           type: integer
           format: int64
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
@@ -7624,6 +7982,9 @@ components:
               Access policy for external services.
 
               If the specific services need to access the cluster, then set the necessary values in this policy.
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnostics'
+            description: Configuration of the performance diagnostics service.
       - title: mysql_config
         type: object
         maxProperties: 1
@@ -7731,6 +8092,9 @@ components:
               Access policy for external services.
 
               If the specific services need to access the cluster, then set the necessary values in this policy.
+          performanceDiagnostics:
+            $ref: '#/components/schemas/PerformanceDiagnostics'
+            description: Configuration of the performance diagnostics service.
       - title: mysql_config
         type: object
         maxProperties: 1

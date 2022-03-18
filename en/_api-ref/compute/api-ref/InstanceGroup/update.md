@@ -260,7 +260,15 @@ instanceGroupId | Required. ID of the instance group to update. To get the insta
       "value": "string"
     }
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "applicationLoadBalancerSpec": {
+    "targetGroupSpec": {
+      "name": "string",
+      "description": "string",
+      "labels": "object"
+    },
+    "maxOpeningTrafficDuration": "string"
+  }
 }
 ```
 
@@ -422,6 +430,12 @@ variables[] | **object**<br>
 variables[].<br>key | **string**<br><p>The string length in characters must be 1-128. Value must match the regular expression ``[a-zA-Z0-9._-]*``.</p> 
 variables[].<br>value | **string**<br><p>The maximum string length in characters is 128.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the instance group</p> 
+applicationLoadBalancerSpec | **object**<br><p>Settings for balancing load between instances via <a href="/docs/application-load-balancer/concepts">Application Load Balancer</a> (OSI model layer 7).</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Required. Basic properties of the Application Load Balancer target group attributed to the instance group.</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
+applicationLoadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

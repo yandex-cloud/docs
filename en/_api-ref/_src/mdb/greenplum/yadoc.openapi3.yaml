@@ -8,6 +8,75 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
 paths:
+  /managed-greenplum/v1/backups/{backupId}:
+    get:
+      tags:
+      - Backup
+      summary: Returns the specified backup of Greenplum® cluster.
+      operationId: BackupGet
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the backup to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Backup'
+      x-y-navtitle: get
+  /managed-greenplum/v1/backups:
+    get:
+      tags:
+      - Backup
+      summary: Returns the list of available backups for the specified Greenplum®
+        cluster.
+      operationId: BackupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Required. ID of the folder to list backups in.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListBackups requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBackupsResponse'
+      x-y-navtitle: list
   /managed-greenplum/v1/clusters/{clusterId}:
     get:
       tags:
@@ -474,6 +543,76 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
+  /managed-greenplum/v1/clusters/{clusterId}/backups:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves the list of available backups for the specified Greenplum
+        cluster.
+      operationId: ClusterListBackups
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Greenplum® cluster.
+          To get the Greenplum® cluster ID use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterBackupsResponse'
+      x-y-navtitle: listBackups
+  /managed-greenplum/v1/clusters:restore:
+    post:
+      tags:
+      - Cluster
+      summary: Creates a new Greenplum® cluster using the specified backup.
+      operationId: ClusterRestore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestoreClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restore
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestoreClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-greenplum/api-ref/Cluster#representation)'
   /managed-greenplum/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -554,6 +693,37 @@ components:
       description: An any-time maintenance window.
       type: object
       properties: {}
+    Backup:
+      type: object
+      properties:
+        id:
+          description: Required. ID of the backup.
+          type: string
+        folderId:
+          description: ID of the folder that the backup belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
+            (i.e. when the backup operation was completed).
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        sourceClusterId:
+          description: ID of the PostgreSQL cluster that the backup was created for.
+          type: string
+        startedAt:
+          description: |-
+            Time when the backup operation was started.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        size:
+          description: Size of backup in bytes
+          type: string
+          format: int64
     Cluster:
       description: A Greenplum® cluster resource.
       type: object
@@ -1035,6 +1205,40 @@ components:
           $ref: '#/components/schemas/GreenplumConfig6_19_in_GreenplumConfigSet6_19_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/GreenplumConfig6_19_in_GreenplumConfigSet6_19_defaultConfig'
+    GreenplumRestoreConfig:
+      type: object
+      properties:
+        backupWindowStart:
+          $ref: '#/components/schemas/TimeOfDay_in_GreenplumRestoreConfig_backupWindowStart'
+        access:
+          $ref: '#/components/schemas/Access_in_GreenplumRestoreConfig_access'
+        zoneId:
+          description: |-
+            ID of the availability zone where the host resides.
+            To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        subnetId:
+          description: |-
+            ID of the subnet that the host should belong to. This subnet should be a part
+            of the network that the cluster belongs to.
+            The ID of the network is set in the field [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation).
+
+            The maximum string length in characters is 50.
+          type: string
+        assignPublicIp:
+          description: |-
+            Whether the host should get a public IP address on creation.
+
+            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
+
+            Possible values:
+            * false - don't assign a public IP to the master hosts.
+            * true - the master hosts should have a public IP address.
+          type: boolean
+          format: boolean
     Host:
       description: A Greenplum® cluster host resource.
       type: object
@@ -1099,6 +1303,37 @@ components:
       - MASTER
       - REPLICA
       - SEGMENT
+    ListBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: Requested list of backups.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListBackups requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListBackups request. Subsequent ListBackups
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
+    ListClusterBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: List of Greenplum® backups.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses) as the value
+            for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses) to continue paging through the results.
+          type: string
     ListClusterHostsResponse:
       type: object
       properties:
@@ -1381,6 +1616,93 @@ components:
           description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
             or `local-ssd`.'
           type: string
+    RestoreClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the new Greenplum® cluster that is being created from
+            a backup.
+          type: string
+        backupId:
+          description: ID of the backup that is being used for creating a cluster.
+          type: string
+    RestoreClusterRequest:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            Required.
+            ID of the backup to create a cluster from.
+            To get the backup ID, use a [listBackups](/docs/managed-greenplum/api-ref/Cluster/listBackups) request.
+          type: string
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create the Greenplum® cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the Greenplum® cluster. The name must be unique within the folder.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Description of the Greenplum® cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
+        config:
+          $ref: '#/components/schemas/GreenplumRestoreConfig_in_RestoreClusterRequest_config'
+        masterResources:
+          $ref: '#/components/schemas/Resources_in_RestoreClusterRequest_masterResources'
+        segmentResources:
+          $ref: '#/components/schemas/Resources_in_RestoreClusterRequest_segmentResources'
+        networkId:
+          description: |-
+            Required.
+            ID of the network to create the cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
+        hostGroupIds:
+          description: Host groups to place VMs of cluster on.
+          type: array
+          items:
+            type: string
+        placementGroupId:
+          description: ID of placement group
+          type: string
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_RestoreClusterRequest_maintenanceWindow'
     SegmentSubclusterConfig:
       description: Configuration of the segment subcluster.
       type: object
@@ -2223,6 +2545,51 @@ components:
             https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
           type: boolean
           format: boolean
+    TimeOfDay_in_GreenplumRestoreConfig_backupWindowStart:
+      description: |-
+        Time to start the daily backup, in the UTC timezone.
+
+        Represents a time of day. The date and time zone are either not significant
+        or are specified elsewhere. An API may choose to allow leap seconds. Related
+        types are [google.type.Date](https://github.com/googleapis/googleapis/blob/master/google/type/date.proto) and [google.protobuf.Timestamp](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto).
+      type: object
+      properties:
+        hours:
+          description: |-
+            Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+            to allow the value "24:00:00" for scenarios like business closing time.
+          type: integer
+          format: int32
+        minutes:
+          description: Minutes of hour of day. Must be from 0 to 59.
+          type: integer
+          format: int32
+        seconds:
+          description: |-
+            Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+            allow the value 60 if it allows leap-seconds.
+          type: integer
+          format: int32
+        nanos:
+          description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+          type: integer
+          format: int32
+    Access_in_GreenplumRestoreConfig_access:
+      description: |-
+        Access policy for external services.
+
+        Greenplum® cluster access options.
+      type: object
+      properties:
+        dataLens:
+          description: Allows data export from the cluster to Yandex DataLens.
+          type: boolean
+          format: boolean
+        webSql:
+          description: Allows SQL queries to the cluster databases from the Yandex
+            Cloud management console.
+          type: boolean
+          format: boolean
     HostType_in_Host_type:
       description: |-
         Type of the host.
@@ -2327,6 +2694,113 @@ components:
       enum:
       - MASTER
       - SEGMENT
+    ClusterEnvironment_in_RestoreClusterRequest_environment:
+      description: |-
+        Required.
+        Deployment environment of the Greenplum® cluster.
+
+        Deployment environment.
+
+         - PRODUCTION: Stable environment with a conservative update policy:
+        only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions
+        are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    GreenplumRestoreConfig_in_RestoreClusterRequest_config:
+      description: Greenplum® cluster config
+      type: object
+      properties:
+        backupWindowStart:
+          $ref: '#/components/schemas/TimeOfDay_in_GreenplumRestoreConfig_backupWindowStart'
+        access:
+          $ref: '#/components/schemas/Access_in_GreenplumRestoreConfig_access'
+        zoneId:
+          description: |-
+            ID of the availability zone where the host resides.
+            To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        subnetId:
+          description: |-
+            ID of the subnet that the host should belong to. This subnet should be a part
+            of the network that the cluster belongs to.
+            The ID of the network is set in the field [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation).
+
+            The maximum string length in characters is 50.
+          type: string
+        assignPublicIp:
+          description: |-
+            Whether the host should get a public IP address on creation.
+
+            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
+
+            Possible values:
+            * false - don't assign a public IP to the master hosts.
+            * true - the master hosts should have a public IP address.
+          type: boolean
+          format: boolean
+    Resources_in_RestoreClusterRequest_masterResources:
+      description: |-
+        Resources of the Greenplum® master subcluster.
+
+        A list of computational resources allocated to a host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources allocated to a host.
+            Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage used by the host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
+            or `local-ssd`.'
+          type: string
+    Resources_in_RestoreClusterRequest_segmentResources:
+      description: |-
+        Resources of the Greenplum® segment subcluster.
+
+        A list of computational resources allocated to a host.
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            ID of the preset for computational resources allocated to a host.
+            Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+          type: string
+        diskSize:
+          description: Volume of the storage used by the host, in bytes.
+          type: string
+          format: int64
+        diskTypeId:
+          description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
+            or `local-ssd`.'
+          type: string
+    MaintenanceWindow_in_RestoreClusterRequest_maintenanceWindow:
+      description: |-
+        Window of maintenance operations.
+
+        A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+            description: An any-time maintenance window.
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+            description: A weekly maintenance window.
     Resources_in_SegmentSubclusterConfig_resources:
       description: |-
         Computational resources allocated to Greenplum® segment subcluster hosts.
@@ -2462,6 +2936,7 @@ components:
       - SAT
       - SUN
 tags:
+- name: Backup
 - name: Cluster
   description: A set of methods for managing Greenplum® clusters.
 - name: ResourcePreset
