@@ -8,6 +8,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
+[BackupService](./backup_service.md) | 
 [ClusterService](./cluster_service.md) | A set of methods for managing Greenplum® clusters.
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing resource presets.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

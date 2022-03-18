@@ -43,7 +43,7 @@ eou_classifier | **[EouClassifierOptions](#EouClassifierOptions)**<br>configurat
 
 Field | Description
 --- | ---
-model | **string**<br>model name 
+model | **string**<br>reserved for future, do not use 
 audio_format | **[AudioFormatOptions](#AudioFormatOptions)**<br>config for input audio 
 text_normalization | **[TextNormalizationOptions](#TextNormalizationOptions)**<br>text normalization options 
 language_restriction | **[LanguageRestrictionOptions](#LanguageRestrictionOptions)**<br>possible languages in audio 
@@ -72,7 +72,7 @@ audio_channel_count | **int64**<br>PCM channel count. Currently only single chan
 
 Field | Description
 --- | ---
-container_audio_type | enum **ContainerAudioType**<br>type of audio container <ul><li>`MP3`: transcription only</li><ul/>
+container_audio_type | enum **ContainerAudioType**<br>type of audio container <ul><ul/>
 
 
 ### TextNormalizationOptions {#TextNormalizationOptions}

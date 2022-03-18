@@ -55,6 +55,8 @@ items:
         href: tts/index.md
       - name: Список голосов
         href: tts/voices.md
+      - name: Настройка генерации речи
+        href: tts/tts-markup.md
       - name: SpeechKit Brand Voice
         items:
           - name: О технологии SpeechKit Brand Voice

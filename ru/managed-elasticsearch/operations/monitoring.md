@@ -136,10 +136,10 @@
 | Число инициализируемых шардов                |    `elasticsearch_initializing_shards`    |      `top_last(1)`     |             `больше 0`            |                                   |
 | Число отложенных к назначению шардов         | `elasticsearch_delayed_unassigned_shards` |      `top_last(1)`     |             `больше 0`            |                                   |
 | Объем использованной памяти кучи JVM         | `elasticsearch_jvm_mem_heap_used_percent` |      `top_last(1)`     | больше 90% от объема RAM на хосте |                                   |
-| Объем использованного хранилища              |   `elasticsearch_fs_total_used_percent`   |      `top_last(1)`     | больше 90% от объема RAM на хосте | больше 85% от объема RAM на хосте |
+| Объем использованного хранилища              |   `elasticsearch_fs_total_used_percent`   |      `top_last(1)`     |  больше 90% от размера хранилища  |  больше 85% от размера хранилища  |
 | Использование пула долгоживущих объектов JVM |   `elasticsearch_jvm_mem_heap_pressure`   |      `top_last(1)`     | больше 90% от объема RAM на хосте | больше 75% от объема RAM на хосте |
 
-Текущий объем хранилища и RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+Текущий размер хранилища и объем RAM на хостах можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 

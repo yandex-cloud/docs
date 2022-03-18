@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{%  include [18.03.2022 — cr8escape](../../_includes/overview/security-bulletins/cve-2022-0811-cr8escape.md) %}
+
 {%  include [09.03.2022 — Dirty Pipe](../../_includes/overview/security-bulletins/cve-2022-0847-dirty-pipe.md) %}
 
 {% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/overview/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}

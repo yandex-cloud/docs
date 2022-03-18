@@ -285,6 +285,7 @@ filter | A filter expression that filters backend groups listed in the response.
 
               }
             },
+            "enableProxyProtocol": true,
             "targetGroups": {
               "targetGroupIds": [
                 "string"
@@ -452,6 +453,7 @@ backendGroups[].<br>stream.<br>backends[].<br>tls.<br>sni | **string**<br><p>Ser
 backendGroups[].<br>stream.<br>backends[].<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS connections.</p> <p>A TLS validation context resource.</p> 
 backendGroups[].<br>stream.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`backendGroups[].stream.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
 backendGroups[].<br>stream.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`backendGroups[].stream.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
+backendGroups[].<br>stream.<br>backends[].<br>enableProxyProtocol | **boolean** (boolean)<br><p>If set, proxy protocol will be enabled for this backend.</p> 
 backendGroups[].<br>stream.<br>backends[].<br>targetGroups | **object**<br>Target groups that belong to the backend.<br><p>A resource for target groups that belong to the backend.</p> 
 backendGroups[].<br>stream.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. List of ID's of target groups that belong to the backend.</p> <p>To get the ID's of all available target groups, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>Must contain at least one element.</p> 
 backendGroups[].<br>stream.<br>connection | **object**<br>Connection-based session affinity configuration.  For now, a connection is defined only by an IP address of the client.<br><p>A resource for connection-based session affinity configuration.</p> 

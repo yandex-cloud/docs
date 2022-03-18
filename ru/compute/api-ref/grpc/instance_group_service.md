@@ -1910,6 +1910,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec5)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 variables[] | **[Variable](#Variable5)**<br> 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the instance group 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec5)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 
 
 ### InstanceTemplate {#InstanceTemplate5}
@@ -2184,6 +2185,23 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec5}
+
+Field | Description
+--- | ---
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec5)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
+
+
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the target group. 
+description | **string**<br>Description of the target group. 
+labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
+
+
 ### Operation {#Operation2}
 
 Field | Description
@@ -2229,7 +2247,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
 variables[] | **[Variable](#Variable6)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
-application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec5)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec6)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState4)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
 
 
@@ -2539,15 +2557,15 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
-### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec5}
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec6}
 
 Field | Description
 --- | ---
-target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec5)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec6)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
-### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec5}
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec6}
 
 Field | Description
 --- | ---
@@ -2627,7 +2645,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
 variables[] | **[Variable](#Variable7)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
-application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec6)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec7)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState5)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
 
 
@@ -2937,15 +2955,15 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
-### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec6}
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec7}
 
 Field | Description
 --- | ---
-target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec6)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec7)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
-### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec6}
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec7}
 
 Field | Description
 --- | ---
@@ -3024,7 +3042,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
 variables[] | **[Variable](#Variable8)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
-application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec7)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec8)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState6)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
 
 
@@ -3334,15 +3352,15 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
-### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec7}
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec8}
 
 Field | Description
 --- | ---
-target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec7)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec8)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
-### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec7}
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec8}
 
 Field | Description
 --- | ---
@@ -3421,7 +3439,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
 variables[] | **[Variable](#Variable9)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
-application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec8)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec9)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState7)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
 
 
@@ -3731,15 +3749,15 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
-### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec8}
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec9}
 
 Field | Description
 --- | ---
-target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec8)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec9)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
-### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec8}
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec9}
 
 Field | Description
 --- | ---
@@ -3948,7 +3966,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
 variables[] | **[Variable](#Variable10)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
-application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec9)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec10)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState8)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
 
 
@@ -4258,15 +4276,15 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
-### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec9}
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec10}
 
 Field | Description
 --- | ---
-target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec9)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec10)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
-### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec9}
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec10}
 
 Field | Description
 --- | ---
@@ -4346,7 +4364,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
 variables[] | **[Variable](#Variable11)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
-application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec10)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec11)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState9)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
 
 
@@ -4656,15 +4674,15 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
-### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec10}
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec11}
 
 Field | Description
 --- | ---
-target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec10)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec11)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
-### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec10}
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec11}
 
 Field | Description
 --- | ---
@@ -4976,7 +4994,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
 variables[] | **[Variable](#Variable12)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
-application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec11)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec12)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState10)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
 
 
@@ -5286,15 +5304,15 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
-### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec11}
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec12}
 
 Field | Description
 --- | ---
-target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec11)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec12)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
-### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec11}
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec12}
 
 Field | Description
 --- | ---
@@ -5373,7 +5391,7 @@ service_account_id | **string**<br>ID of the service account. The service accoun
 status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
 variables[] | **[Variable](#Variable13)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
-application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec12)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
+application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec13)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
 application_load_balancer_state | **[ApplicationLoadBalancerState](#ApplicationLoadBalancerState11)**<br>Status of the Application Load Balancer target group attributed to the instance group. <br>Returned if there is a working load balancer that the target group is connected to. 
 
 
@@ -5683,15 +5701,15 @@ key | **string**<br> The string length in characters must be 1-128. Value must m
 value | **string**<br> The maximum string length in characters is 128.
 
 
-### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec12}
+### ApplicationLoadBalancerSpec {#ApplicationLoadBalancerSpec13}
 
 Field | Description
 --- | ---
-target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec12)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
+target_group_spec | **[ApplicationTargetGroupSpec](#ApplicationTargetGroupSpec13)**<br>Required. Basic properties of the Application Load Balancer target group attributed to the instance group. 
 max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds. The minimum value is 1s.
 
 
-### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec12}
+### ApplicationTargetGroupSpec {#ApplicationTargetGroupSpec13}
 
 Field | Description
 --- | ---

@@ -63,6 +63,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -90,6 +91,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem}
@@ -223,6 +232,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk1)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk1)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk1)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem1)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface1)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -250,6 +260,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk1}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem1}
@@ -366,6 +384,7 @@ resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Required. Computing reso
 metadata | **map<string,string>**<br>The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB. <br>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Required. Boot disk to attach to the instance. 
 secondary_disk_specs[] | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Array of secondary disks to attach to the instance. The maximum number of elements is 3.
+local_disk_specs[] | **[AttachedLocalDiskSpec](#AttachedLocalDiskSpec)**<br>Array of local disks to attach to the instance. 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
 hostname | **string**<br>Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](#Instance) value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](#Instance) of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
@@ -410,6 +429,13 @@ disk_placement_policy | **[DiskPlacementPolicy](#DiskPlacementPolicy)**<br>Place
 source | **oneof:** `image_id` or `snapshot_id`<br>
 &nbsp;&nbsp;image_id | **string**<br>ID of the image to create the disk from. The maximum string length in characters is 50.
 &nbsp;&nbsp;snapshot_id | **string**<br>ID of the snapshot to restore the disk from. The maximum string length in characters is 50.
+
+
+### AttachedLocalDiskSpec {#AttachedLocalDiskSpec}
+
+Field | Description
+--- | ---
+size | **int64**<br>Required. Size of the disk, specified in bytes. 
 
 
 ### AttachedFilesystemSpec {#AttachedFilesystemSpec}
@@ -540,6 +566,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk2)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk2)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk2)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem2)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface2)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -567,6 +594,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk2}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem2}
@@ -768,6 +803,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk3)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk3)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk3)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem3)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface3)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -795,6 +831,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk3}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem3}
@@ -986,6 +1030,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk4)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk4)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk4)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem4)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface4)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -1013,6 +1058,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk4}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem4}
@@ -1223,6 +1276,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk5)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk5)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk5)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem5)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface5)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -1250,6 +1304,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk5}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem5}
@@ -1468,6 +1530,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk6)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk6)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk6)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem6)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface6)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -1495,6 +1558,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk6}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem6}
@@ -1648,6 +1719,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk7)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk7)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk7)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem7)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface7)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -1675,6 +1747,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk7}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem7}
@@ -1835,6 +1915,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk8)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk8)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk8)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem8)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface8)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -1862,6 +1943,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk8}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem8}
@@ -2015,6 +2104,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk9)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk9)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk9)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem9)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface9)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -2042,6 +2132,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk9}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem9}
@@ -2213,6 +2311,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk10)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk10)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk10)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem10)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface10)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -2240,6 +2339,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk10}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem10}
@@ -2391,6 +2498,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk11)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk11)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk11)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem11)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface11)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -2418,6 +2526,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk11}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem11}
@@ -2612,6 +2728,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk12)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk12)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk12)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem12)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface12)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -2639,6 +2756,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk12}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem12}
@@ -2830,6 +2955,7 @@ status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Inst
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk13)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk13)**<br>Array of secondary disks that are attached to the instance. 
+local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk13)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem13)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface13)**<br>Array of network interfaces that are attached to the instance. 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
@@ -2857,6 +2983,14 @@ mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: R
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
+
+
+### AttachedLocalDisk {#AttachedLocalDisk13}
+
+Field | Description
+--- | ---
+size | **int64**<br>Size of the disk, specified in bytes. 
+device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 
 
 ### AttachedFilesystem {#AttachedFilesystem13}

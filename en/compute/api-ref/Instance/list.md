@@ -60,6 +60,12 @@ filter | A filter expression that filters resources listed in the response. The 
           "diskId": "string"
         }
       ],
+      "localDisks": [
+        {
+          "size": "string",
+          "deviceName": "string"
+        }
+      ],
       "filesystems": [
         {
           "mode": "string",
@@ -178,6 +184,9 @@ instances[].<br>secondaryDisks[].<br>mode | **string**<br><p>Access mode to the 
 instances[].<br>secondaryDisks[].<br>deviceName | **string**<br><p>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> 
 instances[].<br>secondaryDisks[].<br>autoDelete | **boolean** (boolean)<br><p>Specifies whether the disk will be auto-deleted when the instance is deleted.</p> 
 instances[].<br>secondaryDisks[].<br>diskId | **string**<br><p>ID of the disk that is attached to the instance.</p> 
+instances[].<br>localDisks[] | **object**<br><p>Array of local disks that are attached to the instance.</p> 
+instances[].<br>localDisks[].<br>size | **string** (int64)<br><p>Size of the disk, specified in bytes.</p> 
+instances[].<br>localDisks[].<br>deviceName | **string**<br><p>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> 
 instances[].<br>filesystems[] | **object**<br><p>Array of filesystems that are attached to the instance.</p> 
 instances[].<br>filesystems[].<br>mode | **string**<br><p>Access mode to the filesystem.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
 instances[].<br>filesystems[].<br>deviceName | **string**<br><p>Name of the device representing the filesystem on the instance.</p> <p>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc.</p> 

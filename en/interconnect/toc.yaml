@@ -5,6 +5,8 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
+      - name: Custom metrics
+        href: concepts/user-metrics.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Pricing policy

@@ -13,3 +13,4 @@
 * [{#T}](cluster-delete.md)
 * [{#T}](performance-diagnostics.md)
 * [{#T}](maintenance.md)
+* [{#T}](monitoring.md)
