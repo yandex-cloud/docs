@@ -44,6 +44,11 @@ clusterId | Required. ID of the cluster to update.  To get this ID, make a [list
       "dataLens": true,
       "webSql": true
     },
+    "performanceDiagnostics": {
+      "enabled": true,
+      "sessionsSamplingInterval": "string",
+      "statementsSamplingInterval": "string"
+    },
 
     // `configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`
     "mysqlConfig_5_7": {
@@ -113,7 +118,12 @@ clusterId | Required. ID of the cluster to update.  To get this ID, make a [list
         "string"
       ],
       "mdbPriorityChoiceMaxLag": "integer",
-      "innodbPageSize": "integer"
+      "innodbPageSize": "integer",
+      "innodbOnlineAlterLogMaxSize": "integer",
+      "innodbFtMinTokenSize": "integer",
+      "innodbFtMaxTokenSize": "integer",
+      "lowerCaseTableNames": "integer",
+      "showCompatibility_56": true
     },
     "mysqlConfig_8_0": {
       "innodbBufferPoolSize": "integer",
@@ -183,7 +193,11 @@ clusterId | Required. ID of the cluster to update.  To get this ID, make a [list
         "string"
       ],
       "mdbPriorityChoiceMaxLag": "integer",
-      "innodbPageSize": "integer"
+      "innodbPageSize": "integer",
+      "innodbOnlineAlterLogMaxSize": "integer",
+      "innodbFtMinTokenSize": "integer",
+      "innodbFtMaxTokenSize": "integer",
+      "lowerCaseTableNames": "integer"
     },
     // end of the list of possible fields`configSpec`
 
@@ -227,10 +241,14 @@ configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions
 configSpec.<br>access | **object**<br>Access policy for external services.  If the specific services need to access the cluster, then set the necessary values in this policy.<br>
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows access from DataLens.</p> <p>See <a href="/docs/managed-mysql/operations/datalens-connect">the documentation</a> for details.</p> 
 configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from Yandex Cloud management console.</p> <p>See <a href="/docs/managed-mysql/operations/web-sql-query">the documentation</a> for details.</p> 
+configSpec.<br>performanceDiagnostics | **object**<br>Configuration of the performance diagnostics service.<br>
+configSpec.<br>performanceDiagnostics.<br>enabled | **boolean** (boolean)<br><p>Flag that shows if performance statistics gathering is enabled for the cluster.</p> 
+configSpec.<br>performanceDiagnostics.<br>sessionsSamplingInterval | **string** (int64)<br><p>Interval (in seconds) for ``my_session`` sampling.</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
+configSpec.<br>performanceDiagnostics.<br>statementsSamplingInterval | **string** (int64)<br><p>Interval (in seconds) for ``my_statements`` sampling.</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7 | **object**<br>Configuration for a MySQL 5.7 cluster. <br>`configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br><br><p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
-configSpec.<br>mysqlConfig_5_7.<br>longQueryTime | **number** (double)<br><p>Time that it takes to process a query before it is considered slow.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time">MySQL documentation</a> for details.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>longQueryTime | **number** (double)<br><p>Time that it takes to process a query before it is considered slow.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time">MySQL documentation</a> for details.</p> <p>Acceptable values are 0 to 3600, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>generalLog | **boolean** (boolean)<br><p>Enable writing of general query log of MySQL.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log">MySQL documentation</a> for details.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>auditLog | **boolean** (boolean)<br><p>Enable writing of audit log of MySQL.</p> <p>See <a href="https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log">MySQL documentation</a> for details.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>sqlMode[] | **string**<br><p>Server SQL mode of MySQL.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting">MySQL documentation</a> for details.</p> 
@@ -277,7 +295,7 @@ configSpec.<br>mysqlConfig_5_7.<br>binlogRowsQueryLogEvents | **boolean** (boole
 configSpec.<br>mysqlConfig_5_7.<br>rplSemiSyncMasterWaitForSlaveCount | **integer** (int64)<br><p>The number of replica acknowledgments the source must receive per transaction before proceeding.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-master.html#sysvar_rpl_semi_sync_master_wait_for_slave_count">MySQL documentation</a> for details.</p> <p>Acceptable values are 1 to 2, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>slaveParallelType | **string**<br><p>When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_type">MySQL documentation</a> for details.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>slaveParallelWorkers | **integer** (int64)<br><p>Sets the number of applier threads for executing replication transactions in parallel.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_workers">MySQL documentation</a> for details.</p> <p>Acceptable values are 0 to 64, inclusive.</p> 
-configSpec.<br>mysqlConfig_5_7.<br>mdbPreserveBinlogBytes | **integer** (int64)<br><p>The size of the binary log to hold.</p> <p>Acceptable values are 1073741824 to 107374182400, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>mdbPreserveBinlogBytes | **integer** (int64)<br><p>The size of the binary log to hold.</p> <p>Acceptable values are 1073741824 to 1099511627776, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>interactiveTimeout | **integer** (int64)<br><p>The number of seconds the server waits for activity on an interactive connection before closing it.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_interactive_timeout">MySQL documentation</a> for details.</p> <p>Acceptable values are 600 to 86400, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>waitTimeout | **integer** (int64)<br><p>The number of seconds the server waits for activity on a noninteractive connection before closing it.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_wait_timeout">MySQL documentation</a> for details.</p> <p>Acceptable values are 600 to 86400, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
@@ -291,6 +309,11 @@ configSpec.<br>mysqlConfig_5_7.<br>logSlowSpStatements | **boolean** (boolean)<b
 configSpec.<br>mysqlConfig_5_7.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan.</p> <p>See <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation</a> for details.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>mdbPriorityChoiceMaxLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which allows replica to be promoted to master while executing &quot;switchover from&quot;. Should be less than mdb_offline_mode_disable_lag.</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>innodbPageSize | **integer** (int64)<br><p>Specifies the page size for InnoDB tablespaces.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 4096 to 65536, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>innodbOnlineAlterLogMaxSize | **integer** (int64)<br><p>The limit in bytes on the size of the temporary log files used during online DDL operations</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 65536 to 107374182400, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>innodbFtMinTokenSize | **integer** (int64)<br><p>Minimum length of words that are stored in an InnoDB FULLTEXT index</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>showCompatibility_56 | **boolean** (boolean)<br><p>Manages MySQL 5.6 compatibility</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56">MySQL documentation for the variable</a>.</p> 
 configSpec.<br>mysqlConfig_8_0 | **object**<br>Configuration for a MySQL 8.0 cluster. <br>`configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br><br><p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -342,7 +365,7 @@ configSpec.<br>mysqlConfig_8_0.<br>rplSemiSyncMasterWaitForSlaveCount | **intege
 configSpec.<br>mysqlConfig_8_0.<br>slaveParallelType | **string**<br><p>When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type">MySQL documentation</a> for details.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>slaveParallelWorkers | **integer** (int64)<br><p>Sets the number of applier threads for executing replication transactions in parallel.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers">MySQL documentation</a> for details.</p> <p>Acceptable values are 0 to 64, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>regexpTimeLimit | **integer** (int64)<br><p>The time limit for regular expression matching operations performed by REGEXP_LIKE and similar functions.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_regexp_time_limit">MySQL documentation</a> for details.</p> <p>Acceptable values are 0 to 1048576, inclusive.</p> 
-configSpec.<br>mysqlConfig_8_0.<br>mdbPreserveBinlogBytes | **integer** (int64)<br><p>The size of the binary log to hold.</p> <p>Acceptable values are 1073741824 to 107374182400, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>mdbPreserveBinlogBytes | **integer** (int64)<br><p>The size of the binary log to hold.</p> <p>Acceptable values are 1073741824 to 1099511627776, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>interactiveTimeout | **integer** (int64)<br><p>The number of seconds the server waits for activity on an interactive connection before closing it.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_interactive_timeout">MySQL documentation</a> for details.</p> <p>Acceptable values are 600 to 86400, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>waitTimeout | **integer** (int64)<br><p>The number of seconds the server waits for activity on a noninteractive connection before closing it.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout">MySQL documentation</a> for details.</p> <p>Acceptable values are 600 to 86400, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
@@ -355,7 +378,11 @@ configSpec.<br>mysqlConfig_8_0.<br>logSlowRateLimit | **integer** (int64)<br><p>
 configSpec.<br>mysqlConfig_8_0.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log.</p> <p>See <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation</a> for details.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan.</p> <p>See <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation</a> for details.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>mdbPriorityChoiceMaxLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which allows replica to be promoted to master while executing &quot;switchover from&quot;. Should be less than mdb_offline_mode_disable_lag.</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
-configSpec.<br>mysqlConfig_8_0.<br>innodbPageSize | **integer** (int64)<br><p>Specifies the page size for InnoDB tablespaces.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 4096 to 65536, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>innodbPageSize | **integer** (int64)<br><p>Specifies the page size for InnoDB tablespaces.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 4096 to 65536, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>innodbOnlineAlterLogMaxSize | **integer** (int64)<br><p>The limit in bytes on the size of the temporary log files used during online DDL operations</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 65536 to 107374182400, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>innodbFtMinTokenSize | **integer** (int64)<br><p>Minimum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 name | **string**<br><p>New name of the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 maintenanceWindow | **object**<br><p>Configuration of a maintenance window in an MySQL cluster.</p> <p>Configuration of a maintenance window in a MySQL cluster.</p> 
 maintenanceWindow.<br>anytime | **object**<br>Maintenance operation can be scheduled anytime. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>

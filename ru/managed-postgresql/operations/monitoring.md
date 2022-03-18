@@ -100,6 +100,8 @@ description: "Вы можете отслеживать состояние кла
 | Среднее время выполнения запросов     | `pooler-avg_query_time`    | —                         | `2000`                    |
 | Объем использованного хранилища       | `disk.used_bytes`          | 90% от размера хранилища  | 80% от размера хранилища  |
 
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+
 ## Состояние и статус кластера {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}

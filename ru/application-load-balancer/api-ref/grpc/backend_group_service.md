@@ -371,6 +371,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend2)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck2)**<br> 
 tls | **[BackendTls](#BackendTls2)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig2}
@@ -838,6 +839,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend5)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck5)**<br> 
 tls | **[BackendTls](#BackendTls5)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig5}
@@ -1289,6 +1291,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend8)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck8)**<br> 
 tls | **[BackendTls](#BackendTls8)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig8}
@@ -1755,6 +1758,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend11)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck11)**<br> 
 tls | **[BackendTls](#BackendTls11)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig11}
@@ -2207,6 +2211,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend14)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck14)**<br> 
 tls | **[BackendTls](#BackendTls14)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig14}
@@ -2673,6 +2678,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend17)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck17)**<br> 
 tls | **[BackendTls](#BackendTls17)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig17}
@@ -3086,6 +3092,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend20)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck20)**<br> 
 tls | **[BackendTls](#BackendTls20)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig20}
@@ -3546,6 +3553,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend23)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck23)**<br> 
 tls | **[BackendTls](#BackendTls23)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig23}
@@ -4031,6 +4039,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend26)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck26)**<br> 
 tls | **[BackendTls](#BackendTls26)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig26}
@@ -4405,6 +4414,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend29)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck29)**<br> 
 tls | **[BackendTls](#BackendTls29)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig29}
@@ -4865,6 +4875,7 @@ backend_type | **oneof:** `target_groups`<br>
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend32)**<br> 
 healthchecks[] | **[HealthCheck](#HealthCheck32)**<br> 
 tls | **[BackendTls](#BackendTls32)**<br> 
+enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig32}

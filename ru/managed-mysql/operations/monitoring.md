@@ -166,6 +166,8 @@ description: "Вы можете отслеживать состояние кла
 | Объем использованного хранилища     | `disk.used_bytes`         | 90% от размера хранилища  | 80% от размера хранилища  |
 | Утилизация CPU                      | `cpu.idle`                | `10`                      | `20`                      |
 
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+
 ## Состояние и статус кластера {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
