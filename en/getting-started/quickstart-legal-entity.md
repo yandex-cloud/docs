@@ -1,25 +1,72 @@
 {% include [start](_includes/quickstart-start.md) %}
 
-If the payer is a non-resident of Russia or Kazakhstan, only one payer type is available: **Business (non-resident of Russia)**.
+## Creating a billing account {#new-account}
 
-Select a payment method: **Bank card** or **Bank transfer**. You can [change your payment method](../billing/operations/change-payment-method.md) any time after creating a billing account.
+A billing account is required even if you plan to use only free services. When you create the first billing account linked to your user account, you are awarded the [initial grant](usage-grant.md).
 
-Enter the legal information of your organization.
+{% list tabs %}
 
-{% include [contacts-note](../_includes/billing/contacts-note.md) %}
+   - Trial period
 
-If you select the **Bank card** payment method, link your corporate bank card:
-   
-   {% include [pin-card-data](../_includes/billing/pin-card-data.md) %}
-   
-   * Confirm that the card is corporate and you are authorized to use it.
+      ![quickstart](../_assets/overview/legal-entity-trial-period.svg)
 
-   {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
+   - Paid version
 
-   {% include [yandex-account](../_includes/billing/payment-card-validation.md) %}
+      ![quickstart](../_assets/overview/legal-entity-paid-version.svg)
 
-Click **Activate**.
+{% endlist %}
 
-If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your user account. In this case, it may take up to three business days to activate your billing account.
+{% include [main](../_includes/billing/registration-main.md) %}
 
-{% include [start](_includes/quickstart-whats-next.md) %}
+Provide details to create a billing account:
+
+1. Select a payment method: **Bank card** or **Bank transfer**. You can [change your payment method](../billing/operations/change-payment-method.md) any time after creating a billing account.
+
+{% list tabs %}
+
+- Bank card
+
+   1. Enter the legal information of your organization.
+
+         {% include [contacts-note](../_includes/billing/contacts-note.md) %}
+
+   1. Link your corporate bank card:
+
+      {% include [pin-card-data](../_includes/billing/pin-card-data.md) %}
+
+      * Confirm that the card is corporate and you are authorized to use it.
+
+      {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
+
+      {% include [yandex-account](../_includes/billing/payment-card-validation.md) %}
+
+   1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
+
+   1. If this is your first billing account in {{ yandex-cloud }}, a [trial period](free-trial/concepts/quickstart.md) is available to you.
+
+      {% note info %}
+
+      In some cases, additional verification may be required when you create a billing account with a trial period. On the page of this billing account in the management console, you'll find a message with detailed instructions.
+
+      {% endnote %}
+
+      * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](free-trial/concepts/upgrade-to-paid.md).
+      * If you don't activate the trial period at this time, your account will be created as a paid account. In this case, after [using up the initial grant](usage-grant.md), you don't have to upgrade to the paid version.
+
+   1. Click **Activate**.
+
+- Bank transfer
+
+   1. Enter the legal information of your organization and your contact details.
+
+      {% include [contacts-note](../_includes/billing/contacts-note.md) %}
+
+   1. Click **Activate**.
+
+   You will receive an email with further instructions at the email address specified in your user account. It may take up to three business days to activate your billing account.
+
+   If this is your first billing account in {{ yandex-cloud }}, it's created with the trial period enabled. To continue to use the resources after your trial period ends, make sure to switch to the [paid version](../billing/operations/activate-commercial.md).
+
+{% endlist %}
+
+{% include [start](_includes/quickstart-qa-whats-next.md) %}

@@ -4,8 +4,6 @@ editable: false
 items:
   - name: Getting started
     href: quickstart/index.md
-  - name: Trial period
-    href: trial/activation.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -67,6 +65,8 @@ items:
         href: concepts/personal-account.md
       - name: Grant
         href: concepts/bonus-account.md
+      - name: Trial period
+        href: concepts/trial-period.md
       - name: Committed volume of services (CVoS)
         href: concepts/cvos.md
         when: audience == "cvos"
@@ -137,3 +137,17 @@ items:
         href: qa/non-resident.md
       - name: All questions on the same page
         href: qa/all.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/billing/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/billing/toc.yaml

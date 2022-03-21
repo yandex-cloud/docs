@@ -1,4 +1,4 @@
-If you don't spend the full amount of the [initial grant](../billing/concepts/bonus-account.md) or one of its [parts](../getting-started/free-trial/concepts/usage-grant.md) before upgrading to the paid version, you can use the remaining amount depending on when the grant expires:
+If you don't spend the full amount of the [initial grant](../billing/concepts/bonus-account.md) or one of its [parts](../getting-started/usage-grant.md) before upgrading to the paid version, you can use the remaining amount depending on when the grant expires:
 
 - The grant **expires before** you upgrade to the paid version.
 
