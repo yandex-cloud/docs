@@ -23,8 +23,8 @@ For more information about the editions available, {{ MS }} see [{#T}](../concep
 
 | Type of limit | Value |
 | ----- | ----- |
-| Lowest host class | s2.nano (1 vCPU, 4 GB RAM) |
-| Highest host class | s3.6xlarge (64 vCPU, 256 GB RAM) |
+| Lowest host class | s2.small (4 vCPU, 16 GB RAM) |
+| Highest host class | s3-c96-m576 (96 vCPU, 576 GB RAM) |
 | Maximum number of hosts per cluster {{ MS }} | 7 |
 | Maximum storage capacity for a cluster {{ MS }} | 4096 GB |
 
