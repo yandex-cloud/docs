@@ -143,6 +143,7 @@ Foo1 -[#00cc00]> Foo6 : To collections
 Foo1 -> Foo7 : To Queue
 
 @enduml
+%%
 ```
 
 {% cut "Как выглядит результат" %}
@@ -151,4 +152,4 @@ Foo1 -> Foo7 : To Queue
 
 {% endcut %}
 
-Подробнее о языке разметки диаграмм PlantUML можно прочитать в [Справочном руководстве по языку PlantUML]{% if locale == "ru" %}(http://plantuml.com/ru/guide){% else %}(http://plantuml.com/guide){% endif %}.
+Подробнее о языке разметки диаграмм PlantUML можно прочитать в [Справочном руководстве по языку PlantUML](http://plantuml.com/ru/guide).
