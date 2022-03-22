@@ -16,6 +16,12 @@ editable: false
 
 ### Цены {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до копейки.
 
 {% if region == "ru"%}

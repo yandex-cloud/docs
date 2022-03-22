@@ -12,6 +12,13 @@ Nodes are charged according to [pricing for {{ compute-short-name }}](../compute
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 ### Master {#master}
 
 {% if region == "ru" %}

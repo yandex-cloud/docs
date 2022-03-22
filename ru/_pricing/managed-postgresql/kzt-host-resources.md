@@ -1,21 +1,22 @@
-| Ресурс        | Цена за 1 час                                   |
-|---------------|-------------------------------------------------|
-| **Intel Broadwell** |
-| 5% vCPU       | {{ sku|KZT|mdb.cluster.pg.v1.cpu.c5|string }}   |
-| 20% vCPU      | {{ sku|KZT|mdb.cluster.pg.v1.cpu.c20|string }}  |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.pg.v1.cpu.c50|string }}  |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.pg.v1.cpu.c100|string }} |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.v1.ram|string }}      |
-| **Intel Cascade Lake** |
-| 5% vCPU       | {{ sku|KZT|mdb.cluster.pg.v2.cpu.c5|string }}   |
-| 20% vCPU      | {{ sku|KZT|mdb.cluster.pg.v2.cpu.c20|string }}  |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.pg.v2.cpu.c50|string }}  |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.pg.v2.cpu.c100|string }} |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.v2.ram|string }}      |
-| **Intel Ice Lake** |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.pg.v3.cpu.c50|string }}  |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.pg.v3.cpu.c100|string }} |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.v3.ram|string }}      |
+| Ресурс        | Цена за 1 час                                           | |
+|---------------|---------------------------------------------------------|---|
+| | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
+| **Intel Broadwell** | |
+| 5% vCPU       | {{ sku|KZT|mdb.cluster.pg.v1.cpu.c5|string }}   | 0,30 ₸ |
+| 20% vCPU      | {{ sku|KZT|mdb.cluster.pg.v1.cpu.c20|string }}  | 2,25 ₸ |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.pg.v1.cpu.c50|string }}  | 3,75 ₸ |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.pg.v1.cpu.c100|string }} | 10,70 ₸ |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.v1.ram|string }}      | 2,45 ₸ |
+| **Intel Cascade Lake** | |
+| 5% vCPU       | {{ sku|KZT|mdb.cluster.pg.v2.cpu.c5|string }}   | 0,30 ₸ |
+| 20% vCPU      | {{ sku|KZT|mdb.cluster.pg.v2.cpu.c20|string }}  | 2,25 ₸ |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.pg.v2.cpu.c50|string }}  | 3,75 ₸ |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.pg.v2.cpu.c100|string }} | 9,05 ₸ |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.v2.ram|string }}      | 2,45 ₸ |
+| **Intel Ice Lake** | |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.pg.v3.cpu.c50|string }}  | 3,04 ₸ |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.pg.v3.cpu.c100|string }} | 8,15 ₸ |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.pg.v3.ram|string }}      | 2,20 ₸ |
 
 {% if audience == "cvos" %}
 

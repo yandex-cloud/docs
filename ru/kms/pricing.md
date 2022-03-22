@@ -5,17 +5,23 @@ editable: false
 # Правила тарификации для {{ kms-full-name }}
 
 Расчет стоимости использования {{ kms-name }} складывается из:
-* Количества активных версий ключа — версий в статусе `Active` и `Scheduled For Destruction`. 
-    
-   {% note alert %}
-   
-   После удаления ключа все его версии продолжают тарифицироваться в течение 3 дней [согласно процедуре удаления](operations/key.md#delete). 
-   
-   {% endnote %}
-   
+* Количества активных версий ключа — версий в статусе `Active` и `Scheduled For Destruction`.
+
+  {% note alert %}
+
+  После удаления ключа все его версии продолжают тарифицироваться в течение 3 дней [согласно процедуре удаления](operations/key.md#delete).
+
+  {% endnote %}
+
 * Числа выполненных криптографических операций ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
 ## Цены {#prices}
+
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
 
 {% if region == "ru"%}
 

@@ -17,8 +17,9 @@ editable: false
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
-
 ## Цены {#prices}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
 
 ### Перевод и определение языка текста {#prices-translate-detect}
 

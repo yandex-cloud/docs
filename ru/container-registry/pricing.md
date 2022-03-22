@@ -26,6 +26,12 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 ### Хранение данных {#prices-storage}
 
 Цены за ГБ в месяц фиксированны и не зависят от количества дней в месяце. Стоимость услуги хранения в день для более коротких месяцев будет выше, для более длинных — ниже.

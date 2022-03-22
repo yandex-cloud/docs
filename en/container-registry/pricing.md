@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing policy for {{ container-registry-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -24,6 +25,13 @@ If multiple Docker images in the same registry use the same layers, reused layer
 {% endnote %}
 
 ## Prices {#prices}
+
+{% if region != "int" %}
+
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
 
 ### Data storage {#prices-storage}
 

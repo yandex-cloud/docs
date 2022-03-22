@@ -9,6 +9,14 @@ When using {{ network-load-balancer-full-name }}, you are charged for the incomi
 
 Outgoing traffic is charged similarly to other {{ yandex-cloud }} services, such as [Compute Cloud](../compute/pricing.md#prices-traffic). Charges for outgoing traffic include the traffic that is generated when targets respond to health checks.
 
+## Pricing {#prices}
+
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 ### Using internal load balancer {#internal-load-balancer}
 
 The internal load balancer function is currently at the [Preview](../overview/concepts/launch-stages.md) stage and is not charged.

@@ -9,6 +9,14 @@ editable: false
 
 Исходящий трафик тарифицируется аналогично другим сервисам {{ yandex-cloud }}, например, [Compute Cloud](../compute/pricing.md#prices-traffic). В состав исходящего трафика также включается трафик ответов целевых ресурсов на проверки состояния.
 
+## Цены {#prices}
+
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 ### Использование внутреннего балансировщика нагрузки {#internal-load-balancer}
 
 Функциональность [внутреннего балансировщика нагрузки](concepts/internal-load-balancer.md) находится на стадии [Preview](../overview/concepts/launch-stages.md) и ее использование не тарифицируется.

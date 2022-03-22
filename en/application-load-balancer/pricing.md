@@ -57,6 +57,12 @@ Here {% if region == "ru" %}₽1.3889{% endif %}{% if region == "kz" %}₸8.3333
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 {% if region == "ru" %}
 
 {% include [rub-lcu.md](../_pricing/application-load-balancer/rub-lcu.md) %}

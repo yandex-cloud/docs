@@ -1,15 +1,7 @@
 #### MS SQL Server
 
-Product | Cost per vCPU per month, with VAT
---- | ---
-MS SQL Server Standard* | ₽6792
-MS SQL Server Enterprise* | ₽23227.35
-
-{% cut "Prices until October 1st of 2021" %}
-
-Product | Cost per vCPU per month, with VAT
---- | ---
-MS SQL Server Standard* | ₽5896.5
-MS SQL Server Enterprise* | ₽20163
-
-{% endcut %}
+| Product | Cost per vCPU per month, with VAT | |
+| --- | --- | --- |
+| | **Up until April 12, 2022** | **Starting April 13, 2022** |
+| MS SQL Server Standard* | ₽6792.00 | ₽10 867.00 |
+| MS SQL Server Enterprise* | ₽23 227.35 | ₽37 163.00 |

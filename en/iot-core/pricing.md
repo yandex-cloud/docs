@@ -32,6 +32,12 @@ List of commands charged under {{ iot-name }}:
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 ### Amount of data {#volumes}
 
 {% if region == "ru" %}

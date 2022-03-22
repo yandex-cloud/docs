@@ -130,6 +130,12 @@ Where:
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 ### Invoking a function {#invoke}
 
 {% if region == "ru" %}

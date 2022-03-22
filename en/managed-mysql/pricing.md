@@ -63,6 +63,10 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 ## Pricing {#prices}
 
 {% if region != "int" %}
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+{% endif %}
+
+{% if region != "int" %}
 
 All prices are shown with VAT.
 

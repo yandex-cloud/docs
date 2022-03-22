@@ -49,6 +49,10 @@ Total price per hour: ₽2.4048 + ₽0.2405 + ₽0.4447 = ₽3.09 ₽
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+{% endif %}
+
 ### Cost of computing resources with markup {{ dataproc-name }} {#prices-compute}
 
 {% if region == "ru"%}

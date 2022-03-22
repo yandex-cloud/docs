@@ -1,21 +1,22 @@
-| Ресурс        | Цена за 1 час                                      | 
-|---------------|----------------------------------------------------|
+| Ресурс        | Цена за 1 час                                           | |
+|---------------|---------------------------------------------------------|---|
+| | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
 | **Intel Broadwell** |
-| 5% vCPU       | {{ sku|KZT|mdb.cluster.mysql.v1.cpu.c5|string }}   | 
-| 20% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v1.cpu.c20|string }}  | 
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v1.cpu.c50|string }}  | 
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.mysql.v1.cpu.c100|string }} | 
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mysql.v1.ram|string }}      | 
-| **Intel Cascade Lake** |
-| 5% vCPU       | {{ sku|KZT|mdb.cluster.mysql.v2.cpu.c5|string }}   | 
-| 20% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v2.cpu.c20|string }}  | 
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v2.cpu.c50|string }}  | 
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.mysql.v2.cpu.c100|string }} | 
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mysql.v2.ram|string }}      | 
-| **Intel Ice Lake** |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c50|string }}  | 
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|string }} | 
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mysql.v3.ram|string }}      | 
+| 5% vCPU       | {{ sku|KZT|mdb.cluster.mysql.v1.cpu.c5|string }}   | 0,20 ₸|
+| 20% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v1.cpu.c20|string }}  | 2,15 ₸|
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v1.cpu.c50|string }}  | 3,60 ₸|
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mysql.v1.cpu.c100|string }} | 9,45 ₸|
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mysql.v1.ram|string }}      | 2,45 ₸ |
+| **Intel Cascade Lake** | |
+| 5% vCPU       | {{ sku|KZT|mdb.cluster.mysql.v2.cpu.c5|string }}   | 0,20 ₸|
+| 20% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v2.cpu.c20|string }}  | 2,15 ₸|
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v2.cpu.c50|string }}  | 3,60 ₸|
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mysql.v2.cpu.c100|string }} | 9,35  ₸|
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mysql.v2.ram|string }}      | 2,55 ₸|
+| **Intel Ice Lake** | |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c50|string }}  |  3,25 ₸|
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|string }} |  8,40 ₸|
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mysql.v3.ram|string }}      | 2,30 ₸|
 
 {% if audience == "cvos" %}
 

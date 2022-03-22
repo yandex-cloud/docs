@@ -1,7 +1,26 @@
-| Data<br/>retention period | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 128 KB/s,<br/>including VAT | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 512 KB/s,<br/>including VAT | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 1 MB/s,<br/>including VAT |
-| --- | --- | --- | --- |
-| 1 hour | ₽72 | — | — |
-| 4 hours | ₽84 | ₽192 | ₽312 |
-| 12 hours | ₽96 | ₽288 | ₽456 |
-| 24 hours | ₽144 | ₽432 | ₽672 |
+**Cost of storing data with a throughput limit per shard of 128 KB/s:**
 
+| Data retention period | Cost, including VAT |
+| --- | --- |
+| 1 hour | Not charged  |
+| 4 hours | ₽0.11666667 |
+| 12 hours | ₽0.13333333 |
+| 24 hours | ₽0.2 |
+
+**Cost of storing data with a throughput limit per shard of 512 KB/s:**
+
+| Data retention period | Cost, including VAT |
+| --- | --- |
+| 1 hour | Not provided |
+| 4 hours | ₽0.26666667 |
+| 12 hours | ₽0.4 |
+| 24 hours | ₽0.6 |
+
+**Cost of storing data with a throughput limit per shard of 1 MB/s:**
+
+| Data retention period | Cost, including VAT |
+| --- | --- | --- |
+| 1 hour | Not provided |
+| 4 hours | ₽0.43333333 |
+| 12 hours | ₽0.63333333 |
+| 24 hours | ₽0.93333333 |

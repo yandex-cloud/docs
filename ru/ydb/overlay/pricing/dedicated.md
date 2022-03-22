@@ -47,6 +47,12 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 Все цены указаны с включением НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
 
 ### Вычислительные ресурсы хостов {#prices-compute-units}
@@ -109,22 +115,3 @@ editable: false
 
 {% endif %}
 
-## Расчетные цены для вычислительных ресурсов {#calculated-prices}
-
-{% if region == "ru" %}
-
-{% include notitle [rub-dedicated.md](../../_pricing/ydb/rub-dedicated.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-dedicated.md](../../_pricing/ydb/kzt-dedicated.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-dedicated.md](../../_pricing/ydb/usd-dedicated.md) %}
-
-{% endif %}

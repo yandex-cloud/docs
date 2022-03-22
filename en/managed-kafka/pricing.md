@@ -101,6 +101,10 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 ## Pricing {#prices}
 
 {% if region != "int" %}
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+{% endif %}
+
+{% if region != "int" %}
 
 All prices are shown with VAT.
 
@@ -128,9 +132,11 @@ The cost of fast local storage also depends on the type of hosts.
 
     {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
+    {% if audience == "draft" %}
     {% if region == "ru" %} {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}{% endif %}
     {% if region == "kz" %} {% include notitle [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-dedicated.md) %}{% endif %}
     {% if region == "int" %}{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}{% endif %}
+    {% endif %}
 
 {% endlist %}
 
@@ -154,9 +160,11 @@ You can't order {{ ZK }} host resources using a CVoS.
 
     {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
+    {% if audience == "draft" %}
     {% if region == "ru" %} {% include notitle [RUB: dedicated ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-dedicated.md) %}{% endif %}
     {% if region == "kz" %} {% include notitle [KZT: dedicated ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-dedicated.md) %}{% endif %}
     {% if region == "int" %}{% include notitle [USD: dedicated ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-dedicated.md) %}{% endif %}
+    {% endif %}
 
 {% endlist %}
 

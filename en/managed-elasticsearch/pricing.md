@@ -84,6 +84,12 @@ You can't order storage or internet traffic using the CVoS model.
 
 {% if region != "int" %}
 
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
+{% if region != "int" %}
+
 All prices are shown with VAT.
 
 {% else %}
@@ -109,7 +115,6 @@ All prices are shown without VAT.
 {% include notitle [usd-hosts-and-storage.md](../_pricing/managed-elasticsearch/usd-hosts-and-storage.md) %}
 
 {% endif %}
-
 
 ### Outgoing traffic {#prices-traffic}
 

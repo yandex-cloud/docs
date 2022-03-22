@@ -81,6 +81,12 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 All prices are shown with VAT.
 
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.

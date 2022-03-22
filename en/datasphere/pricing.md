@@ -79,6 +79,12 @@ The monthly usage rate is based on 720 hours a month.
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 {% if region == "ru"%}
 
 {% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}

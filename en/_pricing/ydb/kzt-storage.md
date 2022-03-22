@@ -1,9 +1,10 @@
 ### Storage and backups {#prices-storage}
 
-Service | Cost of 1 GB per month, with VAT
------ | -----
-Data storage in storage groups of SSD drives | {{ sku|KZT|ydb.cluster.v1.ssd|month|string }}
-Storage of on-demand backups in {{ objstorage-full-name }} | ₸7.5660
+Service | Cost of 1 GB per month, with VAT | |
+----- | ----- | -----
+| | **Up until April 12, 2022** | **Starting April 13, 2022** |
+Data storage in storage groups of SSD drives | {{ sku|KZT|ydb.cluster.v1.ssd|month|string }} | ₸107.3
+Storage of on-demand backups in {{ objstorage-full-name }} | ₸7.5660 | ₸10.05
 
 {% note info "Minimum group size" %}
 

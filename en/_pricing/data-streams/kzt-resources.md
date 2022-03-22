@@ -1,7 +1,26 @@
-| Data<br/>retention period | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 128 KB/s,<br/>including VAT | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 512 KB/s,<br/>including VAT | Cost of storing<br/>data with a<br/>throughput<br/>limit per shard of 1 MB/s,<br/>including VAT |
-| --- | --- | --- | --- |
-| 1 hour | ₸432 | — | — |
-| 4 hours | ₸504 | ₸1152 | ₸1872 |
-| 12 hours | ₸576 | ₸1728 | ₸2736 |
-| 24 hours | ₸864 | ₸2592 | ₸4032 |
+**Cost of storing data with a throughput limit per shard of 128 KB/s:**
 
+| Data retention period | Cost, including VAT |
+| --- | --- |
+| 1 hour | Not charged  |
+| 4 hours | ₸0.7 |
+| 12 hours | ₸0.8 |
+| 24 hours | ₸1.2 |
+
+**Cost of storing data with a throughput limit per shard of 512 KB/s:**
+
+| Data retention period | Cost, including VAT |
+| --- | --- |
+| 1 hour | Not provided |
+| 4 hours | ₸1.6 |
+| 12 hours | ₸2.4 |
+| 24 hours | ₸3.6 |
+
+**Cost of storing data with a throughput limit per shard of 1 MB/s:**
+
+| Data retention period | Cost, including VAT |
+| --- | --- |
+| 1 hour | Not provided |
+| 4 hours | ₸2.6 |
+| 12 hours | ₸3.8 |
+| 24 hours | ₸5.6 |

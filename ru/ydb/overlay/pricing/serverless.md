@@ -77,6 +77,12 @@ editable: false
 
 ## Цены {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 {% if region == "ru" %}
 
 {% include notitle [rub-serverless](../../_pricing/ydb/rub-serverless.md) %}

@@ -17,6 +17,12 @@ The cost of using {{ cdn-full-name }} is based on:
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
+
 ### Outgoing traffic {#traffic}
 
 {% if region == "ru" %}
