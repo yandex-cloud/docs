@@ -69,107 +69,18 @@
 
 {% endlist %}
 
+## Отменить задание {#cancel}
+
+{% include [jobs-cancel](../../_includes/data-proc/jobs-cancel.md) %}
+
 ## Получить список заданий {#list}
 
-{% list tabs %}
-
-* Консоль управления
-
-    1. Перейдите на страницу каталога и выберите сервис **{{ dataproc-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
-
-* CLI
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Чтобы получить список заданий, выполните команду:
-
-    ```bash
-    yc dataproc job list --cluster-name <имя кластера>
-    ```
-
-    Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
-
-* API
-
-    Воспользуйтесь методом API [list](../api-ref/Job/list) и передайте идентификатор кластера в параметре `clusterId` запроса.
-
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
-
-{% endlist %}
-
+{% include [jobs-list](../../_includes/data-proc/jobs-list.md) %}
 
 ## Получить общую информацию о задании {#get-info}
 
-{% list tabs %}
-
-* Консоль управления
-
-    1. Перейдите на страницу каталога и выберите сервис **{{ dataproc-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
-    1. Нажмите на имя нужного задания.
-
-* CLI
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Для получения общей информации о задании выполните команду:
-
-    ```bash
-    yc dataproc job get \
-       --cluster-name <имя кластера> \
-       --name <имя задания>
-    ```
-
-    Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
-
-* API
-
-    Воспользуйтесь методом API [get](../api-ref/Job/get) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](./cluster-list.md#list)
-    * Идентификатор задания в параметре `jobId`. Его можно получить со [списком заданий в кластере](#list).
-
-{% endlist %}
-
+{% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
 
 ## Получить логи выполнения задания {#get-logs}
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
-
-{% list tabs %}
-
-* Консоль управления
-
-    1. Перейдите на страницу каталога и выберите сервис **{{ dataproc-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
-    1. Нажмите на имя нужного задания.
-
-* CLI
-
-    {% include [cli-install](../../_includes/cli-install.md) %}
-
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Чтобы получить логи выполнения задания, выполните команду:
-
-    ```bash
-    yc dataproc job log \
-       --cluster-name <имя кластера> \
-       --name <имя задания>
-    ```
-
-    Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
-
-* API
-
-    Воспользуйтесь методом API [listLog](../api-ref/Job/listLog) и передайте в запросе:
-
-    * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
-    * Идентификатор задания в параметре `jobId`. Его можно получить со [списком заданий в кластере](#list).
-
-{% endlist %}
+{% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
