@@ -34,4 +34,4 @@ $table = $ydb->table();
 $session = $table->session();
 ```
 
-{% include [error_handling.md](steps/50_error_handling.md) %}
+

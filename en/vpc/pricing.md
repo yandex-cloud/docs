@@ -11,6 +11,7 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 ## Pricing {#prices}
 
+
 ### Public IP addresses {#prices-public-ip}
 
 A public IP address can be in one of the following two states:

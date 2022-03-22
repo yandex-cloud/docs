@@ -10,9 +10,9 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
    {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
-1. {% include [choose-balance-payer](../_includes/choose-balance-payer.md) %}
-
 1. {% include [choose-name-step](../_includes/choose-name-step.md) %}
+
+1. {% include [choose-balance-payer](../_includes/choose-balance-payer.md) %}
 
 1. {% include [choose-type-step](../_includes/choose-type-step.md) %}
 
@@ -20,9 +20,9 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
    {% list tabs %}
 
-    - Applying as an individual
+    - Individual
 
-       Enter your full name and link your bank card:
+       Enter your full name and link a bank card:
 
          {% include [pin-card-data](../_includes/pin-card-data.md) %}
 
@@ -32,12 +32,11 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 
         {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
-    - Business
+    - Business or individual entrepreneur
 
       7.1. Select a payment method (bank card or bank transfer):
-
       - **Bank card**
-<br/>Link your corporate bank card:
+      <br/>Link your corporate bank card:
 
         {% include [pin-card-data](../_includes/pin-card-data.md) %}
 
@@ -46,18 +45,18 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
         {% include [pin-card-note](../_includes/pin-card-note.md) %}
 
         {% include [yandex-account](../_includes/payment-card-validation.md) %}
-
       - **Bank transfer**
 
-      7.2. Enter the legal details of your organization.
+      7.2. Enter the legal information of your organization.
 
    {% endlist %}
 
-   {% include [contacts-note](../_includes/contacts-note.md) %}
 
-1. {% include [contract-step](../_includes/contract-step.md) %}
+
+1. Make sure that the provided contact details are correct.
+
+    {% include [contacts-note](../_includes/contacts-note.md) %}
 
 1. {% include [activate-button-step](../_includes/activate-button-step.md) %}
 
     {% include [account-roles](../_includes/account-roles.md) %}
-

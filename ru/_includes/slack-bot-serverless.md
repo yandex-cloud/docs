@@ -94,7 +94,7 @@ description: "В этом сценарии вы узнаете, как с пом
 
 1. [Создайте](../ydb/quickstart/create-db.md#control-plane) базу данных с именем `for-slack-bot` в режиме Serverless.
 
-1. В базе `for-slack-bot` [создайте](../ydb/operations/schema.md#create-table) YDB-таблицу с именем `coffee`:
+1. В базе `for-slack-bot` [создайте](../ydb/db/cloud_console/schema.md#create-table) YDB-таблицу с именем `coffee`:
    1. Перейдите на вкладку **Навигация**.
    1. В правом верхнем углу нажмите кнопку **SQL-запрос**. Откроется страница **Запрос**.
    1. В поле **Запрос** введите:

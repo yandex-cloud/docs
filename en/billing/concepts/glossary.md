@@ -57,7 +57,7 @@ Payer
 
 Trial period
 : An opportunity to get a hands-on experience using {{ yandex-cloud }} without paying for the resources consumed.
-<br/>See the section [Trial period](../trial/activation.md).
+<br/>See the section [Trial period](trial-period.md).
 
 Promo code
 : A password that allows you to get an additional discount on using {{ yandex-cloud }} services.

@@ -27,6 +27,7 @@ The amount of storage requested for each cluster hosts is charged under the {{ c
 
 ## Pricing {#prices}
 
+
 ### Cost of computing resources with markup {{ dataproc-name }} {#prices-compute}
 
 

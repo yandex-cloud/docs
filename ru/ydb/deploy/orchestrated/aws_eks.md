@@ -1,9 +1,9 @@
 ---
 sourcePath: ru/ydb/ydb-docs-core/ru/core/deploy/orchestrated/aws_eks.md
 ---
-# Развертывание {{ ydb-name }} в AWS EKS
+# Развертывание {{ ydb-short-name }} в AWS EKS
 
-Чтобы с помощью [{{ k8s }}](https://kubernetes.io/) создать кластер [{{ ydb-name }}](https://cloud.yandex.ru/docs/ydb/), выполните следующие действия.
+Чтобы с помощью [{{ k8s }}](https://kubernetes.io/) создать кластер [{{ ydb-short-name }}](https://cloud.yandex.ru/docs/ydb/), выполните следующие действия.
 
 ## Перед началом работы {#before-begin}
 

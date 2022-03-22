@@ -16,6 +16,9 @@ editable: false
 
 ### Цены {#prices}
 
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
 Минимальная единица тарификации — 1 значение метрики. Стоимость округляется до копейки.
 
 

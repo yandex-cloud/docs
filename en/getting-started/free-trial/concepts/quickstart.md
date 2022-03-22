@@ -1,31 +1,20 @@
-# How to use the free trial
+# How does the trial period work
 
 {% include [free-trial-conditions](../../../_includes/free-trial-conditions.md) %}
 
-## Registration
+The trial period allows you to use {{ yandex-cloud }} resources for free with some limitations. Consumed resources are paid for from the [initial grant](../../usage-grant.md). After the end of the trial period, the resources are kept but discontinued. To resume working with {{ yandex-cloud }}, you need to fully upgrade to the paid version.
 
-To use the free trial, sign up for {{ yandex-cloud }} and create your first billing account. The trial period is activated automatically after a billing account is created.
+The balance of the initial grant and the number of days until the end of the trial period are displayed in the billing account on [Billing]({{ link-console-billing }}). During the trial period, you can [view statistics](../../../billing/operations/check-charges.md) on resource usage and charges based on the usage rates.
 
-[Learn more about registering and creating billing accounts](../../../billing/quickstart/index.md).
+{% note warning %}
 
-{% note info %}
-
-Residents and non-residents of the Russian Federation can sign up for {{ yandex-cloud }}. Non-residents of the Russian Federation can only register business accounts. The terms and conditions are available in the Billing [documentation](../../../billing/qa/non-resident.md).
+The trial period is enabled only when you [create the first billing account](../../../billing/quickstart/index.md) in the management console {{ yandex-cloud }}.
 
 {% endnote %}
 
-## Getting started
-
-To start working with {{ yandex-cloud }}:
-
-{% include [quickstart-all](../../../_includes/quickstart-all-no-billing.md) %}
-
 You might also find these links useful:
-
-* [{#T}](limits.md)
-* [{#T}](usage-monitor.md)
-* [{#T}](trial-ending.md)
-* [{#T}](upgrade-to-paid.md)
+* [What restrictions apply during the trial period](limits.md)
+* [When does the trial period end](trial-ending.md)
+* [How do I upgrade to the paid version?](upgrade-to-paid.md)
 * [{{ yandex-cloud }} platform overview](../../../overview/)
 * [{{ yandex-cloud }} documentation](/docs)
-

@@ -1,0 +1,1 @@
+In {{ yandex-cloud }}, all services are provided under an [offer](https://yandex.ru/legal/cloud_oferta) that you accept when creating a [billing account](../../billing/concepts/billing-account.md). The agreement does not need to be signed by both parties.

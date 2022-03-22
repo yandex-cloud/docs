@@ -84,6 +84,8 @@ editable: false
 
 ## Цены {#prices}
 
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
 
 Все цены указаны с включением НДС.
 
@@ -99,11 +101,10 @@ editable: false
 
     {% include notitle [RUB: standard broker hosts](../_pricing/managed-kafka/rub-hosts-standard.md) %}
 
+
 * Выделенные хосты
 
     {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-    {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
 
 {% endlist %}
 
@@ -121,11 +122,10 @@ editable: false
 
     {% include notitle [RUB: standard ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-standard.md) %}
 
+
 * Выделенные хосты
 
     {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
-    {% include notitle [RUB: dedicated ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-dedicated.md) %}
 
 {% endlist %}
 

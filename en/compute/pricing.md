@@ -4,12 +4,6 @@ editable: false
 
 # Pricing for {{ compute-name }}
 
-{% note alert %}
-
-The prices listed on this page are valid until March 21, 2022. On March 22, the prices for Microsoft operating systems and licences will be increased by 60%. For new prices, see [{#T}](pricing-22032022.md)
-
-{% endnote %}
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -17,7 +11,6 @@ The prices listed on this page are valid until March 21, 2022. On March 22, the 
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
 The cost of {{ compute-short-name }} usage is based on:
-
 * Computing resources:
   * Type and number of cores (vCPUs).
   * Number of graphics accelerators (GPUs).
@@ -65,7 +58,6 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs were created running Linux OS:
-
 * 5% of vCPU and 1 GB RAM
 * 100% of vCPU and 1 GB RAM
 
@@ -73,7 +65,6 @@ Both VMs have been running for 30 days.
 
 
 VM cost with 5% vCPU at the price of an hour of CPU core usage equal to $0.002476, and the price of an hour of 1 GB of RAM usage equal to $0.003129:
-
 > 5% vCPU = $0.002476/hour * 30 days * 24 hours = $1.782720
 >
 > 1 GB RAM = $0.003129/hour * 30 days * 24 hours = $2.252880
@@ -81,7 +72,6 @@ VM cost with 5% vCPU at the price of an hour of CPU core usage equal to $0.00247
 > Total: $4.035600
 
 VM Cost with 100% vCPU at the price of an hour of CPU core usage equal to $0.008996, and the price of an hour of 1 GB of RAM usage equal to $0.003129:
-
 > 1 vCPU = $0.008996/hour * 30 days * 24 hours = $6.477120
 >
 > 1 GB RAM = $0.003129/hour * 30 days * 24 hours = $2.252880
@@ -121,6 +111,7 @@ Usage prices are shown on an hourly basis (monthly for local disks). Billing occ
 
 ## Pricing {#prices}
 
+
 ### VM computing resources {#prices-instance-resources}
 
 
@@ -159,12 +150,6 @@ For the following products, funds are debited once for the calendar month in adv
 
 ### Disks, snapshots, and images {#prices-storage}
 
-{% note info %}
-
-At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated disks can be used free of charge. The rates for non-replicated disks listed on this page will be effective from April 19, 2021.
-
-{% endnote %}
-
 
 
 
@@ -179,10 +164,10 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% include [usd-host-other.md](../_pricing/compute/usd-host-other.md) %}
 
-</br>
+<br>
 
 
-</br>
+<br>
 
 
 

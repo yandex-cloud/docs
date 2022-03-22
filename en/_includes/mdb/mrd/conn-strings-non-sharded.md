@@ -581,6 +581,8 @@
     print(r.get("foo"))
     ```
 
+{% endlist %}
+
 {% include [connect](./connect/python/after-connect.md) %}
 
 ### Ruby {#ruby}

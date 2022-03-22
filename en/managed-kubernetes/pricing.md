@@ -12,6 +12,7 @@ Nodes are charged according to [pricing for {{ compute-short-name }}](../compute
 
 ## Pricing {#prices}
 
+
 ### Master {#master}
 
 

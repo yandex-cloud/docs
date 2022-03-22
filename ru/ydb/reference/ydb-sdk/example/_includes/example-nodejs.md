@@ -22,4 +22,3 @@ await session.streamExecuteScanQuery(`
 `, consumer, {'$value': Primitive.utf8('ttt')});
 ```
 
-{% include [error_handling.md](steps/50_error_handling.md) %}

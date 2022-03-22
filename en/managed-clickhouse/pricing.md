@@ -74,6 +74,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 ## Pricing {#prices}
 
 
+
 All prices are shown without VAT.
 
 ### {{ CH }} host computing resources {#prices-clickhouse}
