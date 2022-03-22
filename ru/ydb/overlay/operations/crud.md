@@ -10,7 +10,7 @@
 
 ## Предварительные требования {#prerequisite}
 
-Для выполнения запросов понадобится создать [базу данных](create_manage_database.md) и [таблицу](schema.md) в ней.
+Для выполнения запросов понадобится создать [базу данных](../db/cloud_console/create_manage_database.md) и [таблицу](../db/cloud_console/schema.md) в ней.
 
 ## SQL-запросы в консоли управления {#web-sql}
 

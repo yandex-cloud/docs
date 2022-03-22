@@ -4,7 +4,7 @@
 
 В {{ yandex-cloud }} БД привязывается к определенному каталогу в облаке, а также доступны Serverless базы данных на базе {{ ydb-short-name }}, не требующие выделения ресурсов пользователям, и использующие совместно ресурсы БД {{ ydb-short-name }}, в которой они обслуживаются.
 
-Описание порядка получения БД в {{ yandex-cloud }} описано в разделе ["Создание БД"](../operations/create_manage_database.md)
+Описание порядка получения БД в {{ yandex-cloud }} описано в разделе ["Создание БД"](../db/cloud_console/create_manage_database.md)
 
 {% include [cluster.md](_includes/databases/cluster.md) %}
 
@@ -16,13 +16,13 @@
 
 {% include [compute.md](_includes/databases/compute.md) %}
 
-### БД {{ ydb-short-name }} в {{ yandex-cloud }} на выделенных ресурсах (Dedicated)
+### БД {{ ydb-short-name }} в {{ yandex-cloud }} на выделенных ресурсах (Dedicated) {#resource-presets}
 
 БД {{ ydb-short-name }} в {{ yandex-cloud }} предоставляется на виртуальных машинах, которые могут быть созданы на любой из платформ, которые поддерживает {{ compute-name }}. Подробное описание платформ приведено в разделе [{#T}](../../compute/concepts/vm-platforms.md).
 
 Доступны следующие виды виртуальных машин:
 
-Платформа | Вычислительный ресурс | Количество vCPU | Гарантированная доля vCPU | RAM, ГБ
+Платформа | Имя конфигурации | Количество vCPU | Гарантированная доля vCPU | RAM, ГБ
 ----- | ----- | ----- | ----- | -----
 **Intel Cascade Lake** | medium | 8 | 100%| 32
 **Intel Cascade Lake** | medium-m64 | 8 | 100%| 64

@@ -1,0 +1,10 @@
+items:
+- name: Обзор
+  href: index.md
+- name: Облачная консоль управления
+  include: { mode: link, path: cloud_console/toc_p.yaml }
+- name: Интерфейс командной строки YC CLI
+  href: yc_cli.md
+- include: { mode: link, path: toc_i.yaml }
+- name: Справочник метрик
+  href: ../maintenance/yc_metrics.md

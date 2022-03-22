@@ -1,0 +1,9 @@
+items:
+- name: Обзор
+  href: index.md
+- name: Создание, изменение, удаление баз данных
+  href: create_manage_database.md
+- name: Таблицы и директории
+  href: schema.md
+- name: Управление доступом
+  href: ../../security/start_auth.md

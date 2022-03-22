@@ -28,16 +28,19 @@ items:
   - include: { mode: link, path: getting_started/toc_p.yaml }
 
 # Main
-- { name: Практические руководства,                  include: { mode: link, path: tutorials/toc_i.yaml } }
+- { name: Практические руководства,                include: { mode: link, path: tutorials/toc_i.yaml } }
 - { name: Концепции,                               include: { mode: link, path: concepts/toc_p.yaml } }
 - { name: Пошаговые инструкции,                    include: { mode: link, path: operations/toc_i.yaml } }
 
-- name: Управление доступом
-  href: security/start_auth.md
+# - name: Управление доступом -- included in "Управление базами данныз"
+#   href: security/start_auth.md
 
 - { name: Рекомендации,                            include: { mode: link, path: best_practices/toc_p.yaml } }
-- { name: Обслуживание,                            include: { mode: link, path: maintenance/toc_p.yaml } }
-- { name: Диагностика,                             include: { mode: link, path: troubleshooting/toc_p.yaml } }
+# - { name: Обслуживание,                            include: { mode: link, path: maintenance/toc_p.yaml } }
+# - { name: Диагностика,                             include: { mode: link, path: troubleshooting/toc_p.yaml } }
+# - { name: Администрирование,                       include: { mode: link, path: deploy/toc_p.yaml } }
+
+- { name: Управление базами данных,                include: { mode: link, path: db/toc_p.yaml } }
 - { name: Правила тарификации,                     include: { mode: link, path: pricing/toc_i.yaml } }
 
 # References  
@@ -45,7 +48,10 @@ items:
 - { name: YQL,                                     include: { mode: link, path: yql/toc_i.yaml } }
 - { name: Работа с YDB CLI,                        include: { mode: link, path: reference/ydb-cli/toc_p.yaml } }
 - { name: Работа с YDB SDK,                        include: { mode: link, path: reference/ydb-sdk/toc_p.yaml } }
-  
+
+# For cluster administrators  
+- { name: Управление кластером,                    include: { mode: link, path: cluster/toc_p.yaml } }
+
 # Footer
 - { name: Вопросы и ответы,                        include: { mode: link, path: faq/toc_p.yaml } }
 
