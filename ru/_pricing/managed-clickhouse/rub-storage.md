@@ -1,10 +1,11 @@
 {% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Услуга                                  | Цена за ГБ в месяц                                                            |
-|-----------------------------------------|-------------------------------------------------------------------------------|
-| Хранилище на сетевых HDD-дисках         | {{ sku|RUB|mdb.cluster.network-hdd.ch|month|string }}                         |
-| Хранилище на нереплицируемых SSD-дисках | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.ch|month|string }}           |
-| Хранилище на сетевых SSD-дисках         | {{ sku|RUB|mdb.cluster.network-nvme.ch|month|string }}                        |
-| Хранилище на локальных SSD-дисках       | {{ sku|RUB|mdb.cluster.local-nvme.ch|month|string }}                          |
-| Холодные данные гибридного хранилища и их резервные копии                     | {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }} |
-| Резервные копии хранилища на локальных и сетевых дисках | 2,5424 ₽                                                                      |
+| Услуга                                  | Цена за ГБ в месяц                                                            | |
+|-----------------------------------------|-------------------------------------------------------------------------------| --- |
+| | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
+| Хранилище на сетевых HDD-дисках         | {{ sku|RUB|mdb.cluster.network-hdd.ch|month|string }}                         | 3,20 ₽ |
+| Хранилище на нереплицируемых SSD-дисках | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.ch|month|string }}           | 8,80 ₽ |
+| Хранилище на сетевых SSD-дисках         | {{ sku|RUB|mdb.cluster.network-nvme.ch|month|string }}                        | 13,01 ₽ |
+| Хранилище на локальных SSD-дисках       | {{ sku|RUB|mdb.cluster.local-nvme.ch|month|string }}                          | 13,01 ₽ |
+| Холодные данные гибридного хранилища и их резервные копии                     | {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }} | 2,01 ₽ |
+| Резервные копии хранилища на локальных и сетевых дисках | 2,5424 ₽                                                                      | 1,92 ₽ |

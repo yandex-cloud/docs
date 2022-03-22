@@ -29,30 +29,22 @@ items:
         hidden: true
       - name: Аутентификация
         href: getting_started/auth.md
-      - name: Интерфейс командной строки (CLI)
+      - name: Интерфейс командной строки YDB CLI
         href: getting_started/cli.md
       - name: Язык запросов YQL
         href: getting_started/yql.md
-      - name: SDK для разных языков программирования
+      - name: YDB SDK
         href: getting_started/sdk.md
       - name: Самостоятельное развертывание
         items:
+          - name: Обзор
+            href: getting_started/self_hosted/index.md
           - name: Docker
-            href: getting_started/ydb_docker.md
-          - name: Создание конфигурации кластера
-            items:
-              - name: Создание конфигурации кластера
-                href: deploy/configuration/config.md
-          - name: Kubernetes
-            items:
-              - name: Обзор
-                href: deploy/orchestrated/concepts.md
-              - name: Развертывание в Yandex Managed Service for Kubernetes
-                href: deploy/orchestrated/yc_managed_kubernetes.md
-              - name: Развертывание в AWS Elastic Kubernetes Service
-                href: deploy/orchestrated/aws_eks.md
-              - name: Эксплуатация
-                href: deploy/orchestrated/operate.md
+            href: getting_started/self_hosted/ydb_docker.md
+          - name: Бинарный файл
+            href: getting_started/self_hosted/ydb_local.md
+          - name: Minikube
+            href: getting_started/self_hosted/ydb_minikube.md
       - name: Полезные ссылки
         href: getting_started/useful_links.md
       - name: Document API, совместимый с Amazon DynamoDB
@@ -143,6 +135,14 @@ items:
         href: concepts/scan_query.md
       - name: Ограничения базы данных
         href: concepts/limits-ydb.md
+      - name: Кластер YDB
+        items:
+          - name: Обзор
+            href: concepts/cluster/index.md
+          - name: Общая схема YDB
+            href: concepts/cluster/common_scheme_ydb.md
+          - name: Дисковая подсистема кластера
+            href: concepts/cluster/distributed_storage.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Пошаговые инструкции
@@ -155,14 +155,14 @@ items:
         href: operations/get-query-plan.md
       - name: Управление базами данных
         href: operations/create_manage_database.md
+        hidden: true
       - name: Управление таблицами
         href: operations/schema.md
+        hidden: true
       - name: Чтение и запись данных
         href: operations/crud.md
       - name: Работа со вторичными индексами
         href: operations/secondary_indexes.md
-  - name: Управление доступом
-    href: security/start_auth.md
   - name: Рекомендации
     items:
       - name: Обзор
@@ -179,30 +179,34 @@ items:
         href: best_practices/batch_upload.md
       - name: Использование таймаутов
         href: best_practices/timeouts.md
-  - name: Обслуживание
+  - name: Управление базами данных
     items:
-      - name: Резервное копирование
-        href: maintenance/backup_and_recovery.md
-      - name: Средства интроспекции при самостоятельном развертывании
+      - name: Обзор
+        href: db/index.md
+      - name: Облачная консоль управления
         items:
           - name: Обзор
-            href: maintenance/embedded_monitoring/overview.md
-          - name: YDB Monitoring
-            href: maintenance/embedded_monitoring/ydb_monitoring.md
-          - name: Обзор соединений
-            href: maintenance/embedded_monitoring/interconnect_overview.md
-          - name: Логи
-            href: maintenance/embedded_monitoring/logs.md
-          - name: Графики
-            href: maintenance/embedded_monitoring/charts.md
+            href: db/cloud_console/index.md
+          - name: Создание, изменение, удаление баз данных
+            href: db/cloud_console/create_manage_database.md
+          - name: Таблицы и директории
+            href: db/cloud_console/schema.md
+          - name: Управление доступом
+            href: security/start_auth.md
+      - name: Интерфейс командной строки YC CLI
+        href: db/yc_cli.md
+      - name: Резервное копирование и восстановление
+        href: maintenance/backup_and_recovery.md
+      - name: Диагностика
+        items:
+          - name: Обзор
+            href: troubleshooting/index.md
+          - name: Системные таблицы
+            href: troubleshooting/system_views_db.md
+          - name: Мониторинг
+            href: troubleshooting/monitoring.md
       - name: Справочник метрик
         href: maintenance/yc_metrics.md
-  - name: Диагностика
-    items:
-      - name: Системные таблицы
-        href: troubleshooting/system_views.md
-      - name: Мониторинг
-        href: troubleshooting/monitoring.md
   - name: Правила тарификации
     items:
       - name: Обзор
@@ -420,7 +424,7 @@ items:
       - name: Установка
         href: reference/ydb-cli/install.md
       - name: Структура команд YDB CLI
-        href: reference/ydb-cli/commands/commands.md
+        href: reference/ydb-cli/commands.md
       - name: Сервисные команды
         href: reference/ydb-cli/commands/service.md
       - name: Соединение с БД и аутентификация
@@ -433,20 +437,38 @@ items:
             href: reference/ydb-cli/commands/scheme-ls.md
           - name: Информация об объекте
             href: reference/ydb-cli/commands/scheme-describe.md
+          - name: Директории
+            href: reference/ydb-cli/commands/dir.md
           - name: Переименование таблиц
             href: reference/ydb-cli/commands/tools/rename.md
       - name: Работа с данными
         items:
           - name: Выполнение запроса к данным
             href: reference/ydb-cli/commands/query.md
+          - name: План исполнения запроса
+            href: reference/ydb-cli/commands/explain-plan.md
           - name: Потоковое чтение таблицы
             href: reference/ydb-cli/commands/readtable.md
           - name: Работа со вторичными индексами
-            href: reference/ydb-cli/commands/operations-index.md
-          - name: Работа с директориями
-            href: reference/ydb-cli/commands/scheme-mkdir.md
+            href: reference/ydb-cli/commands/index-ops.md
           - name: Скан запросы
             href: reference/ydb-cli/commands/scan-query.md
+      - name: Загрузка и выгрузка данных
+        items:
+          - name: Обзор
+            href: reference/ydb-cli/export_import/index.md
+          - name: Файловая структура выгрузки
+            href: reference/ydb-cli/export_import/file_structure.md
+          - name: Выгрузка в файловую систему
+            href: reference/ydb-cli/export_import/tools_dump.md
+          - name: Загрузка из файловой системы
+            href: reference/ydb-cli/export_import/tools_restore.md
+          - name: Соединение и аутентификация с S3
+            href: reference/ydb-cli/export_import/s3_conn.md
+          - name: Выгрузка в S3
+            href: reference/ydb-cli/export_import/s3_export.md
+          - name: Загрузка из S3
+            href: reference/ydb-cli/export_import/s3_import.md
       - name: Управление профилями
         items:
           - name: Обзор
@@ -477,16 +499,20 @@ items:
     items:
       - name: Обзор
         href: reference/ydb-sdk/index.md
+      - name: Установка
+        href: reference/ydb-sdk/install.md
       - name: Аутентификация
         href: reference/ydb-sdk/auth.md
       - name: Тестовое приложение
         items:
           - name: Обзор
             href: reference/ydb-sdk/example/index.md
+          - name: C++
+            href: reference/ydb-sdk/example/example-cpp.md
           - name: C# (.NET)
             href: reference/ydb-sdk/example/example-dotnet.md
           - name: Go
-            href: reference/ydb-sdk/example/example-go.md
+            href: reference/ydb-sdk/example/go/index.md
           - name: Java
             href: reference/ydb-sdk/example/example-java.md
           - name: Node.js
@@ -494,7 +520,7 @@ items:
           - name: PHP
             href: reference/ydb-sdk/example/example-php.md
           - name: Python
-            href: reference/ydb-sdk/example/example-python.md
+            href: reference/ydb-sdk/example/python/index.md
           - name: Архив
             items:
               - name: Go v1
@@ -547,8 +573,75 @@ items:
                 href: reference/ydb-sdk/recipes/debug/jaeger.md
           - name: Установить размер пула сессий
             href: reference/ydb-sdk/recipes/session_pool_limit/index.md
-      - name: Установка и конфигурация
-        href: reference/ydb-sdk/yc_setup.md
+  - name: Управление кластером
+    items:
+      - name: Обзор
+        href: cluster/index.md
+      - name: Kubernetes
+        items:
+          - name: Обзор
+            href: deploy/orchestrated/concepts.md
+          - name: Развертывание в Yandex Managed Service for Kubernetes
+            href: deploy/orchestrated/yc_managed_kubernetes.md
+          - name: Развертывание в AWS Elastic Kubernetes Service
+            href: deploy/orchestrated/aws_eks.md
+          - name: Эксплуатация
+            href: deploy/orchestrated/operate.md
+      - name: Вручную
+        items:
+          - name: Обзор
+            href: deploy/manual/concepts.md
+          - name: Локальная установка
+            href: deploy/manual/deploy-ydb-on-premises.md
+          - name: Конфигурация кластера
+            href: deploy/configuration/config.md
+          - name: Production checklist
+            href: deploy/production_checklist.md
+          - name: Обслуживание дисковой подсистемы кластера
+            items:
+              - name: Обзор
+                href: maintenance/manual/index.md
+              - name: Способы предотвращения выхода за модель отказа
+                href: maintenance/manual/failure_model.md
+              - name: Балансировка нагрузки на диски
+                href: maintenance/manual/balancing_load.md
+              - name: Способы освобождения места на физических устройствах
+                href: maintenance/manual/disk_end_space.md
+              - name: Расширение кластера
+                href: maintenance/manual/cluster_expansion.md
+              - name: Добавление групп хранения
+                href: maintenance/manual/adding_storage_groups.md
+              - name: Безопасные рестарт и выключение узлов
+                href: maintenance/manual/node_restarting.md
+              - name: Включение/выключение SelfHeal
+                href: maintenance/manual/selfheal.md
+              - name: Включение/выключение Scrubbing
+                href: maintenance/manual/scrubbing.md
+              - name: Перевоз VDisk'ов
+                href: maintenance/manual/moving_vdisks.md
+              - name: Изменение конфигураций через CMS
+                href: maintenance/manual/cms.md
+              - name: Изменение конфигурации акторсистемы
+                href: maintenance/manual/change_actorsystem_configs.md
+      - name: Встроенный UI
+        items:
+          - name: Обзор
+            href: maintenance/embedded_monitoring/index.md
+          - name: Обзор
+            href: maintenance/embedded_monitoring/overview.md
+            hidden: true
+          - name: YDB Monitoring
+            href: maintenance/embedded_monitoring/ydb_monitoring.md
+          - name: Hive web-viewer
+            href: maintenance/embedded_monitoring/hive.md
+          - name: Обзор соединений
+            href: maintenance/embedded_monitoring/interconnect_overview.md
+          - name: Логи
+            href: maintenance/embedded_monitoring/logs.md
+          - name: Графики
+            href: maintenance/embedded_monitoring/charts.md
+      - name: Системные таблицы
+        href: troubleshooting/system_views_cluster.md
   - name: Вопросы и ответы
     items:
       - name: Обзор

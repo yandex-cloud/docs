@@ -1,20 +1,18 @@
-title: Getting started with Yandex Cloud
+title: Getting started in Yandex Cloud
 href: index.yaml
 items:
-  - name: Individual
+  - name: For individuals
     href: quickstart-individuals.md
-  - name: Legal entity
+  - name: For businesses
     href: quickstart-legal-entity.md
+  - name: Initial grant
+    href: usage-grant.md
   - name: Trial period
     items:
       - name: How to use the free trial
         href: free-trial/concepts/quickstart.md
-      - name: Grant terms of use
-        href: free-trial/concepts/usage-grant.md
       - name: Trial period restrictions
         href: free-trial/concepts/limits.md
-      - name: Monitoring resource usage
-        href: free-trial/concepts/usage-monitor.md
       - name: End of trial period
         href: free-trial/concepts/trial-ending.md
       - name: Upgrading to the paid version

@@ -1,37 +1,38 @@
 title: Getting started
 description:
   - >-
-    The free trial lets you get hands-on experience using Yandex Cloud without
-    paying for the resources that you use.
+    When creating their first billing account, new Yandex Cloud customers
+    receive the <a href="/docs/getting-started/usage-grant\">initial grant</a>,
+    which expires in 60 days. The grant terms of use differ for individual and
+    business accounts.
   - >-
-    During the trial period, a <a
-    href="/docs/billing/concepts/bonus-account">grant</a> is credited to your
-    billing account that expires in 60 days. The grant terms of use differ for
-    individual and business accounts.
+    In addition, a trial period is available to new customers. The trial period
+    lets you get hands-on experience with Yandex Cloud by using the initial
+    grant to pay for the resources you consume. You can upgrade to the paid
+    version at any time during the free trial or 30 days after it expires with
+    no data loss.
   - >-
-    You can upgrade to the paid version of Yandex Cloud at any time during the
-    free trial or 60 days after it expires with no data loss.
+    Residents and non-residents of the Russian Federation can sign up for Yandex
+    Cloud. Non-residents of Russia and Kazakhstan can only register business
+    accounts.
 meta:
   title: Getting started
 links:
-  - title: How to start
-    description: For individuals
+  - title: Getting started
+    description: Information for individuals
     href: quickstart-individuals
-  - title: Start with Yandex Cloud
-    description: For legal entity
+  - title: Registering in Yandex Cloud
+    description: Instructions for businesses
     href: quickstart-legal-entity
-  - title: How to use the free trial
+  - title: How does the trial period work
     description: How to use Yandex Cloud during the trial period and who can access it
     href: free-trial/concepts/quickstart
   - title: Trial period restrictions
     description: Usage limits during the trial period
     href: free-trial/concepts/limits
-  - title: Grant terms of use
-    description: How to use the initial grant during the trial period and who can use it
-    href: free-trial/concepts/usage-grant
-  - title: Monitoring resource usage
-    description: How to track resource usage during the trial period
-    href: free-trial/concepts/usage-monitor
+  - title: Initial grant terms of use
+    description: How to use the initial grant and who can use it
+    href: usage-grant
   - title: End of trial period
     description: What happens when the trial period ends
     href: free-trial/concepts/trial-ending

@@ -49,35 +49,46 @@
     Выполните команду, чтобы назначить [роль](../security/index.md) на пользовательскую лог-группу:
 
     * пользователю:
+
         ```
         yc logging group add-access-binding \
-            --name <имя_лог-группы> \
-            --user-account-id <идентификатор_пользователя> \
-            --role <роль>
+          --name <имя_лог-группы> \
+          --user-account-id <идентификатор_пользователя> \
+          --role <роль>
         ```
+
         Результат:
+
         ```
         done (1s)
         ```
-    * [сервисному аккаунту](../../iam/concepts/users/service-accounts.md):  
+
+    * [сервисному аккаунту](../../iam/concepts/users/service-accounts.md):
+
         ```
         yc logging group add-access-binding \
-            --name <имя_лог-группы> \
-            --service-account-id <идентификатор_сервисного_аккаунта> \
-            --role <роль>
+          --name <имя_лог-группы> \
+          --service-account-id <идентификатор_сервисного_аккаунта> \
+          --role <роль>
         ```
+
         Результат:
+
         ```
         done (1s)
         ```
+
     * всем авторизованным пользователям (системная группа `allAuthenticatedUsers`):
+
         ```
         yc logging group add-access-binding \
-            --name <имя_лог-группы> \
-            --all-authenticated-users \
-            --role <роль>
+          --name <имя_лог-группы> \
+          --all-authenticated-users \
+          --role <роль>
         ```
+
         Результат:
+
         ```
         done (1s)
         ```
@@ -97,35 +108,46 @@
     Выполните команду, чтобы отозвать [роль](../security/index.md) на пользовательскую лог-группу:
 
     * у пользователя:
+
         ```
         yc logging group remove-access-binding \
-            --name <имя_лог-группы> \
-            --user-account-id <идентификатор_пользователя> \
-            --role <роль>
+          --name <имя_лог-группы> \
+          --user-account-id <идентификатор_пользователя> \
+          --role <роль>
         ```
+    
         Результат:
+    
         ```
         done (1s)
         ```
+
     * у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
+
         ```
         yc logging group remove-access-binding \
-            --name <имя_лог-группы> \
-            --service-account-id <идентификатор_сервисного_аккаунта> \
-            --role <роль>
+          --name <имя_лог-группы> \
+          --service-account-id <идентификатор_сервисного_аккаунта> \
+          --role <роль>
         ```
+
         Результат:
+
         ```
         done (1s)
         ```
+
     * у всех авторизованных пользователей (системная группа `allAuthenticatedUsers`):
+
         ```
         yc logging group remove-access-binding \
-            --name <имя_лог-группы> \
-            --all-authenticated-users \
-            --role <роль>
+          --name <имя_лог-группы> \
+          --all-authenticated-users \
+          --role <роль>
         ```
+
         Результат:
+
         ```
         done (1s)
         ```

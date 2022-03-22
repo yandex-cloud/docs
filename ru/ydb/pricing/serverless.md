@@ -80,6 +80,9 @@ sourcePath: ru/ydb/overlay/pricing/serverless.md
 ## Цены {#prices}
 
 
+{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
+
+
 {% include notitle [rub-serverless](../../_pricing/ydb/rub-serverless.md) %}
 
 

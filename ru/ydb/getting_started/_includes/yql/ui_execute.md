@@ -1,7 +1,9 @@
 ---
 sourcePath: ru/ydb/overlay/getting_started/_includes/yql/ui_execute.md
 ---
-### Исполнение YQL в веб-интерфейсе YDB {#ui-execute}
+### Консоль управления YDB {#ui-execute}
+
+Для исполнения скриптов в облачной консоли управления YDB:
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в рабочий каталог.
 1. Выберите сервис **Yandex Database** и откройте базу данных, в которой будете выполнять операции.

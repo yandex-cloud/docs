@@ -22,7 +22,7 @@ The list of countries that can sign an agreement is provided below.
 
 {% include [non-resident-countries](../_includes/non-resident-countries.md) %}
 
-You can learn more about the terms of the agreement in the section [Yandex Legal documents](https://yandex.com/legal/cloud_customer_agreement/?lang=en).
+You can learn more about the terms of the agreement in the section [Yandex Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
 
 ## Agreement number{#id}
 

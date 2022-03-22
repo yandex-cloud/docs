@@ -333,8 +333,6 @@ items:
     items:
       - name: Действующие правила
         href: pricing.md
-      - name: С 22 марта 2022 года
-        href: pricing-22032022.md
       - name: Архив
         items:
           - name: До 1 января 2019 года

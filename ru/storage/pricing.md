@@ -34,6 +34,9 @@ editable: false
 
 ## Цены {#prices}
 
+
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
 ### Хранение данных {#prices-storage}
 
 Цены за ГБ в месяц фиксированы и не зависят от количества дней в месяце.

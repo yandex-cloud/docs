@@ -44,13 +44,13 @@ You pay for the storage allocated for DB clusters. The cost is specified for one
 ## Pricing {#prices}
 
 
+
 All prices are shown without VAT.
 
 
 
 
 {% include notitle [usd-hosts-and-storage.md](../_pricing/managed-elasticsearch/usd-hosts-and-storage.md) %}
-
 
 ### Outgoing traffic {#prices-traffic}
 

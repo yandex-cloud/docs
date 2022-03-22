@@ -47,6 +47,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Pricing {#prices}
 
+
 All prices are shown with VAT. Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
 
 ### Host computing resources {#prices-compute-units}
@@ -70,10 +71,4 @@ All prices are shown with VAT. Prices are given for a 30-day month. For shorter 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
 
-## Estimated cost of computing resources {#calculated-prices}
-
-
-
-
-{% include notitle [usd-dedicated.md](../../_pricing/ydb/usd-dedicated.md) %}
 

@@ -51,6 +51,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Pricing {#prices}
 
+
 All prices are shown with VAT.
 
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.

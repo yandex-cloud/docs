@@ -1,9 +1,9 @@
 ---
 sourcePath: ru/ydb/ydb-docs-core/ru/core/deploy/orchestrated/yc_managed_kubernetes.md
 ---
-# Развертывание {{ ydb-name }} в {{ managed-k8s-name }}
+# Развертывание {{ ydb-short-name }} в {{ managed-k8s-name }}
 
-Чтобы с помощью [{{ k8s }}](https://kubernetes.io/) создать кластер [{{ ydb-name }}](https://cloud.yandex.ru/docs/ydb/), выполните следующие действия.
+Чтобы с помощью [{{ k8s }}](https://kubernetes.io/) создать кластер [{{ ydb-short-name }}](https://cloud.yandex.ru/docs/ydb/), выполните следующие действия.
 
 ## Перед началом работы {#before-begin}
 

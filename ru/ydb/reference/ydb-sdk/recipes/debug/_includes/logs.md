@@ -5,7 +5,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/_includ
 
 {% include [work in progress message](../../_includes/addition.md) %}
 
-Ниже приведены примеры кода включения логгирования в разных `Ydb SDK`
+Ниже приведены примеры кода включения логирования в разных {{ ydb-short-name }} SDK
 
 {% list tabs %}
 

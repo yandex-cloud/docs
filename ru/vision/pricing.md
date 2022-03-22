@@ -26,6 +26,8 @@ editable: false
 
 ## Цены {#prices}
 
+{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
+
 
 {% include notitle [rub.md](../_pricing/vision/rub.md) %}
 

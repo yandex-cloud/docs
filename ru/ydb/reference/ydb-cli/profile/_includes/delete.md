@@ -11,7 +11,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/profile/_includes/del
 
 , где `<profile_name>` - имя профиля.
 
-YDB CLI запросит подтверждение удаления профиля:
+{{ ydb-short-name }} CLI запросит подтверждение удаления профиля:
 
 ``` text
 Profile "<profile_name>" will be permanently removed. Continue? (y/n): 
@@ -31,7 +31,7 @@ Profile "mydb1" was removed.
 
 ## Удаление профиля без интерактивного ввода {#non-interactive}
 
-Хотя данный режим не поддерживается YDB CLI, при необходимости вы можете использовать перенаправление ввода операционной системы для автоматического ответа `y` на вопрос подтверждения удаления:
+Хотя данный режим не поддерживается {{ ydb-short-name }} CLI, при необходимости вы можете использовать перенаправление ввода операционной системы для автоматического ответа `y` на вопрос подтверждения удаления:
 
 ``` bash
 echo y | {{ ydb-cli }} config profile delete my_profile

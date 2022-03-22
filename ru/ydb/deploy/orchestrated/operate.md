@@ -1,7 +1,7 @@
 ---
 sourcePath: ru/ydb/ydb-docs-core/ru/core/deploy/orchestrated/operate.md
 ---
-# Эксплуатация {{ ydb-name }} в {{ k8s }}
+# Эксплуатация {{ ydb-short-name }} в {{ k8s }}
 
 ## Мониторинг
 

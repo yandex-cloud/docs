@@ -17,21 +17,23 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/ttl.md
 
 Момент времени, когда строка таблицы может быть удалена, определяется по следующей формуле:
 
-```
+```text
 expiration_time = valueof(ttl_column) + expire_after_seconds
 ```
 
 {% note info %}
 
-Не гарантируется, что удаление произойдет именно в `expiration_time` — оно может случиться позже. Если важно исключить из выборки логически устаревшие, но пока еще физически неудаленные строки, нужно использовать фильтрацию уровня запроса.
+Не гарантируется, что удаление произойдет именно в `expiration_time` — оно может случиться позже. Если важно исключить из выборки логически устаревшие, но пока еще физически не удаленные строки, нужно использовать фильтрацию уровня запроса.
 
 {% endnote %}
 
 Непосредственно удалением данных занимается фоновая операция удаления — *Background Removal Operation* (*BRO*), состоящая из 2 стадий:
+
 1. Проверка значений в TTL-колонке.
-2. Удаление устаревших данных.
+1. Удаление устаревших данных.
 
 *BRO* обладает следующими свойствами:
+
 * Единицей параллельности является [партиция таблицы](../datamodel.md#partitioning).
 * Для таблиц со [вторичными индексами](../secondary_indexes.md) стадия удаления является [распределенной транзакцией](../transactions.md#distributed-tx).
 
@@ -44,17 +46,17 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 ## Ограничения {#restrictions}
 
 * TTL-колонка должна быть одного из следующих типов:
-  - `Date`;
-  - `Datetime`;
-  - `Timestamp`;
-  - `Uint32`;
-  - `Uint64`;
-  - `DyNumber`.
+  * `Date`;
+  * `Datetime`;
+  * `Timestamp`;
+  * `Uint32`;
+  * `Uint64`;
+  * `DyNumber`.
 * Значение TTL-колонки с числовым типом (`Uint32`, `Uint64`, `DyNumber`) интерпретируется как величина от [Unix-эпохи](https://ru.wikipedia.org/wiki/Unix-время) заданная в:
-  - секундах;
-  - миллисекундах;
-  - микросекундах;
-  - наносекундах.
+  * секундах;
+  * миллисекундах;
+  * микросекундах;
+  * наносекундах.
 * Нельзя указать несколько TTL-колонок.
 * Нельзя удалить TTL-колонку. Если это все же требуется, сначала нужно [выключить TTL](#disable) на таблице.
 
@@ -62,9 +64,9 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 Управление настройками TTL в настоящий момент возможно с использованием:
 
-* [YQL](../../yql/reference/index.md)
-* [Консольного клиента {{ ydb-short-name }}](../../quickstart/yql-api/ydb-cli.md).
-* {{ ydb-short-name }}   Python [SDK](../../reference/ydb-sdk/index.md)
+* [YQL](../../yql/reference/index.md).
+* [Консольного клиента {{ ydb-short-name }}](../../reference/ydb-cli/index.md).
+* {{ ydb-short-name }}   Python [SDK](../../reference/ydb-sdk/index.md).
 
 {% note info %}
 
@@ -79,17 +81,20 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 {% list tabs %}
 
 - YQL
+
   ```yql
   ALTER TABLE `mytable` SET (TTL = Interval("PT1H") ON created_at);
   ```
 
 - CLI
+
   ```bash
   $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
   ```
 
 
 - Python
+
   ```python
   session.alter_table('mytable', set_ttl_settings=ydb.TtlSettings().with_date_type_column('created_at', 3600))
   ```
@@ -109,6 +114,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 {% list tabs %}
 
 - YQL
+
   ```yql
   CREATE TABLE `mytable` (
       id Uint64,
@@ -121,6 +127,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 
 - Python
+
   ```python
   session.create_table(
       'mytable',
@@ -139,17 +146,20 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 {% list tabs %}
 
 - YQL
+
   ```yql
   ALTER TABLE `mytable` RESET (TTL);
   ```
 
 - CLI
+
   ```bash
   $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl drop mytable
   ```
 
 
 - Python
+
   ```python
   session.alter_table('mytable', drop_ttl_settings=True)
   ```
@@ -163,12 +173,14 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 {% list tabs %}
 
 - CLI
+
   ```bash
   $ {{ ydb-cli }} -e <endpoint> -d <database> scheme describe mytable
   ```
 
 
 - Python
+
   ```python
   desc = session.describe_table('mytable')
   ttl = desc.ttl_settings
