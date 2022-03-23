@@ -54,7 +54,7 @@ If you already have a billing account in {{ yandex-cloud }}, you can link it to 
 
    If you're planning to pay for the service as an individual, link your bank card.
 
-1. Click the **Enable** button.
+1. Click the **Create** button.
 
 To learn more about creating billing accounts, go to the [{#T}](billing-account.md) section.
 

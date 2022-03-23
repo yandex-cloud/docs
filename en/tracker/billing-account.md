@@ -54,11 +54,11 @@ If you linked a billing account with an active trial period or created a new acc
 
    {% include [payment-card-validation](../_includes/billing/payment-card-validation.md) %}
 
-1. Click the **Enable** button.
+1. Click the **Create** button.
 
    {% note info %}
 
-   By clicking **Enable**, you accept [{{yandex-cloud}} offer]({{ link-cloud-oferta }}).
+   By clicking **Create**, you accept [{{yandex-cloud}} offer]({{ link-cloud-oferta }}).
 
    {% endnote %}
 
