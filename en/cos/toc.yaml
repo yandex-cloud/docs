@@ -5,19 +5,17 @@ items:
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
-  - name: Practical guidelines
+  - name: Use cases
     items:
-      - name: All tutorials
+      - name: All use cases
         href: tutorials/index.md
       - name: Creating a VM from a Container Optimized Image
         href: tutorials/vm-create.md
       - name: >-
-          Creating a VM from a Container Optimized Image and an additional volume for a
-          Docker container
+          Creating a VM from a Container Optimized Image and an additional volume for a Docker container
         href: tutorials/vm-create-with-second-disk.md
       - name: >-
-          Creating a VM from a Container Optimized Image with multiple
-          Docker containers
+          Creating a VM from a Container Optimized Image with multiple Docker containers
         href: tutorials/docker-compose.md
       - name: Creating an instance group from a Container Optimized Image
         href: tutorials/ig-create.md

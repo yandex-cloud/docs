@@ -36,7 +36,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * (optional) Enable **Allocate an stdin buffer for a running Docker container** to link the input stream to the running Docker container.
      * (optional) Enable **Run Docker container in privileged mode** to allow the Docker container processes to access all VM resources.
      Click **Apply**.
-    1. Set the remaining VM parameters per the [instructions](../../compute/operations/vm-create/create-linux-vm.md).
+  1. Set the remaining VM parameters per the [instructions](../../compute/operations/vm-create/create-linux-vm.md).
 
 - CLI using flags
 
@@ -94,7 +94,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      ...
      ```
 
-  After being created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
+    After being created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}). For more information about working with VMs, see our [step-by-step instructions](../../compute/operations/index.md).
 
 - CLI using a specification file
 

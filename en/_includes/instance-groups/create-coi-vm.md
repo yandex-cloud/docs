@@ -91,8 +91,8 @@ To create an instance group based on a {{ coi }}:
      * `memory`: Amount of RAM.
      * `cores`: Number of processor cores (vCPUs).
      * `mode`: Disk access mode:
-         * `READ_ONLY`: Read-only access.
-         * `READ_WRITE`: Read/write access.
+        * `READ_ONLY`: Read-only access.
+        * `READ_WRITE`: Read/write access.
      * `image_id`: ID of the public {{ coi }}.
      * `type_id`: Disk type.
      * `size`: Disk size.

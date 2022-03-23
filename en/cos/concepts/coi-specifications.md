@@ -68,8 +68,8 @@ Key | Value
 `volumeMounts` | A list of volumes to mount inside a Docker container.
 `mountPath` | The path in the Docker container where the specified volume will be mounted.
 `volumes` | Description of the volumes used in the specification file.
-`emptyDir` | An empty directory in the `tmpfs` temporary file system that is created in the VM RAM. The contents of this directory are deleted when the Docker container it's mounted to is stopped and when the VM is restarted. To use the `tmpfs`, specify the parameter `medium:Memory`. The volume size is limited by the amount of RAM allocated to the VM.
-`hostPath` | The directory from the VM file system to be mounted in the Docker container.
+`emptyDir` | An empty directory in the `tmpfs` temporary file system that is created in the VM RAM. The contents of this directory are deleted when the Docker container it's mounted to is stopped and when the VM is restarted. To use the `tmpfs`, specify the parameter `medium:Memory`. Volume size cannot be greater than the amount of RAM allocated to the VM.
+`hostPath` | The directory from the VM file system to mount in the Docker container.
 `path` | The path to the `hostPath` directory.
 
 ## Docker Compose specification {#compose-spec}
@@ -123,6 +123,6 @@ Key | Value
 `volumes` | Description of the volumes used in the Docker container.
 `x-yc-disks` | The section that describes the [disks](../../compute/concepts/disk.md) to attach. It's an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
 `device_name` | Name of the device.
-`fs_type` | File system type. Only ext4 and xfs file systems are supported.
+`fs_type` | File system type. The file systems supported are ext4 and xfs.
 `host_path` | The directory that the disk is mounted to.
 `partition` | The used disk partition.

@@ -17,7 +17,6 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create a VM with multiple Docker containers from a {{ coi }}:
-
   1. View a description of the CLI command to create a VM from a {{ coi }}:
 
      ```bash

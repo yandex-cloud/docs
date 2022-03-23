@@ -22,7 +22,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      yc compute instance create-with-container --help
      ```
 
-  1. Prepare the [Docker Compose specification](../concepts/coi-specifications.md#compose-spec). Save the following data to a file named `docker-compose.yaml`:
+  1. Prepare a [Docker Compose specification](../concepts/coi-specifications.md#compose-spec). Save the following data to a file named `docker-compose.yaml`:
 
      ```yaml
      version: '3.4'
@@ -41,7 +41,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
          host_path: /home/yc-user/coi-data
      ```
 
-     When creating your VM via the CLI, the default user is created: `yc-user`.
+     When creating your VM via the CLI, you create a default user: `yc-user`.
 
   1. Create a VM with multiple disks:
 
@@ -66,7 +66,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--ssh-key`: Path to file with the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--docker-compose-file`: YAML file with the container specification.
 
-     Once the VM is created, it appears in the list of VMs under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+     After being created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
 
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
