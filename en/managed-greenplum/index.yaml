@@ -1,5 +1,5 @@
 ---
-title: Yandex Managed Service for Greenplum<sup>®</sup>
+title: Yandex Managed Service for Greenplum®
 description:
   - >-
     Yandex Managed Service for Greenplum<sup>®</sup> enables you to deploy and maintain Greenplum clusters<sup>®</sup> under the Yandex.Cloud infrastructure.
@@ -12,7 +12,7 @@ description:
     registered trademarks or trademarks of VMware, Inc
     in the United States and/or other countries.</em>
 meta:
-  title: Yandex Managed Service for Greenplum<sup>®</sup>
+  title: Yandex Managed Service for Greenplum®
 links:
   - title: Getting started
     description: Create your first cluster
@@ -29,4 +29,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-    

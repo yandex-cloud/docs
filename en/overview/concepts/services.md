@@ -28,7 +28,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ mes-full-name }}](../../managed-elasticsearch/)
 * [{{managed-k8s-full-name}}<sup>®</sup>](../../managed-kubernetes/)
 * [{{ mmg-full-name }}](../../managed-mongodb/)
-* [{{ mmy-full-name }}<sup>®</sup>](../../managed-mysql/)
+* [{{ mmy-full-name }}®](../../managed-mysql/)
 * [{{ mpg-full-name }}](../../managed-postgresql/)
 * [{{ mrd-full-name }}™](../../managed-redis/)
 * [{{ mms-full-name }}](../../managed-sqlserver/)

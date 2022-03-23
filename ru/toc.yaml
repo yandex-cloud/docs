@@ -72,14 +72,14 @@ items:
     href: managed-clickhouse/index.yaml
   - name: Managed Service for Elasticsearch
     href: managed-elasticsearch/index.yaml
-  - name: Managed Service for Apache Kafka<sup>®</sup>
+  - name: Managed Service for Apache Kafka®
     href: managed-kafka/index.yaml
   - name: Managed Service for Kubernetes<sup>®</sup>
     href: managed-kubernetes/index.yaml
     when: audience == "external"
   - name: Managed Service for MongoDB
     href: managed-mongodb/index.yaml
-  - name: Managed Service for MySQL<sup>®</sup>
+  - name: Managed Service for MySQL®
     href: managed-mysql/index.yaml
   - name: Managed Service for PostgreSQL
     href: managed-postgresql/index.yaml

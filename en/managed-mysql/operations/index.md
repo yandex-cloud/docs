@@ -1,4 +1,4 @@
-# Step-by-step instructions for {{ mmy-name }}<sup>®</sup>
+# Step-by-step instructions for {{ mmy-name }}®
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)

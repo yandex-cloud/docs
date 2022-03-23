@@ -56,7 +56,7 @@ To create a database cluster in {{ mmy-short-name }}, you must define its charac
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see [Getting started with {{ mmy-short-name }}<sup>®</sup>](../quickstart.md).
+For detailed instructions, see [{#T}](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 

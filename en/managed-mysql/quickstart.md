@@ -1,4 +1,4 @@
-# Getting started with {{ mmy-short-name }}<sup>®</sup>
+# Getting started with {{ mmy-short-name }}®
 
 To get started with the service:
 

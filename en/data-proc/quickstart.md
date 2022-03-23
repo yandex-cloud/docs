@@ -1,4 +1,4 @@
-# Getting started with {{ mmy-short-name }}<sup>®</sup>
+# Getting started with {{ mmy-short-name }}®
 
 Before creating a database cluster:
 

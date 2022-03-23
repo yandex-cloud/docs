@@ -12,10 +12,10 @@ default:
   mmg-full-name: Yandex Managed Service for MongoDB
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
-  mkf-full-name: Yandex Managed Service for Apache Kafka<sup>®</sup>
+  mkf-full-name: Yandex Managed Service for Apache Kafka®
   mes-full-name: Yandex Managed Service for Elasticsearch
   mms-full-name: Yandex Managed Service for SQL Server
-  mgp-full-name: Yandex Managed Service for Greenplum<sup>®</sup>
+  mgp-full-name: Yandex Managed Service for Greenplum®
   mgl-full-name: Yandex Managed Service for GitLab
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
@@ -74,10 +74,10 @@ default:
   mmg-name: Managed Service for MongoDB
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
-  mkf-name: Managed Service for Apache Kafka<sup>®</sup>
+  mkf-name: Managed Service for Apache Kafka®
   mes-name: Managed Service for Elasticsearch
   mms-name: Managed Service for SQL Server
-  mgp-name: Managed Service for Greenplum<sup>®</sup>
+  mgp-name: Managed Service for Greenplum®
   mgl-name: Managed Service for GitLab
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
@@ -137,10 +137,10 @@ default:
   mmg-short-name: Managed Service for MongoDB
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
-  mkf-short-name: Managed Service for Apache Kafka<sup>®</sup>
+  mkf-short-name: Managed Service for Apache Kafka®
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
-  mgp-short-name: Managed Service for Greenplum<sup>®</sup>
+  mgp-short-name: Managed Service for Greenplum®
   mgl-short-name: Managed Service for GitLab
   monitoring-short-name: Monitoring
   mkf-msr: Managed Schema Registry
@@ -257,8 +257,8 @@ default:
   CH: ClickHouse
   ES: Elasticsearch
   GL: GitLab
-  GP: Greenplum<sup>®</sup>
-  KF: Apache Kafka<sup>®</sup>
+  GP: Greenplum®
+  KF: Apache Kafka®
   KFC: Kafka Connect
   MG: MongoDB
   MS: SQL Server
@@ -578,7 +578,7 @@ internal:
   mmg-backup-retention-max: 35
   MY: MySQL
   RD: Redis
-  KF: Apache Kafka<sup>®</sup>
+  KF: Apache Kafka®
   ES: Elasticsearch
   ZK: ZooKeeper
   MS: Microsoft SQL Server
