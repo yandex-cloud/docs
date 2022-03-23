@@ -11,21 +11,21 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 {% list tabs %}
 
 - Java 
-    
+
     Добавьте зависимости с помощью [Apache Maven](https://maven.apache.org/):
-    
+
     ```java
     <dependency>
         <groupId>com.yandex.cloud</groupId>
-        <artifactId>sdk</artifactId>
-        <version>1.2.1</version>
+        <artifactId>java-sdk-services</artifactId>
+        <version>2.4.2</version>
     </dependency>
     ```
 
 - Go
 
     Установите SDK:
-    
+
     ```go
     go get github.com/yandex-cloud/go-sdk
     ```
@@ -43,18 +43,19 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 {% list tabs %}
 
-- Java 
-    
+- Java
+
     Аутентифицируйтесь с сервисным аккаунтом, привязанным к ВМ:
-    
+
+    ```java
+    CredentialProvider credentialProvider = Auth.computeEngineBuilder().build();
     ```
-    Credentials credentials = Auth.fromMetadata();  
-    ``` 
+
 - Go
 
     Аутентифицируйтесь с сервисным аккаунтом, привязанным к ВМ:
-    
-    ```
+
+    ```Go
     credentials := ycsdk.InstanceServiceAccount()
     ```
 
@@ -66,18 +67,20 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 {% list tabs %}
 
-- Java 
+- Java
 
     Аутентифицируйтесь с произвольным сервисным аккаунтом:
-    
+
+    ```java
+    CredentialProvider credentialProvider = Auth.apiKeyBuilder().fromFile(Paths.get("key.json")).build();
+
     ```
-    Credentials credentials = Auth.fromFile(Auth::apiKey, Paths.get("key.json"));
-    ``` 
+
 - Go
 
     Аутентифицируйтесь с произвольным сервисным аккаунтом:
-    
-    ```
+
+    ```Go
     authorizedKey, err := iamkey.ReadFromJSONFile("key.json")
     if err != nil {...}
     credentials, err := ycsdk.ServiceAccountKey(authorizedKey)
@@ -93,18 +96,19 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 {% list tabs %}
 
-- Java 
+- Java
 
-    Аутентифицируйтесь с аккаунтом на Яндексе: 
-    
+    Аутентифицируйтесь с аккаунтом на Яндексе:
+
+    ```java
+    CredentialProvider credentialProvider = Auth.oauthTokenBuilder().build();  
     ```
-    Credentials credentials = Auth.oauthToken(token);  
-    ``` 
+
 - Go
 
-    Аутентифицируйтесь с аккаунтом на Яндексе: 
+    Аутентифицируйтесь с аккаунтом на Яндексе:
 
-    ```
+    ```Go
     credentials := ycsdk.OAuthToken(token)
     ```
 
@@ -122,36 +126,38 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 - Java
 
-    ```
-    ServiceFactoryConfig config = ServiceFactoryConfig.builder()
-        .credentials(credentials)
-        .build();
-    SymmetricCryptoServiceBlockingStub symmetricCryptoService = new ServiceFactory(config).create(
-        SymmetricCryptoServiceBlockingStub.class,
-        SymmetricCryptoServiceGrpc::newBlockingStub
-    );
+    ```Java
+    SymmetricCryptoServiceBlockingStub symmetricCryptoService = ServiceFactory.builder()
+        .credentialProvider(credentialProvider)
+        .build()
+        .create(
+            SymmetricCryptoServiceBlockingStub.class,
+            SymmetricCryptoServiceGrpc::newBlockingStub
+        );
+
     ...
-    
+
     byte[] ciphertext = symmetricCryptoService.encrypt(SymmetricEncryptRequest.newBuilder()
         .setKeyId(keyId)
         .setPlaintext(ByteString.copyFrom(plaintext))
         .setAadContext(ByteString.copyFrom(aad))
         .build()
     ).getCiphertext().toByteArray();
-    
+
     ...
-    
+
     byte[] plaintext = symmetricCryptoService.decrypt(SymmetricDecryptRequest.newBuilder()
         .setKeyId(keyId)
         .setCiphertext(ByteString.copyFrom(ciphertext))
         .setAadContext(ByteString.copyFrom(aad))
         .build()
     ).getPlaintext().toByteArray();
+
     ```
 
 - Go
 
-    ```
+    ```Go
     sdk, err := ycsdk.Build(context, ycsdk.Config{
       Credentials: credentials,
     })
@@ -178,11 +184,8 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
     plaintext := response.Plaintext
     ```
 
-{% endlist %}
-
 #### См. также {#see-also}
 
 * [{{ yandex-cloud }} Java SDK](https://github.com/yandex-cloud/java-sdk).
 * [Примеры работы с {{ kms-short-name }} с помощью Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).
-* [{{ yandex-cloud }} Go SDK](https://github.com/yandex-cloud/go-sdk). 
-
+* [{{ yandex-cloud }} Go SDK](https://github.com/yandex-cloud/go-sdk).

@@ -5,6 +5,6 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/_includes/index.md
 
 В данном разделе собраны статьи по инструментам диагностики баз данных YDB.
 
-- [Системные таблицы](../system_views_db.md)
+- [Системные таблицы](../system_views.md)
 - [Метрики](../monitoring.md)
 

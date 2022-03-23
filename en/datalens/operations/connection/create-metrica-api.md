@@ -1,8 +1,8 @@
 # Creating a Metrica connection
 
-## Connecting to Yandex.Metrica {#metrica-connection}
+## Connecting to Yandex Metrica {#metrica-connection}
 
-To create a Yandex.Metrica connection:
+To create a Yandex Metrica connection:
 
 1. Go to the [connections page](https://datalens.yandex.com/connections).
 
@@ -14,7 +14,7 @@ To create a Yandex.Metrica connection:
 
     - **Connection name**. Specify a name for the connection. You can set any name.
 
-    - **OAuth token**. Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the Yandex.Metrica data.
+    - **OAuth token**. Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the Yandex Metrica data.
 
     - **Tag**. Specify one or more tracking tags to connect to. You can select them from the list or enter them manually separated by commas.
 

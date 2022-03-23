@@ -62,7 +62,7 @@ A billing account is required even if you plan to use only free services. When y
       * When enabling the trial period, remember that after its expiration, your resources will be discontinued. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
       * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
 
-   * Click **Activate**.
+   * Click **Create**.
 
    If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your user account. In this case, it may take up to three business days to activate your billing account.
 

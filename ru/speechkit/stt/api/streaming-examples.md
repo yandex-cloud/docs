@@ -7,7 +7,7 @@
     git clone https://github.com/yandex-cloud/cloudapi
     ```
 1. [Узнайте идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), к которому у вашего аккаунта есть доступ.
-1. Для аутентификации в примерах используется [IAM-токен](../../../iam/concepts/authorization/iam-token) ([о других способах аутентификации](../../concepts/auth.md)). Получите IAM-токен:
+1. Для аутентификации в примерах используется [IAM-токен](../../../iam/concepts/authorization/iam-token/) ([о других способах аутентификации](../../concepts/auth.md)). Получите IAM-токен:
    * [Инструкция](../../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
    * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 1. Скачайте [пример](https://storage.yandexcloud.net/speechkit/speech.pcm) аудиофайла для распознавания. Аудиофайл имеет формат [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) с частотой дискретизации 8000.
@@ -24,7 +24,7 @@
        pip install grpcio-tools
        ```
 
-   1. Перейдите в директорию с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi), создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
+   1. Перейдите в директорию с репозиторием [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/), создайте директорию `output` и сгенерируйте в ней код интерфейса клиента:
 
        ```bash
        cd cloudapi
@@ -103,11 +103,11 @@
  
            run(args.folder_id, args.token, args.path)
        ```
-   1. Выполните созданный файл, передав в аргументах IAM-токен, идентификатор каталога и путь к аудиофайлу, который необходимо распознать:
+   1. Задайте [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) и [IAM-токен](../../../iam/concepts/authorization/iam-token.md) и выполните созданный файл. В аргументе `path` укажите путь к аудиофайлу, который необходимо распознать:
 
        ```bash
-       export FOLDER_ID=b1gvmob95yysaplct532
-       export IAM_TOKEN=CggaATEVAgA...
+       export FOLDER_ID=<идентификатор каталога>
+       export IAM_TOKEN=<IAM-токен>
        python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --path speech.pcm
       
        Start chunk:
@@ -214,12 +214,12 @@
            // Обрабатываем ошибки
            console.log(response);
        });
-       ```
-   1. Задайте переменные `FOLDER_ID` и `IAM_TOKEN`, которые используются в скрипте, и выполните созданный файл. В аргументах укажите путь к аудиофайлу:
+        ```
+   1. Задайте [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) и [IAM-токен](../../../iam/concepts/authorization/iam-token.md), которые используются в скрипте, и выполните созданный файл. В аргументе укажите путь к аудиофайлу, который необходимо распознать:
 
        ```bash
-       export FOLDER_ID=b1gvmob95yysaplct532
-       export IAM_TOKEN=CggaATEVAgA...
+       export FOLDER_ID=<идентификатор каталога>
+       export IAM_TOKEN=<IAM-токен>
        node index.js speech.pcm
  
        Start chunk:

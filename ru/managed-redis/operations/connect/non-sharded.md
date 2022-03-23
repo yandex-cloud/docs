@@ -34,10 +34,10 @@ FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}
 
 ```bash
 redis-cli -h c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
-          -p 6380 \
-          --tls \
-          --cacert ~/.redis/YandexInternalRootCA.crt \
-          -a <пароль {{ RD }}>
+  -p 6380 \
+  --tls \
+  --cacert ~/.redis/YandexInternalRootCA.crt \
+  -a <пароль {{ RD }}>
 ```
 
 ## Подключение из графических IDE {#connection-ide}

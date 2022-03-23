@@ -18,7 +18,7 @@ Before you start, you need to add dependencies.
     <dependency>
         <groupId>com.yandex.cloud</groupId>
         <artifactId>kms-provider-awscrypto</artifactId>
-        <version>1.0</version>
+        <version>2.1</version>
     </dependency>
     ```
 
@@ -33,19 +33,19 @@ Create a {{ yandex-cloud }} provider for the AWS Encryption SDK and use the meth
 - Java
 
     ```java
-    YcKmsMasterKeyProvider provider = YcKmsMasterKeyProvider.builder()
-        .setCredentialsSupplier(() -> credentials)
-        .setKeyId(keyId)
-        .build();
-    AwsCrypto awsCrypto = new AwsCrypto();
-    
+    YcKmsMasterKeyProvider provider = new YcKmsMasterKeyProvider()
+        .withCredentials(credentialProvider)
+        .withKeyId(keyId);
+    AwsCrypto awsCrypto = AwsCrypto.standard();
+
     ...
-    
+
     byte[] ciphertext = awsCrypto.encryptData(provider, plaintext, aad).getResult();
-    
+
     ...
-    
+
     byte[] plaintext = awsCrypto.decryptData(provider, ciphertext).getResult();
+    
     ```
 
     Where:
@@ -62,4 +62,3 @@ Create a {{ yandex-cloud }} provider for the AWS Encryption SDK and use the meth
 * [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html).
 * [{{ yandex-cloud }} provider for the AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto).
 * [Examples of using {{ yandex-cloud }} KMS Providers for the AWS Encryption SDK](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-awsCrypto/src/main/java/com/yandex/cloud/kms/providers/examples).
-

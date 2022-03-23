@@ -34,7 +34,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch)
 
-    1. [{{ ml-platform-short-name }}. Upload the test app data via Yandex.Disk](#uploading-data-counter-from-disk)
+    1. [{{ ml-platform-short-name }}. Upload the test app data via Yandex Disk](#uploading-data-counter-from-disk)
     1. [Upload data from AppMetrica](#uploading-data-from-appmetrica)
     1. [{{ CH }}. Get the cluster address](#getting-ch-cluster-host)
     1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch)
@@ -81,7 +81,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
       * {{ datalens-short-name }} access
       * Access from the management console
-      * Access from Yandex.Metrica and AppMetrica
+      * Access from Yandex Metrica and AppMetrica
       * Serverless access
 
    1. After configuring all the settings, click **Create cluster**.
@@ -108,7 +108,7 @@ If you don't have the AppMetrica app, or it doesn't contain enough data, or you 
 
 If you have the AppMetrica app and access to it, go to [2.2](#uploading-data-from-appmetrica): this step is recommended for experienced users who might need to edit scripts (skip [2.1](#uploading-data-counter-from-disk)).
 
-### 2.1. {{ ml-platform-short-name }}. Download the test app data from Yandex.Disk {#uploading-data-counter-from-disk}
+### 2.1. {{ ml-platform-short-name }}. Download the test app data from Yandex Disk {#uploading-data-counter-from-disk}
 
 {% note info %}
 

@@ -139,7 +139,6 @@
 * Под с именем `pod-restore`, содержащий записи в файле `/data/out.txt`.
 
 Чтобы восстановить снапшот:
-
 1. Создайте файл `04-restore-snapshot.yaml` с манифестом нового `PersistentVolumeClaim`:
 
    ```yaml

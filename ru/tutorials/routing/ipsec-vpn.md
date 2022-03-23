@@ -1,1 +1,1 @@
-{% include [ipsec-vprn](../../_includes/tutorials/routing/ipsec-vpn.md) %}
+{% include [ipsec-vpn](../../_includes/tutorials/routing/ipsec-vpn.md) %}

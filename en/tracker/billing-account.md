@@ -54,11 +54,11 @@ If you linked a billing account with an active trial period or created a new acc
 
    {% include [payment-card-validation](../_includes/billing/payment-card-validation.md) %}
 
-1. Click the **Enable** button.
+1. Click the **Create** button.
 
    {% note info %}
 
-   By clicking **Enable**, you accept [{{yandex-cloud}} offer]({{ link-cloud-oferta }}).
+   By clicking **Create**, you accept [{{yandex-cloud}} offer]({{ link-cloud-oferta }}).
 
    {% endnote %}
 
@@ -69,9 +69,7 @@ If you linked a billing account with an active trial period or created a new acc
    * `PAYMENT_NOT_CONFIRMED` — used for individual entrepreneurs and companies residing in Russia or Kazakhstan that pay via **Bank transfer**, as well as companies residing outside of Russia and Kazakhstan (any payment method). You will receive an email outlining further steps you need to take to an address specified in your Yandex account. Billing account activation may take up to three business days.
 
 
-
 After creating a billing account, [link it to {{ tracker-name }}](#bind). You can also use the starting grant to explore {{ yandex-cloud }} services if you haven't activated the trial period or purchased paid services before. Read more about the starting grant in [Getting started in {{ yandex-cloud }}](../getting-started/index.yaml).
-
 
 
 ## Editing your billing account {#edit}

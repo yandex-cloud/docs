@@ -1,10 +1,53 @@
 # Релизы YC CLI
 
-## Версия 0.88.0 (16.02.22) {#latest-release}
+## Версия 0.89.0 (23.03.22) {#latest-release}
 
-### Изменения в CLI {#cli}
+### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ data-transfer-name }}
+#### {{ compute-name }} {#compute}
+
+* Добавлена команда `yc compute filesystem resize` для изменения размера файлового хранилища.
+* В команду `yc compute instance update` добавлен флаг `--preemptible`, позволяющий сделать обычную ВМ прерываемой и наоборот.
+
+#### {{ sf-name }} {#functions}
+
+* Команды `yc serverless function logs` и `yc serverless function version logs` теперь возвращают логи из {{ cloud-logging-name }}. В команды добавлены параметры:
+
+  * `--levels` для поиска записей с указанными уровнями логирования;
+  * `--filter` для фильтрации записей.
+  
+  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md).
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mrd-name }}**
+
+* Параметр `--persistence-mode`, который позволяет выбрать режим персистентности кластера {{ RD }}, добавлен в команды:
+
+  * `yc managed-redis cluster create`;
+  * `yc managed-redis cluster restore`;
+  * `yc managed-redis cluster create`.
+  
+  В последнюю команду также добавлен флаг `--force`, обязательный при отключении персистентности кластера.
+
+**{{ mch-name }}**
+
+* Добавлена команда `yc managed-clickhouse hosts update` для редактирования хостов кластера {{ CH }}. У команды есть параметр `--assign-public-ip` для управления публичным доступом к хосту: `true` — хост доступен по публичному IP-адресу, `false` — публичный доступ отключен.
+* В команду `yc managed-clickhouse cluster create` добавлены флаги `--datatransfer-access` и `--yandexquery-access` для управления доступом к хостам кластера из сервисов {{ data-transfer-name }} и {{ yq-full-name }}, соответственно.
+* В команде `yc managed-clickhouse cluster restore` параметр `--backup-id` теперь принимает список значений для восстановления шардированного кластера.
+
+**{{ mmy-name }}**
+
+* В вывод команды `yc managed-mysql hosts list` добавлена колонка `PRIORITY`.
+* В команду `yc managed-mysql hosts update` добавлен параметр `--priority` для изменения приоритета хоста при переключении мастера.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.88.0 (16.02.22) {#version0.88.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ data-transfer-name }}
 
 * Добавлена команда `list` для `endpoint` и `transfer`:
 
@@ -19,28 +62,24 @@
   * `yc datatransfer endpoint update mysql-target`;
   * `yc datatransfer transfer update`;
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
-
-#### {{ cdn-name }} {#cdn}
+##### {{ cdn-name }} {#cdn}
 
 * Добавлена возможность делать полную очистку кэша ресурса: `yc cdn cache purge --all`.
 * Исправлено создание ресурса, когда источник — бакет или балансер.
 
-#### {{ api-gw-name }} {#api-gw}
+##### {{ api-gw-name }} {#api-gw}
 
 * В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены флаги `--network-id` и `--network-name` для указания сети API-шлюза, а также флаги `--subnet-id` и `--subnet-name` для детального списка подсетей.
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Добавлены команды `yc compute disk move` и `yc compute instance move` для перемещения дисков и инстансов между фолдерами
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mms-name }}**
 
 * В команды `yc managed-sqlserver update`, `yc managed-sqlserver start` добавлен флаг `confirm-payment` для подтверждения согласия с лицензионными платежами.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.87.0 (18.01.22) {#version0.87.0}
 

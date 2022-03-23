@@ -67,7 +67,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--ssh-key`: Path to file with the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--docker-compose-file`: YAML file with the container specification.
 
-     Once the VM is created, it appears in the list of VMs under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+     After being created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
 
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).

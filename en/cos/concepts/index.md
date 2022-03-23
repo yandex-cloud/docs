@@ -1,4 +1,4 @@
-# Image {{ coi }}
+# A {{ coi }}
 
 _{{ coi }}_ is an [image](../../compute/concepts/image.md) of a VM optimized for running Docker containers. The image includes Ubuntu LTS, Docker, and a daemon for launching Docker containers.
 

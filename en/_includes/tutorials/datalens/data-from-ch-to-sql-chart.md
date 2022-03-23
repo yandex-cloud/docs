@@ -16,7 +16,7 @@ To visualize and analyze data, make sure you have a [ready-to-use cloud](#before
 
 {% note warning %}
 
-* SQL queries only work with databases. CSV, GoogleSheets, Yandex.Metrica, and other service connections do not support SQL queries.
+* SQL queries only work with databases. CSV, GoogleSheets, Yandex Metrica, and other service connections do not support SQL queries.
 
 * SQL charts are currently available on non-public dashboards only. If you open a [public dashboard](../../../datalens/concepts/datalens-public.md), you will see an error in the chart.
 

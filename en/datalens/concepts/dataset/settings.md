@@ -38,7 +38,7 @@ The table shows the data source operating modes:
 | Greenplum | ✔ | ✔ | ✔ |
 | Google Sheets | ✔ | ✔ | ✔ |
 | {{ ydb-name }} | ✔ | - | - |
-| Yandex.Metrica | ✔ | - | - |
+| Yandex Metrica | ✔ | - | - |
 | AppMetrica | ✔ | - | - |
 
 ### Direct access {#direct}

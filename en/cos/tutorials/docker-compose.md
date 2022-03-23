@@ -16,7 +16,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a VM with multiple Docker containers from a {{ coi }}.
+  To create a VM with multiple Docker containers from a {{ coi }}:
 
   1. View a description of the CLI command to create a VM from a {{ coi }}:
 
@@ -61,17 +61,22 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--service-account-name`: Service account name.
      * `--docker-compose-file`: YAML file with the container specification.
 
-     Once the VM is created, it appears in the list of VMs under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
+     After being created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
 
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
      1. View a list of running Docker containers:
 
-        ```
+        ```bash
         sudo docker ps -a
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
-        c79b1cdc5a3a        nginx               "nginx -g 'daemon of…"   16 seconds ago      Up 14 seconds       0.0.0.0:80->80/tcp   nginx
-        3ac5a9844a5d        redis               "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        6379/tcp             redis
+        ```
+
+        Command output:
+
+        ```
+        CONTAINER ID  IMAGE  COMMAND                 CREATED         STATUS         PORTS               NAMES
+        c79b1cdc5a3a  nginx  "nginx -g 'daemon of…"  16 seconds ago  Up 14 seconds  0.0.0.0:80->80/tcp  nginx
+        3ac5a9844a5d  redis  "docker-entrypoint.s…"  2 minutes ago   Up 2 minutes   6379/tcp            redis
         ```
 
 {% endlist %}

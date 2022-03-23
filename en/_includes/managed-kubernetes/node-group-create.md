@@ -1,14 +1,27 @@
 To create a node group:
-1. Go to the folder page and select **{{ managed-k8s-name }}**.
+1. In [management console]({{ link-console-main }}), select the folder where you want to create your {{ k8s }} cluster.
+1. In the list of services, select **{{ managed-k8s-name }}**.
 1. Select the {{ k8s }} cluster to create a node group for.
 1. On the {{ k8s }} cluster page, go to the **Node groups** tab.
 1. Click **Create node group**.
 1. Enter a name and description for the node group.
 1. Specify the **{{ k8s }} version** for the node.
 1. Specify the number of nodes in the group.
-1. In the **Scalability** section:
-   * Select the scaling policy type.
-   * Specify the number of nodes in the node group.
+1. Under **Scaling**, select a type:
+   * `Fixed`: The number of nodes in the group remains unchanged. Specify the number of nodes in the group.
+   * `Automatic`: The number of nodes in the group can be controlled using automatic cluster scaling.
+
+      As a result, the following settings become available:
+      * **Minimum number of nodes**.
+      * **Maximum number of nodes**.
+      * **Initial number of nodes** with which the group will be created.
+
+   {% note warning %}
+
+   You can't change the scaling type after you create a node group.
+
+   {% endnote %}
+
 1. Under **Allow when creating and updating**, specify the maximum number of instances that you can exceed and reduce the size of the group by.
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -38,4 +51,8 @@ To create a node group:
      * **Anytime**: Maintenance is allowed at any time.
      * **Daily**: Maintenance is performed during the interval specified in the **Time (UTC) and duration** field.
      * **On selected days**: Maintenance is performed during the interval specified in the **Schedule by day** field.
+1. In the **Advanced** section:
+   * To be able to edit the [unsafe kernel parameters](../../managed-kubernetes/concepts/index.md#node-group) on the group's nodes, click **Add variable**. To enter the name of each kernel parameter, create a separate field.
+   * To set up [taint policies for nodes](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), use the **Add policy** button. Enter the key, value, and effect of each taint policy in a separate set of fields.
+   * To set up [node labels](../../managed-kubernetes/concepts/index.md#node-labels) for a node group, click **Add label**. Enter the key and value of each label in a separate set of fields.
 1. Click **Create node group**.

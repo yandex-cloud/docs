@@ -3,11 +3,11 @@
 Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/query_language/dicts/).
 
 {{ mch-name }} поддерживает несколько типов источников словарей:
-   - HTTP(s); 
-   - {{ PG }};
-   - {{ MY }};
-   - {{ CH }};
-   - {{ MG }}.
+   * HTTP(s); 
+   * {{ PG }};
+   * {{ MY }};
+   * {{ CH }};
+   * {{ MG }}.
 
 Словарями можно управлять либо через SQL, либо через интерфейсы облака. SQL — рекомендуемый способ.
 
@@ -46,9 +46,9 @@
   
   1. Выберите кластер:
   
-     1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
      1. Нажмите на имя нужного кластера, затем выберите вкладку **Словари**.
-     1. Нажмите на кнопку **Добавить словарь**.
+     1. В правом верхнем углу экрана нажмите **Добавить словарь**.
 
   1. Настройте параметры источника словаря:
     
@@ -134,21 +134,21 @@
   1. Посмотрите описание команды CLI для добавления словарей:
     
      ```
-     $ {{ yc-mdb-ch }} cluster add-external-dictionary --help
+     {{ yc-mdb-ch }} cluster add-external-dictionary --help
      ```
      
   1. Выполните команду добавления словаря. Пример команды для {{ PG }} словаря: 
    
      ```
-     $ {{ yc-mdb-ch }} cluster add-external-dictionary \
-        --name <имя кластера {{ CH }}> \
-        --dict-name <имя словаря> \
-        --structure-id <имя ключевого столбца> \
-        --structure-attribute name=<имя столбца данных>,type=<тип данных>,null-value=<значение для пустого элемента>,expression=<выражение>,hierarchical=<true|false>,injective=<true|false> \
-        --fixed-lifetime <период обновления в секундах> \
-        --layout-type <flat|hashed|cache|range_hashed|complex_key_hashed|complex_key_cache> \
-        --postgresql-source db=<имя БД источника>,table=<имя таблицы источника>,port=<порт для подключения>,user=<имя пользователя БД источника>,password=<пароль БД источника>,ssl-mode=<disable|allow|prefer|require|verify-ca|verify-full> \
-        --postgresql-source-hosts <хосты БД источника> \
+     {{ yc-mdb-ch }} cluster add-external-dictionary \
+       --name <имя кластера {{ CH }}> \
+       --dict-name <имя словаря> \
+       --structure-id <имя ключевого столбца> \
+       --structure-attribute name=<имя столбца данных>,type=<тип данных>,null-value=<значение для пустого элемента>,expression=<выражение>,hierarchical=<true|false>,injective=<true|false> \
+       --fixed-lifetime <период обновления в секундах> \
+       --layout-type <flat|hashed|cache|range_hashed|complex_key_hashed|complex_key_cache> \
+       --postgresql-source db=<имя БД источника>,table=<имя таблицы источника>,port=<порт для подключения>,user=<имя пользователя БД источника>,password=<пароль БД источника>,ssl-mode=<disable|allow|prefer|require|verify-ca|verify-full> \
+       --postgresql-source-hosts <хосты БД источника> \
      ```
     
 - API
@@ -174,7 +174,7 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Словари**.
 
 - CLI
@@ -216,9 +216,9 @@
 
 - Консоль управления
   
-  1. Перейдите на страницу каталога и нажмите плитку **{{ mch-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и нажмите плитку **{{ mch-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
-  1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
+  1. Нажмите значок ![image](../../_assets/options.svg) в строке нужного хоста и выберите пункт **Удалить**.
 
 - CLI
 
@@ -238,8 +238,8 @@
   
      ```
      {{ yc-mdb-ch }} cluster remove-external-dictionary \
-     --name <имя кластера> \
-     --dict-name <имя словаря> \
+       --name <имя кластера> \
+       --dict-name <имя словаря> \
      ```
 
 - API

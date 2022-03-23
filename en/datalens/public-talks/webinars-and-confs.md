@@ -133,7 +133,7 @@ November 29, 2019
 - Description:
    1. Working with table relationships in a dataset.
    1. Geovisualizations.
-   1. Enhancing charts with third-party data using Yandex.Weather data.
+   1. Enhancing charts with third-party data using Yandex Weather data.
    1. Public dashboards.
 
 ## More than data visualization {#scale-2019}
@@ -146,7 +146,7 @@ October 04, 2019
    1. Partner analytics on the {{ datalens-short-name }} platform. A Edadeal case study.
    1. Pricing policy.
 
-## {{datalens-full-name }}. Data visualization. A Yandex.Metrica Logs API case study {#about-cloud-2019}
+## {{datalens-full-name }}. Data visualization. A Yandex Metrica Logs API case study {#about-cloud-2019}
 
 June 10, 2019
 

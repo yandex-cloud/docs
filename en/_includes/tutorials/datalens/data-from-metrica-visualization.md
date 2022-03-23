@@ -1,8 +1,8 @@
-# Web analytics with a connection to Yandex.Metrica
+# Web analytics with a connection to Yandex Metrica
 
-One of the Yandex.Metrica tags that you have access to will be used as the data source. You can view a list of tags available to you at [https://metrika.yandex.com/list](https://metrika.yandex.com/list).![image](../../../_assets/datalens/solution-03/01-metrica-list.png)
+One of the Yandex Metrica tags that you have access to will be used as the data source. You can view a list of tags available to you at [https://metrika.yandex.com/list](https://metrika.yandex.com/list).![image](../../../_assets/datalens/solution-03/01-metrica-list.png)
 
-If no tags are available in your list, gain access to a tag or use the Yandex.Metrica demo dashboard. It's automatically created when you create a {{ datalens-short-name }} instance.
+If no tags are available in your list, gain access to a tag or use the Yandex Metrica demo dashboard. It's automatically created when you create a {{ datalens-short-name }} instance.
 
 To visualize your data, follow these steps:
 
@@ -19,7 +19,7 @@ To visualize your data, follow these steps:
 
 {% note warning %}
 
-This step is available to users who have permission to a Yandex.Metrica tag. If you don't have permissions for the tag, open the ready-to-use [**Metriсa Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) and go to step 2.
+This step is available to users who have permission to a Yandex Metrica tag. If you don't have permissions for the tag, open the ready-to-use [**Metriсa Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) and go to step 2.
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ This step is available to users who have permission to a Yandex.Metrica tag. If 
 
     ![image](../../../_assets/datalens/solution-03/04-metrica-creation1.png)
 
-    If this is your first connection to a Yandex.Metrica tag, grant the necessary permissions to the service.
+    If this is your first connection to a Yandex Metrica tag, grant the necessary permissions to the service.
 
 1. Select the tag from the drop-down list.
 
@@ -57,7 +57,7 @@ This step is available to users who have permission to a Yandex.Metrica tag. If 
 
     When the connection is created, a folder containing the datasets, charts, and dashboard opens.
 
-1. Go to **Dashboard with Yandex.Metrica data**.
+1. Go to **Dashboard with Yandex Metrica data**.
 
     ![image](../../../_assets/datalens/solution-03/07-open-dashboard.png)
 
@@ -65,7 +65,7 @@ This step is available to users who have permission to a Yandex.Metrica tag. If 
 
 {% note warning %}
 
-If you don't have a Yandex.Metrica tag and you skipped step 1, use the [**Metriсa Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
+If you don't have a Yandex Metrica tag and you skipped step 1, use the [**Metriсa Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
 
 {% endnote %}
 

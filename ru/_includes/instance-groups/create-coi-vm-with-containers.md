@@ -202,7 +202,7 @@
 
    - API
 
-     Воспользуйтесь методом [СreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
+     Воспользуйтесь методом [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
 

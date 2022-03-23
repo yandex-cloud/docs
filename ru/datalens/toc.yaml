@@ -19,9 +19,9 @@ items:
           Анализ продаж и локаций пиццерий на данных из БД Clickhouse и
           Marketplace
         href: tutorials/data-from-ch-to-geolayers-visualization.md
-      - name: Веб-аналитика с подключением к Яндекс.Метрике
+      - name: Веб-аналитика с подключением к Яндекс Метрике
         href: tutorials/data-from-metrica-visualization.md
-      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
         href: tutorials/data-from-appmetrica-visualization.md
@@ -77,6 +77,8 @@ items:
         href: concepts/caching.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Организации в DataLens
+        href: concepts/organizations.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

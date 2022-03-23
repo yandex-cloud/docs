@@ -19,10 +19,11 @@
            }
        }
        ```
-   1. Отправьте запрос на распознавание:
+   1. Отправьте запрос на распознавание, в параметре `IAM_TOKEN` укажите [IAM-токен](../../../iam/concepts/authorization/iam-token/):
+
        ```bash
-       $ export IAM_TOKEN=CggaATEVAgA...
-       $ curl -X POST \
+       export IAM_TOKEN=<IAM-токен>
+       curl -X POST \
            -H "Authorization: Bearer ${IAM_TOKEN}" \
            -d '@body.json' \
            https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
@@ -41,7 +42,7 @@
    1. Отправьте запрос на [получение информации об операции](../../../api-design-guide/concepts/operation.md#monitoring):
 
        ```bash
-       $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
            https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
  
        {
@@ -130,7 +131,7 @@
    1. Выполните созданный файл:
 
        ```bash
-       $ python test.py
+       python test.py
        ```
 {% endlist %}
    

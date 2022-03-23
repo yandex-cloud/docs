@@ -61,7 +61,7 @@ When you create a group of nodes, you can configure the following VM parameters:
 * Amount of memory (RAM) and disk space.
 * Kernel parameters:
   * _Safe_ kernel parameters are isolated between pods.
-  * _Unsafe_ parameters affect the operation of the pods and the node as a whole. In {{ managed-k8s-name }}, you can't change unsafe kernel parameters unless their names have been explicitly specified when [creating a node group](../operations/node-group/node-group-create.md).
+  * _Unsafe_ parameters affect the operation of the pods and the node as a whole. In {{ managed-k8s-name }}, you can't change unsafe kernel parameters unless their names have been explicitly specified when [creating the node group](../operations/node-group/node-group-create.md).
 
   For more information about kernel parameters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
