@@ -56,10 +56,10 @@ items:
             href: operations/jobs-spark.md
           - name: Задания PySpark
             href: operations/jobs-pyspark.md
-          - name: Задания MapReduce
-            href: operations/jobs-mapreduce.md
           - name: Задания Hive
             href: operations/jobs-hive.md
+          - name: Задания MapReduce
+            href: operations/jobs-mapreduce.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
       - name: Работа с логами

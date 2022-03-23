@@ -54,7 +54,7 @@
 
 - {{ PG }}
 
-    Драйвер для {{ PG }} предустановлен в {{ dataproc-name }}, дополнительных действий не требуется.
+    Драйвер для {{ mpg-full-name }} предустановлен в {{ dataproc-name }}, дополнительных действий не требуется.
 
 - {{ MY }}
 
@@ -92,12 +92,12 @@
 
     ```bash
     sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-        --connect <строка подключения JDBC> \
-        --username <имя пользователя базы данных> \
-        --P \
-        --table '<имя таблицы базы данных>' \
-        --target-dir 's3a://<имя бакета для импорта>/<директория назначения>' \
-        --split-by '<столбец таблицы, используемый для разделения>'
+      --connect <строка подключения JDBC> \
+      --username <имя пользователя базы данных> \
+      --P \
+      --table '<имя таблицы базы данных>' \
+      --target-dir 's3a://<имя бакета для импорта>/<директория назначения>' \
+      --split-by '<столбец таблицы, используемый для разделения>'
     ```
 
     {% note warning %}
@@ -110,10 +110,10 @@
 
 Этот тип импорта доступен, если в кластере {{ dataproc-name }} включены сервисы:
 
-* `HBase`,
-* `HDFS`,
-* `Sqoop`,
-* `Yarn`,
+* `HBase`;
+* `HDFS`;
+* `Sqoop`;
+* `Yarn`;
 * `Zookeeper`.
 
 Чтобы импортировать данные в директорию HDFS:
@@ -125,12 +125,12 @@
 
     ```bash
     sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-        --connect <строка подключения JDBC> \
-        --username <имя пользователя базы данных> \
-        --table '<имя таблицы базы данных>' \
-        --target-dir '<директория HDFS>' \
-        --P \
-        --split-by '<столбец таблицы, используемый для разделения>'
+      --connect <строка подключения JDBC> \
+      --username <имя пользователя базы данных> \
+      --table '<имя таблицы базы данных>' \
+      --target-dir '<директория HDFS>' \
+      --P \
+      --split-by '<столбец таблицы, используемый для разделения>'
     ```
 
     {% note warning %}
@@ -143,10 +143,10 @@
 
 Этот тип импорта доступен, если в кластере {{ dataproc-name }} включены сервисы:
 
-* `HDFS`,
-* `Hive`,
-* `Mapreduce`,
-* `Sqoop`,
+* `HDFS`;
+* `Hive`;
+* `Mapreduce`;
+* `Sqoop`;
 * `Yarn`.
 
 Чтобы импортировать данные в таблицу Hive:
@@ -165,15 +165,15 @@
 
     ```bash
     sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-        --connect <строка подключения JDBC> \
-        --username <имя пользователя исходной базы данных> \
-        --P \
-        --table '<имя таблицы в исходной базе данных>' \
-        --hive-import \
-        --create-hive-table \
-        --hive-database '<имя базы данных Hive>' \
-        --hive-table '<имя таблицы Hive>' \
-        --split-by '<столбец таблицы, используемый для разделения>'
+      --connect <строка подключения JDBC> \
+      --username <имя пользователя исходной базы данных> \
+      --P \
+      --table '<имя таблицы в исходной базе данных>' \
+      --hive-import \
+      --create-hive-table \
+      --hive-database '<имя базы данных Hive>' \
+      --hive-table '<имя таблицы Hive>' \
+      --split-by '<столбец таблицы, используемый для разделения>'
     ```
 
     {% note warning %}
@@ -186,10 +186,10 @@
 
 Этот тип импорта доступен, если в кластере {{ dataproc-name }} включены сервисы:
 
-* `HBase`,
-* `HDFS`,
-* `Sqoop`,
-* `Yarn`,
+* `HBase`;
+* `HDFS`;
+* `Sqoop`;
+* `Yarn`;
 * `Zookeeper`.
 
 Чтобы импортировать данные в Apache HBase:
@@ -201,14 +201,14 @@
 
     ```bash
     sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
-        --connect <строка подключения JDBC> \
-        --username <имя пользователя исходной базы данных> \
-        --P \
-        --table '<имя таблицы в исходной базе данных>' \
-        --hbase-create-table \
-        --column-family '<семейство столбцов HBase>' \
-        --hbase-table '<имя таблицы HBase>' \
-        --split-by '<столбец таблицы, используемый для разделения>'
+      --connect <строка подключения JDBC> \
+      --username <имя пользователя исходной базы данных> \
+      --P \
+      --table '<имя таблицы в исходной базе данных>' \
+      --hbase-create-table \
+      --column-family '<семейство столбцов HBase>' \
+      --hbase-table '<имя таблицы HBase>' \
+      --split-by '<столбец таблицы, используемый для разделения>'
     ```
 
     {% note warning %}
@@ -216,3 +216,4 @@
     Не указывайте имя существующей таблицы HBase.
 
     {% endnote %}
+
