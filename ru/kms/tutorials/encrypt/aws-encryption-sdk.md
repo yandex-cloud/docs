@@ -18,7 +18,7 @@
     <dependency>
         <groupId>com.yandex.cloud</groupId>
         <artifactId>kms-provider-awscrypto</artifactId>
-        <version>1.0</version>
+        <version>2.1</version>
     </dependency>
     ```
 
@@ -33,23 +33,23 @@
 - Java
 
     ```java
-    YcKmsMasterKeyProvider provider = YcKmsMasterKeyProvider.builder()
-        .setCredentialsSupplier(() -> credentials)
-        .setKeyId(keyId)
-        .build();
-    AwsCrypto awsCrypto = new AwsCrypto();
-    
+    YcKmsMasterKeyProvider provider = new YcKmsMasterKeyProvider()
+        .withCredentials(credentialProvider)
+        .withKeyId(keyId);
+    AwsCrypto awsCrypto = AwsCrypto.standard();
+
     ...
-    
+
     byte[] ciphertext = awsCrypto.encryptData(provider, plaintext, aad).getResult();
-    
+
     ...
-    
+
     byte[] plaintext = awsCrypto.decryptData(provider, ciphertext).getResult();
+
     ```
 
-    Где: 
-    
+    Где:
+
     * `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK {{ yandex-cloud }}](sdk.md#auth).
     * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md).
     * `plaintext` – открытый текст.

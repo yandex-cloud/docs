@@ -1,33 +1,42 @@
 # Auto Unseal в Hashicorp Vault
 
-Сборка [Hashicorp Vault](https://www.vaultproject.io/) с поддержкой {{ kms-name }} размещена в [{{ marketplace-name }}]{% if lang=="ru" %}(https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2){% endif %}{% if lang=="en" %}(https://cloud.yandex.com/en/marketplace/products/yc/vault-yckms){% endif %}. Сборка  позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
+Сборка [Hashicorp Vault](https://www.vaultproject.io/) с поддержкой [{{ kms-name }}](../index.yaml) доступна в виде [образа ВМ]{% if lang=="ru" %}(https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2){% endif %}{% if lang=="en" %}(https://cloud.yandex.com/en/marketplace/products/yc/vault-yckms){% endif %} в {{ marketplace-name }} и docker-образа.
+
+Сборка  позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
+
+Сборка отличается от [официальной](https://hub.docker.com/_/vault) только одним из бинарных файлов Vault, в нашей сборке в него добавлена поддержка {{ kms-name }}.
+
+Чтобы скачать последнюю версию docker-образа, используйте команду:
+
+```
+docker pull cr.yandex/yc/vault
+```
 
 ## Перед началом работы { #before-you-begin }
 
-1. Выберите один из способов аутентификации. Аутентифицироваться можно через: 
+1. Выберите один из способов аутентификации запросов Vault к {{ kms-short-name }}. Аутентифицироваться можно через:
 
     {% list tabs %}
-    
+
     - Сервисный аккаунт, привязанный к ВМ
-        
+
         Для аутентификации будет использоваться IAM-токен, автоматически извлекаемый из метаданных виртуальной машины. Подробнее об этом читайте в разделе [{#T}](../../compute/operations/vm-connect/auth-inside-vm.md).
-        
+
         {% note tip %}
-        
+
         Этот вариант наиболее предпочтительный с точки зрения безопасности. При настройке с использованием сервисного аккаунта, привязанного к виртуальной машине, указание учетных данных не требуется.
-        
+
         {% endnote %}
 
     - Произвольный сервисный аккаунт
-    
+
         Для аутентификации будет использован авторизованный ключ. Подробнее о том, как работать с авторизованным ключом читайте в разделе [{#T}](../../iam/operations/iam-token/create-for-sa.md#via-cli).
-        
+
     - Аккаунт на Яндексе
-    
+
         Для аутентификации будет использован [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
 
     {% endlist %}
-    
 
 1. [Создайте](../operations/key.md#create) отдельный KMS-ключ для Vault (рекомендуется).
 1. [Предоставьте доступ](../../iam/operations/roles/grant.md) к ключу только пользователю или сервисному аккаунту, который будет использоваться для аутентификации запросов Vault в {{ kms-short-name }}. Vault при взаимодействии с {{ kms-short-name }} выполняет только операции шифрования и расшифрования, поэтому роли `kms.keys.encrypterDecrypter` будет достаточно.
@@ -35,12 +44,26 @@
 ## Настройка Auto Unseal {#setup}
 
 Для настройки Auto Unseal внесите изменения в конфигурационный файл Vault:
-    
+
    1. В блоке [seal](https://www.vaultproject.io/docs/configuration/seal#seal-stanza) укажите значение `"yandexcloudkms"`.
    1. Добавьте параметр `kms_key_id` с идентификатором KMS-ключа для шифрования.
-   1. Если для аутентификации вы используете произвольный сервисный аккаунт или Яндекс ID, укажите соответствующие учетные данные:
-      * в значении параметра `service_account_key_file` путь к файлу с авторизованным ключом сервисного аккаунта;
-      * в значении параметра `oauth_token` OAuth-токен Яндекс ID.
+   1. Аутентифицируйтесь одним из способов:
+
+      {% list tabs %}
+
+        - Сервисный аккаунт, привязанный к ВМ
+
+            Привяжите сервисный аккаунт к ВМ в соответствии с [инструкцией](../../compute/operations/vm-connect/auth-inside-vm.md).
+
+        - Произвольный сервисный аккаунт
+
+            В значении параметра `service_account_key_file` укажите путь к файлу с авторизованным ключом сервисного аккаунта.
+
+        - Аккаунт на Яндексе
+
+            В значении параметра `oauth_token` укажите OAuth-токен Яндекс ID.
+
+      {% endlist %}
 
 {% note warning %}
 
@@ -53,47 +76,53 @@
    * переменной `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE` — параметр `service_account_key_file`;
    * переменной `YANDEXCLOUD_OAUTH_TOKEN` — параметр `oauth_token`.
 
-   Значения из переменных окружение имеют приоритет над значениями из конфигурационного файла.
+Значения из переменных окружение имеют приоритет над значениями из конфигурационного файла.
 
 ## Примеры конфигурации {#examples} 
 
-#### Аутентификация через сервисный аккаунт, привязанный к виртуальной машине {#example-1}
+{% list tabs %}
 
-```json
-...
-seal "yandexcloudkms" {
-  kms_key_id = "<ID ключа>"
-}
-...
-```
+- Сервисный аккаунт, привязанный к ВМ
 
-#### Аутентификация через произвольный сервисный аккаунт {#example-2}
-```json
-...
-seal "yandexcloudkms" {
-  kms_key_id = "<ID ключа>"
-  service_account_key_file = "<путь к JSON файлу с авторизованным ключом>"
-}
-...
-```
+    ```json
+    ...
+    seal "yandexcloudkms" {
+      kms_key_id = "<ID ключа>"
+    }
+    ...
+    ```
 
-#### Аутентификация через Яндекс ID {#example-3}
-```json
-...
-seal "yandexcloudkms" {
-  kms_key_id = "<ID ключа>"
-  oauth_token = "<OAuth-токен пользователя>"  
-}
-...
-```
+- Произвольный сервисный аккаунт
+
+    ```json
+    ...
+    seal "yandexcloudkms" {
+      kms_key_id = "<ID ключа>"
+      service_account_key_file = "<путь к JSON файлу с авторизованным ключом>"
+    }
+    ...
+    ```
+
+- Аккаунт на Яндексе
+
+    ```json
+    ...
+    seal "yandexcloudkms" {
+      kms_key_id = "<ID ключа>"
+      oauth_token = "<OAuth-токен пользователя>"  
+    }
+    ...
+    ```
+
+{% endlist %}
 
 ## Ротация ключей {#rotation}
 
-При шифровании master-ключа KMS-ключом Vault дополнительно сохраняет версию, которой он был зашифрован. 
+При шифровании master-ключа Vault KMS-ключом Vault дополнительно сохраняет версию ключа, которой он был зашифрован.  
 
-При расшифровании master-ключа (при рестарте Vault) сохраненная версия сравнивается с основной версией ключа {{ kms-short-name }} и, если они различаются, перешифровывает его основной версией. 
+При расшифровании master-ключа Vault (при рестарте Vault) сохранённая версия KMS-ключа, на которой зашифрован master-ключ Vault, сравнивается с primary-версией KMS-ключа и, если версии различаются, происходит перешифрование master-ключа Vault новой primary-версией KMS-ключа. 
 
-Таким образом ротацию master-ключа Vault можно осуществлять [ротацией ключа в {{ kms-short-name }}](../concepts/version.md#rotate-key). Ротация ключа в KMS приведет к автоматической ротации master-ключа во время следующего рестарта Vault.
+Таким образом перешифрование master-ключа Vault можно осуществлять [ротацией ключа в {{ kms-short-name }}](../concepts/version.md#rotate-key). Ротация ключа в KMS приведет к автоматическому перешифрованию master-ключа Vault во время следующего рестарта Vault.
 
 ## См. также {#see-also}
 * [Hashicorp Vault](https://www.vaultproject.io/)
