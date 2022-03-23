@@ -1,11 +1,12 @@
 # Monitoring the state of a cluster and hosts
 
-You can track the status of a {{ mms-name }} cluster and its individual hosts using:
+Using monitoring tools in the management console, you can track the status of a {{ mms-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
 
-* Monitoring tools in the management console on the cluster page.
-* In [{{ monitoring-full-name }}](../../monitoring/).
+{% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
 
-They provide diagnostic information in the form of charts that are updated every {{ graph-update }}.
+New data for charts is received every {{ graph-update }}.
+
+{% include [note-info-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
 ## Monitoring cluster status {#monitoring-cluster}
 
@@ -16,48 +17,31 @@ To view detailed information about the {{ mms-name }} cluster status:
 
 The following charts open on the page:
 
-* **Active Transactions [count]**: The number of active transactions in the cluster.
+* **Active Transactions [count]**: The number of active transactions per host.
 
-* **Batch Requests/sec**: The number of batch operations performed on each host per second.
+* **Batch Requests/sec**: The number of batch operations performed on each host per second. For more information about batch operations, see the [documentation for {{ MS }}]({% if lang=="ru" %}https://docs.microsoft.com/ru-ru/sql/odbc/reference/develop-app/batches-of-sql-statements{% endif %}{% if lang=="en" %}https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/batches-of-sql-statements{% endif %}).
 
-    For more information about batch operations, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/batches-of-sql-statements).
+* **CPU**: The load on processor cores. As the load goes up, the `percent_idle_time` value goes down.
 
-* **CPU**: The percentage of CPU operating modes in time:
-    * **percent_user_time**: User mode.
-    * **percent_processor_time**: The total processor time under load (when it is not idle).
-    * **percent_privileged_time**: Kernel mode.
-    * **percent_interrupt_time**: Handling interrupts.
-    * **percent_idle_time**: Standby mode.
+* **Disk capacity on primary, [bytes]**: Disk space usage on the [primary replica](../concepts/replication.md) (in bytes).
 
-* **Disk capacity on primary, [bytes]**: The master host's disk capacity (in bytes):
-    * **Used Space**: Used disk space.
-    * **Available Space**: Free disk space.
+* **Is alive [bool]**: Shows cluster availability as the sum of its hosts' states. Each **Alive** host increases the overall availability by 1.
 
-* **Is alive [bool]**: Shows cluster availability as the sum of its hosts' states.
+* **Is Primary [bool]**: Shows which host is the primary replica and for how long.
 
-    Each **Alive** host increases the overall availability by 1.
-
-* **Is Primary [bool]**: Shows which host is the master and for how long.
-
-* **Lazy Writes/sec on primary**: The physical write speed on the master host. {{ MS }} splits data writes to make storage usage more efficient:
+* **Lazy Writes/sec on primary**: The physical write speed on the primary replica. {{ MS }} splits data writes to make storage usage more efficient:
     * _Logical writes_: Updating data in RAM.
     * _Physical writes_: Writing modified pages from RAM to storage.
 
-    For more information, see the  [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/writing-pages).
+    For more information, see the [documentation for {{ MS }}]({% if lang=="ru" %}https://docs.microsoft.com/ru-ru/sql/relational-databases/writing-pages{% endif %}{% if lang=="en" %}https://docs.microsoft.com/en-us/sql/relational-databases/writing-pages{% endif %}).
 
-* **Memory Grants Pending on primary**: The number of queries waiting for a memory grant.
+* **Memory Grants Pending on primary**: The number of queries waiting for a memory grant. For more information, see the [documentation for {{ MS }}]({% if lang=="ru" %}https://docs.microsoft.com/ru-ru/sql/relational-databases/memory-management-architecture-guide{% endif %}{% if lang=="en" %}https://docs.microsoft.com/en-us/sql/relational-databases/memory-management-architecture-guide{% endif %}).
 
-    For more information, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/memory-management-architecture-guide).
+* **Page Life Expectancy [sec]**: Shows how long (in seconds) pages stay in memory before they're written to storage. The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to fetch the necessary data.
 
-* **Page Life Expectancy [sec]**: Shows how long (in seconds) pages stay in memory before they're written to storage.
+* **Transactions/sec on primary**: The average number of transactions executed on the primary replica per second.
 
-    The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to fetch the necessary data.
-
-* **Transactions/sec on primary**: The average number of transactions executed on the master host per second.
-
-* **User connections**: The number of cluster connections.
-
-    Some connections will always be active. They are used by the cluster itself and the {{ yandex-cloud }} services that are responsible for monitoring its status.
+* **User connections**: The number of cluster connections. Some connections will always be active. They are used by the cluster itself and the {{ yandex-cloud }} monitoring services.
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
@@ -71,32 +55,27 @@ This page displays the following charts:
 
 * **Active Transactions [count]**: The number of active transactions per database.
 
-* **Bytes send/received**: The average number of bytes per second:
-    * **bytes_received_persec**: Bytes received from the network.
-    * **bytes_sent_persec**: Bytes sent.
+* **Bytes send/received**: The speed of data exchange over the network (bytes per second).
 
-* **CPU (processor time)**: vCPU usage (%):
-    * **Interrupt Time**: Handling interrupts.
-    * **User Time**: Operation in user mode.
-    * **Privileged Time**: Operation in kernel mode.
+* **CPU (processor time)**: CPU usage.
 
-* **Disk Latency**: The delay in storage response (ms):
-    * **avg._disk_sec/transfer**: The average time it takes to perform I/O operations.
-    * **avg._disk_sec/write**: The average data write time.
-    * **avg._disk_sec/read**: The average data read time.
-	
-* **Disk Bytes**: The average size of data written to and read from the storage (in bytes).
+* **Disk Latency**: Waiting time for disk operations:
+    * **avg.\_disk_sec/transfer**: The average time it takes to perform disk operations.
+    * **avg.\_disk_sec/write**: The average data write time.
+    * **avg.\_disk_sec/read**: The average data read time.
 
-* **Disk read/write time**: The average amount of time it takes to write data to or read it from storage (in milliseconds).
+* **Disk bytes**: The speed of disk operations (bytes per second).
 
-* **Memory Grants Pending**: The number of queries waiting for a memory grant on the host.
+* **Disk read/write time**: Disk usage (%).
+
+* **Memory Grants Pending**: The number of queries waiting for a memory grant.
 
 * **Packets send/received**: The number of processed network packets:
 
     * **packets_received_discarded**: The number of discarded packets.
 
         Packets may be discarded for the following reasons:
-
+        
         * Transfer errors.
         * Formatting errors.
         * Insufficient storage space.
@@ -107,14 +86,12 @@ This page displays the following charts:
 
     * **packets_received_errors**: The number of errors when receiving packets.
 
-    * **packets_received_persec**: The average number of packets sent per second.
+    * **packets_received_persec**: Shows how many packets are received from the network per second.
 
-    * **packets_sent_persec**: The average number of packets received per second.
+    * **packets_sent_persec**: Shows how many packets are sent to the network per second.
 
-* **Page Life Expectancy**: Shows how long (in seconds) pages stay in memory before they're flushed to storage.
+* **Page Life Expectancy**: Shows how long (in seconds) pages stay in memory before they're flushed to storage. The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to read and write the necessary data.
 
-    The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to read and write the necessary data.
-	
 * **SQL Errors [count]**: The number of SQL query handling errors:
     * **User_Errors**: User errors.
     * **Kill_Connection_Errors**: Fatal errors that killed the connection.
@@ -122,8 +99,43 @@ This page displays the following charts:
     * **DB_Offline_Errors**: Errors due to DB unavailability.
     * **Total**: The total number of errors on the host.
 
-* **Space used/available**: Shows how much of the host's space is used and available (in bytes).
+* **Space used/available**: Shows how much disk space is used and available (in bytes).
+    * **avg._disk_sec/transfer**: The average time it takes to perform I/O operations.
+    * **avg._disk_sec/write**: The average data write time.
+    * **avg._disk_sec/read**: The average data read time.
 
-* **User connections**: The average number of cluster connections.
+* **User connections**: The number of host connections. Some connections will always be active. They are used by the cluster itself and the {{ yandex-cloud }} monitoring services.
 
-    Some connections will always be active. They are used by the cluster itself and the {{ yandex-cloud }} services that are responsible for monitoring its status.
+## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+
+To set up [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+
+1. In the Management console, select the folder with the cluster you wish to configure alerts for.
+1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
+1. Under **Service dashboards**, select:
+    * **{{ mms-name }} — Cluster Overview** to configure cluster alerts.
+    * **{{ mms-name }} — Host Overview** to configure host alerts.
+1. On the desired metrics chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
+1. Set the `Alarm` and `Warning` notification threshold values.
+1. Click **Create alert**.
+
+To have other cluster health indicators monitored automatically:
+
+{% if audience == "external" %}
+
+1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
+{% else %}
+1. Create an alert.
+{% endif %}
+1. Add a status metric.
+1. Set the alert threshold values in the alert settings.
+
+Recommended threshold values:
+
+| Metric                                       | Parameter                                       | `Alarm`                     | `Warning`                  |
+| ---------------------------------------------: | :------------------------------------------------: | :--------------------------: | :--------------------------: |
+| Storage space used | `mdb_volume_space.available_space_bytes`          | `10% of storage size` | `20% of storage size` |
+| CPU usage                                | `win_cpu.percent_idle_time`                       | `10`                        | `20`                        |
+| The number of queries waiting for a memory grant | `mdb_performance_counters.memory_grants_pending` | `2`                         | `1`                         |
+
