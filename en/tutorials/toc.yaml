@@ -108,6 +108,8 @@ items:
         href: dataplatform/kafka-cdc.md
       - name: Migrating databases to Managed Service for Microsoft SQL Server
         href: dataplatform/mssql-data-migration.md
+      - name: Migrating databases from Yandex Managed Service for MySQL to MySQL
+        href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md

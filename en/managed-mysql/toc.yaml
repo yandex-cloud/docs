@@ -28,7 +28,7 @@ items:
         href: operations/databases.md
       - name: Managing users
         href: operations/cluster-users.md
-      - name: Managing user permissions 
+      - name: Managing user permissions
         href: operations/grant.md
       - name: Managing backups
         href: operations/cluster-backups.md
@@ -72,8 +72,10 @@ items:
     items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
-      - name: Migrating databases to Managed Service for MySQL
+      - name: Migrating databases to {{ mmy-name }}
         href: tutorials/data-migration.md
+      - name: Migrating databases from {{ mmy-name }} to {{ MY }}
+        href: tutorials/mmy-to-mysql-migration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
