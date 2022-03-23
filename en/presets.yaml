@@ -487,16 +487,16 @@ default:
   dt-type-repl: Replicate
 
   # Terraform providers
+  tf-provider-k8s-cluster: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster
+  tf-provider-k8s-node-group: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group
   tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
+  tf-provider-mes: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
   tf-provider-mkf: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
   tf-provider-mmg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster
   tf-provider-mms: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_sqlserver_cluster
   tf-provider-mmy: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
   tf-provider-mpg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
-  tf-provider-mes: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
-  tf-provider-k8s-cluster: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster
-  tf-provider-k8s-node-group: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group
 
   # Ports
   port-any: 0-65535

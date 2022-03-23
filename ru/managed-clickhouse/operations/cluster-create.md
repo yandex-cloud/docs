@@ -308,7 +308,7 @@
              ...
            }
            ```
-
+       
        Пользователями и базами данных в кластере можно управлять через SQL.
 
        {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}

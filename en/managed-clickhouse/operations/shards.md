@@ -59,7 +59,7 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [Terraform provider documentation]({{ tf-provider-mch }}).
 
 - API
 
@@ -180,7 +180,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [Terraform provider documentation]({{ tf-provider-mch }}).
 
 - API
 

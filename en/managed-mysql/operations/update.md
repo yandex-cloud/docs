@@ -287,7 +287,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster#mysql-config).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}#mysql-config).
 
 - API
 

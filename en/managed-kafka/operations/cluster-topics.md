@@ -104,7 +104,7 @@ Read more about working with the Admin API and the existing limitations in [{#T}
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 
@@ -203,7 +203,7 @@ The number of {{ KF }} topic partitions can only be increased.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 
@@ -267,7 +267,7 @@ The number of {{ KF }} topic partitions can only be increased.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 

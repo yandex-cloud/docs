@@ -124,7 +124,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 
@@ -211,7 +211,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 
@@ -268,7 +268,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 
@@ -401,7 +401,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 
@@ -470,7 +470,7 @@ If, in a cluster with **Manage topics via the API** enabled, you revoke the `ACC
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 
@@ -533,7 +533,7 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
 {% if api != "noshow" %}
 

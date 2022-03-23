@@ -153,7 +153,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 
@@ -218,7 +218,7 @@ From a [sharded](../operations/shards.md#enable) cluster, you may remove the `MO
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 

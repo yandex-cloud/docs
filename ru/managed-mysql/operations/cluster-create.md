@@ -119,6 +119,7 @@
 - Terraform
 
   {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  
   {% if audience != "internal" %}
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -128,6 +129,7 @@
   Если у вас еще нет Terraform, установите его и настройте провайдер.
 
   {% endif %}
+
   Чтобы создать кластер:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
@@ -203,7 +205,7 @@
 
      1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_mysql_cluster.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mmy }}).
 
   1. Проверьте корректность конфигурационных файлов.
 

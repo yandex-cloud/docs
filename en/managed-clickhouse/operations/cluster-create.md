@@ -296,7 +296,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         }
         ```
 
-       For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
+       For more information about resources that you can create using Terraform, see the [provider's documentation]({{ tf-provider-mch }}).
 
     1. Check the {{ TF }} configuration files for errors:
 
