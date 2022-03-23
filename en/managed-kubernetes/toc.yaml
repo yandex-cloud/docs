@@ -89,6 +89,8 @@ items:
         href: tutorials/alb-ingress-controller.md
       - name: Backup to Object Storage
         href: tutorials/backup.md
+      - name: Working with snapshots
+        href: tutorials/pvc-snapshot-restore.md
       - name: Integration with a corporate DNS zone
         href: tutorials/custom-dns.md
       - name: Automatic DNS scaling by cluster size
