@@ -133,4 +133,4 @@
 
     Минимальное значение — `14`, значение по умолчанию — `1073741824` (1 гигабайт).
 
-    Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#topicconfigs_segment.bytes).
+    Подробнее см. в разделе [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) и в [документации {{ KF }}](https://kafka.apache.org/documentation/#topicconfigs_segment.bytes).
