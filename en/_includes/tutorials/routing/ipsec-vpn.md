@@ -123,7 +123,7 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
 1. Restart strongSwan:
 
    ```
-   $ systemctl restart strongswan
+   $ systemctl restart strongswan-starter
    ```
 
 ## 3. Set up static routing {#configure-static-route}
@@ -193,7 +193,7 @@ For the VPN tunnel to work, you need to set up another IPSec gateway. You can cr
 1. Restart strongSwan:
 
    ```
-   $ systemctl restart strongswan
+   $ systemctl restart strongswan-starter
    ```
 
 ## 5. Test the IPSec tunnel {#test-vpn}
