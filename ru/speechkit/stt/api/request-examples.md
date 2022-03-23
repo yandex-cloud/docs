@@ -2,14 +2,16 @@
 
 ## Пример запроса {#request_examples}
 
+Выполните запрос, указав в параметрах [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) и [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для авторизации:
+
 {% list tabs %}
 
 - POST-запрос
 
   ```httpget
-  POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={идентификатор-каталога} HTTP/1.1
+  POST /speech/v1/stt:recognize?topic=general&lang=ru-RU&folderId={<идентификатор каталога>} HTTP/1.1
   Host: stt.api.cloud.yandex.net
-  Authorization: Bearer <IAM-TOKEN>
+  Authorization: Bearer <IAM-токен>
 
   ... (двоичное содержимое аудиофайла)
   ```
@@ -17,8 +19,8 @@
 - cURL
 
   ```httpget
-  export FOLDER_ID=b1gvmob95yysaplct532
-  export IAM_TOKEN=CggaATEVAgA...
+  export FOLDER_ID=<идентификатор каталога>
+  export IAM_TOKEN=<IAM-токен>
   curl -X POST \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -H "Transfer-Encoding: chunked" \
@@ -32,8 +34,8 @@
   import urllib.request
   import json
 
-  FOLDER_ID = "b1gvmob95yysaplct532" # Идентификатор каталога
-  IAM_TOKEN = "CggaATEVAgA..." # IAM-токен
+  FOLDER_ID = "<идентификатор каталога>" # Идентификатор каталога
+  IAM_TOKEN = "<IAM-токен>" # IAM-токен
 
   with open("speech.ogg", "rb") as f:
       data = f.read()
@@ -59,8 +61,8 @@
   ```php
   <?php
 
-  $token = 'CggaATEVAgA...'; # IAM-токен
-  $folderId = "b1gvmob95yysaplct532"; # Идентификатор каталога
+  $token = '<IAM-токен>'; # IAM-токен
+  $folderId = "<идентификатор каталога>"; # Идентификатор каталога
   $audioFileName = "speech.ogg";
 
   $file = fopen($audioFileName, 'rb');

@@ -36,19 +36,19 @@
     1. Создайте каталог:
 
         ```bash
-        $ mkdir ~/.redis
+        mkdir ~/.redis
         ```
 
     1. Получите сертификат:
 
         ```bash
-        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt
+        wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt
         ```
 
     1. Настройте права доступа к сертификату:
 
         ```bash
-        $ chmod 0600 ~/.redis/YandexInternalRootCA.crt
+        chmod 0600 ~/.redis/YandexInternalRootCA.crt
         ```
 
 1. [Настройте группы безопасности](./operations/connect/index.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
@@ -95,10 +95,10 @@
 
         ```bash
         redis-cli -h c-<идентификатор кластера>.rw.{{ dns-zone }} \
-                  -p {{ port-mrd-tls }} \
-                  -a <пароль {{ RD }}> \
-                  --tls \
-                  --cacert ~/.redis/YandexInternalRootCA.crt
+          -p {{ port-mrd-tls }} \
+          -a <пароль {{ RD }}> \
+          --tls \
+          --cacert ~/.redis/YandexInternalRootCA.crt
         ```
 
     * Шардированный кластер
@@ -127,6 +127,6 @@
 
 ## Что дальше {#whats-next}
 
-- Изучите [концепции сервиса](./concepts/index.md).
-- Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect/index.md).
-- Ознакомьтесь с [вопросами и ответами](./qa/general.md).
+* Изучите [концепции сервиса](./concepts/index.md).
+* Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect/index.md).
+* Ознакомьтесь с [вопросами и ответами](./qa/general.md).

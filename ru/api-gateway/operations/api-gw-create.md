@@ -84,15 +84,21 @@
                 content:
                   'text/plain': "Hello, {user}!\n" 
         ```
-    1. Выполните команду со следующими параметрами:
+    1. Выполните команду:
+
+        ```
+        yc serverless api-gateway create --name hello-world --spec=hello-world.yaml --description "hello world"
+        ```
+
+        Где:
        
         - `name` — имя API-шлюза.
         - `spec` — файл со спецификацией.
         - `description` — описание API-шлюза.
-        
+
+        Результат:
+
         ```
-        yc serverless api-gateway create --name hello-world --spec=hello-world.yaml --description "hello world"
-        
         done (29s)
         id: d5dug9gkmu187iojcrtr
         folder_id: b1g55tflru0ek7omtfu0

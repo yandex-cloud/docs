@@ -97,9 +97,9 @@
 	* пользователю:
         ```
         yc serverless container add-access-binding \
-            --name <имя_контейнера> \
-            --user-account-id <идентификатор_пользователя> \
-            --role <роль>
+          --name <имя_контейнера> \
+          --user-account-id <идентификатор_пользователя> \
+          --role <роль>
         ```
         Результат:
         ```
@@ -108,9 +108,9 @@
     * [сервисному аккаунту](../../iam/concepts/users/service-accounts.md):  
         ```
         yc serverless container add-access-binding \
-            --name <имя_контейнера> \
-            --service-account-id <идентификатор_сервисного_аккаунта> \
-            --role <роль>
+          --name <имя_контейнера> \
+          --service-account-id <идентификатор_сервисного_аккаунта> \
+          --role <роль>
         ```
         Результат:
         ```
@@ -119,9 +119,9 @@
     * всем авторизованным пользователям (системная группа `allAuthenticatedUsers`):
         ```
         yc serverless container add-access-binding \
-            --name <имя_контейнера> \
-            --all-authenticated-users \
-            --role <роль>
+          --name <имя_контейнера> \
+          --all-authenticated-users \
+          --role <роль>
         ```
         Результат:
         ```
@@ -141,9 +141,9 @@
 	* у пользователя:
         ```
         yc serverless container remove-access-binding \
-            --name <имя_контейнера> \
-            --user-account-id <идентификатор_пользователя> \
-            --role <роль>
+          --name <имя_контейнера> \
+          --user-account-id <идентификатор_пользователя> \
+          --role <роль>
         ```
         Результат:
         ```
@@ -152,9 +152,9 @@
     * у [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
         ```
         yc serverless container remove-access-binding \
-            --name <имя_контейнера> \
-            --service-account-id <идентификатор_сервисного_аккаунта> \
-            --role <роль>
+          --name <имя_контейнера> \
+          --service-account-id <идентификатор_сервисного_аккаунта> \
+          --role <роль>
         ```
         Результат:
         ```
@@ -163,9 +163,9 @@
     * у всех авторизованных пользователей (системная группа `allAuthenticatedUsers`):
         ```
         yc serverless container remove-access-binding \
-            --name <имя_контейнера> \
-            --all-authenticated-users \
-            --role <роль>
+          --name <имя_контейнера> \
+          --all-authenticated-users \
+          --role <роль>
         ```
         Результат:
         ```

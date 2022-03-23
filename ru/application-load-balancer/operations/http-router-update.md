@@ -8,11 +8,11 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит HTTP-роутер.
   1. Выберите сервис **{{ alb-name }}**.
-  1. Откройте раздел **HTTP-роутеры**.
+  1. На панели слева выберите ![image](../../_assets/router.svg) **HTTP-роутеры**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **Редактировать**.
   1. Измените параметры роутера.
-  1. Внизу страницы нажмите кнопку **Сохранить изменения**.
+  1. Внизу страницы нажмите кнопку **Сохранить**.
 
 - CLI
 
@@ -30,7 +30,7 @@
      yc alb http-router update <имя HTTP-роутера> --new-name <новое имя HTTP-роутера>
      ```
 
-     Результат выполнения команды:
+     Результат:
      ```
      id: a5dld80l32edg407nsti
      name: new-http-router
@@ -67,7 +67,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит HTTP-роутер.
   1. Выберите сервис **{{ alb-name }}**.
-  1. Откройте раздел **HTTP-роутеры**.
+  1. На панели слева выберите ![image](../../_assets/router.svg) **HTTP-роутеры**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **Редактировать**.
   1. Нажмите кнопку **Добавить маршрут**.
@@ -93,20 +93,20 @@
      ```
      yc alb virtual-host append-http-route --help
      ```
-  
+
   1. Выполните команду:
      ```
      yc alb virtual-host append-http-route <имя маршрута> \
-     --virtual-host-name <имя виртуального хоста> \
-     --http-router-name <имя HTTP-роутера> \
-     --match-http-method GET \
-     --exact-path-match / \
-     --backend-group-name <имя группы бэкендов> \
-     --request-timeout <тайм-аут запроса>s \
-     --request-idle-timeout <тайм-аут ожидания запроса>s
+       --virtual-host-name <имя виртуального хоста> \
+       --http-router-name <имя HTTP-роутера> \
+       --match-http-method GET \
+       --exact-path-match / \
+       --backend-group-name <имя группы бэкендов> \
+       --request-timeout <тайм-аут запроса>s \
+       --request-idle-timeout <тайм-аут ожидания запроса>s
      ```
 
-     Результат выполнения команды:
+     Результат:
      ```
      name: test-virtual-host
      authority:
@@ -131,20 +131,20 @@
      ```
      yc alb virtual-host prepend-http-route --help
      ```
-  
+
   1. Выполните команду:
      ```
      yc alb virtual-host prepend-http-route <имя маршрута> \
-     --virtual-host-name <имя виртуального хоста> \
-     --http-router-name <имя HTTP-роутера> \
-     --match-http-method GET \
-     --exact-path-match / \
-     --backend-group-name <имя группы бэкендов> \
-     --request-timeout <тайм-аут запроса>s \
-     --request-idle-timeout <тайм-аут ожидания запроса>s
+       --virtual-host-name <имя виртуального хоста> \
+       --http-router-name <имя HTTP-роутера> \
+       --match-http-method GET \
+       --exact-path-match / \
+       --backend-group-name <имя группы бэкендов> \
+       --request-timeout <тайм-аут запроса>s \
+       --request-idle-timeout <тайм-аут ожидания запроса>s
      ```
 
-     Результат выполнения команды:
+     Результат:
      ```
      name: test-virtual-host
      authority:
@@ -171,21 +171,21 @@
      ```
      yc alb virtual-host insert-http-route --help
      ```
-  
+
   1. Выполните команду:
      ```
      yc alb virtual-host insert-http-route <имя маршрута> \
-     --virtual-host-name <имя виртуального хоста> \
-     --before <имя маршрута, перед которым надо поставить новый маршрут> \
-     --http-router-name <имя HTTP-роутера> \
-     --match-http-method GET \
-     --exact-path-match / \
-     --backend-group-name <имя группы бэкендов> \
-     --request-timeout <тайм-аут запроса>s \
-     --request-idle-timeout <тайм-аут ожидания запроса>s
+       --virtual-host-name <имя виртуального хоста> \
+       --before <имя маршрута, перед которым надо поставить новый маршрут> \
+       --http-router-name <имя HTTP-роутера> \
+       --match-http-method GET \
+       --exact-path-match / \
+       --backend-group-name <имя группы бэкендов> \
+       --request-timeout <тайм-аут запроса>s \
+       --request-idle-timeout <тайм-аут ожидания запроса>s
      ```
 
-     Результат выполнения команды:
+     Результат:
      ```
      done (2s)
      name: test-virtual-host
@@ -217,18 +217,18 @@
    1. Выполните команду:
       ```
       yc alb virtual-host insert-http-route <имя маршрута> \
-      --virtual-host-name <имя виртуального хоста> \
-      --after <имя маршрута, после которого надо поставить новый маршрут> \
-      --http-router-name <имя HTTP-роутера> \
-      --match-http-method GET \
-      --exact-path-match / \
-      --backend-group-name <имя группы бэкендов> \
-      --request-timeout <тайм-аут запроса>s \
-      --request-idle-timeout <тайм-аут ожидания запроса>s
+        --virtual-host-name <имя виртуального хоста> \
+        --after <имя маршрута, после которого надо поставить новый маршрут> \
+        --http-router-name <имя HTTP-роутера> \
+        --match-http-method GET \
+        --exact-path-match / \
+        --backend-group-name <имя группы бэкендов> \
+        --request-timeout <тайм-аут запроса>s \
+        --request-idle-timeout <тайм-аут ожидания запроса>s
       ```
 
-      Результат выполнения команды:
- 
+      Результат:
+
       ```
       done (2s)
       name: test-virtual-host

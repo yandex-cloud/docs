@@ -1,0 +1,1 @@
+[Install the kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl) and [configure it to work with the created cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).

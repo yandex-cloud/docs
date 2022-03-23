@@ -4,7 +4,7 @@ description: 'When creating a dashboard in Yandex DataLens, a link is often used
 ---
 # Combining {{ datalens-full-name }} data
 
-{{ datalens-full-name }} uses a [connection](connection.md) to retrieve data from a source (DB, CSV, Yandex.Metrica, and so on). You can create datasets, charts, and selectors from the connection's data. If the source has multiple tables, you can join them to build the required set of data. You can link data from different datasets at the chart level or through selector links.
+{{ datalens-full-name }} uses a [connection](connection.md) to retrieve data from a source (DB, CSV, Yandex Metrica, and so on). You can create datasets, charts, and selectors from the connection's data. If the source has multiple tables, you can join them to build the required set of data. You can link data from different datasets at the chart level or through selector links.
 
 ## Methods of combining data {#data-join}
 

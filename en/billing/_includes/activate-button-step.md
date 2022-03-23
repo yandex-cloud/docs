@@ -1,4 +1,4 @@
-Click **Activate**.
+Click **Create**.
 
 The billing account is created with a [status](../concepts/billing-account-statuses.md):
 

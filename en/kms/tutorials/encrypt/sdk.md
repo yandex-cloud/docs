@@ -17,8 +17,8 @@ Before you start, you need to add dependencies.
     ```java
     <dependency>
         <groupId>com.yandex.cloud</groupId>
-        <artifactId>sdk</artifactId>
-        <version>1.2.1</version>
+        <artifactId>java-sdk-services</artifactId>
+        <version>2.4.2</version>
     </dependency>
     ```
 
@@ -48,15 +48,15 @@ You can authenticate using:
 
     Authenticate using the service account linked to the VM:
 
-    ```
-    Credentials credentials = Auth.fromMetadata();  
+    ```java
+    CredentialProvider credentialProvider = Auth.computeEngineBuilder().build();  
     ```
 
 - Go
 
     Authenticate using the service account linked to the VM:
 
-    ```
+    ```go
     credentials := ycsdk.InstanceServiceAccount()
     ```
 
@@ -72,15 +72,16 @@ The `key.json` file must contain an authorized key for the service account. For 
 
     Authenticate using any service account:
 
-    ```
-    Credentials credentials = Auth.fromFile(Auth::apiKey, Paths.get("key.json"));
+    ```java
+    CredentialProvider credentialProvider = Auth.apiKeyBuilder().fromFile(Paths.get("key.json")).build();
+
     ```
 
 - Go
 
     Authenticate using any service account:
 
-    ```
+    ```go
     authorizedKey, err := iamkey.ReadFromJSONFile("key.json")
     if err != nil {...}
     credentials, err := ycsdk.ServiceAccountKey(authorizedKey)
@@ -99,15 +100,15 @@ The `token` variable is your [OAuth token](../../../iam/concepts/authorization/o
 
     Authenticate using a Yandex account:
 
-    ```
-    Credentials credentials = Auth.oauthToken(token);  
+    ```java
+    CredentialProvider credentialProvider = Auth.oauthTokenBuilder().build();  
     ```
 
 - Go
 
     Authenticate using a Yandex account:
 
-    ```
+    ```go
     credentials := ycsdk.OAuthToken(token)
     ```
 
@@ -126,36 +127,38 @@ Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code us
 
 - Java
 
-    ```
-    ServiceFactoryConfig config = ServiceFactoryConfig.builder()
-        .credentials(credentials)
-        .build();
-    SymmetricCryptoServiceBlockingStub symmetricCryptoService = new ServiceFactory(config).create(
-        SymmetricCryptoServiceBlockingStub.class,
-        SymmetricCryptoServiceGrpc::newBlockingStub
-    );
+    ```java
+    SymmetricCryptoServiceBlockingStub symmetricCryptoService = ServiceFactory.builder()
+        .credentialProvider(credentialProvider)
+        .build()
+        .create(
+            SymmetricCryptoServiceBlockingStub.class,
+            SymmetricCryptoServiceGrpc::newBlockingStub
+        );
+
     ...
-    
+
     byte[] ciphertext = symmetricCryptoService.encrypt(SymmetricEncryptRequest.newBuilder()
         .setKeyId(keyId)
         .setPlaintext(ByteString.copyFrom(plaintext))
         .setAadContext(ByteString.copyFrom(aad))
         .build()
     ).getCiphertext().toByteArray();
-    
+
     ...
-    
+
     byte[] plaintext = symmetricCryptoService.decrypt(SymmetricDecryptRequest.newBuilder()
         .setKeyId(keyId)
         .setCiphertext(ByteString.copyFrom(ciphertext))
         .setAadContext(ByteString.copyFrom(aad))
         .build()
     ).getPlaintext().toByteArray();
+
     ```
 
 - Go
 
-    ```
+    ```go
     sdk, err := ycsdk.Build(context, ycsdk.Config{
       Credentials: credentials,
     })
@@ -182,11 +185,8 @@ Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code us
     plaintext := response.Plaintext
     ```
 
-{% endlist %}
-
 #### See also {#see-also}
 
 * [{{ yandex-cloud }} Java SDK](https://github.com/yandex-cloud/java-sdk).
 * [Examples of how to use {{ kms-short-name }} with the Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).
 * [{{ yandex-cloud }} Go SDK](https://github.com/yandex-cloud/go-sdk).
-

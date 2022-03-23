@@ -44,11 +44,11 @@ YDB CLI определяет значения этих параметров из
 
 ## Получение параметров соединения с S3 {#procure}
 
-### {{ yandex-cloud }}
+### Yandex.Cloud
 
-Ниже описан сценарий получения ключей доступа к [{{ yandex-cloud }} Object Storage](https://cloud.yandex.ru/docs/storage/) с применением {{ yandex-cloud }} CLI.
+Ниже описан сценарий получения ключей доступа к [Yandex.Cloud Object Storage](https://cloud.yandex.ru/docs/storage/) с применением Yandex.Cloud CLI.
 
-1. [Установите и сконфигурируйте](https://cloud.yandex.ru/docs/cli/quickstart) {{ yandex-cloud }} CLI.
+1. [Установите и сконфигурируйте](https://cloud.yandex.ru/docs/cli/quickstart) Yandex.Cloud CLI.
 
 2. Получите ID вашего каталога в облаке следующей командой, его понадобится указывать в командах ниже:
 
@@ -93,7 +93,7 @@ YDB CLI определяет значения этих параметров из
 
    , где `<folder-id>` - это идентификатор каталога в облаке, полученный на шаге 2.
 
-   Вы можете также ознакомиться с [полным перечнем](https://cloud.yandex.ru/docs/iam/concepts/access-control/roles#object-storage) ролей {{ yandex-cloud }}.
+   Вы можете также ознакомиться с [полным перечнем](https://cloud.yandex.ru/docs/iam/concepts/access-control/roles#object-storage) ролей Yandex.Cloud.
 
 4. Получите [статические ключи доступа](https://cloud.yandex.ru/docs/iam/operations/sa/create-access-key), выполнив следующую команду:
 

@@ -1,6 +1,6 @@
 # Creating a node group
 
-To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md) first.
+To create a [node group](../../concepts/index.md#node-group), first [create a {{ k8s }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md).
 
 ## Create a node group {#node-group-create}
 
@@ -16,61 +16,78 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Create a node group:
+  1. View a description of the CLI command to create a node group:
 
-  ```bash
-  yc managed-kubernetes node-group create \
-    --name my-node-group \
-    --cluster-name test-k8s \
-    --platform-id standard-v3 \
-    --location subnet-name=yc-auto-subnet-0,zone=ru-central1-a \
-    --public-ip \
-    --network-interface security-group-ids=[my-security-group1,my-security-group2],subnets=[yc-auto-subnet-0],ipv4-address=nat \
-    --cores 2 \
-    --memory 4 \
-    --core-fraction 50 \
-    --disk-type network-ssd \
-    --disk-size 96 \
-    --fixed-size 2 \
-    --version 1.13 \
-    --daily-maintenance-window start=22:00,duration=10h
-  ```
+     ```bash
+     {{ yc-k8s }} node-group create --help
+     ```
 
-  Command execution result:
+  1. Specify node group parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
-  ```bash
-  done (1m17s)
-  id: catpl8c44kiibp20u4f3
-  cluster_id: catcsqidoos7tq0513us
-  ...
-      start_time:
-        hours: 22
-      duration: 36000s
-  ```
+     ```bash
+     {{ yc-k8s }} node-group create \
+       --allowed-unsafe-sysctls=<names of unsafe kernel parameters separated by commas> \
+       --cluster-name <cluster name> \
+       --cores <number of vCPUs> \
+       --core-fraction <guaranteed vCPU share> \
+       --daily-maintenance-window <maintenance window settings> \
+       --disk-size <storage size in GB> \
+       --disk-type <storage type: network-nvme or network-hdd> \
+       --fixed-size <fixed number of nodes in the group> \
+       --location <cluster host placement settings> \
+       --memory <amount of RAM in GB> \
+       --name <node group name> \
+       --network-acceleration-type <standard or software-accelerated> \
+       --network-interface security-group-ids=[<security group IDs>],subnets=[<subnet names>],ipv4-address=<nat or auto> \
+       --platform-id <platform ID> \
+       --preemptible \
+       --public-ip \
+       --version <{{ k8s }} version on the group nodes>
+     ```
 
-  Where:
-  * `--name`: Name of the node group.
-  * `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
-  * `--platform-id`: The [platform](../../../compute/concepts/vm-platforms.md) to host the nodes.
-  * `--network-interface`: Network settings:
+     Where:
+     * `--allowed-unsafe-sysctls`: Permits the group's nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), separated by commas.
+     * `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
+     * `--cores`: Number of vCPUs for the nodes.
+     * `--core-fraction`: [Guaranteed vCPU performance](../../../compute/concepts/performance-levels.md) for the nodes.
+     * `--daily-maintenance-window`: The maintenance window settings.
+     * `--disk-size`: The [size of the disk](../../../compute/concepts/disk.md#maximum-disk-size) on the node.
+     * `--disk-type`: The [type of the disk](../../../compute/concepts/disk.md#disks_types) on the node.
+     * `--fixed-size`: Number of nodes in the node group.
+     * `--location`: The [availability zone](../../../overview/concepts/geo-scope.md), [network](../../../vpc/concepts/network.md#network) and [subnet](../../../vpc/concepts/network.md#subnet) to host the nodes on. You can specify several options.
+     * `--memory`: Amount of memory allocated for the nodes.
+     * `--name`: Name of the node group.
+     * `--network-acceleration-type`: Type of [network acceleration](../../../compute/concepts/software-accelerated-network.md):
+       * `standard`: Without acceleration.
+       * `software-accelerated`: Software-accelerated network.
+     * `--network-interface`: Network settings:
 
-    {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
+       {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-  * `--memory`: Amount of memory allocated for the nodes.
-  * `--cores`: Number of vCPUs for the nodes.
-  * `--core-fraction`: [Guaranteed vCPU performance](../../../compute/concepts/performance-levels.md) for the nodes.
-  * `--preemptible`: Flag indicating that [VM instances](../../../compute/concepts/vm.md) should be [preemptible](../../../compute/concepts/preemptible-vm.md).
-  * `--disk-type`: The type of the disk on the node.
-  * `--disk-size`: Size of the disk on the node.
-  * `--fixed-size`: Number of nodes in the node group.
-  * `--version`: The {{ k8s }} version on the nodes.
-  * `--daily-maintenance-window`: The maintenance window settings.
+     * `--platform-id`: The [platform](../../../compute/concepts/vm-platforms.md) to host the nodes.
+     * `--preemptible`: The flag specifying that the VMs must be [preemptible](../../../compute/concepts/preemptible-vm.md).
+     * `--public-ip`: The flag specifying that the node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
+     * `--version`: {{ k8s }} version on the group's nodes.
 
-  {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
+     {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
+
+     Command output:
+
+     ```bash
+     done (1m17s)
+     id: catpl8c44kiibp20u4f3
+     cluster_id: catcsqidoos7tq0513us
+     ...
+         start_time:
+           hours: 22
+         duration: 36000s
+     ```
+
+   {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
 - Terraform
 
-  In [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md), you created a {{ k8s }} cluster using Terraform. Use the same `.tf` configuration file to create a node group in the cluster.
+  In [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md,), you created a {{ k8s }} cluster using Terraform. Use the same `.tf` configuration file to create a node group in the cluster.
 
   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -82,7 +99,7 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
        * `version`: {{ k8s }} version for a node group.
      * `labels`: A [set of labels](node-label-management.md) for a node group:
        * `key`: Label values.
-     * `instance_template`: [VM] description for a node group:
+     * `instance_template`: VM description for a node group:
        * `platform_id`: The [platform](../../../compute/concepts/vm-platforms.md) to host a node group.
        * `network_interface`: Network interface settings:
          * `nat`: Flag that enables NAT for the node group compute instances.
@@ -103,9 +120,7 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
          * `zone`: Availability zone.
      * `maintenance_policy`: Update policy settings:
        * `auto_upgrade`: Flag indicating that it's allowed to automatically update a node group.
-
        * `auto_repair`: Flag indicating that it's allowed to [automatically restore](../../../compute/concepts/instance-groups/autohealing.md) a node group. Currently not supported.
-
        * `maintenance_window`: Maintenance window settings. You can use the settings to specify the preferred start time for cluster node maintenance (for example, you can select the time when the cluster is least loaded with requests): Enter the maintenance `day`,`start_time`, and `duration` in the relevant parameters.
 
          To specify the interval of the time of day, you must specify only two fields for all days: `start_time` and `duration`.
@@ -118,7 +133,6 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
        name        = "MyNodes"
        description = "MyNodes description"
        version     = "1.17"
-
        labels = {
          "key" = "value"
        }
@@ -175,9 +189,9 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
      terraform plan
      ```
 
-     Command execution result:
+     Command output:
 
-     ```bash
+     ```
      Refreshing Terraform state in-memory prior to plan...
      The refreshed state will be used to calculate this plan, but will not be
      persisted to local or remote state storage.
@@ -201,9 +215,9 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
      terraform apply
      ```
 
-     Command execution result:
+     Command output:
 
-     ```bash
+     ```
      An execution plan has been generated and is shown below.
      Resource actions are indicated with the following symbols:
      + create
@@ -224,6 +238,6 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
 
 - API
 
-  To create a node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+  To create a node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource. To allow the group's nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), pass their names in the `allowedUnsafeSysctls` parameter.
 
 {% endlist %}

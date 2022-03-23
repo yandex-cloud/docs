@@ -5,9 +5,9 @@ items:
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
-  - name: Practical guidelines
+  - name: Use cases
     items:
-      - name: All tutorials
+      - name: All use cases
         href: tutorials/index.md
       - name: Creating a VM from a Container Optimized Image
         href: tutorials/vm-create.md

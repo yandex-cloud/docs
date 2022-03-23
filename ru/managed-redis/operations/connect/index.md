@@ -68,8 +68,8 @@
 
 ```bash
 mkdir ~/.redis && \
-    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt && \
-    chmod 0655 ~/.redis/YandexInternalRootCA.crt
+wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt && \
+chmod 0655 ~/.redis/YandexInternalRootCA.crt
 ```
 
 Для использования графических IDE [скачайте сертификат](https://{{ s3-storage-host }}{{ pem-path }}) и укажите путь к нему в настройках подключения.

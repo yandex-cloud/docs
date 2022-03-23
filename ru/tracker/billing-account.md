@@ -56,11 +56,11 @@
 
    {% include [payment-card-validation](../_includes/billing/payment-card-validation.md) %}
 
-1. Нажмите кнопку **Активировать**.
+1. Нажмите кнопку **Создать**.
 
    {% note info %}
 
-   Нажимая кнопку **Активировать**, вы принимаете [оферту {{yandex-cloud}}]({{ link-cloud-oferta }}).
+   Нажимая кнопку **Создать**, вы принимаете [оферту {{yandex-cloud}}]({{ link-cloud-oferta }}).
 
    {% endnote %}
 

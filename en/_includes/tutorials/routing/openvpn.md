@@ -15,7 +15,7 @@ To set up a VPN tunnel:
 1. [Before you start](#before-you-begin).
 1. [Create subnets and a test VM](#create-environment).
 1. [Create an OpenVPN instance](#create-openvpn-instance).
-1. [Set the administrator password](#set-up-admin).
+1. [Get the administrator password](#get-admin-password).
 1. [Create an OpenVPN user](#configure-openvpn).
 1. [Connect to the VPN](#test-vpn).
 
@@ -64,33 +64,32 @@ Create a VM in {{ yandex-cloud }} to serve as a gateway for a VPN tunnel.
 
 1. Click **Create VM**.
 
-## Set the administrator password {#set-up-admin}
+## Get the administrator password {#get-admin-password}
 
-The `openvpn` user with administrator privileges was created on the OpenVPN server in advance. To access the admin panel, set a password for this user.
+The `openvpn` user with administrator privileges was created on the OpenVPN server in advance. An initial password is generated automatically. To access the admin panel, get the password:
 
 1. Connect to the virtual machine over SSH:
 
    ```
-   $ ssh <VM public IP>
+   ssh <VM public IP>
    ```
 
 1. Run the command:
 
    ```
-   $ sudo passwd openvpn
-   Enter new UNIX password:
+   sudo cat /usr/local/openvpn_as/tmp/initial_ovpn_pass && echo
    ```
 
-   Enter a new password.
+   The password, which is located in a text file, will be displayed on the screen.
 
-   You can then log in to the OpenVPN admin panel.
+   Log in to the admin panel using the `openvpn` username and the obtained password.
 
 ## Create an OpenVPN user {#configure-openvpn}
 
 To establish an OpenVPN connection, enter the username and password of the user on the client machine. Create a new user:
 
 1. In the browser, open a URL like `https://<VM public IP address>:943/admin/`.
-1. Specify the `openvpn` username and the password created in the previous step.
+1. Specify the `openvpn` username and the password obtained in the previous step.
 1. Click **Agree**. This opens the main screen of the OpenVPN admin panel.
 1. Go to the **User management** tab and select **User permissions**.
 1. In the list of users, enter the name of the new user in the **New Username** field, like `test-user`.

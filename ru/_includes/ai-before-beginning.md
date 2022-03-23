@@ -27,7 +27,7 @@
   1. С помощью CLI получите [IAM-токен](../iam/concepts/authorization/iam-token.md), необходимый для аутентификации:
 
       ```bash
-      $ yc iam create-token
+      yc iam create-token
       ```
   1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
 

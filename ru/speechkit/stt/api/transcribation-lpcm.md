@@ -27,9 +27,10 @@
     }
     ```
 
-1. Отправьте запрос на распознавание:
+1. Отправьте запрос на распознавание, в параметре `IAM_TOKEN` укажите [IAM-токен](../../../iam/concepts/authorization/iam-token/):
+
     ```bash
-    export IAM_TOKEN=CggaATEVAgA...
+    export IAM_TOKEN=<IAM-токен>
     curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \

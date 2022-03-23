@@ -202,7 +202,7 @@ items:
           - name: Обзор
             href: troubleshooting/index.md
           - name: Системные таблицы
-            href: troubleshooting/system_views_db.md
+            href: troubleshooting/system_views.md
           - name: Мониторинг
             href: troubleshooting/monitoring.md
       - name: Справочник метрик
@@ -640,8 +640,6 @@ items:
             href: maintenance/embedded_monitoring/logs.md
           - name: Графики
             href: maintenance/embedded_monitoring/charts.md
-      - name: Системные таблицы
-        href: troubleshooting/system_views_cluster.md
   - name: Вопросы и ответы
     items:
       - name: Обзор
