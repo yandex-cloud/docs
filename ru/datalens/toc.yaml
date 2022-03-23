@@ -27,10 +27,10 @@ items:
       - name: Анализ продаж и локаций пиццерий на данных из БД Clickhouse и Marketplace
         when: audience == "external"
         href: tutorials/data-from-ch-to-geolayers-visualization.md
-      - name: Веб-аналитика с подключением к Яндекс.Метрике
+      - name: Веб-аналитика с подключением к Яндекс Метрике
         when: audience == "external"
         href: tutorials/data-from-metrica-visualization.md
-      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
         when: audience == "external"
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
@@ -39,7 +39,7 @@ items:
       - name: Визуализация данных из отчетов Statface
         when: audience == "internal"
         href: tutorials/data-from-statface-visualization.md
-      - name: Визуализация данных из Яндекс.Форм
+      - name: Визуализация данных из Яндекс Форм
         when: audience == "internal"
         href: tutorials/data-from-forms-visualization.md
       - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
@@ -339,7 +339,7 @@ items:
                 href: editor/widgets/chart/comments.md
           - name: Таблица
             href: editor/widgets/table/index.md
-          - name: Яндекс.Карта
+          - name: Яндекс Карта
             href: editor/widgets/yandex-map/index.md
           - name: Показатель
             href: editor/widgets/metric/index.md

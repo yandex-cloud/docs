@@ -182,10 +182,10 @@ items:
       - name: Анализ продаж и локаций пиццерий на данных из БД Clickhouse и Marketplace
         when: audience == "external"
         href: datalens/data-from-ch-to-geolayers-visualization.md
-      - name: Веб-аналитика с подключением к Яндекс.Метрике
+      - name: Веб-аналитика с подключением к Яндекс Метрике
         when: audience == "external"
         href: datalens/data-from-metrica-visualization.md
-      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
         when: audience == "external"
         href: datalens/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica

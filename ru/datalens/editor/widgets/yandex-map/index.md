@@ -1,4 +1,4 @@
-# Яндекс.Карта
+# Яндекс Карта
 
 * [Ограничения](#limits-yamap)
 * [JavaScript](#javascript)

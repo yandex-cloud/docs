@@ -19,7 +19,7 @@
 
 ## Истории успеха {#stories-of-success}
    - [Как научить нейросеть считать яблоки и прогнозировать урожай](https://cloud.yandex.ru/cases/bio-msu)
-   - [Как учат студентов в крупнейшей IT‑компании: опыт Яндекс Go в МФТИ](https://cloud.yandex.ru/cases/mipt)
+   - [Как учат студентов в крупнейшей IT‑компании: опыт Яндекс.Go в МФТИ](https://cloud.yandex.ru/cases/mipt)
    - [SevenTech: как построить гибкую Self‑Service аналитику для сотрудников компании и внешних партнеров](https://cloud.yandex.ru/cases/seventech)
    - [Как сервис Anywayanyday расширил аналитику и сократил затраты с инструментами Yandex Cloud](https://cloud.yandex.ru/cases/anywayanyday)
    - [НефтеТрансСервис: IoT-решения Yandex Cloud для промышленного бизнес-анализа](https://cloud.yandex.ru/cases/ntstrans)

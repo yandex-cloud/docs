@@ -1,6 +1,6 @@
-# Web analytics with funnels and cohorts calculated based on Yandex.Metrica data
+# Web analytics with funnels and cohorts calculated based on Yandex Metrica data
 
-Yandex.Metrica data is used as the data source.
+Yandex Metrica data is used as the data source.
 In this scenario, you'll learn how to build conversion funnels, conduct a cohort analysis, and calculate the retention of the user base.
 
 The scenario is also available as a [video](https://www.youtube.com/watch?v=fDeqtFRawdo) on the {{ yandex-cloud }} YouTube channel.
@@ -12,9 +12,9 @@ To visualize and analyze data, [make sure you have a ready-to-use cloud](#before
     1. [Connect {{ ml-platform-short-name }}](#datasphere-connection)
     1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere)
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch)
-    1. [Yandex.Metrica. Create an app and get an access token](#create-metrica-app-token)
-    1. [{{ ml-platform-short-name }}. Download data via the Yandex.Metrica Logs API](#uploading-data-logs-api)
-    1. [{{ ml-platform-short-name }}. Download the test tag data via Yandex.Disk](#uploading-data-counter-from-disk)
+    1. [Yandex Metrica. Create an app and get an access token](#create-metrica-app-token)
+    1. [{{ ml-platform-short-name }}. Download data via the Yandex Metrica Logs API](#uploading-data-logs-api)
+    1. [{{ ml-platform-short-name }}. Download the test tag data via Yandex Disk](#uploading-data-counter-from-disk)
     1. [{{ CH }}. Get the cluster address](#getting-ch-cluster-host)
     1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch)
 1. [Connect {{ datalens-short-name }} and create charts](#datalens-connection-chart-creation)
@@ -66,7 +66,7 @@ Go to the [management console]({{ link-console-main }}). Then log in to {{ yande
    1. Under **Additional settings**, enable 4 options:
         * Access from {{ datalens-short-name }}
         * Access from the management console
-        * Access from Yandex.Metrica and AppMetrica
+        * Access from Yandex Metrica and AppMetrica
         * Access from Serverless
    1. After configuring all the settings, click **Create cluster**.
 
@@ -89,25 +89,25 @@ Now we see the JupyterLab development environment, where we'll continue to work.
 
 ## 2. Retrieve and upload data to {{ CH }} {#get-download-data-in-ch}
 
-If you don't have a Yandex.Metrica tag, it doesn't have enough data, or if you want to make sure and complete all the steps in the instructions and get a result, go to [2.3](#uploading-data-counter-from-disk) (skip [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api)).
+If you don't have a Yandex Metrica tag, it doesn't have enough data, or if you want to make sure and complete all the steps in the instructions and get a result, go to [2.3](#uploading-data-counter-from-disk) (skip [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api)).
 
-If you have a Yandex.Metrica tag and can access it, go to [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api) (skip [2.3](#uploading-data-counter-from-disk)). We recommend these steps if you're an experienced user because the logic of calculating funnels and cohorts depends on the data itself and you may need to tweak the scripts.
+If you have a Yandex Metrica tag and can access it, go to [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api) (skip [2.3](#uploading-data-counter-from-disk)). We recommend these steps if you're an experienced user because the logic of calculating funnels and cohorts depends on the data itself and you may need to tweak the scripts.
 
-### 2.1. Yandex.Metrica. Create an app and get an access token {#create-metrica-app-token}
+### 2.1. Yandex Metrica. Create an app and get an access token {#create-metrica-app-token}
 
 1. To work with the API, get your [OAuth token](https://tech.yandex.com/oauth/doc/dg/tasks/get-oauth-token-docpage/).
 1. Create an application:
      1. Go to [https://oauth.yandex.com/client/new](https://oauth.yandex.com/client/new).
      1. Specify a name for the app.
      1. Go to **Platforms** → **Web services**. In the **Callback URI #1** field, insert `https://oauth.yandex.com/verification_code`.
-     1. Go to **Access rights** → **Yandex.Metrica (metrika)**. Enable **Access to statistics and ability to view all counter settings (metrika:read)**.
+     1. Go to **Access rights** → **Yandex Metrica (metrika)**. Enable **Access to statistics and ability to view all counter settings (metrika:read)**.
      1. Click **Create app**.
      1. A description of our application appears in the window that opens. Copy the ID of your app.
 1. Click `https://oauth.yandex.com/authorize?response_type=token&client_id=<app ID>`. For the `client_id` parameter, add the copied ID of your app.
 1. Click **Log in as…**
 1. Copy the received access token.
 
-### 2.2. {{ ml-platform-short-name }}. Upload data via the Yandex.Metrica Logs API {#uploading-data-logs-api}
+### 2.2. {{ ml-platform-short-name }}. Upload data via the Yandex Metrica Logs API {#uploading-data-logs-api}
 
 1. In the {{ ml-platform-short-name }} project, in the root of the working directory, create a text file.
 
@@ -116,9 +116,9 @@ If you have a Yandex.Metrica tag and can access it, go to [2.1](#create-metrica-
 1. Name the file `.yatoken.txt` and insert the received access token into the file content. Save your changes and close the file.
 1. Open the folder **yandex_metrika_cloud_case** → notebook **1a. get_data_via_logs_api.ipynb**.
 
-If you couldn't get data for the demo tag from the Logs API, you can [download it via Yandex.Disk](#uploading-data-counter-from-disk).
+If you couldn't get data for the demo tag from the Logs API, you can [download it via Yandex Disk](#uploading-data-counter-from-disk).
 
-### 2.3. {{ ml-platform-short-name }}. Download the test tag data via Yandex.Disk {#uploading-data-counter-from-disk}
+### 2.3. {{ ml-platform-short-name }}. Download the test tag data via Yandex Disk {#uploading-data-counter-from-disk}
 
 {% note info %}
 
