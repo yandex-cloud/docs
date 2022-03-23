@@ -9,7 +9,7 @@ To create a node group:
 1. Specify the number of nodes in the group.
 1. Under **Scaling**, select a type:
    * `Fixed`: The number of nodes in the group remains unchanged. Specify the number of nodes in the group.
-   * `Automatic`: The number of nodes in the group can be controlled using [automatic cluster scaling](../../managed-kubernetes/concepts/autoscale.md#ca).
+   * `Automatic`: The number of nodes in the group can be controlled using automatic cluster scaling.
 
       As a result, the following settings become available:
       * **Minimum number of nodes**.
