@@ -37,10 +37,10 @@ items:
         href: operations/datalens-connect.md
       - name: Изменение версии ClickHouse
         href: operations/cluster-version-update.md
-      - name: Управление хостами ClickHouse
-        href: operations/hosts.md
       - name: Управление хостами ZooKeeper
         href: operations/zk-hosts.md
+      - name: Управление хостами ClickHouse
+        href: operations/hosts.md
       - name: Управление базами данных
         href: operations/databases.md
       - name: Управление пользователями БД

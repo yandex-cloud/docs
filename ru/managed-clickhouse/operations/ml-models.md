@@ -30,7 +30,7 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
 
 - CLI
@@ -61,7 +61,7 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
 
 - CLI
@@ -74,7 +74,7 @@
 
     ```bash
     {{ yc-mdb-ch }} ml-model get <имя модели> \
-       --cluster-name=<имя кластера>
+      --cluster-name=<имя кластера>
     ```
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -104,9 +104,9 @@
 
     1. Выберите кластер:
 
-        1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+        1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
         1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
-        1. Нажмите кнопку **Добавить модель**.
+        1. Нажмите **Добавить модель**.
 
     1. Настройте параметры модели:
 
@@ -114,7 +114,7 @@
         * **Имя** — имя модели. Имя модели — один из аргументов функции `modelEvaluate()`, которая нужна для вызова модели в {{ CH }}.
         * **URL** — адрес модели в {{ objstorage-name }}.
 
-    1. Нажмите кнопку **Добавить** и дождитесь окончания добавления модели.
+    1. Нажмите **Добавить** и дождитесь окончания добавления модели.
 
 - CLI
 
@@ -126,9 +126,9 @@
 
     ```bash
     {{ yc-mdb-ch }} ml-model create <имя модели> \
-       --cluster-name=<имя кластера> \
-       --type=ML_MODEL_TYPE_CATBOOST \
-       --uri=<публичная ссылка на файл модели в {{ objstorage-name }}>
+      --cluster-name=<имя кластера> \
+      --type=ML_MODEL_TYPE_CATBOOST \
+      --uri=<публичная ссылка на файл модели в {{ objstorage-name }}>
     ```
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -218,7 +218,7 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
     1. Выберите нужную модель, нажмите на значок ![image](../../_assets/dots.svg) и выберите пункт **Изменить**.
 
@@ -232,8 +232,8 @@
 
     ```bash
     {{ yc-mdb-ch }} ml-model update <имя модели> \
-       --cluster-name=<имя кластера> \
-       --uri=<новая публичная ссылка на файл в {{ objstorage-name }}>
+      --cluster-name=<имя кластера> \
+      --uri=<новая публичная ссылка на файл в {{ objstorage-name }}>
     ```
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -302,7 +302,7 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Машинное обучение** на панели слева.
     1. Выберите нужную модель, нажмите на значок ![image](../../_assets/dots.svg) и выберите пункт **Удалить**.
 
@@ -316,7 +316,7 @@
 
     ```bash
     {{ yc-mdb-ch }} ml-model delete <имя модели> \
-       --cluster-name=<имя кластера>
+      --cluster-name=<имя кластера>
     ```
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -365,11 +365,11 @@
 1. Установите [{{ CH }} CLI](https://clickhouse.yandex/docs/ru/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
 1. Скачайте [файл с данными](https://storage.yandexcloud.net/managed-clickhouse/train.csv) для анализа:
    ```bash
-   $ wget https://storage.yandexcloud.net/managed-clickhouse/train.csv  
+   wget https://storage.yandexcloud.net/managed-clickhouse/train.csv  
    ```
 1. Создайте таблицу для данных:
    ```bash
-   $ clickhouse-client --host <FQDN хоста> \
+   clickhouse-client --host <FQDN хоста> \
                      --database <имя базы данных>
                      --secure \
                      --user <имя пользователя БД> \
@@ -379,7 +379,7 @@
    ```
 1. Загрузите данные в таблицу:
    ```bash
-   $ clickhouse-client --host <FQDN хоста> \
+   clickhouse-client --host <FQDN хоста> \
                      --database <имя базы данных>
                      --secure \
                      --user <имя пользователя БД> \
@@ -389,45 +389,45 @@
                      < train.csv
    ```
 1. В [консоли управления]({{ link-console-main }}) подключите тестовую модель:
-  * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
-  * **Имя** — `ml_test`.
-  * **URL** — `https://storage.yandexcloud.net/managed-clickhouse/catboost_model.bin`.
+    * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
+    * **Имя** — `ml_test`.
+    * **URL** — `https://storage.yandexcloud.net/managed-clickhouse/catboost_model.bin`.
   
 1. Протестируйте модель:
-  1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.
-  1. Проверьте работу модели с помощью запросов:
-     * Предсказания значения столбца `ACTION` для первых 10 строк таблицы:
-         ```
-         SELECT 
-             modelEvaluate('ml_test', 
-                           RESOURCE,
-                           MGR_ID,
-                           ROLE_ROLLUP_1,
-                           ROLE_ROLLUP_2,
-                           ROLE_DEPTNAME,
-                           ROLE_TITLE,
-                           ROLE_FAMILY_DESC,
-                           ROLE_FAMILY,
-                           ROLE_CODE) > 0 AS prediction, 
-             ACTION AS target
-         FROM ml_test_table
-         LIMIT 10
-         ```
-     * Предсказанная вероятность для первых 10 строк таблицы:
-        ```
-        SELECT 
-            modelEvaluate('ml_test', 
-                          RESOURCE,
-                          MGR_ID,
-                          ROLE_ROLLUP_1,
-                          ROLE_ROLLUP_2,
-                          ROLE_DEPTNAME,
-                          ROLE_TITLE,
-                          ROLE_FAMILY_DESC,
-                          ROLE_FAMILY,
-                          ROLE_CODE) AS prediction,
-            1. / (1 + exp(-prediction)) AS probability, 
-            ACTION AS target
-        FROM ml_test_table
-        LIMIT 10
-        ```
+    1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.
+    1. Проверьте работу модели с помощью запросов:
+        * Предсказания значения столбца `ACTION` для первых 10 строк таблицы:
+            ```
+            SELECT 
+                modelEvaluate('ml_test', 
+                              RESOURCE,
+                              MGR_ID,
+                              ROLE_ROLLUP_1,
+                              ROLE_ROLLUP_2,
+                              ROLE_DEPTNAME,
+                              ROLE_TITLE,
+                              ROLE_FAMILY_DESC,
+                              ROLE_FAMILY,
+                              ROLE_CODE) > 0 AS prediction, 
+                ACTION AS target
+            FROM ml_test_table
+            LIMIT 10
+            ```
+        * Предсказанная вероятность для первых 10 строк таблицы:
+            ```
+            SELECT 
+                modelEvaluate('ml_test', 
+                              RESOURCE,
+                              MGR_ID,
+                              ROLE_ROLLUP_1,
+                              ROLE_ROLLUP_2,
+                              ROLE_DEPTNAME,
+                              ROLE_TITLE,
+                              ROLE_FAMILY_DESC,
+                              ROLE_FAMILY,
+                              ROLE_CODE) AS prediction,
+                1. / (1 + exp(-prediction)) AS probability, 
+                ACTION AS target
+            FROM ml_test_table
+            LIMIT 10
+            ```
