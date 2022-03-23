@@ -22,9 +22,9 @@ items:
         href: operations/update.md
       - name: Connecting to DataLens
         href: operations/datalens-connect.md
-      - name: How to manage MySQL hosts
+      - name: Managing MySQL hosts
         href: operations/hosts.md
-      - name: Database management
+      - name: Managing databases
         href: operations/databases.md
       - name: Managing users
         href: operations/cluster-users.md
@@ -36,8 +36,6 @@ items:
         href: operations/cluster-delete.md
       - name: Performance diagnostics
         href: operations/performance-diagnostics.md
-      - name: Migrating databases to Managed Service for MySQL
-        href: operations/data-migration.md
       - name: Monitoring the state of a cluster and hosts
         href: operations/monitoring.md
   - name: Concepts
@@ -106,5 +104,5 @@ items:
         href: qa/general.md
       - name: Questions about MySQL
         href: qa/mysql.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
