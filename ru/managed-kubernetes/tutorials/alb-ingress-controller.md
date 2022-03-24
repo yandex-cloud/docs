@@ -30,13 +30,11 @@
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис {{ certificate-manager-name }}. Или [создайте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
-1. [Создайте кластер {{ managed-k8s-name }} ](../operations/kubernetes-cluster/kubernetes-cluster-create.md) с настройками:
-   * **Версия {{ k8s }}**: не ниже 1.19.
-   * **Публичный адрес**: `Автоматически`.
-1. [Создайте группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.19.
+1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
+1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 1. [Настройте группы безопасности кластера и группы узлов](../operations/security-groups.md). Группа безопасности группы узлов должна разрешать входящие TCP-соединения к портам 10501 и 10502 из подсетей балансировщика или из его группы безопасности (позже подсети и группу нужно будет указать для [создания Ingress-контроллера](#create-ingress-and-apps)).
-1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.7.0.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+1. {% include [k8s-ingress-controller-install-helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install-links.md) %}
 1. Убедитесь, что вы можете подключиться к кластеру с помощью `kubectl`:
 
    ```bash

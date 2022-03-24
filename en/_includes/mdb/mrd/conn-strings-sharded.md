@@ -60,7 +60,7 @@
     		DB:          0,
     		ReadOnly:    false,
     		DialTimeout: 5 * time.Second,
-    		Password:    "{{ password }}",
+    		Password:    "<password>",
     	}
     	client := redis.NewUniversalClient(&options)
     

@@ -25,7 +25,7 @@ clusterId | Required. Required. ID of the MongoDB cluster.  The maximum string l
 Parameter | Description
 --- | ---
 columnFilter | Columns from logs table to get in the response.
-serviceType | <ul> <li>MONGOD: Logs of MongoDB activity.</li> </ul> 
+serviceType | <ul> <li>MONGOD: Logs of MongoDB activity.</li> <li>AUDIT: MongoDB Enterprise audit logs</li> </ul> 
 fromTime | Start timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 toTime | End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 recordToken | Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record.  The maximum string length in characters is 100.

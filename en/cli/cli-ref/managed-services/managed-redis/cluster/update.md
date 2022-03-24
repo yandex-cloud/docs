@@ -23,6 +23,8 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Redis cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--persistence-mode`|<b>`string`</b><br/> Persistence mode for Redis cluster (ON or OFF).|
+|`--force`| Override persistence turning OFF.|
 |`--redis-version`|<b>`string`</b><br/> Version of Redis used in the cluster|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a Redis host|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a Redis host|

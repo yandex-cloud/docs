@@ -17,6 +17,8 @@ Syntax:
 |`--since`|<b>`timestamp`</b><br/>Show logs since this time|
 |`--until`|<b>`timestamp`</b><br/>Show logs until this time|
 |`-f`,`--follow`|Output logs as they arrive|
+|`--levels`|<b>`value[,value]`</b><br/>Show logs with these levels (comma-separated)|
+|`--filter`|<b>`string`</b><br/>Use this filter|
 
 #### Global Flags
 

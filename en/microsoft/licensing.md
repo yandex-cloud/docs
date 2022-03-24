@@ -1,8 +1,8 @@
 # Microsoft licenses in {{ yandex-cloud }}
 
-## Using Microsoft software in {{ yandex-cloud }}
+## Using Microsoft software in {{ yandex-cloud }} {#images}
 
-{{ yandex-cloud }} provides ready-made images with pre-installed Microsoft Windows Server Datacenter edition and Microsoft SQL Server. The software licenses in these images are fully compliant with Microsoft requirements. When using ready-made {{ yandex-cloud }} images, you pay for the required licenses and {{ compute-name }} resources. You'll be charged depending on your [service plan](pricing.md).
+{{ yandex-cloud }} provides ready-to-use images with pre-installed Microsoft Windows Server Datacenter Edition and Microsoft SQL Server. The software licenses in these images are fully compliant with Microsoft requirements. When using ready-made {{ yandex-cloud }} images, you pay for the required licenses and {{ compute-name }} resources. You'll be charged depending on your [service plan](pricing.md).
 
 Purchasing images with a pre-installed Microsoft software license from {{ yandex-cloud }} has a number of advantages:
 
@@ -11,7 +11,18 @@ Purchasing images with a pre-installed Microsoft software license from {{ yandex
 * Client licenses for Windows Server are pre-installed. You don't need to buy them separately.
 * Windows Server images include two RDS licenses for system administration.
 
-By using Microsoft software in {{ yandex-cloud }} you agree to the Yandex Cloud Marketplace [Terms of Service](https://yandex.com/legal/cloud_terms_marketplace/) and the terms and conditions of [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
+By using Microsoft software in {{ yandex-cloud }}, you agree to the {{ marketplace-full-name }} [Terms of use](https://yandex.com/legal/cloud_terms_marketplace/) and the [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
+
+### Features of using {{ MS }} licenses in {{ compute-full-name }} {#sql-server-compute-licensing}
+
+You are charged in advance for using {{ MS }} licenses in {{ compute-full-name }}. This means that payment is collected at the start of a billing period even before you actually use the resource. In the list below, references to virtual machines are references to virtual machines with a {{ MS }} image.
+
+* The billing period is one calendar month.
+* If you create a new virtual machine during a billing cycle (including creating one by restoring it from a [disk snapshot](../compute/concepts/backups.md)), you pay the full licensing cost for the entire billing period.
+* If you shut down or delete a virtual machine during a billing cycle, license costs for this cycle are not refunded.
+* The first time a virtual machine, which was stopped prior to the current billing cycle, is restarted, you will be charged the full cost of the licenses for the entire billing cycle. If you stop and restart a virtual machine multiple times within one cycle, you will only need to pay the license fees the first time.
+* If you change a virtual machine configuration and reduce resource usage during a billing cycle, the cost of the licenses released in this cycle is not subject to refund. The new pricing will take effect on the first day of the following billing cycle.
+* If you change your virtual machine configuration and increase resource usage during a billing cycle, you will need additional licenses. If this is the case, you will be charged the full cost of these licenses for the entire billing cycle regardless of the date you made the changes.
 
 ## Using your own licenses in {{ yandex-cloud }} {#byol}
 

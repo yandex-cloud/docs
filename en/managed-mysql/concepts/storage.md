@@ -14,3 +14,13 @@ Local storage doesn't provide fault tolerance for data storage and affects the o
 ## Non-replicated network storage features {#network-nrd-storage-features}
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
+
+## Choice of storage type during cluster creation {#storage-type-selection}
+
+The number of hosts that can be created with a {{ MY }} cluster depends on the storage type selected:
+
+* With local storage (`local-ssd`), you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+* When using network storage:
+    * If you select standard (`network-hdd`) or fast (`network-ssd`) storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
+    * If you select `network-ssd-nonreplicated` storage, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+

@@ -47,7 +47,7 @@ Add the created database as an information base to 1C:Enterprise. When adding th
 
 * **Secure connection**: `Disabled`.
 * **DBMS type**: `PostgreSQL`.
-* **Database server**: `<master host name>.mdb.yandexcloud.net port=6432`.
+* **Database server**: `<master host name>.{{ dns-zone }} port=6432`.
 * **Database name**: `postgresql-1c`.
 * **Database user**: `user-1c`.
 * **User password**: `<database user password>`.

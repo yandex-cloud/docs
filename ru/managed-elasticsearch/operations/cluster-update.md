@@ -13,7 +13,7 @@ keywords:
 
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
 
@@ -91,7 +91,7 @@ keywords:
 
 ## Увеличить размер хранилища {#change-disk-size}
 
-Проверьте, что нужный кластер не использует хранилище на нереплицируемых SSD-дисках. Увеличить размер хранилища на нереплицируемых SSD-дисках невозможно.
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% list tabs %}
 

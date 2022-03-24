@@ -34,6 +34,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--sharded`| Enables sharding for Redis cluster.|
 |`--enable-tls`| Enables tls for Redis cluster.|
+|`--persistence-mode`|<b>`string`</b><br/> Persistence mode for Redis cluster (ON or OFF).|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Redis cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

@@ -21,6 +21,7 @@ Syntax:
 |`--replication-source`|<b>`string`</b><br/>Host name of the host to be used as the replication source (for cascading replication).|
 |`--assign-public-ip`|Whether the host should get a public IP address.|
 |`--backup-priority`|<b>`int`</b><br/>Priority of the host as a backup source.|
+|`--priority`|<b>`int`</b><br/>Host master promotion priority.|
 
 #### Global Flags
 

@@ -29,6 +29,7 @@ Syntax:
 |`--gpus`|<b>`int`</b><br/> Specifies how many GPUs instance should have.|
 |`--platform`|<b>`string`</b><br/> Specifies platform for the instance.|
 |`--network-settings`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Network settings for the instance.  Possible property names:  type Type of a network for virtual machine instance. Values: standard, software-accelerated  |
+|`--preemptible`| Specifies whether instance preemptible or not|
 |`--placement-group-id`|<b>`string`</b><br/> Placement group to add the instance to (use an empty string to remove the instance from placement group).|
 |`--placement-group-name`|<b>`string`</b><br/> Placement group to add the instance to (use an empty string to remove the instance from placement group).|
 |`--service-account-id`|<b>`string`</b><br/> Service account, which token can be obtained inside VM from metadata service.|

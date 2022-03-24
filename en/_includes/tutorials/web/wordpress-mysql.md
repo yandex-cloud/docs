@@ -410,7 +410,7 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
    - `<DB_NAME>` — with the DB name, `wp-mysql-tutorial-db`.
    - `<DB_USER>` — with the `wordpress` username.
    - `<DB_PASSWORD>` — with the password specified when [creating a DB cluster](#create-cluster).
-   - `<DB_HOST>` — with the host in the format `c-<master ID>.rw.mdb.yandexcloud.net`. To find out the master ID, [get the list of hosts](../../../managed-mysql/operations/hosts.md#list) via the CLI and copy `CLUSTER ID` with the `MASTER` role.
+   - `<DB_HOST>` — with the host in the format `c-<master ID>.rw.{{ dns-zone }}`. To find out the master ID, [get the list of hosts](../../../managed-mysql/operations/hosts.md#list) via the CLI and copy `CLUSTER ID` with the `MASTER` role.
 
 3. Restart Nginx and PHP-FPM:
 

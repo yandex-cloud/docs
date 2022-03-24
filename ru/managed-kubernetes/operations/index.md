@@ -39,6 +39,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)
 
 ## Управление группой узлов {#node-group}

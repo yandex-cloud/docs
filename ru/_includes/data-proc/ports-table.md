@@ -4,6 +4,7 @@
 | HBase REST                    |  8085 |
 | HDFS Name Node                |  9870 |
 | Hive Server2                  | 10002 |
+| Livy                          |  8998 |
 | MapReduce Application History | 19888 |
 | Oozie                         | 11000 |
 | Spark History                 | 18080 |

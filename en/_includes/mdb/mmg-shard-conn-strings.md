@@ -104,8 +104,7 @@
   
   conn = pymongo.MongoClient(
       url,
-      ssl_ca_certs = CACERT,
-      ssl_cert_reqs=ssl.CERT_REQUIRED)
+      tlsCAFile=CACERT)
   
   db = conn[DB_NAME]
   print(db.name)

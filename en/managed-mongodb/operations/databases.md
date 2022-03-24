@@ -103,7 +103,7 @@ Created databases are not available to cluster users by default. To allow a user
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 
@@ -153,7 +153,7 @@ Created databases are not available to cluster users by default. To allow a user
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 

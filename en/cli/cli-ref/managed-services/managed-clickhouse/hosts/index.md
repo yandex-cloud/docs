@@ -19,6 +19,7 @@ Aliases:
 
 - [yc managed-clickhouse hosts list](list.md) — List hosts for a ClickHouse cluster.
 - [yc managed-clickhouse hosts add](add.md) — Add new hosts to the cluster in specified availability zones.
+- [yc managed-clickhouse hosts update](update.md) — Update the specified hosts
 - [yc managed-clickhouse hosts delete](delete.md) — Remove specified hosts from the a cluster.
 
 #### Global Flags

@@ -5,3 +5,4 @@
 * [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)
 * [Migrating databases to {{ mms-name }}](mssql-data-migration.md)
 * [Configuring {{ dns-full-name }} for access to managed database clusters from other cloud networks](mdb-dns-peering.md)
+* [Migrating databases from {{ mmy-full-name }} to {{ MY }}](mmy-to-mysql-migration.md)

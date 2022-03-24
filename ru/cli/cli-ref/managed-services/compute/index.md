@@ -138,6 +138,7 @@ Syntax:
 	- [yc compute filesystem create](filesystem/create.md) — Create a filesystem
 	- [yc compute filesystem delete](filesystem/delete.md) — Delete the specified filesystem
 	- [yc compute filesystem update](filesystem/update.md) — Update the specified filesystem
+	- [yc compute filesystem resize](filesystem/resize.md) — Resize the specified filesystem
 	- [yc compute filesystem add-labels](filesystem/add-labels.md) — Add labels to specified filesystem
 	- [yc compute filesystem remove-labels](filesystem/remove-labels.md) — Remove labels from specified filesystem
 

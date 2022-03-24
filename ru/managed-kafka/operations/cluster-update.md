@@ -3,7 +3,7 @@
 После создания кластера {{ KF }} вы можете:
 
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
 * [{#T}](#change-additional-settings).
 * [Изменить настройки {{ KF }}](#change-kafka-settings).
 * [Переместить кластер](#move-cluster) из текущего каталога в другой каталог.
@@ -141,7 +141,7 @@
 
 {% endnote %}
 
-Проверьте, что нужный кластер не использует хранилище на нереплицируемых SSD-дисках. Увеличить размер хранилища на нереплицируемых SSD-дисках невозможно.
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% list tabs %}
 

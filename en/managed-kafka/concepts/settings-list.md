@@ -1,4 +1,4 @@
-# Apache Kafka<sup>®</sup> settings
+# Apache Kafka® settings
 
 For {{ mkf-name }} clusters, you can configure settings that relate to {{ KF }}. Some of the settings are set [at the cluster level](#cluster-settings) and others [at the topic level](#topic-settings).
 

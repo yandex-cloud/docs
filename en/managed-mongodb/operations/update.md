@@ -88,7 +88,7 @@ After creating a cluster, you can:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 
@@ -179,7 +179,7 @@ After creating a cluster, you can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 
@@ -344,7 +344,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 
@@ -426,7 +426,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
 - API
 

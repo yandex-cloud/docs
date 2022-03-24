@@ -98,6 +98,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## List {#List}
@@ -182,6 +183,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## Create {#Create}
@@ -241,6 +243,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -357,6 +360,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## Update {#Update}
@@ -410,6 +414,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### Operation {#Operation1}
@@ -493,6 +498,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## Delete {#Delete}
@@ -633,6 +639,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## Stop {#Stop}
@@ -733,6 +740,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## Move {#Move}
@@ -836,6 +844,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## Backup {#Backup}
@@ -936,6 +945,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## Restore {#Restore}
@@ -994,6 +1004,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ### HostSpec {#HostSpec1}
@@ -1087,6 +1098,7 @@ disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>n
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
 
 
 ## ListLogs {#ListLogs}

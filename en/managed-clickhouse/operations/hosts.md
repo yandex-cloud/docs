@@ -29,12 +29,15 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
   ```bash
   {{ yc-mdb-ch }} host list \
      --cluster-name=<cluster name>
+  ```
+
   
+  ```text
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...mdb.yandexcloud.net | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...mdb.yandexcloud.net | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
@@ -145,7 +148,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 
@@ -214,7 +217,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 

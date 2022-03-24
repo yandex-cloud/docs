@@ -87,6 +87,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring}
@@ -303,6 +304,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring1}
@@ -500,6 +502,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MasterSubclusterConfigSpec {#MasterSubclusterConfigSpec}
@@ -671,6 +674,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring2}
@@ -860,6 +864,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MasterSubclusterConfigSpec {#MasterSubclusterConfigSpec1}
@@ -986,6 +991,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring3}
@@ -1258,6 +1264,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring4}
@@ -1490,6 +1497,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring5}
@@ -1885,6 +1893,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### Resources {#Resources18}
@@ -1989,6 +1998,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### Monitoring {#Monitoring6}

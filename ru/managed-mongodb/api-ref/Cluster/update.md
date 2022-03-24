@@ -38,7 +38,8 @@ clusterId | Required. ID of the MongoDB Cluster resource to update. To get the M
     },
     "backupRetainPeriodDays": "integer",
     "access": {
-      "dataLens": true
+      "dataLens": true,
+      "dataTransfer": true
     },
 
     // `configSpec` includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`
@@ -545,6 +546,12 @@ clusterId | Required. ID of the MongoDB Cluster resource to update. To get the M
               "clientCertificate": "string",
               "keyIdentifier": "string"
             }
+          },
+          "auditLog": {
+            "filter": "string"
+          },
+          "setParameter": {
+            "auditAuthorizationSuccess": true
           }
         },
         "resources": {
@@ -649,6 +656,13 @@ clusterId | Required. ID of the MongoDB Cluster resource to update. To get the M
               "clientCertificate": "string",
               "keyIdentifier": "string"
             }
+          },
+          "auditLog": {
+            "filter": "string",
+            "runtimeConfiguration": true
+          },
+          "setParameter": {
+            "auditAuthorizationSuccess": true
           }
         },
         "resources": {
@@ -760,6 +774,7 @@ configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions
 configSpec.<br>backupRetainPeriodDays | **integer** (int64)<br><p>Retain period of automatically created backup in days</p> <p>Acceptable values are 7 to 35, inclusive.</p> 
 configSpec.<br>access | **object**<br>Access policy to DB<br>
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
+configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 configSpec.<br>mongodbSpec_3_6 | **object**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. <br>`configSpec` includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`<br><br>
 configSpec.<br>mongodbSpec_3_6.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod 3.6 hosts.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 3.6 hosts.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v3.6/reference/configuration-options/">MongoDB documentation</a>.</p> 
@@ -1090,6 +1105,10 @@ configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1159,6 +1178,11 @@ configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

@@ -173,7 +173,7 @@ If the connection to the cluster and the test query are successful, the {{ CH }}
 
 If you don't want to manually connect to another host in case the current one becomes unavailable, use an address like this:
 
-* `c-<cluster ID>.rw.mdb.yandexcloud.net` to connect to the cluster master host.
-* `<shard name>.c-<cluster ID>.rw.mdb.yandexcloud.net` to connect to the [shard](../concepts/sharding.md) master host.
+* `c-<cluster ID>.rw.{{ dns-zone }}` to connect to the cluster master host.
+* `<shard name>.c-<cluster ID>.rw.{{ dns-zone }}` to connect to the [shard](../concepts/sharding.md) master host.
 
 If the host that this address points to becomes unavailable, there may be a slight delay before the address starts pointing to another available host.
