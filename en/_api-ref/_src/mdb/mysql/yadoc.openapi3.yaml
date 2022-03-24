@@ -1468,6 +1468,10 @@ components:
             See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details.
           type: boolean
           format: boolean
+        dataTransfer:
+          description: Allow access for DataTransfer.
+          type: boolean
+          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:

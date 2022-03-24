@@ -1602,6 +1602,10 @@ components:
           description: Allow access for DataLens
           type: boolean
           format: boolean
+        dataTransfer:
+          description: Allow access for DataTransfer.
+          type: boolean
+          format: boolean
     AddClusterHostsMetadata:
       type: object
       properties:
@@ -1835,9 +1839,7 @@ components:
             description: Configuration and resource allocation for a MongoDB 5.0 Enterprise
               cluster.
     ClusterEnvironment:
-      description: |-
-        Deployment environment.
-
+      description: |2-
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -2374,12 +2376,15 @@ components:
             Each subsequent list request will have its own [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses) to continue paging through the results.
           type: string
     ListClusterLogsRequestServiceType:
-      description: ' - MONGOD: Logs of MongoDB activity.'
+      description: |2-
+         - MONGOD: Logs of MongoDB activity.
+         - AUDIT: MongoDB Enterprise audit logs
       type: string
       enum:
       - MONGOD
       - MONGOS
       - MONGOCFG
+      - AUDIT
     ListClusterLogsResponse:
       type: object
       properties:
@@ -3432,6 +3437,16 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseAuditLog_in_MongodConfig4_4_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSetParameter_in_MongodConfig4_4_enterprise_setParameter'
+    MongodConfig4_4_enterpriseAuditLog:
+      type: object
+      properties:
+        filter:
+          description: Audit filter
+          type: string
     MongodConfig4_4_enterpriseNetwork:
       type: object
       properties:
@@ -3494,6 +3509,13 @@ components:
         keyIdentifier:
           description: KMIP Key identifier (if any)
           type: string
+    MongodConfig4_4_enterpriseSetParameter:
+      type: object
+      properties:
+        auditAuthorizationSuccess:
+          description: Enables the auditing of authorization successes
+          type: boolean
+          format: boolean
     MongodConfig4_4_enterpriseStorage:
       type: object
       properties:
@@ -3652,6 +3674,20 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseAuditLog_in_MongodConfig5_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSetParameter_in_MongodConfig5_0_enterprise_setParameter'
+    MongodConfig5_0_enterpriseAuditLog:
+      type: object
+      properties:
+        filter:
+          description: Audit filter
+          type: string
+        runtimeConfiguration:
+          description: Allows runtime configuration of audit filter and auditAuthorizationSuccess
+          type: boolean
+          format: boolean
     MongodConfig5_0_enterpriseNetwork:
       type: object
       properties:
@@ -3714,6 +3750,13 @@ components:
         keyIdentifier:
           description: KMIP Key identifier (if any)
           type: string
+    MongodConfig5_0_enterpriseSetParameter:
+      type: object
+      properties:
+        auditAuthorizationSuccess:
+          description: Enables the auditing of authorization successes
+          type: boolean
+          format: boolean
     MongodConfig5_0_enterpriseStorage:
       type: object
       properties:
@@ -4981,12 +5024,15 @@ components:
           description: ID of the MongoDB cluster.
           type: string
     StreamClusterLogsRequestServiceType:
-      description: ' - MONGOD: Logs of MongoDB activity.'
+      description: |2-
+         - MONGOD: Logs of MongoDB activity.
+         - AUDIT: MongoDB Enterprise audit logs
       type: string
       enum:
       - MONGOD
       - MONGOS
       - MONGOCFG
+      - AUDIT
     StreamLogRecord:
       type: object
       properties:
@@ -5196,8 +5242,6 @@ components:
       description: |-
         Deployment environment of the MongoDB cluster.
 
-        Deployment environment.
-
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -5343,8 +5387,6 @@ components:
       description: |-
         Required.
         Deployment environment of the MongoDB cluster.
-
-        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
@@ -6729,6 +6771,21 @@ components:
           format: boolean
         kmip:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurityKMIP_in_MongodConfig4_4_enterpriseSecurity_kmip'
+    MongodConfig4_4_enterpriseAuditLog_in_MongodConfig4_4_enterprise_auditLog:
+      description: '`AuditLog` section of mongod configuration.'
+      type: object
+      properties:
+        filter:
+          description: Audit filter
+          type: string
+    MongodConfig4_4_enterpriseSetParameter_in_MongodConfig4_4_enterprise_setParameter:
+      description: '`SetParameter` section of mongod configuration.'
+      type: object
+      properties:
+        auditAuthorizationSuccess:
+          description: Enables the auditing of authorization successes
+          type: boolean
+          format: boolean
     MongodConfig4_4_enterpriseOperationProfilingMode_in_MongodConfig4_4_enterpriseOperationProfiling_mode:
       description: |-
         Mode which specifies operations that should be profiled.
@@ -6951,6 +7008,25 @@ components:
           format: boolean
         kmip:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurityKMIP_in_MongodConfig5_0_enterpriseSecurity_kmip'
+    MongodConfig5_0_enterpriseAuditLog_in_MongodConfig5_0_enterprise_auditLog:
+      description: '`AuditLog` section of mongod configuration.'
+      type: object
+      properties:
+        filter:
+          description: Audit filter
+          type: string
+        runtimeConfiguration:
+          description: Allows runtime configuration of audit filter and auditAuthorizationSuccess
+          type: boolean
+          format: boolean
+    MongodConfig5_0_enterpriseSetParameter_in_MongodConfig5_0_enterprise_setParameter:
+      description: '`SetParameter` section of mongod configuration.'
+      type: object
+      properties:
+        auditAuthorizationSuccess:
+          description: Enables the auditing of authorization successes
+          type: boolean
+          format: boolean
     MongodConfig5_0_enterpriseOperationProfilingMode_in_MongodConfig5_0_enterpriseOperationProfiling_mode:
       description: |-
         Mode which specifies operations that should be profiled.
@@ -7222,6 +7298,10 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseAuditLog_in_MongodConfig4_4_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSetParameter_in_MongodConfig4_4_enterprise_setParameter'
     MongodConfig4_4_enterprise_in_MongodConfigSet4_4_enterprise_userConfig:
       description: |-
         User-defined mongod settings for a MongoDB 4.4 cluster.
@@ -7238,6 +7318,10 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseAuditLog_in_MongodConfig4_4_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSetParameter_in_MongodConfig4_4_enterprise_setParameter'
     MongodConfig4_4_enterprise_in_MongodConfigSet4_4_enterprise_defaultConfig:
       description: |-
         Default mongod configuration for a MongoDB 4.4 cluster.
@@ -7254,6 +7338,10 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseAuditLog_in_MongodConfig4_4_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSetParameter_in_MongodConfig4_4_enterprise_setParameter'
     MongodConfig5_0_in_MongodConfigSet5_0_effectiveConfig:
       description: |-
         Effective mongod settings for a MongoDB 5.0 cluster (a combination of settings defined
@@ -7314,6 +7402,10 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseAuditLog_in_MongodConfig5_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSetParameter_in_MongodConfig5_0_enterprise_setParameter'
     MongodConfig5_0_enterprise_in_MongodConfigSet5_0_enterprise_userConfig:
       description: |-
         User-defined mongod settings for a MongoDB 5.0 cluster.
@@ -7330,6 +7422,10 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseAuditLog_in_MongodConfig5_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSetParameter_in_MongodConfig5_0_enterprise_setParameter'
     MongodConfig5_0_enterprise_in_MongodConfigSet5_0_enterprise_defaultConfig:
       description: |-
         Default mongod configuration for a MongoDB 5.0 cluster.
@@ -7346,6 +7442,10 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseAuditLog_in_MongodConfig5_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSetParameter_in_MongodConfig5_0_enterprise_setParameter'
     Mongodb3_6Mongod_in_Mongodb3_6_mongod:
       description: Configuration and resource allocation for mongod in a MongoDB 3.6
         cluster.
@@ -9308,6 +9408,10 @@ components:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseNetwork_in_MongodConfig4_4_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig4_4_enterpriseSecurity_in_MongodConfig4_4_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseAuditLog_in_MongodConfig4_4_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig4_4_enterpriseSetParameter_in_MongodConfig4_4_enterprise_setParameter'
     Resources_in_MongodbSpec4_4_enterpriseMongod_resources:
       description: Resources allocated to each mongod host.
       type: object
@@ -9638,6 +9742,10 @@ components:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseNetwork_in_MongodConfig5_0_enterprise_net'
         security:
           $ref: '#/components/schemas/MongodConfig5_0_enterpriseSecurity_in_MongodConfig5_0_enterprise_security'
+        auditLog:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseAuditLog_in_MongodConfig5_0_enterprise_auditLog'
+        setParameter:
+          $ref: '#/components/schemas/MongodConfig5_0_enterpriseSetParameter_in_MongodConfig5_0_enterprise_setParameter'
     Resources_in_MongodbSpec5_0_enterpriseMongod_resources:
       description: Resources allocated to each mongod host.
       type: object
@@ -9920,8 +10028,6 @@ components:
       description: |-
         Required.
         Deployment environment of the new MongoDB cluster.
-
-        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.

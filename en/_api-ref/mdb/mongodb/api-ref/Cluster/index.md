@@ -32,7 +32,8 @@ A set of methods for managing MongoDB Cluster resources.
     },
     "backupRetainPeriodDays": "integer",
     "access": {
-      "dataLens": true
+      "dataLens": true,
+      "dataTransfer": true
     },
 
     // `config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`
@@ -1232,6 +1233,12 @@ A set of methods for managing MongoDB Cluster resources.
                 "clientCertificate": "string",
                 "keyIdentifier": "string"
               }
+            },
+            "auditLog": {
+              "filter": "string"
+            },
+            "setParameter": {
+              "auditAuthorizationSuccess": true
             }
           },
           "userConfig": {
@@ -1264,6 +1271,12 @@ A set of methods for managing MongoDB Cluster resources.
                 "clientCertificate": "string",
                 "keyIdentifier": "string"
               }
+            },
+            "auditLog": {
+              "filter": "string"
+            },
+            "setParameter": {
+              "auditAuthorizationSuccess": true
             }
           },
           "defaultConfig": {
@@ -1296,6 +1309,12 @@ A set of methods for managing MongoDB Cluster resources.
                 "clientCertificate": "string",
                 "keyIdentifier": "string"
               }
+            },
+            "auditLog": {
+              "filter": "string"
+            },
+            "setParameter": {
+              "auditAuthorizationSuccess": true
             }
           }
         },
@@ -1494,6 +1513,13 @@ A set of methods for managing MongoDB Cluster resources.
                 "clientCertificate": "string",
                 "keyIdentifier": "string"
               }
+            },
+            "auditLog": {
+              "filter": "string",
+              "runtimeConfiguration": true
+            },
+            "setParameter": {
+              "auditAuthorizationSuccess": true
             }
           },
           "userConfig": {
@@ -1526,6 +1552,13 @@ A set of methods for managing MongoDB Cluster resources.
                 "clientCertificate": "string",
                 "keyIdentifier": "string"
               }
+            },
+            "auditLog": {
+              "filter": "string",
+              "runtimeConfiguration": true
+            },
+            "setParameter": {
+              "auditAuthorizationSuccess": true
             }
           },
           "defaultConfig": {
@@ -1558,6 +1591,13 @@ A set of methods for managing MongoDB Cluster resources.
                 "clientCertificate": "string",
                 "keyIdentifier": "string"
               }
+            },
+            "auditLog": {
+              "filter": "string",
+              "runtimeConfiguration": true
+            },
+            "setParameter": {
+              "auditAuthorizationSuccess": true
             }
           }
         },
@@ -1760,7 +1800,7 @@ createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://
 name | **string**<br><p>Name of the MongoDB cluster. The name is unique within the folder. 1-63 characters long.</p> 
 description | **string**<br><p>Description of the MongoDB cluster. 0-256 characters long.</p> 
 labels | **object**<br><p>Custom labels for the MongoDB cluster as ``key:value`` pairs. Maximum 64 per resource.</p> 
-environment | **string**<br><p>Deployment environment of the MongoDB cluster.</p> <p>Deployment environment.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+environment | **string**<br><p>Deployment environment of the MongoDB cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
 monitoring[] | **object**<br><p>Monitoring system.</p> 
 monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
@@ -1776,6 +1816,7 @@ config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of 
 config.<br>backupRetainPeriodDays | **integer** (int64)<br><p>Retain period of automatically created backup in days</p> 
 config.<br>access | **object**<br>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
+config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 config.<br>mongodb_3_6 | **object** <br>`config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`<br><br>
 config.<br>mongodb_3_6.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster.</p> 
 config.<br>mongodb_3_6.<br>mongod.<br>config | **object**<br><p>Configuration for a mongod 3.6 hosts.</p> 
@@ -2534,6 +2575,10 @@ config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>s
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig | **object**<br><p>User-defined mongod settings for a MongoDB 4.4 cluster.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v4.4/reference/configuration-options/">MongoDB documentation</a>.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>storage | **object**<br><p>``storage`` section of mongod configuration.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -2556,6 +2601,10 @@ config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>securi
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig | **object**<br><p>Default mongod configuration for a MongoDB 4.4 cluster.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v4.4/reference/configuration-options/">MongoDB documentation</a>.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>storage | **object**<br><p>``storage`` section of mongod configuration.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -2578,6 +2627,10 @@ config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>sec
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to mongod hosts.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -2704,6 +2757,11 @@ config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>s
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig | **object**<br><p>User-defined mongod settings for a MongoDB 5.0 cluster.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v5.0/reference/configuration-options/">MongoDB documentation</a>.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>storage | **object**<br><p>``storage`` section of mongod configuration.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -2726,6 +2784,11 @@ config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>securi
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig | **object**<br><p>Default mongod configuration for a MongoDB 5.0 cluster.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v5.0/reference/configuration-options/">MongoDB documentation</a>.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>storage | **object**<br><p>``storage`` section of mongod configuration.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -2748,6 +2811,11 @@ config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>sec
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to mongod hosts.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

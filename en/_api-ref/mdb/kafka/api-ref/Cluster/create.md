@@ -98,7 +98,10 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
     "brokersCount": "integer",
     "assignPublicIp": true,
     "unmanagedTopics": true,
-    "schemaRegistry": true
+    "schemaRegistry": true,
+    "access": {
+      "dataTransfer": true
+    }
   },
   "topicSpecs": [
     {
@@ -266,6 +269,8 @@ configSpec.<br>brokersCount | **integer** (int64)<br><p>The number of Kafka brok
 configSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the cluster. If the value is ``true``, then Apache Kafka® cluster is available on the Internet via it's public IP address.</p> 
 configSpec.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI</p> 
 configSpec.<br>schemaRegistry | **boolean** (boolean)<br><p>Enables managed schema registry on cluster</p> 
+configSpec.<br>access | **object**<br><p>Access policy for external services.</p> 
+configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 topicSpecs[] | **object**<br><p>One or more configurations of topics to be created in the Apache Kafka® cluster.</p> 
 topicSpecs[].<br>name | **string**<br><p>Name of the topic.</p> 
 topicSpecs[].<br>partitions | **integer** (int64)<br><p>The number of the topic's partitions.</p> 

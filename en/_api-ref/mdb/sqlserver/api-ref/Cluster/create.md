@@ -35,7 +35,8 @@ POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters
       "nanos": "integer"
     },
     "access": {
-      "dataLens": true
+      "dataLens": true,
+      "webSql": true
     },
 
     // `configSpec` includes only one of the fields `sqlserverConfig_2016Sp2Std`, `sqlserverConfig_2016Sp2Ent`
@@ -115,6 +116,7 @@ configSpec.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds
 configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 configSpec.<br>access | **object**<br>Access policy to DB<br>
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
+configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow access for Web SQL.</p> 
 configSpec.<br>sqlserverConfig_2016Sp2Std | **object**<br>Configuration for an SQL Server 2016 SP2 Standard edition cluster. <br>`configSpec` includes only one of the fields `sqlserverConfig_2016Sp2Std`, `sqlserverConfig_2016Sp2Ent`<br><br><p>SQL Server 2016 SP2 Standard edition supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2016">SQL Server documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
 configSpec.<br>sqlserverConfig_2016Sp2Std.<br>maxDegreeOfParallelism | **integer** (int64)<br><p>Limits the number of processors to use in parallel plan execution per task.</p> <p>See in-depth description in <a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016">SQL Server documentation</a>.</p> <p>Acceptable values are 1 to 99, inclusive.</p> 
 configSpec.<br>sqlserverConfig_2016Sp2Std.<br>costThresholdForParallelism | **integer** (int64)<br><p>Specifies the threshold at which SQL Server creates and runs parallel plans for queries.</p> <p>SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.</p> <p>See in-depth description in <a href="https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016">SQL Server documentation</a>.</p> <p>Acceptable values are 5 to 32767, inclusive.</p> 

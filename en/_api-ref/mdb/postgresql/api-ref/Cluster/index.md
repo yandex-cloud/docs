@@ -43,7 +43,8 @@ A set of methods for managing PostgreSQL Cluster resources.
     "access": {
       "dataLens": true,
       "webSql": true,
-      "serverless": true
+      "serverless": true,
+      "dataTransfer": true
     },
     "performanceDiagnostics": {
       "enabled": true,
@@ -3521,6 +3522,7 @@ config.<br>access | **object**<br>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
 config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex Cloud management console.</p> <p>See <a href="/docs/managed-postgresql/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
 config.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access for Serverless</p> 
+config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 config.<br>performanceDiagnostics | **object**<br>
 config.<br>performanceDiagnostics.<br>enabled | **boolean** (boolean)<br><p>Configuration setting which enables/disables performance diagnostics service in cluster.</p> 
 config.<br>performanceDiagnostics.<br>sessionsSamplingInterval | **string** (int64)<br><p>Interval (in seconds) for pg_stat_activity sampling</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 

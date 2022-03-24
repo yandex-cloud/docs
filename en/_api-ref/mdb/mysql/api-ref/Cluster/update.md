@@ -40,7 +40,8 @@ clusterId | Required. ID of the cluster to update.  To get this ID, make a [list
     },
     "access": {
       "dataLens": true,
-      "webSql": true
+      "webSql": true,
+      "dataTransfer": true
     },
     "performanceDiagnostics": {
       "enabled": true,
@@ -239,6 +240,7 @@ configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions
 configSpec.<br>access | **object**<br>Access policy for external services.  If the specific services need to access the cluster, then set the necessary values in this policy.<br>
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows access from DataLens.</p> <p>See <a href="/docs/managed-mysql/operations/datalens-connect">the documentation</a> for details.</p> 
 configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from Yandex Cloud management console.</p> <p>See <a href="/docs/managed-mysql/operations/web-sql-query">the documentation</a> for details.</p> 
+configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 configSpec.<br>performanceDiagnostics | **object**<br>Configuration of the performance diagnostics service.<br>
 configSpec.<br>performanceDiagnostics.<br>enabled | **boolean** (boolean)<br><p>Flag that shows if performance statistics gathering is enabled for the cluster.</p> 
 configSpec.<br>performanceDiagnostics.<br>sessionsSamplingInterval | **string** (int64)<br><p>Interval (in seconds) for ``my_session`` sampling.</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 

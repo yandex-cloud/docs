@@ -1474,6 +1474,13 @@ paths:
       x-y-operation-response: '[User](/docs/managed-kafka/api-ref/User#representation)'
 components:
   schemas:
+    Access:
+      type: object
+      properties:
+        dataTransfer:
+          description: Allow access for DataTransfer.
+          type: boolean
+          format: boolean
     AnytimeMaintenanceWindow:
       type: object
       properties: {}
@@ -1704,6 +1711,8 @@ components:
           description: Enables managed schema registry on cluster
           type: boolean
           format: boolean
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigSpec_access'
     ConfigSpecKafka:
       type: object
       allOf:
@@ -3471,6 +3480,8 @@ components:
           description: Enables managed schema registry on cluster
           type: boolean
           format: boolean
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigSpec_access'
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -3558,6 +3569,14 @@ components:
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_ConfigSpecZookeeper_resources'
+    Access_in_ConfigSpec_access:
+      description: Access policy for external services.
+      type: object
+      properties:
+        dataTransfer:
+          description: Allow access for DataTransfer.
+          type: boolean
+          format: boolean
     Resources_in_ConfigSpecZookeeper_resources:
       description: Resources allocated to ZooKeeper hosts.
       type: object
@@ -3758,6 +3777,8 @@ components:
           description: Enables managed schema registry on cluster
           type: boolean
           format: boolean
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigSpec_access'
     MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow:
       description: Window of maintenance operations.
       type: object
@@ -4167,6 +4188,8 @@ components:
           description: Enables managed schema registry on cluster
           type: boolean
           format: boolean
+        access:
+          $ref: '#/components/schemas/Access_in_ConfigSpec_access'
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
       description: New maintenance window settings for the cluster.
       type: object

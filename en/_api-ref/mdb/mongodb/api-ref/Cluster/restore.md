@@ -32,7 +32,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
     },
     "backupRetainPeriodDays": "integer",
     "access": {
-      "dataLens": true
+      "dataLens": true,
+      "dataTransfer": true
     },
 
     // `configSpec` includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`
@@ -539,6 +540,12 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
               "clientCertificate": "string",
               "keyIdentifier": "string"
             }
+          },
+          "auditLog": {
+            "filter": "string"
+          },
+          "setParameter": {
+            "auditAuthorizationSuccess": true
           }
         },
         "resources": {
@@ -643,6 +650,13 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
               "clientCertificate": "string",
               "keyIdentifier": "string"
             }
+          },
+          "auditLog": {
+            "filter": "string",
+            "runtimeConfiguration": true
+          },
+          "setParameter": {
+            "auditAuthorizationSuccess": true
           }
         },
         "resources": {
@@ -745,7 +759,7 @@ backupId | **string**<br><p>Required. ID of the backup to create a cluster from.
 name | **string**<br><p>Required. Name of the new MongoDB cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the new MongoDB cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Custom labels for the MongoDB cluster as ``key:value`` pairs. Maximum 64 per resource. For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-environment | **string**<br><p>Required. Deployment environment of the new MongoDB cluster.</p> <p>Deployment environment.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+environment | **string**<br><p>Required. Deployment environment of the new MongoDB cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
 configSpec | **object**<br><p>Required. Configuration for the MongoDB cluster to be created.</p> 
 configSpec.<br>version | **string**<br><p>Version of MongoDB used in the cluster. Possible values: ``3.6``, ``4.0``, ``4.2``, ``4.4``, ``4.4-enterprise``, ``5.0``, ``5.0-enterprise``.</p> 
 configSpec.<br>featureCompatibilityVersion | **string**<br><p>MongoDB feature compatibility version. See usage details in <a href="https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/">MongoDB documentation</a>.</p> <p>Possible values:</p> <ul> <li>``3.6`` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or older.</li> <li>``4.0`` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or older.</li> <li>``4.2`` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or older.</li> <li>``4.4`` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.</li> <li>``5.0`` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older.</li> </ul> 
@@ -757,6 +771,7 @@ configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions
 configSpec.<br>backupRetainPeriodDays | **integer** (int64)<br><p>Retain period of automatically created backup in days</p> <p>Acceptable values are 7 to 35, inclusive.</p> 
 configSpec.<br>access | **object**<br>Access policy to DB<br>
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
+configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 configSpec.<br>mongodbSpec_3_6 | **object**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. <br>`configSpec` includes only one of the fields `mongodbSpec_3_6`, `mongodbSpec_4_0`, `mongodbSpec_4_2`, `mongodbSpec_4_4`, `mongodbSpec_5_0`, `mongodbSpec_4_4Enterprise`, `mongodbSpec_5_0Enterprise`<br><br>
 configSpec.<br>mongodbSpec_3_6.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod 3.6 hosts.</p> 
 configSpec.<br>mongodbSpec_3_6.<br>mongod.<br>config | **object**<br><p>Configuration for mongod 3.6 hosts.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v3.6/reference/configuration-options/">MongoDB documentation</a>.</p> 
@@ -1087,6 +1102,10 @@ configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>config.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_4_4Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -1156,6 +1175,11 @@ configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>config.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to each mongod host.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 configSpec.<br>mongodbSpec_5_0Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

@@ -81,6 +81,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka}
@@ -99,6 +100,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -198,6 +206,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access1)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka1}
@@ -216,6 +225,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access1}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -289,6 +305,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access2)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka2}
@@ -307,6 +324,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access2}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### TopicSpec {#TopicSpec}
@@ -484,6 +508,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access3)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka3}
@@ -502,6 +527,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access3}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -570,6 +602,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access4)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka4}
@@ -588,6 +621,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access4}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -678,6 +718,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access5)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka5}
@@ -696,6 +737,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access5}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -854,6 +902,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access6)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka6}
@@ -872,6 +921,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access6}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -987,6 +1043,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access7)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka7}
@@ -1005,6 +1062,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access7}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1120,6 +1184,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access8)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka8}
@@ -1138,6 +1203,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access8}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -1256,6 +1328,7 @@ brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/pro
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
 schema_registry | **bool**<br>Enables managed schema registry on cluster 
+access | **[Access](#Access9)**<br>Access policy for external services. 
 
 
 ### Kafka {#Kafka9}
@@ -1274,6 +1347,13 @@ kafka_config | **oneof:** `kafka_config_2_1`, `kafka_config_2_6` or `kafka_confi
 Field | Description
 --- | ---
 resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### Access {#Access9}
+
+Field | Description
+--- | ---
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}

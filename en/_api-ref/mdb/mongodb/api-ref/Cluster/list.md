@@ -54,7 +54,8 @@ filter | A filter expression that filters resources listed in the response. The 
         },
         "backupRetainPeriodDays": "integer",
         "access": {
-          "dataLens": true
+          "dataLens": true,
+          "dataTransfer": true
         },
 
         // `clusters[].config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`
@@ -1254,6 +1255,12 @@ filter | A filter expression that filters resources listed in the response. The 
                     "clientCertificate": "string",
                     "keyIdentifier": "string"
                   }
+                },
+                "auditLog": {
+                  "filter": "string"
+                },
+                "setParameter": {
+                  "auditAuthorizationSuccess": true
                 }
               },
               "userConfig": {
@@ -1286,6 +1293,12 @@ filter | A filter expression that filters resources listed in the response. The 
                     "clientCertificate": "string",
                     "keyIdentifier": "string"
                   }
+                },
+                "auditLog": {
+                  "filter": "string"
+                },
+                "setParameter": {
+                  "auditAuthorizationSuccess": true
                 }
               },
               "defaultConfig": {
@@ -1318,6 +1331,12 @@ filter | A filter expression that filters resources listed in the response. The 
                     "clientCertificate": "string",
                     "keyIdentifier": "string"
                   }
+                },
+                "auditLog": {
+                  "filter": "string"
+                },
+                "setParameter": {
+                  "auditAuthorizationSuccess": true
                 }
               }
             },
@@ -1516,6 +1535,13 @@ filter | A filter expression that filters resources listed in the response. The 
                     "clientCertificate": "string",
                     "keyIdentifier": "string"
                   }
+                },
+                "auditLog": {
+                  "filter": "string",
+                  "runtimeConfiguration": true
+                },
+                "setParameter": {
+                  "auditAuthorizationSuccess": true
                 }
               },
               "userConfig": {
@@ -1548,6 +1574,13 @@ filter | A filter expression that filters resources listed in the response. The 
                     "clientCertificate": "string",
                     "keyIdentifier": "string"
                   }
+                },
+                "auditLog": {
+                  "filter": "string",
+                  "runtimeConfiguration": true
+                },
+                "setParameter": {
+                  "auditAuthorizationSuccess": true
                 }
               },
               "defaultConfig": {
@@ -1580,6 +1613,13 @@ filter | A filter expression that filters resources listed in the response. The 
                     "clientCertificate": "string",
                     "keyIdentifier": "string"
                   }
+                },
+                "auditLog": {
+                  "filter": "string",
+                  "runtimeConfiguration": true
+                },
+                "setParameter": {
+                  "auditAuthorizationSuccess": true
                 }
               }
             },
@@ -1787,7 +1827,7 @@ clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a
 clusters[].<br>name | **string**<br><p>Name of the MongoDB cluster. The name is unique within the folder. 1-63 characters long.</p> 
 clusters[].<br>description | **string**<br><p>Description of the MongoDB cluster. 0-256 characters long.</p> 
 clusters[].<br>labels | **object**<br><p>Custom labels for the MongoDB cluster as ``key:value`` pairs. Maximum 64 per resource.</p> 
-clusters[].<br>environment | **string**<br><p>Deployment environment of the MongoDB cluster.</p> <p>Deployment environment.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+clusters[].<br>environment | **string**<br><p>Deployment environment of the MongoDB cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
 clusters[].<br>monitoring[] | **object**<br><p>Monitoring system.</p> 
 clusters[].<br>monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
@@ -1803,6 +1843,7 @@ clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><
 clusters[].<br>config.<br>backupRetainPeriodDays | **integer** (int64)<br><p>Retain period of automatically created backup in days</p> 
 clusters[].<br>config.<br>access | **object**<br>Access policy to DB<br>
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
+clusters[].<br>config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 clusters[].<br>config.<br>mongodb_3_6 | **object**<br>Configuration and resource allocation for a MongoDB 3.6 cluster. <br>`clusters[].config` includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`<br><br>
 clusters[].<br>config.<br>mongodb_3_6.<br>mongod | **object**<br><p>Configuration and resource allocation for mongod in a MongoDB 3.6 cluster.</p> 
 clusters[].<br>config.<br>mongodb_3_6.<br>mongod.<br>config | **object**<br><p>Configuration for a mongod 3.6 hosts.</p> 
@@ -2561,6 +2602,10 @@ clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effect
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig | **object**<br><p>User-defined mongod settings for a MongoDB 4.4 cluster.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v4.4/reference/configuration-options/">MongoDB documentation</a>.</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>storage | **object**<br><p>``storage`` section of mongod configuration.</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -2583,6 +2628,10 @@ clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userCo
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>userConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig | **object**<br><p>Default mongod configuration for a MongoDB 4.4 cluster.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v4.4/reference/configuration-options/">MongoDB documentation</a>.</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>storage | **object**<br><p>``storage`` section of mongod configuration.</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -2605,6 +2654,10 @@ clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaul
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to mongod hosts.</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 clusters[].<br>config.<br>mongodb_4_4Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
@@ -2731,6 +2784,11 @@ clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effect
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>effectiveConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig | **object**<br><p>User-defined mongod settings for a MongoDB 5.0 cluster.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v5.0/reference/configuration-options/">MongoDB documentation</a>.</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>storage | **object**<br><p>``storage`` section of mongod configuration.</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -2753,6 +2811,11 @@ clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userCo
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>userConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig | **object**<br><p>Default mongod configuration for a MongoDB 5.0 cluster.</p> <p>Configuration of a mongod daemon. Supported options are a limited subset of all options described in <a href="https://docs.mongodb.com/v5.0/reference/configuration-options/">MongoDB documentation</a>.</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>storage | **object**<br><p>``storage`` section of mongod configuration.</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>storage.<br>wiredTiger | **object**<br><p>Configuration of the WiredTiger storage engine.</p> <p>Configuration of WiredTiger storage engine.</p> 
@@ -2775,6 +2838,11 @@ clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaul
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>serverCa | **string**<br><p>KMIP Server CA</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>clientCertificate | **string**<br><p>KMIP client certificate + private key (unencrypted)</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>security.<br>kmip.<br>keyIdentifier | **string**<br><p>KMIP Key identifier (if any)</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog | **object**<br><p>``AuditLog`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog.<br>filter | **string**<br><p>Audit filter</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>auditLog.<br>runtimeConfiguration | **boolean** (boolean)<br><p>Allows runtime configuration of audit filter and auditAuthorizationSuccess</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>setParameter | **object**<br><p>``SetParameter`` section of mongod configuration.</p> 
+clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>config.<br>defaultConfig.<br>setParameter.<br>auditAuthorizationSuccess | **boolean** (boolean)<br><p>Enables the auditing of authorization successes</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources | **object**<br><p>Resources allocated to mongod hosts.</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-mongodb/concepts/instance-types">documentation</a>.</p> 
 clusters[].<br>config.<br>mongodb_5_0Enterprise.<br>mongod.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 

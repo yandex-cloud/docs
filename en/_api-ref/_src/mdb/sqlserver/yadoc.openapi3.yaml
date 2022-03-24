@@ -1235,6 +1235,10 @@ components:
           description: Allow access for DataLens
           type: boolean
           format: boolean
+        webSql:
+          description: Allow access for Web SQL.
+          type: boolean
+          format: boolean
     Backup:
       description: |-
         An SQL Server backup resource.

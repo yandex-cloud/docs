@@ -43,7 +43,8 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
     "access": {
       "dataLens": true,
       "webSql": true,
-      "serverless": true
+      "serverless": true,
+      "dataTransfer": true
     },
     "performanceDiagnostics": {
       "enabled": true,
@@ -1884,6 +1885,7 @@ configSpec.<br>access | **object**<br>Access policy to DB<br>
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
 configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex Cloud management console.</p> <p>See <a href="/docs/managed-postgresql/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
 configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access for Serverless</p> 
+configSpec.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 configSpec.<br>performanceDiagnostics | **object**<br>Configuration of the performance diagnostics service.<br>
 configSpec.<br>performanceDiagnostics.<br>enabled | **boolean** (boolean)<br><p>Configuration setting which enables/disables performance diagnostics service in cluster.</p> 
 configSpec.<br>performanceDiagnostics.<br>sessionsSamplingInterval | **string** (int64)<br><p>Interval (in seconds) for pg_stat_activity sampling</p> <p>Acceptable values are 1 to 86400, inclusive.</p> 
