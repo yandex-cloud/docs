@@ -1,28 +1,21 @@
-# yc compute filesystem
+# yc managed-clickhouse hosts update
 
-Manage filesystems
+Update the specified hosts
 
 #### Command Usage
 
 Syntax: 
 
-`yc compute filesystem <command>`
+`yc managed-clickhouse hosts update <HOST-NAME> [<HOST-NAME>...] [Flags...] [Global Flags...]`
 
-Aliases: 
+#### Flags
 
-- `filesystems`
-
-#### Command Tree
-
-- [yc compute filesystem get](get.md) — Show information about the specified filesystem
-- [yc compute filesystem list](list.md) — List filesystems
-- [yc compute filesystem list-operations](list-operations.md) — List operations for the specified filesystem
-- [yc compute filesystem create](create.md) — Create a filesystem
-- [yc compute filesystem delete](delete.md) — Delete the specified filesystem
-- [yc compute filesystem update](update.md) — Update the specified filesystem
-- [yc compute filesystem resize](resize.md) — Resize the specified filesystem
-- [yc compute filesystem add-labels](add-labels.md) — Add labels to specified filesystem
-- [yc compute filesystem remove-labels](remove-labels.md) — Remove labels from specified filesystem
+| Flag | Description |
+|----|----|
+|`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
+|`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--assign-public-ip`|Whether the host should get a public IP address.|
 
 #### Global Flags
 

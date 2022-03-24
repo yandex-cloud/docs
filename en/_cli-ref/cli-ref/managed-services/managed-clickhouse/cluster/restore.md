@@ -12,7 +12,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--backup-id`|<b>`string`</b><br/> ID of the backup to use for restoring a cluster.|
+|`--backup-id`|<b>`value[,value]`</b><br/> IDs of the backup to use for restoring a cluster.|
 |`--name`|<b>`string`</b><br/> Name for the restored cluster.|
 |`--description`|<b>`string`</b><br/> Description for the restored cluster.|
 |`--environment`|<b>`string`</b><br/> Environment for the restored cluster. Supported values: 'production', 'prestable'.|
@@ -29,6 +29,8 @@ Syntax:
 |`--websql-access`| Allow access for Web SQL|
 |`--metrika-access`| Allow access for Yandex Metrika|
 |`--serverless-access`| Allow access for Serverless|
+|`--datatransfer-access`| Allow access for DataTransfer|
+|`--yandexquery-access`| Allow access for Yandex Query|
 |`--version`|<b>`string`</b><br/> Version of the ClickHouse server software.|
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--cloud-storage`| Whether to use Yandex Object Storage for storing ClickHouse data.|

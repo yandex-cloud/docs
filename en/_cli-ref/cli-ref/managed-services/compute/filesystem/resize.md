@@ -1,28 +1,21 @@
-# yc compute filesystem
+# yc compute filesystem resize
 
-Manage filesystems
+Resize the specified filesystem
 
 #### Command Usage
 
 Syntax: 
 
-`yc compute filesystem <command>`
+`yc compute filesystem resize <FILESYSTEM-NAME>|<FILESYSTEM-ID> --size <SIZE> [Global Flags...]`
 
-Aliases: 
+#### Flags
 
-- `filesystems`
-
-#### Command Tree
-
-- [yc compute filesystem get](get.md) — Show information about the specified filesystem
-- [yc compute filesystem list](list.md) — List filesystems
-- [yc compute filesystem list-operations](list-operations.md) — List operations for the specified filesystem
-- [yc compute filesystem create](create.md) — Create a filesystem
-- [yc compute filesystem delete](delete.md) — Delete the specified filesystem
-- [yc compute filesystem update](update.md) — Update the specified filesystem
-- [yc compute filesystem resize](resize.md) — Resize the specified filesystem
-- [yc compute filesystem add-labels](add-labels.md) — Add labels to specified filesystem
-- [yc compute filesystem remove-labels](remove-labels.md) — Remove labels from specified filesystem
+| Flag | Description |
+|----|----|
+|`--id`|<b>`string`</b><br/>Filesystem id.|
+|`--name`|<b>`string`</b><br/>Filesystem name.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--size`|<b>`byteSize`</b><br/>A new size of the filesystem.|
 
 #### Global Flags
 
