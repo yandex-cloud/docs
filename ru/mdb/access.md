@@ -47,7 +47,7 @@
       status: ACTIVE
       ```
 
-{% endlist%}
+{% endlist %}
 
 ## Сетевые доступы {#network-access}
 

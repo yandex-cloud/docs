@@ -13,7 +13,7 @@ keywords:
 
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-disk-size){% if audience != "internal" %} (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках){% endif %}.
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
 
@@ -96,22 +96,22 @@ keywords:
 
 {% endlist %}
 
-## Увеличить размер хранилища {#change-disk-size}
+## {% if audience != "internal" %}Увеличить{% else %}Изменить{% endif %} размер хранилища {#change-disk-size}
 
-Проверьте, что нужный кластер не использует хранилище на нереплицируемых SSD-дисках. Увеличить размер хранилища на нереплицируемых SSD-дисках невозможно.
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% list tabs %}
 
 - Консоль управления
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-  1. Чтобы увеличить размер диска для хостов {{ ES }} с ролью *Data node*:
+  1. Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер диска для хостов {{ ES }} с ролью *Data node*:
      1. Выберите вкладку **Data node**.
      1. В блоке **Хранилище** укажите необходимый размер диска.
-  1. Чтобы увеличить размер диска для хостов {{ ES }} с ролью *Master node*:
+  1. Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер диска для хостов {{ ES }} с ролью *Master node*:
      1. Выберите вкладку **Master node**.
      1. В блоке **Хранилище** укажите необходимый размер диска.
   1. Нажмите кнопку **Сохранить**.
@@ -122,7 +122,7 @@ keywords:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы увеличить размер хранилища для кластера:
+    Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера:
 
     1. Посмотрите описание команды CLI для изменения конфигурации:
 
@@ -144,7 +144,7 @@ keywords:
 
 - API
 
-  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера, воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Необходимый размер хранилища (в байтах) в параметрах:
     * `configSpec.elasticsearchSpec.dataNode.resources.diskSize`  — для хостов с ролью *Data node*.
