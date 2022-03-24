@@ -837,7 +837,9 @@ components:
           greenplumConfigSet_6_19:
             $ref: '#/components/schemas/GreenplumConfigSet6_19'
     ClusterEnvironment:
-      description: |2-
+      description: |-
+        Deployment environment.
+
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -847,7 +849,9 @@ components:
       - PRODUCTION
       - PRESTABLE
     ClusterHealth:
-      description: |2-
+      description: |-
+        Aggregated health of the cluster.
+
          - HEALTH_UNKNOWN: Health of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
          - ALIVE: Cluster is working normally (`health` for every host in the cluster is ALIVE).
          - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
@@ -1274,7 +1278,9 @@ components:
           type: boolean
           format: boolean
     HostHealth:
-      description: |2-
+      description: |-
+        Status code of the aggregated health of the host.
+
          - UNKNOWN: Health of the host is unknown.
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable and cannot perform any of its essential functions.
@@ -1289,7 +1295,9 @@ components:
       - UNBALANCED
       default: UNKNOWN
     HostType:
-      description: |2-
+      description: |-
+        Type of the host.
+
          - TYPE_UNSPECIFIED: The type is not specified.
          - MASTER: A Greenplum® master host.
          - REPLICA: A Greenplum® master replica host.
@@ -1885,6 +1893,8 @@ components:
       description: |-
         Deployment environment of the Greenplum® cluster.
 
+        Deployment environment.
+
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -1914,6 +1924,8 @@ components:
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
+
+        Aggregated health of the cluster.
 
          - HEALTH_UNKNOWN: Health of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
          - ALIVE: Cluster is working normally (`health` for every host in the cluster is ALIVE).
@@ -2088,6 +2100,8 @@ components:
       description: |-
         Required.
         Deployment environment of the Greenplum® cluster.
+
+        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
@@ -2592,6 +2606,8 @@ components:
       description: |-
         Type of the host.
 
+        Type of the host.
+
          - TYPE_UNSPECIFIED: The type is not specified.
          - MASTER: A Greenplum® master host.
          - REPLICA: A Greenplum® master replica host.
@@ -2623,6 +2639,8 @@ components:
           type: string
     HostHealth_in_Host_health:
       description: |-
+        Status code of the aggregated health of the host.
+
         Status code of the aggregated health of the host.
 
          - UNKNOWN: Health of the host is unknown.
@@ -2692,6 +2710,8 @@ components:
       description: |-
         Required.
         Deployment environment of the Greenplum® cluster.
+
+        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.

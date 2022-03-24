@@ -1827,7 +1827,8 @@ components:
             description: List of gRPC backends that the backend group consists of.
           stream:
             $ref: '#/components/schemas/StreamBackendGroup'
-            description: List of stream backends that the backend group consist of.
+            description: List of stream (TCP) backends that the backend group consists
+              of.
     BackendTls:
       description: A resource for backend TLS settings.
       type: object
@@ -1922,7 +1923,8 @@ components:
             description: List of gRPC backends that the backend group consists of.
           stream:
             $ref: '#/components/schemas/StreamBackendGroup'
-            description: List of Stream backends that the backend group consists of.
+            description: List of stream (TCP) backends that the backend group consists
+              of.
     CreateHttpRouterMetadata:
       type: object
       properties:
@@ -2768,9 +2770,10 @@ components:
         properties:
           httpRouterId:
             description: |-
-              ID of the HTTP router processing requests.
+              ID of the HTTP router processing requests. For details about the concept, see
+              [documentation](/docs/application-load-balancer/concepts/http-router).
 
-              For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router).
+              To get the list of all available HTTP routers, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
             type: string
       - title: protocol_settings
         type: object
@@ -2828,6 +2831,8 @@ components:
             description: |-
               Required.
               Backend group to forward requests to.
+
+              Stream (TCP) backend groups are not supported.
             type: string
           timeout:
             description: |-
@@ -3122,13 +3127,18 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpListener'
-            description: HTTP listener settings.
+            description: Unencrypted HTTP listener settings.
           tls:
             $ref: '#/components/schemas/TlsListener'
-            description: HTTPS (HTTP over TLS) listener settings.
+            description: |-
+              TLS-encrypted HTTP or TCP stream listener settings.
+
+              All handlers within a listener (`defaultHandler` and `sniHandlers`) must be of one
+              type, `HttpHandler` or `StreamHandler`. Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
+              supported.
           stream:
             $ref: '#/components/schemas/StreamListener'
-            description: Stream listener settings.
+            description: Unencrypted stream (TCP) listener settings.
     ListenerSpec:
       type: object
       allOf:
@@ -3158,13 +3168,18 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpListener'
-            description: HTTP listener settings.
+            description: Unencrypted HTTP listener settings.
           tls:
             $ref: '#/components/schemas/TlsListener'
-            description: TLS listener settings.
+            description: |-
+              TLS-encrypted HTTP or TCP stream listener settings.
+
+              All handlers within a listener (`defaultHandler` and `sniHandlers`) must be of one
+              type, `HttpHandler` or `StreamHandler`. Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
+              supported.
           stream:
             $ref: '#/components/schemas/StreamListener'
-            description: TCP listener settings.
+            description: Unencrypted stream (TCP) listener settings.
     LoadBalancer:
       description: |-
         An application load balancer resource.
@@ -3718,34 +3733,54 @@ components:
             Name of the bucket.
           type: string
     StreamBackend:
-      description: A stream backend resource.
+      description: A stream (TCP) backend resource.
       type: object
       allOf:
       - type: object
         properties:
           name:
-            description: Value must match the regular expression `` [a-z][-a-z0-9]{1,61}[a-z0-9]
-              ``.
+            description: |-
+              Name of the backend.
+
+              Value must match the regular expression `` [a-z][-a-z0-9]{1,61}[a-z0-9] ``.
             type: string
           backendWeight:
-            description: If not set, backend will be disabled.
+            description: |-
+              Backend weight. Traffic is distributed between backends of a backend group according to their weights.
+
+              Weights must be set either for all backends in a group or for none of them.
+              Setting no weights is the same as setting equal non-zero weights for all backends.
+
+              If the weight is non-positive, traffic is not sent to the backend.
             type: integer
             format: int64
           loadBalancingConfig:
             $ref: '#/components/schemas/LoadBalancingConfig'
+            description: Load balancing configuration for the backend.
           port:
             description: |-
-              Optional alternative port for all targets.
+              Port used by all targets to receive traffic.
 
               Acceptable values are 0 to 65535, inclusive.
             type: string
             format: int64
           healthchecks:
+            description: |-
+              Health checks to perform on targets from target groups.
+              For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
+
+              If no health checks are specified, active health checking is not performed.
             type: array
             items:
               $ref: '#/components/schemas/HealthCheck'
           tls:
             $ref: '#/components/schemas/BackendTls'
+            description: |-
+              Settings for TLS connections between load balancer nodes and backend targets.
+
+              If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received
+              certificates with the one specified in `validationContext`.
+              If not specified, the load balancer establishes unencrypted TCP connections with targets.
           enableProxyProtocol:
             description: If set, proxy protocol will be enabled for this backend.
             type: boolean
@@ -3756,13 +3791,17 @@ components:
         properties:
           targetGroups:
             $ref: '#/components/schemas/TargetGroupsBackend'
+            description: |-
+              Target groups that belong to the backend. For details about target groups, see
+              [documentation](/docs/application-load-balancer/concepts/target-group).
     StreamBackendGroup:
-      description: A Stream backend group resource.
+      description: A stream (TCP) backend group resource.
       type: object
       allOf:
       - type: object
         properties:
           backends:
+            description: List of stream (TCP) backends.
             type: array
             items:
               $ref: '#/components/schemas/StreamBackend'
@@ -3772,15 +3811,26 @@ components:
         properties:
           connection:
             $ref: '#/components/schemas/ConnectionSessionAffinity'
+            description: |-
+              Connection-based session affinity configuration.
+
+              For now, a connection is defined only by an IP address of the client.
     StreamHandler:
-      description: A stream handler resource.
+      description: A stream (TCP) handler resource.
       type: object
       properties:
         backendGroupId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the backend group processing requests. For details about the concept, see
+            [documentation](/docs/application-load-balancer/concepts/backend-group).
+
+            The backend group type, specified via [BackendGroup.backend], must be `stream`.
+
+            To get the list of all available backend groups, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
           type: string
     StreamListener:
-      description: A Stream listener resource.
+      description: A stream (TCP) listener resource.
       type: object
       properties:
         handler:
@@ -3936,7 +3986,7 @@ components:
           type: boolean
           format: boolean
     TlsHandler:
-      description: An HTTPS (HTTP over TLS) handler resource.
+      description: A TLS-encrypted (HTTP or TCP stream) handler resource.
       type: object
       allOf:
       - type: object
@@ -3961,9 +4011,9 @@ components:
             description: HTTP handler.
           streamHandler:
             $ref: '#/components/schemas/StreamHandler'
-            description: Stream handler
+            description: Stream (TCP) handler.
     TlsListener:
-      description: An HTTPS (HTTP over TLS) listener resource.
+      description: TLS-encrypted (HTTP or TCP stream) listener resource.
       type: object
       properties:
         defaultHandler:
@@ -4036,8 +4086,8 @@ components:
               of.
           stream:
             $ref: '#/components/schemas/StreamBackendGroup'
-            description: New list of Stream backends that the backend group will consist
-              of.
+            description: New list of stream (TCP) backends that the backend group
+              will consist of.
     UpdateBackendMetadata:
       type: object
       properties:
@@ -4068,7 +4118,7 @@ components:
             description: New settings for the gRPC backend.
           stream:
             $ref: '#/components/schemas/StreamBackend'
-            description: New settings for the Stream backend.
+            description: New settings for the stream (TCP) backend.
     UpdateHttpRouterMetadata:
       type: object
       properties:
@@ -4532,19 +4582,24 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpListener'
-            description: HTTP listener settings.
+            description: Unencrypted HTTP listener settings.
           tls:
             $ref: '#/components/schemas/TlsListener'
-            description: TLS listener settings.
+            description: |-
+              TLS-encrypted HTTP or TCP stream listener settings.
+
+              All handlers within a listener (`defaultHandler` and `sniHandlers`) must be of one
+              type, `HttpHandler` or `StreamHandler`. Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
+              supported.
           stream:
             $ref: '#/components/schemas/StreamListener'
-            description: TCP listener settings.
+            description: Unencrypted stream (TCP) listener settings.
     TlsHandler_in_AddSniMatchRequest_handler:
       description: |-
         Required.
         Settings for handling requests with Server Name Indication (SNI) matching one of [serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/addSniMatch#body_params) values.
 
-        An HTTPS (HTTP over TLS) handler resource.
+        A TLS-encrypted (HTTP or TCP stream) handler resource.
       type: object
       allOf:
       - type: object
@@ -4569,7 +4624,7 @@ components:
             description: HTTP handler.
           streamHandler:
             $ref: '#/components/schemas/StreamHandler'
-            description: Stream handler
+            description: Stream (TCP) handler.
     ValidationContext_in_BackendTls_validationContext:
       description: |-
         Validation context for TLS connections.
@@ -4719,9 +4774,10 @@ components:
         properties:
           httpRouterId:
             description: |-
-              ID of the HTTP router processing requests.
+              ID of the HTTP router processing requests. For details about the concept, see
+              [documentation](/docs/application-load-balancer/concepts/http-router).
 
-              For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router).
+              To get the list of all available HTTP routers, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
             type: string
       - title: protocol_settings
         type: object
@@ -4883,7 +4939,7 @@ components:
         Required.
         Settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values.
 
-        An HTTPS (HTTP over TLS) handler resource.
+        A TLS-encrypted (HTTP or TCP stream) handler resource.
       type: object
       allOf:
       - type: object
@@ -4908,16 +4964,24 @@ components:
             description: HTTP handler.
           streamHandler:
             $ref: '#/components/schemas/StreamHandler'
-            description: Stream handler
+            description: Stream (TCP) handler.
     StreamHandler_in_StreamListener_handler:
       description: |-
         Required.
+        Settings for handling stream (TCP) requests.
 
-        A stream handler resource.
+        A stream (TCP) handler resource.
       type: object
       properties:
         backendGroupId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the backend group processing requests. For details about the concept, see
+            [documentation](/docs/application-load-balancer/concepts/backend-group).
+
+            The backend group type, specified via [BackendGroup.backend], must be `stream`.
+
+            To get the list of all available backend groups, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
           type: string
     TargetStateHealthcheckStatus_in_TargetState_status:
       description: |-
@@ -4988,7 +5052,7 @@ components:
         Settings for handling requests by default, with Server Name
         Indication (SNI) not matching any of the `sniHandlers`.
 
-        An HTTPS (HTTP over TLS) handler resource.
+        A TLS-encrypted (HTTP or TCP stream) handler resource.
       type: object
       allOf:
       - type: object
@@ -5013,7 +5077,7 @@ components:
             description: HTTP handler.
           streamHandler:
             $ref: '#/components/schemas/StreamHandler'
-            description: Stream handler
+            description: Stream (TCP) handler.
     FieldMask_in_UpdateHttpRouterRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the HTTP router should be updated.
@@ -5072,13 +5136,18 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpListener'
-            description: HTTP listener settings.
+            description: Unencrypted HTTP listener settings.
           tls:
             $ref: '#/components/schemas/TlsListener'
-            description: TLS listener settings.
+            description: |-
+              TLS-encrypted HTTP or TCP stream listener settings.
+
+              All handlers within a listener (`defaultHandler` and `sniHandlers`) must be of one
+              type, `HttpHandler` or `StreamHandler`. Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
+              supported.
           stream:
             $ref: '#/components/schemas/StreamListener'
-            description: TCP listener settings.
+            description: Unencrypted stream (TCP) listener settings.
     FieldMask_in_UpdateLoadBalancerRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the application load balancer should be updated.
@@ -5135,7 +5204,7 @@ components:
         Required.
         New settings for handling requests with Server Name Indication (SNI) matching one of [serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/updateSniMatch#body_params) values.
 
-        An HTTPS (HTTP over TLS) handler resource.
+        A TLS-encrypted (HTTP or TCP stream) handler resource.
       type: object
       allOf:
       - type: object
@@ -5160,7 +5229,7 @@ components:
             description: HTTP handler.
           streamHandler:
             $ref: '#/components/schemas/StreamHandler'
-            description: Stream handler
+            description: Stream (TCP) handler.
     FieldMask_in_UpdateTargetGroupRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the target group should be updated.

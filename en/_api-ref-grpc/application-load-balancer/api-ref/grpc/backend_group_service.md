@@ -42,10 +42,10 @@ name | **string**<br>Name of the backend group. The name is unique within the fo
 description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup)**<br>List of HTTP backends that the backend group consists of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup)**<br>List of stream backends that the backend group consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup)**<br>List of stream (TCP) backends that the backend group consists of. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
@@ -352,23 +352,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity2)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend1)), its [HttpBackend.backend_type](#HttpBackend1) should be [TargetGroupsBackend](#TargetGroupsBackend2), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig2) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity2)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig2)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend2)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck2)**<br> 
-tls | **[BackendTls](#BackendTls2)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig2)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend2)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck2)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls2)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls2). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -510,10 +510,10 @@ name | **string**<br>Name of the backend group. The name is unique within the fo
 description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup1)**<br>List of HTTP backends that the backend group consists of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup1)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup1)**<br>List of stream backends that the backend group consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup1)**<br>List of stream (TCP) backends that the backend group consists of. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
@@ -820,23 +820,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend1)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity5)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend1)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend2)), its [HttpBackend.backend_type](#HttpBackend2) should be [TargetGroupsBackend](#TargetGroupsBackend5), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig5) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity5)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend1}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig5)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend5)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck5)**<br> 
-tls | **[BackendTls](#BackendTls5)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig5)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend5)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck5)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls5)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls5). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -963,10 +963,10 @@ folder_id | **string**<br>Required. ID of the folder to create a backend group i
 name | **string**<br>Name of the backend group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
 description | **string**<br>Description of the backend group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group will consist of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group will consist of.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup2)**<br>List of HTTP backends that the backend group will consist of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup2)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup2)**<br>List of Stream backends that the backend group consists of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup2)**<br>List of stream (TCP) backends that the backend group consists of. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup2}
@@ -1272,23 +1272,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend2)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity8)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend2)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend3)), its [HttpBackend.backend_type](#HttpBackend3) should be [TargetGroupsBackend](#TargetGroupsBackend8), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig8) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity8)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend2}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig8)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend8)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck8)**<br> 
-tls | **[BackendTls](#BackendTls8)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig8)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend8)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck8)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls8)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls8). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -1429,10 +1429,10 @@ name | **string**<br>Name of the backend group. The name is unique within the fo
 description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup3)**<br>List of HTTP backends that the backend group consists of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup3)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup3)**<br>List of stream backends that the backend group consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup3)**<br>List of stream (TCP) backends that the backend group consists of. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
@@ -1739,23 +1739,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend3)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity11)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend3)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend4)), its [HttpBackend.backend_type](#HttpBackend4) should be [TargetGroupsBackend](#TargetGroupsBackend11), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig11) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity11)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend3}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig11)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend11)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck11)**<br> 
-tls | **[BackendTls](#BackendTls11)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig11)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend11)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck11)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls11)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls11). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -1883,10 +1883,10 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>New name for the backend group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
 description | **string**<br>New description of the backend group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [BackendGroupService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-backend | **oneof:** `http`, `grpc` or `stream`<br>New list of backends in the backend group. <br>A backend group must consist of either HTTP backends or gRPC backends. <br>Existing list of backends is completely replaced by the specified list, so if you just want to add or remove a target, make a [BackendGroupService.AddBackend](#AddBackend) request or a [BackendGroupService.RemoveBackend](#RemoveBackend) request.
+backend | **oneof:** `http`, `grpc` or `stream`<br>New list of backends in the backend group. <br>Existing list of backends is completely replaced by the specified list, so if you just want to add or remove a target, make a [BackendGroupService.AddBackend](#AddBackend) request or a [BackendGroupService.RemoveBackend](#RemoveBackend) request.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup4)**<br>New list of HTTP backends that the backend group will consist of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup4)**<br>New list of gRPC backends that the backend group will consist of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup4)**<br>New list of Stream backends that the backend group will consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup4)**<br>New list of stream (TCP) backends that the backend group will consist of. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup4}
@@ -2192,23 +2192,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend4)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity14)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend4)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend5)), its [HttpBackend.backend_type](#HttpBackend5) should be [TargetGroupsBackend](#TargetGroupsBackend14), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig14) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity14)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend4}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig14)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend14)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck14)**<br> 
-tls | **[BackendTls](#BackendTls14)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig14)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend14)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck14)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls14)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls14). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -2349,10 +2349,10 @@ name | **string**<br>Name of the backend group. The name is unique within the fo
 description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup5)**<br>List of HTTP backends that the backend group consists of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup5)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup5)**<br>List of stream backends that the backend group consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup5)**<br>List of stream (TCP) backends that the backend group consists of. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
@@ -2659,23 +2659,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend5)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity17)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend5)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend6)), its [HttpBackend.backend_type](#HttpBackend6) should be [TargetGroupsBackend](#TargetGroupsBackend17), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig17) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity17)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend5}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig17)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend17)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck17)**<br> 
-tls | **[BackendTls](#BackendTls17)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig17)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend17)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck17)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls17)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls17). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -2839,7 +2839,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. ID of the backend group to add a backend to. <br>To get the backend group ID, make a [BackendGroupService.List](#List) request. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backend to add to the backend group. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backend to add to the backend group.
 &nbsp;&nbsp;http | **[HttpBackend](#HttpBackend6)**<br>HTTP backend to add to the backend group. 
 &nbsp;&nbsp;grpc | **[GrpcBackend](#GrpcBackend6)**<br>gRPC backend to add to the backend group. 
 &nbsp;&nbsp;stream | **[StreamBackend](#StreamBackend6)**<br>New settings for the Stream backend. 
@@ -3082,14 +3082,14 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig20)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend20)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck20)**<br> 
-tls | **[BackendTls](#BackendTls20)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig20)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend20)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck20)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls20)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls20). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -3224,10 +3224,10 @@ name | **string**<br>Name of the backend group. The name is unique within the fo
 description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup6)**<br>List of HTTP backends that the backend group consists of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup6)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup6)**<br>List of stream backends that the backend group consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup6)**<br>List of stream (TCP) backends that the backend group consists of. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
@@ -3534,23 +3534,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend7)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity20)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend7)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend8)), its [HttpBackend.backend_type](#HttpBackend8) should be [TargetGroupsBackend](#TargetGroupsBackend23), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig23) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity20)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend7}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig23)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend23)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck23)**<br> 
-tls | **[BackendTls](#BackendTls23)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig23)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend23)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck23)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls23)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls23). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -3710,10 +3710,10 @@ name | **string**<br>Name of the backend group. The name is unique within the fo
 description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup7)**<br>List of HTTP backends that the backend group consists of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup7)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup7)**<br>List of stream backends that the backend group consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup7)**<br>List of stream (TCP) backends that the backend group consists of. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
@@ -4020,23 +4020,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend8)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity23)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend8)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend9)), its [HttpBackend.backend_type](#HttpBackend9) should be [TargetGroupsBackend](#TargetGroupsBackend26), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig26) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity23)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend8}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig26)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend26)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck26)**<br> 
-tls | **[BackendTls](#BackendTls26)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig26)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend26)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck26)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls26)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls26). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -4164,7 +4164,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 backend | **oneof:** `http`, `grpc` or `stream`<br>Name of the backend to update (required) and new settings for the backend.
 &nbsp;&nbsp;http | **[HttpBackend](#HttpBackend9)**<br>New settings for the HTTP backend. 
 &nbsp;&nbsp;grpc | **[GrpcBackend](#GrpcBackend9)**<br>New settings for the gRPC backend. 
-&nbsp;&nbsp;stream | **[StreamBackend](#StreamBackend9)**<br>New settings for the Stream backend. 
+&nbsp;&nbsp;stream | **[StreamBackend](#StreamBackend9)**<br>New settings for the stream (TCP) backend. 
 
 
 ### HttpBackend {#HttpBackend9}
@@ -4404,14 +4404,14 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig29)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend29)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck29)**<br> 
-tls | **[BackendTls](#BackendTls29)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig29)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend29)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck29)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls29)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls29). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 
@@ -4546,10 +4546,10 @@ name | **string**<br>Name of the backend group. The name is unique within the fo
 description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
 folder_id | **string**<br>ID of the folder that the backend group belongs to. 
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup8)**<br>List of HTTP backends that the backend group consists of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup8)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup8)**<br>List of stream backends that the backend group consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup8)**<br>List of stream (TCP) backends that the backend group consists of. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
@@ -4856,23 +4856,23 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend10)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity26)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[StreamBackend](#StreamBackend10)**<br>List of stream (TCP) backends. 
+session_affinity | **oneof:** `connection`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend11)), its [HttpBackend.backend_type](#HttpBackend11) should be [TargetGroupsBackend](#TargetGroupsBackend32), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig32) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity26)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 
 
 ### StreamBackend {#StreamBackend10}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig32)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend32)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck32)**<br> 
-tls | **[BackendTls](#BackendTls32)**<br> 
+name | **string**<br>Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig32)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend32)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+healthchecks[] | **[HealthCheck](#HealthCheck32)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls32)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls32). If not specified, the load balancer establishes unencrypted TCP connections with targets. 
 enable_proxy_protocol | **bool**<br>If set, proxy protocol will be enabled for this backend. 
 
 

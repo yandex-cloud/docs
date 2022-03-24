@@ -1,3 +1,9 @@
 items:
   - name: Overview
-    href: classifier/api-ref/index.md
+    href: vision/api-ref/index.md
+  - name: Vision
+    items:
+      - name: Overview
+        href: vision/api-ref/Vision/index.md
+      - name: batchAnalyze
+        href: vision/api-ref/Vision/batchAnalyze.md

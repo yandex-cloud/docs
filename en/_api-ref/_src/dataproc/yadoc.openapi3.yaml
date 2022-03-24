@@ -1407,10 +1407,10 @@ components:
       - LIVY
     Health:
       description: |2-
-         - HEALTH_UNKNOWN: Object is in unknown state (we have no data).
-         - ALIVE: Object is alive and well (for example, all hosts of the cluster are alive).
-         - DEAD: Object is inoperable (it cannot perform any of its essential functions).
-         - DEGRADED: Object is partially alive (it can perform some of its essential functions).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -2253,10 +2253,10 @@ components:
       description: |-
         Aggregated cluster health.
 
-         - HEALTH_UNKNOWN: Object is in unknown state (we have no data).
-         - ALIVE: Object is alive and well (for example, all hosts of the cluster are alive).
-         - DEAD: Object is inoperable (it cannot perform any of its essential functions).
-         - DEGRADED: Object is partially alive (it can perform some of its essential functions).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -2592,12 +2592,12 @@ components:
           format: int64
     Health_in_Host_health:
       description: |-
-        Status code of the aggregated health of the host.
+        Host status code.
 
-         - HEALTH_UNKNOWN: Object is in unknown state (we have no data).
-         - ALIVE: Object is alive and well (for example, all hosts of the cluster are alive).
-         - DEAD: Object is inoperable (it cannot perform any of its essential functions).
-         - DEGRADED: Object is partially alive (it can perform some of its essential functions).
+         - HEALTH_UNKNOWN: State of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
+         - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
+         - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
+         - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
       type: string
       enum:
       - HEALTH_UNKNOWN

@@ -1839,7 +1839,9 @@ components:
             description: Configuration and resource allocation for a MongoDB 5.0 Enterprise
               cluster.
     ClusterEnvironment:
-      description: |2-
+      description: |-
+        Deployment environment.
+
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -5242,6 +5244,8 @@ components:
       description: |-
         Deployment environment of the MongoDB cluster.
 
+        Deployment environment.
+
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -5387,6 +5391,8 @@ components:
       description: |-
         Required.
         Deployment environment of the MongoDB cluster.
+
+        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
@@ -10028,6 +10034,8 @@ components:
       description: |-
         Required.
         Deployment environment of the new MongoDB cluster.
+
+        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes
         are applied during regular maintenance.
