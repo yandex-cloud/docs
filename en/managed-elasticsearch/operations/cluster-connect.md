@@ -132,7 +132,7 @@ When connecting to an {{ ES }} cluster, you can:
 
   This approach is suitable for any connection method. For example, you can use it to connect over the internet if only a few hosts are assigned a public IP address.
 
-- Use a special FQDN like: `c-<cluster ID {{ ES }}>.rw.mdb.yandexcloud.net` (for example, `https://c-e4ut2....rw.mdb.yandexcloud.net`).
+- Use a special FQDN like: `c-<cluster ID {{ ES }}>.rw.{{ dns-zone }}` (for example, `https://c-e4ut2....rw.{{ dns-zone }}`).
 
   This approach is only suitable if all of the hosts with the _Data node_ role have a public IP address or connections are only made from {{ yandex-cloud }} virtual machines. This is because the host for the connection, which this FQDN is pointing to, is selected randomly from all the hosts with the _Data node_ role.
 

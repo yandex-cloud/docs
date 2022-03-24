@@ -13,7 +13,7 @@ sudo apt update && sudo apt install -y postgresql-client
   1. Подключитесь к базе данных:
 
       ```bash
-      psql "host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net \
+      psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
           port=6432 \
           sslmode=disable \
           dbname=<имя БД> \
@@ -34,7 +34,7 @@ sudo apt update && sudo apt install -y postgresql-client
   1. Подключитесь к базе данных:
 
       ```bash
-      psql "host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net \
+      psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
           port=6432 \
           sslmode=verify-full \
           dbname=<имя БД> \
@@ -83,7 +83,7 @@ sudo apt update && sudo apt install -y postgresql-client
           }
           protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
           {
-              var host      = "c-<идентификатор кластера>.rw.mdb.yandexcloud.net";
+              var host      = "c-<идентификатор кластера>.rw.{{ dns-zone }}";
               var port      = "6432";
               var db        = "<имя БД>";
               var username  = "<имя пользователя>";
@@ -138,7 +138,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<идентификатор кластера>.rw.mdb.yandexcloud.net"
+        host     = "c-<идентификатор кластера>.rw.{{ dns-zone }}"
         port     = 6432
         user     = "<имя пользователя>"
         password = "<пароль пользователя>"
@@ -204,7 +204,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<идентификатор кластера>.rw.mdb.yandexcloud.net"
+        host     = "c-<идентификатор кластера>.rw.{{ dns-zone }}"
         port     = 6432
         user     = "<имя пользователя>"
         password = "<пароль пользователя>"
@@ -379,7 +379,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>?targetServerType=master&ssl=false";
+          String DB_URL     = "jdbc:postgresql://c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>?targetServerType=master&ssl=false";
           String DB_USER    = "<имя пользователя>";
           String DB_PASS    = "<пароль пользователя>";
 
@@ -417,7 +417,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<имя пользователя>";
           String DB_PASS    = "<пароль пользователя>";
 
@@ -465,7 +465,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>"
+            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>"
     };
     
     const conn = new pg.Client(config);
@@ -491,7 +491,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>",
+            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.{{ dns-zone }}:6432/<имя БД>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
@@ -545,7 +545,7 @@ sudo apt update && sudo apt install -y unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+      Servername=c-<идентификатор кластера>.rw.{{ dns-zone }}
       Username=<имя пользователя>
       Password=<пароль пользователя>
       Database=<имя БД>
@@ -570,7 +570,7 @@ sudo apt update && sudo apt install -y unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+      Servername=c-<идентификатор кластера>.rw.{{ dns-zone }}
       Username=<имя пользователя>
       Password=<пароль пользователя>
       Database=<имя БД>
@@ -608,7 +608,7 @@ sudo apt update && sudo apt install -y php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+            host=c-<идентификатор кластера>.rw.{{ dns-zone }}
             port=6432
             sslmode=disable
             dbname=<имя БД>
@@ -640,7 +640,7 @@ sudo apt update && sudo apt install -y php php-pgsql
       ``` php
       <?php
         $conn = pg_connect("
-            host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+            host=c-<идентификатор кластера>.rw.{{ dns-zone }}
             port=6432
             sslmode=verify-full
             dbname=<имя БД>
@@ -683,7 +683,7 @@ sudo apt update && sudo apt install -y php php-pgsql
 
      ```powershell
      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-           -h c-<идентификатор кластера>.rw.mdb.yandexcloud.net `
+           -h c-<идентификатор кластера>.rw.{{ dns-zone }} `
            -p {{ port-mpg }} `
            -U <имя пользователя> `
            <имя БД>
@@ -709,7 +709,7 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-        -h c-<идентификатор кластера>.rw.mdb.yandexcloud.net `
+        -h c-<идентификатор кластера>.rw.{{ dns-zone }} `
         -p {{ port-mpg }} `
         -U <имя пользователя> `
         <имя БД>
@@ -746,7 +746,7 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+          host=c-<идентификатор кластера>.rw.{{ dns-zone }}
           port=6432
           sslmode=disable
           dbname=<имя БД>
@@ -779,7 +779,7 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+          host=c-<идентификатор кластера>.rw.{{ dns-zone }}
           port=6432
           sslmode=verify-full
           dbname=<имя БД>
@@ -824,7 +824,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+              host=c-<идентификатор кластера>.rw.{{ dns-zone }}
               port=6432
               dbname=<имя БД>
               user=<имя пользователя>
@@ -855,7 +855,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+              host=c-<идентификатор кластера>.rw.{{ dns-zone }}
               port=6432
               dbname=<имя БД>
               user=<имя пользователя>

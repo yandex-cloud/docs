@@ -5,7 +5,7 @@
   {% if audience == "internal" %}
   
   1. Скачайте и установите [сертификат](https://crls.yandex.net/allCAs.pem) в браузер.
-  1. Интерфейс вашего инстанса Kibana доступен по ссылке `https://c-<идентификатор кластера {{ ES }}>.rw.db.yandex.net`. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
+  1. Интерфейс вашего инстанса Kibana доступен по ссылке `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
   1. Введите имя пользователя и пароль.
   
   {% else %}
@@ -13,8 +13,8 @@
   **Если хосту с ролью _Data node_ назначен публичный IP-адрес:**
   1. Перед подключением установите [SSL-сертификат](https://storage.yandexcloud.net/cloud-certs/CA.pem) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
   1. В браузере перейдите по одному из адресов:
-     - `https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
-     - `https://<имя любого хоста с ролью Data node и публичным IP>.mdb.yandexcloud.net`
+     - `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
+     - `https://<имя любого хоста с ролью Data node и публичным IP>.{{ dns-zone }}`
   1. Введите имя пользователя и пароль.
   
   **Если ни одному хосту с ролью _Data node_ не назначен публичный IP-адрес:**
@@ -62,7 +62,7 @@
    
      Также можно использовать директиву `proxy_pass` со специальным FQDN:
      ```nginx
-     proxy_pass https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net;
+     proxy_pass https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }};
      ```
    
      {% note warning %}
@@ -95,7 +95,7 @@
    curl \
      --user <имя пользователя>:<пароль> \
      --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.db.yandex.net:9200/'
+     -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
    ```
    
    {% else %}
@@ -104,7 +104,7 @@
    curl \
      --user <имя пользователя>:<пароль> \
      --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net:9200/'
+     -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
    ```
 
   {% endif %}
@@ -118,7 +118,7 @@
   ```powershell
    curl `
      -Certificate <абсолютный путь к файлу сертификата> `
-     -Uri https://c-<идентификатор кластера {{ ES }}>.rw.db.yandex.net:9200 `
+     -Uri https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200 `
      -Credential <имя пользователя>
    ```
 
@@ -127,7 +127,7 @@
   ```powershell
    curl `
      -Certificate <абсолютный путь к файлу сертификата> `
-     -Uri https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net:9200 `
+     -Uri https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200 `
      -Credential <имя пользователя>
    ```
 

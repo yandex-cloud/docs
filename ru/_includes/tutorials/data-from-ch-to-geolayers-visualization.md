@@ -54,7 +54,7 @@
     1. В открывшемся окне укажите параметры подключения:
        * Название подключения — `DODO Con`.
        * Подключение — тип **Указать вручную**.
-       * Имя хоста —  `myt-g2ucdqpavskt6irw.db.yandex.net, sas-1h1276u34g7nt0vx.db.yandex.net` (указать через запятую).
+       * Имя хоста —  `myt-g2ucdqpavskt6irw.{{ dns-zone }}, sas-1h1276u34g7nt0vx.{{ dns-zone }}` (указать через запятую).
        * Порт HTTP-интерфейса — `8443` (по умолчанию).
        * Имя пользователя — `datalens-marathon-2020-11-ro`.
        * Пароль — `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`.

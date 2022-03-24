@@ -105,7 +105,7 @@ To connect to a cluster:
 
    ```
    {
-     "name" : "....mdb.yandexcloud.net",
+     "name" : "....{{ dns-zone }}",
      "cluster_name" : "...",
      "cluster_uuid" : "...",
      ...

@@ -17,7 +17,7 @@ You can set the following parameters:
 
 Changing DHCP settings may prevent VMs from accessing managed database services. To avoid that, you can:
 * In DHCP settings, specify the second address from the dedicated subnet (`x.x.x.2`) as the default DNS server.
-* Specify the default DNS server address as the DNS forwarder for the `*.mdb.yandexcloud.net` zone on the DNS server in your network.
+* Specify the default DNS server address as the DNS forwarder for the `*.{{ dns-zone }}` zone on the DNS server in your network.
 
 ## NTP settings in Windows {#ntp-windows}
 

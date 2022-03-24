@@ -6,7 +6,7 @@
 
        * Название подключения — `CH connect`.
        * Подключение — тип **Указать вручную**.
-       * Имя хоста —  `rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net`.
+       * Имя хоста —  `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}`.
        * Порт HTTP-интерфейса — `8443` (по умолчанию).
        * Имя пользователя — `samples_ro`.
        * Пароль — `MsgfcjEhJk`.

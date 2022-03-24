@@ -113,7 +113,7 @@
         Здесь `<FQDN1>`, `<FQDN2>` и `<FQDN3>` — полные доменные имена [хостов-мастеров кластера](../operations/hosts.md#list). Например, для кластера из 3-х шардов с паролем `password` значение параметра `session.save_path` будет выглядеть так:
 
         ```ini
-        session.save_path = "seed[]=rc1a-t9h8gxqor5v6lcc3.mdb.yandexcloud.net:6379&seed[]=rc1b-7qxk0h3b8pupxsj9.mdb.yandexcloud.net:6379&seed[]=rc1c-spy1c1i4vwvj0n8z.mdb.yandexcloud.net:6379&auth=password"
+        session.save_path = "seed[]=rc1a-t9h8gxqor5v6lcc3.{{ dns-zone }}:6379&seed[]=rc1b-7qxk0h3b8pupxsj9.{{ dns-zone }}:6379&seed[]=rc1c-spy1c1i4vwvj0n8z.{{ dns-zone }}:6379&auth=password"
         ```
 
     {% endlist %}

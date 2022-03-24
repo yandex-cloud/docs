@@ -218,7 +218,7 @@ Install and configure 1C-Bitrix:
       1. Choose **Managed Service for MySQL**.
       1. In the table, select the database you created.
       1. Select the **Hosts** tab in the left menu.
-      1. Hover over the **Hostname** (like `rc1c-cfazv1dbzv02u4qk`) and copy the database fully qualified domain name by clicking the ![copy](../../../_assets/copy.svg) icon that appears. As a result, the fully qualified domain name is added to the hostname and the **Server** field should contain a name like `rc1c-cfazv1dbzv02u4qk.mdb.yandexcloud.net`.
+      1. Hover over the **Hostname** (like `rc1c-cfazv1dbzv02u4qk`) and copy the database fully qualified domain name by clicking the ![copy](../../../_assets/copy.svg) icon that appears. As a result, the fully qualified domain name is added to the hostname and the **Server** field should contain a name like `rc1c-cfazv1dbzv02u4qk.{{ dns-zone }}`.
 
    1. In the **Username** and **Password** fields, enter the data that you specified when creating the database in [Create a MySQL database cluster](#create-mysql).
 

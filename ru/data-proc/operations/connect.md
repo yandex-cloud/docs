@@ -125,7 +125,7 @@
 1. Откройте SSH-соединение с хостом {{ dataproc-name }}, указав его FQDN или IP-адрес, если для хоста включен публичный доступ. Для образа 2.0 укажите пользователя `ubuntu`, для образа 1.4 — `root`, например:
 
    ```bash
-   ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.mdb.yandexcloud.net
+   ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
 
    ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
    ```

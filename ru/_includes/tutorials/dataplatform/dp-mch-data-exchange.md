@@ -83,7 +83,7 @@
         ```python
         %spark.pyspark
         jdbcPort = 8123
-        jdbcHostname = "c-<идентификатор кластера {{ mch-full-name }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор кластера {{ mch-full-name }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}"
         df = spark.read.format("jdbc") \
@@ -100,7 +100,7 @@
         ```python
         %spark.pyspark
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор кластера {{ mch-full-name }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор кластера {{ mch-full-name }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
         df = spark.read.format("jdbc") \
@@ -232,7 +232,7 @@ Maria,28
         ```python
         %spark.pyspark
         jdbcPort = 8123
-        jdbcHostname = "c-<идентификатор кластера {{ mch-full-name }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор кластера {{ mch-full-name }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}"
         df.write.format("jdbc") \
@@ -250,7 +250,7 @@ Maria,28
         ```python
         %spark.pyspark
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор кластера {{ mch-full-name }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор кластера {{ mch-full-name }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
         df.write.format("jdbc") \

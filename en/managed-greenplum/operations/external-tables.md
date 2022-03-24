@@ -88,7 +88,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=ru.yandex.clickhouse.ClickHouseDriver&DB_URL=jdbc:clickhouse://c-<cluster_ID>.rw.mdb.yandexcloud.net:8123/db1&USER=chuser&PASS=chpassword')
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=ru.yandex.clickhouse.ClickHouseDriver&DB_URL=jdbc:clickhouse://c-<cluster_ID>.rw.{{ dns-zone }}:8123/db1&USER=chuser&PASS=chpassword')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 
@@ -135,7 +135,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_mysql(a int, b int)
-        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.mysql.jdbc.Driver&DB_URL=jdbc:mysql://c-<cluster_ID>.rw.mdb.yandexcloud.net:3306/db1&USER=mysqluser&PASS=mysqlpassword')
+        LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.mysql.jdbc.Driver&DB_URL=jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:3306/db1&USER=mysqluser&PASS=mysqlpassword')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 
@@ -183,7 +183,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
 
         ```sql
         CREATE READABLE EXTERNAL TABLE pxf_pg(a int, b int)
-        LOCATION ('pxf://public.test?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://c-<cluster_ID>.rw.mdb.yandexcloud.net:6432/db1&USER=pguser&PASS=pgpassword')
+        LOCATION ('pxf://public.test?PROFILE=JDBC&JDBC_DRIVER=org.postgresql.Driver&DB_URL=jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/db1&USER=pguser&PASS=pgpassword')
         FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
         ```
 

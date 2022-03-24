@@ -13,7 +13,7 @@ sudo apt update && sudo apt install -y postgresql-client
   1. Connect to a database:
 
       ```bash
-      psql "host=c-<cluster ID>.rw.mdb.yandexcloud.net \
+      psql "host=c-<cluster ID>.rw.{{ dns-zone }} \
           port=6432 \
           sslmode=disable \
           dbname=<DB name> \
@@ -34,7 +34,7 @@ sudo apt update && sudo apt install -y postgresql-client
   1. Connect to a database:
 
       ```bash
-      psql "host=c-<cluster ID>.rw.mdb.yandexcloud.net \
+      psql "host=c-<cluster ID>.rw.{{ dns-zone }} \
           port=6432 \
           sslmode=verify-full \
           dbname=<DB name> \
@@ -83,7 +83,7 @@ Required packages:
           }
           protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
           {
-              var host      = "c-<cluster ID>.rw.mdb.yandexcloud.net";
+              var host      = "c-<cluster ID>.rw.{{ dns-zone }}";
               var port      = "6432";
               var db        = "<DB name>";
               var username  = "<user name>";
@@ -138,7 +138,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
       
       const (
-        host     = "c-<cluster ID>.rw.mdb.yandexcloud.net"
+        host     = "c-<cluster ID>.rw.{{ dns-zone }}"
         port     = 6432
         user     = "<username>"
         password = "<user password>"
@@ -204,7 +204,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
       
       const (
-        host     = "c-<cluster ID>.rw.mdb.yandexcloud.net"
+        host     = "c-<cluster ID>.rw.{{ dns-zone }}"
         port     = 6432
         user     = "<username>"
         password = "<user password>"
@@ -379,7 +379,7 @@ Before connecting:
       
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>?targetServerType=master&ssl=false";
+          String DB_URL     = "jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:6432/<DB name>?targetServerType=master&ssl=false";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user password>";
       
@@ -417,7 +417,7 @@ Before connecting:
       
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:6432/<DB name>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user password>";
       
@@ -465,7 +465,7 @@ npm install pg
     
     const config = {
         connectionString:
-            "postgres://<username>:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>"
+            "postgres://<username>:<user password>@c-<cluster ID>.rw.{{ dns-zone }}:6432/<DB name>"
     };
     
     const conn = new pg.Client(config);
@@ -491,7 +491,7 @@ npm install pg
     
     const config = {
         connectionString:
-            "postgres://<username>:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>",
+            "postgres://<username>:<user password>@c-<cluster ID>.rw.{{ dns-zone }}:6432/<DB name>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
@@ -545,7 +545,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<cluster ID>.rw.mdb.yandexcloud.net
+      Servername=c-<cluster ID>.rw.{{ dns-zone }}
       Username=<username>
       Password=<user password>
       Database=<DB name>
@@ -570,7 +570,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<cluster ID>.rw.mdb.yandexcloud.net
+      Servername=c-<cluster ID>.rw.{{ dns-zone }}
       Username=<username>
       Password=<user password>
       Database=<DB name>
@@ -608,7 +608,7 @@ sudo apt update && sudo apt install -y php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<cluster ID>.rw.mdb.yandexcloud.net
+            host=c-<cluster ID>.rw.{{ dns-zone }}
             port=6432
             sslmode=disable
             dbname=<DB name>
@@ -640,7 +640,7 @@ sudo apt update && sudo apt install -y php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<cluster ID>.rw.mdb.yandexcloud.net
+            host=c-<cluster ID>.rw.{{ dns-zone }}
             port=6432
             sslmode=verify-full
             dbname=<DB name>
@@ -683,7 +683,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
 
      ```powershell
      & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-           -h c-<cluster ID>.rw.mdb.yandexcloud.net `
+           -h c-<cluster ID>.rw.{{ dns-zone }} `
            -p {{ port-mpg }} `
            -U <username> `
            <DB name>
@@ -709,7 +709,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-        -h c-<cluster ID>.rw.mdb.yandexcloud.net `
+        -h c-<cluster ID>.rw.{{ dns-zone }} `
         -p {{ port-mpg }} `
         -U <username> `
         <DB name>
@@ -746,7 +746,7 @@ pip3 install psycopg2-binary
       import psycopg2
       
       conn = psycopg2.connect("""
-          host=c-<cluster ID>.rw.mdb.yandexcloud.net
+          host=c-<cluster ID>.rw.{{ dns-zone }}
           port=6432
           sslmode=disable
           dbname=<DB name>
@@ -779,7 +779,7 @@ pip3 install psycopg2-binary
       import psycopg2
       
       conn = psycopg2.connect("""
-          host=c-<cluster ID>.rw.mdb.yandexcloud.net
+          host=c-<cluster ID>.rw.{{ dns-zone }}
           port=6432
           sslmode=verify-full
           dbname=<DB name>
@@ -824,7 +824,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       require "pg"
       
       conn = PG.connect("
-              host=c-<cluster ID>.rw.mdb.yandexcloud.net
+              host=c-<cluster ID>.rw.{{ dns-zone }}
               port=6432
               dbname=<DB name>
               user=<username>
@@ -855,7 +855,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       require "pg"
       
       conn = PG.connect("
-              host=c-<cluster ID>.rw.mdb.yandexcloud.net
+              host=c-<cluster ID>.rw.{{ dns-zone }}
               port=6432
               dbname=<DB name>
               user=<username>

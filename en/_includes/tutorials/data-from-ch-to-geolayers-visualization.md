@@ -54,7 +54,7 @@ To visualize and analyze data, [make sure you have a ready-to-use cloud](#before
     1. In the window that opens, specify the connection parameters:
        * Connection name: `DODO Con`.
        * Connection type: **Specify manually**.
-       * Host name: `myt-g2ucdqpavskt6irw.db.yandex.net, sas-1h1276u34g7nt0vx.db.yandex.net` (comma-separated).
+       * Host name: `myt-g2ucdqpavskt6irw.{{ dns-zone }}, sas-1h1276u34g7nt0vx.{{ dns-zone }}` (comma-separated).
        * HTTP interface port: `8443` (default).
        * Username: `datalens-marathon-2020-11-ro`.
        * Password: `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`.

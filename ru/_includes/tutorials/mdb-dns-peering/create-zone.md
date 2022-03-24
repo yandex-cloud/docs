@@ -10,7 +10,7 @@
     ```hcl
     resource "yandex_dns_zone" "vpc-peering-zone" {
       name             = "vpc-peering-zone"
-      zone             = "mdb.yandexcloud.net."
+      zone             = "{{ dns-zone }}."
       public           = false
       private_networks = [yandex_vpc_network.vm-net.id, yandex_vpc_network.cluster-net.id]
     }

@@ -21,20 +21,35 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-rd }} host list
-    --cluster-name=<имя кластера>
+  $ {{ yc-mdb-rd }} host list
+       --cluster-name=<имя кластера>
   ```
-	  
+  
   Результат:
-	  
-  ```
+
+  {% if audience == "external" %}
+
+  ```text
   +---------------------------------+--------------+------------+---------+--------+---------------+
   |              NAME               |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
   +---------------------------------+--------------+------------+---------+--------+---------------+
-  | rc1a-...caf.mdb.yandexcloud.net | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | ru-central1-a |
-  | rc1c-...bgc.mdb.yandexcloud.net | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-c |
+  | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | ru-central1-a |
+  | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-c |
   +---------------------------------+--------------+------------+---------+--------+---------------+
   ```
+
+  {% else %}
+
+  ```text
+  +---------------------------+--------------+------------+---------+--------+---------------+
+  |           NAME            |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
+  +---------------------------+--------------+------------+---------+--------+---------------+
+  | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | ru-central1-a |
+  | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-c |
+  +---------------------------+--------------+------------+---------+--------+---------------+
+  ```
+
+  {% endif %}
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

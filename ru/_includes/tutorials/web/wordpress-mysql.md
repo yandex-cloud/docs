@@ -375,7 +375,7 @@ keywords:
    - `<DB_NAME>` — имя БД `wp-mysql-tutorial-db`.
    - `<DB_USER>` — имя пользователя `wordpress`.
    - `<DB_PASSWORD>` — пароль, заданный при [создании кластера БД](#create-cluster).
-   - `<DB_HOST>` — имя хоста MySQL вида `XXXX-XXXXXXXXXX.mdb.yandexcloud.net`.
+   - `<DB_HOST>` — имя хоста MySQL вида `XXXX-XXXXXXXXXX.{{ dns-zone }}`.
 
 		Чтобы узнать FQDN хоста MySQL:
 
@@ -386,21 +386,38 @@ keywords:
 			1. Перейдите на страницу кластера MySQL.
 			1. На вкладке **Базы данных** нажмите значок ![image](../../../_assets/options.svg).
 			1. Выберите **Подключиться**.
-			1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net`, где `ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net` — это FQDN хоста с ролью `MASTER`.
+			1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}`, где `ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}` — это FQDN хоста с ролью `MASTER`.
 
 		- CLI
 
 			[Получите список хостов](../../../managed-mysql/operations/hosts.md#list) и скопируйте `NAME` хоста с ролью `MASTER`:
 			```
 			yc managed-mysql host list --cluster-name <имя кластера MySQL>
+			```
 
+			{% if audience == "external" %}
+
+			```text
 			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
 			|             NAME            |      CLUSTER ID      |  ROLE   | HEALTH |    ZONE ID    | PUBLIC IP | 
 			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
-			| rc1a-...mdb.yandexcloud.net | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | ru-central1-a | false     | 
-			| rc1b-...mdb.yandexcloud.net | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | ru-central1-b | false     | 
+			| rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | ru-central1-a | false     | 
+			| rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | ru-central1-b | false     | 
 			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
 			```
+
+			{% else %}
+
+			```text
+			+-----------------------+----------------------+---------+--------+---------------+-----------+ 
+			|          NAME         |      CLUSTER ID      |  ROLE   | HEALTH |    ZONE ID    | PUBLIC IP | 
+			+-----------------------+----------------------+---------+--------+---------------+-----------+ 
+			| rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | ru-central1-a | false     | 
+			| rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | ru-central1-b | false     | 
+			+-----------------------+----------------------+---------+--------+---------------+-----------+ 
+			```
+
+			{% endif %}
 
 		{% endlist %}
 

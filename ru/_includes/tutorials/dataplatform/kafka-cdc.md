@@ -153,7 +153,7 @@
         name=debezium-mpg
         connector.class=io.debezium.connector.postgresql.PostgresConnector
         plugin.name=pgoutput
-        database.hostname=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
+        database.hostname=c-<идентификатор кластера>.rw.{{ dns-zone }}
         database.port=6432
         database.user=user1
         database.password=<пароль пользователя user1>

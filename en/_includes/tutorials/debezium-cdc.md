@@ -122,7 +122,7 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
         name=debezium-mpg
         connector.class=io.debezium.connector.postgresql.PostgresConnector
         plugin.name=pgoutput
-        database.hostname=c-<cluster id>.rw.mdb.yandexcloud.net
+        database.hostname=c-<cluster id>.rw.{{ dns-zone }}
         database.port=6432
         database.user=user1
         database.password=<user1 password>

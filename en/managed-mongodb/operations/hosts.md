@@ -23,14 +23,31 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
   ```
   $ {{ yc-mdb-mg }} host list
        --cluster-name <cluster name>
-  
+  ```
+
+  {% if audience == "external" %}
+
+  ```text
   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
   |            NAME            |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
-  | rc1b...mdb.yandexcloud.net | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
-  | rc1c...mdb.yandexcloud.net | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-c | false     |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-c | false     |
   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
   ```
+
+  {% else %}
+
+  ```text
+  +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+  |         NAME         |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
+  +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-c | false     |
+  +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+  ```
+
+  {% endif %}
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

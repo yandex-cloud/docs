@@ -23,14 +23,31 @@
   ```
   $ {{ yc-mdb-pg }} host list
        --cluster-name <имя кластера>
-       
+  ```
+
+  {% if audience == "external" %}
+
+  ```text
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...mdb.yandexcloud.net | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...mdb.yandexcloud.net | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
   +----------------------------+--------------+---------+--------+---------------+
   ```
+
+  {% else %}
+
+  ```text
+  +----------------------+--------------+---------+--------+---------------+
+  |         NAME         |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
+  +----------------------+--------------+---------+--------+---------------+
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
+  +----------------------+--------------+---------+--------+---------------+
+  ```
+
+  {% endif %}
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
