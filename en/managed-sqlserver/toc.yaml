@@ -66,11 +66,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current policy
-        href: pricing/index.md
-      - name: Pricing policy from March 22, 2022
-        href: pricing/pricing-22032022.md
+    href: pricing/index.md
   - name: API reference
     items:
       - name: Authentication in the API

@@ -2,13 +2,7 @@
 editable: false
 ---
 
-# Current pricing policy for {{ mms-name }}
-
-{% note info %}
-
-The indicated prices are valid until March 21, 2022 inclusive. For information about the pricing policy starting March 22, 2022, see [Pricing policy from March 22, 2022](pricing-22032022.md).
-
-{% endnote %}
+# Pricing for {{ mms-name }}
 
 ## Cluster status {#running-stopped}
 
@@ -75,6 +69,12 @@ The disk space usage fee is charged in accordance with the agreement. The follow
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ## Pricing {#prices}
+
+{% if region != "int" %}
+
+{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
+
+{% endif %}
 
 {% if region != "int" %}
 

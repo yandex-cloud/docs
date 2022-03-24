@@ -4,9 +4,9 @@ For the following products, funds are debited once for the calendar month in adv
 
 | Resource | Cost per vCPU per month
 | --- | ---
-| Windows Server Datacenter | $15.415385
-| Microsoft SQL Server Standard | $87.076924
-| Microsoft SQL Server Enterprise | $297.786543
+| Windows Server Datacenter | $24.653846
+| Microsoft SQL Server Standard | $139.320514
+| Microsoft SQL Server Enterprise | $476.448724
 
 ### Host computing resources {#prices-hosts}
 
