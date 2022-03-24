@@ -23,6 +23,7 @@ Aliases:
 - [yc compute filesystem create](create.md) — Create a filesystem
 - [yc compute filesystem delete](delete.md) — Delete the specified filesystem
 - [yc compute filesystem update](update.md) — Update the specified filesystem
+- [yc compute filesystem resize](resize.md) — Resize the specified filesystem
 - [yc compute filesystem add-labels](add-labels.md) — Add labels to specified filesystem
 - [yc compute filesystem remove-labels](remove-labels.md) — Remove labels from specified filesystem
 

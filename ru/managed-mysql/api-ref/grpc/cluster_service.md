@@ -106,6 +106,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics}
@@ -230,6 +231,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics1}
@@ -327,6 +329,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics2}
@@ -470,6 +473,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics3}
@@ -564,6 +568,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics4}
@@ -679,6 +684,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics5}
@@ -859,6 +865,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics6}
@@ -999,6 +1006,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics7}
@@ -1142,6 +1150,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics8}
@@ -1282,6 +1291,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics9}
@@ -1378,6 +1388,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics10}
@@ -1485,6 +1496,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics11}
@@ -1628,6 +1640,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics12}
@@ -1769,6 +1782,7 @@ Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
 web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics13}

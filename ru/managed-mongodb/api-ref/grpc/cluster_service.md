@@ -409,6 +409,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -821,6 +822,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -1205,6 +1207,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfr
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -1622,6 +1625,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -2003,6 +2007,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfr
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -2406,6 +2411,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -2874,6 +2880,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -3302,6 +3309,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -3733,6 +3741,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -4161,6 +4170,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -4551,6 +4561,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to each mongoinfr
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### HostSpec {#HostSpec1}
@@ -4945,6 +4956,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -5376,6 +5388,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to mongoinfra (mo
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}
@@ -5419,7 +5432,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the MongoDB cluster to request logs for. To get the MongoDB cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
-service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`MONGOD`: Logs of MongoDB activity.</li><ul/>
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`MONGOD`: Logs of MongoDB activity.</li><li>`AUDIT`: MongoDB Enterprise audit logs</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
@@ -5454,7 +5467,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to get in the response. 
-service_type | enum **ServiceType**<br> <ul><li>`MONGOD`: Logs of MongoDB activity.</li><ul/>
+service_type | enum **ServiceType**<br> <ul><li>`MONGOD`: Logs of MongoDB activity.</li><li>`AUDIT`: MongoDB Enterprise audit logs</li><ul/>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.

@@ -125,7 +125,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
 1. Open an SSH connection to the {{ dataproc-name }} host by specifying its FQDN or IP address if public access is enabled for the host. For image 2.0, specify the `ubuntu` user, for image 1.4 — `root`. For example:
 
    ```bash
-   $ ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.mdb.yandexcloud.net
+   $ ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
    
    ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
    ```

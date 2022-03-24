@@ -27,22 +27,22 @@ SAML (Security Assertion Markup Language) — это язык разметки �
     Используйте URL со [специальным FQDN кластера](cluster-connect.md#automatic-host-selection):
 
     ```
-    https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net/api/security/saml/callback
+    https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}/api/security/saml/callback
     ```
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    **Пример:** `https://c-e4ut2....rw.mdb.yandexcloud.net/api/security/saml/callback`
+    **Пример:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
 
 1. Укажите **SP Entity ID (Audience URI)**.
 
     Используйте URL со [специальным FQDN кластера](cluster-connect.md#automatic-host-selection):
 
     ```
-    https://c-<идентификатор кластера>rw.mdb.yandexcloud.net
+    https://c-<идентификатор кластера>rw.{{ dns-zone }}
     ```
 
-    **Пример:** `https://c-e4ut2....rw.mdb.yandexcloud.net`
+    **Пример:** `https://c-e4ut2....rw.{{ dns-zone }}`
 
 1. Укажите **Name ID Format** — `persistent`.
 1. Из предоставленных провайдером данных:
@@ -169,14 +169,14 @@ SAML (Security Assertion Markup Language) — это язык разметки �
     * Укажите **Single sign on URL**:
 
         ```
-        https://c-c9qmc1lmo2k060fkj2nj.rw.mdb.yandexcloud.net/api/security/saml/callback
+        https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}/api/security/saml/callback
         ```
 
     * Включите опцию **Use this for Recipient URL and Destination URL**.
     * Укажите **Audience URI (SP Entity ID)**:
 
         ```
-        https://c-c9qmc1lmo2k060fkj2nj.rw.mdb.yandexcloud.net
+        https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}
         ```
 
     * Укажите **Name ID Format** — `Persistent`.
@@ -202,8 +202,8 @@ SAML (Security Assertion Markup Language) — это язык разметки �
 [Настройте SSO для кластера](#configuration-sso). При настройке укажите:
 * **idp_entity_id**: `http://www.okta.com/exkv2pzpvigX4c0bK5d6`.
 * **idp_metadata_file**: файл метаданных, предоставленный Okta.
-* **sp_entity_id**: `https://c-c9qmc1lmo2k060fkj2nj.rw.mdb.yandexcloud.net`.
-* **kibana_url**: `https://c-c9qmc1lmo2k060fkj2nj.rw.mdb.yandexcloud.net`.
+* **sp_entity_id**: `https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}`.
+* **kibana_url**: `https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}`.
 * **attribute_principal**: `nameid:persistent`.
 
 #### Настройте роли для SSO с Okta {#example-roles-sso}

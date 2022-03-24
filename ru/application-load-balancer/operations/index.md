@@ -29,3 +29,8 @@ description: "Пошаговые инструкции по работе с Yande
 * [{#T}](application-load-balancer-update.md)
 * [{#T}](application-load-balancer-stop-and-start.md)
 * [{#T}](application-load-balancer-delete.md)
+
+## Ingress-контроллер для {{ managed-k8s-name }} {#k8s-ingress-controller}
+
+* [{#T}](k8s-ingress-controller-install.md)
+* [{#T}](k8s-ingress-controller-apply.md)

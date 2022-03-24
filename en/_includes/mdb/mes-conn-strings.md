@@ -6,8 +6,8 @@
   **If a host with the _Data node_ role is assigned a public IP address:**
   1. Before connecting, install the [SSL certificate](https://storage.yandexcloud.net/cloud-certs/CA.pem) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
   1. In the browser, go to one of the addresses:
-     - `https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net`, if a public IP address is assigned to all hosts with this role. You can fetch the cluster ID with a [list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list#list-clusters).
-     - `https://<name of any host with the Data node role and a public IP>.mdb.yandexcloud.net`
+     - `https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}`, if a public IP address is assigned to all hosts with this role. You can fetch the cluster ID with a [list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list#list-clusters).
+     - `https://<name of any host with the Data node role and a public IP>.{{ dns-zone }}`
   1. Enter your user name and password.
 
   **If no host with the _Data node_ role is assigned a public IP address:**
@@ -60,7 +60,7 @@
      You can also use the  `proxy_pass` directive with a special FQDN:
 
      ```nginx
-     proxy_pass https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net;
+     proxy_pass https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }};
      ```
 
      {% note warning %}
@@ -90,7 +90,7 @@
    curl \
      --user <username>:<password> \
      --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net:9200/'
+     -X GET 'https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200/'
   ```
 
 - PowerShell
@@ -101,7 +101,7 @@
   ```powershell
    curl `
      -Certificate <absolute path to the certificate file> `
-     -Uri https://c-{{ ES }} cluster ID>.rw.mdb.yandexcloud.net:9200 `
+     -Uri https://c-{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200 `
      |||UNTRANSLATED_CONTENT_START|||-Credential <username>|||UNTRANSLATED_CONTENT_END|||
   ```
 

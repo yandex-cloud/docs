@@ -1,4 +1,4 @@
-# Questions and answers about {{ mmy-short-name }}<sup>®</sup>
+# Questions and answers about {{ mmy-short-name }}®
 
 ## General questions {#general}
 

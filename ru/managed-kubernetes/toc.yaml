@@ -65,6 +65,9 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
           - name: Изменение кластера Kubernetes
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
+          - name: Создание пространства имен в кластере Kubernetes
+            href: >-
+              operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
           - name: Удаление кластера Kubernetes
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Управление группой узлов

@@ -13,6 +13,8 @@
 
 ## Как создать кластер {{ mkf-name }} {#create-cluster}
 
+Перед созданием кластера рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
+
 {% list tabs %}
 
 - Консоль управления
@@ -47,6 +49,8 @@
      * Выберите [тип хранилища](../concepts/storage.md).
 
         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+
+        Тип хранилища для кластера {{ mkf-name }} нельзя изменить после создания.
 
      * Выберите объем хранилища, который будет использоваться для данных.
 

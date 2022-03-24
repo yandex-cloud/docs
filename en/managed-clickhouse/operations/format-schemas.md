@@ -78,7 +78,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 {% endlist %}
 
@@ -144,7 +144,7 @@ To update the contents of a schema that is already connected to the cluster:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+        For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
    {% endlist %}
 
@@ -194,7 +194,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 {% endlist %}
 

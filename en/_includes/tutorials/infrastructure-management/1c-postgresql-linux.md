@@ -423,7 +423,7 @@ Before getting started, configure the server roles and add the infobase to the c
 1. In the window that opens, set the parameters:
    - **Name**: The name of the database in the {{ mpg-name }} cluster, `1c-database`.
    - **Secure connection**: **continuously**.
-   - **Database server**: Your DB host address and port, such as `rc1a-cwxzr4yimhzgn5pp.mdb.yandexcloud.net port=6432`.
+   - **Database server**: Your DB host address and port, such as `rc1a-cwxzr4yimhzgn5pp.{{ dns-zone }} port=6432`.
    - **DBMS type**: **PostgreSQL**.
    - **Database**: The DB name, `1c-database`.
    - **Database server user**: `user1`.

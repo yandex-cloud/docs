@@ -40,7 +40,7 @@ To visualize and analyze data, [make sure you have a ready-to-use cloud](#before
 
        * Connection type: **Specify manually**.
 
-       * Host name: `rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net`.
+       * Host name: `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}`.
 
        * HTTP interface port: `8443` (default).
 

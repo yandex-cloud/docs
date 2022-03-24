@@ -146,7 +146,7 @@ To learn more about creating a table on the {{ KF }} engine, see the [{{ CH }} d
 
    ```bash
    jq -rc . sample.json | kafkacat kafkacat -P \
-      -b rc1a-gjnru23feni92o5a.mdb.yandexcloud.net:9091 \
+      -b rc1a-gjnru23feni92o5a.{{ dns-zone }}:9091 \
       -t datastore \
       -k key \
       -X security.protocol=SASL_SSL \

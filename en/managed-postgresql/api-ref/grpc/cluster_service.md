@@ -125,6 +125,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics}
@@ -268,6 +269,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics1}
@@ -384,6 +386,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics2}
@@ -576,6 +579,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics3}
@@ -689,6 +693,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics4}
@@ -823,6 +828,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics5}
@@ -1022,6 +1028,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics6}
@@ -1181,6 +1188,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics7}
@@ -1343,6 +1351,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics8}
@@ -1502,6 +1511,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics9}
@@ -1618,6 +1628,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics10}
@@ -1760,6 +1771,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics11}
@@ -1922,6 +1934,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics12}
@@ -2082,6 +2095,7 @@ Field | Description
 data_lens | **bool**<br>Allow access for DataLens 
 web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
+data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
 ### PerformanceDiagnostics {#PerformanceDiagnostics13}

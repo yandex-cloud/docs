@@ -21,12 +21,15 @@ You can add and remove cluster hosts and manage their settings.
   ```
   $ {{ yc-mdb-my }} host list
        --cluster-name=<cluster name>
+  ```
+
   
+  ```
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...mdb.yandexcloud.net | c9q5k4ve7... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...mdb.yandexcloud.net | c9q5k4ve7... | REPLICA | ALIVE  | ru-central1-c |
+  | rc1b...{{ dns-zone }} | c9q5k4ve7... | MASTER  | ALIVE  | ru-central1-b |
+  | rc1c...{{ dns-zone }} | c9q5k4ve7... | REPLICA | ALIVE  | ru-central1-c |
   +----------------------------+--------------+---------+--------+---------------+
   ```
 

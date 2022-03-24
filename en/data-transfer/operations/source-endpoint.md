@@ -21,7 +21,7 @@
     1. In the **Database type** field, select the type of source to transfer data from.
 
     1. Set the endpoint parameters:
-        * [Apache Kafka<sup>®</sup>](#settings-kafka).
+        * [Apache Kafka®](#settings-kafka).
         * [{#T}](#settings-clickhouse).
         * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
@@ -43,7 +43,7 @@
     1. On the **Endpoints** tab, select the endpoint and click ![pencil](../../_assets/pencil.svg) **Edit** in the top panel.
 
     1. Edit the endpoint parameters:
-        * [Apache Kafka<sup>®</sup>](#settings-kafka).
+        * [Apache Kafka®](#settings-kafka).
         * [{#T}](#settings-clickhouse).
         * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).

@@ -5,7 +5,7 @@ default:
   managed-postgresql-full-name: Yandex Managed Service for PostgreSQL
   managed-redis-full-name: Yandex Managed Service for Redis
   managed-clickhouse-full-name: Yandex Managed Service for ClickHouse
-  managed-mysql-full-name: Yandex Managed Service for MySQL<sup>®</sup>
+  managed-mysql-full-name: Yandex Managed Service for MySQL®
   managed-mongodb-full-name: Yandex Managed Service for MongoDB
   roles-owner: owner
   roles-monitoring-viewer: monitoring.viewer

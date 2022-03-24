@@ -96,7 +96,7 @@ hadoop distcp \
        -skipcrccheck \
        -numListstatusThreads 10 \
        s3a://yc-mdb-examples/dataproc/example01/set01 \
-       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
+       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.{{ dns-zone }}/user/root/datasets/set01/
 ```
 
 ### Copying files by passing keys in arguments {#copying-files-by-passing-keys-in-arguments}
@@ -112,7 +112,7 @@ hadoop distcp \
        -skipcrccheck \
        -numListstatusThreads 10 \
        s3a://yc-mdb-examples/dataproc/example01/set01 \
-       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
+       hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.{{ dns-zone }}/user/root/datasets/set01/
 ```
 
 ## Optimizing file reads from {{ objstorage-name }} {#optimize-s3-reading}

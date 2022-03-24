@@ -22,7 +22,7 @@
    - [{{ mpg-full-name }}](../managed-postgresql/api-ref/)
    - [{{ mch-full-name }}](../managed-clickhouse/api-ref/)
    - [{{ mmg-full-name }}](../managed-mongodb/api-ref/)
-   - [{{ mmy-full-name }}<sup>®</sup>](../managed-mysql/api-ref/)
+   - [{{ mmy-full-name }}®](../managed-mysql/api-ref/)
    - [{{ mrd-full-name }}](../managed-redis/api-ref/)
    - [{{ mms-full-name }}™](../managed-sqlserver/api-ref/)
    - [{{ dataproc-full-name }}](../data-proc/api-ref/)

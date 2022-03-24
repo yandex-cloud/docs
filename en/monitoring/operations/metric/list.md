@@ -24,7 +24,7 @@ Sample response. The list of metrics is given in the `metrics` property:
       {
          "labels" : {
             "dc" : "rc1c",
-            "host" : "rc1c-dqd0h0i0vax2bxk7.mdb.yandexcloud.net",
+            "host" : "rc1c-dqd0h0i0vax2bxk7.{{ dns-zone }}",
             "node" : "replica",
             "resource_id" : "c9q5e2a9i24p7s0o9sh6",
             "resource_type" : "cluster",
@@ -37,7 +37,7 @@ Sample response. The list of metrics is given in the `metrics` property:
       {
          "labels" : {
             "dc" : "rc1c",
-            "host" : "rc1c-dqd0h0i0vax2bxk7.mdb.yandexcloud.net",
+            "host" : "rc1c-dqd0h0i0vax2bxk7.{{ dns-zone }}",
             "node" : "replica",
             "resource_id" : "c9q5e2a9i24p7s0o9sh6",
             "resource_type" : "cluster",

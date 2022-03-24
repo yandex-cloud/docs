@@ -141,7 +141,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
 - API
 

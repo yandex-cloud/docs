@@ -51,7 +51,7 @@ For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
 
-1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate-transfer) the transfer and wait for it to transition to the **Stopped** status.
+1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate-transfer) the transfer and wait for its status to change to **Stopped**.
 
     For more information about the transfer lifecycle, see the appropriate [section](../../data-transfer/concepts/transfer-lifecycle.md).
 
@@ -134,7 +134,7 @@ To prepare the virtual machine to restore the dump:
 1. Move the DB dump to the intermediate VM. For example, you can use `scp`:
 
     ```bash
-    scp ~/db_dump.tar.gz <VM users name@VM public IP address:/tmp/db_dump.tar.gz
+    scp ~/db_dump.tar.gz <VM user name>@<VM public IP address>:/tmp/db_dump.tar.gz
     ```
 
 1. Unpack the dump:

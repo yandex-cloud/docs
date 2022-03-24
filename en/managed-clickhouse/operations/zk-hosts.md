@@ -255,7 +255,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 
@@ -306,7 +306,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 

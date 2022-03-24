@@ -19,7 +19,7 @@ Syntax:
 |`--environment`|<b>`string`</b><br/> Cluster environment. Values: production, prestable.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
 |`--network-name`|<b>`string`</b><br/> Network name.|
-|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for hosts that should be created for the MySQL cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  replication-source Name of the host to be used as the replication source for cascaded replication.  backup-priority Priority of the host as a backup source.  |
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for hosts that should be created for the MySQL cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  replication-source Name of the host to be used as the replication source for cascaded replication.  backup-priority Priority of the host as a backup source.  priority Host master promotion priority.  |
 |`--datalens-access`| Allow access for DataLens|
 |`--websql-access`| Allow access for Web SQL|
 |`--mysql-version`|<b>`string`</b><br/> Version of MYSQL used in the cluster. Values: 8.0, 5.7|

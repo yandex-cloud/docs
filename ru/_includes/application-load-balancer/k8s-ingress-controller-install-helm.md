@@ -1,0 +1,1 @@
+[Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже {{ alb-ingress-helm-version }}.

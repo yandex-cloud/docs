@@ -37,6 +37,7 @@ Syntax:
 |`--datalens-access`| Allow access for DataLens|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--enable-tls`| Enables tls for Redis cluster.|
+|`--persistence-mode`|<b>`string`</b><br/> Persistence mode for Redis cluster (ON or OFF).|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Redis cluster.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 

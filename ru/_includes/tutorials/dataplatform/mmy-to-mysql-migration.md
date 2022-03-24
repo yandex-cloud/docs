@@ -244,7 +244,7 @@ SHOW SLAVE STATUS\G
 ```text
 *************************** 1. row ***************************
            Slave_IO_State: Waiting for master to send event
-              Master_Host: rc1a-hxk9audl2lsi53hc.mdb.yandexcloud.net
+              Master_Host: rc1a-hxk9audl2lsi53hc.{{ dns-zone }}
               Master_User: replica-my
               Master_Port: 3306
             Connect_Retry: 60

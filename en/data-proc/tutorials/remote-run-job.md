@@ -27,14 +27,14 @@ To configure a remote host:
     1. Copy the repository address:
 
         ```bash
-        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
+        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
         deb [arch=amd64] http://storage.yandexcloud.net/dataproc/releases/0.2.10 xenial main
         ```
 
     1. Copy the GPG key to verify Debian package signatures:
 
         ```bash
-        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "cat /srv/dataproc.gpg"  | sudo apt-key add -
+        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /srv/dataproc.gpg"  | sudo apt-key add -
         OK
         ```
 
@@ -62,16 +62,16 @@ To configure a remote host:
 1. Copy the Hadoop and Spark configuration files:
 
     ```bash
-    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:/etc/hadoop/conf/* /etc/hadoop/conf/
-    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:/etc/spark/conf/* /etc/spark/conf/
+    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/hadoop/conf/* /etc/hadoop/conf/
+    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/spark/conf/* /etc/spark/conf/
     ```
 
 1. Create a new user to run jobs under:
 
     ```bash
     sudo useradd sparkuser
-    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
-    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
+    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
+    ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
     ```
 
 The host is ready to remotely run jobs on the {{ dataproc-name }} cluster.
@@ -83,14 +83,14 @@ Run a job using the command:
 ```bash
 sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.apache.spark.examples.SparkPi /usr/lib/spark/examples/jars/spark-examples.jar 1000
 ...
-20/04/19 16:43:58 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/10.13.13.18:8032
-20/04/19 16:43:58 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/10.13.13.18:10200
+20/04/19 16:43:58 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:8032
+20/04/19 16:43:58 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
 20/04/19 16:43:58 INFO yarn.Client: Requesting a new application from cluster with 4 NodeManagers
 ...
 20/04/19 16:43:58 INFO yarn.Client: Preparing resources for our AM container
-20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/usr/lib/spark/examples/jars/spark-examples.jar -> hdfs://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/user/sparkuser/.sparkStaging/application_1586176069782_0003/spark-examples.jar
-20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/etc/spark/conf/hive-site.xml -> hdfs://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/user/sparkuser/.sparkStaging/application_1586176069782_0003/hive-site.xml
-20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/tmp/spark-6dff3163-089b-4634-8f74-c8301d424567/__spark_conf__8717606866210190000.zip -> hdfs://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/user/sparkuser/.sparkStaging/application_1586176069782_0003/__spark_conf__.zip
+20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/usr/lib/spark/examples/jars/spark-examples.jar -> hdfs://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/user/sparkuser/.sparkStaging/application_1586176069782_0003/spark-examples.jar
+20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/etc/spark/conf/hive-site.xml -> hdfs://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/user/sparkuser/.sparkStaging/application_1586176069782_0003/hive-site.xml
+20/04/19 16:43:58 INFO yarn.Client: Uploading resource file:/tmp/spark-6dff3163-089b-4634-8f74-c8301d424567/__spark_conf__8717606866210190000.zip -> hdfs://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/user/sparkuser/.sparkStaging/application_1586176069782_0003/__spark_conf__.zip
 20/04/19 16:44:00 INFO yarn.Client: Submitting application application_1586176069782_0003 to ResourceManager
 20/04/19 16:44:00 INFO impl.YarnClientImpl: Submitted application application_1586176069782_0003
 20/04/19 16:44:01 INFO yarn.Client: Application report for application_1586176069782_0003 (state: ACCEPTED)
@@ -102,18 +102,18 @@ sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.a
 	 queue: default
 	 start time: 1587314639386
 	 final status: UNDEFINED
-	 tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:8088/proxy/application_1586176069782_0003/
+	 tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:8088/proxy/application_1586176069782_0003/
 	 user: sparkuser
 20/04/19 16:44:05 INFO yarn.Client: Application report for application_1586176069782_0003 (state: RUNNING)
 20/04/19 16:44:05 INFO yarn.Client:
 	 client token: N/A
 	 diagnostics: N/A
-	 ApplicationMaster host: rc1b-dataproc-d-9cd9yoenm4npsznt.mdb.yandexcloud.net
+	 ApplicationMaster host: rc1b-dataproc-d-9cd9yoenm4npsznt.{{ dns-zone }}
 	 ApplicationMaster RPC port: 41648
 	 queue: default
 	 start time: 1587314639386
 	 final status: UNDEFINED
-	 tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:8088/proxy/application_1586176069782_0003/
+	 tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:8088/proxy/application_1586176069782_0003/
 	 user: sparkuser
 20/04/19 16:44:06 INFO yarn.Client: Application report for application_1586176069782_0003 (state: RUNNING)
 20/04/19 16:44:07 INFO yarn.Client: Application report for application_1586176069782_0003 (state: RUNNING)
@@ -122,12 +122,12 @@ sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.a
 20/04/19 16:44:09 INFO yarn.Client:
 	 client token: N/A
 	 diagnostics: N/A
-	 ApplicationMaster host: rc1b-dataproc-d-9cd9yoenm4npsznt.mdb.yandexcloud.net
+	 ApplicationMaster host: rc1b-dataproc-d-9cd9yoenm4npsznt.{{ dns-zone }}
 	 ApplicationMaster RPC port: 41648
 	 queue: default
 	 start time: 1587314639386
 	 final status: SUCCEEDED
-	 tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:8088/proxy/application_1586176069782_0003/
+	 tracking URL: http://rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:8088/proxy/application_1586176069782_0003/
 	 user: sparkuser
 20/04/19 16:44:09 INFO util.ShutdownHookManager: Shutdown hook called
 20/04/19 16:44:09 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-6dff3163-089b-4634-8f74-c8301d424567
@@ -140,8 +140,8 @@ Check the execution status using [yarn application](https://hadoop.apache.org/do
 
 ```bash
 yarn application -status application_1586176069782_0003
-20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/10.13.13.18:8032
-20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net/10.13.13.18:10200
+20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:8032
+20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
 Application Report :
 	Application-Id : application_1586176069782_0003
 	Application-Name : org.apache.spark.examples.SparkPi
@@ -154,9 +154,9 @@ Application Report :
 	Progress : 100%
 	State : FINISHED
 	Final-State : SUCCEEDED
-	Tracking-URL : rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:18080/history/application_1586176069782_0003/1
+	Tracking-URL : rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:18080/history/application_1586176069782_0003/1
 	RPC Port : 41648
-	AM Host : rc1b-dataproc-d-9cd9yoenm4npsznt.mdb.yandexcloud.net
+	AM Host : rc1b-dataproc-d-9cd9yoenm4npsznt.{{ dns-zone }}
 	Aggregate Resource Allocation : 141510 MB-seconds, 11 vcore-seconds
 	Aggregate Resource Preempted : 0 MB-seconds, 0 vcore-seconds
 	Log Aggregation Status : SUCCEEDED

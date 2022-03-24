@@ -11,7 +11,7 @@ default:
   mmg-full-name: Yandex Managed Service for MongoDB
   mmy-full-name: Yandex Managed Service for MySQL
   mrd-full-name: Yandex Managed Service for Redis
-  mkf-full-name: Yandex Managed Service for Apache Kafka<sup>®</sup>
+  mkf-full-name: Yandex Managed Service for Apache Kafka®
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
@@ -45,7 +45,7 @@ default:
   mmg-name: Managed Service for MongoDB
   mmy-name: Managed Service for MySQL
   mrd-name: Managed Service for Redis
-  mkf-name: Managed Service for Apache Kafka<sup>®</sup>
+  mkf-name: Managed Service for Apache Kafka®
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
@@ -79,7 +79,7 @@ default:
   mmg-short-name: Managed Service for MongoDB
   mrd-short-name: Managed Service for Redis
   mmy-short-name: Managed Service for MySQL
-  mkf-short-name: Managed Service for Apache Kafka<sup>®</sup>
+  mkf-short-name: Managed Service for Apache Kafka®
   monitoring-short-name: Monitoring
   vpc-short-name: VPC
   ddos-protection-short-name: DDoS Protection

@@ -25,7 +25,7 @@ clusterId | Required. ID of the MongoDB cluster to request logs for. To get the 
 Parameter | Description
 --- | ---
 columnFilter | Columns from the logs table to request. If no columns are specified, entire log records are returned.
-serviceType | Type of the service to request logs about.<ul> <li>MONGOD: Logs of MongoDB activity.</li> </ul> 
+serviceType | Type of the service to request logs about.<ul> <li>MONGOD: Logs of MongoDB activity.</li> <li>AUDIT: MongoDB Enterprise audit logs</li> </ul> 
 fromTime | Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 toTime | End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 pageSize | The maximum value is 1000.

@@ -16,7 +16,7 @@
 
 - **Auto explain log analyze**{#setting-auto-explain-log-analyze} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Enables output of query plan statistics to the {{ PG }} log using the `auto_explain` module. The module allows you to log execution plans for slow queries automatically, without the `EXPLAIN` command. This is useful for tracking non-optimized queries. For the module to work, connect the `auto_explain` [library](#setting-shared-libraries).
+  Enables output of query plan statistics to the {{ PG }} log using the `auto_explain` module. The module allows you to log execution plans for slow queries automatically, without the `EXPLAIN` command. This is useful for tracking non-optimized queries. For the module to work, [connect the](#setting-shared-libraries) `auto_explain` library.
 
   This setting is disabled by default.
 
@@ -916,10 +916,7 @@
 
 - **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-  A comma-separated list of shared libraries that will be loaded when the {{ PG }} server starts. Select one or more libraries from the list:
-  * `auto_explain`: Required for the [`auto_explain` module](https://www.postgresql.org/docs/current/auto-explain.html) to work.
-  * `pg_hint_plan`: Required for the [`pg_hint_plan` module](https://pghintplan.osdn.jp/pg_hint_plan.html) to work.
-  * `timescaledb`: Required to be able to use [TimescaleDB databases](https://github.com/timescale/timescaledb).
+  A comma-separated list of shared libraries that will be loaded when the {{ PG }} server starts. Libraries are required for using some [extensions in {{ PG }}](../../managed-postgresql/operations/cluster-extensions.md).
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 

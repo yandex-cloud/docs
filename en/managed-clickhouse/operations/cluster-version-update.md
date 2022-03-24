@@ -123,7 +123,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 

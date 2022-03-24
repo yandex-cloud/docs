@@ -26,9 +26,9 @@ Syntax:
 |`--user`|<b>`string`</b><br/>User name|
 |`--raw-password`|<b>`string`</b><br/>Raw password value (unsafe, consider --password-file)|
 |`--password-file`|<b>`string`</b><br/>Path to the file containing password|
-|`--sql-mode`|<b>`string`</b><br/>SQL mode|
-|`--skip-constraint-checks`|Use FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0|
-|`--timezone`|<b>`string`</b><br/>Used for parsing timestamps for saving target timezones. Accepts values from IANA timezone database. Defaults to the local timezone|
+|`--sql-mode`|<b>`string`</b><br/>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION|
+|`--skip-constraint-checks`|This option sets FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. Disable for replication speed, but not if the schema contains cascading operations|
+|`--timezone`|<b>`string`</b><br/>For parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone|
 
 #### Global Flags
 

@@ -1,4 +1,4 @@
-# Step-by-step instructions for {{ mrd-name }}^®^
+# Step-by-step instructions for {{ mrd-name }}®
 
 * [{#T}](cluster-list.md)
 * [{#T}](cluster-create.md)
@@ -11,4 +11,3 @@
 * [{#T}](failover.md)
 * [{#T}](monitoring.md)
 * [{#T}](cluster-delete.md)
-
