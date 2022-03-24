@@ -1,0 +1,1 @@
+[Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже {{ alb-ingress-k8s-version }}.
