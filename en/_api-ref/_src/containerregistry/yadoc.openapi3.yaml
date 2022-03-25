@@ -2004,7 +2004,8 @@ components:
           description: The version of the package where vulnerability has been fixed.
           type: string
     Registry:
-      description: A Registry resource. For more information, see [Registry](/docs/cloud/containerregistry/registry).
+      description: A Registry resource. For more information, see the [Registry](/docs/container-registry/concepts/registry)
+        section of the documentation.
       type: object
       properties:
         id:

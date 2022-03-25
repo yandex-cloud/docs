@@ -43,7 +43,7 @@ filter | A filter expression that filters resources listed in the response. The 
  
 Field | Description
 --- | ---
-registries[] | **object**<br><p>A Registry resource. For more information, see <a href="/docs/cloud/containerregistry/registry">Registry</a>.</p> 
+registries[] | **object**<br><p>A Registry resource. For more information, see the <a href="/docs/container-registry/concepts/registry">Registry</a> section of the documentation.</p> 
 registries[].<br>id | **string**<br><p>Output only. ID of the registry.</p> 
 registries[].<br>folderId | **string**<br><p>ID of the folder that the registry belongs to.</p> 
 registries[].<br>name | **string**<br><p>Name of the registry.</p> 
