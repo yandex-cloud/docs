@@ -186,6 +186,9 @@ default:
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
+  roles-data-transfer-admin: data-transfer.admin
+  roles-data-transfer-private-admin: data-transfer.privateAdmin
+  roles-data-transfer-viewer: data-transfer.viewer
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-user: datasphere.user
   roles-datalens-instances-user: datalens.instances.user

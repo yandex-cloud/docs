@@ -35,9 +35,9 @@ description: "Управление доступом в сервисе по пе�
 
 {% include [data-transfer-viewer](../../_includes/roles-data-transfer-viewer.md) %}
 
-{% include [data-transfer-admin](../../_includes/roles-data-transfer-admin.md) %}
+{% include [data-transfer-privateadmin](../../_includes/roles-data-transfer-privateadmin.md) %}
 
-{% include [data-transfer-publicadmin](../../_includes/roles-data-transfer-publicadmin.md) %}
+{% include [data-transfer-admin](../../_includes/roles-data-transfer-admin.md) %}
 
 ### {{ roles-cloud-member }} {#resmgr-clouds-member}
 
