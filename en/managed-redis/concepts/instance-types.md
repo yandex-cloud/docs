@@ -12,7 +12,7 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 {% endnote %}
 
-The hard disk space available to the host should be at least two times more than the selected memory size. For technical and organizational limitations of {{ mrd-name }}, see [{#T}](limits.md).
+The storage space available to the host should be at least two times more than the selected memory size. For technical and organizational limitations of {{ mrd-name }}, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 
@@ -61,7 +61,12 @@ The hard disk space available to the host should be at least two times more than
 Configuration types:
 
 * **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) below 100%. Those host classes are intended for test loads. We don't recommend using them for production solutions.
+
+    A cluster with this configuration type may only contain one host per cluster or [shard](./sharding.md).
+
 * **high-memory**: standard configurations for {{ RD }}.
+
+    A cluster with this configuration type may contain one or more hosts (within the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts in a cluster [depends](./limits.md#mrd-limits) on the [selected storage type](./storage.md).
 
 | Host class name | Number of CPUs | RAM, GB | CPU performance | Disk <br>size, GB |
 | ------------------- | ---------------- | --------- | ------------------------ | ---------------------- |

@@ -2,17 +2,17 @@
 
 После создания кластера вы можете:
 
-- [{#T}](#change-name-and-description).
+* [{#T}](#change-name-and-description).
 
-- [{#T}](#change-resource-preset).
+* [{#T}](#change-resource-preset).
 
-- [{#T}](#change-disk-size){% if audience != "internal" %} (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках){% endif %}.
+* [{#T}](#change-disk-size){% if audience != "internal" %} (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках){% endif %}.
 
-- [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
+* [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
-- [{#T}](#change-additional-settings).
+* [{#T}](#change-additional-settings).
 
-- [{#T}](#change-sg-set).
+* [{#T}](#change-sg-set).
 
 {% note info %}
 
@@ -343,7 +343,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно восстановить кластер.
   1. Выберите сервис **{{ mrd-name }}**.
@@ -355,7 +355,7 @@
 
   1. Нажмите кнопку **Сохранить изменения**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -456,9 +456,9 @@
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-    - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
-    - Список групп в параметре `securityGroupIds`.
-    - Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
+    * Список групп в параметре `securityGroupIds`.
+    * Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
 
 {% endlist %}
 

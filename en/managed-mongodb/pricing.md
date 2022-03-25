@@ -28,9 +28,12 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 3 hosts:
-        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+
+    * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in increments of 93 GB.
+
+    * Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+
+   For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -40,7 +43,7 @@ The following is charged:
 
     * The number of hosts in the cluster does not affect the size of the storage or free backups.
 
-The cost is specified for one month of use.  The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 {% if audience == "cvos" %}
 
@@ -48,7 +51,7 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mmg-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mmg-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -69,12 +72,6 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% if region != "int" %}
 
 All prices are shown with VAT.
-
-{% else %}
-
-All prices are shown without VAT.
-
-{% endif %}
 
 ### Host computing resources {#prices-host}
 
@@ -138,3 +135,30 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 {% endif %}
 
+## Estimated prices for host classes {#calculated-host-price}
+
+Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-mongodb#calculator).
+
+{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
+
+All prices are shown with VAT.
+
+{% if region == "ru" %}
+
+{% include [rub-class](../_pricing/managed-mongodb/rub-class.md) %}
+
+{% endif %}
+
+{% if region == "kz" %}
+
+{% include [kzt-class](../_pricing/managed-mongodb/kzt-class.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+Prices in USD, without VAT
+
+{% include [usd-class](../_pricing/managed-mongodb/usd-class.md) %}
+
+{% endif %}

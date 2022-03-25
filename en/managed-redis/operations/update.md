@@ -188,7 +188,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increase the size of {{ RD }} host disks {#change-disk-size}
+## Increasing storage size {#change-disk-size}
 
 {% list tabs %}
 
@@ -204,7 +204,7 @@ After creating a cluster, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To increase the size of {{ RD }} host disks:
+  To increase the size of {{ RD }} host storage:
 
   1. View a description of the CLI's update cluster command:
 
@@ -212,20 +212,14 @@ After creating a cluster, you can:
      $ {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
+  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **space** line.
 
-  1. Specify the disk size in GB in the update cluster command. The new size must be bigger than the previous one.
+  1. Specify the storage size in the update cluster command: It must be at least as large as the current `disk_size` value in the cluster properties.
 
      ```
      $ {{ yc-mdb-rd }} cluster update <cluster name>
-          --disk-size <disk size in GB>
+          --disk-size <storage size in GB>
      ```
-
-     {% note info %}
-
-     The maximum disk size depends on the [host class](../concepts/instance-types.md).
-
-     {% endnote %}
 
      If all the criteria are met, {{ mrd-short-name }} starts increasing the size of the {{ RD }} host disks.
 
@@ -261,7 +255,7 @@ After creating a cluster, you can:
 
   Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.resources.diskSize` parameter.
 
-  Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
+  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **space** line.
 
 {% endlist %}
 
@@ -427,9 +421,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - API
 
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    - The list of groups in the `securityGroupIds` parameter.
-    - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * The list of groups in the `securityGroupIds` parameter.
+    * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 

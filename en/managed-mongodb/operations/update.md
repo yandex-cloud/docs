@@ -2,15 +2,15 @@
 
 After creating a cluster, you can:
 
-- [Change the host class](#change-resource-preset).
+* [Change the host class](#change-resource-preset).
 
-- [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
+* [Increase the storage size](#change-disk-size) (only available for [storage types](../concepts/storage.md) `network-hdd` and `network-ssd`).
 
-- [Configure {{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
+* [Configure {{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
 
-- [Change additional cluster settings](#change-additional-settings).
+* [Change additional cluster settings](#change-additional-settings).
 
-- [{#T}](#change-sg-set).
+* [{#T}](#change-sg-set).
 
 ## Changing the host class {#change-resource-preset}
 
@@ -142,7 +142,7 @@ After creating a cluster, you can:
 
   1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmg-full-name }} section still has space available in the **space** line.
 
-  1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local SSD storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-mg }} cluster get <cluster name>
@@ -162,10 +162,10 @@ After creating a cluster, you can:
       ...
       ```
 
-  1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
+  1. Specify the storage size in the update cluster command: It must be at least as large as the current `disk_size` value in the cluster properties.
 
       ```
-      $ {{ yc-mdb-mg }} cluster update <cluster name>
+      $ {{ yc-mdb-mg }} cluster update <cluster name> \
            --mongod-disk-size <storage size in GB>
       ```
 
@@ -292,8 +292,15 @@ You can change the DBMS settings of the hosts in your cluster.
     You can change the following settings:
 
     * `--backup-retain-period`: The retention period for automatic backups (in days).
+      {% if audience != "internal" %}
 
       The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is at the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
+
+      {% else %}
+
+      The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is in the Preview stage. For more information, see [{#T}](../concepts/backup.md).
+
+      {% endif %}
 
       Changing the retention period affects both new automatic backups and existing backups.
 
@@ -380,11 +387,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
     * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-     You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
+    You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
 
     {% note warning %}
 
-    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, pass the names of the fields to be changed in the `updateMask` parameter.
+    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
 
     {% endnote %}
 
@@ -449,9 +456,9 @@ You can change the DBMS settings of the hosts in your cluster.
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    - The list of groups in the `securityGroupIds` parameter.
-    - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * The list of groups in the `securityGroupIds` parameter.
+    * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
