@@ -13,6 +13,8 @@ items:
         href: operations/secret-update.md
       - name: Deleting secrets
         href: operations/secret-delete.md
+      - name: Syncing with Managed Service for Kubernetes secrets
+        href: solutions/kubernetes-lockbox-secrets.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management

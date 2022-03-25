@@ -1,6 +1,6 @@
-# Принципы работы Ingress-контроллера {{ alb-name }} для {{ managed-k8s-name }}
+# Принципы работы Ingress-контроллера {{ alb-name }}
 
-К [Ingress-контроллеру {{ alb-name }}](index.md) относятся два [пода](../../../managed-kubernetes/concepts/index.md#pod):
+К [Ingress-контроллеру {{ alb-name }} для {{ managed-k8s-name }}](index.md) относятся два [пода](../../../managed-kubernetes/concepts/index.md#pod):
 
 * Основной под `yc-alb-ingress-controller-*` отвечает за создание и изменение ресурсов {{ alb-name }}. Отслеживать работу с ресурсами можно по логам этого пода.
 * Под для [проверок состояния](../../concepts/backend-group.md#health-checks) `yc-alb-ingress-controller-hc-*` разворачивает на узлах с бэкендами контейнеры, которые принимают проверочные запросы на TCP-порт 10501.

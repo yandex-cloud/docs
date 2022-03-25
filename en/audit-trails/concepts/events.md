@@ -63,7 +63,7 @@ Service name: `compute`.
 | `DeleteDisk` | Deleting a disk |
 | `DeleteFilesystem` | Deleting a file system |
 | `DeleteImage` | Deleting a disk image |
-| `DeleteInstance` | Delete VM |
+| `DeleteInstance` | Deleting a VM |
 | `DeleteSnapshot` | Deleting a disk snapshot |
 | `DetachInstanceDisk` | Detaching a disk from a VM instance |
 | `DetachInstanceFilesystem` | Detaching a file system from a VM |
@@ -80,13 +80,13 @@ Service name: `compute`.
 | `UpdateSnapshot` | Updating a disk snapshot |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
 | `instancegroup.DeleteInstanceGroup` | Deleting an instance group |
-| `instancegroup.DeleteInstanceGroupInstances` | Removing an instance from a group |
+| `instancegroup.DeleteInstanceGroupInstances` | Deleting an instance from a group |
 | `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
 | `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
-| `instancegroup.SetInstanceGroupAccessBindings` | Assigning roles to an instance group |
+| `instancegroup.SetInstanceGroupAccessBindings` | Assigning roles for an instance group |
 | `instancegroup.StartInstanceGroup` | Starting an instance group |
 | `instancegroup.StopInstanceGroup` | Stopping an instance group |
-| `instancegroup.StopInstanceGroupInstances` | Stopping an instance from a group |
+| `instancegroup.StopInstanceGroupInstances` | Stopping an instance in a group |
 | `instancegroup.UpdateInstanceGroup` | Updating an instance group |
 | `instancegroup.UpdateInstanceGroupAccessBindings` | Updating roles for an instance group |
 
@@ -98,16 +98,16 @@ Service name: `iam`.
 | --- | --- |
 | `AddFederatedUserAccounts` | Adding a user to a federation |
 | `CreateAccessKey` | Creating an access key |
-| `CreateApiKey` | Creating API keys |
+| `CreateApiKey` | Creating an API key |
 | `CreateCertificate` | Adding a certificate for a federation |
-| `CreateFederation` | Create federation |
+| `CreateFederation` | Creating a federation |
 | `CreateIamCookieForSubject` | Federated user login ^*^ |
 | `CreateKey` | Creating a key pair for a service account |
-| `CreateServiceAccount` | Create service account |
+| `CreateServiceAccount` | Creating a service account |
 | `DeleteAccessKey` | Deleting an access key |
 | `DeleteApiKey` | Deleting API keys |
 | `DeleteCertificate` | Deleting a certificate for a federation |
-| `DeleteFederation` | Delete federation |
+| `DeleteFederation` | Deleting a federation |
 | `DeleteKey` | Deleting a key pair for a service account |
 | `DeleteServiceAccount` | Deleting a service account |
 | `UpdateAccessKey` | Updating an access key |
@@ -118,7 +118,7 @@ Service name: `iam`.
 | `UpdateServiceAccount` | Updating a service account |
 | `UpdateServiceAccountAccessBindings` | Updating access bindings |
 
-\* An event gets into the audit log only if [audit log collection scope](./trail.md#collecting-area) for the trail is `Organization`.
+\* The event is not logged in the audit log unless a trail's [audit logs](./trail.md#collecting-area) have `Enterprise` scope.
 
 ## {{ kms-name }} {#kms}
 
@@ -149,10 +149,14 @@ Service Name: `lockbox`.
 | `CreateSecret` | Creating a secret |
 | `DeactivateSecret` | Deactivating a secret |
 | `DeleteSecret` | Destroying a secret |
+| `GetPayload` | Accessing the contents of a secret ^*^ |
 | `ScheduleVersionDestruction` | Scheduling the destruction of a secret version |
 | `SetSecretAccessBindings` | Selecting access bindings for a secret |
 | `UpdateSecret` | Updating a secret |
 | `UpdateSecretAccessBindings` | Updating access bindings for a secret |
+
+\* By default, this event is not included in the audit log. To have this event added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
+"Please include data plane Lockbox events in audit trail `<trail id>`".
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
@@ -194,8 +198,8 @@ Service name: `storage`.
 | `ObjectDelete` | Deleting an object from a bucket ^*^ |
 | `ObjectUpdate` | Updating an object in a bucket ^*^ |
 
-\* The audit log does not include the above events by default. To add these events to the audit log, contact [technical support]({{ link-console-support }}). Message template:
-"Please enable the recording of data plane object storage events in audit trail <trail id>."
+\* The audit log does not include the above events by default. To have these events added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
+"Please enable the recording of data plane object storage events in audit trail `<trail id>`".
 
 ## {{ resmgr-name }} {#resmgr}
 
@@ -212,7 +216,7 @@ Service name: `resourcemanager`.
 | `UpdateFolder` | Updating a folder |
 | `UpdateFolderAccessBindings` | Updating access bindings for a folder ^*^ |
 
-\* The event may not be included in the audit log if the rights to the service account were assigned using [console]({{ link-console-main }}).
+\* The event may not be included in the audit log if the service account privileges were granted via the [console]({{ link-console-main }}).
 
 ## {{ vpc-name }} {#vpc}
 
@@ -248,7 +252,7 @@ Service name: `ydb`.
 | Event name | Description |
 | --- | --- |
 | `BackupDatabase` | Creating a database backup |
-| `CreateDatabase` | Creating a database |
+| `CreateDatabase` | Creating databases |
 | `DeleteBackup` | Deleting a database backup |
 | `DeleteDatabase` | Deleting a database |
 | `RestoreBackup` | Restoring a database from a backup |
