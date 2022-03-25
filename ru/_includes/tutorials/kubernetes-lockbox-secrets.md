@@ -2,7 +2,7 @@
 
 Существует [несколько схем интеграции](https://external-secrets.io/guides-multi-tenancy) {{ lockbox-name }} с сервисом {{ managed-k8s-name }}. Далее для примера рассматривается схема [ESO as a Service](https://external-secrets.io/guides-multi-tenancy/#eso-as-a-service):
 
-![image](../../_assets/managed-kubernetes/mks-lockbox-eso.png)
+![image](../../_assets/managed-kubernetes/mks-lockbox-eso.svg)
 
 Чтобы настроить синхронизацию секретов:
 1. [Установите External Secrets Operator](#install-eso).
@@ -16,7 +16,7 @@
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Установите менеджер пакетов Helm](https://helm.sh/docs/intro/install/).
+1. [Установите менеджер пакетов Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
 
 1. Установите утилиту `jq`:
 
@@ -26,7 +26,6 @@
    ```
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `eso-service-account`, необходимый для работы External Secrets Operator.
-
 1. Создайте [авторизованный ключ](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта и сохраните его в файл `authorized-key.json`:
 
    ```bash
@@ -36,8 +35,7 @@
    ```
 
 1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
-
-1. [Установите утилиту kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) и [настройте ее на работу с созданным кластером](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+1. [Установите утилиту kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} и [настройте ее на работу с созданным кластером](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
 
 ## Установите External Secrets Operator {#install-eso}
 
@@ -95,11 +93,11 @@
    Результат выполнения команды:
 
    ```text
-   +---------------------------------+----------------+------------+---------------------+----------------------+--------+
-   |          ID                     |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
-   +---------------------------------+----------------+------------+---------------------+----------------------+--------+
-   | <идентификатор Lockbox-секрета> | lockbox-secret |            | 2021-09-19 04:33:44 | e6qlkguf0hs4q3i6jpen | ACTIVE |
-   +---------------------------------+----------------+------------+---------------------+----------------------+--------+
+   +----------------------------------------+----------------+------------+---------------------+----------------------+--------+
+   |                   ID                   |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
+   +----------------------------------------+----------------+------------+---------------------+----------------------+--------+
+   | <идентификатор Yandex Lockbox-секрета> | lockbox-secret |            | 2021-09-19 04:33:44 | e6qlkguf0hs4q3i6jpen | ACTIVE |
+   +----------------------------------------+----------------+------------+---------------------+----------------------+--------+
    ```
 
 1. Чтобы сервисный аккаунт `eso-service-account` имел доступ к секрету, присвойте этому аккаунту роль `lockbox.payloadViewer`:
@@ -163,7 +161,7 @@
      data:
      - secretKey: password
        remoteRef:
-         key: <идентификатор Lockbox-секрета>
+         key: <идентификатор Yandex Lockbox-секрета>
          property: password'
    ```
 
