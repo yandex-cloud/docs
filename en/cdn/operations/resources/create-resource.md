@@ -7,8 +7,11 @@ To create a [resource](../../concepts/resource.md):
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource.
+
   1. Select **{{ cdn-name }}**.
+
   1. On the **CDN resources** tab, click **Create resource**.
+
   1. Under **Content**, enter the **Origin domain name** or select an **Origin group**.
 
      You can create a new origin group:
@@ -20,7 +23,7 @@ To create a [resource](../../concepts/resource.md):
 
      For more information, see [{#T}](../../concepts/origins.md).
 
-  1. Under **Domain names for content distribution**, enter the **Domain name**. You can add multiple **Domain names**. The first name is considered the primary domain name.
+  1. Under **Domain names for content distribution**, enter the **Domain name**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, Cyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
 
      {% note warning %}
 
