@@ -33,8 +33,6 @@ items:
             href: operations/cilium-node-local-dns.md
       - name: Encrypting secrets
         href: operations/encrypting-secrets.md
-      - name: Configuring autoscaling
-        href: operations/autoscale.md
       - name: Working with persistent volumes
         items:
           - name: Dynamic volume provisioning
@@ -77,8 +75,6 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
-      - name: Connecting external nodes to the cluster
-        href: operations/external-nodes-connect.md
   - name: Practical guidelines
     items:
       - name: All tutorials
@@ -129,14 +125,10 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
-      - name: External cluster nodes
-        href: concepts/external-nodes.md
       - name: Network in {{ managed-k8s-name }}
         href: concepts/network.md
       - name: Kubernetes cluster network policies
         href: concepts/network-policy.md
-      - name: Automatic scaling
-        href: concepts/autoscale.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Recommendations for using {{ managed-k8s-name }}
