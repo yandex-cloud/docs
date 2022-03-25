@@ -10,15 +10,13 @@ You specify the minimum and the maximum size of a node group, and the [{{ k8s }}
 
 {% note warning %}
 
-Changing the size of an autoscaled node group is done with the help of the [{{ k8s }} cluster autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler) and has many non-trivial features. If you encounter some unexpected behaviour we recommend consulting [its FAQ](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md). For example:
-* If workloads in a cluster require less nodes than there is but for some reason pods cannot be evicted from all nodes of the group then the number of nodes will not be decreased.
-* The actual number of nodes in an autoscaled node group might be less than the minimum size of the group. This might happen if:
-  * the minimum size of the group was increased after the group creation;
-  * cluster has enough resources for the actual cluster load at the moment.
+You can resize an autoscaling group using [{{ k8s }} Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler), but there are many non-trivial features. If unexpected behavior occurs, we recommend referring to the [FAQ](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md). In particular:
+* If you can distribute the load in a cluster to a smaller number of nodes, but you cannot evict pods from the nodes for some reason, the number of nodes in a group will not decrease.
+* The actual number of nodes in a group may be below the minimum size of a node group. This may occur if:
+  * An autoscaled group resized up from its minimum size after being created.
+  * Actual cluster load does not require more nodes than the cluster currently has.
 
 {% endnote %}
-
-If the pods in a node cannot be evicted, the node will not change.
 
 {% note info %}
 
