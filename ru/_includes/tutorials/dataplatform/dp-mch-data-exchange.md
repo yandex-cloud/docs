@@ -1,8 +1,13 @@
 # Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
 
-Вы можете настроить загрузку и выгрузку данных между кластерами {{ mch-full-name }} и {{ dataproc-full-name }}.
+Чтобы настроить загрузку и выгрузку данных между кластерами {{ mch-full-name }} и {{ dataproc-full-name }}:
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Выгрузите данные из {{ mch-full-name }}](#export-from-mch).
+1. [Загрузите данные в {{ mch-full-name }}](#import-to-mch).
 
-## Перед началом работы {#before-you-begin}
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+## Подготовьте облако к работе {#before-you-begin}
 
 {% note info %}
 
@@ -14,6 +19,7 @@
     * с базой данных `db1`;
     * с пользователем `user1`.
 1. [Создайте кластер {{ dataproc-full-name }}](../../../data-proc/operations/cluster-create.md) любой [подходящей вам конфигурации](../../../data-proc/concepts/instance-types.md) со следующими настройками:
+    * с включенной опцией **UI Proxy**;
     * c компонентами:
         * **HBASE**
         * **HDFS**
@@ -24,19 +30,23 @@
         * **YARN**
         * **ZEPPELIN**
         * **ZOOKEEPER**
-    * с включенной опцией **UI Proxy**.
 1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mch-full-name }} и {{ dataproc-full-name }}.
-1. [Подключитесь к виртуальной машине по SSH](../../../compute/operations/vm-connect/ssh.md) и настройте подключения:
-    * [к кластеру {{ mch-full-name }}](../../../managed-clickhouse/operations/connect.md);
-    * [к кластеру {{ dataproc-full-name }}](../../../data-proc/operations/connect.md).
-1. Ознакомьтесь с работой веб-интерфейса [Zeppelin](http://zeppelin.apache.org/). Для выполнения некоторых операций в этом интерфейсе потребуется создавать и запускать параграфы с кодом. Чтобы запустить параграф, нажмите на кнопку **Run this paragraph** или используйте комбинацию клавиш **Shift + Enter**.
+1. [Подключитесь к виртуальной машине по SSH](../../../compute/operations/vm-connect/ssh.md) и настройте подключения к кластерам:
+    * [{{ mch-full-name }}](../../../managed-clickhouse/operations/connect.md);
+    * [{{ dataproc-full-name }}](../../../data-proc/operations/connect.md).
 1. (Опционально) Чтобы экспортировать данные в [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md):
     1. [Создайте бакет {{ objstorage-full-name }}](../../../storage/operations/buckets/create.md).
     1. [Выдайте права на запись в него](../../../storage/operations/buckets/edit-acl.md) сервисному аккаунту кластера {{ dataproc-full-name }}.
+	
+### Необходимые платные ресурсы {#paid-resources}
 
-## Выгрузка данных из {{ mch-full-name }} {#export-from-mch}
+В стоимость поддержки обмена данными между {{ mch-full-name }} и {{ dataproc-full-name }} входит:
+* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
-### Подготовка кластера {{ mch-full-name }} {#prepare-mch}
+## Выгрузите данные из {{ mch-full-name }} {#export-from-mch}
+
+### Подготовьте кластер {{ mch-full-name }} {#prepare-mch}
 
 1. [Подключитесь к базе данных](../../../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-full-name }} от имени пользователя `user1`.
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с именами и возрастом людей.
@@ -67,14 +77,14 @@
            ('Maria', 28);
         ```
 
-### Запуск выгрузки из {{ mch-full-name }} {#start-mch-export}
+### Запустите выгрузку из {{ mch-full-name }} {#start-mch-export}
 
 1. Откройте [веб-интерфейс Zeppelin](../../../data-proc/concepts/ui-proxy.md) кластера {{ dataproc-full-name }}.
 1. Нажмите ссылку **Create new note** и укажите параметры ноутбука Zeppelin:
     * **Note name** — введите произвольное имя ноутбука;
     * **Default Interpreter** — выберите `spark`.
 1. Нажмите кнопку **Create**.
-1. Чтобы сформировать датафрейм, создайте и запустите параграф с кодом. Текст параграфа зависит от наличия публичного доступа к хостам кластера {{ mch-full-name }}.
+1. Чтобы сформировать датафрейм, создайте и запустите параграф с кодом. Чтобы запустить параграф, нажмите на кнопку **Run this paragraph** или используйте комбинацию клавиш **Shift** + **Enter**. Текст параграфа зависит от наличия публичного доступа к хостам кластера {{ mch-full-name }}.
 
     {% list tabs %}
 
@@ -142,9 +152,9 @@
     Если выгрузка прошла успешно, ответ на запрос будет содержать таблицу с исходными данными.
 
 
-## Загрузка данных в {{ mch-full-name }} {#import-to-mch}
+## Загрузите данные в {{ mch-full-name }} {#import-to-mch}
 
-### Подготовка исходных данных {#prepare-source-data}
+### Подготовьте исходные данные {#prepare-source-data}
 
 Источником данных может быть директория HDFS или бакет {{ objstorage-full-name }}. В качестве исходных данных будет использоваться CSV-файл с именами и возрастом людей:
 
@@ -192,7 +202,7 @@ Maria,28
 
 {% endlist %}
 
-### Запуск выгрузки из {{ dataproc-full-name }} {#start-dp-export}
+### Запустите выгрузку из {{ dataproc-full-name }} {#start-dp-export}
 
 1. Откройте [веб-интерфейс Zeppelin](../../../data-proc/concepts/ui-proxy.md) кластера {{ dataproc-full-name }}.
 1. Нажмите ссылку **Create new note** и укажите параметры ноутбука Zeppelin:
@@ -265,7 +275,7 @@ Maria,28
 
     {% endlist %}
 
-### Проверка загрузки данных в {{ mch-full-name }} {#check-mch-export}
+### Проверьте загрузку данных в {{ mch-full-name }} {#check-mch-export}
 
 1. [Подключитесь к базе данных](../../../managed-clickhouse/operations/connect.md) `db1` кластера {{ mch-full-name }} от имени пользователя `user1`.
 1. Выполните запрос:
@@ -276,9 +286,9 @@ Maria,28
 
     Если выгрузка прошла успешно, ответ на запрос будет содержать таблицу с данными.
 
-## Удаление созданных ресурсов {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).
 1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../../vpc/operations/address-delete.md).

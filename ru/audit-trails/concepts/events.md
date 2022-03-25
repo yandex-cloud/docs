@@ -161,7 +161,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateSecretAccessBindings` | Обновление привязок прав доступа для секрета
 
 \* Указанное событие по умолчанию не входит в аудитный лог. Чтобы добавить это событие в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
-«Просьба включить запись событий data plane Lockbox в audit trail <id трейла>».
+«Просьба включить запись событий data plane Lockbox в audit trail `<id трейла>`».
 
 ## {{ mch-short-name }} {#managed-service-for-clickhouse}
 
@@ -345,7 +345,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `ObjectUpdate` | Изменение объекта в бакете ^*^
 
 \* Указанные события по умолчанию не входят в аудитный лог. Чтобы добавить эти события в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
-«Просьба включить запись событий data plane object storage в audit trail <id трейла>».
+«Просьба включить запись событий data plane object storage в audit trail `<id трейла>`».
 
 ## {{ resmgr-name }} {#resmgr}
 
@@ -401,7 +401,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `CreateDatabase` | Создание базы данных
 `DeleteBackup` | Удаление бэкапа базы данных
 `DeleteDatabase` | Удаление базы данных
-`RestoreBackup` |  Восстановление базы данных из бэкапа
+`RestoreBackup` | Восстановление базы данных из бэкапа
 `StartDatabase` | Запуск базы данных 
 `StopDatabase` | Остановка базы данных
 `UpdateDatabase` | Изменение базы данных

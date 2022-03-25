@@ -99,6 +99,8 @@ items:
         href: tutorials/node-local-dns.md
       - name: Configuring Fluent Bit for Yandex Cloud Logging
         href: tutorials/fluent-bit-logging.md
+      - name: Syncing with Yandex Lockbox secrets
+        href: tutorials/kubernetes-lockbox-secrets.md
   - name: Concepts
     items:
       - name: Relationship between service resources

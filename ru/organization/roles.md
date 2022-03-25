@@ -122,6 +122,55 @@
   * [{#T}](../resource-manager/operations/cloud/set-access-bindings.md)
   * [{#T}](../resource-manager/operations/folder/set-access-bindings.md)
 
+- Terraform
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). 
+
+  1. Опишите в конфигурационном файле параметры назначаемых ролей:
+
+     * `organization_id` — идентификатор организации.
+     * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. 
+     * `members` — массив идентификаторов пользователей, которым будет назначена роль: 
+       * `userAccount:{user_id}` — идентификатор аккаунта пользователя на Яндексе. 
+       * `serviceAccount:{service_account_id}` — идентификатор сервисного аккаунта.
+       * `federatedUser:{federated_user_id}` —  идентификатор федеративного пользователя.
+
+     Пример структуры конфигурационного файла:
+
+     ```
+     resource "yandex_organizationmanager_organization_iam_binding" "editor" {
+       organization_id = "<ID организации>"
+     
+       role = "editor"
+     
+       members = [
+        "federatedUser:<ID пользователя>",
+       ]
+     }
+     ```
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+
+  2. Проверьте корректность конфигурационных файлов.
+    
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     2. Выполните проверку с помощью команды:
+ 
+       ```
+       $ terraform plan
+       ```
+
+      Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, Terraform на них укажет. 
+ 
+  3. Назначьте роли.
+  
+     Если в конфигурации нет ошибок, выполните команду:
+
+       ```
+       $ terraform apply
+       ```
+     После этого в указанной организации будут назначены роли.
+
 {% endlist %}
 
 ## Отозвать роль у пользователя {#revoke}

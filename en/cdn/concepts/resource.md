@@ -1,6 +1,6 @@
 # CDN resource
 
-_A resource_ is the main logical entity in {{ cdn-full-name }} that lets you configure and manage content distribution from [origins](origins.md) over a CDN.
+A _resource_ is the main logical entity in {{ cdn-full-name }} that lets you configure and manage content distribution from [origins](origins.md) over a CDN.
 
 To start distributing content over a CDN, create a resource according to the [instructions](../operations/resources/create-resource.md) and specify the following in it:
 
@@ -20,6 +20,8 @@ It may take up to 15 minutes for the new resource settings to apply to CDN serve
 ## Domain names for content distribution {#hostnames}
 
 _Domain names for content distribution_ are used in client requests to CDN servers. For example, to make the file `styles/common.css` available at `cdn.example.com/styles/common.css`, you need to enter `cdn.example.com` as a domain name.
+
+{{ cdn-name }} supports any domain names, including [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name) with local non-ASCII characters, for example, Cyrillic. Now you can specify the name in the original form (`пример.рф`) or transform them to [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) with the `xn--` (`xn--e1afmkfd.xn--p1ai`) prefixes added. In the [management console]({{ link-console-main }}), resource details show IDNs in the original form with no transformation to Punycode.
 
 When creating a resource, you must enter at least one domain name. The first name you enter is the primary domain name, and you can't change it after you create a resource.
 
