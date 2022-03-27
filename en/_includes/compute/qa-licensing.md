@@ -22,7 +22,7 @@ License Mobility is a benefit provided to customers with Microsoft corporate lic
 
 #### How can I find out whether a Microsoft product is eligible for License Mobility? {#check-license-mobility}
 
-This information is included in the terms of use for the Microsoft product. Whether or not a product is eligible for the License Mobility through Software Assurance program is indicated in the corresponding section of the [Software Assurance agreement](https://www.microsoft.com/licensing/terms/product/SoftwareAssuranceBenefits/all). Products that are eligible for the License Mobility through Software Assurance program include Remote Desktop Services, System Center, Exchange, and SharePoint.
+This information is included in the terms of use for the Microsoft product. Whether or not a product is eligible for the License Mobility through Software Assurance program is indicated in the corresponding section of the [Software Assurance agreement]{% if lang == "ru" %}(https://www.microsoft.com/licensing/terms/ru-ru/product/SoftwareAssuranceBenefits/all){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/terms/product/SoftwareAssuranceBenefits/all){% endif %}. Products that are eligible for the License Mobility through Software Assurance program include Remote Desktop Services, System Center, Exchange, and SharePoint.
 
 #### Do I need to have a current Software Assurance agreement in place and participate in the License Mobility through Software Assurance program to deploy my own Microsoft licenses in {{ yandex-cloud }}? {#sa-for-license-mobility}
 
@@ -32,15 +32,35 @@ Yes. When using licensed Microsoft software in Yandex Compute Cloud, you must ha
 
 No. Currently, you cannot upload your own images with Windows.
 
+#### Can I deploy my own licenses in {{ compute-name }}? {#custom}
+
+Questions about Windows Server licensing are discussed in detail in [{#T}](../../compute/qa/licensing.md).
+
+In the case of other software that you want to use inside the VM, read the license you purchased or contact the technical support of the product itself and they'll tell you if it's possible to use the product with this license in {{ yandex-cloud }}.
+
 ### Windows Server licensing {#windows-server}
 
 #### Can I purchase Windows Server from {{ yandex-cloud }}? {#buy-windows-server}
 
 Yes, you can [purchase]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=databases&operationSystems=WINDOWS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=databases&operationSystems=WINDOWS){% endif %} a VM with a pre-installed Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019 image from {{ yandex-cloud }}. The Windows Server license is included in the {{ yandex-cloud }} service cost.
 
-#### Can I deploy my own Windows Server licenses in {{ compute-name }}? {#custom-windows-server}
+#### How do I activate Windows Server {#activate-windows-server}
 
-No. You currently can't deploy your own Windows Server licenses.
+You may have activation issues if the VM doesn't have internet access.
+
+1. Make sure that the VM has internet access.
+1. Run the following commands in PowerShell as an administrator:
+
+   ```powershell
+   Test-NetConnection kms.cloud.yandex.net -Port 1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /dli
+   cscript.exe C:\Windows\System32\slmgr.vbs /skms kms.cloud.yandex.net:1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /ato
+   Get-Date
+   Get-TimeZone
+   ```
+
+1. If activation was not successful, send us the output of these commands.
 
 #### Does License Mobility cover Windows Server? {#lm-windows-server}
 
@@ -51,4 +71,3 @@ No. According to the terms of use for Microsoft products, License Mobility does 
 #### Can I purchase other Microsoft products with licenses that can be deployed in Yandex Compute Cloud? {#buy-other-products}
 
 Yes. Currently, {{ yandex-cloud }} only provides Windows Server, Microsoft SQL Server, and RDS licenses and transfers server software licenses under the [License Mobility through Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %} program. Licensing of MSDN, Windows OS, Microsoft Office, and other products is not available.
-

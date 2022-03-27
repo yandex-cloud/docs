@@ -361,10 +361,14 @@ items:
         href: qa/general.md
       - name: Виртуальные машины
         href: qa/vm.md
-      - name: Диски и снимки
+      - name: Подключение
+        href: qa/connection.md  
+      - name: Диски, снимки, образы
         href: qa/disks.md
       - name: Аварийное восстановление
         href: qa/disaster-recovery.md
+      - name: Мониторинг
+        href: qa/monitoring.md  
       - name: Лицензирование
         href: qa/licensing.md
       - name: Все вопросы на одной странице

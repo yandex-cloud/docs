@@ -22,7 +22,7 @@
 
 #### Как узнать, применима ли программа Мобильности лицензий для того или иного продукта Microsoft? {#check-license-mobility}
 
-Соответствующая информация включена в условия использования продуктов Microsoft. Возможность участия того или иного продукта в программе Мобильности лицензий указана в соответствующем разделе [договора Software Assurance](https://www.microsoft.com/licensing/terms/product/SoftwareAssuranceBenefits/all). В число продуктов, участвующих в программе мобильности лицензий, входят Remote Desktop Services, System Center, Exchange и SharePoint.
+Соответствующая информация включена в условия использования продуктов Microsoft. Возможность участия того или иного продукта в программе Мобильности лицензий указана в соответствующем разделе [договора Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %}. В число продуктов, участвующих в программе мобильности лицензий, входят Remote Desktop Services, System Center, Exchange и SharePoint.
 
 #### Нужно ли иметь действующий договор Software Assurance и участвовать в программе мобильности лицензий, чтобы использовать собственные лицензии Microsoft в {{ yandex-cloud }}? {#sa-for-license-mobility}
 
@@ -36,15 +36,35 @@
 
 С 24 января 2022 г. для использования продуктов Microsoft необходимо указывать пользовательские данные и адреса физических и юридических лиц — это требования лицензионной политики Microsoft. Если данные не заполнены, запустить продукты Microsoft будет нельзя.
 
+#### Можно ли использовать собственные лицензии в {{ compute-name }}? {#custom}
+
+Вопросы о лицензировании Windows Server подробно рассмотрены в разделе [{#T}](../../compute/qa/licensing.md).
+
+Если же речь о других программных продуктах, которые вы хотите использовать внутри ВМ, изучите приобретенную вами лицензию или обратитесь в техническую поддержку самого продукта — вам подскажут, возможно ли продукт с этой лицензией использовать в {{ yandex-cloud }}.
+
 ### Лицензирование: Windows Server {#windows-server}
 
 #### Можно ли приобрести Windows Server у {{ yandex-cloud }}? {#buy-windows-server}
 
 Да, вы можете [приобрести]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=databases&operationSystems=WINDOWS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=databases&operationSystems=WINDOWS){% endif %} виртуальную машину с предустановленным образом Windows Server 2012 R2, Windows Server 2016 или Windows Server 2019 у {{ yandex-cloud }}. Лицензия на Windows Server входит в стоимость.
 
-#### Можно ли использовать собственные лицензии Windows Server в {{ compute-name }}? {#custom-windows-server}
+#### Как активировать Windows Server {#activate-windows-server}
 
-Нет, на данный момент использовать собственные лицензии Windows Server нельзя.
+Проблемы с активацией могут возникнуть, если у ВМ нет доступа в интернет.
+
+1. Убедитесь, что у ВМ есть доступ в интернет.
+1. Выполните в PowerShell от имени Администратора следующие команды:
+
+   ```powershell
+   Test-NetConnection kms.cloud.yandex.net -Port 1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /dli
+   cscript.exe C:\Windows\System32\slmgr.vbs /skms kms.cloud.yandex.net:1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /ato
+   Get-Date
+   Get-TimeZone
+   ```
+
+   Если активация так и не произошла, пришлите нам вывод этих команд.
 
 #### Применима ли Мобильность лицензий к Windows Server? {#lm-windows-server}
 

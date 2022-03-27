@@ -1,10 +1,10 @@
 # Лицензирование Windows
 
-Правила использования программного обеспечения Microsoft регламентируются условиями лицензионного соглашения с Microsoft, заключаемого при приобретении продуктов Microsoft. Ответственность за соблюдение условий лицензирования Microsoft несет пользователь. Ниже изложены рекомендации по лицензированию. Вы не обязаны полагаться на изложенные положения, они не имеют юридической силы. Если у вас есть вопросы по поводу лицензирования и прав на использование программного обеспечения Microsoft, проконсультируйтесь со своим юридическим отделом или торговым посредником Microsoft. Информация на этой странице соответствует [текущим условиям использования продуктов Microsoft](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+Правила использования программного обеспечения Microsoft регламентируются условиями лицензионного соглашения с Microsoft, заключаемого при приобретении продуктов Microsoft. Ответственность за соблюдение условий лицензирования Microsoft несет пользователь. Ниже изложены рекомендации по лицензированию. Вы не обязаны полагаться на изложенные положения, они не имеют юридической силы. Если у вас есть вопросы по поводу лицензирования и прав на использование программного обеспечения Microsoft, проконсультируйтесь со своим юридическим отделом или торговым посредником Microsoft. Информация на этой странице соответствует [текущим условиям использования продуктов Microsoft]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/product-licensing/products){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/product-licensing/products){% endif %}.
 
 #### Какие отношения существуют между Microsoft и {{ yandex-cloud }}? {#status}
 
-{{ yandex-cloud }} имеет лицензию на распространение ПО Microsoft в рамках соглашения Services Provider License Agreement (SPLA) в целях предоставления программных услуг. Также, {{ yandex-cloud }} является авторизованным партнером Microsoft по программе [Мобильность Лицензий](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility).
+{{ yandex-cloud }} имеет лицензию на распространение ПО Microsoft в рамках соглашения Services Provider License Agreement (SPLA) в целях предоставления программных услуг. Также, {{ yandex-cloud }} является авторизованным партнером Microsoft по программе [Мобильность Лицензий]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %}.
 
 #### Предоставляет ли {{ yandex-cloud }} расширенную поддержку продуктов Microsoft? {#expanded-support}
 
@@ -12,11 +12,11 @@
 
 #### Какое ПО Microsoft можно запускать на платформе {{ yandex-cloud }}? {#supported-soft}
 
-На платформе {{ yandex-cloud }} можно запускать серверное программное обеспечение, доступное в рамках программы [Мобильность Лицензий](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility).
+На платформе {{ yandex-cloud }} можно запускать серверное программное обеспечение, доступное в рамках программы [Мобильность Лицензий]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %}.
 
 #### Что такое мобильность лицензий? {#license-mobility}
 
-Мобильность лицензий — это преимущество, доступное клиентам с корпоративными лицензиями Microsoft на использование соответствующего серверного программного обеспечения по действующим договорам Microsoft Software Assurance (SA). Мобильность лицензий позволяет клиентам использовать соответствующее ПО Microsoft в работе со сторонними поставщиками облачных решений, такими как {{ yandex-cloud }}. См. дополнительные сведения на [сайте Microsoft](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility).
+Мобильность лицензий — это преимущество, доступное клиентам с корпоративными лицензиями Microsoft на использование соответствующего серверного программного обеспечения по действующим договорам Microsoft Software Assurance (SA). Мобильность лицензий позволяет клиентам использовать соответствующее ПО Microsoft в работе со сторонними поставщиками облачных решений, такими как {{ yandex-cloud }}. См. дополнительные сведения на [сайте Microsoft]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %}.
 
 #### Как узнать, применима ли мобильность лицензий для того или иного продукта Microsoft? {#check-license-mobility}
 
@@ -36,6 +36,23 @@
 
 Да, вы можете приобрести виртуальную машину с предустановленным образом Windows Server 2012 или Windows Server 2016 у {{ yandex-cloud }}. Лицензия на Windows Server входит в стоимость.
 
+#### Как активировать Windows Server {#activate-windows-server}
+
+Проблемы с активацией могут возникнуть, если у ВМ нет доступа в интернет.
+1. Убедитесь, что у ВМ есть доступ в интернет.
+1. Выполните в PowerShell от имени Администратора следующие команды:
+
+   ```powershell
+   Test-NetConnection kms.cloud.yandex.net -Port 1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /dli
+   cscript.exe C:\Windows\System32\slmgr.vbs /skms kms.cloud.yandex.net:1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /ato
+   Get-Date
+   Get-TimeZone
+   ```
+
+   Если активация так и не произошла, пришлите нам вывод этих команд.
+
 #### Можно ли использовать собственные лицензии Windows Server в {{ compute-name }}? {#custom-windows-server}
 
 Нет, на данный момент использовать собственные лицензии Windows Server нельзя.
@@ -46,6 +63,6 @@
 
 ### Лицензирование: другие продукты Microsoft {#other-products}
 
-#### Можно ли приобрести другие продукты Microsoft с включенными лицензиями для использования в Compute Cloud? {#buy-other-products}
+#### Можно ли приобрести другие продукты Microsoft с включенными лицензиями для использования в {{ compute-name }}? {#buy-other-products}
 
-Нет. В настоящий момент {{ yandex-cloud }} предоставляет только лицензии Windows Server, а также перенос лицензий на серверное программное обеспечение в рамках программы [Мобильность Лицензий](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility). Возможность лицензирования MSDN, ОС Windows, Microsoft Office и других продуктов пока не предоставляется.
+Нет. В настоящий момент {{ yandex-cloud }} предоставляет только лицензии Windows Server, а также перенос лицензий на серверное программное обеспечение в рамках программы [Мобильность Лицензий]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %}. Возможность лицензирования MSDN, операционная система Windows, Microsoft Office и других продуктов пока не предоставляется.
