@@ -43,3 +43,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](node-group/node-group-update.md)
 * [{#T}](node-group/node-label-management.md)
 * [{#T}](node-group/node-group-delete.md)
+
+## Working with external nodes {#external-nodes}
+
+* [{#T}](external-nodes-connect.md)
