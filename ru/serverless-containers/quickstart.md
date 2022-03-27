@@ -18,61 +18,101 @@ Docker-образ — исполняемый пакет, который соде
 
 - Node.js
 
-    **Приложение**
+    **index.js**
 
     ```js
-    import express from "express";
+    const express = require('express');
 
     const app = express();
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
 
-    app.post("/", (req, res) => {
-
-        console.log("Say hello from Serverless Docker Node Container!");
-
-        return res.send("Success!");
+    app.get("/hello", (req, res) => {
+        var ip = req.headers['x-forwarded-for']
+        console.log(`Request from ${ip}`);
+        return res.send("Hello!");
     });
 
     app.listen(process.env.PORT, () => {
-        console.log(`App listening at http://localhost:${process.env.PORT}`);
+        console.log(`App listening at port ${process.env.PORT}`);
     });
     ```
 
     **Dockerfile**
 
     ```
-    FROM node:14-alpine
-    # Подробнее о libc6-compat: https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine.
-    RUN apk add --no-cache libc6-compat
+    FROM node:16-slim
+
     WORKDIR /app
-    COPY ./dist .
-    RUN npm ci
+    RUN npm install express
+    COPY ./index.js .
+
     CMD [ "node", "index.js" ]
+    ```
+
+- Python
+
+    **index.py**
+
+    ```python
+    import os
+    from sanic import Sanic
+    from sanic.response import text
+
+    app = Sanic(__name__)
+
+    @app.after_server_start
+    async def after_server_start(app, loop):
+        print(f"App listening at port {os.environ['PORT']}")
+
+    @app.route("/hello")
+    async def hello(request):
+        ip = request.headers["X-Forwarded-For"]
+        print(f"Request from {ip}")
+        return text("hello!")
+
+    if __name__ == "__main__":
+        app.run(host='0.0.0.0', port=os.environ['PORT'], motd=False, access_log=False)
+    ```
+
+    **Dockerfile**
+
+    ```
+    FROM python:3.10-slim
+
+    WORKDIR /app
+    RUN pip install --no-cache-dir --prefer-binary sanic
+    COPY ./index.py .
+
+    CMD [ "python", "index.py" ]
     ```
 
 - Go
 
-    **Приложение**
+    **index.go**
 
     ```golang
     package main
 
     import (
-	    "net/http"
-	    "os"
+        "fmt"
+        "net/http"
+        "os"
     )
 
     func main() {
-	    portStr := os.Getenv("PORT")
-	    http.ListenAndServe(":" + portStr, hwHandler{})
+        portStr := os.Getenv("PORT")
+        fmt.Printf("App listening at port %s\n", portStr)
+        http.ListenAndServe(":"+portStr, hwHandler{})
     }
 
     type hwHandler struct{}
 
     func (hwHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	    writer.WriteHeader(200)
-	    _, _ = writer.Write([]byte("Hello world!"))
+        ip := request.Header.Get("X-Forwarded-For")
+        fmt.Printf("Request from %s\n", ip)
+        writer.WriteHeader(200)
+        _, _ = writer.Write([]byte("Hello!"))
     }
     ```
 
@@ -80,14 +120,16 @@ Docker-образ — исполняемый пакет, который соде
 
     ```
     FROM golang:latest AS build
-    RUN mkdir /app
-    ADD . /app/
+
     WORKDIR /app
-    RUN go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o server-app *.go
+    ADD index.go .
+    RUN go mod init main
+    RUN go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o main *.go
 
     FROM scratch
-    COPY --from=build /app/server-app /server-app
-    ENTRYPOINT ["/server-app"]
+    COPY --from=build /app/main /main
+
+    ENTRYPOINT ["/main"]
     ```
 
 {% endlist %}
@@ -113,5 +155,5 @@ curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g*****
 Результат:
 
 ```
-Hello world!
+Hello!
 ```
