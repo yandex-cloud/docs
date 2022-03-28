@@ -145,7 +145,7 @@ For more information about a {{ mrd-name }} cluster structure, see [{#T}](../con
 
   {% if audience != "internal" %}
 
-  If you don't have {{ TF }}, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% else %}
 

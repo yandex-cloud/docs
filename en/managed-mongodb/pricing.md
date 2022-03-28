@@ -73,6 +73,8 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 All prices are shown with VAT.
 
+{% endif %}
+
 ### Host computing resources {#prices-host}
 
 The prices for computing resources are the same for all types of hosts: mongod, mongos, and mongocfg.
@@ -132,33 +134,5 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-
-{% endif %}
-
-## Estimated prices for host classes {#calculated-host-price}
-
-Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-mongodb#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-All prices are shown with VAT.
-
-{% if region == "ru" %}
-
-{% include [rub-class](../_pricing/managed-mongodb/rub-class.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include [kzt-class](../_pricing/managed-mongodb/kzt-class.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-Prices in USD, without VAT
-
-{% include [usd-class](../_pricing/managed-mongodb/usd-class.md) %}
 
 {% endif %}
