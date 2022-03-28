@@ -151,51 +151,19 @@ Prices for Microsoft products and licenses are increasing starting March 22, 202
 
 {% if region == "ru" %}
 
-{% include [rub-instance-cpu.md](../_pricing/compute/rub-instance-cpu.md) %}
-
-{% include [rub-instance-other.md](../_pricing/compute/rub-instance-other.md) %}
+{% include [rub-instance-resources.md](../_pricing/compute/rub-instance-resources.md) %}
 
 {% endif %}
 
 {% if region == "kz" %}
 
-{% include [kzt-instance-cpu.md](../_pricing/compute/kzt-instance-cpu.md) %}
-
-{% include [kzt-instance-other.md](../_pricing/compute/kzt-instance-other.md) %}
+{% include [kzt-instance-resources.md](../_pricing/compute/kzt-instance-resources.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
 
-{% include [usd-instance-cpu.md](../_pricing/compute/usd-instance-cpu.md) %}
-
-{% include [usd-instance-other.md](../_pricing/compute/usd-instance-other.md) %}
-
-{% endif %}
-
-### Preemptible VM computing resources {#prices-preemptible-instance-resources}
-
-{% if region == "ru" %}
-
-{% include [rub-preemp-instance-cpu.md](../_pricing/compute/rub-preemp-instance-cpu.md) %}
-
-{% include [rub-preemp-instance-other.md](../_pricing/compute/rub-preemp-instance-other.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include [kzt-preemp-instance-cpu.md](../_pricing/compute/kzt-preemp-instance-cpu.md) %}
-
-{% include [kzt-preemp-instance-other.md](../_pricing/compute/kzt-preemp-instance-other.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include [usd-preemp-instance-cpu.md](../_pricing/compute/usd-preemp-instance-cpu.md) %}
-
-{% include [usd-preemp-instance-other.md](../_pricing/compute/usd-preemp-instance-other.md) %}
+{% include [usd-instance-resources.md](../_pricing/compute/usd-instance-resources.md) %}
 
 {% endif %}
 
