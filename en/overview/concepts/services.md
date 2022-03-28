@@ -37,6 +37,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ network-load-balancer-full-name }}](../../network-load-balancer/)
 * [{{ objstorage-full-name }}](../../storage/)
 * [{{ resmgr-full-name }}](../../resource-manager/)
+* [{{ serverless-containers-full-name }}](../../serverless-containers/)
 * [{{ speechkit-full-name }}](../../speechkit/)
 * [{{ translate-full-name }}](../../translate/)
 * [{{ vpc-full-name }}](../../vpc/)
