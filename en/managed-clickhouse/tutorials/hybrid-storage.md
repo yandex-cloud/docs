@@ -1,6 +1,6 @@
 # Using hybrid storage
 
-Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} tables. To learn more, see [{#T}](../concepts/storage.md).
+Hybrid storage lets you store frequently used data in the {{ mch-name }} cluster's network storage and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) tables. To learn more, see [{#T}](../concepts/storage.md).
 
 To use hybrid storage:
 1. [Create a table](#create-table).
@@ -21,7 +21,7 @@ To use hybrid storage:
 
 ## Create a table {#create-table}
 
-Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run an SQL query by substituting `<schema>` with a table schema from the [documentation for {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/tutorial/#create-tables){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/tutorial/#create-tables){% endif %}:
+Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run an SQL query by substituting `<schema>` with a table schema from the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/getting-started/tutorial/#create-tables):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -54,9 +54,9 @@ The expression for TTL in the example above is complex because of the selected t
 
 {% endnote %}
 
-Between storage on network disks and object storage, data is not moved line by line but in [chunks]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}. Make sure to choose the TTL expression and the [partitioning key]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} so that TTL matches for all the rows in the data chunk. Otherwise, you may have problems moving data into object storage when TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
+Between the network and object storage, data is not moved line by line but in [chunks](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Make sure to choose the TTL expression and the [partitioning key](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/) so that TTL matches for all the rows in the data chunk. Otherwise, you may have problems moving data into object storage when TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
 
-To learn more about configuring TTL, see the [documentation for {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}.
+To learn more about configuring TTL, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
 
 ## Completing a table with data {#fill-table-with-data}
 
@@ -68,14 +68,14 @@ To learn more about configuring TTL, see the [documentation for {{ CH }}]{% if l
 1. Insert data from this dataset into {{ CH }} using `clickhouse-client`:
 
    ```bash
-   clickhouse-client --host <host FQDN {{ CH }}> --secure --user <username> --database tutorial --port 9440 --password <user password> --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" --max_insert_block_size=100000 < hits_v1.tsv
+   clickhouse-client --host <{{ CH }} host FQDN> --secure --user <username> --database tutorial --port 9440 --password <user password> --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" --max_insert_block_size=100000 < hits_v1.tsv
    ```
 
    The host FQDN can be obtained [with a list of hosts in the cluster](../operations/hosts.md#list-hosts).
 
 1. Wait for the operation to complete because the insertion of data may take some time.
 
-To learn more, see the [documentation for {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/tutorial/#import-data){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/tutorial/#import-data){% endif %}.
+To learn more, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/getting-started/tutorial/#import-data).
 
 ## Checking the placement of data in a cluster {#check-table-tiering}
 
@@ -146,7 +146,7 @@ ORDER BY AvgSendTiming DESC
 LIMIT 10
 ```
 
-Request result:
+Query result:
 
 ```
 ┌─Domain──────────────────────────────┬──────AvgSendTiming─┐

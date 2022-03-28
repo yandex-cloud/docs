@@ -21,12 +21,12 @@ Local SSD storage doesn't provide fault tolerance for stored data and affects th
 
 ## Hybrid storage {#hybrid-storage-features}
 
-Hybrid storage provides fault tolerant data storage and lets you manage data placement for [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} tables: the data is automatically moved from local or network storage to {{ objstorage-name }} when it becomes outdated.
+Hybrid storage provides fault tolerant data storage and lets you manage data placement for [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) tables: the data is automatically moved from local or network storage to {{ objstorage-name }} when it becomes outdated.
 
 Data can be transferred to {{ objstorage-name }} only for tables on the MergeTree engine. Data from other tables is stored as usual: in local or network storage.
 
 When inserting into a MergeTree table, one of two behaviors is possible:
-* The data is stored on local or network storage of the cluster to ensure high insertion speed. Then, when the [TTL]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl){% endif %} value (lifetime) expires, such rows are moved in the background to {{ objstorage-name }}.
+* Data is placed on local or network storage in the cluster for fast inserts. Then, when the [TTL](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) value (lifetime) expires, such rows are moved in the background to {{ objstorage-name }}.
 
   You can configure moving expired rows to {{ objstorage-name }} and set TTL when creating a table or later.
 
