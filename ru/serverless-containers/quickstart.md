@@ -69,7 +69,7 @@ Docker-образ — исполняемый пакет, который соде
     async def hello(request):
         ip = request.headers["X-Forwarded-For"]
         print(f"Request from {ip}")
-        return text("hello!")
+        return text("Hello!")
 
     if __name__ == "__main__":
         app.run(host='0.0.0.0', port=os.environ['PORT'], motd=False, access_log=False)
@@ -123,13 +123,12 @@ Docker-образ — исполняемый пакет, который соде
 
     WORKDIR /app
     ADD index.go .
-    RUN go mod init main
-    RUN go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o main *.go
+    RUN go build -a -tags netgo -ldflags '-w -extldflags "-static"' -o server-app *.go
 
     FROM scratch
-    COPY --from=build /app/main /main
+    COPY --from=build /app/server-app /server-app
 
-    ENTRYPOINT ["/main"]
+    ENTRYPOINT ["/server-app"]
     ```
 
 {% endlist %}
