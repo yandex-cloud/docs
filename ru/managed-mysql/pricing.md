@@ -80,19 +80,19 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-host.md](../_pricing/managed-mysql/rub-host.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-host.md](../_pricing/managed-mysql/kzt-host.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-host.md](../_pricing/managed-mysql/usd-host.md) %}
 
@@ -100,19 +100,19 @@ editable: false
 
 ### Хранилище и резервные копии {#prices-storage}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-storage.md](../_pricing/managed-mysql/rub-storage.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-storage.md](../_pricing/managed-mysql/kzt-storage.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-storage.md](../_pricing/managed-mysql/usd-storage.md) %}
 

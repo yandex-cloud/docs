@@ -19,6 +19,7 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mmg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. To change the class of {{ MG }} hosts, under **Host class**, select the required class.
@@ -71,6 +72,7 @@ After creating a cluster, you can:
 
      {% endif %}
 
+
   1. Specify the class in the update cluster command:
 
       ```
@@ -118,9 +120,14 @@ After creating a cluster, you can:
 
 ## Increasing storage size {#change-disk-size}
 
+{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+
 {% list tabs %}
 
 - Management console
+
+  To increase the storage size for a cluster:
+
   1. Go to the folder page and select **{{ mmg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **Storage size**, specify the required value.
@@ -136,36 +143,14 @@ After creating a cluster, you can:
 
   1. View a description of the CLI's update cluster command:
 
-      ```
-      $ {{ yc-mdb-mg }} cluster update --help
-      ```
-
-  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmg-full-name }} section still has space available in the **space** line.
-
-  1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local SSD storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
-
-      ```
-      $ {{ yc-mdb-mg }} cluster get <cluster name>
-      
-      id: c7qkvr3u78qiopj3u4k2
-      folder_id: b1g0ftj57rrjk9thribv
-      ...
-      config:
-        mongodb_4_4:
-          mongod:
-            config:
-              user_config: {}
-            resources:
-              resource_preset_id: s1.micro
-              disk_size: "21474836480"
-              disk_type_id: network-ssd
-      ...
+      ```bash
+      {{ yc-mdb-mg }} cluster update --help
       ```
 
   1. Specify the storage size in the update cluster command: It must be at least as large as the current `disk_size` value in the cluster properties.
 
-      ```
-      $ {{ yc-mdb-mg }} cluster update <cluster name> \
+      ```bash
+      {{ yc-mdb-mg }} cluster update <cluster name or ID> \
            --mongod-disk-size <storage size in GB>
       ```
 
@@ -173,7 +158,9 @@ After creating a cluster, you can:
 
 - Terraform
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  To increase the storage size for a cluster:
+
+  1. Open the current configuration file {{ TF }} with an infrastructure plan.
 
       For information about how to create this file, see [{#T}](cluster-create.md).
 
@@ -201,9 +188,9 @@ After creating a cluster, you can:
 
 - API
 
-  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.mongodbSpec_4_2.mongod.resources.diskSize` parameter.
+  Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **HDD storage capacity** or **SSD storage capacity** line.
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmg-full-name }} section still has space available in the **space** line.
+  To increase the storage size for your cluster, use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.mongodbSpec_4_2.mongod.resources.diskSize` parameter.
 
 {% endlist %}
 
@@ -216,6 +203,7 @@ You can change the DBMS settings of the hosts in your cluster.
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mmg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**.
@@ -257,9 +245,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
   1. Go to the folder page and select **{{ mmg-name }}**.
-
   1. Select the cluster and click **Edit cluster** in the top panel.
-
   1. Change additional cluster settings:
 
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
@@ -376,11 +362,8 @@ You can change the DBMS settings of the hosts in your cluster.
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
     * The cluster ID in the `clusterId` parameter.
-
     * The new backup start time, in the `configSpec.backupWindowStart` parameter.
-
     * Settings for access from other services in the `configSpec.access` parameter.
-
     * Cluster deletion protection settings in the `deletionProtection` parameter.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -402,6 +385,7 @@ You can change the DBMS settings of the hosts in your cluster.
 {% list tabs %}
 
 - Management console
+
     1. Go to the folder page and select **{{ mmg-name }}**.
     1. Select the cluster and click **Edit cluster** in the top panel.
     1. Under **Network settings**, select security groups for cluster network traffic.
@@ -456,6 +440,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
     * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
     * The list of groups in the `securityGroupIds` parameter.
     * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
@@ -467,4 +452,3 @@ You can change the DBMS settings of the hosts in your cluster.
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
-

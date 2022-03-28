@@ -2,7 +2,7 @@
 
 For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
 
-| Resource | Cost per vCPU per month | |
+| Product | Cost per vCPU per month | |
 | ----- | ----- | ----- |
 | | **Up until April 12, 2022** | **Starting April 13, 2022** |
 | Windows Server Datacenter | ₸11538 | ₸9615 |
@@ -23,13 +23,14 @@ For the following products, funds are debited once for the calendar month in adv
 
 ### Storage and backups {#prices-storage}
 
-{% include [local-ssd for Ice Lake only by request](../../_includes/ice-lake-local-ssd-note.md) %}
+{% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
 | Service                         | Cost of 1 GB per month                                                 | |
 | ----- | ----- | ----- |
 | | **Up until April 12, 2022** | **Starting April 13, 2022** |
-| Standard network storage        | {{sku|KZT|mdb.cluster.network-hdd.mssql|month|string }}                | ₸16.0000 |
-| Non-replicated network storage  | ₸33.0000                                                               | ₸44.0000 |
-| Fast network storage            | {{sku|KZT|mdb.cluster.network-nvme.mssql|month|string }}               | ₸65.0500 |
-| Fast local storage              | {{ sku|KZT|mdb.cluster.local-nvme.mssql|month|string }}                | ₸65.0500 |
+| HDD network storage         | {{sku|KZT|mdb.cluster.network-hdd.mssql|month|string }}                | ₸16.0000 |
+| Non-replicated SSD storage  | ₸33.0000                                                               | ₸44.0000 |
+| SSD network storage         | {{sku|KZT|mdb.cluster.network-nvme.mssql|month|string }}               | ₸65.0500 |
+| Local SSD storage           | {{ sku|KZT|mdb.cluster.local-nvme.mssql|month|string }}                | ₸65.0500 |
 | Backups beyond the storage size | ₸15.2544                                                               | ₸9.6000 |
+

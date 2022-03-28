@@ -6,7 +6,8 @@ For more information about a {{ mmy-name }} cluster structure, see [{#T}](../con
 
 {% note info %}
 
-The number of hosts that can be created together with a {{ MY }} cluster depends on the selected [type of storage](../concepts/storage.md#storage-type-selection).
+* The number of hosts that can be created together with a {{ MY }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available storage types [depend on](../concepts/storage.md) the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -17,24 +18,19 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
-
   1. Select **{{ mmy-name }}**.
-
   1. Click **Create cluster**.
-
   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mmy-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
   1. Select the DBMS version.
-
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
-
   1. Under **Storage size**:
+      * Select one of the following [storage types](../concepts/storage.md):
 
-      * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+        * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
+        * Or faster local SSD storage (`local-ssd`).
 
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -47,6 +43,7 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
           {% endnote %}
 
   1. Under **Database**, specify the DB attributes:
+
       * Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
       * The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
       * User password (from 8 to 128 characters).
@@ -55,7 +52,7 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
 
   1. Under **Hosts**, select the parameters for the DB hosts created with the cluster. If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
-      When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster. After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
+      If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least 3 hosts to the cluster. After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
   1. If necessary, configure additional cluster settings:
 
@@ -80,10 +77,18 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
      ```
      $ yc vpc subnet list
      ```
+     {% if audience != "internal" %}
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  1. View a description of the CLI create cluster command:
+     {% else %}
+
+     If there are no subnets in the folder, create the necessary subnets in {{ vpc-short-name }}.
+
+     {% endif %}
+
+
+  1. View a description of the CLI's create cluster command:
 
       ```
       $ {{ yc-mdb-my }} cluster create --help
@@ -99,7 +104,7 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
         --mysql-version <MySQL version> \
         --resource-preset <host class> \
-        --user name=<username>,password=<user password> \|
+        --user name=<username>,password=<user password> \
         --database name=<database name> \
         --disk-size <storage size in GB> \
         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
@@ -111,14 +116,20 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-settings).
+      If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
 - Terraform
 
   {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  {% if audience != "internal" %}
 
   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
+  {% else %}
+
+  If you don't have Terraform, install it and configure the provider.
+
+  {% endif %}
   To create a cluster:
 
   1. In the configuration file, describe the parameters of resources that you want to create:
@@ -186,7 +197,7 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
      }
      ```
 
-     {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+     {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_mysql_cluster.html).
 
@@ -201,6 +212,7 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
 - API
 
     Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+
     * The ID of the folder where the cluster should be placed in the `folderId` parameter.
     * The cluster name in the `name` parameter. The cluster name must be unique within the folder.
     * The environment of the cluster, in the `environment` parameter.
@@ -239,7 +251,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     * In the `default` network.
     * In the security group with the ID `{{ security-group }}`.
     * With one `{{ host-class }}` host in the `{{ subnet-id }}` subnet, in the `{{ zone-id }}` availability zone.
-    * With 20 GB fast network storage (`{{ disk-type-example }}`).
+    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
     * With one user (`user1`) with the password `user1user1`.
     * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
     * With protection against accidental cluster deletion.
@@ -250,7 +262,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     * Version `8.0`.
     * In the `production` environment.
     * With one `{{ host-class }}` host in the `man` availability zone.
-    * With 20 GB fast local storage (`local-ssd`).
+    * With 20 GB of local SSD storage (`local-ssd`).
     * With one user (`user1`) with the password `user1user1`.
     * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
     * With protection against accidental cluster deletion.
@@ -308,15 +320,16 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ MY }} cluster and a network for it with the following characteristics:
+
     * Named `my-mysql`.
     * Version `8.0`.
     * In the `PRESTABLE` environment.
     * In the cloud with the ID `{{ tf-cloud-id }}`.
     * In the folder with the ID `{{ tf-folder-id }}`.
-    * Network: `mynet`.
+    * In the new `mynet` network.
     * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
     * In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
-    * With 20 GB of fast network storage (`{{ disk-type-example }}`).
+    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
     * With one user (`user1`) with the password `user1user1`.
     * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
     * With protection against accidental cluster deletion.
@@ -333,7 +346,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   provider "yandex" {
-    token = "<OAuth or static key of service account>"
+    token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"

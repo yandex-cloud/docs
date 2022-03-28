@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ mch-short-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -21,7 +22,9 @@ The cost of {{ mch-name }} usage is based on:
 
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
+
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
 
 ### DB host usage {#rules-hosts-uptime}
 
@@ -37,17 +40,17 @@ In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and w
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You aren't charged for time when the DBMS or {{ ZK }} host isn't performing its main functions.
 
+
 ### Disk space usage {#rules-storage}
 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 2 hosts:
-        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
-    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
 
-* The storage size used by data backups of [local](concepts/storage.md) and [network](concepts/storage.md) storage devices:
+    * Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+    * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in increments of 93 GB.
+
+* The storage size used by data backups of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage:
 
     * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
@@ -77,7 +80,7 @@ For example, you created a cluster:
 
 * With 3 {{ CH }} hosts of the `s1.micro` class (2 vCPU, 8 GB RAM).
 * With 3 automatically created {{ ZK }} hosts of the `b2.medium` class (2 vCPU x 50%, 4 GB RAM).
-* With 100 GB of standard network storage.
+* With 100 GB of HDD network (`network-hdd`) storage.
 
 Cost of using resources:
 
@@ -85,7 +88,7 @@ Cost of using resources:
 * 1 hour of using 1 GB of RAM of a {{ CH }} host: ₽0.33.
 * 1 hour of using the core of a {{ ZK }} host with 50% vCPU: ₽0.49.
 * 1 hour of using 1 GB of RAM of a {{ ZK }} host: ₽0.2.
-* 1 month of using 1 GB of standard network storage: ₽2.2881.
+* 1 month of using 1 GB of HDD network storage (`network-hdd`): ₽2.2881.
 
 Cost per hour for all hosts: `3 × (2 × ₽1.43 + 8 × ₽0.33) + 3 × (2 × ₽0.49 + 4 × ₽0.2) = ₽21.84`
 
@@ -99,7 +102,7 @@ Total cost of the cluster per month (hosts and storage): `720 × ₽21.84 + 100 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mch-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{mch-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -145,6 +148,7 @@ All prices are shown without VAT.
 
 {% endif %}
 
+
 ### {{ ZK }} host computing resources {#prices-zookeeper}
 
 {% note info %}
@@ -171,6 +175,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% endif %}
 
+
 ### Storage and backups {#prices-storage}
 
 {% if region == "ru"%}
@@ -190,6 +195,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
 {% endif %}
+
 
 ### Outgoing traffic {#prices-traffic}
 

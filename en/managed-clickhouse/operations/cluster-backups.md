@@ -7,7 +7,7 @@ description: "You can create backups and restore clusters from existing ClickHou
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
-## Creating backups {#create-backup}
+## Creating a backup {#create-backup}
 
 {% note warning %}
 
@@ -39,7 +39,7 @@ A random replica host is used to create a backup. If there is no cluster host da
       $ {{ yc-mdb-ch }} cluster backup --help
       ```
 
-  1. Request creation of a backup specifying the cluster name or ID:
+  1. Request the creation of a backup specifying the cluster name or ID:
 
       ```
       $ {{ yc-mdb-ch }} cluster backup my-ch-cluster
@@ -84,7 +84,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To restore a cluster from the backup:
+  To restore a cluster from a backup:
 
   1. View a description of the CLI restore {{ CH }} cluster command:
 
@@ -105,7 +105,7 @@ For a new cluster, you should set all the parameters that are required at creati
       +--------------------------+----------------------+----------------------+----------------------+
       ```
 
-  1. Request creation of a cluster from a backup:
+  1. Request the creation of a cluster from a backup:
 
       {% if audience == "internal" %}
 
@@ -140,19 +140,21 @@ For a new cluster, you should set all the parameters that are required at creati
       This results in a new {{ CH }} cluster with the following characteristics:
 
       {% if audience != "internal" %}
+
       - Named `mynewch`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
-      - With 20 GB of fast network storage (`{{ disk-type-example }}`).
+      - With 20 GB of SSD network storage (`network-ssd`).
 
       {% else %}
+
       - Named `mynewch`.
       - In the `PRODUCTION` environment.
       - With one `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
-      - With 20 GB fast local storage (`local-ssd`).
+      - With 20 GB of local SSD storage (`local-ssd`).
 
       {% endif %}
 
@@ -192,6 +194,7 @@ For a new cluster, you should set all the parameters that are required at creati
   ```
 
 {% endlist %}
+
 
 ## Getting information about backups {#get-backup}
 
@@ -233,7 +236,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
+  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
 
   ```bash
   {{ yc-mdb-ch }} cluster create \
@@ -245,7 +248,7 @@ For a new cluster, you should set all the parameters that are required at creati
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
         --clickhouse-disk-size <storage size in GB> \
         --user name=<username>,password=<user password> \
-        --database name=<DB name> \
+        --database name=<database name> \
         --backup-window-start 10:00:00
   ```
 
@@ -258,4 +261,3 @@ For a new cluster, you should set all the parameters that are required at creati
   ```
 
 {% endlist %}
-

@@ -27,37 +27,24 @@ When restoring to the current state, the new cluster will reflect the state of:
 - Management console
 
   To restore an existing cluster from a backup:
-
   1. Go to the folder page and select **{{ mpg-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
-
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-
   1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC)** setting. You can enter the value manually or select it from the drop-down calendar.
 
      If you don't change the setting, the cluster is restored to the state when the backup was completed.
-
   1. Click **Restore cluster**.
 
   To restore a previously deleted cluster from a backup:
-
   1. Go to the folder page and select **{{ mpg-name }}**.
-
   1. Click the **Backups** tab.
-
   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
-
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-
   1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC)** setting. You can enter the value manually or select it from the drop-down calendar.
 
      If you don't change the setting, the cluster is restored to the state when the backup was completed.
-
   1. Click **Restore cluster**.
 
   {{ mpg-name }} launches the operation to create a cluster from the backup.
@@ -88,7 +75,6 @@ When restoring to the current state, the new cluster will reflect the state of:
       | ...                                                                                           |
       +--------------------------+----------------------+----------------------+----------------------+
       ```
-
      The time when the backup was completed is shown in the `CREATED AT` column of a list of available backups, in `yyyy-mm-ddThh:mm:ssZ` format (`2020-08-10T12:00:00Z` in the example above). You can restore a cluster to any state from the specified point in time to the current time.
 
   1. Request the creation of a cluster from a backup:
@@ -113,19 +99,21 @@ When restoring to the current state, the new cluster will reflect the state of:
       This results in a new {{ PG }} cluster with the following characteristics:
 
       {% if audience != "internal" %}
+
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
-      - With 20 GB of fast network storage (`{{ disk-type-example }}`).
+      - With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 
       {% else %}
+
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
       - With one `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
-      - With 20 GB fast network storage (`network-ssd`).
+      - With 20 GB of SSD network storage (`network-ssd`).
 
       {% endif %}
 
@@ -220,6 +208,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   1. Click **Create backup**.
@@ -237,7 +226,6 @@ When restoring to the current state, the new cluster will reflect the state of:
       ```
       $ {{ yc-mdb-pg }} cluster backup --help
       ```
-
   1. Request the creation of a backup specifying the cluster name or ID:
 
       ```
@@ -247,6 +235,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
 
 {% endlist %}
+
 
 ## Getting a list of backups {#list-backups}
 
@@ -282,6 +271,7 @@ When restoring to the current state, the new cluster will reflect the state of:
   ```
 
 {% endlist %}
+
 
 ## Getting information about backups {#get-backup}
 
@@ -319,7 +309,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - Management console
 
-  In the management console, you can only set the start time for creating backups by [editing the cluster](update.md).
+  In the management console, you can set the backup start time when [creating](cluster-create.md) or [updating](update.md) a cluster.
 
 - CLI
 

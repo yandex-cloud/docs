@@ -5,7 +5,7 @@
 After creating an {{ KF }} cluster, you can:
 
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
+* [{#T}](#change-disk-size) (only available for [storage types](../concepts/storage.md) `network-hdd` and `network-ssd`).
 * [Update the {{ KF }} settings](#change-kafka-settings).
 * [Move the cluster](#move-cluster) from the current folder to another one.
 * [Change cluster security groups](#change-sg-set).
@@ -23,7 +23,6 @@ After creating an {{ KF }} cluster, you can:
 ## Change the class and number of hosts {#change-resource-preset}
 
 You can change:
-
 * The {{ KF }} broker host class and number.
 * The class of {{ ZK }} hosts.
 
@@ -38,9 +37,7 @@ You can't decrease the number of {{ KF }} broker hosts.
 - Management console
 
   1. Go to the folder page and select **{{ mkf-name }}**.
-
   1. Select the cluster and click **Edit** in the top panel.
-
   1. Change the required settings:
      * To change the class of [broker hosts](../concepts/brokers.md), select a new [host class](../concepts/instance-types.md) in the corresponding section.
      * To change the number of broker hosts in each availability zone that was chosen when [creating a cluster](cluster-create.md#create-cluster), change the value of the corresponding setting.
@@ -148,17 +145,22 @@ You can't decrease the number of {{ KF }} broker hosts.
 
 {% endlist %}
 
-## Changing storage settings {#change-disk-size}
+## Increasing storage size {#change-disk-size}
 
 {% note warning %}
 
-Currently, you can't change the disk type for {{ KF }} clusters after creation.
+You can't change the disk type for {{ KF }} clusters after creation.
 
 {% endnote %}
+
+{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
 
 {% list tabs %}
 
 - Management console
+
+  To increase the storage size for a cluster:
+
   1. Go to the folder page and select **{{ mkf-name }}**.
   1. Select the cluster and click **Edit** in the top panel.
   1. Change the storage size in the relevant section.
@@ -170,32 +172,26 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change storage settings for hosts:
-
-  1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
-
-     ```
-     {{ yc-mdb-kf }} cluster list
-     {{ yc-mdb-kf }} cluster get <cluster name or ID>
-     ```
+  To increase the storage size for a cluster:
 
   1. View a description of the CLI's update cluster command:
 
-     ```
+     ```bash
      {{ yc-mdb-kf }} cluster update --help
      ```
 
-  1. To change the size of the broker host disks, run the command:
+  1. To change the size of the broker host storage, run the command:
 
-     ```
-     {{ yc-mdb-kf }} cluster update <cluster name or ID> --disk-size <disk size>
+     ```bash
+     {{ yc-mdb-kf }} cluster update <cluster name or ID> \
+        --disk-size <storage size>
      ```
 
      If no size units are specified, gigabytes are used.
 
-  1. To change the size of the {{ ZK }} host disks, run the command:
+  1. To change the size of the {{ ZK }} host storage, run the command:
 
-     ```
+     ```bash
      {{ yc-mdb-kf }} cluster update <cluster name or ID> \
      --zookeeper-disk-size <disk size>
      ```
@@ -203,6 +199,8 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
      If no size units are specified, gigabytes are used.
 
 - Terraform
+
+  Increasing the storage size for a cluster
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -242,7 +240,7 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 
 - API
 
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+  To increase the storage size for a cluster, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
   * The new cluster configuration in the `configSpec` parameter.
@@ -258,9 +256,7 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 - Management console
 
     1. Go to the folder page and select **{{ mkf-name }}**.
-
     1. Select the cluster and click **Edit** in the top panel.
-
     1. Change additional cluster settings:
 
         {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -325,14 +321,13 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
     * The cluster ID in the `clusterId` parameter.
-
     * Cluster deletion protection settings in the `deletionProtection` parameter.
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-     You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
+    You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
 
     {% note warning %}
 
@@ -349,9 +344,7 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 - Management console
 
     1. Go to the folder page and select **{{ mkf-name }}**.
-
     1. Select the cluster and click **Edit** in the top panel.
-
     1. Change the {{ KF }} settings by clicking **Configure** under **DBMS settings**:
 
         For more information, see [{{ KF }} settings](../concepts/settings-list.md).
@@ -405,11 +398,11 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
         }
         ```
 
-    2. Make sure the settings are correct.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    3. Confirm the update of resources.
+    1. Confirm the update of resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -453,6 +446,7 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mkf-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **Network settings**, select security groups for cluster network traffic.
@@ -482,7 +476,7 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+        For information about how to create such a file, see [{#T}](cluster-create.md).
 
     1. Change the value of the `security_group_ids` parameter in the cluster description:
 
@@ -517,4 +511,3 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
-

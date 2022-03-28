@@ -8,4 +8,6 @@ When creating a cluster, you can choose between the following storage types:
 
 * Local SSD storage (`local-ssd`): The fastest disks.
 
-  The storage size can only be increased in increments of 100 GB.
+  The size of this kind of storage can be increased:
+    * For **Intel Cascade Lake**: In increments of 100 GB.
+    * For **Intel Ice Lake**: Only in increments of {{ local-ssd-v3-step }}.

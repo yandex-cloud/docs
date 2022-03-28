@@ -13,7 +13,7 @@ After creating a cluster, you can:
 
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
+* [{#T}](#change-disk-size) (only available for [storage types](../concepts/storage.md) `network-hdd` and `network-ssd`).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
 
@@ -26,20 +26,29 @@ You can also update the {{ ES }} version or edition. For more information, see [
 - Management console
 
     1. Go to the folder page and select **{{ mes-name }}**.
-
     1. Select the cluster and click **Edit** in the top panel.
 
+    {% if audience != "internal" %}
+
     1. Select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
+
+    {% else %}
+
+    1. Select the desired service account from the list or create a new one. For more information about setting up service accounts, see [{#T}](s3-access.md).
+
+    {% endif %}
 
        {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 {% endlist %}
+
 
 ## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Select the cluster and click **Edit** in the top panel.
   1. To change the class of {{ ES }} hosts with the *Data node* role:
@@ -89,9 +98,14 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 ## Increasing storage size {#change-disk-size}
 
+{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+
 {% list tabs %}
 
 - Management console
+
+  To increase the storage size for a cluster:
+
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Select the cluster and click **Edit** in the top panel.
   1. To increase the disk size for {{ ES }} hosts with the *Data node* role:
@@ -130,9 +144,9 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - API
 
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+  To increase the storage size for a cluster, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Required disk size (in bytes) in the parameters:
+  * Required storage size (in bytes) in the parameters:
     * `configSpec.elasticsearchSpec.dataNode.resources.diskSize` (for hosts with the *Data node* role).
     * `configSpec.elasticsearchSpec.masterNode.resources.diskSize`  (for hosts with the *Master node* role).
   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
@@ -146,6 +160,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Select the cluster and click **Edit** in the top panel.
   1. Enter a new password for `admin` in the **User** section.
@@ -206,11 +221,8 @@ You can also update the {{ ES }} version or edition. For more information, see [
 - Management console
 
     1. Go to the folder page and select **{{ mes-name }}**.
-
     1. Select the cluster and click **Edit** in the top panel.
-
     1. To change the service account used to work with the cluster, select an account from the drop-down list.
-
     1. Change additional cluster settings:
 
         {% include [extra-settings](../../_includes/mdb/mes/extra-settings.md) %}
@@ -250,12 +262,18 @@ You can also update the {{ ES }} version or edition. For more information, see [
 - API
 
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-
     * The cluster ID in the `clusterId` parameter. To get the ID, [get the list of clusters in the folder](./cluster-list.md#list-clusters).
-
     * The list of [{{ ES }} plugins](../concepts/plugins.md) in the `plugins` parameter.
 
+    {% if audience != "internal" %}
+
     * The ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
+
+    {% else %}
+
+    * ID of the service account used for cluster operations in the `serviceAccountId` parameter.
+
+    {% endif %}
 
     * Cluster deletion protection settings in the `deletionProtection` parameter.
 
@@ -265,9 +283,8 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
     {% note warning %}
 
-    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, pass the names of the fields to be changed in the `updateMask` parameter.
+    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
 
     {% endnote %}
 
 {% endlist %}
-

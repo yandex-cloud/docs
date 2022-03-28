@@ -1,6 +1,6 @@
 # Использование гибридного хранилища
 
-Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера {{ mch-name }}, а редко используемые данные — в {{ objstorage-full-name }}. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/). Подробнее см. в разделе [{#T}](../concepts/storage.md).
+Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера {{ mch-name }}, а редко используемые данные — в {{ objstorage-full-name }}. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Подробнее см. в разделе [{#T}](../concepts/storage.md).
 
 Чтобы воспользоваться гибридным хранилищем:
 1. [Создайте таблицу](#create-table).
@@ -21,7 +21,7 @@
 
 ## Создайте таблицу {#create-table}
 
-Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации {{ CH }}](https://clickhouse.tech/docs/ru/getting-started/tutorial/#create-tables):
+Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/tutorial/#create-tables){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/tutorial/#create-tables){% endif %}:
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -49,8 +49,8 @@ SETTINGS index_granularity = 8192
 Выражение `TTL ...` задает политику работы с устаревающими данными:
 1. TTL задает время жизни строки таблицы (в данном случае — это количество дней от текущей даты до 20 марта 2014 года). 
 1. Для данных в таблице проверяется значение `EventDate`:
-   - если количество дней от текущей даты до `EventDate` меньше значения TTL (то есть время жизни еще не истекло), то эти данные остаются в хранилище на сетевых дисках;
-   - если количество дней от текущей даты до `EventDate` больше или равно значению TTL (то есть время жизни уже истекло), то эти данные помещаются в объектное хранилище согласно политике `TO DISK 'object_storage'`;
+   * если количество дней от текущей даты до `EventDate` меньше значения TTL (то есть время жизни еще не истекло), то эти данные остаются в хранилище на сетевых дисках;
+   * если количество дней от текущей даты до `EventDate` больше или равно значению TTL (то есть время жизни уже истекло), то эти данные помещаются в объектное хранилище согласно политике `TO DISK 'object_storage'`;
 
 Указывать TTL для использования гибридного хранилища необязательно, однако это позволяет явно контролировать, какие данные будут находиться в {{ objstorage-name }}. Если не указывать TTL, то данные будут помещаться в объектное хранилище только когда в хранилище на сетевых дисках закончится место. Подробнее см. в разделе [{#T}](../concepts/storage.md).
 
@@ -60,9 +60,9 @@ SETTINGS index_granularity = 8192
 
 {% endnote %}
 
-Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Старайтесь выбирать выражение TTL и [ключ партиционирования](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/) так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище при истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
+Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}. Старайтесь выбирать выражение TTL и [ключ партиционирования]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище при истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
 
-Подробнее о настройке TTL см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
+Подробнее о настройке TTL см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}.
 
 ## Наполните таблицу данными {#fill-table-with-data}
 
@@ -81,7 +81,7 @@ SETTINGS index_granularity = 8192
 
 1. Дождитесь завершения операции, вставка данных может занять некоторое время.
 
-Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/getting-started/tutorial/#import-data).
+Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/tutorial/#import-data){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/tutorial/#import-data){% endif %}.
 
 ## Проверьте размещение данных в кластере {#check-table-tiering}
 

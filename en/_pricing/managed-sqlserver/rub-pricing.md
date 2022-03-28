@@ -23,13 +23,13 @@ For the following products, funds are debited once for the calendar month in adv
 
 ### Storage and backups {#prices-storage}
 
-{% include [local-ssd for Ice Lake only by request](../../_includes/ice-lake-local-ssd-note.md) %}
+{% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
 | Service                         | Cost of 1 GB per month                                                 | |
 | ----- | ----- | ----- |
 | | **Up until April 12, 2022** | **Starting April 13, 2022** |
-| Standard network storage        | {{ sku|RUB|mdb.cluster.network-hdd.mssql|month|string }}               | ₽3.2000 |
-| Non-replicated network storage  | ₽5.5000                                                                | ₽8.8000 |
-| Fast network storage            | {{ sku|RUB|mdb.cluster.network-nvme.mssql|month|string }}              | ₽13.0100 |
-| Fast local storage              | {{ sku|RUB|mdb.cluster.local-nvme.mssql|month|string }}                | ₽13.0100 |
+| HDD network storage         | {{ sku|RUB|mdb.cluster.network-hdd.mssql|month|string }}               | ₽3.2000 |
+| Non-replicated SSD storage  | ₽5.5000                                                                | ₽8.8000 |
+| SSD network storage         | {{ sku|RUB|mdb.cluster.network-nvme.mssql|month|string }}              | ₽13.0100 |
+| Local SSD storage           | {{ sku|RUB|mdb.cluster.local-nvme.mssql|month|string }}                | ₽13.0100 |
 | Backups beyond the storage size | ₽2.5424                                                                | ₽1.9200 |
