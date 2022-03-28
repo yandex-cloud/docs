@@ -15,10 +15,14 @@ items:
         href: operations/node-connect-ssh.md
       - name: Creating a configuration file
         href: operations/create-static-conf.md
-      - name: Working with {{ marketplace-name }}
-        href: operations/marketplace.md
       - name: Updating {{ k8s }}
         href: operations/update-kubernetes.md
+      - name: Installing applications
+        items:
+          - name: Basics of working with {{ marketplace-name }}
+            href: operations/applications/marketplace.md
+          - name: Installing Metrics Provider
+            href: operations/applications/metrics-provider.md
       - name: Network scenarios
         items:
           - name: >-

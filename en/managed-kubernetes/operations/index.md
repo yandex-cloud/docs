@@ -10,7 +10,11 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](create-static-conf.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](encrypting-secrets.md)
-* [{#T}](marketplace.md)
+
+## Installing applications {#marketplace}
+
+* [{#T}](applications/marketplace.md)
+* [{#T}](applications/metrics-provider.md)
 
 ## Network scenarios {#network-scenarios}
 
