@@ -19,6 +19,10 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)
 
+## Encryption {#encrypting}
+
+* [{#T}](autoscale.md)
+
 ## Working with persistent volumes {#persistent-volumes}
 
 * [{#T}](volumes/dynamic-create-pv.md)

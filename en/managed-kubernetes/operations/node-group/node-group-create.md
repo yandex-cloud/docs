@@ -53,14 +53,14 @@ To create a [node group](../../concepts/index.md#node-group), first [create a {{
      * `--daily-maintenance-window`: The maintenance window settings.
      * `--disk-size`: The [size of the disk](../../../compute/concepts/disk.md#maximum-disk-size) on the node.
      * `--disk-type`: The [type of the disk](../../../compute/concepts/disk.md#disks_types) on the node.
-     * `--fixed-size`: Number of nodes in the node group.
-     * `--location`: The [availability zone](../../../overview/concepts/geo-scope.md), [network](../../../vpc/concepts/network.md#network) and [subnet](../../../vpc/concepts/network.md#subnet) to host the nodes on. You can specify several options.
+     * `--fixed-size`: The number of nodes in the node group.
+     * `--location`: The [availability zone](../../../overview/concepts/geo-scope.md), [network](../../../vpc/concepts/network.md#network), and [subnet](../../../vpc/concepts/network.md#subnet) to host the nodes on. You can specify several options.
      * `--memory`: Amount of memory allocated for the nodes.
      * `--name`: Name of the node group.
-     * `--network-acceleration-type`: Type of [network acceleration](../../../compute/concepts/software-accelerated-network.md):
+     * `--network-acceleration-type`: The type of [network acceleration](../../../compute/concepts/software-accelerated-network.md):
        * `standard`: Without acceleration.
        * `software-accelerated`: Software-accelerated network.
-     * `--network-interface`: Network settings:
+     * `--network-interface`: Network settings.
 
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
@@ -87,7 +87,7 @@ To create a [node group](../../concepts/index.md#node-group), first [create a {{
 
 - Terraform
 
-  In [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md,), you created a {{ k8s }} cluster using Terraform. Use the same `.tf` configuration file to create a node group in the cluster.
+  In [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md), you created a {{ k8s }} cluster using Terraform. Use the same `.tf` configuration file to create a node group in the cluster.
 
   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

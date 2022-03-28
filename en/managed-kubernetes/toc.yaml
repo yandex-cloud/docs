@@ -33,6 +33,8 @@ items:
             href: operations/cilium-node-local-dns.md
       - name: Encrypting secrets
         href: operations/encrypting-secrets.md
+      - name: Automatic scaling
+        href: operations/autoscale.md
       - name: Working with persistent volumes
         items:
           - name: Dynamic volume provisioning
@@ -133,6 +135,8 @@ items:
         href: concepts/external-nodes.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md
+      - name: Automatic scaling
+        href: concepts/autoscale.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Recommendations for using {{ managed-k8s-name }}
