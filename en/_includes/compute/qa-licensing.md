@@ -32,6 +32,9 @@ Yes. When using licensed Microsoft software in Yandex Compute Cloud, you must ha
 
 No. Currently, you cannot upload your own images with Windows.
 
+#### Why do I need to specify the address when using Microsoft products? {#ms-licensing-address}
+
+As of January 24, 2022, to use Microsoft products, you need to specify user data and addresses of individuals and legal entities. These are the requirements of the Microsoft licensing policy. If the data isn't provided, you can't run Microsoft products.
 #### Can I deploy my own licenses in {{ compute-name }}? {#custom}
 
 Questions about Windows Server licensing are discussed in detail in [{#T}](../../compute/qa/licensing.md).
@@ -70,4 +73,4 @@ No. According to the terms of use for Microsoft products, License Mobility does 
 
 #### Can I purchase other Microsoft products with licenses that can be deployed in Yandex Compute Cloud? {#buy-other-products}
 
-Yes. Currently, {{ yandex-cloud }} only provides Windows Server, Microsoft SQL Server, and RDS licenses and transfers server software licenses under the [License Mobility through Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %} program. Licensing of MSDN, Windows OS, Microsoft Office, and other products is not available.
+Yes. Currently, {{ yandex-cloud }} provides Windows Server, Microsoft SQL Server, and RDS licenses and transfers server software licenses under the [License Mobility through Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %} program. Licensing of MSDN, Windows OS, Microsoft Office, and other products is not available.

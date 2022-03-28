@@ -2,6 +2,8 @@
 
 This section provides guidelines on how to create a VM with the Windows OS. To create a Linux-based VM, follow the instructions [{#T}](create-linux-vm.md).
 
+{% include [ms-licensing-personal-data](../../../_includes/ms-licensing-personal-data.md) %}
+
 {% list tabs %}
 
 - Management console

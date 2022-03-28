@@ -19,6 +19,8 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
 {% endif %}
 
+{% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
+
 ## How to create a {{ MS }} cluster {#create-cluster}
 
 {% list tabs %}
@@ -96,7 +98,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
           name                = "<cluster name>"
           environment         = "<environment: PRESTABLE or PRODUCTION>"
           network_id          = "<network ID>"
-          version             = "<version: 2016sp2std or 2016sp2ent>"
+          version             = "<{{ MS }} version>"
           security_groups_id  = ["<list of security group IDs>"]
           deletion_protection = <protect cluster from deletion: true or false>
         
@@ -158,7 +160,6 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 - API
 
   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
-
   * The ID of the folder where the cluster should be placed in the `folderId` parameter.
   * The cluster name, in the `name` parameter.
   * Cluster configuration, in the `configSpec` parameter.
