@@ -489,7 +489,7 @@ default:
   taas: TaaS
   ml-project-size: 10 ГБ
 
-  #Marketplace
+  # Marketplace
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
   mp-test-sku-id: dn272e8979uvek5cnuhk
 
@@ -507,7 +507,7 @@ default:
   dt-type-repl: Реплицировать
   dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
-  # Актуальная документация по  API Kubernetes
+  # Актуальная документация по API Kubernetes
   k8s-api-link: https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
 
   # Провайдеры Terraform
