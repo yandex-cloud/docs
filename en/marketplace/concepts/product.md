@@ -1,8 +1,5 @@
 # Product
 
-A Marketplace product is a disk image with pre-installed software that the user can select when creating a VM in {{ compute-name }}.
+A {{ marketplace-short-name }} product is a form that reflects the type of a software product and includes its [versions](version.md).
 
-Users pay for consuming the product based on the [service plan](tariff.md) assigned to the product.
-
-You can create product versions to release product updates or builds for different operating systems. You can assign different plans for different product versions.
-
+Users pay for consuming the product based on the assigned service plan. Different product versions may have different service plans. About creating a service plan, see [{#T}](../operations/create-tariff.md).
