@@ -23,6 +23,8 @@ items:
         items:
           - name: Основы работы с {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Установка Jaeger
+            href: operations/applications/jaeger.md
           - name: Установка Metrics Provider
             href: operations/applications/metrics-provider.md
       - name: Сетевые сценарии
