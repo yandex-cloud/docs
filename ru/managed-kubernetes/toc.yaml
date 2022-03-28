@@ -113,6 +113,10 @@ items:
         href: tutorials/fluent-bit-logging.md
       - name: Синхронизация с секретами Yandex Lockbox
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: Использование продуктов {{ marketplace-full-name }}
+        items:
+          - name: Использование Jaeger для трассировки запросов в {{ ydb-full-name }}
+            href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
