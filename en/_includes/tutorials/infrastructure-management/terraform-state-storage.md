@@ -83,7 +83,7 @@ terraform {
   backend "s3" {
     endpoint   = "storage.yandexcloud.net"
     bucket     = "<bucket name>"
-    region     = "us-east-1"
+    region     = "ru-central1"
     key        = "<path to the state file in the bucket>/<state file name>.tfstate"
     access_key = "<static key identifier>"
     secret_key = "<secret key>"
@@ -122,7 +122,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
      backend "s3" {
        endpoint   = "storage.yandexcloud.net"
        bucket     = "<bucket name>"
-       region     = "us-east-1"
+       region     = "ru-central1"
        key        = "<path to the state file in the bucket>/<state file name>.tfstate"
        access_key = "<static key identifier>"
        secret_key = "<secret key>"
@@ -263,7 +263,7 @@ Create another configuration and use the saved state to create another VM in one
      config = {
        endpoint   = "storage.yandexcloud.net"
        bucket     = "<bucket name>"
-       region     = "us-east-1"
+       region     = "ru-central1"
        key        = "<path to the state file in the bucket>/<state file name>.tfstate"
        access_key = "<static key identifier>"
        secret_key = "<secret key>"
