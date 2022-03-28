@@ -47,7 +47,7 @@ components:
         type: function
         function_id: b095c95icnvbuf4v755l
         tag: "$latest"
-        service_account_id: ajehfe41hhliq4n93q1g
+        service_account_id: ajehfe84hhlaq4n59q1
         authorizer_result_ttl_in_seconds: 300
 ```
 
