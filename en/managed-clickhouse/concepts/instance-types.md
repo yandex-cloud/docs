@@ -136,3 +136,4 @@ The full list of possible host configurations on each platform is provided below
 | c3-c96-m192 | 96 | 100% | 192 |
 
 {% endif %}
+
