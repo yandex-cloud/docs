@@ -14,6 +14,7 @@
 | Cloud Load Balancing, App Engine, Cloud Run | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Cloud Memorystore | [{{ mrd-full-name }}](../../managed-redis/) |
 | Cloud Pub/Sub | [{{ message-queue-full-name }}](../../message-queue/) |
+| Cloud Run | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
 | Cloud Speech-to-Text, Cloud Text-to-Speech | [{{ speechkit-full-name }}](../../speechkit/) |
 | Cloud SQL: MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
@@ -38,4 +39,3 @@
 | SQL Server on Google Cloud | [{{ mms-full-name }}](../../managed-sqlserver/) |
 | Translation API | [{{ translate-full-name }}](../../translate/) |
 | Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
-
