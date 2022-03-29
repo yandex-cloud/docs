@@ -14,6 +14,10 @@ editable: false
 
 В рамках сервиса {{ message-queue-name }} тарифицируется количество запросов к [стандартным очередям](concepts/queue.md#standard-queues) и [очередям FIFO](concepts/queue.md#fifo-queues), а также исходящий трафик.
 
+{% include [not-charged-queue.md](../_includes/pricing/price-formula/not-charged-queue.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ### Запросы к очередям {#requests-to-queues}
 
 {% if region == "ru"%}

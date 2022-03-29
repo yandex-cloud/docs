@@ -16,75 +16,66 @@ Free tier распространяется на сервисы:
 
 ## {{ api-gw-full-name }} {#api-gw}
 
-Каждый месяц не тарифицируются первые 100 000 запросов к API-шлюзам. Далее — в соответствии с [тарифами](../../api-gateway/pricing.md).
+{% include [not-charged-gateway.md](../../_includes/pricing/price-formula/not-charged-gateway.md) %} 
 
-Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
+После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../api-gateway/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ sf-full-name }} {#sf}
 
-Каждый месяц не тарифицируются:
-* первые 1 000 000 вызовов функций;
-* первые 10 ГБ×час выполнения функций.
+{% include [not-charged-functions.md](../../_includes/pricing/price-formula/not-charged-functions.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../functions/pricing.md).
 
-Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## Бессерверный режим {{ ydb-full-name }} {#ydb}
 
-Каждый месяц не тарифицируются:
-* первые 1 000 000 операций (в единицах Request Unit);
-* первый 1 ГБ/месяц хранения данных.
+{% include [not-charged-database.md](../../_includes/pricing/price-formula/not-charged-database.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../ydb/pricing/serverless.md).
 
-Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ objstorage-full-name }} {#objstorage}
 
-Каждый месяц не тарифицируются ресурсы стандартного хранилища:
-* первый 1 ГБ в месяц хранения;
-* первые 10 000 операций PUT, POST;
-* первые 100 000 операций GET, HEAD.
+{% include [not-charged-storage.md](../../_includes/pricing/price-formula/not-charged-storage.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../storage/pricing.md).
 
-Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ message-queue-full-name }} {#message-queue}
 
-Каждый месяц не тарифицируются первые 100 000 запросов к очередям.
+{% include [not-charged-queue.md](../../_includes/pricing/price-formula/not-charged-queue.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../message-queue/pricing.md).
 
-Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ iot-full-name }} {#iot}
 
-Каждый месяц не тарифицируются первые 100 000 сообщений к очередям.
+{% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-iot.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../iot-core/pricing.md).
 
-Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ vpc-full-name }} {#vpc}
 
-Каждый месяц не тарифицируются первые 10 ГБ исходящего трафика.
+{% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-vpc.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../vpc/pricing.md).
 
-Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ yds-full-name }} {#yds}
 
-Каждый месяц не тарифицируются обслуживание потока данных со следующими характеристиками:
-
-* скорость записи в сегмент — не более 128 КБ/с;
-* время хранения сообщений — 1 час;
-* количество единиц записываемых данных в месяц — не более 2 млн.
+{% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-streams.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../data-streams/pricing.md).
 
-Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 {% endif %}

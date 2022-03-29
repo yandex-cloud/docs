@@ -10,6 +10,10 @@ editable: false
 
 В рамках {{ vpc-short-name }} оплачивается почасовое использование публичных IP-адресов.
 
+{% include [not-charged-vpc.md](../_includes/pricing/price-formula/not-charged-vpc.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ## Цены {#prices}
 
 {% if region != "int" %}

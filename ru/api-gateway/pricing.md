@@ -16,6 +16,14 @@ editable: false
 
 {% if region == "ru"%}
 
+### Формула расчета стоимости {#price-formula}
+
+Стоимость в месяц = 75 ₽ × Количество миллионов запросов
+
+{% include [not-charged-gateway.md](../_includes/pricing/price-formula/not-charged-gateway.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ### Пример расчета стоимости API-шлюза {#price-example}
 
 {% if audience != "external" %}

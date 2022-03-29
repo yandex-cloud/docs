@@ -21,6 +21,10 @@ editable: false
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
+{% include [not-charged-storage.md](../_includes/pricing/price-formula/not-charged-storage.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ### Использование хранилища {#rules-storage}
 
 Использование хранилища измеряется в ГБ в месяц. Объемом хранимых в течение месяца данных считается среднее значение за месяц, согласно данным, гранулированным посекундно. Минимальная единица тарификации — час хранения 1 МБ данных.
