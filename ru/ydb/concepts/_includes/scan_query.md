@@ -14,7 +14,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/scan_query.md
 
 {% node info %}
 
-Через интерфейс *Scan Queries* можно выполнять запросы к [системным таблицам](../../troubleshooting/system_views.md).
+Через интерфейс *Scan Queries* можно выполнять запросы к [системным таблицам](../../troubleshooting/system_views_db.md).
 
 {% endnote %}
 

@@ -21,6 +21,35 @@
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql.md) %}
 
+- Terraform
+
+    * Тип эндпоинта — `mysql_target`.
+
+    {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mysql_target {
+          connection {
+            mdb_cluster_id = "<идентификатор кластера {{ mmy-name }}>"
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
 - API
 
     {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql.md) %}
@@ -42,6 +71,38 @@
     * Тип эндпоинта — `mysql-target`.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql.md) %}
+
+- Terraform
+
+    * Тип эндпоинта — `mysql_target`.
+
+    {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mysql_target {
+          connection {
+            on_premise {
+              hosts = ["<список хостов>"]
+              port  = <порт для подключения>
+            }
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API
 
@@ -82,6 +143,18 @@
         {% include [Note turn-off-mysql-constraints](../../../../_includes/data-transfer/notes/mysql-turn-off-constraints.md) %}
 
     * `--timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
+
+- Terraform
+
+    * `sql_mode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html). По умолчанию используется список `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`.
+
+    * `skip_constraint_checks` — используется для ускорения репликации: настройки `FOREIGN_KEY_CHECKS` и `UNIQUE_CHECKS` устанавливаются в значение `0` (проверки не производятся).
+
+        {% include [Note turn-off-mysql-constraints](../../../../_includes/data-transfer/notes/mysql-turn-off-constraints.md) %}
+
+    * `timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API
 

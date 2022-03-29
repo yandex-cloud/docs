@@ -20,6 +20,34 @@
     * Тип эндпоинта — `postgres-target`.
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
+    
+- Terraform
+
+    * Тип эндпоинта — `postgres_target`.
+
+    {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        postgres_target {
+          connection {
+            mdb_cluster_id = "<идентификатор кластера {{ mpg-name }}>"
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API
 
@@ -42,6 +70,37 @@
     * Тип эндпоинта — `postgres-target`.
 
     {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
+
+- Terraform
+
+    * Тип эндпоинта — `postgres_target`.
+
+    {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        postgres_target {
+          connection {
+            on_premise {
+              hosts = ["<список хостов>"]
+              port  = <порт для подключения>
+            }
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API
 

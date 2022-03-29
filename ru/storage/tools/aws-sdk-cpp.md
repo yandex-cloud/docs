@@ -62,7 +62,7 @@ ${AWSSDK_PLATFORM_DEPS})
 #include <iostream> 
 
 
-//  Находит бакет и выводит его содержимое в консоль
+// Находит бакет и выводит его содержимое в консоль
 bool FindTheBucket(const Aws::S3::S3Client& s3Client, const Aws::String& bucketName)
 {
     Aws::S3::Model::ListBucketsOutcome outcome = s3Client.ListBuckets();
