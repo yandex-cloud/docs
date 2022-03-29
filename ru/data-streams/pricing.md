@@ -6,6 +6,10 @@
 
 При тарификации выделенных ресурсов учитывается лимит предоставленной пропускной способности сегмента и время хранения данных.
 
+{% include [not-charged-streams.md](../_includes/pricing/price-formula/not-charged-streams.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ### Пример расчета стоимости {#price-example}
 
 В поток данных, состоящий из одного сегмента, поступают 2 сообщения в секунду размером 50 КБ. Время хранения сообщений — 12 часов.

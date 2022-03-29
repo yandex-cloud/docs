@@ -43,7 +43,7 @@
 {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
 1. [Подключитесь](./cluster-connect.md) к кластеру.
-1. Установите расширение [repository-s3](../concepts/plugins.md):
+1. Установите расширение [repository-s3](cluster-extensions.md#elasticsearch):
 
     ```bash
     sudo bin/elasticsearch-plugin install repository-s3

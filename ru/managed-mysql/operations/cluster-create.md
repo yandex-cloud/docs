@@ -17,7 +17,7 @@
 
 - Консоль управления
 
-  1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
   1. Выберите сервис **{{ mmy-name }}**.
   1. Нажмите кнопку **Создать кластер**.
   1. Введите имя кластера в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога.
@@ -73,7 +73,7 @@
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
-     $ yc vpc subnet list
+     yc vpc subnet list
      ```
      
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
@@ -82,25 +82,25 @@
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      $ {{ yc-mdb-my }} cluster create --help
+      {{ yc-mdb-my }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания:
 
      ```bash
      {{ yc-mdb-my }} cluster create \
-        --name=<имя кластера> \
-        --environment <окружение, prestable или production> \
-        --network-name <имя сети> \
-        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-        --mysql-version <версия MySQL> \
-        --resource-preset <класс хоста> \
-        --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных> \
-        --disk-size <размер хранилища в гигабайтах> \
-        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --security-group-ids <список идентификаторов групп безопасности> \
-        --deletion-protection=<защита от удаления кластера: true или fasle>
+       --name=<имя кластера> \
+       --environment <окружение, prestable или production> \
+       --network-name <имя сети> \
+       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --mysql-version <версия MySQL> \
+       --resource-preset <класс хоста> \
+       --user name=<имя пользователя>,password=<пароль пользователя> \
+       --database name=<имя базы данных> \
+       --disk-size <размер хранилища в гигабайтах> \
+       --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+       --security-group-ids <список идентификаторов групп безопасности> \
+       --deletion-protection=<защита от удаления кластера: true или fasle>
      ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -252,27 +252,27 @@
       
       ```bash
       {{ yc-mdb-my }} cluster create \
-         --name="my-mysql" \
-         --mysql-version 8.0 \
-         --environment=production \
-         --network-name=default \
-         --security-group-ids {{ security-group }} \
-         --host {{ host-net-example }} \
-         --resource-preset {{ host-class }} \
-         --disk-type {{ disk-type-example }} \
-         --disk-size 20 \
-         --user name=user1,password="user1user1" \
-         --database name=db1 \
-         --deletion-protection=true
+        --name="my-mysql" \
+        --mysql-version 8.0 \
+        --environment=production \
+        --network-name=default \
+        --security-group-ids {{ security-group }} \
+        --host {{ host-net-example }} \
+        --resource-preset {{ host-class }} \
+        --disk-type {{ disk-type-example }} \
+        --disk-size 20 \
+        --user name=user1,password="user1user1" \
+        --database name=db1 \
+        --deletion-protection=true
       ```
 
   1. Запустите команду изменения привилегий пользователя `user1`.
 
       ```bash
       {{ yc-mdb-my }} user grant-permission user1 \
-         --cluster-name="my-mysql" \
-         --database=db1 \
-         --permissions ALL
+        --cluster-name="my-mysql" \
+        --database=db1 \
+        --permissions ALL
       ```
 
 - Terraform

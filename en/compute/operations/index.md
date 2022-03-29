@@ -45,6 +45,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-control/vm-attach-disk.md)
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
+* [{#T}](vm-control/vm-change-folder.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
@@ -68,6 +69,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](disk-control/create-snapshot.md)
 * [{#T}](disk-control/update.md)
+* [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/delete.md)
 * [{#T}](snapshot-control/delete.md)
 

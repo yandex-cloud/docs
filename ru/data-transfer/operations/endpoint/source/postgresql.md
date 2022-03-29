@@ -21,6 +21,35 @@
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
+- Terraform
+
+    * Тип эндпоинта — `postgres_source`.
+
+    {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        postgres_source {
+          connection {
+            mdb_cluster_id = "<идентификатор кластера {{ mpg-name }}>"
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
 - API
 
     {% include [Managed PostgreSQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-postgresql.md) %}
@@ -42,6 +71,38 @@
     * Тип эндпоинта — `postgres-source`.
 
     {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
+
+- Terraform
+
+    * Тип эндпоинта — `postgres_source`.
+
+    {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        postgres_source {
+          connection {
+            on_premise {
+              hosts = ["<список хостов>"]
+              port  = <порт для подключения>
+            }
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API
 
@@ -93,6 +154,47 @@
         * `--transfer-before-data` — на первичной стадии трансфера.
         * `--transfer-after-data` — на финальной стадии трансфера.
 
+- Terraform
+
+    * `include_tables` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка.
+    * `exclude_tables` — список исключенных таблиц. Данные таблиц из этого списка передаваться не будут.
+
+      Для обоих списков поддерживаются выражения вида:
+
+      * `<имя схемы>.<имя таблицы>` — полное имя таблицы;
+      * `<имя схемы>.*` — все таблицы в указанной схеме.
+
+    * `slot_gigabyte_lag_limit` — максимальный размер Write-Ahead Log, удерживаемого слотом репликации. При превышении этого ограничения репликация останавливается и слот репликации удаляется. По умолчанию не ограничен.
+
+    * `service_schema` — имя схемы БД для служебных таблиц.
+
+    * `object_transfer_settings` — настройки переноса схемы:
+
+        * `sequence` — последовательности;
+        * `sequence_owned_by` — пользовательские последовательности;
+        * `table` — таблицы;
+        * `primary_key` —  первичные ключи;
+        * `fk_constraint` — внешние ключи;
+        * `default_values` — значения по умолчанию;
+        * `constraint` — ограничения;
+        * `index` — индексы;
+        * `view` — представления;
+        * `function` — функции;
+        * `trigger` — триггеры;
+        * `type` — типы;
+        * `rule` — правила;
+        * `collation` — правила сортировки;
+        * `policy` — политики;
+        * `cast` — приведения типов.
+
+        Для каждой сущности может быть задано одно из значений:
+
+        * `BEFORE_DATA` — перенос на этапе активации трансфера;
+        * `AFTER_DATA` — перенос на этапе деактивации трансфера;
+        * `NEVER` — не переносить.
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
 - API
 
     * `includeTables` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка.
@@ -120,6 +222,8 @@
 Настройки эндпоинта для источника по умолчанию позволяют успешно выполнить трансфер для большинства баз данных. Изменяйте настройки первичной и финальной стадий переноса только если в этом есть необходимость.
 
 {% endnote %}
+
+Сервис не переносит материализованные представления (`MATERIALIZED VIEW`). Подробнее см. в разделе [Особенности работы сервиса с источниками и приемниками](../../../concepts/index.md#postgresql).
 
 В процессе работы трансфера схема базы данных переносится с источника на приемник. Перенос выполняется в два этапа:
 

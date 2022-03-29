@@ -139,6 +139,8 @@ items:
             href: tools/boto.md
           - name: The AWS SDK for .NET
             href: tools/aws-sdk-net.md
+          - name: AWS SDK for C++
+            href: tools/aws-sdk-cpp.md
           - name: AWS SDK for PHP
             href: tools/aws-sdk-php.md
       - name: FUSE

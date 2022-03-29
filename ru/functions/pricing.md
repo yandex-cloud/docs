@@ -19,13 +19,13 @@ editable: false
 {% endnote %}
 
 
-### Формула расчета стоимости
+### Формула расчета стоимости {#price-formula}
 
 Стоимость в месяц = 3,42 ₽ × Объем памяти (Гб) × Время обработки вызовов (Часы) + 10 ₽ × Количество миллионов вызовов
 
-При этом не тарифицируются первые:
-* 10 ГБ×час;
-* миллион вызовов.
+{% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ### Пример расчета стоимости {#price-example}
 

@@ -10,12 +10,12 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/_includes/cli/ls_exampl
 
 то команда будет выглядеть следующим образом:
 
-``` bash
+```bash
 {{ ydb-cli }} -e grpc://ydb.example.com:2136 -d /john/db1 scheme ls
 ```
 
 Результат выполнения на только что созданной пустой базе данных:
 
-``` text
+```text
 .sys_health .sys
 ```

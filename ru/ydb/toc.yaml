@@ -167,10 +167,14 @@ items:
     items:
       - name: Обзор
         href: best_practices/index.md
+      - name: Выбор первичного ключа для максимальной производительности
+        href: best_practices/pk_scalability.md
       - name: Проектирование схемы
         href: best_practices/schema_design.md
-      - name: Партицирование таблиц
+        hidden: true
+      - name: Партиционирование таблиц
         href: best_practices/table_sharding.md
+        hidden: true
       - name: Вторичные индексы
         href: best_practices/secondary_indexes.md
       - name: Постраничный вывод
@@ -202,7 +206,7 @@ items:
           - name: Обзор
             href: troubleshooting/index.md
           - name: Системные таблицы
-            href: troubleshooting/system_views.md
+            href: troubleshooting/system_views_db.md
           - name: Мониторинг
             href: troubleshooting/monitoring.md
       - name: Справочник метрик
@@ -439,6 +443,8 @@ items:
             href: reference/ydb-cli/commands/scheme-describe.md
           - name: Директории
             href: reference/ydb-cli/commands/dir.md
+          - name: Вторичные индексы
+            href: reference/ydb-cli/commands/secondary_index.md
           - name: Переименование таблиц
             href: reference/ydb-cli/commands/tools/rename.md
       - name: Работа с данными
@@ -449,8 +455,6 @@ items:
             href: reference/ydb-cli/commands/explain-plan.md
           - name: Потоковое чтение таблицы
             href: reference/ydb-cli/commands/readtable.md
-          - name: Работа со вторичными индексами
-            href: reference/ydb-cli/commands/index-ops.md
           - name: Скан запросы
             href: reference/ydb-cli/commands/scan-query.md
       - name: Загрузка и выгрузка данных
@@ -589,14 +593,10 @@ items:
             href: deploy/orchestrated/operate.md
       - name: Вручную
         items:
-          - name: Обзор
-            href: deploy/manual/concepts.md
           - name: Локальная установка
             href: deploy/manual/deploy-ydb-on-premises.md
           - name: Конфигурация кластера
             href: deploy/configuration/config.md
-          - name: Production checklist
-            href: deploy/production_checklist.md
           - name: Обслуживание дисковой подсистемы кластера
             items:
               - name: Обзор
@@ -640,6 +640,8 @@ items:
             href: maintenance/embedded_monitoring/logs.md
           - name: Графики
             href: maintenance/embedded_monitoring/charts.md
+      - name: Системные таблицы
+        href: troubleshooting/system_views_cluster.md
   - name: Вопросы и ответы
     items:
       - name: Обзор

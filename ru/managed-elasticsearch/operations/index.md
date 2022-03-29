@@ -9,6 +9,7 @@
 - [{#T}](saml-authentication.md)
 - [{#T}](s3-access.md)
 - [{#T}](cluster-hosts.md)
+- [{#T}](cluster-extensions.md)
 - [{#T}](cluster-users.md)
 - [{#T}](cluster-backups.md)
 - [{#T}](cluster-delete.md)

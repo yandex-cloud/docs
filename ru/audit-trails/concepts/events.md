@@ -11,6 +11,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 Ниже описаны события для сервисов:
 
 * [{{ at-name }}](#audit-trails)
+* [{{ certificate-manager-name }}](#certificate-manager)
 * [{{ cloud-logging-name }}](#cloud-logging-name)
 * [{{ compute-name }}](#compute)
 * [{{ iam-name }}](#iam)
@@ -38,6 +39,18 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `SetTrailAccessBindings` | Назначение привязок прав доступа для трейла
 `UpdateTrail` | Изменение трейла
 `UpdateTrailAccessBindings` | Обновление привязок прав доступа для трейла
+
+## {{ certificate-manager-name }} {#certificate-manager}
+
+Имя сервиса — `certificatemanager`.
+
+Имя события | Описание
+--- | ---
+`CreateCertificate` | Создание сертификата
+`UpdateCertificate` | Изменение сертификата
+`DeleteCertificate` | Удаление сертификата
+`UpdateCertificateAccessBindings` | Обновление привязок прав доступа для сертификата
+`SetCertificateAccessBindings` | Назначение привязок прав доступа для сертификата
 
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 

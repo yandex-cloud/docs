@@ -76,6 +76,10 @@ description: "Как получить логи моей работы в серв
 
 {% include [csv-network-error](../../_includes/datalens/qa/csv-network-error.md) %}
 
+### Что делать, если таблица из Google Sheets работает некорректно? {#google-sheets-error}
+
+{% include [google-sheets-error](../../_includes/datalens/qa/google-sheets-error.md) %}
+
 ## Материализация данных {#materialization}
 
 {% include [qa-materialization-error](../../_includes/datalens/qa/materialization-error.md) %}

@@ -239,7 +239,7 @@ keywords:
 
         ```bash
         {{ yc-mdb-es }} cluster update <идентификатор или имя кластера> \
-           --plugins <список расширений> \
+           --plugins <имя расширения 1>,...,<имя расширения N> \
            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
                                `day=<день недели для типа weekly>,`
                                `hour=<час дня для типа weekly> \
@@ -248,7 +248,7 @@ keywords:
 
     Вы можете изменить следующие настройки:
 
-    * `--plugins` — список [расширений {{ ES }}](../concepts/plugins.md), доступных в кластере. При этом расширения, не упомянутые в списке, будут выключены.
+    * `--plugins` — список [расширений {{ ES }}](cluster-extensions.md#elasticsearch), доступных в кластере. При этом расширения, не упомянутые в списке, будут выключены.
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
@@ -262,7 +262,7 @@ keywords:
 
     Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Список [расширений {{ ES }}](../concepts/plugins.md) в параметре `plugins`.
+    * Список [расширений {{ ES }}](cluster-extensions.md#elasticsearch) в параметре `plugins`.
 
     
     * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.

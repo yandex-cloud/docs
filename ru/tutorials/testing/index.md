@@ -4,3 +4,4 @@
 * [Создание тестовых ВМ через GitLab CI](ci-for-snapshots.md)
 * [Высокопроизводительные вычисления (HPC) на прерываемых виртуальных машинах](hpc-on-preemptible.md)
 * [Эмуляция множества IoT-устройств](iot-emulation.md)
+* [Нагрузочное тестирование gRPC-сервиса](loadtesting-grpc.md)

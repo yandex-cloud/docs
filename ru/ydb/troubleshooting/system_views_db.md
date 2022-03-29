@@ -1,10 +1,7 @@
 ---
-sourcePath: ru/ydb/overlay/troubleshooting/system_views.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/system_views_db.md
 ---
-
-{% include [intro.md](_includes/system_views/intro.md) %}
-
-В настоящее время доступ к системным таблицам возможен через веб-интерфейс.
+{% include [intro.md](_includes/system_views/intro_db.md) %}
 
 {% include [partitions.md](_includes/system_views/partitions.md) %}
 

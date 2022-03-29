@@ -75,6 +75,8 @@ items:
             href: operations/vm-control/vm-detach-disk.md
           - name: Moving a VM to a different availability zone
             href: operations/vm-control/vm-change-zone.md
+          - name: Moving a VM to another folder
+            href: operations/vm-control/vm-change-folder.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
           - name: Updating a VM
@@ -111,6 +113,8 @@ items:
             href: operations/disk-control/create-snapshot.md
           - name: Updating a disk
             href: operations/disk-control/update.md
+          - name: Moving a disk to another folder
+            href: operations/disk-control/disk-change-folder.md
           - name: Deleting a disk
             href: operations/disk-control/delete.md
           - name: Deleting a disk snapshot

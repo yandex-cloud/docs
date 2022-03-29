@@ -1,20 +1,18 @@
 # Availability zones
 
-During the initial stage, the Yandex.Cloud platform is hosted in three Yandex data centers located in different areas of Russia (the Vladimir, Ryazan, and Moscow regions). The Yandex.Cloud infrastructure in each of the data centers is called an _availability zone_. Each zone is isolated from hardware and software failures that may occur in other availability zones. By deploying your apps in multiple zones, you will ensure fault tolerance and significantly reduce the risk of data loss.
+At its initial stage, the {{ yandex-cloud }} platform is hosted in three Yandex data centers located in different areas of Russia (the Vladimir, Ryazan, and Moscow regions). The {{ yandex-cloud }} infrastructure in each data center is called an _availability zone_. Each zone is isolated from hardware and software failures that may occur in other availability zones. By deploying your apps in multiple zones, you ensure fault tolerance and significantly reduce the risk of data loss.
 
-You can place your resources in the following availability zones:
-
-- `ru-central1-a`
-- `ru-central1-b`
-- `ru-central1-c`
+You can host resources in the following availability zones:
+* `ru-central1-a`;
+* `ru-central1-b`;
+* `ru-central1-c` (with limitations — see the [details](ru-central1-c-deprecation.md)).
 
 {% note info %}
 
-When new availability zones appear or existing ones change location, Yandex.Cloud notifies all customers.
+When new availability zones appear or existing ones change location, {{ yandex-cloud }} notifies all its customers.
 
 {% endnote %}
 
-Yandex.Cloud resources are either _zonal_ (meaning they are linked to an availability zone) or global (meaning they are independent of any zone).
+{{ yandex-cloud }} resources are either _zonal_ (linked to an availability zone) or _global_ (not linked to zones).
 
-Examples of zonal resources are [virtual machines](../../compute/concepts/vm.md) and [disks](../../compute/concepts/disk.md). Examples of global resources are [cloud networks](../../vpc/concepts/network.md) and [bucket](../../storage/concepts/bucket.md).
-
+Zonal resources include [virtual machines](../../compute/concepts/vm.md) and [disks](../../compute/concepts/disk.md). Global resources include [cloud networks](../../vpc/concepts/network.md) and [buckets](../../storage/concepts/bucket.md).
