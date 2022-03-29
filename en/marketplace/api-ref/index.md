@@ -1,14 +1,17 @@
 ---
 editable: false
-sourcePath: en/_api-ref/marketplace/metering/api-ref/index.md
 ---
 
+# {{ yandex-cloud }} Marketplace Metering API
 
-# Yandex.Cloud Marketplace Metering API
-This reference provides descriptions of the Yandex.Cloud Marketplace Metering API.
-Yandex.Cloud Marketplace sellers can use this API to submit usage data for custom usage dimensions.
-This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs. All API methods are presented on this page. For more information about usage Metering API, see [GitHub examples](https://github.com/yandex-cloud/python-sdk/tree/master/examples/marketplace/metering-api).
+This API reference contains descriptions of the {{ yandex-cloud }} Marketplace Metering API methods.
 
-Resource | Description
+{{ yandex-cloud }} Marketplace vendors can use this API to send information about their product usage.
+
+API methods are grouped by resource. All methods are given on this page.
+
+API usage examples on [GitHub](https://github.com/yandex-cloud/python-sdk/tree/master/examples/marketplace/metering-api).
+
+| Resource | Description |
 --- | ---
-[ImageProductUsage](ImageProductUsage/index.md) | A set of methods for managing image product's usage.
+| [ImageProductUsage](ImageProductUsage/index.md) | Methods used to account for product consumption. |

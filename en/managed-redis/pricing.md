@@ -25,14 +25,17 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 The following is charged:
 
-* Disk space allocated for database clusters.
-   * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts:
-      * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+* Storage allocated for DB clusters.
 
-* Space used by DB backups in excess of the disk space requested for the cluster.
+    * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
+
+    * Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+
+    For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
+
+* Space used by DB backups in excess of the storage size requested for the cluster.
     * Backups are stored free of charge as long as the combined size of the DB and all backups is less than the selected storage volume.
-    * The requested disk size is allocated for each host, so the number of hosts in the cluster does not affect the storage size and, consequently, the free backup size.
+    * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 

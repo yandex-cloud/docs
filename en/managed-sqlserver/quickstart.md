@@ -1,5 +1,7 @@
 # Getting started with {{ mms-short-name }}
 
+{% include [ms-licensing-personal-data](../_includes/ms-licensing-personal-data.md) %}
+
 To get started with the service:
 
 1. [Create a cluster](#cluster-create).

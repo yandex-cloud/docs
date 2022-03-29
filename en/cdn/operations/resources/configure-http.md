@@ -1,32 +1,32 @@
 # Configuring HTTP methods
 
-To configure, for the resource, the HTTP methods allowed for client requests:
+To configure, for the resource, the allowed HTTP methods of requests from clients:
 
 {% list tabs %}
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder your resource is hosted in.
-  1. Select **{{ cdn-name }}**.
-  1. On the **CDN resources** tab, click on the name of the desired resource.
-  1. Go to the **HTTP headers and methods** tab.
-  1. In the upper-right corner, click **Edit**.
-  1. Under **Client request methods**, select the allowed methods from the drop-down list.
-  1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), select the folder where the resource is located.
+   1. Select the service **{{ cdn-name }}**.
+   1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Go to **HTTP headers and methods**.
+   1. In the upper-right corner, click **Edit**.
+   1. Under **Client request methods**, select the allowed methods from the drop-down list.
+   1. Click **Save**.
 
 - CLI
 
-  {% include [include](../../../_includes/cli-install.md) %}
+   {% include [include](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI update resource command:
+   1. View a description of the CLI update resource command:
 
       ```bash
       yc cdn resource update --help
       ```
 
-  1. Get a list of all resources in the default folder:
+   1. Get a list of all resources in the default folder:
 
       ```bash
       yc cdn resource list --format yaml
@@ -73,7 +73,7 @@ To configure, for the resource, the HTTP methods allowed for client requests:
         status: READY
       ```
 
-  1. Specify the allowed HTTP methods for client requests using the `--allowed-http-methods` flag:
+   1. Specify the allowed HTTP methods for client requests using the `--allowed-http-methods` flag:
 
       ```bash
       yc cdn resource update <resource ID> \
@@ -84,17 +84,17 @@ To configure, for the resource, the HTTP methods allowed for client requests:
 
 - Terraform
 
-  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. In the configuration file, describe the parameters of a CDN resource to create:
+   1. In the configuration file, describe the parameters of the CDN resource to create:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
-      * `origin_protocol`: Origin protocol. Optional parameter, defaults to `HTTP`.
-      * `secondary_hostnames`: Additional domain names. Optional.
+      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
+      * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
+      * `secondary_hostnames`: Additional domain names. Optional parameter.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405` (Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. Optional parameter, defaults to: `GET`, `HEAD`, `POST`, or `OPTIONS`.
+         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405`(Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. Optional parameter, defaults to: `GET`, `HEAD`, `POST`, or `OPTIONS`.
 
       Example configuration file structure:
 
@@ -124,49 +124,48 @@ To configure, for the resource, the HTTP methods allowed for client requests:
           options {
             allowed_http_methods = ["GET","PUT"]
           }
-      
+
       }
       ```
 
-      For more information about the `yandex_cdn_resource` parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      For more detailed information on the `yandex_cdn_resource` parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
 
-  1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the Terraform configuration file.
 
-  1. Check the configuration using the command:
+   1. Check the configuration using the command:
+      ```
+      terraform validate
+      ```
 
-     ```
-     terraform validate
-     ```
+      If the configuration is correct, the following message is returned:
 
-     If the configuration is correct, the following message is returned:
+      ```
+      Success! The configuration is valid.
+      ```
 
-     ```
-     Success! The configuration is valid.
-     ```
+   1. Run the command:
+      ```
+      terraform plan
+      ```
 
-  1. Run the command:
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
 
-     ```
-     terraform plan
-     ```
+   1. Apply the configuration changes:
+      ```
+      terraform apply
+      ```
 
-     The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-  1. Apply the configuration changes:
+      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
 
-     ```
-     terraform apply
-     ```
-
-  1. Confirm the changes: type `yes` into the terminal and press  **Enter**.
-
-     You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
-
-     ```
-     yc cdn resource list
-     ```
+      ```
+      yc cdn resource list
+      ```
 
 {% endlist %}
+
+{% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
 
 ## Examples {#examples}
 
@@ -174,29 +173,29 @@ To configure, for the resource, the HTTP methods allowed for client requests:
 
 - CLI
 
-  Add the allowed GET method to the resource:
+   Add the allowed GET method to the resource:
 
-    ```bash
-    yc cdn resource update someidkfjqjfl325fw --allowed-http-methods GET
-    ```
+   ```bash
+   yc cdn resource update someidkfjqjfl325fw --allowed-http-methods GET
+   ```
 
-  Result:
+   Result:
 
-    ```bash
-    id: someidkfjqjfl325fw
+   ```bash
+   id: someidkfjqjfl325fw
 
-    ...
+   ...
 
-    cname: testexample.com
-    active: true
+   cname: testexample.com
+   active: true
 
-    ...
+   ...
 
-    allowed_http_methods:
-    enabled: true
-    value:
-    - GET
-    ```
+   allowed_http_methods:
+   enabled: true
+   value:
+   - GET
+   ```
 
 {% endlist %}
 

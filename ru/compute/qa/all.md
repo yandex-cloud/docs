@@ -8,7 +8,11 @@
 
 {% include notitle [vm](vm.md) %}
 
-## Диски и снимки {#disks}
+## Подключение {#connection}
+
+{% include notitle [connection](connection.md) %}
+
+## Диски, снимки, образы {#disks}
 
 {% include notitle [disks](disks.md) %}
 
@@ -19,6 +23,10 @@
 ## Группы виртуальных машин {#instance-groups}
 
 {% include notitle [disks](../_includes_service/instance-groups/general.md) %}
+
+## Мониторинг {#monitoring}
+
+{% include notitle [monitoring](monitoring.md) %}
 
 ## Лицензирование {#licensing}
 

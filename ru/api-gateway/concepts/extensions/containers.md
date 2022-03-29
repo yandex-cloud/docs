@@ -33,5 +33,5 @@
       x-yc-apigateway-integration:
         type: serverless_containers
         container_id: b095c95icnvbuf4v755l
-        service_account_id: ajehfe41hhliq4n93q1g
+        service_account_id: ajehfe12hhlas4n56q1
 ```

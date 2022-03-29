@@ -10,7 +10,11 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](create-static-conf.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](encrypting-secrets.md)
-* [{#T}](marketplace.md)
+
+## Installing applications {#marketplace}
+
+* [{#T}](applications/marketplace.md)
+* [{#T}](applications/metrics-provider.md)
 
 ## Network scenarios {#network-scenarios}
 
@@ -18,6 +22,10 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
 * [{#T}](cilium-node-local-dns.md)
+
+## Encryption {#encrypting}
+
+* [{#T}](autoscale.md)
 
 ## Working with persistent volumes {#persistent-volumes}
 
@@ -43,3 +51,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](node-group/node-group-update.md)
 * [{#T}](node-group/node-label-management.md)
 * [{#T}](node-group/node-group-delete.md)
+
+## Working with external nodes {#external-nodes}
+
+* [{#T}](external-nodes-connect.md)

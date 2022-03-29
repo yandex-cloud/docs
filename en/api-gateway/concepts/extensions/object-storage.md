@@ -34,6 +34,6 @@ Sample specification:
         object: '{file}'
         error_object: error.html
         presigned_redirect: true
-        service_account_id: ajehfe41hhliq4n93q1g
+        service_account_id: ajehfe65fhliq4n28q1
 ```
 

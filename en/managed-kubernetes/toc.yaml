@@ -15,10 +15,14 @@ items:
         href: operations/node-connect-ssh.md
       - name: Creating a configuration file
         href: operations/create-static-conf.md
-      - name: Working with {{ marketplace-name }}
-        href: operations/marketplace.md
       - name: Updating {{ k8s }}
         href: operations/update-kubernetes.md
+      - name: Installing applications
+        items:
+          - name: Basics of working with {{ marketplace-name }}
+            href: operations/applications/marketplace.md
+          - name: Installing Metrics Provider
+            href: operations/applications/metrics-provider.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a Kubernetes cluster
@@ -33,6 +37,8 @@ items:
             href: operations/cilium-node-local-dns.md
       - name: Encrypting secrets
         href: operations/encrypting-secrets.md
+      - name: Automatic scaling
+        href: operations/autoscale.md
       - name: Working with persistent volumes
         items:
           - name: Dynamic volume provisioning
@@ -75,6 +81,8 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
+      - name: Connecting external nodes to the cluster
+        href: operations/external-nodes-connect.md
   - name: Practical guidelines
     items:
       - name: All tutorials
@@ -89,6 +97,8 @@ items:
         href: tutorials/alb-ingress-controller.md
       - name: Backup to Object Storage
         href: tutorials/backup.md
+      - name: Horizontal application scaling in a cluster
+        href: tutorials/autoscaling.md
       - name: Working with snapshots
         href: tutorials/pvc-snapshot-restore.md
       - name: Integration with a corporate DNS zone
@@ -127,8 +137,12 @@ items:
             href: concepts/node-group/node-group-gpu.md
       - name: Network in {{ managed-k8s-name }}
         href: concepts/network.md
-      - name: Kubernetes cluster network policies
+      - name: External cluster nodes
+        href: concepts/external-nodes.md
+      - name: Network settings and cluster policies
         href: concepts/network-policy.md
+      - name: Automatic scaling
+        href: concepts/autoscale.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Recommendations for using {{ managed-k8s-name }}

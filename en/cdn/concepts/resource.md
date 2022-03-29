@@ -2,11 +2,11 @@
 
 A _resource_ is the main logical entity in {{ cdn-full-name }} that lets you configure and manage content distribution from [origins](origins.md) over a CDN.
 
-To start distributing content over a CDN, create a resource according to the [instructions](../operations/resources/create-resource.md) and specify the following in it:
+To start distributing content over a CDN, create a resource by following the [instructions](../operations/resources/create-resource.md) and specify the following in it:
 
 * The origin or origin group that hosts your content.
-* [The domain names for content distribution](#hostnames).
-* Basic settings for exchanging data [between clients and the CDN](clients-to-servers.md) and [between the CDN and origins](servers-to-origins.md).
+* [Domain names for content distribution](#hostnames).
+* Basic settings for exchanging data [between clients and the CDN](clients-to-servers.md) and between [the CDN and origins](servers-to-origins.md).
 
 After creating a resource, you can also configure for it:
 
@@ -15,7 +15,7 @@ After creating a resource, you can also configure for it:
 * Processing of [cross-domain queries (CORS)](cors.md).
 * [Compression](compression.md) and [segmentation](slicing.md) of content.
 
-It may take up to 15 minutes for the new resource settings to apply to CDN servers.
+{% include [after-changes-tip](../../_includes/cdn/after-changes-tip.md) %}
 
 ## Domain names for content distribution {#hostnames}
 
@@ -30,11 +30,11 @@ For the resource to run properly, you must have:
 * Rights to all the domain names you entered.
 * Access to DNS settings for domain names.
 
-  For each name, in the settings of your DNS hosting, you must create a CNAME record linking this name with the domain name of the CDN load balancer, in the format `cl-<random characters>.gcdn.co`. It's displayed when creating a resource and also in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
+   For each name, in the settings of your DNS hosting, you must create a CNAME record linking this name with the domain name of the CDN load balancer, in the format `cl-<random characters>.gcdn.co`. It's displayed when creating a resource and also in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
 
-  ```
-  cdn.example.com. CNAME cl-4sne12sd.gcdn.co
-  ```
+   ```
+   cdn.example.com. CNAME cl-4sne12sd.gcdn.co
+   ```
 
 ## Resource usage statistics {#stats}
 

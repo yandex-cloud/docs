@@ -1,0 +1,121 @@
+# Установка Jaeger
+
+[Jaeger](https://www.jaegertracing.io/) — платформа для распределенной трассировки с открытым исходным кодом. Jaeger позволяет выполнять мониторинг состояния запросов и отладку после сбоев в распределенных системах микросервисных приложений.
+
+В качестве хранилища данных Jaeger может использовать:
+* [{{ ydb-full-name }}](../../../ydb/) при установке через [{{ marketplace-full-name }}](https://cloud.yandex.ru/marketplace).
+* [Другие системы хранения данных](https://github.com/jaegertracing/helm-charts/tree/main/charts/jaeger#storage) при установке через Helm-чарт.
+
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
+
+### Перед началом работы {#before-you-begin}
+
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с вашим [кластером {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
+1. Для потоковой обработки JSON-файлов установите [утилиту `jq`](https://stedolan.github.io/jq/):
+
+   ```bash
+   sudo apt update && sudo apt install jq
+   ```
+
+1. Чтобы разрешить [подам](../../concepts/index.md#pod) кластера {{ k8s }} подключаться к {{ ydb-name }}, настройте [группы безопасности](../security-groups.md). Добавьте правило для входящего трафика:
+   * Диапазон портов — `2135`.
+   * Протокол — `TCP`.
+   * Тип источника — `Группа безопасности`.
+   * Группа безопасности — текущая (`Self`).
+
+### Подготовка {{ ydb-name }} {#create-ydb}
+
+1. [Создайте базу данных](../../../ydb/operations/create_manage_database.md#create-db) подходящей вам конфигурации с [типом БД](../../../ydb/concepts/serverless_and_dedicated.md) `Dedicated`.
+
+   {% note warning %}
+
+   БД в режиме `Dedicated` — обязательное условие корректной работы сервиса Jaeger.
+
+   {% endnote %}
+
+1. [Создайте директорию](../../../ydb/operations/schema.md#directories) с именем `jaeger`.
+
+### Создание сервисного аккаунта {#create-sa-key}
+
+Чтобы Jaeger мог взаимодействовать с {{ ydb-name }}, создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и получите для него ключ.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с подходящей вам [ролью в кластере {{ k8s }}](../../security/index.md#yc-api).
+
+1. Создайте ключ для сервисного аккаунта и сохраните его на локальный компьютер:
+
+   ```bash
+   yc iam key create \
+     --service-account-id <идентификатор сервисного аккаунта> \
+     --folder-id <идентификатор каталога> \
+     --cloud-id <идентификатор облака> \
+     --description jaeger-over-ydb  \
+     --format json \
+     -o key.json
+   ```
+
+   Ожидаемый результат выполнения команды:
+
+   ```text
+   {
+     "id": "<идентификатор ключа сервисного аккаунта>",
+     "service_account_id": "<идентификатор сервисного аккаунта>",
+     "created_at": "2022-01-27T03:29:45.139311367Z",
+     "description": "jaeger-over-ydb",
+     "key_algorithm": "RSA_2048"
+   }
+   ```
+
+   {% note info %}
+
+   Сохраните идентификаторы сервисного аккаунта и его ключа — они понадобятся при дальнейшей установке.
+
+   {% endnote %}
+
+1. Сохраните ключ сервисного аккаунта в формате Base64:
+
+   ```bash
+   jq -r .private_key key.json > key.pem
+   ```
+
+### Установка Jaeger {#install-jaeger}
+
+1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
+1. В разделе **Доступные для установки приложения** выберите **Jaeger over {{ ydb-short-name }} Backend** и нажмите кнопку **Использовать**.
+1. Задайте настройки приложения:
+   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Название приложения** — укажите название приложения.
+   * **{{ ydb-short-name }} эндпоинт** — укажите имя эндпоинта {{ ydb-name }}, например `lb.etnk1hv0jol3cu5pojp7.ydb.mdb.yandexcloud.net:2135`.
+   * **База данных** — укажите имя БД, например `/ru-central1/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
+   * **Директория в базе данных** — `jaeger`.
+   * **Использовать сервис метаданных для аутентификации изнутри ВМ** — выберите эту опцию, если требуется аутентификация внутри виртуальной машины.
+   * **ID ключа сервисного аккаунта** — укажите идентификатор ключа сервисного аккаунта.
+   * **Ключ сервисного аккаунта** — укажите идентификатор сервисного аккаунта.
+   * **Приватный ключ сервисного аккаунта** — скопируйте в это поле содержимое файла `key.pem`.
+   * **Установить jaeger-agent** — выберите эту опцию, чтобы установить [jaeger-agent](https://hub.docker.com/r/jaegertracing/jaeger-agent/).
+
+   Имя эндпоинта и БД были получены при [подготовке БД {{ ydb-name }}](#create-ydb), настройки для сервисного аккаунта — [в предыдущем подразделе](#create-sa-key).
+1. Нажмите кнопку **Установить**.
+
+## Установка с помощью Helm-чарта {#helm-install}
+
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с вашим кластером {{ k8s }}.
+1. Установите менеджер пакетов {{ k8s }} [Нelm 3](https://helm.sh/ru/docs/intro/install).
+1. Добавьте репозиторий `jaegertracing`:
+
+   ```bash
+   helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
+   ```
+
+1. Установите Jaeger:
+
+   ```bash
+   helm install jaeger jaegertracing/jaeger
+   ```
+
+1. При необходимости установите {{ k8s }}-оператор [jaeger-operator](https://github.com/jaegertracing/jaeger-operator):
+
+   ```bash
+   helm install jaegertracing/jaeger-operator
+   ```
+
+   Подробнее о таком типе установки см. в [документации платформы Jaeger](https://github.com/jaegertracing/helm-charts).

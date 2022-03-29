@@ -121,18 +121,7 @@ Usage prices are shown on an hourly basis (monthly for local disks). Billing occ
 
 
 
-{% include [usd-instance-cpu.md](../_pricing/compute/usd-instance-cpu.md) %}
-
-{% include [usd-instance-other.md](../_pricing/compute/usd-instance-other.md) %}
-
-### Preemptible VM computing resources {#prices-preemptible-instance-resources}
-
-
-
-
-{% include [usd-preemp-instance-cpu.md](../_pricing/compute/usd-preemp-instance-cpu.md) %}
-
-{% include [usd-preemp-instance-other.md](../_pricing/compute/usd-preemp-instance-other.md) %}
+{% include [usd-instance-resources.md](../_pricing/compute/usd-instance-resources.md) %}
 
 ### Operating systems {#prices-os}
 

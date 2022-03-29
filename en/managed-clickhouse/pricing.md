@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ mch-short-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -21,7 +22,9 @@ The cost of {{ mch-name }} usage is based on:
 
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
+
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
 
 ### DB host usage {#rules-hosts-uptime}
 
@@ -37,17 +40,17 @@ In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and w
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You aren't charged for time when the DBMS or {{ ZK }} host isn't performing its main functions.
 
+
 ### Disk space usage {#rules-storage}
 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 2 hosts:
-        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
-    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
 
-* The storage size used by data backups of [local](concepts/storage.md) and [network](concepts/storage.md) storage devices:
+    * Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+    * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in increments of 93 GB.
+
+* The storage size used by data backups of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage:
 
     * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
@@ -84,6 +87,7 @@ All prices are shown without VAT.
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
 
+
 ### {{ ZK }} host computing resources {#prices-zookeeper}
 
 {% note info %}
@@ -97,12 +101,14 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
 
+
 ### Storage and backups {#prices-storage}
 
 
 
 
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
+
 
 ### Outgoing traffic {#prices-traffic}
 

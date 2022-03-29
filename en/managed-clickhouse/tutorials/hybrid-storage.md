@@ -43,10 +43,10 @@ SETTINGS index_granularity = 8192
 The `TTL ...` expression defines a policy for operating with expiring data:
 1. TTL sets the lifetime of a table row (in this case, the number of days from the current date to March 20, 2014).
 1. For data in the table, the value `EventDate` is checked:
-   - If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in the network storage.
-   - If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data is placed in the object storage according to the `TO DISK 'object_storage'` policy.
+   * If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in storage on network drives.
+   * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data is placed in the object storage according to the `TO DISK 'object_storage'` policy.
 
-You don't need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you don't specify TTL, data is placed in object storage only when network storage runs out of space. To learn more, see [{#T}](../concepts/storage.md)
+You don't need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you don't specify TTL, data is placed in object storage only when storage on network disks runs out of space. To learn more, see [{#T}](../concepts/storage.md).
 
 {% note info %}
 

@@ -59,7 +59,7 @@
 
             {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
 
-        * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#limits).
+        * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).
         
   1. В блоке **Настройки кластера** в поле **Пароль** укажите пароль пользователя, от 8 до 128 символов.
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
@@ -119,7 +119,7 @@
         --disk-size <размер хранилища в гигабайтах> \
         --password=<пароль пользователя> \
         --backup-window-start <время начала резервного копирования в формате ЧЧ:ММ:СС>
-        --deletion-protection=<защита от удаления кластера: true или fasle>
+        --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -131,15 +131,16 @@
   {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
   
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
   Чтобы создать кластер:
 
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
        * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
-
-       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
-
-       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+       
+       
+       * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+       * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
 
        Пример структуры конфигурационного файла для создания кластера с поддержкой SSL:
 
@@ -348,7 +349,7 @@
     }
   }
 
-  resource  "yandex_vpc_subnet" "mysubnet" {
+  resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
     network_id     = yandex_vpc_network.mynet.id

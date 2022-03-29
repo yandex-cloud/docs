@@ -2,12 +2,12 @@
 
 {{ CH }} clusters are one or more database hosts that replication can be configured between.
 
-The number of hosts to add to a cluster when it is created depends on the selected [storage type](../concepts/storage.md):
+The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
-* When using **local storage** (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
+* When using **local SSD storage** (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
 * When using network storage:
-    * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
-    * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+    * If you select **HDD network** (`network-hdd`) or **SSD network** (`network-ssd`) storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
+    * If you select **non-replicated SSD** storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
 
 The selected [replication mechanism](../concepts/replication.md) also affects the number of hosts in a multi-host cluster:
 
@@ -24,41 +24,37 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
     {% endnote %}
 
+## How to create a {{ CH }} cluster {#create-cluster}
+
 {% list tabs %}
 
 - Management console
 
-  To create a cluster:
-
   1. In the management console, select the folder where you want to create a DB cluster.
-
-  1. Select **{{ mch-name }}**.
-
+    1. Select **{{ mch-name }}**.
   1. Click **Create cluster**.
-
   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
      1. If you plan to use hybrid storage in a cluster, it's recommended to select the latest version. This type of storage is supported starting from {{ CH }} {{ mch-hs-version }}.
-
   1. If you plan to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account to access data in a bucket, see [{#T}](s3-access.md).
-
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
-
   1. Under **Storage size**:
 
       
-      * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+      * Select one of the following [storage types](../concepts/storage.md):
+          * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
+          * Or faster local SSD storage (`local-ssd`).
 
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
+
       * DB name.
       * Username.
       * User password. At least 8 characters.
@@ -98,7 +94,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  1. View a description of the CLI create cluster command:
+  1. View a description of the CLI's create cluster command:
 
       ```bash
       {{ yc-mdb-ch }} cluster create --help
@@ -129,6 +125,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       1. To enable [SQL user management](cluster-users.md#sql-user-management):
 
           {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
+
           * Set `--enable-sql-user-management` to `true`.
           * Set a password for the `admin` user in the `--admin-password` parameter.
 
@@ -140,6 +137,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
           ```
 
       1. To enable [SQL database management](databases.md#sql-database-management):
+
           * Set `--enable-sql-user-management` and `--enable-sql-database-management` to `true`.
           * Set a password for the `admin` user in the `--admin-password` parameter.
 
@@ -150,8 +148,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
              --enable-sql-database-management=true \
              --admin-password <admin user password>
           ```
-
-      1. To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+            1. To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
       1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster:
 
@@ -175,13 +172,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
 
   To create a cluster:
 
     1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-       1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     1. Create a configuration file with a description of your [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
@@ -289,7 +286,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
   * `configSpec.sqlDatabaseManagement`: Set `true` to enable [database management via SQL](databases.md#sql-database-management). User management via SQL needs to be enabled.
   * `configSpec.adminPassword`: Set the password for the `admin` user whose account is used for management.
 
-  To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+    To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
   When creating a cluster with multiple hosts:
 
@@ -301,8 +298,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
   * If `embeddedKeeper` is undefined or `false`, replication and query distribution will be managed using {{ ZK }}.
 
-      If a cluster's [cloud network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md) and {{ ZK }} host settings are undefined, one such host will be added to each subnet automatically.
-If only some availability zones in the cluster's network have subnets, explicitly specify the {{ ZK }} host settings.
+        If a cluster's [cloud network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md) and {{ ZK }} host settings are undefined, one such host will be added to each subnet automatically.
+
+    If only some availability zones in the cluster's network have subnets, explicitly specify the {{ ZK }} host settings.
 
 {% endlist %}
 
@@ -324,16 +322,17 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
-    * Named `mych`.
+  
+  * Named `mych`.
   * In the `production` environment.
   * In the `default` network.
   * In the security group `{{ security-group }}`.
   * With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
   * With {{ CK }}.
-  * With 20 GB of fast network storage (`{{ disk-type-example }}`).
+  * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
   * With one user, `user1`, with the password `user1user1`.
   * With one database, `db1`.
-  * With accidental cluster deletion protection.
+  * With protection against accidental cluster deletion.
 
   Run the command:
 
@@ -360,17 +359,11 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ CH }} cluster and a network for it with the following characteristics:
 
   * Named `mych`.
-
   * In the `PRESTABLE` environment.
-
   * In the cloud with the ID `{{ tf-cloud-id }}`.
-
   * In the folder with the ID `{{ tf-folder-id }}`.
-
   * In a new cloud network named `cluster-net`.
-
   * In a new [default security group](connect.md#configuring-security-groups) `cluster-sg` (on the `cluster-net` network) allowing connections to any cluster host from any network (including the Internet) on ports `8443` and `9440`.
-
   * With one `{{ host-class }}` class host on a new subnet called `cluster-subnet-ru-central1-c`.
 
     Subnet parameters:
@@ -378,10 +371,8 @@ If you specified security group IDs when creating a cluster, you may also need t
     * Network: `cluster-net`.
     * Availability zone: `{{ zone-id }}`.
 
-  * With 32 GB of fast network storage.
-
+  * With 32 GB of SSD network storage (`network-ssd`).
   * With a database named `db1`.
-
   * With the username `user1` and password `user1user1`.
 
   The configuration files for this cluster look like this:
@@ -413,13 +404,9 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
   * Named `mych`.
-
   * In the `PRESTABLE` environment.
-
   * In the cloud with the ID `{{ tf-cloud-id }}`.
-
   * In the folder with the ID `{{ tf-folder-id }}`.
-
   * In a new cloud network named `cluster-net`.
 
   * With three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to provide [replication](../concepts/replication.md)).
@@ -432,13 +419,9 @@ If you specified security group IDs when creating a cluster, you may also need t
     These subnets will belong to the `cluster-net` network.
 
   * In a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (on the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-
-  * With 32 GB of fast network storage for each {{ CH }} host in the cluster.
-
-  * With 10 GB of fast network storage for each {{ ZK }} host in the cluster.
-
+  * With 32 GB of SSD network storage (`network-ssd`) per {{ CH }} host of the cluster.
+  * With 10 GB of SSD network storage  (`network-ssd`) per {{ ZK }} host of the cluster.
   * With a database named `db1`.
-
   * With the username `user1` and password `user1user1`.
 
   The configuration files for this cluster look like this:
@@ -460,4 +443,3 @@ If you specified security group IDs when creating a cluster, you may also need t
       {% include [terraform-mch-multiple-hosts-single-shard](../../_includes/mdb/mch/terraform/multiple-hosts-single-shard.md) %}
 
 {% endlist %}
-

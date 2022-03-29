@@ -1,13 +1,13 @@
 ---
 editable: false
-sourcePath: en/_api-ref/marketplace/metering/api-ref/ImageProductUsage/index.md
 ---
 
-
 # ImageProductUsage
-A set of methods for managing image product's usage.
+
+Methods used to account for product image consumption.
 
 ## Methods {#methods}
-Method | Description
+
+| Method | Description |
 --- | ---
-[write](write.md) | Writes image product's usage. Authentication is by user's service account.
+| [write](write.md) | Writes product image usage statistics. A user's service account is used for authentication. |
