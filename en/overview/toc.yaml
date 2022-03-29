@@ -24,7 +24,11 @@ items:
       - name: Equivalents for Microsoft Azure
         href: platform-comparison/azure.md
   - name: Availability zones
-    href: concepts/geo-scope.md
+    items:
+      - name: Overview
+        href: concepts/geo-scope.md
+      - name: Deprecation of the ru-central1-c zone
+        href: concepts/ru-central1-c-deprecation.md
   - name: Release stages
     href: concepts/launch-stages.md
   - name: Quotas and limits

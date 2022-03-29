@@ -9,9 +9,9 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 В {{ compute-short-name }} доступны следующие графические карты:
 
-* [NVIDIA® Tesla® V100]{% if region =="int" %}(https://www.nvidia.com/en-us/data-center/v100/){% else %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %} с 32 ГБ памяти HBM2 (High Bandwidth Memory).
-* [NVIDIA® Ampere® A100]{% if region =="int" %}(https://www.nvidia.com/en-us/data-center/a100/){% else %}(https://www.nvidia.com/ru-ru/data-center/a100/){% endif %} с 80 ГБ памяти HBM2.
-* [NVIDIA® Tesla® T4]{% if region =="int" %}(https://www.nvidia.com/en-us/data-center/tesla-t4/){% else %}(https://www.nvidia.com/ru-ru/data-center/tesla-t4/){% endif %} с 16 ГБ памяти GDDR6.
+* [NVIDIA® Tesla® V100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/v100/){% endif %} с 32 ГБ памяти HBM2 (High Bandwidth Memory).
+* [NVIDIA® Ampere® A100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/a100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/a100/){% endif %} с 80 ГБ памяти HBM2.
+* [NVIDIA® Tesla® T4]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-t4/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/tesla-t4/){% endif %} с 16 ГБ памяти GDDR6.
 
 {% note warning %}
 
@@ -19,7 +19,7 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 {% endnote %}
 
-По умолчанию в облаке установлена нулевая [квота](../concepts/limits.md#quotas) на создание виртуальных машин с GPU и vGPU. Чтобы изменить квоту, обратитесь в [техническую поддержку]({{ link-console-support }}).
+По умолчанию в облаке установлена нулевая [квота](../concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU и vGPU. Чтобы изменить квоту, обратитесь в [техническую поддержку]({{ link-console-support }}).
 
 Виртуальные машины с GPU и vGPU нельзя создавать в зоне доступности `ru-central1-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md). 
 
@@ -35,7 +35,7 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 ### NVIDIA® Ampere® A100 {#a100}
 
-NVIDIA® A100, построенная на базе микроархитектуры {% if region =="int" %}[Ampere®](https://www.nvidia.com/en-us/data-center/ampere-architecture/){% else %}[Ampere®](https://www.nvidia.com/ru-ru/data-center/ampere-architecture/){% endif %}, использует тензорные ядра третьего поколения и предоставляет 80 ГБ памяти HBM2 с пропускной способностью до 2 ТБ/с.
+NVIDIA® A100, построенная на базе микроархитектуры [Ampere®]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/ampere-architecture/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/ampere-architecture/){% endif %}, использует тензорные ядра третьего поколения и предоставляет 80 ГБ памяти HBM2 с пропускной способностью до 2 ТБ/с.
 
 ### NVIDIA® Tesla® T4 {#tesla-t4}
 
