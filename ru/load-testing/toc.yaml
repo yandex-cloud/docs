@@ -6,10 +6,18 @@ items:
     href: quickstart.md
   - name: Пошаговые инструкции
     items:
-  #     - name: Все инструкции
-  #       href: operations/index.md
-      - name: Настройка групп безопасности
-        href: operations/security-groups.md
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создать агент тестирования
+        href: operations/create-agent.md        
+      - name: Настроить группы безопасности агента тестирования
+        href: operations/security-groups-agent.md
+      - name: Настроить группы безопасности цели тестирования
+        href: operations/security-groups-target.md
+  - name: Практические руководства
+    items:
+      - name: Нагрузочное тестирование gRPC-сервиса
+        href: tutorials/loadtesting-grpc.md
   - name: Концепции
     items:
       - name: Обзор сервиса
