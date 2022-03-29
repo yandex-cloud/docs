@@ -24,8 +24,8 @@ You can assign roles for a [cloud](../../resource-manager/concepts/resources-hie
 
 | Role | Permissions |
 | ----- | ----- |
-| `data-transfer.admin` | Enables you to manage (create, modify, and delete) [endpoints](../concepts/index.md#endpoint) and [transfers](../concepts/index.md#transfer) as well as activate and deactivate transfers. |
-| `data-transfer.viewer` | Only enables you to view information about the resources of the {{ data-transfer-name }} service. |
+| `{{ roles-data-transfer-admin }}` | Enables you to manage (create, modify, and delete) [endpoints](../concepts/index.md#endpoint) and [transfers](../concepts/index.md#transfer) as well as activate and deactivate transfers. |
+| `{{ roles-data-transfer-viewer }}` | Only enables you to view information about the resources of the {{ data-transfer-name }} service. |
 
 ### Roles of other {{ yandex-cloud }} services {#other-roles}
 

@@ -1,6 +1,8 @@
 # Microsoft licenses in {{ yandex-cloud }}
 
-## Using Microsoft software in {{ yandex-cloud }} {#images}
+{% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}
+
+## Using Microsoft software in {{ yandex-cloud }}
 
 {{ yandex-cloud }} provides ready-to-use images with pre-installed Microsoft Windows Server Datacenter Edition and Microsoft SQL Server. The software licenses in these images are fully compliant with Microsoft requirements. When using ready-made {{ yandex-cloud }} images, you pay for the required licenses and {{ compute-name }} resources. You'll be charged depending on your [service plan](pricing.md).
 

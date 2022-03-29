@@ -14,6 +14,7 @@ description: "Из статьи вы узнаете, как работать с 
 ## Установка приложений {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
 
 ## Сетевые сценарии {#network-scenarios}

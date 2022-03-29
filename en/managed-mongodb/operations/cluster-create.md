@@ -3,10 +3,12 @@
 {{ MG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
 
-The number of hosts that can be created with a {{ MG }} cluster depends on the storage option selected:
+{% note info %}
 
-  - When using network drives, you can request any number of hosts (from one to the current [quota](../concepts/limits.md) limit).
-  - When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
+* The number of hosts that can be created together with a {{ MG }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available storage types [depend on](../concepts/storage.md) the selected [host class](../concepts/instance-types.md#available-flavors).
+
+{% endnote %}
 
 
 {% note info %}
@@ -29,31 +31,33 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
   1. Click **Create cluster**.
 
-  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-     - `PRODUCTION`: For stable versions of your apps.
-     - `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+     * `PRODUCTION`: For stable versions of your apps.
+     * `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
 
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
-      - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd` or `network-ssd`) or faster local SSD storage (`local-ssd`).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+      * Select one of the following [storage types](../concepts/storage.md):
+        * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
+        * Or faster local SSD storage (`local-ssd`).
 
-      - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+        {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
+      * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
-      - DB name.
-      - Username.
-      - User password. At least 8 characters.
+      * DB name.
+      * Username.
+      * User password. At least 8 characters.
 
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-  1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+  1. Under **Hosts**, select the parameters for the DB hosts created with the cluster. If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
   1. If necessary, configure additional cluster settings:
 
@@ -82,7 +86,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  1. View a description of the CLI create cluster command:
+  1. View a description of the CLI's create cluster command:
 
       ```
       $ {{ yc-mdb-mg }} cluster create --help
@@ -100,7 +104,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
          --mongod-resource-preset <host class> \
          --user name=<username>,password=<user password> \
          --database name=<database name> \
-         --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
+         --mongod-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --mongod-disk-size <storage size in GB> \
          --deletion-protection=<protect cluster from deletion: true or false>
       ```
@@ -148,7 +152,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
        deletion_protection = <protect cluster from deletion: true or false>
      
        cluster_config {
-         version = "<MongoDB version: 4.0, 4.2, 4.4 or 5.0>"
+         version = "<MongoDB version: 4.0, 4.2, 4.4, or 5.0>"
        }
      
        database {
@@ -167,7 +171,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
        resources {
          resource_preset_id = "<host class>"
          disk_type_id       = "<storage type>"
-         disk_size          = <storage size, GB>
+         disk_size          = <storage size in GB>
        }
      
        host {
@@ -220,15 +224,15 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   Let's say we need to create a {{ MG }} cluster with the following characteristics:
 
-    - Named `mymg`.
-  - In the `production` environment.
-  - In the `{{ network-name }}` network.
-  - In the security group with the ID `{{ security-group }}`.
-  - With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
-  - With 20 GB of fast network storage (`{{ disk-type-example }}`).
-  - With one user, `user1`, with the password `user1user1`.
-  - With one database, `db1`.
-  - With protection against accidental cluster deletion.
+    * Named `mymg`.
+  * In the `production` environment.
+  * In the `{{ network-name }}` network.
+  * In the security group with the ID `{{ security-group }}`.
+  * With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
+  * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
+  * With one user, `user1`, with the password `user1user1`.
+  * With one database, `db1`.
+  * With protection against accidental cluster deletion.
 
   Run the command:
 
@@ -251,18 +255,18 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
-    - Named `mymg`.
-    - Version `4.4`.
-    - In the `PRODUCTION` environment.
-    - In the cloud with the ID `{{ tf-cloud-id }}`.
-    - In the folder with the ID `{{ tf-folder-id }}`.
-    - Network: `mynet`.
-    - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-    - In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
-    - With 20 GB of fast network storage (`{{ disk-type-example }}`).
-    - With one user, `user1`, with the password `user1user1`.
-    - With one database, `db1`.
-    - With protection against accidental cluster deletion.
+    * Named `mymg`.
+    * Version `4.4`.
+    * In the `PRODUCTION` environment.
+    * In the cloud with the ID `{{ tf-cloud-id }}`.
+    * In the folder with the ID `{{ tf-folder-id }}`.
+    * In the new `mynet` network.
+    * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+    * In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
+    * With one user, `user1`, with the password `user1user1`.
+    * With one database, `db1`.
+    * With accidental cluster deletion protection.
 
   The configuration file for the cluster looks like this:
 
@@ -276,7 +280,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   provider "yandex" {
-    token = "<OAuth or static key of service account>"
+    token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"

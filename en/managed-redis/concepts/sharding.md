@@ -26,7 +26,7 @@ All hosts in the cluster use service connections to exchange data about slots an
 
 If the majority of master hosts fails to get a response from the host polled, they consider the host offline. If the master host is down, one of its replicas is assigned as the master. If all the replicas fail or none of them can be switched to, the host stops receiving queries. However, if a single shard is down, the entire Redis Cluster can stay functional as long as the other shards are available for reading and writing data.
 
-To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Masters and their replicas must be located in different availability zones.
+To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Make sure that masters and their replicas reside in different availability zones.
 
 ## Scalability {#scaling}
 
@@ -36,9 +36,7 @@ New shards are created without hash slots. To redistribute data, you must rebala
 
 The cluster doesn't have to stop to move slots between shards. If the client queries the master for data that was moved to another shard, the query is forwarded to the new shard that the data was moved to. Hosts don't proxy queries. Instead, they forward the client to the proper shard.
 
-{{ mrd-name }} lets you create from 3 to 10 shards, each containing:
+{{ mrd-name }} lets you create from 3 to 10 shards, each containing a different number of hosts. The minimum number of hosts per shard depends on the [selected storage type](./storage.md#storage-type-selection).
 
-- 1 to 7 hosts when using network storage.
-
-- 2 to 7 hosts when using local storage.
+For more information about limits on the number of hosts in a shard, see [{#T}](./limits.md).
 

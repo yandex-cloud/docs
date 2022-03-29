@@ -73,15 +73,15 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       ```
 
       This results in a new {{ RD }} cluster with the following characteristics:
-      - With the `mynewrd` name.
-      - In the `PRODUCTION` environment.
-      - In the `default` network.
-      - With a single host of the `hm1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
-      - With 20 GB fast network storage (`{{ disk-type-example }}`).
+      * With the `mynewrd` name.
+      * In the `PRODUCTION` environment.
+      * In the `default` network.
+      * With a single host of the `hm1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
+      * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 
 {% endlist %}
 
-## Creating backups {#create-backup}
+## Creating a backup {#create-backup}
 
 {% list tabs %}
 
@@ -193,7 +193,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
   ```bash
   {{ yc-mdb-rd }} cluster create \
-     --cluster-name <cluster name>
+     --cluster-name <cluster name> \
      --environment <prestable or production> \
      --network-name <network name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \

@@ -1,22 +1,20 @@
 ---
 editable: false
-sourcePath: en/_api-ref/marketplace/metering/api-ref/ImageProductUsage/write.md
 ---
 
+# Write method
 
-# Method write
-Writes image product's usage. Authentication is by user's service account.
- 
+Writes product image usage statistics. A user's service account is used for authentication.
 
- 
 ## HTTP request {#https-request}
+
 ```
 POST https://marketplace.api.cloud.yandex.net/marketplace/v1/metering/imageProductUsage/write
 ```
- 
-## Body parameters {#body_params}
- 
-```json 
+
+## Request parameters {#body_params}
+
+```json
 {
   "validateOnly": true,
   "productId": "string",
@@ -31,21 +29,21 @@ POST https://marketplace.api.cloud.yandex.net/marketplace/v1/metering/imageProdu
 }
 ```
 
- 
-Field | Description
+| Field | Description |
 --- | ---
-validateOnly | **boolean** (boolean)<br><p>Checks whether you have the access required for the emit usage.</p> 
-productId | **string**<br><p>Required. Marketplace Product's ID.</p> <p>The maximum string length in characters is 50.</p> 
-usageRecords[] | **object**<br><p>Required. List of product usage records (up to 25 per request).</p> <p>The number of elements must be in the range 1-25.</p> 
-usageRecords[].<br>uuid | **string**<br><p>Required. Unique identifier of the usage record (UUID format).</p> <p>The maximum string length in characters is 36.</p> 
-usageRecords[].<br>skuId | **string**<br><p>Required. Consumed Marketplace SKU ID, linked to ``UsageRecord.product_id``.</p> <p>The maximum string length in characters is 50.</p> 
-usageRecords[].<br>quantity | **string** (int64)<br><p>Quantity of SKU consumed, measured in ``sku.usage_unit`` units (e.g. bytes).</p> <p>Value must be greater than 0.</p> 
-usageRecords[].<br>timestamp | **string** (date-time)<br><p>Required. Timestamp in UTC for which the usage is being reported.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
- 
-## Response {#responses}
-**HTTP Code: 200 - OK**
+| validateOnly | **boolean** (boolean)<br><p>A message with the `validateOnly: true` parameter checks if it's possible to send usage metrics.</p> |
+| productId | **string**<br><p>Required field. Marketplace product ID.</p> <p>The maximum string length is 50 characters.</p> |
+| usageRecords[] | **object**<br><p>Required field. List of product usage records (up to 25 records per request).</p> <p>List item numbers must be in the range from 1 to 25.</p> |
+| usageRecords[].<br>uuid | **string**<br><p>Required field. Unique identifier of a usage record in UUID format.</p> <p>The maximum string length is 36 characters.</p> |
+| usageRecords[].<br>skuId | **string**<br><p>Required field. Marketplace Sku ID indicating consumption, related to `UsageRecord.product_id`.</p> <p>The maximum string length is 50 characters.</p> |
+| usageRecords[].<br>quantity | **string** (int64)<br><p>Number of consumed SKUs measured in `sku.usage_unit` (for example, bytes).</p> <p>The value must be greater than 0.</p> |
+| usageRecords[].<br>timestamp | **string** (date-time)<br><p>Required field. Reporting period UTC Timestamp.</p> <p>String in the text format. <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> |
 
-```json 
+## Response {#responses}
+
+**HTTP Code: 200 — OK**
+
+```json
 {
   "accepted": [
     {
@@ -61,11 +59,11 @@ usageRecords[].<br>timestamp | **string** (date-time)<br><p>Required. Timestamp 
 }
 ```
 
- 
-Field | Description
+
+| Field | Description |
 --- | ---
-accepted[] | **object**<br><p>List of accepted product usage records.</p> 
-accepted[].<br>uuid | **string**<br><p>Unique identifier of the usage record (UUID format).</p> 
-rejected[] | **object**<br><p>List of rejected product usage records (with reason).</p> 
-rejected[].<br>uuid | **string**<br><p>Unique identifier of the usage record (UUID format).</p> 
-rejected[].<br>reason | **string**<br><p>The reason of rejection.</p> 
+| accepted[] | **object**<br><p>List of accepted product consumption records.</p> |
+| accepted[].<br>uuid | **string**<br><p>Unique ID of a consumption record in UUID format.</p> |
+| rejected[] | **object**<br><p>List of rejected product consumption records with the reason specified.</p> |
+| rejected[].<br>uuid | **string**<br><p>Unique ID of a consumption record in UUID format.</p> |
+| rejected[].<br>reason | **string**<br><p>Reason for rejecting a record.</p> |

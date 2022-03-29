@@ -89,7 +89,7 @@ When restoring to the current state, the new cluster will reflect the state of:
            --backup-id <backup ID> \
            --recovery-target-timestamp <point in time> \
            --mongodb-version "<version {{ MG }}>" \
-           --cluster-name  <new cluster name> \
+           --cluster-name <new cluster name> \
            --environment <environment, PRESTABLE or PRODUCTION> \
            --network-name <network name> \
            --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -98,11 +98,11 @@ When restoring to the current state, the new cluster will reflect the state of:
            --mongod-disk-type <storage type: network-hdd, network-ssd, or local-ssd>
      ```
 
-      In the `--recovery-target-timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you want to restore the cluster state to the backup creation time, you may omit this option.
+      In the `--recovery-target-timestamp` specify the point in time to which you want to restore the original state of the {{ MG }} cluster, in the [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you want to restore the cluster state to the backup creation time, you may omit this option.
 
 {% endlist %}
 
-## Creating a backup {#create-backup}
+## Creating backups {#create-backup}
 
 {% list tabs %}
 
@@ -153,12 +153,12 @@ When restoring to the current state, the new cluster will reflect the state of:
   1. Click the **Backups** tab.
 
   These lists contain the following information:
-  - Backup name.
-  - Source shard.
-  - Backup size.
-  - Backup type: `Automated` or `Manual`.
-  - Start time of backup creation in UTC (Coordinated Universal Time).
-  - End time of backup creation in UTC.
+  * Backup name.
+  * Source shard.
+  * Backup size.
+  * Backup type: `Automated` or `Manual`.
+  * Start time of backup creation in UTC (Coordinated Universal Time).
+  * End time of backup creation in UTC.
 
 - CLI
 
@@ -180,12 +180,12 @@ When restoring to the current state, the new cluster will reflect the state of:
   ```
 
   The resulting table contains the following information:
-  - ID of the backup.
-  - End time of backup creation in UTC (Coordinated Universal Time).
-  - ID of the cluster that the backup was created for.
-  - Start time of backup creation in UTC.
-  - Backup size.
-  - Backup type: `Automated` or `Manual`.
+  * ID of the backup.
+  * End time of backup creation in UTC (Coordinated Universal Time).
+  * ID of the cluster that the backup was created for.
+  * Start time of backup creation in UTC.
+  * Backup size.
+  * Backup type: `Automated` or `Manual`.
 
 {% endlist %}
 
@@ -224,15 +224,15 @@ When restoring to the current state, the new cluster will reflect the state of:
 Let's say we need to create a new {{ MG }} cluster from a backup with the following characteristics:
 
 
-- Backup for recovery: `c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z`.
-- Point in time you want to recover to: `1597035610` (`2020-08-10T12:00:10Z`).
-- Version: `4.2`.
-- Name of the new cluster: `mynewmg`.
-- Environment: `PRODUCTION`.
-- Network: `{{ network-name }}`.
-- One `{{ host-class }}` host in the `{{ zone-id }}` availability zone and `b0rcctk2rvtr8efcch63` subnet.
-- Storage: fast network storage (`{{ disk-type-example }}`) 20 GB in size.
-- With databases and users that existed in the cluster at the time of recovery.
+* Backup for recovery: `c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z`.
+* Point in time you want to recover to: `1597035610` (`2020-08-10T12:00:10Z`).
+* Version: `4.2`.
+* Name of the new cluster: `mynewmg`.
+* Environment: `PRODUCTION`.
+* Network: `{{ network-name }}`.
+* One `{{ host-class }}` host in the `{{ zone-id }}` availability zone and `b0rcctk2rvtr8efcch63` subnet.
+* With 20 GB of SSD network storage (`{{ disk-type-example }}`).
+* With databases and users that existed in the cluster at the time of recovery.
 
 {% list tabs %}
 

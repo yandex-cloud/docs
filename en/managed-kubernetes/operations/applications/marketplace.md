@@ -1,10 +1,10 @@
-# Working with {{ marketplace-name }}
+# Working with {{ marketplace-full-name }}
 
-{{ managed-k8s-name }} enables you to use applications from {{ marketplace-full-name }} in clusters.
+{{ managed-k8s-name }} enables you to use applications from {{ marketplace-name }} in clusters.
 
 {% note info %}
 
-{{ marketplace-name }} access in the [Preview](../../overview/concepts/launch-stages.md) stage.
+{{ marketplace-name }} access in the [Preview](../../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -35,7 +35,7 @@
 
 {% note info %}
 
-To deploy applications, you need at least one [active node group](node-group/node-group-create.md#node-group-create).
+To deploy applications, you need at least one [active node group](../node-group/node-group-create.md#node-group-create).
 
 {% endnote %}
 
@@ -59,7 +59,7 @@ To deploy applications, you need at least one [active node group](node-group/nod
 
   1. Go to the folder page and select **{{ managed-k8s-name }}**.
   1. Click the name of the desired cluster and select the **{{ marketplace-short-name }}** tab.
-  1. Under **Installed applications**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the application you wish to edit.
+  1. Under **Installed applications**, click ![image](../../../_assets/horizontal-ellipsis.svg) next to the application you wish to edit.
   1. In the menu that opens, click **Edit**.
   1. Make your changes and click **Save**.
 
@@ -73,7 +73,7 @@ To deploy applications, you need at least one [active node group](node-group/nod
 
   1. Go to the folder page and select **{{ managed-k8s-name }}**.
   1. Click the name of the desired cluster and select the **{{ marketplace-short-name }}** tab.
-  1. Under **Installed applications**, click ![image](../../_assets/horizontal-ellipsis.svg) next to the application you wish to delete.
+  1. Under **Installed applications**, click ![image](../../../_assets/horizontal-ellipsis.svg) next to the application you wish to delete.
   1. In the menu that opens, click **Delete**.
 
 {% endlist %}

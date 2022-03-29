@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ mkf-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -41,7 +42,6 @@ There are different ways to calculate the cost depending on the [host type](./co
 * Dedicated hosts
 
     {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
-
 {% note warning %}
 
 When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }} hosts with the minimal host class are created automatically in three availability zones to provide replication and fault tolerance for the cluster. If you create a cluster with a single broker host, no {{ ZK }} hosts are created.
@@ -54,10 +54,10 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 
 You pay for the storage allocated for DB clusters.
 
-  * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more broker hosts:
-      * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-      * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
-  * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more broker hosts in increments of 93 GB.
+  * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
+      * For Intel Cascade Lake: In increments of 100 GB.
+      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+  * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -75,6 +75,10 @@ Prices for hosts are [calculated in different ways](#rules-hosts-uptime) dependi
 
 The cost of fast local storage also depends on the type of hosts.
 
+Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+
+The cost of fast local storage also depends on the type of hosts.
+
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
 
 {% list tabs %}
@@ -85,8 +89,9 @@ The cost of fast local storage also depends on the type of hosts.
 
 * Dedicated hosts
 
-    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+    {% include notitle [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
+    {% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}
 
 {% endlist %}
 
@@ -108,6 +113,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 
     {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
+    {% include notitle [USD: dedicated ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-dedicated.md) %}
 
 {% endlist %}
 
@@ -121,4 +127,3 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-

@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ mpg-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -26,14 +27,13 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 ### Disk space usage {#rules-storage}
 
 The following is charged:
-
 * Storage allocated for DB clusters.
 
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts:
+    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
         * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
         * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
-    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
+    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 

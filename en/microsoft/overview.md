@@ -13,6 +13,8 @@ To learn more about the features of VM images in {{ yandex-cloud }}, go to [{#T}
 
 For more information about how to use your own licenses, see [{#T}](licensing.md#byol).
 
+{% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}
+
 ## Windows Server {#win-server}
 
 Create VMs with Microsoft Windows Server to run Windows applications. Multiple system versions are available in Standard and Datacenter editions:

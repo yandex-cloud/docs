@@ -176,8 +176,7 @@ For more information, see [{#T}](../concepts/replication.md).
 The following characteristics are set for the {{ ZK }} hosts by default:
 
 * The `b2.medium` host class.
-* 10 GB disk size.
-* `network-ssd` [storage type](../concepts/storage.md).
+* [10 GB of SSD network storage (`network-ssd`)](../concepts/storage.md).
 
 {% endnote %}
 
@@ -201,17 +200,14 @@ The following characteristics are set for the {{ ZK }} hosts by default:
   To add a host to a cluster:
 
   1. Collect the necessary information:
-
-     - Request the subnet ID by running the command:
-
+     * Request the subnet ID by running the command:
        ```
        yc vpc subnet list
        ```
-
        
        If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-     - You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     * You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View a description of the CLI command for adding a host:
 
@@ -260,8 +256,8 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 - API
 
   Use the [addHosts](../api-ref/Cluster/addHosts.md) method and pass the following in the request:
-  - In the `clusterId` parameter, the ID of the cluster where you want to locate the host. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - Settings for the host, in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
+  * In the `clusterId` parameter, the ID of the cluster where you want to locate the host. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Settings for the host, in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
 
 {% endlist %}
 
@@ -311,8 +307,8 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 - API
 
   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method and pass the following in the request:
-  - The ID of the cluster where the host is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
+  * The ID of the cluster where the host is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
 
 {% endlist %}
 

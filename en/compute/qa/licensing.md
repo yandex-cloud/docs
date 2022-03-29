@@ -38,7 +38,24 @@ No, you cannot currently upload your own image with the Windows OS.
 
 Yes, you can purchase a VM with a pre-installed Windows Server 2012 or Windows Server 2016 image from {{ yandex-cloud }}. The Windows Server license is included in the cost of using {{ yandex-cloud }}.
 
-#### Can I deploy my own Windows Server licenses in {{ compute-name }}? {#custom-windows-server}
+#### How do I activate Windows Server {#activate-windows-server}
+
+You may have activation issues if the VM doesn't have internet access.
+1. Make sure that the VM has internet access.
+1. Run the following commands in PowerShell as an administrator:
+
+   ```powershell
+   Test-NetConnection kms.cloud.yandex.net -Port 1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /dli
+   cscript.exe C:\Windows\System32\slmgr.vbs /skms kms.cloud.yandex.net:1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /ato
+   Get-Date
+   Get-TimeZone
+   ```
+
+1. If activation was not successful, send us the output of these commands.
+
+#### Can I deploy my own licenses Windows Server in {{ compute-name }}? {#custom-windows-server}
 
 No. You currently can't deploy your own Windows Server licenses.
 
@@ -51,4 +68,3 @@ No, it doesn't. According to the terms of use for Microsoft products, license mo
 #### Can I purchase other Microsoft products with licenses that can be deployed in Compute Cloud? {#buy-other-products}
 
 No, you can't. Currently, {{ yandex-cloud }} only provides Windows Server licenses, as well as enables license transfer to server software under the [License Mobility through Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) program. Licensing of MSDN, Windows OS, Microsoft Office, and other products is not yet available.
-

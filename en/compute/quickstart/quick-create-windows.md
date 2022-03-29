@@ -11,6 +11,8 @@ keywords:
 
 Create a Windows [VM](../concepts/vm.md) using {{ compute-short-name }} from the {{ yandex-cloud }} management console and connect to it.
 
+{% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
+
 ## Before you start {#before-you-begin}
 
 1. Log in to [management console]({{ link-console-main }}) or sign up. If you aren't registered, go to the management console and follow the instructions.

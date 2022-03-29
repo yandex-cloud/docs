@@ -4,38 +4,36 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
 The number of broker hosts that can be created together with a {{ KF }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
-* With **local storage**, you can create a cluster with 3 or more broker hosts (to ensure fault tolerance, a minimum of 3 broker hosts is necessary).
-* When using network storage:
-    * If you select **standard** or **fast network storage**, you can add any number of broker hosts within the [current quota](../concepts/limits.md).
-    * If you select **non-replicated network storage**, you can create a cluster with 3 or more broker hosts (to ensure fault tolerance, a minimum of 3 broker hosts is necessary).
+* With **local SSD** or **non-replicated SSD** storage, you can create a cluster with three or more broker hosts (a minimum of three broker hosts is required for fault tolerance).
+* With **HDD network** or **SSD network** storage, you can add any number of broker hosts within the [current quota](../concepts/limits.md).
 
 After creating a cluster, you can add extra broker hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
+
+## How to create a {{ mkf-name }} cluster {#create-cluster}
 
 {% list tabs %}
 
 - Management console
 
   1. Go to the folder page and select **{{ mkf-name }}**.
-
   1. Click **Create cluster**.
-
   1. Under **Basic parameters**:
-
      1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
-
      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your apps.
         * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
      1. Select the {{ KF }} version.
-
      1. To manage topics via the {{ KF }} Admin API:
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+
          1. Enable **Manage topics via the API**.
          1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
+     1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
+
+         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
      1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
 
@@ -49,9 +47,11 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
   1. Under **Storage**:
 
-     * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+     * Select one of the following [storage types](../concepts/storage.md):
+       * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
+       * Or faster local SSD storage (`local-ssd`).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
      * Select the size of storage to be used for data.
 
@@ -66,6 +66,8 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
         For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
 
         {% endnote %}
+
+     1. Select security groups to control the cluster's network traffic.
 
      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
@@ -86,8 +88,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
          * Replication is possible if there are at least two hosts in the cluster.
          * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
          * Adding more than one host to the cluster automatically adds three {{ ZK }} hosts.
-
-     1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
+          1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
@@ -150,6 +151,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
       1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
+  
   1. To create a cluster hosted using groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), list their IDs separated by commas in the `--host-group-ids` parameter when creating a cluster:
 
       ```bash
@@ -250,11 +252,8 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
     Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
 
     * The ID of the folder where the cluster should be placed in the `folderId` parameter.
-
     * The cluster name in the `name` parameter.
-
     * Security group IDs in the parameter `securityGroupIds`.
-
     * Cluster deletion protection settings in the `deletionProtection` parameter.
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -262,6 +261,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
     To manage topics via the {{ KF }} Admin API:
 
     {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+
     1. Pass `true` for the `unmanagedTopics` parameter.
     1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
@@ -269,13 +269,15 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
     {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
+        
     To create a cluster hosted using groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass their IDs in the `hostGroupIds` parameter.
 
     {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
-  To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter.
+    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter.
+  
+    {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-  {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
 {% endlist %}
 
@@ -303,7 +305,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * In the security group `{{ security-group }}`.
   * With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
   * With one broker.
-  * With 10 GB fast network storage (`{{ disk-type-example }}`).
+  * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
   * With public access.
   * With accidental cluster deletion protection.
 
@@ -329,6 +331,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
+
     * In the cloud with the ID `{{ tf-cloud-id }}`.
     * In the folder with the ID `{{ tf-folder-id }}`.
     * With the name `mykf`.
@@ -338,7 +341,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
     * With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
     * With one broker.
-    * With 10 GB fast network storage (`{{ disk-type-example }}`).
+    * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
     * With public access.
     * With accidental cluster deletion protection.
 
@@ -410,4 +413,3 @@ If you specified security group IDs when creating a cluster, you may also need t
     ```
 
 {% endlist %}
-

@@ -17,7 +17,7 @@ Hosts in {{ mmy-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host configurations on each platform is provided below.
 
-{% include [instance-types-code](../../_includes/mdb/instance-types-code.md) %}
+{% include [instance-types-code](../../_includes/mdb/instance-types-code-c3.md) %}
 
 {% include [additional-types](../../_includes/mdb/additional-instance-types.md) %}
 
@@ -86,3 +86,15 @@ The full list of possible host configurations on each platform is provided below
 | m3-c56-m448       | 56              | 100%                   | 448     |
 | m3-c64-m512       | 64              | 100%                   | 512     |
 | m3-c80-m640       | 80              | 100%                   | 640     |
+| с3-c2-m4          | 2               | 100%                   | 4       |
+| с3-c4-m8          | 4               | 100%                   | 8       |
+| с3-c8-m16         | 8               | 100%                   | 16      |
+| с3-c12-m24        | 12              | 100%                   | 24      |
+| с3-c16-m32        | 16              | 100%                   | 32      |
+| с3-c24-m48        | 24              | 100%                   | 48      |
+| с3-c32-m64        | 32              | 100%                   | 64      |
+| с3-c40-m80        | 40              | 100%                   | 80      |
+| с3-c48-m96        | 48              | 100%                   | 96      |
+| с3-c64-m128       | 64              | 100%                   | 128     |
+| с3-c80-m160       | 80              | 100%                   | 160     |
+| с3-c96-m192       | 96              | 100%                   | 192     |

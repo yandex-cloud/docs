@@ -1,34 +1,37 @@
-title: Yandex Cloud Marketplace partner interface overview
+title: Yandex Cloud Marketplace partners
 href: index.md
 items:
   - name: Step-by-step instructions
     items:
-      - name: All instructions
-        href: operations/index.md
       - name: Registration
         href: operations/registration.md
+      - name: Creating a product in the partner interface
+        href: operations/create-product.md
       - name: Creating a service plan
         href: operations/create-tariff.md
-      - name: Linux image requirements
-        href: operations/create-image.md
-      - name: Windows image requirements
-        href: operations/create-image-ms.md
-      - name: Managed Service for Kubernetes product requirements
-        href: operations/create-container.md
-      - name: Creating a product in the Marketplace Partner interface
-        href: operations/create-product.md
-      - name: Updating a product
-        href: operations/change-product.md
-      - name: Adding a new product version
+      - name: Creating a new product version
         href: operations/create-new-version.md
+      - name: Changing product versions
+        href: operations/update-version.md
   - name: Concepts
     items:
       - name: Product
         href: concepts/product.md
-      - name: Service plan
+      - name: Version
+        href: concepts/version.md
+      - name: Pricing plan
         href: concepts/tariff.md
+      - name: Requirements for Marketplace products
+        expanded: true
+        items:
+          - name: Creating a Linux-based product image
+            href: operations/create-image.md
+          - name: Creating a Windows Server-based product image
+            href: operations/create-image-ms.md
+          - name: Creating a product for {{ managed-k8s-name }}
+            href: operations/create-container.md
       - name: Billing of products based on publisher metrics
-        href: metering/api-usage.md
+        href: concepts/api-usage.md
   - name: API reference
     items:
       - name: REST
@@ -37,7 +40,7 @@ items:
             href: api-ref/index.md
           - name: ImageProductUsage
             items:
-              - name: Overview
+              - name: Description
                 href: api-ref/ImageProductUsage/index.md
               - name: write
                 href: api-ref/ImageProductUsage/write.md

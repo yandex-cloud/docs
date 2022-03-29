@@ -1,13 +1,9 @@
-# Creating a product in the Marketplace Partner interface
+# Creating a product in the partner interface {{ marketplace-short-name }}
 
-To add a product to the Marketplace, upload an image based on [Linux](create-image.md#create) or [Windows Server](create-image-ms.md) in {{ yandex-cloud }}.
+You can add different types of products to {{ marketplace-short-name }}:
+* Products for {{ compute-full-name }}: Upload an image based on [Linux](create-image.md#create) or [Windows Server](create-image-ms.md) in {{ yandex-cloud }}.
+* Products for {{ managed-k8s-full-name }}: Upload a helm chart and all the docker images it contains to the {{ yandex-cloud }} [registry](../../container-registry/concepts/registry.md). For details, see [{#T}](create-container.md).
 
-## Providing product details {#tell-about}
+## Creating an application for product approval {#create-prod}
 
-{% include [product](../../_includes/marketplace/product.md) %}
-
-## Creating the first version of the product {#first-version}
-
-{% include [product-version](../../_includes/marketplace/product-version.md) %}
-
-The product's first version will be sent for moderation to {{ yandex-cloud }}. After it passes moderation, you'll get an email confirming that your product is available to users in the Marketplace public catalog.
+{% include [product](../../_includes/marketplace/product-new.md) %}
