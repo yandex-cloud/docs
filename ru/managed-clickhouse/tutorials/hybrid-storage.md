@@ -3,21 +3,77 @@
 Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера {{ mch-name }}, а редко используемые данные — в {{ objstorage-full-name }}. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Подробнее см. в разделе [{#T}](../concepts/storage.md).
 
 Чтобы воспользоваться гибридным хранилищем:
+
 1. [Создайте таблицу](#create-table).
 1. [Наполните таблицу данными](#fill-table-with-data).
 1. [Проверьте размещение данных таблицы в кластере](#check-table-tiering).
 1. [Выполните тестовый запрос](#submit-test-query).
 
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер](../operations/cluster-create.md) {{ mch-name }} с хранилищем на сетевых дисках, включенным гибридным хранилищем и базой данных `tutorial`.
-1. [Настройте права доступа](../operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
-1. [Настройте clickhouse-client](../operations/connect.md), чтобы иметь возможность подключаться с его помощью к базе данных.
-1. Познакомьтесь с тестовым набором данных:
+### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-   Для демонстрации работы гибридного хранилища используются анонимизированные данные о хитах (`hits_v1`) Яндекс.Метрики. Этот [датасет](https://clickhouse.tech/docs/ru/getting-started/example-datasets/metrica/) содержит данные о почти девяти миллионах хитов за неделю с 17 марта 2014 года по 23 марта 2014 года.
+{% list tabs %}
 
-   Таблица `tutorial.hits_v1` будет [настроена при создании](#create-table) таким образом, чтобы все <q>свежие</q> данные в таблице с 21 марта 2014 года и позже попали в хранилище на сетевых дисках, а более старые данные (с 17 марта по 20 марта 2014 года) — в объектное хранилище.
+- Вручную
+
+    1. [Создайте кластер](../operations/cluster-create.md) {{ mch-name }}:
+        * **Тип хранилища** — на стандартных (`network-hdd`), быстрых (`network-ssd`) или нереплицируемых (`network-ssd-nonreplicated`) сетевых дисках.
+        * **Имя БД** — `tutorial`.
+        * **Гибридное хранилище** — `Включено`.
+
+    1. [Настройте права доступа](../operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
+
+- С помощью Terraform
+
+    1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md).
+
+    1. Клонируйте репозиторий с примерами:
+
+        ```bash
+        git clone https://github.com/yandex-cloud/examples/
+        ```
+
+    1. Скопируйте из директории `examples/tutorials/terraform/` файл `clickhouse-hybrid-storage.tf` в директорию, в которой размещен файл с настройками провайдера.
+
+        В этом файле описаны:
+
+        * сеть;
+        * подсеть;
+        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
+        * кластер {{ mch-name }} с включенным гибридным хранилищем.
+
+    1. Укажите в файле `clickhouse-hybrid-storage.tf` имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
+
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+
+    1. Для проверки правильности файлов конфигурации выполните команду:
+
+       ```bash
+       terraform validate
+       ```
+
+       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте инфраструктуру, необходимую для выполнения инструкций из этого руководства:
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+### Настройте clickouse-client {#deploy-clickhouse-client}
+
+[Настройте clickhouse-client](../operations/connect.md), чтобы иметь возможность подключаться с его помощью к базе данных.
+
+### Познакомьтесь с тестовым набором данных (необязательный шаг) {#explore-dataset}
+
+Для демонстрации работы гибридного хранилища используются анонимизированные данные о хитах (`hits_v1`) Яндекс.Метрики. Этот [датасет](https://clickhouse.tech/docs/ru/getting-started/example-datasets/metrica/) содержит данные о почти девяти миллионах хитов за неделю с 17 марта 2014 года по 23 марта 2014 года.
+
+Таблица `tutorial.hits_v1` будет [настроена при создании](#create-table) таким образом, чтобы все <q>свежие</q> данные в таблице с 21 марта 2014 года и позже попали в хранилище на сетевых дисках, а более старые данные (с 17 марта по 20 марта 2014 года) — в объектное хранилище.
 
 ## Создайте таблицу {#create-table}
 
@@ -70,13 +126,22 @@ SETTINGS index_granularity = 8192
 
    ```bash
    curl https://clickhouse-datasets.s3.yandex.net/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
-   ``` 
+   ```
+
 1. Вставьте данные из этого датасета в {{ CH }} с помощью `clickhouse-client`:
 
    ```bash
-   clickhouse-client --host <FQDN хоста {{ CH }}> --secure --user <имя пользователя> --database tutorial --port 9440 --password <пароль пользователя> --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" --max_insert_block_size=100000 < hits_v1.tsv
+   clickhouse-client \
+       --host <FQDN хоста {{ CH }}> \
+       --secure \
+       --user <имя пользователя> \
+       --database tutorial \
+       --port 9440 \
+       --ask-password \
+       --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" \
+       --max_insert_block_size=100000 < hits_v1.tsv
    ```
-   
+
    FQDN хоста можно получить [со списком хостов в кластере](../operations/hosts.md#list-hosts).
 
 1. Дождитесь завершения операции, вставка данных может занять некоторое время.
@@ -99,8 +164,8 @@ SETTINGS index_granularity = 8192
    ```
 
    Партиции таблицы, для которых значение `EventDate` выходит за [заданный TTL](#ttl) должны находиться на диске с именем `object_storage`, то есть в объектном хранилище, все прочие партиции — на диске `default`:
-   
-   ```
+
+   ```text
    ┌─table───┬─partition──┬─name───────────────┬───rows─┬─disk_name──────┐
    │ hits_v1 │ 2014-03-17 │ 20140317_6_80_2    │ 571657 │ object_storage │
    │ hits_v1 │ 2014-03-17 │ 20140317_86_125_1  │ 287545 │ object_storage │
@@ -128,7 +193,7 @@ SETTINGS index_granularity = 8192
    
    В результате будет отражено распределение строк таблицы по уровням хранения:
    
-   ```
+   ```text
    ┌─sum(rows)─┬─disk_name──────┐
    │   2711246 │ default        │
    │   6162652 │ object_storage │
@@ -154,7 +219,7 @@ LIMIT 10
 
 Результат запроса:
 
-```
+```text
 ┌─Domain──────────────────────────────┬──────AvgSendTiming─┐
 │ realty.ru.msn.com.travel            │ 101166.85714285714 │
 │ podbor.ru.msn.com.uazbukatusprosima │  76429.16666666667 │
@@ -167,6 +232,36 @@ LIMIT 10
 │ sozcu.com.ua.alm.slands             │              29439 │
 │ hasters.ru                          │ 18365.666666666668 │
 └─────────────────────────────────────┴────────────────────┘
-``` 
+```
 
 Как видно из результата выполнения SQL-запроса, с точки зрения пользователя таблица выступает единой сущностью: {{ CH }} успешно выполняет запросы к такой таблице вне зависимости от фактического места расположения данных в ней.
+
+## Удалите созданные ресурсы {#clear-out}
+
+{% list tabs %}
+
+- Вручную
+
+    Если созданные ресурсы вам больше не нужны, [удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
+
+- С помощью Terraform
+
+    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
+
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите файл `clickhouse-hybrid-storage.tf`.
+    1. Выполните команду:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        Все ресурсы, которые были описаны в файле `clickhouse-hybrid-storage.tf`, будут удалены.
+
+{% endlist %}
