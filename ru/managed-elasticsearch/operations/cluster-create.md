@@ -154,6 +154,7 @@ keywords:
           --version <версия {{ ES }}> \
           --edition <редакция {{ ES }}: basic, gold или platinum> \
           --admin-password <пароль пользователя admin> \
+          --plugins=<имя расширения 1>,...,<имя расширения N> \
           --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
@@ -226,6 +227,8 @@ keywords:
               }
             }
 
+            plugins = [ "<список имен расширений>" ]
+
           }
 
           security_group_ids = [ "<список групп безопасности>" ]
@@ -275,6 +278,7 @@ keywords:
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
     * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+    * Список расширений в параметре `configSpec.elasticsearchSpec.plugins`.
     * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 
 {% endlist %}

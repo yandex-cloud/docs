@@ -25,6 +25,8 @@ items:
         href: operations/s3-access.md
       - name: Управление хостами Elasticsearch
         href: operations/cluster-hosts.md
+      - name: Управление расширениями Elasticsearch
+        href: operations/cluster-extensions.md
       - name: Управление пользователями Elasticsearch
         href: operations/cluster-users.md
       - name: Управление резервными копиями
@@ -61,8 +63,6 @@ items:
         href: concepts/backup.md
       - name: Шардирование и репликация
         href: concepts/scalability-and-resilience.md
-      - name: Расширения Elasticsearch
-        href: concepts/plugins.md
       - name: Поддержка словарей
         href: concepts/dictionaries.md      
       - name: Политика управления версиями Elasticsearch

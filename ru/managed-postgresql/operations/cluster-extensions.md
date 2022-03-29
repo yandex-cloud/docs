@@ -19,7 +19,7 @@
 * `pg_qualstats` — необходима для работы [расширения pg_qualstats](https://github.com/powa-team/pg_qualstats);
 * `timescaledb` — необходима для использования [расширения TimescaleDB](https://github.com/timescale/timescaledb).
 
-## Получить список расширений {#list-extensions}
+## Получить список установленных расширений {#list-extensions}
 
 {% list tabs %}
 
@@ -50,7 +50,7 @@
 
 {% endlist %}
 
-## Изменить список расширений {#update-extensions}
+## Изменить список установленных расширений {#update-extensions}
 
 {% list tabs %}
 
