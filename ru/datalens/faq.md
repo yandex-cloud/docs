@@ -53,6 +53,10 @@
 
 {% include [postgre-type.md](../_includes/datalens/qa/postgre-type.md) %}
 
+### Что делать, если таблица из Google Sheets работает некорректно? {#google-sheets-error}
+
+{% include [google-sheets-error](../_includes/datalens/qa/google-sheets-error.md) %}
+
 ### Проблемы с таймзонами (откуда-то сдвиг на три часа во времени) {#timezone-problems}
 
 Приводим работу с таймзонами в порядок в рамках [тикета](https://st.yandex-team.ru/BI-1478).
