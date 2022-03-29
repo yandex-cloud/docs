@@ -11,7 +11,7 @@
   [Создайте пользователя](../../managed-mysql/operations/cluster-users.md#adduser) с именем `user2`. При создании пользователя:
 
   1. Добавьте базу `db1` в список баз данных.
-  1. Добавьте привилегию `SELECT` для базы `db1`.
+  1. Добавьте роль `SELECT` для базы `db1`.
 
 - CLI
 
@@ -23,7 +23,7 @@
         --password "SecretPassword"
       ```
 
-  1. Добавьте привилегию `SELECT` для базы `db1`:
+  1. Добавьте роль `SELECT` для базы `db1`:
 
       ```bash
       yc managed-mysql users grant-permission "user2" \
