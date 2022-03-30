@@ -71,6 +71,59 @@ You can create groups with different configurations in a {{ k8s }} cluster and p
 
 You can connect to nodes in a group via SSH. Learn more in [Connecting to a node via SSH](../operations/node-connect-ssh.md).
 
+### Taints and tolerations policies {#taints-tolerations}
+
+_Taints_ are special policies assigned to nodes in the group. Taints let you prevent certain pods from running on certain nodes. For example, you can allow the rendering pods to run only on [nodes with GPU](node-group/node-group-gpu.md).
+
+Benefits of taints:
+* The policies persist when a node is restarted or replaced with a new one.
+* When adding nodes to a group, the policies are assigned to the node automatically.
+* The policies are automatically assigned to new nodes when [scaling a node group](autoscale.md).
+
+You can assign a taint to a node group only at [creation](../operations/node-group/node-group-create.md).
+
+{% note warning %}
+
+Do not confuse [{{ k8s }} node labels](#node-labels) (`node_labels`) managed by {{ managed-k8s-name }}, with taints.
+
+{% endnote %}
+
+Each taint has three parts:
+
+```text
+<key> = <value>:<effect>
+```
+
+List of available taint effects:
+* `NO_SCHEDULE`: Prevent launching of new pods on the group's nodes (the running pods won't stop).
+* `PREFER_NO_SCHEDULE`: Avoid launching pods on the group's nodes if other groups have free resources to run these pods.
+* `NO_EXECUTE`: Stop pods on the group's nodes, drain the pods across other groups, and prevent new pods from running.
+
+_Tolerations_: Exceptions from taint policies. Using tolerations, you can allow certain pods to run on nodes, even if the taint policy of the node group prevents this.
+
+For example, if the taint policy for nodes in a group is `key1=value1:NoSchedule`, you can add pods to such nodes using tolerations:
+
+```yaml
+apiVersion: v1
+kind: Pod
+...
+spec:
+  ...
+  tolerations:
+  - key: "key1"
+    operator: "Equal"
+    value: "value1"
+    effect: "NoSchedule"
+```
+
+{% note info %}
+
+System pods are automatically assigned tolerations so they can run on any available node.
+
+{% endnote %}
+
+For more information about taints and tolerations, see the [documentation {{ k8s }}](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+
 ## Pod {#pod}
 
 _A pod_ is a request to run one or more containers on a group node. In a {{ k8s }} cluster, each pod has a unique IP address so that applications do not conflict when using ports.

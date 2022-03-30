@@ -56,11 +56,11 @@ Substituting parameter values in query strings looks like this:
 
 ![Substituting parameter values in query strings](../../../_assets/monitoring/query-string-templating.png "Substituting parameter values in query strings")
 
-### Label value filter {#сommon-labels-filter}
+### Label value filter {#common-labels-filter}
 
 The label value filter lets you limit the list of possible parameter values with the _Label value_ type. The filter specifies labels and their values. The filter is applied to all parameters of the _Label value_ type at the same time.
 
-#### Examples of filtering label values {#сommon-labels-filter-example}
+#### Examples of filtering label values {#common-labels-filter-example}
 
 Let's say a dashboard has a _Label value_ type parameter set for the `cluster` label that takes the `prod`, `preprod-1`, `preprod-2`, and `testing` values.
 

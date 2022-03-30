@@ -153,156 +153,196 @@ items:
         items:
           - name: Docker-контейнер для (S)FTP(S)
             href: tools/sftps.md
-  - name: HTTP API, совместимый с Amazon S3
+  - name: Справочник API
     items:
-      - name: Как пользоваться API
-        href: s3/index.md
-      - name: Подписывание запросов
-        href: s3/signing-requests.md
-      - name: Справочник API
+      - name: REST (совместимый с Amazon S3)
         items:
-          - name: Все сервисы и методы
-            href: s3/api-ref/index.md
-          - name: Bucket
+          - name: Как пользоваться API
+            href: s3/index.md
+          - name: Подписывание запросов
+            href: s3/signing-requests.md
+          - name: REST
             items:
-              - name: Все методы
-                href: s3/api-ref/bucket.md
-              - name: create
-                href: s3/api-ref/bucket/create.md
-              - name: getBucketEncryption
-                href: s3/api-ref/bucket/getbucketencryption.md
-              - name: getMeta
-                href: s3/api-ref/bucket/getmeta.md
-              - name: listObjects
-                href: s3/api-ref/bucket/listobjects.md
-              - name: listBuckets
-                href: s3/api-ref/bucket/list.md
-              - name: deleteBucket
-                href: s3/api-ref/bucket/delete.md
-              - name: deleteBucketEncryption
-                href: s3/api-ref/bucket/deletebucketencryption.md
-              - name: putBucketEncryption
-                href: s3/api-ref/bucket/putbucketencryption.md
-              - name: putBucketVersioning
-                href: s3/api-ref/bucket/putBucketVersioning.md
-              - name: getBucketVersioning
-                href: s3/api-ref/bucket/getBucketVersioning.md
-              - name: putBucketLogging
-                href: s3/api-ref/bucket/putBucketLogging.md
-              - name: getBucketLogging
-                href: s3/api-ref/bucket/getBucketLogging.md
-              - name: listObjectVersions
-                href: s3/api-ref/bucket/listObjectVersions.md
-          - name: Object
+              - name: Все сервисы и методы
+                href: s3/api-ref/index.md
+              - name: Bucket
+                items:
+                  - name: Все методы
+                    href: s3/api-ref/bucket.md
+                  - name: create
+                    href: s3/api-ref/bucket/create.md
+                  - name: getBucketEncryption
+                    href: s3/api-ref/bucket/getbucketencryption.md
+                  - name: getMeta
+                    href: s3/api-ref/bucket/getmeta.md
+                  - name: listObjects
+                    href: s3/api-ref/bucket/listobjects.md
+                  - name: listBuckets
+                    href: s3/api-ref/bucket/list.md
+                  - name: deleteBucket
+                    href: s3/api-ref/bucket/delete.md
+                  - name: deleteBucketEncryption
+                    href: s3/api-ref/bucket/deletebucketencryption.md
+                  - name: putBucketEncryption
+                    href: s3/api-ref/bucket/putbucketencryption.md
+                  - name: putBucketVersioning
+                    href: s3/api-ref/bucket/putBucketVersioning.md
+                  - name: getBucketVersioning
+                    href: s3/api-ref/bucket/getBucketVersioning.md
+                  - name: putBucketLogging
+                    href: s3/api-ref/bucket/putBucketLogging.md
+                  - name: getBucketLogging
+                    href: s3/api-ref/bucket/getBucketLogging.md
+                  - name: listObjectVersions
+                    href: s3/api-ref/bucket/listObjectVersions.md
+              - name: Object
+                items:
+                  - name: Все методы
+                    href: s3/api-ref/object.md
+                  - name: upload
+                    href: s3/api-ref/object/upload.md
+                  - name: get
+                    href: s3/api-ref/object/get.md
+                  - name: copy
+                    href: s3/api-ref/object/copy.md
+                  - name: getObjectMeta
+                    href: s3/api-ref/object/getobjectmeta.md
+                  - name: delete
+                    href: s3/api-ref/object/delete.md
+                  - name: deleteMultipleObjects
+                    href: s3/api-ref/object/deletemultipleobjects.md
+                  - name: options
+                    href: s3/api-ref/object/options.md
+                  - name: selectObjectContent
+                    href: s3/api-ref/object/select.md
+              - name: Multipart upload
+                items:
+                  - name: Общий порядок составной загрузки
+                    href: s3/api-ref/multipart.md
+                  - name: startUpload
+                    href: s3/api-ref/multipart/startupload.md
+                  - name: uploadPart
+                    href: s3/api-ref/multipart/uploadpart.md
+                  - name: copyPart
+                    href: s3/api-ref/multipart/copypart.md
+                  - name: listParts
+                    href: s3/api-ref/multipart/listparts.md
+                  - name: abortUpload
+                    href: s3/api-ref/multipart/abortupload.md
+                  - name: completeUpload
+                    href: s3/api-ref/multipart/completeupload.md
+                  - name: listUploads
+                    href: s3/api-ref/multipart/listuploads.md
+              - name: Static Website Hosting
+                items:
+                  - name: Все методы
+                    href: s3/api-ref/hosting.md
+                  - name: upload
+                    href: s3/api-ref/hosting/upload.md
+                  - name: get
+                    href: s3/api-ref/hosting/get.md
+                  - name: delete
+                    href: s3/api-ref/hosting/delete.md
+                  - name: Коды ответов статического сайта
+                    href: s3/api-ref/hosting/answer-codes.md
+              - name: CORS
+                items:
+                  - name: Все методы
+                    href: s3/api-ref/cors.md
+                  - name: XML-структура конфигурации CORS
+                    href: s3/api-ref/cors/xml-config.md
+                  - name: upload
+                    href: s3/api-ref/cors/upload.md
+                  - name: get
+                    href: s3/api-ref/cors/get.md
+                  - name: delete
+                    href: s3/api-ref/cors/delete.md
+              - name: Lifecycles
+                items:
+                  - name: Все методы
+                    href: s3/api-ref/lifecycles.md
+                  - name: XML-структура конфигурации жизненных циклов
+                    href: s3/api-ref/lifecycles/xml-config.md
+                  - name: upload
+                    href: s3/api-ref/lifecycles/upload.md
+                  - name: get
+                    href: s3/api-ref/lifecycles/get.md
+                  - name: delete
+                    href: s3/api-ref/lifecycles/delete.md
+              - name: ACL
+                items:
+                  - name: Все методы
+                    href: s3/api-ref/acl.md
+                  - name: XML-структура конфигурации ACL
+                    href: s3/api-ref/acl/xml-config.md
+                  - name: objectGetAcl
+                    href: s3/api-ref/acl/objectget.md
+                  - name: objectPutAcl
+                    href: s3/api-ref/acl/objectput.md
+                  - name: bucketGetAcl
+                    href: s3/api-ref/acl/bucketget.md
+                  - name: bucketPutAcl
+                    href: s3/api-ref/acl/bucketput.md
+              - name: Bucket Policy
+                items:
+                  - name: Все методы
+                    href: s3/api-ref/policy.md
+                  - name: GetBucketPolicy
+                    href: s3/api-ref/policy/get.md
+                  - name: PutBucketPolicy
+                    href: s3/api-ref/policy/put.md
+                  - name: DeleteBucketPolicy
+                    href: s3/api-ref/policy/delete.md
+                  - name: Схема данных
+                    href: s3/api-ref/policy/scheme.md
+                  - name: Действия
+                    href: s3/api-ref/policy/actions.md
+                  - name: Условия
+                    href: s3/api-ref/policy/conditions.md
+              - name: Общие заголовки запросов
+                href: s3/api-ref/common-request-headers.md
+              - name: Общие заголовки ответов
+                href: s3/api-ref/common-response-headers.md
+              - name: Ответы
+                href: s3/api-ref/response-codes.md
+      - name: gRPC и REST
+        items:
+          - name: Аутентификация в API
+            href: api-ref/authentication.md
+          - name: gRPC (англ.)
             items:
-              - name: Все методы
-                href: s3/api-ref/object.md
-              - name: upload
-                href: s3/api-ref/object/upload.md
-              - name: get
-                href: s3/api-ref/object/get.md
-              - name: copy
-                href: s3/api-ref/object/copy.md
-              - name: getObjectMeta
-                href: s3/api-ref/object/getobjectmeta.md
-              - name: delete
-                href: s3/api-ref/object/delete.md
-              - name: deleteMultipleObjects
-                href: s3/api-ref/object/deletemultipleobjects.md
-              - name: options
-                href: s3/api-ref/object/options.md
-              - name: selectObjectContent
-                href: s3/api-ref/object/select.md
-          - name: Multipart upload
+              - name: Overview
+                href: api-ref/grpc/index.md
+              - name: BucketService
+                href: api-ref/grpc/bucket_service.md
+              - name: OperationService
+                href: api-ref/grpc/operation_service.md
+          - name: REST (англ.)
             items:
-              - name: Общий порядок составной загрузки
-                href: s3/api-ref/multipart.md
-              - name: startUpload
-                href: s3/api-ref/multipart/startupload.md
-              - name: uploadPart
-                href: s3/api-ref/multipart/uploadpart.md
-              - name: copyPart
-                href: s3/api-ref/multipart/copypart.md
-              - name: listParts
-                href: s3/api-ref/multipart/listparts.md
-              - name: abortUpload
-                href: s3/api-ref/multipart/abortupload.md
-              - name: completeUpload
-                href: s3/api-ref/multipart/completeupload.md
-              - name: listUploads
-                href: s3/api-ref/multipart/listuploads.md
-          - name: Static Website Hosting
-            items:
-              - name: Все методы
-                href: s3/api-ref/hosting.md
-              - name: upload
-                href: s3/api-ref/hosting/upload.md
-              - name: get
-                href: s3/api-ref/hosting/get.md
-              - name: delete
-                href: s3/api-ref/hosting/delete.md
-              - name: Коды ответов статического сайта
-                href: s3/api-ref/hosting/answer-codes.md
-          - name: CORS
-            items:
-              - name: Все методы
-                href: s3/api-ref/cors.md
-              - name: XML-структура конфигурации CORS
-                href: s3/api-ref/cors/xml-config.md
-              - name: upload
-                href: s3/api-ref/cors/upload.md
-              - name: get
-                href: s3/api-ref/cors/get.md
-              - name: delete
-                href: s3/api-ref/cors/delete.md
-          - name: Lifecycles
-            items:
-              - name: Все методы
-                href: s3/api-ref/lifecycles.md
-              - name: XML-структура конфигурации жизненных циклов
-                href: s3/api-ref/lifecycles/xml-config.md
-              - name: upload
-                href: s3/api-ref/lifecycles/upload.md
-              - name: get
-                href: s3/api-ref/lifecycles/get.md
-              - name: delete
-                href: s3/api-ref/lifecycles/delete.md
-          - name: ACL
-            items:
-              - name: Все методы
-                href: s3/api-ref/acl.md
-              - name: XML-структура конфигурации ACL
-                href: s3/api-ref/acl/xml-config.md
-              - name: objectGetAcl
-                href: s3/api-ref/acl/objectget.md
-              - name: objectPutAcl
-                href: s3/api-ref/acl/objectput.md
-              - name: bucketGetAcl
-                href: s3/api-ref/acl/bucketget.md
-              - name: bucketPutAcl
-                href: s3/api-ref/acl/bucketput.md
-          - name: Bucket Policy
-            items:
-              - name: Все методы
-                href: s3/api-ref/policy.md
-              - name: GetBucketPolicy
-                href: s3/api-ref/policy/get.md
-              - name: PutBucketPolicy
-                href: s3/api-ref/policy/put.md
-              - name: DeleteBucketPolicy
-                href: s3/api-ref/policy/delete.md
-              - name: Схема данных
-                href: s3/api-ref/policy/scheme.md
-              - name: Действия
-                href: s3/api-ref/policy/actions.md
-              - name: Условия
-                href: s3/api-ref/policy/conditions.md
-          - name: Общие заголовки запросов
-            href: s3/api-ref/common-request-headers.md
-          - name: Общие заголовки ответов
-            href: s3/api-ref/common-response-headers.md
-          - name: Ответы
-            href: s3/api-ref/response-codes.md
+              - name: Overview
+                href: api-ref/index.md
+              - name: Bucket
+                items:
+                  - name: Overview
+                    href: api-ref/Bucket/index.md
+                  - name: create
+                    href: api-ref/Bucket/create.md
+                  - name: delete
+                    href: api-ref/Bucket/delete.md
+                  - name: deleteHTTPSConfig
+                    href: api-ref/Bucket/deleteHTTPSConfig.md
+                  - name: get
+                    href: api-ref/Bucket/get.md
+                  - name: getHTTPSConfig
+                    href: api-ref/Bucket/getHTTPSConfig.md
+                  - name: getStats
+                    href: api-ref/Bucket/getStats.md
+                  - name: list
+                    href: api-ref/Bucket/list.md
+                  - name: setHTTPSConfig
+                    href: api-ref/Bucket/setHTTPSConfig.md
+                  - name: update
+                    href: api-ref/Bucket/update.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -101,7 +101,7 @@ To create a [node group](../../concepts/index.md#node-group), first [create a {{
 
   In [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md), you created a {{ k8s }} cluster using Terraform. Use the same `.tf` configuration file to create a node group in the cluster.
 
-  1. In the configuration file, describe the parameters of resources that you want to create: You can add multiple records at the same time.
+  1. In the configuration file, describe the parameters of resources that you want to create. You can add multiple records at the same time.
      * `yandex_kubernetes_node_group`: Node group parameters:
        * `cluster_id`: ID of a {{ k8s }} cluster where the node group is created.
        * `name`: Name of the {{ k8s }} node group.
@@ -136,7 +136,7 @@ To create a [node group](../../concepts/index.md#node-group), first [create a {{
      * `maintenance_policy`: Update policy settings:
        * `auto_upgrade`: Flag indicating that it's allowed to automatically update a node group.
        * `auto_repair`: Flag indicating that it's allowed to [automatically restore](../../../compute/concepts/instance-groups/autohealing.md) a node group. Currently not supported.
-       * `maintenance_window`: Maintenance window settings. You can use the settings to specify the preferred start time for cluster node maintenance (for example, you can select the time when the cluster is least loaded with requests): Enter the maintenance `day`,`start_time`, and `duration` in the relevant parameters.
+       * `maintenance_window`: Maintenance window settings. You can use the settings to specify the preferred start time for cluster node maintenance (for example, you can select the time when the cluster is least loaded with requests). Enter the maintenance `day`,`start_time`, and `duration` in the relevant parameters.
 
          To specify the interval of the time of day, you must specify only two fields for all days: `start_time` and `duration`.
 
@@ -268,6 +268,8 @@ To create a [node group](../../concepts/index.md#node-group), first [create a {{
   * List of settings to be changed in the `updateMask` parameter.
 
     {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
+
+  To specify a [placement group](../../../compute/concepts/placement-groups.md) for cluster nodes, pass the ID of the placement group in the `nodeTemplate.placementPolicy.placementGroupId` parameter.
 
   For nodes to use non-replicated disks, pass the `network-ssd-nonreplicated` value for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
