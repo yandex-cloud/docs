@@ -9,7 +9,7 @@ To create a node group:
 1. Specify the number of nodes in the group.
 1. Under **Scaling**, select a type:
    * `Fixed`: The number of nodes in the group remains unchanged. Specify the number of nodes in the group.
-   * `Automatic`: The number of nodes in the group can be controlled using automatic cluster scaling.
+   * `Automatic`: The number of nodes in the group can be controlled using [automatic cluster scaling](../../managed-kubernetes/concepts/autoscale.md#ca).
 
      As a result, the following settings become available:
      * **Minimum number of nodes**.
@@ -41,7 +41,7 @@ To create a node group:
    * In the **Public IP** field, choose a method for assigning an IP address:
      * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
      * **No address**: Don't assign a public IP address.
-   * Select security groups.
+   * Select the [security groups](../../vpc/concepts/security-groups.md).
 
      {% include [security-groups-alert](security-groups-alert.md) %}
 
