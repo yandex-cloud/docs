@@ -55,7 +55,7 @@ Add the created database as an information base to 1C:Enterprise. When adding th
 
 ## {{ PG }} extensions for 1C:Enterprise support {#extensions}
 
-List of extensions installed in PostgreSQL 10-1с, 11-1с, and 12-1c clusters:
+List of extensions installed in PostgreSQL 10-1c, 11-1c, and 12-1c clusters:
 
 * [online_analyze](https://postgrespro.com/docs/postgrespro/10/online-analyze)
 

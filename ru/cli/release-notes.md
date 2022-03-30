@@ -26,7 +26,7 @@
 
   * `yc managed-redis cluster create`;
   * `yc managed-redis cluster restore`;
-  * `yc managed-redis cluster create`.
+  * `yc managed-redis cluster update`.
   
   В последнюю команду также добавлен флаг `--force`, обязательный при отключении персистентности кластера.
 

@@ -365,16 +365,20 @@ items:
             href: concepts/issues/search-release.md
           - name: Получить приоритеты
             href: concepts/issues/get-priorities.md
-          - name: Получить связи задачи
-            href: concepts/issues/get-links.md
-          - name: Связать задачи
-            href: concepts/issues/link-issue.md
           - name: Получить переходы
             href: concepts/issues/get-transitions.md
           - name: Выполнить переход в статус
             href: concepts/issues/new-transition.md
           - name: Получить историю изменений задачи
             href: concepts/issues/get-changelog.md
+          - name: Связи задачи
+            items:
+              - name: Связать задачи
+                href: concepts/issues/link-issue.md
+              - name: Получить связи задачи
+                href: concepts/issues/get-links.md
+              - name: Удалить связь с задачей
+                href: concepts/issues/delete-link-issue.md
       - name: Чеклисты
         items:
           - name: Создать чеклист или добавить в него пункты

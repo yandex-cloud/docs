@@ -1,4 +1,4 @@
-# {{ objstorage-name }} сoncepts
+# {{ objstorage-name }} concepts
 
 {{ objstorage-name }} uses the following concepts:
 
