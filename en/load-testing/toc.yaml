@@ -34,6 +34,8 @@ items:
             href: concepts/payloads/raw.md
           - name: HTTP_JSON
             href: concepts/payloads/http-json.md
+      - name: Testing threads
+        href: concepts/testing-stream.md
       - name: Reports
         href: concepts/reports.md
       - name: Quotas and limits
