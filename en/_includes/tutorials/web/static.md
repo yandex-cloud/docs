@@ -63,7 +63,7 @@ You should upload and configure the index page and error page. To do this:
    * `index.html` with the text `Hello world!`.
 The file content gets displayed when accessing the home page of the website.
    * `error.html` with the text `Error!`.
-The file content appears in website responses with `4ххх` errors.
+The file content appears in website responses with `4xx` errors.
 1. Go to your bucket's page, open the **Objects** tab, and click **Upload**. In the window that opens, select the created files and click the confirmation button.
 1. Click **Upload**.
 1. Open the **Website** tab on your bucket page.

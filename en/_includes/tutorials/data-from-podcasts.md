@@ -5,7 +5,7 @@ Podcast analytics lets you get and analyze podcast listening statistics and data
 
 To visualize and analyze the data, follow these steps:
 
-1. [Set up a connection](#сonfigure-connection).
+1. [Set up a connection](#configure-connection).
     1. [Before you start](#before-you-begin).
     1. [Create a connection](#create-connection).
     1. [Analyze podcast statistics in DataLens](#podcasts-in-datalens).
@@ -26,7 +26,7 @@ To visualize and analyze the data, follow these steps:
 
 We recommend that you read the [Questions and answers](#qa) section to see the answers to common questions from users of Yandex Music podcast statistics.
 
-## 1. Set up a connection {#сonfigure-connection}
+## 1. Set up a connection {#configure-connection}
 
 ### 1.1 Before you start {#before-you-begin}
 
@@ -224,7 +224,7 @@ Let's say we want to build a chart with the total number of times streams were l
    1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field of the **Filters** section.
         1. In the **Preset** list, select **Last 365 days** and click **Apply filter**.
 
-1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field of the **Х** section.
+1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field of the **X** section.
    1. In the **Grouping** list, select **Month** and click **Apply**.
 
 1. Add a dimension named **Episode** to the **Colors** section.
@@ -236,7 +236,7 @@ Let's say we want to build a chart with the total number of times streams were l
 1. Click **Save** in the upper-right corner of the chart.
     1. Enter the name **Episode listening dynamics** and click **Apply filter**.
 
-   {% note info "Примечание" %}
+   {% note info "Note" %}
 
     If the **Listening date** field filter is added to the dashboard, filtering by this field in the chart is ignored.
 

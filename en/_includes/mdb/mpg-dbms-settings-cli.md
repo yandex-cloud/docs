@@ -1,6 +1,6 @@
 You can use the following settings:
 
-- **`--сonn-limit`**: The maximum number of connections per user.
+- **`--conn-limit`**: The maximum number of connections per user.
 
   In session pooling, this setting limits the number of user connections to each host in a {{ PG }} cluster.
   When using this type of pooling, make sure the setting value is not less than the sum of all connections that can be opened by the service backends using {{ PG }}. Note that each open server connection slows {{ PG }} down a little for the OLTP (Online Transaction Processing) workload.

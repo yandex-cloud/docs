@@ -16,7 +16,7 @@ Below are common errors and ways to fix them.
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
 {"level":"DEBUG","ts":"2021-03-25T12:07:39.785Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
-{"level":"DEBUG","ts":"2021-03-25T12:07:39.786Z","caller":"container/image.go:47","msg":"pulling image: 'cr.yandex/crpgrueprnc1сgt1la/nginx:1.16.0'"}
+{"level":"DEBUG","ts":"2021-03-25T12:07:39.786Z","caller":"container/image.go:47","msg":"pulling image: 'cr.yandex/crpgrueprnc1cgt1la/nginx:1.16.0'"}
 Mar 25 12:07:41 instance-name yc-container-daemon[516]:
 {"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for cr.yandex/crpgruernc1bgt1la/ngin>
 ```
@@ -31,7 +31,7 @@ Mar 25 12:07:41 instance-name yc-container-daemon[516]:
 Sep 28 08:00:18 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
 {"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z ","caller":"container/container.go:121","msg":"trying to pull image (0/3)"}
 Sep 28 08:00:18 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
-{"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z","caller":"container/container.go:162","msg":"pulling image: 'cr.yandex/crpgrueprnhc1сgt1lab/nginx:1.16.0'"}
+{"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z","caller":"container/container.go:162","msg":"pulling image: 'cr.yandex/crpgrueprnhc1cgt1lab/nginx:1.16.0'"}
 Sep 28 08:00:33 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
 {"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://cr.yandex/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
 ```

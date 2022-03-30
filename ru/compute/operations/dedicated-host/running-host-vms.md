@@ -26,7 +26,7 @@
      +---------------------+-------+--------------+
      |         ID          | CORES |    MEMORY    |
      +---------------------+-------+--------------+
-     | intel-6230-с66-m454 |    66 | 487478788096 |
+     | intel-6230-c66-m454 |    66 | 487478788096 |
      +---------------------+-------+--------------+
      ```
 
@@ -35,7 +35,7 @@
      ```bash
      yc compute host-group create \
        --fixed-size 2 \
-       --type intel-6230-с66-m454 \
+       --type intel-6230-c66-m454 \
        --zone ru-central1-a
      ```
 
@@ -53,7 +53,7 @@
      created_at: "2020-10-13T07:54:08Z"
      zone_id: ru-central1-a
      status: READY
-     type_id: intel-6230-с66-m454
+     type_id: intel-6230-c66-m454
      maintenance_policy: RESTART
      scale_policy:
        fixed_scale:

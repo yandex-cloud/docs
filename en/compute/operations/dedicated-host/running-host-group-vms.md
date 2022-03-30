@@ -32,7 +32,7 @@ To create a VM that is linked to a group of dedicated hosts, follow these steps:
      +---------------------+-------+--------------+
      |         ID          | CORES |    MEMORY    |
      +---------------------+-------+--------------+
-     | intel-6230-с66-m454 |    66 | 487478788096 |
+     | intel-6230-c66-m454 |    66 | 487478788096 |
      +---------------------+-------+--------------+
      ```
 
@@ -59,7 +59,7 @@ To create a VM that is linked to a group of dedicated hosts, follow these steps:
      created_at: "2020-10-13T07:36:49Z"
      zone_id: ru-central1-a
      status: READY
-     type_id: intel-6230-с66-m454
+     type_id: intel-6230-c66-m454
      maintenance_policy: RESTART
      scale_policy:
        fixed_scale:
@@ -78,7 +78,7 @@ To create a VM that is linked to a group of dedicated hosts, follow these steps:
      +----------------------+------+---------------+--------+---------------------+------+
      |          ID          | NAME |     ZONE      | STATUS |        TYPE         | SIZE |
      +----------------------+------+---------------+--------+---------------------+------+
-     | abcdefg1hi23gkl16dnf |      | ru-central1-a | READY  | intel-6230-с66-m454 |    2 |
+     | abcdefg1hi23gkl16dnf |      | ru-central1-a | READY  | intel-6230-c66-m454 |    2 |
      +----------------------+------+---------------+--------+---------------------+------+
      ```
 
