@@ -22,28 +22,26 @@
 
 Список настроек, зависящих от класса хостов:
 
-- [Autovacuum max workers](#setting-autovacuum-max-workers).
-- [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay).
-- [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit).
-- [Conn limit](#setting-conn-limit).
-- [Max connections](#setting-max-connections).
+- [Autovacuum max workers](#setting-autovacuum-max-workers);
+- [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay);
+- [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit);
+- [Conn limit](#setting-conn-limit);
+- [Max connections](#setting-max-connections);
 - [Shared buffers](#setting-shared-buffers).
 
 Список настроек, зависящих от размера хранилища:
 
-- [Max wal size](#setting-max-wal-size).
+- [Max wal size](#setting-max-wal-size);
 - [Min wal size](#setting-min-wal-size).
 
-## Настройки СУБД уровня кластера {#dbms-cluster-settings}
+## Настройки на уровне кластера {#dbms-cluster-settings}
 
 Доступны следующие настройки:
 
 {% include [mpg-dbms-settings](../../_includes/mdb/mpg-dbms-settings.md) %}
 
-## Пользовательские настройки {#dbms-user-settings}
+## Настройки на уровне пользователя {#dbms-user-settings}
 
-Эти настройки влияют на поведение {{ PG }} при работе с запросами пользователя.
-
-Доступны следующие настройки:
+Эти настройки влияют на поведение {{ PG }} при работе с запросами пользователя:
 
 {% include [mpg-dbms-user-settings](../../_includes/mdb/mpg-dbms-user-settings.md) %}

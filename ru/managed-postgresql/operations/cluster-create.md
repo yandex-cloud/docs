@@ -19,10 +19,9 @@
 
 {% endif %}
 
-По умолчанию {{ mpg-short-name }} выставляет максимально возможное количество подключений к каждому хосту {{ PG }}-кластера. Этот максимум не может быть больше значения настройки [Max connections](../concepts/settings-list.md#setting-max-connections). 
+По умолчанию {{ mpg-short-name }} выставляет максимально возможное количество подключений к каждому хосту {{ PG }}-кластера. Этот максимум не может быть больше значения настройки [Max connections](../concepts/settings-list.md#setting-max-connections).
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
-
 
 ## Как создать кластер {{ PG }} {#create-cluster}
 
