@@ -43,8 +43,8 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
 - cURL
 
   ```bash
-  $ export FOLDER_ID=b1gvmob95yysaplct532
-  $ export IAM_TOKEN=CggaATEVAgA...
+  $ export FOLDER_ID=<Folder ID>
+  $ export IAM_TOKEN=<IAM token>
   $ curl -X POST \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        --data-urlencode "text=Hello World" \
@@ -72,8 +72,8 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
 
       static async Task Tts()
       {
-        const string iamToken = "CggaATEVAgA..."; // Specify the IAM token.
-        const string folderId = "b1gvmob95yysaplct532"; // Specify the folder ID.
+        const string iamToken = "<IAM token>"; // Specify the IAM token.
+        const string folderId = "<Folder ID>"; // Specify the folder ID.
 
         HttpClient client = new HttpClient();
         client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
@@ -124,7 +124,7 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
       if __name__ == "__main__":
           parser = argparse.ArgumentParser()
           parser.add_argument("--token", required=True, help="IAM token")
-          parser.add_argument("--folder_id", required=True, help="Folder id")
+          parser.add_argument("--folder_id", required=True, help="Folder ID")
           parser.add_argument("--text", required=True, help="Text for synthesize")
           parser.add_argument("--output", required=True, help="Output file name")
           args = parser.parse_args()
@@ -137,24 +137,31 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
   1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
 
       ```bash
-      $ export FOLDER_ID=b1gvmob95yysaplct532
-      $ export IAM_TOKEN=CggaATEVAgA...
+      $ export FOLDER_ID=<Folder ID>
+      $ export IAM_TOKEN=<IAM token>
       $ python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "Hello World"
       ```
 
 - PHP
 
   ```php
-  <?
-
-  $token = 'CggaATEVAgA...'; # IAM token
-  $folderId = "b1gvmob95yysaplct532"; # ID of the folder
+  <?php
+  
+  $token = '<IAM token>'; # IAM token
+  $folderId = "<Folder ID>"; # ID of the folder
+  
   $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-
-  $post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}";
   $headers = ['Authorization: Bearer ' . $token];
+  $post = array(
+      'text' => "Hello World",
+      'folderId' => $folderId,
+      'sampleRateHertz' => '48000',
+      'lang' => 'en-US',
+      'voice' => 'filipp',
+      'format' => 'lpcm');
+  
   $ch = curl_init();
-
+  
   curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_URL, $url);
@@ -165,8 +172,8 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
       curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
   }
   curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-
+  
+  
   $response = curl_exec($ch);
   if (curl_errno($ch)) {
       print "Error: " . curl_error($ch);
@@ -176,7 +183,7 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
       echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
       echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
   } else {
-      file_put_contents("speech.ogg", $response);
+      file_put_contents("speech.raw", $response);
   }
   curl_close($ch);
   ```
@@ -194,8 +201,8 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
     - cURL
 
       ```bash
-      $ export FOLDER_ID=b1gvmob95yysaplct532
-      $ export IAM_TOKEN=CggaATEVAgA...
+      $ export FOLDER_ID=<Folder ID>
+      $ export IAM_TOKEN=<IAM token>
       $ curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -o speech.raw \
@@ -224,8 +231,8 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
 
           static async Task Tts()
           {
-            const string iamToken = "CggaATEVAgA..."; // Specify the IAM token.
-            const string folderId = "b1gvmob95yysaplct532"; // Specify the folder ID.
+            const string iamToken = "<IAM token>"; // Specify the IAM token.
+            const string folderId = "<Folder ID>"; // Specify the folder ID.
 
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
@@ -280,7 +287,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
           if __name__ == "__main__":
               parser = argparse.ArgumentParser()
               parser.add_argument("--token", required=True, help="IAM token")
-              parser.add_argument("--folder_id", required=True, help="Folder id")
+              parser.add_argument("--folder_id", required=True, help="Folder ID")
               parser.add_argument("--text", required=True, help="Text for synthesize")
               parser.add_argument("--output", required=True, help="Output file name")
               args = parser.parse_args()
@@ -301,18 +308,23 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
     - PHP
 
       ```php
-      <?
-
-      const FORMAT_PCM = "lpcm";
-      const FORMAT_OPUS = "oggopus";
-
-      $token = 'CggaATEVAgA...'; # IAM token
-      $folderId = "b1gvmob95yysaplct532"; # ID of the folder
+      <?php
+      
+      $token = '<IAM token>'; # IAM token
+      $folderId = "<Folder ID>"; # ID of the folder
+      
       $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-      $post = "text=" . urlencode("Hello World") . "&lang=en-US&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
       $headers = ['Authorization: Bearer ' . $token];
+      $post = array(
+          'text' => "Hello World",
+          'folderId' => $folderId,
+          'sampleRateHertz' => '48000',
+          'lang' => 'en-US',
+          'voice' => 'filipp',
+          'format' => 'lpcm');
+      
       $ch = curl_init();
-
+      
       curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($ch, CURLOPT_URL, $url);
@@ -323,8 +335,8 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
           curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
       }
       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-
+      
+      
       $response = curl_exec($ch);
       if (curl_errno($ch)) {
           print "Error: " . curl_error($ch);
@@ -341,10 +353,10 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
 
     {% endlist %}
 
-2. Convert the file to WAV format using the [SoX](http://sox.sourceforge.net/) utility.
+1. Convert the file to WAV format using the [SoX](http://sox.sourceforge.net/) utility.
 
     ```bash
-    $ sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
+    sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
     ```
 
 ### Convert text to speech in SSML format {#ssml}
@@ -361,11 +373,11 @@ The text is synthesized and recorded as an audio file. By default, data in the a
 
         {% include [ssml-example](../../_includes/speechkit/ssml-example.md) %}
 
-    2. Send a request with the text to the server. Pass the text in the `ssml` parameter. In this example, the contents of the file are read using the [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) utility:
+    1. Send a request with the text to the server. Pass the text in the `ssml` parameter. In this example, the contents of the file are read using the [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) utility:
 
         ```bash
-        $ export FOLDER_ID=b1gvmob95yysaplct532
-        $ export IAM_TOKEN=CggaATEVAgA...
+        $ export FOLDER_ID=<Folder ID>
+        $ export IAM_TOKEN=<IAM token>
         $ curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           --data-urlencode "ssml=`cat text.xml`" \
