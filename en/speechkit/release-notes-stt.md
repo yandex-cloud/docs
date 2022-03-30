@@ -6,19 +6,25 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
-### Release 17.02.22 {#170222}
+### Release 02.03.22 {#020322}
 
-The current release improved the quality of the Russian-language `general:rc` model as follows:
+Improved recognition of names, addresses, and terms as well as punctuation placement in long sentences and texts with numbers is now available in the `general` model.
 
-1. Recognition of surnames, first names, patronymic names, and addresses.
-1. Recognition of customer-specific terms. The model was added data at the user's request as of February 1, 2022, and adjustments according to the user's data as of November 9, 2021.
-1. Punctuation in long sentences and texts containing numbers.
+The `general:rc` model has undergone further upgrades based on user data.
 
 ## Previous versions {#previous}
 
+### Release 17.02.22 {#170222}
+
+The current release improved the quality of the Russian-language `general:rc` model in the following areas:
+
+1. Recognition of last and first names, patronymics, and addresses.
+1. Recognition of customer-specific terms. The model was enhanced with data from a user request dated February 1, 2022, and corrected based on user data from November 9, 2021.
+1. Punctuation in long sentences and texts with numbers.
+
 ### Release 3.02.22 {#030222}
 
-1. The `general:rc` model now supports universal mode (`"auto"` language). In this mode, the model can recognize speech in one of the following languages:
+1. In the `general:rc`, a universal mode (`auto`language) is available. In this mode, the model can recognize speech in one of the following languages:
    * Russian
    * Kazakh
    * English
@@ -31,11 +37,11 @@ The current release improved the quality of the Russian-language `general:rc` mo
    * Italian
    * Spanish
 
-1. New languages are also available under their own codes. The `general:rc` model uses an indication as a hint for language recognition. If the language is indicated explicitly, the model will use it as a hint to improve the recognition quality. Currently, a hint only affects the quality of recognition of Russian.
+1. New languages are also available under their codes. The `general:rc` uses indication as a hint for language recognition. If a language is specifically indicated, the model uses it as a hint to improve recognition quality. Currently, the hint only affects quality recognition for Russian.
 
-When using `general:rc`, we recommend that you enable [autotuning](stt/additional-training.md#autotuning).
+When using `general:rc`, we recommend enabling [auto-tuning](stt/additional-training.md#autotuning).
 
-_Known issues_: In universal mode, the recognition quality may degrade when recognizing continuous speech without pauses.
+_Known problems_: in the universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
 
 ### Release 26.01.22 {#260122}
 
@@ -43,4 +49,4 @@ _Known issues_: In universal mode, the recognition quality may degrade when reco
 
 1. The `general:rc` model now supports a punctuator in streaming and delayed recognition modes.
 
-1. In delayed recognition mode, you can now work with [MP3]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/MP3){% else %}(https://en.wikipedia.org/wiki/MP3){% endif %} format.
+1. In delayed recognition mode, you can now work with the [MP3]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/MP3){% else %}(https://en.wikipedia.org/wiki/MP3){% endif %} format.
