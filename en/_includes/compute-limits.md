@@ -37,7 +37,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
   | ----- | ----- |
   | Maximum number of vCPUs per VM | Without [vGPU](../compute/concepts/gpus.md#vgpu): 32<br>With vGPU: 4 |
   | Maximum virtual memory per VM | Without [GPU](../compute/concepts/gpus.md#gpu) and vGPU: 256 GB<br>With GPU: 384 GB<br>With vGPU: 12 GB |
-  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 18 vCPUs: 8<br>From 18 vCPUs: 13^3^ |
+  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 18 vCPUs: 8<br>From 18 vCPUs: 16^3^ |
   | Maximum number of GPUs connected to a single VM | 4 |
   | Maximum number of vGPUs connected to a VM | 1 |
   | Maximum number of security groups per interface | 5 |
@@ -49,7 +49,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
   | ----- | ----- |
   | Maximum number of vCPUs per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 80<br>With GPU: 64 |
   | Maximum virtual memory per VM | Without GPU: 640 GB<br>With GPU: 384 GB |
-  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 20 vCPUs: 8<br>From 20 vCPUs: 13^3^ |
+  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 20 vCPUs: 8<br>From 20 vCPUs: 16^3^ |
   | Maximum number of GPUs connected to a single VM | 8 |
   | Maximum number of security groups per interface | 5 |
   | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
@@ -60,7 +60,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
   | ----- | ----- |
   | Maximum number of vCPUs per VM | 96 |
   | Maximum virtual memory per VM | 640 GB |
-  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 32 vCPUs: 8<br>From 32 vCPUs: 13^3^ |
+  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 32 vCPUs: 8<br>From 32 vCPUs: 16^3^ |
   | Maximum number of security groups per interface | 5 |
   | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
 
