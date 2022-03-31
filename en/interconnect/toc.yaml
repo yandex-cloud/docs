@@ -9,5 +9,7 @@ items:
         href: concepts/user-metrics.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: How do I connect Cloud Interconnect
+    href: manual.md
   - name: Pricing policy
     href: pricing.md
