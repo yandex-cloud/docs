@@ -33,7 +33,7 @@ import (
 
 func main() {
 
-	// Create custom endpoind resolver for returning correct URL for S3 storage in ru-central1 region
+	// Create custom endpoint resolver for returning correct URL for S3 storage in ru-central1 region
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		if service == s3.ServiceID && region == "ru-central1" {
 			return aws.Endpoint{
@@ -87,13 +87,13 @@ func main() {
 	bucketName := flag.String("b", "", "The name of the bucket")
 	flag.Parse()
 
-	if *bucket == "" {
+	if *bucketName == "" {
 		fmt.Println("You must supply the name of a bucket (-b BUCKET)")
 		return
 	}
 
 
-	// Create custom endpoind resolver for returning correct URL for S3 storage in ru-central1 region
+	// Create custom endpoint resolver for returning correct URL for S3 storage in ru-central1 region
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		if service == s3.ServiceID && region == "ru-central1" {
 			return aws.Endpoint{

@@ -87,7 +87,7 @@ func main() {
 	bucketName := flag.String("b", "", "The name of the bucket")
 	flag.Parse()
 
-	if *bucket == "" {
+	if *bucketName == "" {
 		fmt.Println("You must supply the name of a bucket (-b BUCKET)")
 		return
 	}
