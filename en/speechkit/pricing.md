@@ -64,6 +64,12 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio with
 
 ### Speech synthesis {#prices-tts}
 
+{% note warning %}
+
+From April 13, 2022, the usage of voices `oksana`, `ermil`, `jane`, `omazh`, `zahar` is calculated like usage of premium voices.
+
+{% endnote %}
+
 
 
 

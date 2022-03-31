@@ -27,8 +27,8 @@
 read -r -d '' TEXT << EOM
 > Я Яндекс Спичк+ит.
 > Я могу превратить любой текст в речь.
-> Теперь и в+ы - можете!
-> EOM
+> Теперь и в+ы — можете!
+EOM
 export FOLDER_ID=<идентификатор каталога>
 export IAM_TOKEN=<IAM-токен>
 curl -X POST \
@@ -58,14 +58,16 @@ curl -X POST \
 * `lang` — нужный вам [язык](stt/models.md#tags) распознавания.
 *  `folderId` — идентификатор каталога, полученный [перед началом](#before-begin). 
 
-В ответе сервис вернет распознанный текст:
-
 ```bash
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-binary "@speech.ogg" \
    "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
+```
 
+В ответе сервис вернет распознанный текст:
+
+```
 {"result":"Я яндекс спичкит я могу превратить любой текст в речь теперь вы можете"}
 ```
 

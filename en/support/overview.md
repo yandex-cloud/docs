@@ -1,10 +1,10 @@
 # Requesting technical support
 
-{{ yandex-cloud }} provides technical support under different service plans. Choose the plan that suits you best.
+{{ yandex-cloud }} provides technical support under different service plans. You can choose the plan that's best for you. The cost of paid technical support plans includes two components: fixed and supplemental. The fixed portion only depends on the selected plan, while the supplemental portion is calculated as a fraction of the cost of the resources used over the month. For more information about plans, see the [Pricing policy](pricing.md).
 
 ## Contacting support {#response-time}
 
-Depending on your service plan, you can [contact support]({{ link-console-support }}) in one of the following ways:
+Depending on your pricing plan, you can [contact technical support]({{ link-console-support }}) using one of the methods below:
 
 {% include [support-channels](../_includes/support/channels.md) %}
 
@@ -14,7 +14,7 @@ The expected support specialist response time is shown in the table below. A das
 
 | Channel | Basic | Standard | Business | Premium |
 | ----- | ----- | ----- | ----- | ----- |
-|  | For personal and research projects | For development and pilot projects | For professional projects |  |
+|       | For personal and research projects | For development and pilot projects | For professional projects |  |
 | Request in console | Normal: 24 hours<br/>Increase quotas: 30 minutes | Normal: 8 hours<br/>Critical: 2 hours<br/>Increase quotas: 30 minutes | Normal: 4 hours<br/>Critical: 30 minutes<br/>Increase quotas: 30 minutes | Normal: 2 hours<br/>Critical: 15 minutes<br/>Increase quotas: 30 minutes |
 | Chat | - | 15 minutes | 5 minutes | immediate |
 | Phone | - | - | on additional request | on additional request |
@@ -30,7 +30,7 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
 {% endnote %}
 
 | Request type | Basic | Standard | Business | Premium |
-| ----- | ----- | ----- | ----- | ----- |
+----- | ----- | ----- | ----- | -----
 | Restore access to the management console | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide links to documentation | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Diagnose errors in {{ yandex-cloud }} services and fix identified problems not related to third-party software | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
@@ -40,25 +40,24 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
 | Address requests about your data in {{ yandex-cloud }}, including requests for personal data | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for service recovery in the event of a critical incident | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide general recommendations about architecture |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information) |  |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide recommendations for fixing problems with operating systems and their components |  |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving) |  |  |  | ![image](../_assets/common/yes.svg) |
-| Directly consult with a dedicated support engineer on how to solve architecture-related tasks based on your {{ yandex-cloud }} service usage scenario |  |  |  | ![image](../_assets/common/yes.svg) |
-| Personal technical manager |  |  |  | ![image](../_assets/common/yes.svg) |
-| Additional {{ yandex-cloud }} services (case-by-case basis) |  |  |  | ![image](../_assets/common/yes.svg) |
+| Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information) | | | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for fixing problems with operating systems and their components | | | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving) | | | | ![image](../_assets/common/yes.svg) |
+| Directly consult with a dedicated support engineer on how to solve architecture-related tasks based on your {{ yandex-cloud }} service usage scenario | | | | ![image](../_assets/common/yes.svg) |
+| Personal technical manager | | | | ![image](../_assets/common/yes.svg) |
+| Additional {{ yandex-cloud }} services (case-by-case basis) | | | | ![image](../_assets/common/yes.svg) |
 
 {{ yandex-cloud }} technical support engineers don't address the following issues:
 
-  * Develop software code.
-  * Debug your personal software.
+* Develop software code.
+* Debug your own software.
 
-## Changing your service plan {#change-service-plan}
+## How to change your service plan {#change-service-plan}
 
-1. In the [management console]({{ link-console-support }}), go to the tab **Pricing plan**.
+1. In the [management console]({{ link-console-support }}), go to the **Pricing plan** tab.
 1. Select a service plan and click **Switch**.
 1. To change to:
-    * Any service plan except Premium, click **Confirm**.
-    * The Premium plan, complete the form and click **Send**.
+   * Any service plan except Premium, click **Confirm**.
+   * The Premium plan, complete the form and click **Send**.
 
 Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.
-

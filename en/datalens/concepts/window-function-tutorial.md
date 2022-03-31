@@ -2,13 +2,13 @@
 
 [Window functions](../function-ref/window-functions.md) are similar to aggregate functions. They allow you to get additional information about the original sample. For example, you can calculate the cumulative total and the moving average or rank values.
 
-The difference is that when calculating window functions, the rows are not combined into one but continue to be separate. The result of the calculation is displayed in each row. The original number of rows doesn't change. For more information about how data aggregation and grouping work in {{ datalens-short-name }}, see [{#T}](aggregation-tutorial.md#datalens-aggregation).
+The difference is that when calculating window functions, the rows are not combined into one but continue to be separate. The result of the calculation is displayed in each row. The original number of rows doesn't change. For more detail on data aggregate and grouping in {{ datalens-short-name }}, please review [{#T}](aggregation-tutorial.md#datalens-aggregation).
 
-In these examples, [Selling.csv](https://disk.yandex.com/d/pT2f56G7bNaFvg?lang=en) is the data source for sales in cities.
+These examples will use [Selling.csv](https://disk.yandex.com/d/pT2f56G7bNaFvg) containing sales data by city as the data source to process.
 
 ## Applying window functions {#usage-window-function}
 
-In {{ datalens-short-name }}, only [measures](dataset/data-model.md#field) can be the arguments of window functions. The groups of values that a function is calculated for are specified as a list of [dimensions](dataset/data-model.md#field) and are called windows. For [groupings](#grouping), only the dimensions used in the built chart can be applied. These include all the dimensions in one chart section.
+In {{ datalens-short-name }}, only [measures](dataset/data-model.md#field) can be the arguments of window functions. The groups of values that a function is calculated for are specified as a list of [dimensions](dataset/data-model.md#field) and are called windows. [Groupings](#grouping) may only use the dimensions involved in building a chart. These include all the dimensions in one chart section.
 
 Let's take a look at the `Selling` table with data on sales in cities:
 
@@ -25,10 +25,10 @@ Let's take a look at the `Selling` table with data on sales in cities:
 
 **Example 1**
 
-In the [chart](https://datalens.yandex/ryw9h5g0ecc8k) based on the `Selling` table with grouping by `City` and `Category`, you need to calculate the total sales amount (`TotalSales`) and each category's share of the total amount (`% Total`) for the city. To do this, you need to create two measures using the [SUM](../function-ref/SUM_WINDOW.md) window function:
+The [chart](https://datalens.yandex/ryw9h5g0ecc8k) based on the `Selling` table and grouped by `City` and `Category` must compute total sales (`TotalSales`) as well as each category's share in a city as a percentage of the total (`% Total`). To do this, you need to create two measures using the [SUM](../function-ref/SUM_WINDOW.md) window function:
 
-* TotalSales: `SUM(SUM([Sales]) TOTAL)`
-* % Total: `SUM([Sales]) / [TotalSales]`
+* TotalSales — `SUM(SUM([Sales]) TOTAL)`
+* % Total — `SUM([Sales]) / [TotalSales]`
 
 For example, for the **Table** chart, the result looks like this:
 
@@ -42,20 +42,64 @@ You need to arrange the rows in the `Selling` table based on the sales amount. T
 
 Window functions can be nested. You can also specify a custom grouping for each function used in the formula.
 
-**Example**
+**Example 3**
 
-You need to arrange the rows in the `Selling` table based on the average sales amount for all dates in the city. The average sales amount for the city can be calculated using the [AVG](../function-ref/AVG_WINDOW.md) function: `AVG(SUM([Sales]) WITHIN [City])`. City names repeat in the table, so for ranking, use the [RANK_DENSE](../function-ref/RANK_DENSE.md) function. It doesn't skip sequence numbers for rows with the same value. The resulting formula is `RANK_DENSE(AVG(SUM([Sales]) WITHIN [City]) TOTAL)`.
+You need to arrange the rows in the `Selling` table based on the the average sales amount for all dates in the city. You can compute an average sales amount for a city using the [AVG](../function-ref/AVG_WINDOW.md) function: `AVG(SUM([Sales]) WITHIN [City])`. City names repeat in the table, so for ranking, use the [RANK_DENSE](../function-ref/RANK_DENSE.md) function. It doesn't skip sequence numbers for rows with the same value. The resulting formula is `RANK_DENSE(AVG(SUM([Sales]) WITHIN [City]) TOTAL)`.
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-11.png)
+
+**Example 4**
+
+Let's review the most complicated window function example. Let's a build a dataset from a [connection to the](../tutorials/data-from-ch-to-sql-chart.md#create-connection) demo DB (`SampleLite` table) to use as our data source. Let's build a chart of the sales statistics by product subcategory. Let's only include in the chart those subcategories that made it into the daily top 3 sellers at least once a day.
+
+{% cut "Read more" %}
+
+1. Let's order our product subcategories in descending order by sales amount within each date. To accomplish this, we'll use the [RANK](../function-ref/RANK.md) window function to create a metric:
+
+   * Sales Rank — `RANK([Sales] WITHIN [Date])`
+
+   As a result, for each date, the subcategory with the highest total sales will be numbered `1`, the subcategory with the next highest total `2`, etc. For convenience, let us place the data in a **Table** chart:
+
+   ![image](../../_assets/datalens/concepts/tutorial/window-func-12.png)
+
+1. Let's highlight the categories in the top 3 most sold for the same date. To do this, create the following metric:
+
+   * Top-3 — `IF([Sales Rank] <= 3, 1, 0)`
+
+   The subcategories that make it into the top 3 based on sales for each date will have the `[Top-3]` metric equal to `1` whereas for the remaining categories on the same date, it will be equal to `0`.
+
+   ![image](../../_assets/datalens/concepts/tutorial/window-func-13.png)
+
+1. Using the `[Top-3]` flag, we have highlighted the categories for the same date. Now, we need to highlight these subcategories for the other dates. To accomplish this, we create a metric using the [MAX](../function-ref/MAX_WINDOW.md) window function:
+
+   * [Show Category] — `MAX([Top-3] WITHIN [Sub-Category])`
+
+   In each product subcategory, the `[Show Category]` flag will be equal to `1` both for the date when the subcategory made it into the top 3 based on sales and for all the other dates. If a subcategory did not make it into the 3 most sold on any date, its `[Show Category]` flag will be equal to `0`.
+
+   ![image](../../_assets/datalens/concepts/tutorial/window-func-14.png)
+
+1. Let's add the following filter to the chart: `[Show Category] = 1`. This will give us a list of the product subcategories that are to be displayed on the chart.
+
+1. Let's now change our chart type to **Line chart**. Configure visualization:
+
+   * Drag the `Date` dimension under **X**.
+   * Drag the `Sales` metric under **Y**.
+   * Drag the `Sub-Category` dimension under **Colors**.
+   * Under **Chart filters**, we'll keep the filter for `Show Category` equal to `1`.
+   * In the **Y** axis settings, select that **Null values** are to **Displayed as 0**.
+
+      ![image](../../_assets/datalens/concepts/tutorial/window-func-15.png)
+
+{% endcut %}
 
 ## Grouping in window functions {#grouping}
 
 Just like aggregate functions, window functions can be calculated:
 
 * For a [single window](#one-window-grouping).
-* For [multiple windows](#some-window-grouping).
+* For [several windows](#some-window-grouping).
 
-For more information about grouping in window functions, see [{#T}](../function-ref/window-functions.md#syntax-grouping).
+For more information on groupings in window functions, please review under [{#T}](../function-ref/window-functions.md#syntax-grouping).
 
 ### Grouping for a single window {#one-window-grouping}
 
@@ -65,12 +109,12 @@ With this grouping option, the function is calculated for a single window that i
 
 You need to calculate the average sales amount (`AvgSales`) and deviations from it for each category in the city (`DeltaFromAvg`). The best function for this is [AVG](../function-ref/AVG_WINDOW.md):
 
-* AvgSales: `AVG(SUM([Sales]) TOTAL)`.
-* DeltaFromAvg: `SUM([Sales]) - [AvgSales]`.
+* AvgSales — `AVG(SUM([Sales]) TOTAL)`
+* DeltaFromAvg — `SUM([Sales]) - [AvgSales]`
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-3.png)
 
-### Grouping for multiple windows {#some-window-grouping}
+### Grouping for several windows {#some-window-grouping}
 
 Sometimes the window function needs to be calculated separately by group, and not across all records. In this case, the `WITHIN` and `AMONG` groupings are used.
 
@@ -88,8 +132,8 @@ In `WITHIN`, the [dimensions](aggregation-tutorial.md#dimensions-and-measures) t
 
 Calculating the share of each category (`% Total`) of the total sales amount by city (`TotalSales`):
 
-* TotalSales: `SUM(SUM([Sales]) WITHIN [City])`.
-* % Total: `SUM([Sales]) / [TotalSales]`.
+* TotalSales — `SUM(SUM([Sales]) WITHIN [City])`
+* % Total — `SUM([Sales]) / [TotalSales]`
 
 For example, this is the result for the **Column chart**:
 
@@ -101,8 +145,8 @@ In this case, splitting into windows is performed for all dimensions that are in
 
 For example, for a chart with grouping by the `City` and `Category` dimensions, the following measures are the same:
 
-* `SUM(SUM([Sales]) AMONG [Category])` and `SUM(SUM([Sales]) WITHIN [City])`.
-* `SUM(SUM([Sales]) AMONG [City], [Category])`and `SUM(SUM([Sales]) TOTAL)`.
+* `SUM(SUM([Sales]) AMONG [Category])` and `SUM(SUM([Sales]) WITHIN [City])`
+* `SUM(SUM([Sales]) AMONG [City], [Category])`and `SUM(SUM([Sales]) TOTAL)`
 
 This option is provided only for convenience and is used when you don't know which dimensions the chart will be built across in advance, but you need to exclude certain dimensions from the window grouping.
 
@@ -149,18 +193,18 @@ To calculate a function for all the data, but only display the result for a cert
 
 ## Questions and answers {#qa}
 
-{% cut "How do I arrange values when calculating cumulative totals or moving averages?" %}
+{% cut "Ordering values for a cumulative total or a rolling average calculation" %}
 
-   For functions that depend on the order of entries in the window (for example, [RSUM](../function-ref/RSUM.md), [MAVG](../function-ref/MAVG.md), [LAG](../function-ref/LAG.md), [LAST](../function-ref/LAST.md), or [FIRST](../function-ref/FIRST.md)) to work correctly, you must specify sorting. To do this:
+For functions that depend on the order of entries in the window (for example, [RSUM](../function-ref/RSUM.md), [MAVG](../function-ref/MAVG.md), [LAG](../function-ref/LAG.md), [LAST](../function-ref/LAST.md), or [FIRST](../function-ref/FIRST.md)) to work correctly, you must specify sorting. To do this:
 
-   * Drag the dimension or measure to sort the chart by to the **Sorting** section.
-   * Set sorting for a specific function using `ORDER BY`.
+* Drag the dimension or measure to sort the chart by to the **Sorting** section.
+* Set sorting for a specific function using `ORDER BY`.
 
 {% endcut %}
 
-{% cut "How do I properly calculate cumulative totals after adding a field to the Color section?" %}
+{% cut "Correctly computing a cumulative total after adding a field to the Colors section" %}
 
-As an example, let's look at a line chart that shows changes in the total sales amount by date (see the [Selling](#usage-window-function) table). The cumulative total (`IncTotal`) is calculated using the [RSUM](../function-ref/RSUM.md) window function: `RSUM(SUM([Sales]))`.
+As an example, let's consider a line chart showing a plot of the change in total sales by date (see [Selling](#usage-window-function) table.). The cumulative total (`IncTotal`) is calculated using the [RSUM](../function-ref/RSUM.md) window function: `RSUM(SUM([Sales]))`.
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-8.png)
 
@@ -174,7 +218,7 @@ After that, the chart displays a separate graph for each category but the totals
 
 {% endcut %}
 
-{% cut "How do I properly calculate a window function if a grouping for dates is given in the chart?" %}
+{% cut "Correctly computing a window function for a grouping by date on a chart" %}
 
 When adding a grouping (rounding) for a date in the chart, the original field is replaced with an automatically generated one. For example, when rounding to a month, the `[Date]` dimension is replaced with a new field using the `DATETRUNC([Date], "month")` formula. Because the original `[Date]` field disappears from the list of chart dimensions, the window function it's used in no longer works. For the function to work correctly, you need to round the original `[Date]` dimension in the formula using the [DATETRUNC](../function-ref/DATETRUNC.md) function.
 

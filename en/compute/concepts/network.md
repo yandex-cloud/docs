@@ -4,7 +4,7 @@ When creating a VM, you need to specify settings for the network interface conne
 
 {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
 
-When the network interface is connected, the VM will be assigned the internal IP address in the subnet and [FQDN](#hostname). The public IP address will only be assigned if this was set when creating the VM.
+When the network interface is connected, the VM will be assigned the internal IP address in the subnet and the [internal FQDN](#hostname). The public IP address will only be assigned if this was set when creating the VM.
 
 You can find out the IP addresses, FQDN and other information in the management console (go to the **Network** section on the virtual machine's page). This data can be used to connect to the VM.
 
@@ -36,33 +36,40 @@ A public IP address is assigned automatically and cannot be chosen. The address 
 
 The VM's public IP address is mapped to its internal IP address via NAT. Therefore, all requests to the VM from the external IP address are sent to the internal IP address. For more information about NAT, see [RFC 3022](https://www.ietf.org/rfc/rfc3022.txt).
 
-## Hostname and FQDN {#hostname}
+## Hostname and internal FQDN {#hostname}
 
-When creating a VM, it is assigned a hostname and FQDN. You can use the FQDN to access a VM from another VM within the same cloud network.
+When creating a VM, it's assigned a hostname and internal FQDN that can be used to access a certain VM from another VM within the same [cloud network](../../vpc/concepts/network.md).
 
-You can specify a VM's hostname when creating it. Based on the hostname and region, the fully qualified domain name (FQDN) will be generated in the following format:
+Once the VM is created, you can't change its hostname and internal FQDN.
 
-```
-<hostname>.ru-central1.internal
-```
+The assigned FQDN depends on the set hostname `(CreateInstanceSpec.hostname)`. The hostname must be unique in your virtual network.
 
-For example, if you specified the hostname `myinstance`, the FQDN will be like this:
+1. The `hostname` parameter can't be specified in the management console for a new VM. The user-defined VM name is used as the hostname:
 
-```
-myinstance.ru-central1.internal
-```
+   * If you leave the **Name** field empty when creating a VM, it will be assigned an internal FQDN like `<VM ID>.auto.internal`.
+   * If you enter a name for the VM in the **Name** field, it will be assigned an internal FQDN like `<VM name>.<region>.internal`.
 
-{% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+1. When using the CLI, API, and Terraform, FQDNs are created as follows:
 
-If no hostname is specified, the VM's ID will be used as its hostname. In this case, the region is omitted, because the VM's ID is unique within the entire {{ yandex-cloud }}.
+   * If you don't specify any `hostname`, the VM will be assigned a unique FQDN like `<VM ID>.auto.internal`.
+   * If the `hostname` is specified and contains no "`.`", it's treated as an FQDN prefix. The VM will be assigned an internal FQDN like `<hostname>.<region>.internal`.
+   * If the `hostname` is set and contains a dot "`.`" in the middle or at the end, it's treated as the FQDN. The internal FQDN assigned to the VM is the same as the `hostname`. FQDNs can't start with a dot "`.`" or contain dots "`.`" only.
 
-```
-<ID>.auto.internal
-```
+### Examples {#examples}
+
+| The set hostname | FQDN of the VM |
+:--- | :---
+| `<not specified>` | `<VM ID>.auto.internal` |
+| `breathtaking` | `breathtaking.ru-central1.internal` |
+| `this-is-sparta` | `this-is-sparta.ru-central1.internal` |
+| `hello.world` or `hello.world.` | `hello.world` |
+| `breathtaking.` | `breathtaking` |
+| <span style="color: red">`.why`</span> | <span style="color: red">error (FQDN starts with ".")</span> |
+| <span style="color: red">`.`</span> | <span style="color: red">error (FQDN contains dots "." only)</span> |
+
 
 ## MAC Address {#mac-address}
 
 After the network interface is connected to a VM, it will be assigned the MAC address of the device.
 
 You can find out the MAC address from inside the VM or in the resource information using the {{ yandex-cloud }} API.
-

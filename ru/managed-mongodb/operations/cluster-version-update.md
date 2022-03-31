@@ -24,9 +24,9 @@
 
 - Консоль управления
 
-  1. Откройте страницу сервиса **{{ mmg-name }}** в каталоге, где находится обновляемый кластер.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
   1. Выберите нужный кластер в списке и нажмите кнопку **Изменить кластер**.
-  1. В поле **Версия** выберите пункт *4.2* или *4.4*.
+  1. В поле **Версия** выберите пункт `4.2` или `4.4`.
   1. Нажмите кнопку **Сохранить изменения**.
 
   После запуска обновления кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
@@ -110,7 +110,7 @@
    1. Чтобы получить список кластеров и узнать идентификатор кластера, выполните команду:
 
       ```
-      $ yc managed-mongodb cluster list
+      yc managed-mongodb cluster list
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
@@ -121,7 +121,7 @@
    1. Чтобы получить информацию о кластере `c9qut3k64b2o9umqogr7`, выполните команду:
 
       ```
-      $ yc managed-mongodb cluster get c9qut3k64b2o9umqogr7
+      yc managed-mongodb cluster get c9qut3k64b2o9umqogr7
         id: c9qut3k64b2o9umqogr7
         folder_id: b1g0itj57rbjk9thrinv
         created_at: "2019-07-16T09:43:50.393231Z"
@@ -140,13 +140,13 @@
    1. Для обновления кластера `c9qutgkd4b2o9umqog97` до версии 4.2, выполните команду:
 
       ```bash
-      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=4.2
+      yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=4.2
       ```
 
    1. Чтобы включить все возможности версии 4.2 в кластере `c9qutgkd4b2o9umqog97`, выполните команду:
 
       ```bash
-      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --feature-compatibility-version=4.2
+      yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --feature-compatibility-version=4.2
       ```
 
 {% endlist %}

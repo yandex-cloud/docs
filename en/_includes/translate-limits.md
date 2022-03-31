@@ -1,7 +1,7 @@
 #### Quotas {#translate-quotas}
 
 | Type of limit | Value |
-| ----- | ----- |
+----- | -----
 | Calls of a single API method per second | 20 |
 | Characters sent for translation per hour | 1 million |
 | Characters sent for language detection per hour | 1 million |
@@ -21,4 +21,3 @@ The limits for using glossaries are as follows:
 This only refers to texts without CGI parameters.
 
 {% endnote %}
-

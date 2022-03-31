@@ -71,6 +71,12 @@ editable: false
 
 ### Синтез речи {#prices-tts}
 
+{% note warning %}
+
+С 13 апреля 2022 года использование голосов `oksana`, `ermil`, `jane`, `omazh`, `zahar` рассчитывается по ценам премиум-голосов.
+
+{% endnote %}
+
 
 {% include [rub.md](../_pricing/speechkit/rub-tts.md) %}
 
