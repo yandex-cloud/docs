@@ -1,5 +1,3 @@
-{% if audience != "internal" %}
-
 # Requesting technical support
 
 {{ yandex-cloud }} provides technical support under different service plans. You can choose the plan that's best for you. The cost of paid technical support plans includes two components: fixed and supplemental. The fixed portion only depends on the selected plan, while the supplemental portion is calculated as a fraction of the cost of the resources used over the month. For more information about plans, see the [Pricing policy](pricing.md).
@@ -63,21 +61,3 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
    * The Premium plan, complete the form and click **Send**.
 
 Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.
-
-{% else %}
-
-# Getting technical support
-
-## Managed Databases (MDB) {#mdb}
-
-{% include [internal-mdb](../_includes/support/internal-mdb.md) %}
-
-## Other services {#other-services}
-
-To get support for other services, go to their dedicated Telegram chats or Tracker queues:
-
-* Yandex Database: a [YDB for {{ yandex-cloud }} (NDA)](https://t.me/joinchat/DmVJUQy61Ehm9ZwPOpVK5Q) chat (person on duty: `/duty ydb`).
-* Data Transfer: [DTSUPPORT](https://st.yandex-team.ru/createTicket?queue=DTSUPPORT&_form=56921) queue, [Data Transfer/Transfer Manager Support/DTSUPPORT](https://t.me/joinchat/AqxpCBURpBhW79Uwq6Pcjw) chat.
-* Object Storage: [MDSSUPPORT](https://st.yandex-team.ru/createTicket?queue=MDSSUPPORT) queue, [MDS/Avatars/S3/Yarl support](https://t.me/joinchat/Bbsak0DREDckUOGhK-m3aw) chat (person on duty: `/onduty@YaIncBot s3`).
-
-{% endif %}
