@@ -36,18 +36,29 @@ description: "Вы можете создавать резервные копии
 - Консоль управления
 
   Чтобы восстановить из резервной копии существующий кластер:
-  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
+
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
+
   1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
+
   1. Нажмите кнопку **Восстановить кластер**.
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
-  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
-  1. Выберите вкладку **Резервные копии**.
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+
+  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
+
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **Имя** содержатся идентификаторы в формате `<идентификатор кластера>:<идентификатор резервной копии>`.
+
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
+
   1. Задайте настройки нового кластера. В списке **Каталог** можно выбрать каталог для нового кластера.
+
   1. Нажмите кнопку **Восстановить кластер**.
 
   {{ mmg-name }} запустит операцию создания кластера из резервной копии.
@@ -63,13 +74,13 @@ description: "Вы можете создавать резервные копии
   1. Посмотрите описание команды CLI для восстановления кластера {{ MG }}:
 
       ```
-      $ {{ yc-mdb-mg }} cluster restore --help
+      {{ yc-mdb-mg }} cluster restore --help
       ```
 
   1. Получите список доступных резервных копий {{ MG }}-кластеров:
 
      ```
-     $ {{ yc-mdb-mg }} backup list
+     {{ yc-mdb-mg }} backup list
 
      +--------------------------+----------------------+----------------------+----------------------+--------+-----------+
      |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |  SIZE  |   TYPE    |
@@ -86,33 +97,33 @@ description: "Вы можете создавать резервные копии
      {% if audience != "internal" %}
 
      ```
-      $ {{ yc-mdb-mg }} cluster restore \
-           --backup-id <идентификатор резервной копии> \
-           --recovery-target-timestamp <момент времени> \
-           --mongodb-version "<версия {{ MG }}>" \
-           --cluster-name <имя нового кластера> \
-           --environment <окружение, PRESTABLE или PRODUCTION> \
-           --network-name <имя сети> \
-           --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-           --mongod-resource-preset <класс хоста> \     
-           --mongod-disk-size <размер хранилища в гигабайтах> \
-           --mongod-disk-type <тип хранилища: network-hdd, network-ssd или local-ssd>
+     {{ yc-mdb-mg }} cluster restore \
+       --backup-id <идентификатор резервной копии> \
+       --recovery-target-timestamp <момент времени> \
+       --mongodb-version "<версия {{ MG }}>" \
+       --cluster-name <имя нового кластера> \
+       --environment <окружение, PRESTABLE или PRODUCTION> \
+       --network-name <имя сети> \
+       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --mongod-resource-preset <класс хоста> \
+       --mongod-disk-size <размер хранилища в гигабайтах> \
+       --mongod-disk-type <тип хранилища: network-hdd, network-ssd или local-ssd>
       ```
       
       {% else %}
 
       ```
-      $ {{ yc-mdb-mg }} cluster restore \
-           --backup-id <идентификатор резервной копии> \
-           --recovery-target-timestamp <момент времени> \
-           --mongodb-version "<версия {{ MG }}>" \
-           --cluster-name <имя нового кластера> \
-           --environment <окружение, PRESTABLE или PRODUCTION> \
-           --network-id <имя сети> \
-           --host zone-id=<зона доступности> \
-           --mongod-resource-preset <класс хоста> \    
-           --mongod-disk-size <размер хранилища в гигабайтах> \
-           --mongod-disk-type <тип хранилища: network-hdd, network-ssd или local-ssd>
+      {{ yc-mdb-mg }} cluster restore \
+        --backup-id <идентификатор резервной копии> \
+        --recovery-target-timestamp <момент времени> \
+        --mongodb-version "<версия {{ MG }}>" \
+        --cluster-name <имя нового кластера> \
+        --environment <окружение, PRESTABLE или PRODUCTION> \
+        --network-id <имя сети> \
+        --host zone-id=<зона доступности> \
+        --mongod-resource-preset <класс хоста> \
+        --mongod-disk-size <размер хранилища в гигабайтах> \
+        --mongod-disk-type <тип хранилища: network-hdd, network-ssd или local-ssd>
       ```
 
       {% endif %}
@@ -128,10 +139,8 @@ description: "Вы можете создавать резервные копии
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
-
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-
   1. Нажмите кнопку **Создать резервную копию**.
 
 - CLI
@@ -145,13 +154,13 @@ description: "Вы можете создавать резервные копии
   1. Посмотрите описание команды CLI для создания резервной копии {{ MG }}:
 
       ```
-      $ {{ yc-mdb-mg }} cluster backup --help
+      {{ yc-mdb-mg }} cluster backup --help
       ```
 
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
 
       ```
-      $ {{ yc-mdb-mg }} cluster backup my-mg-cluster
+      {{ yc-mdb-mg }} cluster backup my-mg-cluster
       ```
 
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -166,21 +175,23 @@ description: "Вы можете создавать резервные копии
 - Консоль управления
 
   Чтобы получить список резервных копий кластера:
-  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
-  1. Выберите вкладку **Резервные копии**.
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
 
   В этих списках содержится следующая информация:
+
   * Имя резервной копии.
   * Шард-источник.
   * Размер резервной копии.
   * Тип резервной копии: автоматическая (`Automated`) или ручная (`Manual`).  
   * Время начала создания резервной копии по UTC (Coordinated Universal Time).  
   * Время окончания создания резервной копии по UTC.
-
 
 - CLI
 
@@ -191,7 +202,7 @@ description: "Вы можете создавать резервные копии
   Чтобы получить список резервных копий кластеров {{ MG }}, доступных в каталоге по умолчанию, выполните команду:
 
   ```
-  $ {{ yc-mdb-mg }} backup list
+  {{ yc-mdb-mg }} backup list
 
   +----------+----------------------+----------------------+----------------------+--------+-----------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |  SIZE  |   TYPE    |
@@ -219,12 +230,12 @@ description: "Вы можете создавать резервные копии
 - Консоль управления
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
-  1. Выберите вкладку **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. На панели слева выберите ![image](../../_assets/mdb/backup.svg) **Резервные копии**.
 
 - CLI
 
@@ -282,33 +293,33 @@ description: "Вы можете создавать резервные копии
   {% if audience != "internal" %}
 
   ```
-  $ {{ yc-mdb-mg }} cluster restore \
-           --backup-id c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z \
-           --recovery-target-timestamp 1597035610 \
-           --mongodb-version "4.2" \
-           --cluster-name mynewmg \
-           --environment PRODUCTION \
-           --network-name {{ network-name }} \
-           --host {{ host-net-example }} \
-           --mongod-resource-preset {{ host-class }} \ 
-           --mongod-disk-size 20 \
-           --mongod-disk-type {{ disk-type-example }}
+  {{ yc-mdb-mg }} cluster restore \
+    --backup-id c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z \
+    --recovery-target-timestamp 1597035610 \
+    --mongodb-version "4.2" \
+    --cluster-name mynewmg \
+    --environment PRODUCTION \
+    --network-name {{ network-name }} \
+    --host {{ host-net-example }} \
+    --mongod-resource-preset {{ host-class }} \
+    --mongod-disk-size 20 \
+    --mongod-disk-type {{ disk-type-example }}
   ```
         
   {% else %}
      
   ```
-  $ {{ yc-mdb-mg }} cluster restore \
-           --backup-id c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z \
-           --recovery-target-timestamp=1597035610 \
-           --mongodb-version="4.2" \
-           --cluster-name mynewmg \
-           --environment=PRODUCTION \
-           --network-id {{ network-name }} \
-           --host zone-id={{ zone-id }} \
-           --mongod-resource-preset {{ host-class }} \  
-           --mongod-disk-size 20 \
-           --mongod-disk-type {{ disk-type-example }} 
+  {{ yc-mdb-mg }} cluster restore \
+    --backup-id c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z \
+    --recovery-target-timestamp=1597035610 \
+    --mongodb-version="4.2" \
+    --cluster-name mynewmg \
+    --environment=PRODUCTION \
+    --network-id {{ network-name }} \
+    --host zone-id={{ zone-id }} \
+    --mongod-resource-preset {{ host-class }} \
+    --mongod-disk-size 20 \
+    --mongod-disk-type {{ disk-type-example }}
   ```   
      
   {% endif %}
