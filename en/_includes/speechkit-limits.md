@@ -1,13 +1,13 @@
 #### Quotas {#speechkit-quotas}
 
 | Type of limit | Value |
-| ----- | ----- |
-| [**Short audio recognition**](../speechkit/stt/request.md) |
-| Requests per second | 20 |
-| [**Streaming mode of short audio recognition**](../speechkit/stt/streaming.md) |
+----- | -----
+| [**Streaming recognition mode**](../speechkit/stt/streaming.md) API v1 |
 | Requests per second | 40 |
-| Number of streams running simultaneously | 60 |
-| [**Long audio recognition**](../speechkit/stt/streaming.md) |
+| Number of concurrently running streams | 60 |
+| [**Synchronous recognition**](../speechkit/stt/request.md) |
+| Requests per second | 20 |
+| [**Asynchronous recognition**](../speechkit/stt/transcribation.md) |
 | Recognition requests per hour | 500 |
 | Operation status check requests per hour | 2500 |
 | Billable hours of audio per day | 10,000 |
@@ -17,18 +17,19 @@
 #### Limits {#speechkit-limits}
 
 | Type of limit | Value |
-| ----- | ----- |
-| [**Short audio recognition**](../speechkit/stt/request.md) |  |
-| Maximum file size | {{ stt-short-fileSize }} |
-| Maximum duration of audio | {{ stt-short-audioLength }} |
-| Maximum number of audio channels | {{ stt-short-channelsCount }} |
-| [**Streaming mode of short audio recognition**](../speechkit/stt/streaming.md) |
+----- | -----
+| [**Streaming recognition mode**](../speechkit/stt/streaming.md) |
 | Maximum duration of transmitted audio for the entire session | {{ stt-streaming-audioLength }} |
 | Maximum size of transmitted audio data | {{ stt-streaming-fileSize }} |
 | Maximum number of audio channels | {{ stt-short-channelsCount }} |
-| [**Long audio recognition**](../speechkit/stt/streaming.md) |
+| [**Synchronous recognition**](../speechkit/stt/request.md) | |
+| Maximum file size | {{ stt-short-fileSize }} |
+| Maximum duration of audio | {{ stt-short-audioLength }} |
+| Maximum number of audio channels | {{ stt-short-channelsCount }} |
+| [**Asynchronous recognition**](../speechkit/stt/transcribation.md) |
 | Maximum file size | {{ stt-long-fileSize }} |
 | Maximum duration of audio | {{ stt-long-audioLength }} |
 | Period for storing recognition results on the server | {{ stt-long-resultsStorageTime }} |
 | [**Speech synthesis**](../speechkit/tts/request.md) |
-| Maximum request size | 5000 characters |
+| Maximum REST request size | 5000 characters |
+| Maximum gRPC request size | {{ tts-v3-count }} and {{ tts-v3-time }} |

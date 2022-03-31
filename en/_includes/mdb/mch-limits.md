@@ -7,7 +7,6 @@
 | Total virtual memory for all DBs per cloud | 640 GB |
 | Total storage capacity for all clusters per cloud | 4096 GB |
 
-
 #### Limits {#mch-limits}
 
 | Limits | Minimum value | Maximum value |
@@ -25,4 +24,3 @@
 | Amount of data on the host when using non-replicated SSD storage | 93 GB | 8184 GB |
 | Amount of data on the host when using local SSD storage (for Intel Broadwell and Intel Cascade Lake) | 100 GB | 1500 GB |
 | Amount of data on the host when using local SSD storage (for Intel Ice Lake) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |
-

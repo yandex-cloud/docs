@@ -173,7 +173,7 @@ items:
         href: datalens/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data
         href: datalens/data-from-appmetrica-visualization.md
-      - name: Analyzing Yandex Music podcast statistics (for podcast authors)
+      - name: Analyzing Yandex Music podcast statistics (for podcasters)
         href: datalens/data-from-podcasts.md
       - name: Visualizing data with a SQL chart
         href: datalens/data-from-ch-to-sql-chart.md
