@@ -128,7 +128,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --network-name <network name> \
          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
          --resource-preset <host class> \
-         --user name=<username>,password=<user password> \
+         --user name=<user name>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size, GB> \
          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
@@ -149,7 +149,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --network-id {{ network-name }} \
          --host zone-id=<availability zone> \
          --resource-preset <host class> \
-         --user name=<username>,password=<user password> \
+         --user name=<user name>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size, GB> \
          --security-group-ids <list of security group IDs> \
@@ -161,6 +161,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
       
       You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
+
       * Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
       * Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
         * The host with the highest priority value in the cluster becomes the synchronous replica.
@@ -302,6 +303,8 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
   {% endif %}
 
+  To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
 {% endlist %}
 
 {% note warning %}
@@ -387,6 +390,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
+
   * Named `mypg`.
   * Version `13`.
   * In the `PRESTABLE` environment.

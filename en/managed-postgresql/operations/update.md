@@ -348,7 +348,7 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
             --backup-window-start <backup start time> \
             --datalens-access=<true or false> \
             --maintenance-window type=<weekly or anytime> \
-            --websql-access=<true or false>
+            --websql-access=<true or false> \
             --deletion-protection=<protect cluster from deletion: true or false> \
             --connection-pooling-mode=<connections manager operating mode> \
             --serverless-access=<true or false>
@@ -374,6 +374,8 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
     {% endif %}
 
     * `--connection-pooling-mode` — specifies [connections manager operating mode](../concepts/pooling.md): `SESSION`, `TRANSACTION` or `STATEMENT`.
+
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
     {% include [deletion-protection-db](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
 

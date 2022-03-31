@@ -311,7 +311,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
               rabbit_mq {
                 # Settings for getting data from {{ RMQ }}
                 username = "<username>"
-                password = "<password>"
+                password = "<user password>"
               }
         
               compression {
@@ -387,7 +387,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
            --datalens-access=<true or false> \
            --maintenance-window type=<weekly or anytime> \
            --metrika-access=<true or false> \
-           --websql-access=<true or false>
+           --websql-access=<true or false> \
            --deletion-protection=<protect cluster from deletion: true or false> \
            --serverless-access=<true or false>
         ```
