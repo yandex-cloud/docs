@@ -23,7 +23,7 @@ items:
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data
         href: tutorials/data-from-appmetrica-visualization.md
-      - name: Analyzing Yandex Music podcast statistics (for podcast authors)
+      - name: Analyzing Yandex Music podcast statistics (for podcasters)
         href: tutorials/data-from-podcasts.md
       - name: Visualizing data with a QL chart
         href: tutorials/data-from-ch-to-sql-chart.md
