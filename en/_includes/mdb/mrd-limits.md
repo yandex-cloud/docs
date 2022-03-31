@@ -3,8 +3,8 @@
 | Limits | Value |
 | :------------------------------------------------------------------------------- | :--------- |
 | Number of clusters per cloud | 16 |
-| Total number of processor cores for all the database hosts in a cloud | 64 |
-| Total virtual memory for all DBs per cloud | 512 GB |
+| Total number of processor cores for all DB hosts per cloud | 64 |
+| Total virtual memory for all DB hosts per cloud | 512 GB |
 | Total storage capacity for all clusters per cloud | 4096 GB |
 
 #### Limits {#mrd-limits}
@@ -41,4 +41,3 @@
 {% include [storage-limitations-mrd](./mrd/storage-limitations-note.md) %}
 
 {% endif %}
-
