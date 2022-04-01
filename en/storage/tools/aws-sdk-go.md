@@ -114,7 +114,7 @@ func main() {
 	// Create S3 client
 	client := s3.NewFromConfig(cfg)
 
-	// Get objects list fromm bucket
+	// Get objects list from bucket
 	result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
 		Bucket: aws.String(*bucketName),
 	})
@@ -129,5 +129,5 @@ func main() {
 ```
 
 
-See also the [code samples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) and [Go SDK API Reference Guide](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3)
+See also the [code samples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) and [Go SDK API Reference Guide](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3).
 
