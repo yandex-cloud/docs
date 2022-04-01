@@ -174,6 +174,16 @@ items:
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
-        href: qa/index.md
+        href: qa/general.md
+      - name: Хранилище данных
+        href: qa/volumes.md
+      - name: Настройка и обновление
+        href: qa/settings.md
       - name: Автоматическое масштабирование
         href: qa/cluster-autoscaler.md
+      - name: Ресурсы
+        href: qa/resources.md
+      - name: Логи
+        href: qa/logs.md
+      - name: Все вопросы на одной странице
+        href: qa/all.md
