@@ -15,6 +15,7 @@
   * [SDK for Python (boto)](boto.md)
   * [The AWS SDK for .NET](aws-sdk-net.md)
   * [AWS SDK for PHP](aws-sdk-php.md)
+  * [AWS SDK for Go](aws-sdk-go.md)
 
 * FUSE
   * [GeeseFS](geesefs.md)

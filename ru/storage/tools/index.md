@@ -19,6 +19,7 @@
   * [AWS SDK для .NET](aws-sdk-net.md)
   * [AWS SDK для C++](aws-sdk-cpp.md)
   * [AWS SDK для PHP](aws-sdk-php.md)
+  * [AWS SDK для Go](aws-sdk-go.md)
 
 * FUSE
 
