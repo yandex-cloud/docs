@@ -102,6 +102,8 @@ editable: false
 
 - Стандартные хосты
 
+  {% include [SAN disclaimer](../../_includes/mdb/mgp/san-pricing-disclaimer.md) %}
+
   {% if region == "ru" %} {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}{% endif %}
   {% if region == "kz" %} {% include notitle [KZT: standard hosts](../../_pricing/managed-greenplum/kzt-hosts-standard.md) %}{% endif %}
   {% if region == "int" %} {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}{% endif %}
