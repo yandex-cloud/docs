@@ -19,7 +19,7 @@
 **Cost of storing data with a throughput limit per shard of 1 MB/s:**
 
 | Data retention period | Cost, including VAT |
-| --- | --- | --- |
+| --- | --- |
 | 1 hour | Not provided |
 | 4 hours | ₽0.43333333 |
 | 12 hours | ₽0.63333333 |
