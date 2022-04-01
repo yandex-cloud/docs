@@ -39,11 +39,11 @@ Parameter descriptions:
 
 | Data attribute | Value | Default value |
 | --------------- | ---------------------------------------------------------------------------- | --------------------------- |
-| `data-sitekey` | `String` | None |
+| `data-sitekey` | `string` | None |
 | `data-hl` | `'ru'` \| `'en'` \| `'be'` \| `'kk'` \| `'tt'` \| `'uk'` \| `'uz'` \| `'tr'` | `window.navigator.language` |
-| `data-callback` | `String` | None |
+| `data-callback` | `string` | None |
 
-{% cut "Example of embedding a widget" %}
+{% cut "Example of embedding the widget" %}
 
 ```html
 <html>
@@ -80,6 +80,7 @@ Parameter descriptions:
 
 {% endcut %}
 
+
 ## Advanced connection method {#extended-method}
 
 In the advanced method, a JS script that loads the widget on the user page is added to the page by a link:
@@ -92,15 +93,15 @@ In the `onload` parameter, a function is passed that contains parameters for ren
 
 After loading the JS script, an access to the `window.smartCaptcha` object is shown along with methods for the widget.
 
-{% cut "onloadFunction code example" %}
+{% cut "Sample onloadFunction code" %}
 
 ```html
-<div id="<container ID>"></div>
+<div id="<Container ID>"></div>
 
 <script>
   function onloadFunction() {
     if (window.smartCaptcha) {
-      const container = document.getElementById('<container ID>');
+      const container = document.getElementById('<Container ID>');
 
       const widgetId = window.smartCaptcha.render(container, {
         sitekey: '<Key for the client part>',
@@ -136,7 +137,7 @@ The method returns `widgetId`, that is, a unique widget ID.
 
 ### GetResponse method {#getresponse}
 
-The `getResponse` method returns the current value of the user help.
+The `getResponse` method returns the current value of the user token.
 
 ```ts
 (widgetId: WidgetId | undefined) => string;
@@ -154,7 +155,7 @@ The `reset` method resets the widget to the initial state.
 
 As an argument, the method accepts `widgetId`, a unique identifier of the widget. If no argument has been passed, the first rendered widget is reset.
 
-{% cut "Example of embedding a widget" %}
+{% cut "Example of embedding the widget" %}
 
 ```html
 <script
@@ -208,4 +209,3 @@ As an argument, the method accepts `widgetId`, a unique identifier of the widget
 ```
 
 {% endcut %}
-

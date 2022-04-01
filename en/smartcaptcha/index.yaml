@@ -19,3 +19,6 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: Demo page
+    description: See how SmartCaptcha works
+    href: https://captcha-api.yandex.ru/demo
