@@ -116,7 +116,7 @@ func main() {
 
 	// Запрашиваем список бакетов
 	result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
-		Bucket: aws.String(bucketName),
+		Bucket: aws.String(*bucketName),
 	})
 	if err != nil {
 		log.Fatal(err)
