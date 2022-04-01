@@ -33,7 +33,7 @@ import (
 
 func main() {
 
-	// Созаем кастомный обработчик эндпоинтов, который для сервиса S3 и региона ru-central1 выдаст корректный URL
+	// Создаем кастомный обработчик эндпоинтов, который для сервиса S3 и региона ru-central1 выдаст корректный URL
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		if service == s3.ServiceID && region == "ru-central1" {
 			return aws.Endpoint{
@@ -45,7 +45,7 @@ func main() {
 		return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
 	})
 
-	// подгружаем конфигрурацию из ~/.aws/*
+	// Подгружаем конфигрурацию из ~/.aws/*
 	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
 	if err != nil {
 		log.Fatal(err)
@@ -66,7 +66,7 @@ func main() {
 }
 ```
 
-Получаем список объектов бакете:
+Получаем список объектов в бакете:
 
 ```go
 package main
@@ -83,7 +83,7 @@ import (
 )
 
 func main() {
-	// получаем имя бакета из аргумента командной строки
+	// Получаем имя бакета из аргумента командной строки
 	bucketName := flag.String("b", "", "The name of the bucket")
 	flag.Parse()
 
@@ -93,7 +93,7 @@ func main() {
 	}
 
 
-	// Созаем кастомный обработчик эндпоинтов, который для сервиса S3 и региона ru-central1 выдаст корректный URL
+	// Создаем кастомный обработчик эндпоинтов, который для сервиса S3 и региона ru-central1 выдаст корректный URL
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		if service == s3.ServiceID && region == "ru-central1" {
 			return aws.Endpoint{
@@ -105,7 +105,7 @@ func main() {
 		return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
 	})
 
-	// подгружаем конфигрурацию из ~/.aws/*
+	// Подгружаем конфигрурацию из ~/.aws/*
 	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
 	if err != nil {
 		log.Fatal(err)
@@ -128,4 +128,4 @@ func main() {
 }
 ```
 
-Также см. [примеры кода](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) и [справочник Go SDK API](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3)
+Также см. [примеры кода](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) и [справочник Go SDK API](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3).
