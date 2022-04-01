@@ -225,7 +225,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        config {
-         version = "<версия PostgreSQL: 10, 10-1с, 11, 11-1c, 12, 12-1c или 13>"
+         version = "<версия PostgreSQL>"
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип хранилища>"

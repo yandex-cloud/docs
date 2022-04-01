@@ -135,7 +135,7 @@
       {{ yc-mdb-kf }} cluster create \
         --name <имя кластера> \
         --environment <окружение: prestable или production> \
-        --version <версия: 2.1, 2.6 или 2.8> \
+        --version <версия {{ KF }}> \
         --network-name <имя сети> \
         --brokers-count <количество брокеров в зоне> \
         --resource-preset <класс хоста> \
@@ -248,7 +248,7 @@
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
             brokers_count    = <количество брокеров>
-            version          = "<версия Apache Kafka: 2.1, 2.6 или 2.8>"
+            version          = "<версия {{ KF }}>"
             schema_registry  = "<управление схемами данных: true или false>"
             kafka {
               resources {
@@ -345,7 +345,7 @@
 
   * С именем `mykf`.
   * В окружении `production`.
-  * С {{ KF }} версии `2.6`.
+  * С {{ KF }} версии `2.8`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -358,7 +358,7 @@
 
   * С именем `mykf`.
   * В окружении `production`.
-  * С {{ KF }} версии `2.6`.
+  * С {{ KF }} версии `2.8`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -377,7 +377,7 @@
   {{ yc-mdb-kf }} cluster create \
     --name mykf \
     --environment production \
-    --version 2.6 \
+    --version 2.8 \
     --network-name {{ network-name }} \
     --zone-ids {{ zone-id }} \
     --brokers-count 1 \
@@ -395,7 +395,7 @@
   {{ yc-mdb-kf }} cluster create \
     --name mykf \
     --environment production \
-    --version 2.6 \
+    --version 2.8 \
     --network-name {{ network-name }} \
     --zone-ids {{ zone-id }} \
     --brokers-count 1 \
@@ -417,7 +417,7 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * С именем `mykf`.
     * В окружении `PRODUCTION`.
-    * С {{ KF }} версии `2.6`.
+    * С {{ KF }} версии `2.8`.
     * В новой сети `mynet` с подсетью `mysubnet`.
     * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
     * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -454,7 +454,7 @@
       config {
         assign_public_ip = true
         brokers_count    = 1
-        version          = "2.6"
+        version          = "2.8"
         kafka {
           resources {
             disk_size          = 10
