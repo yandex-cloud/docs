@@ -16,6 +16,8 @@ items:
         href: operations/connect.md
       - name: Остановка и запуск кластера
         href: operations/cluster-stop.md
+      - name: Обновление версии Apache Kafka®
+        href: operations/cluster-version-update.md
       - name: Изменение настроек кластера
         href: operations/cluster-update.md
       - name: Управление хостами Apache Kafka®
