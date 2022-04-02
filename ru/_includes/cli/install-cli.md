@@ -5,7 +5,7 @@
     1. Выполните команду:
     
         ```bash
-        curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+        curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
         ```
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
         
@@ -24,7 +24,7 @@
     1. Выполните команду:
     
         ```bash
-        curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+        curl -sSL https://{{ s3-storage-host }}{{ yc-install-path }} | bash
         ```
         
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
