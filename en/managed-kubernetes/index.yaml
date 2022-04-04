@@ -34,3 +34,6 @@ links:
   - title: Pricing policy
     description: Pricing and cost calculation for services
     href: pricing
+  - title: Questions and answers
+    description: Answers to frequently asked questions about the service
+    href: qa/
