@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/federation_service.md
 ---
 
-
 # FederationService
 
 A set of methods for managing federations.

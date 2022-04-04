@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/k8s/api-ref/Cluster/get.md
 ---
 
-
 # Method get
 Returns the specified Kubernetes cluster.
  

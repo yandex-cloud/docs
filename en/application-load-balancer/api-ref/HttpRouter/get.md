@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/HttpRouter/get.md
 ---
 
-
 # Method get
 Returns the specified HTTP router.
  

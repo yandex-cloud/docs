@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/delete.md
 ---
 
-
 # Method delete
 Deletes the specified Redis cluster.
  

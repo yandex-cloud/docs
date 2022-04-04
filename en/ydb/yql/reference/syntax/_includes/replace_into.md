@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/replace_into.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/replace_into.md
 ---
-
 # REPLACE INTO
 
 Saves data to a table, overwriting the rows based on the primary key. If the given primary key is missing, a new row is added to the table. If the given `PRIMARY_KEY` exists, the row is overwritten. The values of columns not involved in the operation are replaced by their default values.

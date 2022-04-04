@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/udf/list/hyperscan.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/hyperscan.md
 ---
-
 # Hyperscan
 
 [Hyperscan](https://www.hyperscan.io) является opensource библиотекой для поиска по регулярным выражениям, разработанной компанией Intel. 

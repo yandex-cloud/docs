@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Extension/create.md
 ---
 
-
 # Method create
 Creates new extension version.
  

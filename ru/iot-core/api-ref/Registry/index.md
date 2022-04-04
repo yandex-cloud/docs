@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/Registry/index.md
 ---
 
-
 # Registry
 A set of methods for managing registry.
 ## JSON Representation {#representation}

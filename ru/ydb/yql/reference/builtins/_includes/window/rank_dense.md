@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/window/rank_dense.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/window/rank_dense.md
 ---
-
 ## RANK / DENSE_RANK {#rank}
 
 Пронумеровать группы соседних строк [раздела](../../../syntax/window.md#partition) с одинаковым значением выражения в аргументе. `DENSE_RANK` нумерует группы подряд, а `RANK` — пропускает `(N - 1)` значений, где `N` — число строк в предыдущей группе.

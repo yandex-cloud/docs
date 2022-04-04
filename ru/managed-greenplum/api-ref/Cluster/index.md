@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/index.md
 ---
 
-
 # Cluster
 A set of methods for managing Greenplum® clusters.
 ## JSON Representation {#representation}

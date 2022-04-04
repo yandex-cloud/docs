@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/get.md
 ---
 
-
 # Method get
 Returns the specified ClickHouse User resource.
  

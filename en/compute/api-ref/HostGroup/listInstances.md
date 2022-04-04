@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/HostGroup/listInstances.md
 ---
 
-
 # Method listInstances
 Lists instances that belongs to the specified host group.
  

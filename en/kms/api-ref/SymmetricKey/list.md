@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/list.md
 ---
 
-
 # Method list
 Returns the list of symmetric KMS keys in the specified folder.
  

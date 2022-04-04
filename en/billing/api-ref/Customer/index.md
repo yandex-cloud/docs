@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Customer/index.md
 ---
 
-
 # Customer
 A set of methods for managing Customer resources.
 ## JSON Representation {#representation}

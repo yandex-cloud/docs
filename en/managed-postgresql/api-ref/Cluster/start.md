@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/start.md
 ---
 
-
 # Method start
 Start the specified PostgreSQL cluster.
  

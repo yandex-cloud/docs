@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Certificate/list.md
 ---
 
-
 # Method list
 Retrieves the list of certificates in the specified federation.
  

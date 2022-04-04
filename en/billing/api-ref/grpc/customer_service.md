@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/api-ref/grpc/customer_service.md
 ---
 
-
 # CustomerService
 
 A set of methods for managing Customer resources.

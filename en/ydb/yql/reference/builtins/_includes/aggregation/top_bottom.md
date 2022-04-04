@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/top_bottom.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/top_bottom.md
 ---
-
 ## TOP and BOTTOM {#top-bottom}
 
 Return a list of the maximum/minimum values of an expression. The first argument is an expression, the second argument limits the number of elements.

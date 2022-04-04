@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Registry/updateIpPermission.md
 ---
 
-
 # Method updateIpPermission
 Update ip permissions for the specified registry.
  

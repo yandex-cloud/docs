@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/deleteProvider.md
 ---
 
-
 # Method deleteProvider
 Removes auth provider from Elasticsearch cluster by name.
  

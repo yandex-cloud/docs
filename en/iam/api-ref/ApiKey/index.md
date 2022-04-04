@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/ApiKey/index.md
 ---
 
-
 # ApiKey
 A set of methods for managing API keys.
 ## JSON Representation {#representation}

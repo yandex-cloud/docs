@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/Origin/create.md
 ---
 
-
 # Method create
 Creates origin inside origin group.
  

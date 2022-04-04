@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/move.md
 ---
 
-
 # Method move
 Moves the specified SQL Server cluster to the specified folder.
  

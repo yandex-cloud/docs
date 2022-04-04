@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/PlacementGroup/listInstances.md
 ---
 
-
 # Method listInstances
 Lists instances for the specified placement group.
  

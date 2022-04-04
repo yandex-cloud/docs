@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Image/getLatestByFamily.md
 ---
 
-
 # Method getLatestByFamily
 Returns the latest image that is part of an image family.
  

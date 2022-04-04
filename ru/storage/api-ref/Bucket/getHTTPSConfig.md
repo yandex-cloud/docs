@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/getHTTPSConfig.md
 ---
 
-
 # Method getHTTPSConfig
 Returns the HTTPS configuration for the specified bucket.
  

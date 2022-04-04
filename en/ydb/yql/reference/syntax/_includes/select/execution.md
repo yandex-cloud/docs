@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/select/execution.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/execution.md
 ---
-
 ## SELECT execution procedure {#selectexec}
 
 The `SELECT` query result is calculated as follows:

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/restore.md
 ---
 
-
 # Method restore
 Creates a new Greenplum® cluster using the specified backup.
  

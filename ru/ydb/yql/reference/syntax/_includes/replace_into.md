@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/replace_into.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/replace_into.md
 ---
-
 # REPLACE INTO
 
 Сохраняет данные в таблицу с перезаписью строк по первичному ключу. Если заданный первичный ключ отсутствует, в таблицу будет добавлена новая строка. Если задан существующий `PRIMARY_KEY`, строка будет перезаписана. При этом значения столбцов, не участвующих в операции, заменяются на значения по умолчанию.

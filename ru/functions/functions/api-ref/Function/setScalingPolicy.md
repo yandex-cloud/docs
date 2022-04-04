@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/setScalingPolicy.md
 ---
 
-
 # Method setScalingPolicy
 Set scaling policy for specified function and tag
  

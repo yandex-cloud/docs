@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/deleteHTTPSConfig.md
 ---
 
-
 # Method deleteHTTPSConfig
 Deletes the HTTPS configuration for the specified bucket.
  

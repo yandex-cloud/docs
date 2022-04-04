@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/removeBackend.md
 ---
 
-
 # Method removeBackend
 Removes backends from the specified backend group.
  

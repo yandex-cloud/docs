@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/staticzip.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/staticzip.md
 ---
-
 ## StaticZip
 
 Поэлементно "склеивает" структуры или кортежи. Все аргументы (один и более) должны быть либо структурами с одинаковым набором полей, либо кортежами одинаковой длины.

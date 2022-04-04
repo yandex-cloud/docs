@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/column_order.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/column_order.md
 ---
-
 ## Порядок колонок в YQL {#orderedcolumns}
 В стандартном SQL порядок колонок указанных в проекции (в `SELECT`) имеет значение. Помимо того, что порядок колонок должен сохраняться при отображении результатов запроса или при записи в новую таблицу, некоторые конструкции SQL этот порядок используют.
 Это относится в том числе к [UNION ALL](#unionall) и к позиционному [ORDER BY](#orderby) (ORDER BY ordinal).

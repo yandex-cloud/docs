@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/stepdownHosts.md
 ---
 
-
 # Method stepdownHosts
 Stepdown hosts.
  

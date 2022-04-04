@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Image/update.md
 ---
 
-
 # Method update
 Updates the specified image.
  

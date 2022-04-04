@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/histogram.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/histogram.md
 ---
-
 ## HISTOGRAM {#histogram}
 
 Plotting an approximate histogram based on a numeric expression with automatic selection of buckets.

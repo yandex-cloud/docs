@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/update.md
 ---
 
-
 # Method update
 Updates the specified API gateway.
  

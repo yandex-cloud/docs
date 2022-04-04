@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Snapshot/list.md
 ---
 
-
 # Method list
 Retrieves the list of Snapshot resources in the specified folder.
  

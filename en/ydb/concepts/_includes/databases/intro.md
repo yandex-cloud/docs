@@ -4,5 +4,4 @@ description: "A database (DB) {{ ydb-full-name }}: is an isolated, consistent se
 sourcePath: en/ydb/ydb-docs-core/en/core/concepts/_includes/databases/intro.md
 ---
 
-
 # Terms and definitions

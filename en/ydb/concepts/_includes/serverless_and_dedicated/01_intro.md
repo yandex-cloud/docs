@@ -9,7 +9,6 @@ editable: false
 sourcePath: en/ydb/ydb-docs-core/en/core/concepts/_includes/serverless_and_dedicated/01_intro.md
 ---
 
-
 # Serverless and Dedicated modes {{ ydb-full-name }}
 
 You can create and use multiple {{ ydb-short-name }} databases. When creating a database, one of two operating modes is selected for each database: Serverless or Dedicated. The mode can't be changed later.

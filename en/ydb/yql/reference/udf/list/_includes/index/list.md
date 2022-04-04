@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/_includes/index/list.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/index/list.md
 ---
-
 * [Hyperscan](../../hyperscan.md)
 * [Pcre](../../pcre.md)
 * [Pire](../../pire.md)

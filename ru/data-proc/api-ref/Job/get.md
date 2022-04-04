@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Job/get.md
 ---
 
-
 # Method get
 Returns the specified job.
  

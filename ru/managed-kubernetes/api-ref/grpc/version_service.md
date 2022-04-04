@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-kubernetes/api-ref/grpc/version_service.md
 ---
 
-
 # VersionService
 
 A set of methods for managing Kubernetes versions.

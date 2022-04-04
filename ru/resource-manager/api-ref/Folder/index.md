@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/index.md
 ---
 
-
 # Folder
 A set of methods for managing Folder resources.
 ## JSON Representation {#representation}

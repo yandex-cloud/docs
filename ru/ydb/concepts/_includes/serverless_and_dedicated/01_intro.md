@@ -9,7 +9,6 @@ editable: false
 sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/serverless_and_dedicated/01_intro.md
 ---
 
-
 # Serverless и Dedicated режимы работы {{ ydb-short-name }}
 
 Вы можете создать и использовать множество баз данных {{ ydb-short-name }}. Для каждой БД при создании выбирается один из двух режимов работы: Serverless или Dedicated. В дальнейшем он не может быть изменен.

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/index.md
 ---
 
-
 # ServiceAccount
 A set of methods for managing ServiceAccount resources.
 ## JSON Representation {#representation}

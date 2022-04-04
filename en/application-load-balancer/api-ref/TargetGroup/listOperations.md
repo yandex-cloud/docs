@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified target group.
  

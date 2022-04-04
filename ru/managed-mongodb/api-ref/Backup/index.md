@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Backup/index.md
 ---
 
-
 # Backup
 A set of methods for managing MongoDB Backup resources.
 ## JSON Representation {#representation}

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/list.md
 ---
 
-
 # Method list
 Lists backend groups in the specified folder.
  

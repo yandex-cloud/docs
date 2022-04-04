@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/CONTAINS.md
 ---
 
-
 # CONTAINS (строковая)
 
 _Функция `CONTAINS` также доступна в следующих категориях: [Функции для работы с массивами](CONTAINS_ARRAY.md)._

@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/window/first_last_value.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/window/first_last_value.md
 ---
-
 ## FIRST_VALUE / LAST_VALUE
 
 Access values from the first and last rows of the [window frame](../../../syntax/window.md#frame). The only argument is the expression that you need to access.

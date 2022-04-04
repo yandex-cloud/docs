@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/ai/translate/api-ref/Translation/translate.md
 ---
 
-
 # Method translate
 Translates the text to the specified language.
  

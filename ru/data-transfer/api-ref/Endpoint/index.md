@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/index.md
 ---
 
-
 # Endpoint
 
 ## JSON Representation {#representation}

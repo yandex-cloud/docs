@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/getShard.md
 ---
 
-
 # Method getShard
 Returns the specified shard.
  

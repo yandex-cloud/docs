@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/SUM_IF_WINDOW.md
 ---
 
-
 # SUM_IF (window)
 
 _Function `SUM_IF` is also found in the following categories: [Aggregate functions](SUM_IF.md)._

@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min_by.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min_by.md
 ---
-
 ## MAX_BY and MIN_BY {#max-min-by}
 
 Return the value of the first argument for the table row where the second argument is minimum/maximum.

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/list.md
 ---
 
-
 # Method list
 Retrieves the list of buckets in the specified folder.
  

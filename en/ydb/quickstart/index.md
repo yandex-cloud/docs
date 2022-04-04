@@ -4,7 +4,6 @@ description: "To get used to working in YDB, follow these instructions. Create d
 sourcePath: en/ydb/overlay/quickstart/index.md
 ---
 
-
 # Getting started with {{ ydb-name }}
 
 To get used to working in {{ ydb-short-name }}, follow these instructions:

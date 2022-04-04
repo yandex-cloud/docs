@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/get.md
 ---
 
-
 # Method get
 Returns the specified backend group.
  

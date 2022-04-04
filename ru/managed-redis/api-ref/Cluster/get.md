@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/get.md
 ---
 
-
 # Method get
 Returns the specified Redis cluster.
  

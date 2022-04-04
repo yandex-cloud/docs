@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref-grpc/translate/api-ref/grpc/translation_service.md
 ---
 
-
 # TranslationService
 
 Набор методов для сервиса Yandex Translate.

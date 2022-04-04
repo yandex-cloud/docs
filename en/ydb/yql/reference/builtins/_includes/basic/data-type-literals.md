@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/data-type-literals.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/data-type-literals.md
 ---
-
 ## Literals of primitive types {#data-type-literals}
 
 For primitive types, you can create literals based on string literals.

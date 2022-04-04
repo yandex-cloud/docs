@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/create.md
 ---
 
-
 # Method create
 Creates a Redis cluster in the specified folder.
  

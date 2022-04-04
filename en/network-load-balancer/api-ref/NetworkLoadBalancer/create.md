@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/create.md
 ---
 
-
 # Method create
 Creates a network load balancer in the specified folder using the data specified in the request.
  

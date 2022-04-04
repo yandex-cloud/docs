@@ -7,7 +7,6 @@ keywords:
   - Yandex Query Language
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/_includes/index/intro.md
 ---
-
 # YQL overview
 
 *YQL* (Yandex Query Language) is a universal declarative query language for data storage and processing systems, a dialect of SQL.

@@ -2,7 +2,6 @@
 editable: false
 sourcePath: en/ydb/overlay/pricing/serverless.md
 ---
-
 # Pricing policy for {{ ydb-name }} Serverless mode
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

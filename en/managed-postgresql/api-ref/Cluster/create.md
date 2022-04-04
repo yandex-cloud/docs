@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/create.md
 ---
 
-
 # Method create
 Creates a PostgreSQL cluster in the specified folder.
  

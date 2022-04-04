@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/list.md
 ---
 
-
 # Method list
 Retrieves the list of functions in the specified folder.
  

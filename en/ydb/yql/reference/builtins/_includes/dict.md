@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/dict.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/dict.md
 ---
-
 # Functions for dictionaries
 
 ## DictCreate {#dictcreate}

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Budget/get.md
 ---
 
-
 # Method get
 Returns the specified budget.
  

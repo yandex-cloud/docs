@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/availability.md
 ---
 
-
 # Поддержка функций
 
 Ниже приведена информация о поддержке функций различными источниками.

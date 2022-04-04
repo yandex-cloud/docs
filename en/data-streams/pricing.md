@@ -1,6 +1,6 @@
 # Pricing for {{ yds-full-name }}
 
-## What goes into the cost of using {{ yds-short-name }} {#rules}
+## What goes into the cost of using {{ yds-name }} {#rules}
 
 While using {{ yds-name }}, the number of units of written data and resources allocated for streaming data are billed.
 
@@ -27,12 +27,12 @@ Where:
 * 2 is the number of data units written per message.
 * 4 is the number of data units written per second.
 
-> 4 × 60 × 60 × 24 × 31 = 10&nbsp;713&nbsp;600
+> 4 × 60 × 60 × 24 × 31 = 10713600
 
 Where:
 * 4 is the number of data units written per second.
 * 60 × 60 × 24 × 31 is the number of seconds in the month.
-* 10&nbsp;713&nbsp;600 is the number of data units written per month.
+* 10713600 is the units of data written per month.
 
 
 
@@ -44,6 +44,8 @@ Where:
 
 ### Cost of a unit of written data {#event}
 
+The first 2000000 messages per month are free of charge.
+
 
 
 
@@ -51,7 +53,7 @@ Where:
 
 ### Cost of allocated resources {#resources}
 
-Cost of using allocated resources per hour.
+Cost of using allocated resources per hour:
 
 
 

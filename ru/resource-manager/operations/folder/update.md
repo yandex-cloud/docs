@@ -69,5 +69,60 @@
 
   Чтобы изменить каталог, воспользуйтесь методом [update](../../api-ref/Folder/update.md) для ресурса [Folder](../../api-ref/Folder/index.md).
 
+- Terraform
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы изменить настройки каталога, созданный с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием каталога.
+
+     {% cut "Пример описания каталога в конфигурации Terraform" %}
+
+     ```hcl
+     ...
+     resource "yandex_resourcemanager_folder" "folder1" {
+       cloud_id    = "b1gia12......fvsleds"
+       name        = "myfolder"
+       description = "this is my default-folder"
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder).
+
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc resource-manager folder list-operations <имя каталога>|<ID каталога>
+     ```
+
 {% endlist %}
 

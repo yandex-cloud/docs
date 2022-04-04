@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Subnet/index.md
 ---
 
-
 # Subnet
 A set of methods for managing Subnet resources.
 ## JSON Representation {#representation}

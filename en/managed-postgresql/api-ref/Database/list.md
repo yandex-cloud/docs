@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/list.md
 ---
 
-
 # Method list
 Retrieves the list of PostgreSQL Database resources in the specified cluster.
  

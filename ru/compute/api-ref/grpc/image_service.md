@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/image_service.md
 ---
 
-
 # ImageService
 
 A set of methods for managing Image resources.

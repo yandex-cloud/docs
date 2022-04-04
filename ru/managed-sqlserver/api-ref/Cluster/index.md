@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/index.md
 ---
 
-
 # Cluster
 A set of methods for managing SQL Server clusters.
 ## JSON Representation {#representation}

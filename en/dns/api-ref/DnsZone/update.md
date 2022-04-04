@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dns/api-ref/DnsZone/update.md
 ---
 
-
 # Method update
 Updates the specified DNS zone.
  

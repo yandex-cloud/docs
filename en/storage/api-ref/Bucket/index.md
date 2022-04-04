@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/index.md
 ---
 
-
 # Bucket
 A set of methods for managing buckets.
 ## JSON Representation {#representation}

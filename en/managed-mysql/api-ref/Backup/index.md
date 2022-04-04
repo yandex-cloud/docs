@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Backup/index.md
 ---
 
-
 # Backup
 A set of methods for managing MySQL backups.
 

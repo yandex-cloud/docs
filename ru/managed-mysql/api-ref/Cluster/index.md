@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/index.md
 ---
 
-
 # Cluster
 A set of methods for managing MySQL clusters.
 ## JSON Representation {#representation}

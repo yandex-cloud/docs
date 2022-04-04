@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/STARTSWITH_ARRAY.md
 ---
 
-
 # STARTSWITH (массивы)
 
 _Функция `STARTSWITH` также доступна в следующих категориях: [Строковые функции](STARTSWITH.md)._

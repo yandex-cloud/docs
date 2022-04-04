@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/FolderBudget/index.md
 ---
 
-
 # FolderBudget
 A set of methods for managing Datasphere folder budgets.
 

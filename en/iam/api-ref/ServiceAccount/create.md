@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/create.md
 ---
 
-
 # Method create
 Creates a service account in the specified folder.
  

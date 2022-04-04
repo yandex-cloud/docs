@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/alter_table.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/alter_table.md
 ---
-
 # ALTER TABLE
 
 При помощи команды ```ALTER TABLE``` можно изменить состав колонок и дополнительные параметры таблицы. В одной команде можно указать несколько действий. В общем случае команда ```ALTER TABLE``` выглядит так:

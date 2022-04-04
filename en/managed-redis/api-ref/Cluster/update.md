@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/update.md
 ---
 
-
 # Method update
 Updates the specified Redis cluster.
  

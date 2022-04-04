@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/MAX.md
 ---
 
-
 # MAX
 
 _Function `MAX` is also found in the following categories: [Window functions](MAX_WINDOW.md)._

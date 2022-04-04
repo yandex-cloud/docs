@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/User/update.md
 ---
 
-
 # Method update
 Modifies the specified SQL Server user.
  

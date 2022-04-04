@@ -4,7 +4,6 @@ description: "What is Yandex Database? For what tasks is it worth using Yandex D
 sourcePath: en/ydb/ydb-docs-core/en/core/faq/_includes/common.md
 ---
 
-
 # General questions about {{ ydb-name }}
 
 #### What is {{ ydb-short-name }}? {#what-is-ydb}

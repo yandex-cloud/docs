@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/listOperations.md
 ---
 
-
 # Method listOperations
 Retrieves the list of Operation resources for the specified cluster.
  

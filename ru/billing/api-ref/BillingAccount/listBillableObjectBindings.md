@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/BillingAccount/listBillableObjectBindings.md
 ---
 
-
 # Method listBillableObjectBindings
 Retrieves the list of billable object bindings associated with the specified billing account.
  

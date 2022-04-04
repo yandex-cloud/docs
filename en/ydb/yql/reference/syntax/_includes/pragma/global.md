@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.md
 ---
-
 ## Global {#pragmas}
 
 ### AutoCommit

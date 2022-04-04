@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/STARTSWITH.md
 ---
 
-
 # STARTSWITH (строковая)
 
 _Функция `STARTSWITH` также доступна в следующих категориях: [Функции для работы с массивами](STARTSWITH_ARRAY.md)._

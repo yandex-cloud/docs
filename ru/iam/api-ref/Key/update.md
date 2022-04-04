@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Key/update.md
 ---
 
-
 # Method update
 Updates the specified key pair.
  

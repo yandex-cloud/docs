@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Budget/create.md
 ---
 
-
 # Method create
 Creates a budget for the specified billing account.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/lockbox/api-ref/Secret/index.md
 ---
 
-
 # Secret
 A set of methods for managing secrets.
 ## JSON Representation {#representation}

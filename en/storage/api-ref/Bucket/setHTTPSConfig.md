@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/setHTTPSConfig.md
 ---
 
-
 # Method setHTTPSConfig
 Updates the HTTPS configuration for the specified bucket.
  

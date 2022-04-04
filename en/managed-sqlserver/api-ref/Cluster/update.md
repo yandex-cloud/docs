@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/update.md
 ---
 
-
 # Method update
 Modifies the specified SQL Server cluster.
  

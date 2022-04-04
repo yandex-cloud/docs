@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/index.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/index.md
 ---
-
 # YQL data types
 
 This section contains articles on YQL data types:

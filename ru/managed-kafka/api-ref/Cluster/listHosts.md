@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/listHosts.md
 ---
 
-
 # Method listHosts
 Retrieves a list of hosts for the specified Apache Kafka® cluster.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/create.md
 ---
 
-
 # Method create
 Creates a Greenplum® cluster in the specified folder.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/RouteTable/listOperations.md
 ---
 
-
 # Method listOperations
 List operations for the specified route table.
  

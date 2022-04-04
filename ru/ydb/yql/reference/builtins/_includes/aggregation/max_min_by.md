@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min_by.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/max_min_by.md
 ---
-
 ## MAX_BY и MIN_BY {#max-min-by}
 
 Вернуть значение первого аргумента для строки таблицы, в которой второй аргумент оказался минимальным/максимальным.

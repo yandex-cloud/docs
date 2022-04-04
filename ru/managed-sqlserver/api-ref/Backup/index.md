@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Backup/index.md
 ---
 
-
 # Backup
 A set of methods for managing SQL Server backups.
 ## JSON Representation {#representation}

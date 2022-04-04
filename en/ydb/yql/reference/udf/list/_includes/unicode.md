@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
 ---
-
 # Unicode
 
 Functions for Unicode strings.

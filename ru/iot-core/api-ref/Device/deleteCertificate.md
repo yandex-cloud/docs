@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/Device/deleteCertificate.md
 ---
 
-
 # Method deleteCertificate
 Deletes the specified device certificate.
  

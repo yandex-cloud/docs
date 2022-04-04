@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/CONTAINS_ARRAY.md
 ---
 
-
 # CONTAINS (array)
 
 _Function `CONTAINS` is also found in the following categories: [String functions](CONTAINS.md)._

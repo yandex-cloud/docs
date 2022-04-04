@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/subnet_service.md
 ---
 
-
 # SubnetService
 
 A set of methods for managing Subnet resources.

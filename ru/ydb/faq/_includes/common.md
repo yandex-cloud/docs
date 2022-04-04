@@ -4,7 +4,6 @@ description: "Что такое YDB? Для каких задач стоит и�
 sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/_includes/common.md
 ---
 
-
 # Общие вопросы про {{ ydb-short-name }}
 
 #### Что такое {{ ydb-short-name }}? {#what-is-ydb}

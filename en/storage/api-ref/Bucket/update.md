@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/update.md
 ---
 
-
 # Method update
 Updates the specified bucket.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dns/api-ref/DnsZone/getRecordSet.md
 ---
 
-
 # Method getRecordSet
 Returns the specified record set.
  

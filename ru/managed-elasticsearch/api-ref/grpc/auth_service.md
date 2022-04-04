@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-elasticsearch/api-ref/grpc/auth_service.md
 ---
 
-
 # AuthService
 
 A set of methods for managing Elasticsearch Authentication resources.

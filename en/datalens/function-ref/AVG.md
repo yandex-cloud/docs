@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/AVG.md
 ---
 
-
 # AVG
 
 _Function `AVG` is also found in the following categories: [Window functions](AVG_WINDOW.md)._

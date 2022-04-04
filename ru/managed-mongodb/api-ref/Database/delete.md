@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Database/delete.md
 ---
 
-
 # Method delete
 Deletes the specified MongoDB database.
  

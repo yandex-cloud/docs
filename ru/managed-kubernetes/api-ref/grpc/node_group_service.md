@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-kubernetes/api-ref/grpc/node_group_service.md
 ---
 
-
 # NodeGroupService
 
 A set of methods for managing node groups.

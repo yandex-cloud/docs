@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/COUNT_WINDOW.md
 ---
 
-
 # COUNT (window)
 
 _Function `COUNT` is also found in the following categories: [Aggregate functions](COUNT.md)._

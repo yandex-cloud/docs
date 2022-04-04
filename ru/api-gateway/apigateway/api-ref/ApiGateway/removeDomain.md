@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/removeDomain.md
 ---
 
-
 # Method removeDomain
 Detaches domain from the specified API gateway.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/updateHosts.md
 ---
 
-
 # Method updateHosts
 Updates the specified hosts.
  

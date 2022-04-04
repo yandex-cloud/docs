@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/delete.md
 ---
 
-
 # Method delete
 Deletes the specified API gateway.
  

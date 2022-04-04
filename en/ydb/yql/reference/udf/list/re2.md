@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/re2.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/re2.md
 ---
-
 # Re2
 
 **List of functions**

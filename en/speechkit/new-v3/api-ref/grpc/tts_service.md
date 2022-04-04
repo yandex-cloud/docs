@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/tts/new-v3/new-v3/api-ref/grpc/tts_service.md
 ---
 
-
 # Synthesizer
 
 A set of methods for voice synthesis.

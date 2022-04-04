@@ -4,7 +4,6 @@ description: "This section describes supported methods for creating YDB database
 sourcePath: en/ydb/ydb-docs-core/en/core/maintenance/_includes/backup_and_recovery/01_intro.md
 ---
 
-
 # Backups
 
 This section describes supported methods for creating YDB database backups and restoring data from previously created backups. {{ ydb-short-name }} lets you use the following destinations to create backups:

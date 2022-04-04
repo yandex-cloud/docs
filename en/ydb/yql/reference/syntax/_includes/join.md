@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/join.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/join.md
 ---
-
 # JOIN
 
 It lets you combine multiple data sources (subqueries or tables) by equality of values in the specified columns or expressions (the `JOIN` keys).

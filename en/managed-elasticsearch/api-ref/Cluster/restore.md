@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/restore.md
 ---
 
-
 # Method restore
 Creates a new ElasticSearch cluster from the specified backup.
  

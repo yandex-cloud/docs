@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/update.md
 ---
 
-
 # Method update
 Updates the specified certificate.
  

@@ -302,6 +302,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
     If only some availability zones in the cluster's network have subnets, explicitly specify the {{ ZK }} host settings.
 
+  To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
 {% endlist %}
 
 {% note warning %}
@@ -332,7 +334,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
   * With one user, `user1`, with the password `user1user1`.
   * With one database, `db1`.
-  * With protection against accidental cluster deletion.
+  * With accidental cluster deletion protection.
 
   Run the command:
 

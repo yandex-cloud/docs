@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/rollup_cube_sets.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/group_by/rollup_cube_sets.md
 ---
-
 ## ROLLUP, CUBE, and GROUPING SETS {#rollup}
 
 The results of calculating the aggregate function as subtotals for the groups and overall totals over individual columns or whole table.

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/create.md
 ---
 
-
 # Method create
 Creates a folder in the specified cloud.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/data-proc/api-ref/grpc/subcluster_service.md
 ---
 
-
 # SubclusterService
 
 A set of methods for managing Data Proc subclusters.

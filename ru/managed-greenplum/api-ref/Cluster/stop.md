@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/stop.md
 ---
 
-
 # Method stop
 Stops the specified Greenplum® cluster.
  

@@ -17,14 +17,19 @@
 
   1. Посмотрите описание команды для назначения роли на облако:
 
-      ```
+      ```bash
       yc resource-manager cloud add-access-binding --help
       ```
 
-  2. Выберите облако, например `my-cloud`:
+  1. Получите список доступных облаков:
 
-      ```
+      ```bash
       yc resource-manager cloud list
+      ```
+
+      Результат:
+
+      ```bash
       +----------------------+----------+
       |          ID          |   NAME   |
       +----------------------+----------+
@@ -32,10 +37,15 @@
       +----------------------+----------+
       ```
 
-  3. Выберите [роль](../../../iam/concepts/access-control/roles.md):
+  1. Получите список доступных [ролей](../../../iam/concepts/access-control/roles.md):
 
-      ```
+      ```bash
       yc iam role list
+      ```
+
+      Результат:
+
+      ```bash
       +--------------------------------+-------------+
       |               ID               | DESCRIPTION |
       +--------------------------------+-------------+
@@ -45,34 +55,44 @@
       | ...                            |             |
       +--------------------------------+-------------+
       ```
-  4. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
 
-      ```
+  1. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
+
+      ```bash
       yc iam user-account get test-user
+      ```
+
+      Результат:
+
+      ```bash
       id: gfei8n54hmfhuk5nogse
       yandex_passport_user_account:
           login: test-user
           default_email: test-user@yandex.ru
       ```
 
+  1. Назначьте пользователю `test-user` роль `editor` на облако `my-cloud`. В субъекте укажите тип `userAccount` и идентификатор пользователя:
 
-  5. Назначьте пользователю `test-user` роль `editor` на облако `my-cloud`. В субъекте укажите тип `userAccount` и ID пользователя:
-
-      ```
+      ```bash
       yc resource-manager cloud add-access-binding my-cloud \
-          --role editor \
-          --subject userAccount:gfei8n54hmfhuk5nogse
+        --role editor \
+        --subject userAccount:<идентификатор пользователя>
       ```
 
 - API
 
-  Воспользуйтесь методом [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md). Вам понадобится ID облака и ID пользователя, которому назначается роль на облако.
+  Воспользуйтесь методом [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md). Вам понадобится идентификатор облака и идентификатор пользователя, которому назначается роль на облако.
 
-  1. Узнайте ID облака с помощью метода [list](../../api-ref/Cloud/list.md):
+  1. Узнайте идентификатор облака с помощью метода [list](../../api-ref/Cloud/list.md):
+
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
-
+      ```
+      
+      Результат:
+      
+      ```bash
       {
        "clouds": [
         {
@@ -83,11 +103,17 @@
        ]
       }
       ```
-  2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+
+  1. Узнайте идентификатор пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
-
+      ```
+      
+      Результат:
+      
+      ```bash
       {
        "id": "gfei8n54hmfhuk5nogse",
        "yandexPassportUserAccount": {
@@ -96,7 +122,8 @@
        }
       }
       ```
-  3. Назначьте пользователю роль `editor` на облако `my-cloud`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+
+  1. Назначьте пользователю роль `editor` на облако `my-cloud`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
 
       ```bash
       curl -X POST \
@@ -108,11 +135,68 @@
               "accessBinding": {
                   "roleId": "editor",
                   "subject": {
-                      "id": "gfei8n54hmfhuk5nogse",
+                      "id": "<идентификатор пользователя>",
                       "type": "userAccount"
           }}}]}' \
           https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
       ```
+
+- Terraform
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры прав доступа к облаку:
+      * `cloud_id` — идентификатор облака. Получить список доступных облаков можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`.
+      * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе `yandex_resourcemanager_cloud_iam_binding` можно назначить только одну роль.
+      * блок `members` — список пользователей, которым нужно назначить роль. Каждая запись может иметь одно из следующих значений:
+        * `userAccount:<идентификатор пользователя>` — [идентификатор пользователя](../../../iam/operations/users/get.md).
+        * `serviceAccount:<идентификатор сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
+        * `federatedUser:<идентификатор федеративного аккаунта>` — [идентификатор федеративного аккаунта](../../../organization/users-get.md).
+
+      ```hcl
+      data "yandex_resourcemanager_cloud" "project1" {
+        name = "Project 1"
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "editor"
+        members = [
+          "userAccount:<идентификатор пользователя>",
+        ]
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_binding).
+  1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+      
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+      
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список создаваемых ресурсов и их параметров. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      После этого будут назначены права доступа к облаку.
 
 {% endlist %}
 
@@ -137,14 +221,17 @@
   {% endnote %}
 
   1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
-      ```
+
+      ```bash
       yc resource-manager cloud list-access-binding my-cloud
       ```
-  2. Например, назначьте роль нескольким пользователям:
-      ```
+
+  1. Например, назначьте роль нескольким пользователям:
+
+      ```bash
       yc resource-manager cloud set-access-bindings my-cloud \
-          --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
-          --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+        --access-binding role=editor,subject=userAccount:<идентификатор первого пользователя>
+        --access-binding role=viewer,subject=userAccount:<идентификатор второго пользователя>
       ```
 
 - API
@@ -161,7 +248,7 @@
           "accessBinding": {
               "roleId": "editor",
               "subject": {
-                  "id": "gfei8n54hmfhuk5nogse",
+                  "id": "<идентификатор первого пользователя>",
                   "type": "userAccount"
               }
           }
@@ -170,7 +257,7 @@
           "accessBinding": {
               "roleId": "viewer",
               "subject": {
-                  "id": "helj89sfj80aj24nugsz",
+                  "id": "<идентификатор второго пользователя>",
                   "type": "userAccount"
       }}}]}' \
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
@@ -191,16 +278,71 @@
       -d '{
       "accessBindings": [{
           "roleId": "editor",
-          "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+          "subject": { "id": "<идентификатор первого пользователя>", "type": "userAccount" }
       },{
           "roleId": "viewer",
-          "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+          "subject": { "id": "<идентификатор второго пользователя>", "type": "userAccount" }
       }]}' \
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
   ```
 
-{% endlist %}
+- Terraform
 
+  1. Опишите в конфигурационном файле параметры прав доступа к облаку. Назначьте одному пользователю роль `editor`, а другому `viewer`:
+
+      ```hcl
+      data "yandex_resourcemanager_cloud" "project1" {
+        name = "Project 1"
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "editor"
+        members = [
+          "userAccount:<идентификатор первого пользователя>",
+        ]
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "viewer" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "viewer"
+        members = [
+          "userAccount:<идентификатор второго пользователя>",
+        ]
+      }
+      ```
+
+  1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+      
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+      
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список создаваемых ресурсов и их параметров. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      После этого будут назначены права доступа к облаку.
+
+{% endlist %}
 
 ### Доступ к облаку для сервисного аккаунта {#access-to-sa}
 
@@ -212,10 +354,15 @@
 
 - CLI
 
-  1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
+  1. Узнайте идентификатор сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов:
 
-      ```
+      ```bash
       yc iam service-account list
+      ```
+
+      Результат:
+
+      ```bash
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
@@ -223,22 +370,26 @@
       +----------------------+----------+------------------+
       ```
 
-  2. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его ID. В типе субъекта укажите `serviceAccount`:
+  1. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его идентификатор. В типе субъекта укажите `serviceAccount`:
 
-      ```
+      ```bash
       yc resource-manager cloud add-access-binding my-cloud \
-          --role editor \
-          --subject serviceAccount:ajebqtreob2dpblin8pe
+        --role editor \
+        --subject serviceAccount:<идентификатор сервисного аккаунта>
       ```
 
 - API
 
-  1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
+  1. Узнайте идентификатор сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать идентификатор, получите список доступных сервисных аккаунтов:
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+      ```
 
+      Результат:
+
+      ```bash
       {
        "serviceAccounts": [
         {
@@ -252,7 +403,7 @@
       }
       ```
 
-  2. Назначьте сервисному аккаунту `test-sa` роль `editor` на облако `my-cloud`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-cloud`:
+  1. Назначьте сервисному аккаунту `test-sa` роль `editor` на облако `my-cloud`. В свойстве `subject` укажите тип `serviceAccount` и идентификатор `test-sa`. В URL запроса в качестве ресурса укажите идентификатор `my-cloud`:
 
   ```bash
   curl -X POST \
@@ -264,11 +415,59 @@
           "accessBinding": {
               "roleId": "editor",
               "subject": {
-                  "id": "ajebqtreob2dpblin8pe",
+                  "id": "<идентификатор сервисного аккаунта>",
                   "type": "serviceAccount"
       }}}]}' \
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
+
+- Terraform
+
+  1. Назначьте роль `editor` сервисному аккаунту: 
+
+      ```hcl
+      data "yandex_resourcemanager_cloud" "project1" {
+        name = "Project 1"
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "editor"
+        members = [
+          "serviceAccount:<идентификатор сервисного аккаунта>",
+        ]
+      }
+      ```
+
+  1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+      
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+      
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список создаваемых ресурсов и их параметров. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      После этого будут назначены права доступа к облаку.
 
 {% endlist %}
 
@@ -284,10 +483,10 @@
 
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
 
-  ```
+  ```bash
   yc resource-manager cloud add-access-binding my-cloud \
-      --role viewer \
-      --subject system:allAuthenticatedUsers
+    --role viewer \
+    --subject system:allAuthenticatedUsers
   ```
 
 - API
@@ -309,6 +508,54 @@
       }}}]}' \
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
+
+- Terraform
+
+  1. Назначьте роль `viewer` системной группе `allAuthenticatedUsers`: 
+
+      ```hcl
+      data "yandex_resourcemanager_cloud" "project1" {
+        name = "Project 1"
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "viewer" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "viewer"
+        members = [
+          "system:allAuthenticatedUsers",
+        ]
+      }
+      ```
+
+  1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+      
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+      
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список создаваемых ресурсов и их параметров. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      После этого будут назначены права доступа к облаку.
 
 {% endlist %}
 

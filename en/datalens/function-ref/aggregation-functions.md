@@ -11,7 +11,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/aggregation-functions.md
 ---
 
-
 # Aggregate functions
 Aggregate functions (or aggregations) are functions that combine multiple values from a group of entries into one, thus collapsing the group into a single entry.
 

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/create.md
 ---
 
-
 # Method create
 Creates an API gateway in the specified folder.
  

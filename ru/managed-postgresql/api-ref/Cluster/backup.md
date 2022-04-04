@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/backup.md
 ---
 
-
 # Method backup
 Creates a backup for the specified PostgreSQL cluster.
  

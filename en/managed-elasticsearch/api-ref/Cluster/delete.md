@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/delete.md
 ---
 
-
 # Method delete
 Deletes the specified Elasticsearch cluster.
  

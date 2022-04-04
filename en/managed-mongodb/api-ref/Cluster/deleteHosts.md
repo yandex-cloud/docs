@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/deleteHosts.md
 ---
 
-
 # Method deleteHosts
 Deletes the specified hosts for a cluster.
  

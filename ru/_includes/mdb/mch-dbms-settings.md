@@ -1,14 +1,14 @@
-* **Geobase uri**{#setting-geobase-uri} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Geobase uri**{#setting-geobase-uri} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Адрес архива с [пользовательской геобазой](../../managed-clickhouse/concepts/dictionaries.md#internal-dicts) в {{ objstorage-name }}.
 
-* **Keep alive timeout**{#setting-} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Keep alive timeout**{#setting-} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Время (в секундах) от поступления последнего запроса к {{ CH }} до разрыва соединения. Если за это время поступает новый запрос, соединение не разрывается.
 
     По умолчанию выбрано значение `3`.
 
-* **Log level**{#setting-log-level} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Log level**{#setting-log-level} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
   Уровень логирования событий. На каждом следующем уровне лог будет содержать всю информацию из предыдущего:
   1. `ERROR` — информация об ошибках в работе кластера;
@@ -19,7 +19,7 @@
 
   Подробнее об уровнях логирования см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger).
 
-* **Mark cache size**{#setting-mark-cache-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Mark cache size**{#setting-mark-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Приблизительный размер (в байтах) кеша засечек, используемых движками таблиц семейства [MergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/). Кеш общий для хоста кластера, память выделяется по мере необходимости.
 
@@ -27,73 +27,73 @@
 
     По умолчанию выбрано значение `5368709120`.
 
-* **Max concurrent queries**{#setting-max-concurrent-queries} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Max concurrent queries**{#setting-max-concurrent-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Максимальное количество одновременно обрабатываемых запросов.
 
     Минимальное значение — `10`, по умолчанию — `500`.
 
-* **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Максимальное количество входящих клиентских соединений. Настройка не учитывает служебные соединения, которые открываются для выполнения распределенных подзапросов.
 
     Минимальное значение — `10`, по умолчанию — `4096`.
 
-* **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Максимальный размер (в байтах) [партиции](https://clickhouse.yandex/docs/ru/operations/table_engines/custom_partitioning_key/) таблицы семейства [MergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/), при котором таблицу можно удалить с помощью запроса `DROP TABLE`. Настройку можно использовать, чтобы предотвратить ошибочное удаление таблиц с реальными данными: такие таблицы обычно имеют большой размер по сравнению с тестовыми таблицами.
 
     По умолчанию выбрано значение `53687091200` (50 ГБ). При значении `0` можно удалять таблицы любого размера.
 
-* **Max table size to drop**{#setting-max-table-size-to-drop} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Max table size to drop**{#setting-max-table-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Максимальный размер (в байтах) таблицы семейства [MergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/), которую можно удалить с помощью запроса `DROP TABLE`. Настройку можно использовать, чтобы предотвратить ошибочное удаление таблиц с реальными данными: такие таблицы обычно имеют большой размер по сравнению с тестовыми таблицами.
 
     По умолчанию выбрано значение `53687091200` (50 ГБ). При значении `0` можно удалять таблицы любого размера.
 
-* **Metric log enabled**{#setting-metric-log-enabled} {{ tag-con }} {{ tag-tf }}
+* **Metric log enabled**{#setting-metric-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Определяет, будут ли логироваться значения метрик из таблиц `system.metrics` и `system.events` в таблицу `system.metric_log`.
 
     По умолчанию выбрано значение `true`.
 
-* **Metric log retention size**{#setting-metric-log-retention-size} {{ tag-con }} {{ tag-tf }}
+* **Metric log retention size**{#setting-metric-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Размер таблицы `system.metric_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
 
     По умолчанию выбрано значение `536870912` (0,5 ГБ). При значении `0` старые записи не будут удаляться при росте размера таблицы.
 
-* **Metric log retention time**{#setting-metric-log-retention-time} {{ tag-con }} {{ tag-tf }}
+* **Metric log retention time**{#setting-metric-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Время (в миллисекундах) от внесения записи в таблицу `system.metric_log` до удаления этой записи. Значение должно быть кратно 1000.
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
-* **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-tf }}
+* **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Размер таблицы `system.part_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
 
     По умолчанию выбрано значение `536870912` (0,5 ГБ). При значении `0` старые записи не будут удаляться при росте размера таблицы.
 
-* **Part log retention time**{#setting-part-log-retention-time} {{ tag-con }} {{ tag-tf }}
+* **Part log retention time**{#setting-part-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Время (в миллисекундах) от внесения записи в таблицу `system.part_log` до удаления этой записи. Значение должно быть кратно 1000.
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
-* **Query log retention size**{#setting-query-log-retention-size} {{ tag-con }} {{ tag-tf }}
+* **Query log retention size**{#setting-query-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Размер таблицы `system.query_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
 
     По умолчанию выбрано значение `1073741824` (1 ГБ). При значении `0` старые записи не будут удаляться при росте размера таблицы.
 
-* **Query log retention time**{#setting-query-log-retention-time} {{ tag-con }} {{ tag-tf }}
+* **Query log retention time**{#setting-query-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Время (в миллисекундах) от внесения записи в таблицу `system.query_log` до удаления этой записи. Значение должно быть кратно 1000.
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
-* **Query thread log enabled**{#setting-query-thread-log-enabled} {{ tag-con }} {{ tag-tf }}
+* **Query thread log enabled**{#setting-query-thread-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Определяет, будет ли логироваться информация о потоках, которые выполняют запросы. Логи сохраняются в таблицу `system.query_thread_log`.
 
@@ -101,25 +101,25 @@
 
     Подробнее см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log).
 
-* **Query thread log retention size**{#setting-query-thread-log-retention-size} {{ tag-con }} {{ tag-tf }}
+* **Query thread log retention size**{#setting-query-thread-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Размер таблицы `system.query_thread_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
 
    По умолчанию выбрано значение `536870912` (0,5 ГБ). При значении `0` старые записи не будут удаляться при росте размера таблицы.
 
-* **Query thread log retention time**{#setting-query-thread-log-retention-time} {{ tag-con }} {{ tag-tf }}
+* **Query thread log retention time**{#setting-query-thread-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Время (в миллисекундах) от внесения записи в таблицу `system.query_thread_log` до удаления этой записи. Значение должно быть кратно 1000.
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
-* **Text log enabled**{#setting-text-log-enabled} {{ tag-con }} {{ tag-tf }}
+* **Text log enabled**{#setting-text-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Определяет, будут ли записываться системные логи. Логи сохраняются в таблицу `system.text_log`.
 
     По умолчанию выбрано значение `false`.
 
-* **Text log level**{#setting-text-log-level} {{ tag-con }} {{ tag-tf }}
+* **Text log level**{#setting-text-log-level} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
   Уровень логирования событий в таблице [system.text_log](https://clickhouse.tech/docs/ru/operations/system-tables/text_log). На каждом следующем уровне лог будет содержать всю информацию из предыдущего:
   1. `ERROR` — информация об ошибках в работе СУБД;
@@ -130,43 +130,43 @@
 
     По умолчанию выбрано значение `TRACE`.
 
-* **Text log retention size**{#setting-text-log-retention-size} {{ tag-con }} {{ tag-tf }}
+* **Text log retention size**{#setting-text-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Размер таблицы `system.text_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
 
     По умолчанию выбрано значение `536870912` (0,5 ГБ). При значении `0` старые записи не будут удаляться при росте размера таблицы.
 
-* **Text log retention time**{#setting-text-log-retention-time} {{ tag-con }} {{ tag-tf }}
+* **Text log retention time**{#setting-text-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Время (в миллисекундах) от внесения записи в таблицу `system.text_log` до удаления этой записи. Значение должно быть кратно 1000.
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
-* **Timezone**{#setting-timezone} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Timezone**{#setting-timezone} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
   Временная зона сервера. Указывается идентификатором IANA в виде часового пояса UTC или географического положения (например, Africa/Abidjan). 
   
   Подробнее см. в документации [{{ CH }}](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone).
 
-* **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-tf }}
+* **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Определяет, будут ли логироваться стектрейсы (stack traces), собираемые профилировщиком запросов. Стектрейсы сохраняются в таблицу `system.trace_log` .
 
     По умолчанию выбрано значение `true`.
 
-* **Trace log retention size**{#setting-trace-log-retention-size} {{ tag-con }} {{ tag-tf }}
+* **Trace log retention size**{#setting-trace-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Размер таблицы `system.trace_log` (в байтах), при превышении которого из нее начнут удаляться старые записи.
 
     По умолчанию выбрано значение `536870912` (0,5 ГБ). При значении `0` старые записи не будут удаляться при росте размера таблицы.
 
-* **Trace log retention time**{#setting-trace-log-retention-time} {{ tag-con }} {{ tag-tf }}
+* **Trace log retention time**{#setting-trace-log-retention-time} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Время (в миллисекундах) от внесения записи в таблицу `system.trace_log` до удаления этой записи. Значение должно быть кратно 1000.
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
-* **Uncompressed cache size**{#setting-uncompressed-cache-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Uncompressed cache size**{#setting-uncompressed-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Размер кеша (в байтах) для несжатых данных, используемых движками таблиц семейства [MergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/).
 
@@ -199,7 +199,7 @@
 
     Подробнее о поддержке Graphite см. в документации [{{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/).
 
-* **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-tf }}
+* **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
   Глобальные настройки аутентификации для [интеграции с {{ KF }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/):
   * **Sasl mechanism** — механизм аутентификации SASL:
@@ -216,7 +216,7 @@
   
   Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#security).
     
-* **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-tf }}
+* **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Настройки аутентификации на уровне [топиков](../../managed-kafka/concepts/topics.md) для [интеграции с {{ KF }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/):
 
@@ -227,7 +227,7 @@
 
        Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#security).
 
-* **Merge tree**{#setting-merge-tree} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+* **Merge tree**{#setting-merge-tree} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Конфигурация движка MergeTree:
     * **Max bytes to merge at min space in pool** — максимальный общий размер кусков данных для слияния, когда в фоновом пуле минимум свободных ресурсов.
@@ -266,7 +266,7 @@
 
       Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds).
 
-* **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-tf }}
+* **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
     Глобальные настройки аутентификации для [интеграции с {{ RMQ }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/rabbitmq/):
     * **Password** — пароль учетной записи {{ RMQ }}.

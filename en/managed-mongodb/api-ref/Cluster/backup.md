@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/backup.md
 ---
 
-
 # Method backup
 Creates a backup for the specified MongoDB cluster.
  

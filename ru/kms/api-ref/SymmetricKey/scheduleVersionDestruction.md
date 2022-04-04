@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/scheduleVersionDestruction.md
 ---
 
-
 # Method scheduleVersionDestruction
 Schedules the specified key version for destruction.
  

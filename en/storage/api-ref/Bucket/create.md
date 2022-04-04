@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/create.md
 ---
 
-
 # Method create
 Creates a bucket in the specified folder.
  

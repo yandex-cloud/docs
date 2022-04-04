@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/create.md
 ---
 
-
 # Method create
 Creates an instance group in the specified folder.
 This method starts an operation that can be cancelled by another operation.

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dns/api-ref/DnsZone/index.md
 ---
 
-
 # DnsZone
 A set of methods for managing DNS zones.
 ## JSON Representation {#representation}

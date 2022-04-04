@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/UserAccount/index.md
 ---
 
-
 # UserAccount
 A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/#passport).
 ## JSON Representation {#representation}

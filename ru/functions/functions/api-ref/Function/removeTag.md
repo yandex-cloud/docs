@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/removeTag.md
 ---
 
-
 # Method removeTag
 Remove a tag from the specified version of a function.
  

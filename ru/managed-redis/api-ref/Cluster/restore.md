@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/restore.md
 ---
 
-
 # Method restore
 Creates a new Redis cluster using the specified backup.
  

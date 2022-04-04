@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/update.md
 ---
 
-
 # Method update
 Updates a cluster.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/index.md
 ---
 
-
 # Cluster
 A set of methods for managing Elasticsearch clusters.
 ## JSON Representation {#representation}

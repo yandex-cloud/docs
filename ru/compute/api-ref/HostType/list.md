@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/HostType/list.md
 ---
 
-
 # Method list
 List avaliable host types.
  

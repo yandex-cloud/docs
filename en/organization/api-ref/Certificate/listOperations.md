@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Certificate/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified certificate.
  

@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/aggr_factory.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/aggr_factory.md
 ---
-
 ## AggregationFactory {#aggregationfactory}
 
 Создать фабрику для [агрегационных функций](../../aggregation.md) для того чтобы разделить процесс описания того, как агрегировать данные, и то, к каким данным это применять.

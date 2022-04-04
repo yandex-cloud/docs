@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/create.md
 ---
 
-
 # Method create
 Creates a virtual host in the specified HTTP router.
  

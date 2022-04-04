@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/logging/api-ref/LogGroup/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified log group.
  

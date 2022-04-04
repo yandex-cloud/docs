@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/dict.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/dict.md
 ---
-
 # Функции для работы со словарями
 
 ## DictCreate {#dictcreate}

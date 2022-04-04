@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/streamLogs.md
 ---
 
-
 # Method streamLogs
 Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.
  

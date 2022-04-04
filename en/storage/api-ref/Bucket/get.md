@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/get.md
 ---
 
-
 # Method get
 Returns the specified bucket.
  

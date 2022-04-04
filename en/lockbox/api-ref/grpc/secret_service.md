@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/lockbox/api-ref/grpc/secret_service.md
 ---
 
-
 # SecretService
 
 A set of methods for managing secrets.

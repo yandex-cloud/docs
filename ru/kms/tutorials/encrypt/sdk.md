@@ -184,6 +184,8 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
     plaintext := response.Plaintext
     ```
 
+{% endlist %}
+
 #### См. также {#see-also}
 
 * [{{ yandex-cloud }} Java SDK](https://github.com/yandex-cloud/java-sdk).

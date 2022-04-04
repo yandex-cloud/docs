@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/stop.md
 ---
 
-
 # Method stop
 Stops a cluster.
  

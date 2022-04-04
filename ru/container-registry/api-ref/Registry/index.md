@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Registry/index.md
 ---
 
-
 # Registry
 A set of methods for managing Registry resources.
 ## JSON Representation {#representation}

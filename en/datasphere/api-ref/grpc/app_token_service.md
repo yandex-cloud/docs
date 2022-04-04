@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/api-ref/grpc/app_token_service.md
 ---
 
-
 # AppTokenService
 
 A set of methods for managing app tokens.

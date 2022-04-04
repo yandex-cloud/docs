@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/ydb/overlay/pricing/dedicated.md
 ---
 
-
 # Правила тарификации для режима {{ ydb-name }} с выделенными инстансами
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

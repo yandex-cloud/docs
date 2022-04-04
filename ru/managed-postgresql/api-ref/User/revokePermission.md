@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/User/revokePermission.md
 ---
 
-
 # Method revokePermission
 Revokes permission from the specified PostgreSQL user.
  

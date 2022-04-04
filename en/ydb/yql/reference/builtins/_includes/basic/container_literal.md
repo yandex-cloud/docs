@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/container_literal.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/container_literal.md
 ---
-
 ## Container literals {#containerliteral}
 
 Some containers support operator notation for their literal values:

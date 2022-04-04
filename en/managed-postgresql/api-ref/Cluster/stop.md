@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/stop.md
 ---
 
-
 # Method stop
 Stop the specified PostgreSQL cluster.
  

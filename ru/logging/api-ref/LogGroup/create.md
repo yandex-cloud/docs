@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/logging/api-ref/LogGroup/create.md
 ---
 
-
 # Method create
 Creates a log group in the specified folder.
  

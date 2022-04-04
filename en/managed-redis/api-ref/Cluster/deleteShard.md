@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/deleteShard.md
 ---
 
-
 # Method deleteShard
 Deletes the specified shard.
  
