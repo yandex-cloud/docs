@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/listLanguages.md
 ---
 
-
 # Метод listLanguages
 Получает список поддерживаемых языков.
  

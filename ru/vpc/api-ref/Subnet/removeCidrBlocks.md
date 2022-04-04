@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Subnet/removeCidrBlocks.md
 ---
 
-
 # Method removeCidrBlocks
 Removes CIDR blocks from the specified subnet.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

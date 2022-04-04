@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/startFailover.md
 ---
 
-
 # Method startFailover
 Start a manual failover on the specified PostgreSQL cluster.
  

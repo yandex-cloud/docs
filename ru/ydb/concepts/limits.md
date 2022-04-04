@@ -6,7 +6,6 @@ editable: false
 sourcePath: ru/ydb/overlay/concepts/limits.md
 ---
 
-
 # Квоты и лимиты в {{ ydb-name }}
 
 В сервисе {{ ydb-full-name }} действуют следующие ограничения:

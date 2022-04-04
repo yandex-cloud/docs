@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/lockbox/api-ref/Secret/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified secret.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Budget/list.md
 ---
 
-
 # Method list
 Retrieves the list of budgets corresponding to the specified billing account.
  

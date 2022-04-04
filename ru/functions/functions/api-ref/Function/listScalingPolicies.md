@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/listScalingPolicies.md
 ---
 
-
 # Method listScalingPolicies
 Lists existing scaling policies for specified function
  

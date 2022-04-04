@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/lockbox/api-ref/Payload/get.md
 ---
 
-
 # Method get
 Returns the payload of the specified secret.
  

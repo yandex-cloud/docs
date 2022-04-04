@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Image/get.md
 ---
 
-
 # Method get
 Returns the specified Image resource.
  

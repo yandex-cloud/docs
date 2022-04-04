@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/lambda.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/lambda.md
 ---
-
 ## Lambda функции {#lambda}
 
 Позволяют комбинировать несколько выражений в одно вызываемое значение.

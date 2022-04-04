@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/select/from_select.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/from_select.md
 ---
-
 ## FROM ... SELECT ... {#from-select}
 
 An inverted format, first specifying the data source and then the operation.

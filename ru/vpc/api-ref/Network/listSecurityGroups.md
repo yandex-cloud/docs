@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Network/listSecurityGroups.md
 ---
 
-
 # Method listSecurityGroups
 Lists security groups from the specified network.
  

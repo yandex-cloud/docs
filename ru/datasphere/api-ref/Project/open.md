@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/Project/open.md
 ---
 
-
 # Method open
 Opens the specified project.
  

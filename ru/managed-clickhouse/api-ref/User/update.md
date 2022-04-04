@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/update.md
 ---
 
-
 # Method update
 Updates the specified ClickHouse user.
  

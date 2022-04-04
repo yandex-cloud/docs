@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/User/update.md
 ---
 
-
 # Method update
 Updates the specified MongoDB user.
  

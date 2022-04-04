@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/restore.md
 ---
 
-
 # Method restore
 Creates a new SQL Server cluster using the specified backup.
  

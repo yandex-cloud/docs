@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Registry/create.md
 ---
 
-
 # Method create
 Creates a registry in the specified folder.
  

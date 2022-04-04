@@ -3,7 +3,6 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_i
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
 ---
 
-
 # Лексическая структура
 
 Запрос на языке YQL представляет собой валидный UTF-8 текст, который состоит из _команд_ (statement) разделенных символом точка с запятой (`;`).

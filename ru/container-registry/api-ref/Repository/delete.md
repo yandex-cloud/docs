@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Repository/delete.md
 ---
 
-
 # Method delete
 Deletes the specified repository.
  

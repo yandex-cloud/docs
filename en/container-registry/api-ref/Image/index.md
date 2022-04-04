@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Image/index.md
 ---
 
-
 # Image
 A set of methods for managing Image resources.
 ## JSON Representation {#representation}

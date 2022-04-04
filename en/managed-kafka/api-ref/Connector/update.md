@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/update.md
 ---
 
-
 # Method update
 Updates an Apache Kafka connector in the specified cluster.
  

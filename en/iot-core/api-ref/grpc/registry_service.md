@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot-core/api-ref/grpc/registry_service.md
 ---
 
-
 # RegistryService
 
 A set of methods for managing registry.

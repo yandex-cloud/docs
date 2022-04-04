@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/certificate_service.md
 ---
 
-
 # CertificateService
 
 A set of methods for managing certificates.

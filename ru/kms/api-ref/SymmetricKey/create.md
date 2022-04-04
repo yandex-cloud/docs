@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/create.md
 ---
 
-
 # Method create
 Creates a symmetric KMS key in the specified folder.
  

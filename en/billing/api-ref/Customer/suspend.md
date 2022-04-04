@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Customer/suspend.md
 ---
 
-
 # Method suspend
 Suspend specified customer. After customer is suspended, he can't use resources associated with his billing account.
  

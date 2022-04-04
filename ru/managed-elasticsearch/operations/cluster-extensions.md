@@ -149,7 +149,7 @@
 
     Добавляет поддержку файловой системы HDFS в качестве репозитория снапшотов.
 
-* [repository-s3](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-s3.html)
+* [repository-s3](https://www.elastic.co/guide/en/elasticsearch/reference/current/repository-s3.html)
 
     Добавляет поддержку AWS S3 в качестве репозитория снапшотов.
 

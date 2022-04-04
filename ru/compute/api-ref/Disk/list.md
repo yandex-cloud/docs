@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Disk/list.md
 ---
 
-
 # Method list
 Retrieves the list of Disk resources in the specified folder.
  

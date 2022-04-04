@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/resumeProcesses.md
 ---
 
-
 # Method resumeProcesses
 Resumes all processes regarding management of the specified instance group,
 i.e. scaling, checking instances' health, auto-healing and updating them.

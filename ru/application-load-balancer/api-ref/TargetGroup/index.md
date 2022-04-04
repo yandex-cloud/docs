@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/index.md
 ---
 
-
 # TargetGroup
 A set of methods for managing target groups.
 ## JSON Representation {#representation}

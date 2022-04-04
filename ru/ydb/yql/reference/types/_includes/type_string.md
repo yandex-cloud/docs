@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/types/_includes/type_string.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/type_string.md
 ---
-
 # Работа с текстовым представлением типов данных
 
 ## Введение {#intro}

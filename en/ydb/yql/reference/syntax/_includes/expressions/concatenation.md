@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/concatenation.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/concatenation.md
 ---
-
 ## String concatenation {#concatenation}
 
 Executed using the binary operator `||`.

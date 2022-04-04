@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/functions/functions/functions/api-ref/grpc/function_service.md
 ---
 
-
 # FunctionService
 
 A set of methods for managing serverless functions.

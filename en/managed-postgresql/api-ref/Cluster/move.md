@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/move.md
 ---
 
-
 # Method move
 Moves the specified PostgreSQL cluster to the specified folder.
  

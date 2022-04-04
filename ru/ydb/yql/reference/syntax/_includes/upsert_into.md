@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/upsert_into.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/upsert_into.md
 ---
-
 # UPSERT INTO
 
 Добавляет или обновляет множество строк в таблице на основании сравнения по первичному ключу. Отсутствующие строки добавляются. В присутствующих строках обновляются значения заданных столбцов, значения остальных столбцов остаются неизменными.

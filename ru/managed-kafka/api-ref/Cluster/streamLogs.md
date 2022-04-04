@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/streamLogs.md
 ---
 
-
 # Method streamLogs
 Same as [listLogs](/docs/managed-kafka/api-ref/Cluster/listLogs) but using server-side streaming. Also allows for `tail -f` semantics.
  

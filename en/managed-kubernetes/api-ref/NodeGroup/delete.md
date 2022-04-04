@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/k8s/api-ref/NodeGroup/delete.md
 ---
 
-
 # Method delete
 Deletes the specified node group.
  

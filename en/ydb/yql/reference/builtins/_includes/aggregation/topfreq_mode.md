@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/topfreq_mode.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/topfreq_mode.md
 ---
-
 ## TOPFREQ and MODE {#topfreq-mode}
 
 Getting an approximate list of the most common values in a column with an estimation of their count. Returns a list of structures with two fields:

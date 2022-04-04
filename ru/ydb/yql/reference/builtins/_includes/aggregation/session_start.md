@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/session_start.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/session_start.md
 ---
-
 ## SessionStart {#session-start}
 
 Без аргументов. Допускается только при наличии [SessionWindow](../../../syntax/group_by.md#session-window) в

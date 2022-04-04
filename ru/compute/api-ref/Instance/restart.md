@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Instance/restart.md
 ---
 
-
 # Method restart
 Restarts the running instance.
  

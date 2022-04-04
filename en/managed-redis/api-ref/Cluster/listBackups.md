@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/listBackups.md
 ---
 
-
 # Method listBackups
 Retrieves the list of available backups for the specified Redis cluster.
  

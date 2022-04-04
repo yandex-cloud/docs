@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/percentile_median.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/percentile_median.md
 ---
-
 ## PERCENTILE и MEDIAN {#percentile-median}
 
 Подсчет процентилей по амортизированной версии алгоритма [TDigest](https://github.com/tdunning/t-digest). `MEDIAN` — алиас для `PERCENTILE(N, 0.5)`.

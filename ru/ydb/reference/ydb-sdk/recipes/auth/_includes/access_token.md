@@ -14,4 +14,9 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/auth/_include
 
   {% include [go.md](access_token/go.md) %}
 
+- Java
+
+
+  {% include [java.md](access_token/java.md) %}
+
 {% endlist %}

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages.md
 ---
 
-
 # Method listDryRunResultAffectedImages
 Retrieves the list of the affected images.
  

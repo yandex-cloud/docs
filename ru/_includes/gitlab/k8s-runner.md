@@ -1,44 +1,58 @@
-## Подключите кластер {{ k8s }} к сборкам GitLab {#runners}
+## Создайте {{ GL }} Runner {#runners}
 
-Для того, чтобы запускать задачи сборки на кластере {{ k8s }}, подключите кластер в настройках GitLab.
+Для того, чтобы запускать задачи сборки на [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), создайте [{{ GL }} Runner](https://docs.gitlab.com/runner/install/kubernetes.html).
 
-1. Откройте в браузере ссылку вида `http://<публичный IP-адрес ВМ GitLab>/root`.
-1. Выберите проект с именем `gitlab-test`.
-1. В открывшемся окне слева нажмите на **Operations** и выберите пункт **Kubernetes**.
-1. Нажмите кнопку **Add Kubernetes cluster**.
-1. В открывшемся окне нажмите **Add existing cluster**.
-1. В поле **Kubernetes cluster name** введите имя кластера.
-1. В поле **API URL** введите адрес узла [мастера](../../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
+1. Подключите Helm-репозиторий, который содержит дистрибутив {{ GL }} Runner:
 
-    {% list tabs %}
-    
-    - Bash
-    
-      ```
-      $ yc managed-kubernetes cluster get <cluster-id> --format=json \
-      | jq -r .master.endpoints.external_v4_endpoint
-      ```
-    
-    {% endlist %}
-1. В поле **CA Certificate** введите сертификат мастера. Узнайте его с помощью команды:
+   ```bash
+   helm repo add gitlab https://charts.gitlab.io
+   ```
 
-    {% list tabs %}
-    
-    - Bash
-    
-      ```
-      $ yc managed-kubernetes cluster get <cluster-id> --format=json \
-      | jq -r .master.master_auth.cluster_ca_certificate
-      ```
-    
-    {% endlist %}
-1. В поле **Service Token** введите токен, который GitLab будет использовать для создания ресурсов {{ k8s }}. 
-Используйте токен, полученный перед началом работы.
-1. Нажмите кнопку **Add Kubernetes cluster**.
-1. Установите на кластер {{ k8s }} приложения, необходимые для корректной работы GitLab Runner:
-    - Напротив надписи **Helm Tiller** нажмите кнопку **Install**.
-    - Напротив надписи **GitLab Runner** нажмите кнопку **Install**. 
+1. Узнайте настройки {{ GL }} Runner:
+   1. Откройте в браузере ссылку вида `http://<публичный IP-адрес ВМ GitLab>/root`.
+   1. Выберите проект с именем `gitlab-test`.
+   1. В открывшемся окне слева нажмите кнопку **Setting** и выберите пункт **CI/CD**.
+   1. В блоке **Runners** нажмите кнопку **Expand**.
+   1. Сохраните значения параметров `URL` и `registration token` — они понадобятся на следующем шаге.
+1. Создайте файл `values.yaml`, содержащий настройки {{ GL }} Runner:
 
-Теперь вы можете запускать автоматизированные сборки внутри своего {{ k8s }}-кластера. 
+   ```yaml
+   imagePullPolicy: IfNotPresent
+   gitlabUrl: <URL инстанса Gitlab>
+   runnerRegistrationToken: "<registration token>"
+   terminationGracePeriodSeconds: 3600
+   concurrent: 10
+   checkInterval: 30
+   sessionServer:
+    enabled: false
+   rbac:
+     create: true
+     clusterWideAccess: true
+     podSecurityPolicy:
+       enabled: false
+       resourceNames:
+         - gitlab-runner
+   runners:
+     config: |
+       [[runners]]
+         [runners.kubernetes]
+           namespace = "{{.Release.Namespace}}"
+           image = "ubuntu:20.04"
+           privileged = true
+   ```
 
-Подробнее про настройки подключения кластера {{ k8s }} к сборкам GitLab читайте в [документации GitLab](https://docs.gitlab.com/ee/user/project/clusters/#add-existing-kubernetes-cluster).
+1. Установите {{ GL }} Runner с помощью команды:
+
+   ```bash
+   helm install --namespace default gitlab-runner -f values.yaml gitlab/gitlab-runner
+   ```
+
+1. Убедитесь, что под {{ GL }} Runner перешел в состояние `Running`:
+
+   ```bash
+   kubectl get pods -n default | grep gitlab-runner
+   ```
+
+Теперь вы можете запускать автоматизированные сборки внутри своего кластера {{ k8s }}.
+
+Подробнее про установку и настройку {{ GL }} Runner читайте в [документации GitLab](https://docs.gitlab.com/runner/install/).

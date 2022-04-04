@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
-
 # Method rescheduleMaintenance
 Reschedule planned maintenance operation.
  

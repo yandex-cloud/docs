@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/User/index.md
 ---
 
-
 # User
 A set of methods for managing MongoDB User resources.
 ## JSON Representation {#representation}

@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/topfreq_mode.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/topfreq_mode.md
 ---
-
 ## TOPFREQ и MODE {#topfreq-mode}
 
 Получение приближенного списка самых часто встречающихся значений колонки с оценкой их числа. Возвращают список структур с двумя полями:

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/start.md
 ---
 
-
 # Method start
 Starts the specified SQL Server cluster.
  

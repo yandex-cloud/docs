@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/index.md
 ---
 
-
 # NetworkLoadBalancer
 A set of methods for managing NetworkLoadBalancer resources.
 ## JSON Representation {#representation}

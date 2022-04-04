@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Database/index.md
 ---
 
-
 # Database
 A set of methods for managing ClickHouse Database resources.
 NOTE: these methods are available only if database management through SQL is disabled.

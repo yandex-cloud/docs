@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/list.md
 ---
 
-
 # Method list
 Retrieves a list of Greenplum® clusters that belong to the specified folder.
  

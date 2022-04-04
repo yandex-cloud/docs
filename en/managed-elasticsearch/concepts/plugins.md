@@ -16,7 +16,7 @@
 - [repository-azure](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-azure.html)
 - [repository-gcs](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-gcs.html)
 - [repository-hdfs](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-hdfs.html)
-- [repository-s3](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-s3.html)
+- [repository-s3](https://www.elastic.co/guide/en/elasticsearch/reference/current/repository-s3.html)
 - [store-smb](https://www.elastic.co/guide/en/elasticsearch/plugins/current/store-smb.html)
 - transport-nio
 

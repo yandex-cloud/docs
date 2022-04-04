@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/logging/api-ref/LogGroup/index.md
 ---
 
-
 # LogGroup
 A set of methods for managing log groups.
 ## JSON Representation {#representation}

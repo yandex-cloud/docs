@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/list.md
 ---
 
-
 # Method list
 Lists target groups in the specified folder.
  

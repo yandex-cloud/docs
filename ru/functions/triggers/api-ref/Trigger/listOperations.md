@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified trigger.
  

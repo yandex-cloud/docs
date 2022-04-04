@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Network/update.md
 ---
 
-
 # Method update
 Updates the specified network.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

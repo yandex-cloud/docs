@@ -47,7 +47,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
 {% list tabs %}
 
-* Management console
+- Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
@@ -94,7 +94,13 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
        NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. To learn more, see [{#T}](#setup-network).
 
-  1. For the main subcluster, select the **Public access** option if the master host must be accessible from outside {{ yandex-cloud }}.
+  1. To access a cluster from the internet, select the **Public access** option in the primary subcluster settings. This way, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
+
+     {% note warning %}
+
+     You can't request public access after creating a cluster.
+
+     {% endnote %}
 
   1. For `Compute` subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
 

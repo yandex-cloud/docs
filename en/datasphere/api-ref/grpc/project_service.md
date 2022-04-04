@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/api-ref/grpc/project_service.md
 ---
 
-
 # ProjectService
 
 A set of methods for managing Project resources.

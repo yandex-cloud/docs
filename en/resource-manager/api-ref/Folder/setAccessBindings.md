@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/setAccessBindings.md
 ---
 
-
 # Method setAccessBindings
 Sets access bindings for the specified folder.
  

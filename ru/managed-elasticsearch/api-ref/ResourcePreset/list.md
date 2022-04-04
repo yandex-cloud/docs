@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/ResourcePreset/list.md
 ---
 
-
 # Method list
 Retrieves the list of available resource presets.
  

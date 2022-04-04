@@ -6,7 +6,6 @@ editable: false
 sourcePath: en/ydb/overlay/concepts/limits.md
 ---
 
-
 # Quotas and limits in {{ ydb-name }}
 
 {{ ydb-full-name }} has the following limits:

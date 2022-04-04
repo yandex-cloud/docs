@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/bitops.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/bitops.md
 ---
-
 ## ...Bit {#bitops}
 
 `TestBit()`, `ClearBit()`, `SetBit()` and `FlipBit()`: Test, clear, set, or flip a bit in an unsigned number using the specified bit sequence number.

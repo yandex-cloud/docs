@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/ip.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/ip.md
 ---
-
 # Ip
 
 The `Ip`  module supports both the IPv4 and IPv6 addresses. By default, they are represented as binary strings of 4 and 16 bytes, respectively.

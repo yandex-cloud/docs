@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/union_all.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/union_all.md
 ---
-
 ## UNION ALL {#union-all}
 
 Конкатенация результатов нескольких `SELECT` (или подзапросов).

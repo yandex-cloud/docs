@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Subcluster/delete.md
 ---
 
-
 # Method delete
 Deletes the specified subcluster.
  

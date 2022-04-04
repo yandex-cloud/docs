@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Image/delete.md
 ---
 
-
 # Method delete
 Deletes the specified Docker image.
  

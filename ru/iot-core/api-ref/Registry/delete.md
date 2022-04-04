@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/Registry/delete.md
 ---
 
-
 # Method delete
 Deletes the specified registry.
  

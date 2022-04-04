@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/ydb/overlay/pricing/serverless.md
 ---
 
-
 # Правила тарификации для бессерверного режима {{ ydb-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

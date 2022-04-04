@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/logging/api-ref/LogGroup/get.md
 ---
 
-
 # Method get
 Returns the specified log group.
  

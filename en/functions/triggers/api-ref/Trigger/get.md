@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/get.md
 ---
 
-
 # Method get
 Returns the specified trigger.
  

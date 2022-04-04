@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/YandexPassportUserAccount/getByLogin.md
 ---
 
-
 # Method getByLogin
 Returns the specified YandexPassportUserAccount resource.
  

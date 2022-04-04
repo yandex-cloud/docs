@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/bool_bit.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/bool_bit.md
 ---
-
 ## BOOL_AND, BOOL_OR and BOOL_XOR {#bool-and-or-xor}
 
 Apply the relevant logical operation  (`AND`/`OR`/`XOR`) to all values in a Boolean column or expression.

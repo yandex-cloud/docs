@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/COUNT_WINDOW.md
 ---
 
-
 # COUNT (оконная)
 
 _Функция `COUNT` также доступна в следующих категориях: [Агрегатные функции](COUNT.md)._

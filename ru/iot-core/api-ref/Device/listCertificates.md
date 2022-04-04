@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/Device/listCertificates.md
 ---
 
-
 # Method listCertificates
 Retrieves the list of device certificates for the specified device.
  

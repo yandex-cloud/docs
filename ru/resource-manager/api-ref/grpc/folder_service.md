@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/resource-manager/api-ref/grpc/folder_service.md
 ---
 
-
 # FolderService
 
 A set of methods for managing Folder resources.

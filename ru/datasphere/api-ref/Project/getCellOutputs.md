@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/Project/getCellOutputs.md
 ---
 
-
 # Method getCellOutputs
 Returns outputs of the specified cell.
  

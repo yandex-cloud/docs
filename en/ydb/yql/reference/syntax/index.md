@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/index.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/index.md
 ---
-
 # List of articles on YQL syntax
 
 * [Lexical structure](lexer.md)

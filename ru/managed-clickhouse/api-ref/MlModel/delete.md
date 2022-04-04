@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/MlModel/delete.md
 ---
 
-
 # Method delete
 Deletes the specified machine learning model.
  

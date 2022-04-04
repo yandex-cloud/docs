@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/functions/api-gateway/apigateway/api-ref/grpc/apigateway_service.md
 ---
 
-
 # ApiGatewayService
 
 A set of methods for managing API gateways.

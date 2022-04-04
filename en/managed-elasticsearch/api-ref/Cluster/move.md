@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/move.md
 ---
 
-
 # Method move
 Moves the specified Elasticsearch cluster to the specified folder.
  

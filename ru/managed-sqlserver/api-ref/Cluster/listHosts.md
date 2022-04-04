@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/listHosts.md
 ---
 
-
 # Method listHosts
 Retrieves a list of hosts for the specified SQL Server cluster.
  

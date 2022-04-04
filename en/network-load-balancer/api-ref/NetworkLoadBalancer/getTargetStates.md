@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/getTargetStates.md
 ---
 
-
 # Method getTargetStates
 Gets states of target resources in the attached target group.
  

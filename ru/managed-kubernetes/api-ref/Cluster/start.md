@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/k8s/api-ref/Cluster/start.md
 ---
 
-
 # Method start
 Starts the specified Kubernetes cluster.
  

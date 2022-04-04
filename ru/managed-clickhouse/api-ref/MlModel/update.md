@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/MlModel/update.md
 ---
 
-
 # Method update
 Updates the specified machine learning model.
  

@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/_includes/histogram.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/histogram.md
 ---
-
 # Histogram
 
 Set of auxiliary functions for the [HISTOGRAM aggregate function](../../../builtins/aggregation.md). In the signature description below, HistogramStruct refers to the result of the aggregate function `HISTOGRAM`, `LinearHistogram` or `LogarithmicHistogram` being a structure of a certain type.

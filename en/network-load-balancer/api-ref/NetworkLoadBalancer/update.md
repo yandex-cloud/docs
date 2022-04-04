@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/update.md
 ---
 
-
 # Method update
 Updates the specified network load balancer.
  

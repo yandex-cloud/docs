@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/get.md
 ---
 
-
 # Method get
 Retrieves information about a cluster.
  

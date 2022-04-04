@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/coalesce.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/coalesce.md
 ---
-
 ## COALESCE {#coalesce}
 
 Перебирает аргументы слева направо и возвращает первый найденный непустой аргумент. Чтобы результат получился гарантированно непустым (не [optional типа](../../../types/optional.md)), самый правый аргумент должен быть такого типа (зачастую используют литерал). При одном аргументе возвращает его без изменений.

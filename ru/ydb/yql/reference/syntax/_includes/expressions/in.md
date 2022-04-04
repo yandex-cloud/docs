@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/in.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/in.md
 ---
-
 ## IN {#in}
 Проверка вхождения одного значения в набор значений. Логически эквивалентно цепочке сравнений на равенство через `OR`, но реализовано более эффективно.
 

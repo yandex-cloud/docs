@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/stddev_variance.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/stddev_variance.md
 ---
-
 ## STDDEV and VARIANCE {#stddev-variance}
 
 Standard deviation and variance in a column. Those functions use a [single-pass parallel algorithm](https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Parallel_algorithm), whose result may differ from the more common methods requiring two passes through the data.

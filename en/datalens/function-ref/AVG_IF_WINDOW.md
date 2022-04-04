@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/AVG_IF_WINDOW.md
 ---
 
-
 # AVG_IF (window)
 
 _Function `AVG_IF` is also found in the following categories: [Aggregate functions](AVG_IF.md)._

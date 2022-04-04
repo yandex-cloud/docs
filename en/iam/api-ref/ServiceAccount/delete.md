@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/delete.md
 ---
 
-
 # Method delete
 Deletes the specified service account.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Network/index.md
 ---
 
-
 # Network
 A set of methods for managing Network resources.
 ## JSON Representation {#representation}

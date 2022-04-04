@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Instance/updateNetworkInterface.md
 ---
 
-
 # Method updateNetworkInterface
 Updates the specified instance network interface.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/zone_service.md
 ---
 
-
 # ZoneService
 
 A set of methods to retrieve information about availability zones.

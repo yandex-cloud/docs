@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/BillingAccount/listAccessBindings.md
 ---
 
-
 # Method listAccessBindings
 Lists access bindings for the specified billing account.
  

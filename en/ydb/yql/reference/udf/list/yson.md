@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/yson.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/yson.md
 ---
-
 # Yson
 
 [YSON](https://yt.yandex-team.ru/docs/description/common/yson.html) is a JSON-like data format developed at Yandex:

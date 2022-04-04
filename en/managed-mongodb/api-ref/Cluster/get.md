@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/get.md
 ---
 
-
 # Method get
 Returns the specified MongoDB Cluster resource.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/api-ref/grpc/log_group_service.md
 ---
 
-
 # LogGroupService
 
 A set of methods for managing log groups.

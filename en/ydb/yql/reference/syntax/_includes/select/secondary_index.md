@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/select/secondary_index.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/secondary_index.md
 ---
-
 ## VIEW (INDEX) {#secondary_index}
 
 To make a `SELECT` by secondary index statement, use the following:

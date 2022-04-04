@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/delete.md
 ---
 
-
 # Method delete
 Deletes the specified target group.
  

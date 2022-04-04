@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/Origin/list.md
 ---
 
-
 # Method list
 Lists origins of origin group.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/yandex_passport_user_account_service.md
 ---
 
-
 # YandexPassportUserAccountService
 
 A set of methods for managing YandexPassportUserAccount resources.

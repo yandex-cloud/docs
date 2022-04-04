@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Service/index.md
 ---
 
-
 # Service
 A set of methods for managing Service resources.
 ## JSON Representation {#representation}

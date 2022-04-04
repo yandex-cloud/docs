@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/api-ref/grpc/service_service.md
 ---
 
-
 # ServiceService
 
 A set of methods for managing Service resources.

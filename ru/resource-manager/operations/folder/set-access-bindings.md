@@ -114,6 +114,89 @@
           https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
       ```
 
+- Terraform
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% note alert %}
+
+  Не создавайте ресурс совместно с ресурсом `yandex_resourcemanager_folder_iam_policy`. Они будут конфликтовать.
+
+  {% endnote %}
+
+  Чтобы назначить роль на каталог, созданный с помощью Terraform:
+
+  1. Опишите в конфигурационном файле параметры роли каталога:
+
+     * `folder_id` — [идентификатор каталога](get-id.md), на который назначаются права. Обязательный параметр.
+     * `role` — назначаемая роль. Обязательный параметр.
+       
+       {% note info %}
+
+       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_binding`.
+
+       {% endnote %}
+
+     * `members` — список пользователей, которым будет присвоена роль. Обязательный параметр. Каждая запись может иметь одно из следующих значений:
+       * `userAccount:<ID пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
+       * `serviceAccount:<ID сервисного аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
+       * `federatedUser:<ID федеративного аккаунта>` — [ID федеративного аккаунта](../../../organization/users-get.md). 
+
+     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+
+     ```hcl
+     ...
+     data "yandex_resourcemanager_folder" "project1" {
+       folder_id = "<идентификатор каталога>"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+       folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
+
+       role = "editor"
+
+       members = [
+         "userAccount:<login@yandex.ru>",
+       ]
+     }
+     ...
+     ```
+    
+     {% endcut %}
+
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding).
+  
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     ```
+
 {% endlist %}
 
 ## Примеры {#examples}
@@ -205,6 +288,95 @@
       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
   ```
 
+- Terraform
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% note alert %}
+
+  Не создавайте ресурс совместно с ресурсом `yandex_resourcemanager_folder_iam_policy`. Они будут конфликтовать.
+
+  {% endnote %}
+
+  Чтобы назначить несколько ролей на каталог, созданный с помощью Terraform:
+
+  1. Опишите в конфигурационном файле параметры роли каталога:
+
+     * `folder_id` — [идентификатор каталога](get-id.md), на который назначаются права. Обязательный параметр.
+     * `role` — назначаемая роль. Обязательный параметр.
+
+       {% note info %}
+
+       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_binding`.
+
+       {% endnote %}
+
+     * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<ID пользователя>`, где `<ID пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
+
+     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+
+     ```hcl
+     ...
+     data "yandex_resourcemanager_folder" "project1" {
+       folder_id = "<идентификатор каталога>"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+
+       role = "editor"
+
+       members = [
+         "userAccount:<login1@yandex.ru>"
+       ]
+     }
+     resource "yandex_resourcemanager_folder_iam_binding" "operator" {
+       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+
+       role = "operator"
+
+       members = [
+         "userAccount:<login1@yandex.ru>"
+       ]
+     }
+     ...
+     ```
+    
+     {% endcut %}
+
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding).
+  
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     ```
+
 {% endlist %}
 
 
@@ -227,6 +399,86 @@
 - API
 
   {% include [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
+
+- Terraform
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% note alert %}
+
+  Не создавайте ресурс совместно с ресурсом `yandex_resourcemanager_folder_iam_policy`. Они будут конфликтовать.
+
+  {% endnote %}
+  
+  Чтобы назначить роль для сервисного аккаунта на каталог, созданный с помощью Terraform:
+
+  1. Опишите в конфигурационном файле параметры роли каталога:
+
+     * `folder_id` — [идентификатор каталога](get-id.md), на который назначаются права. Обязательный параметр.
+     * `role` — назначаемая роль. Обязательный параметр.
+
+       {% note info %}
+
+       Для каждой роли можно использовать только один ресурс `yandex_resourcemanager_folder_iam_binding`.
+
+       {% endnote %}
+
+     * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `serviceAccount:<ID сервисного аккаунта>`, где `<ID сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md). Вы можете перечислить несколько сервисных аккаунтов. Обязательный параметр.
+
+     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+
+     ```hcl
+     ...
+     data "yandex_resourcemanager_folder" "project1" {
+       folder_id = "<идентификатор каталога>"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+
+       role = "editor"
+
+       members = [
+         "serviceAccount:<идентификатор сервисного аккаунта>"
+       ]
+     }
+     ...
+     ```
+    
+     {% endcut %}
+
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding).
+  
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc resource-manager folder list-access-bindings <имя каталога>|<ID каталога>
+     ```
 
 {% endlist %}
 

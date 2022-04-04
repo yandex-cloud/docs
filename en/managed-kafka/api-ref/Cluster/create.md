@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/create.md
 ---
 
-
 # Method create
 Creates a new Apache Kafka® cluster in the specified folder.
  

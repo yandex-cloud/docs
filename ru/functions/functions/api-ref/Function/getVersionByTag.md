@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/getVersionByTag.md
 ---
 
-
 # Method getVersionByTag
 Returns all versions with the specified tag.
  

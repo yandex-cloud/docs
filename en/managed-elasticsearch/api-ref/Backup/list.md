@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Backup/list.md
 ---
 
-
 # Method list
 Returns the list of available backups for the specified Elasticsearch cluster.
  

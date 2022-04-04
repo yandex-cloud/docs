@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/FolderBudget/get.md
 ---
 
-
 # Method get
 Returns the specified folder budget.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-kafka/api-ref/grpc/topic_service.md
 ---
 
-
 # TopicService
 
 A set of methods for managing Kafka topics.

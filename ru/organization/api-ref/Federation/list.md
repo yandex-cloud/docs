@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/list.md
 ---
 
-
 # Method list
 Retrieves the list of federations in the specified organization.
  

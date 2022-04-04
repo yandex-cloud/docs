@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/updateSniMatch.md
 ---
 
-
 # Method updateSniMatch
 Updates the specified SNI handler of the specified listener.
  

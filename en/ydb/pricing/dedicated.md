@@ -2,7 +2,6 @@
 editable: false
 sourcePath: en/ydb/overlay/pricing/dedicated.md
 ---
-
 # Pricing rules for {{ ydb-name }} dedicated mode
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

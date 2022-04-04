@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/DiskPlacementGroup/create.md
 ---
 
-
 # Method create
 Creates a placement group in the specified folder.
  

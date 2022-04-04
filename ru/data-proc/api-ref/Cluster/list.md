@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Cluster/list.md
 ---
 
-
 # Method list
 Retrieves the list of clusters in the specified folder.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/addDomain.md
 ---
 
-
 # Method addDomain
 Attaches domain to the specified API gateway.
  

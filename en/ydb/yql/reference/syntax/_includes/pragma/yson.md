@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/pragma/yson.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/pragma/yson.md
 ---
-
 ## Yson
 
 Managing the default behavior of Yson UDF, for more information, see the [documentation](../../../udf/list/yson.md) and, in particular, [Yson::Options](../../../udf/list/yson.md#ysonoptions).

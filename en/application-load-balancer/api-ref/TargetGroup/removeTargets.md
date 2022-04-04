@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/removeTargets.md
 ---
 
-
 # Method removeTargets
 Removes targets from the specified target group.
  

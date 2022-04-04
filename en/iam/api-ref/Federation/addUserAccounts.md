@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Federation/addUserAccounts.md
 ---
 
-
 # Method addUserAccounts
 Adds users to the specified federation.
  

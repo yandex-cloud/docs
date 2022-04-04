@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/create.md
 ---
 
-
 # Method create
 Creates a cluster in a folder.
  

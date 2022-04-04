@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/update.md
 ---
 
-
 # Method update
 Updates the specified function.
  

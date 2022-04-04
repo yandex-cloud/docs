@@ -151,7 +151,7 @@ items:
             href: manager/bulk-change.md
       - name: Настроить напоминание о задаче
         href: user/reminder.md
-      - name: Отметить затраченное время
+      - name: Указать затраченное время
         href: user/time-spent.md
       - name: Добавить поле задачи
         href: user/create-param.md

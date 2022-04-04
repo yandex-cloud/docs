@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/insert_into.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/insert_into.md
 ---
-
 # INSERT INTO
 
 Adds rows to the table. If you try to insert a row into a table with an existing primary key value, the operation fails with the `PRECONDITION_FAILED` error code and the `Operation aborted due to constraint violation: insert_pk` message returned.

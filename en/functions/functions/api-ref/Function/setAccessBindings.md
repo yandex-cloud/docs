@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/setAccessBindings.md
 ---
 
-
 # Method setAccessBindings
 Sets access bindings for the function.
  

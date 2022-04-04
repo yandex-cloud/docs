@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Subnet/move.md
 ---
 
-
 # Method move
 Move subnet to another folder.
  

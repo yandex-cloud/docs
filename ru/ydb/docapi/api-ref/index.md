@@ -4,7 +4,6 @@ description: "Yandex Database HTTP API предоставляет следующ
 sourcePath: ru/ydb/overlay/docapi/api-ref/index.md
 ---
 
-
 # Все методы
 
 {{ ydb-name }} HTTP API предоставляет следующие методы:

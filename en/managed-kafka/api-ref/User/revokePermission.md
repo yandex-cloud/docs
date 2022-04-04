@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/User/revokePermission.md
 ---
 
-
 # Method revokePermission
 Revokes permission from the specified Kafka user.
  

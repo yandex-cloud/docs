@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Cluster/start.md
 ---
 
-
 # Method start
 Starts the specified cluster.
  

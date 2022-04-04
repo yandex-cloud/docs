@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Disk/index.md
 ---
 
-
 # Disk
 A set of methods for managing Disk resources.
 ## JSON Representation {#representation}

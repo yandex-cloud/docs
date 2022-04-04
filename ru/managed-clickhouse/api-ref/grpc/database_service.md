@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-clickhouse/api-ref/grpc/database_service.md
 ---
 
-
 # DatabaseService
 
 A set of methods for managing ClickHouse Database resources. 

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/detachTargetGroup.md
 ---
 
-
 # Method detachTargetGroup
 Detaches the target group from the specified network load balancer.
  

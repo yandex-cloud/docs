@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Backup/get.md
 ---
 
-
 # Method get
 Returns the specified ClickHouse Backup resource.
  

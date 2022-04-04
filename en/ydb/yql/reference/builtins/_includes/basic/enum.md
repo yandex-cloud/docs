@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
 ---
-
 ## Enum, AsEnum {#enum}
 
 `Enum()` creates an enumeration value.

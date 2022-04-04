@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/_includes/type_string.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/_includes/type_string.md
 ---
-
 # Text representation of data types
 
 ## Introduction {#intro}

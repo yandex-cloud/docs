@@ -25,6 +25,31 @@
 
   1. Нажмите кнопку **Создать шард**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы добавить шард в кластер, выполните команду (в примере приведены не все доступные параметры):
+
+    ```bash
+    {{ yc-mdb-ch }} shards add <имя нового шарда> \
+       --cluster-name=<имя кластера> \
+       --host zone-id=<зона доступности>,`
+             `subnet-name=<имя подсети>
+    ```
+
+    Где:
+
+    * `<имя нового шарда>` — должно быть уникальным в кластере.
+        Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина — 63 символа.
+    * `--cluster-name` — имя кластера.
+        Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    * `--host` — параметры хоста:
+        * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+        * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+
 - Terraform
 
     {% note info %}
@@ -85,6 +110,20 @@
 
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список шардов в кластере, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ch }} shards list --cluster-name=<имя кластера>
+    ```
+
+    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API
 
   Получить список шардов кластера можно с помощью метода [listShards](../api-ref/Cluster/listShards.md).
@@ -105,40 +144,34 @@
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы изменить шард в кластере:
+    Чтобы изменить шард в кластере:
 
-  1. Посмотрите описание команды CLI для изменения шарда:
+    1. Посмотрите описание команды CLI для изменения шарда:
 
-     ```bash
-     {{ yc-mdb-ch }} shards update --help
-     ```
+        ```bash
+        {{ yc-mdb-ch }} shards update --help
+        ```
 
-  1. Запустите операцию, например, изменения веса для шарда:
+    1. Запустите операцию, например, изменения веса для шарда:
 
-     ```bash
-     {{ yc-mdb-ch }} shards update --cluster-name clickhouse12 \
-                                   --name shard1 \
-                                   --weight 80
-     ```
+        ```bash
+        {{ yc-mdb-ch }} shards update <имя шарда> \
+           --cluster-name=<имя кластера> \
+           --weight=<вес шарда>
+        ```
 
-   После успешного завершения операции CLI выведет информацию об измененном шарде:
+        Где:
 
-   ```
-   name: shard1
-   cluster_id: c9fmo2rf013t4q0ab8m1
-   config:
-     clickhouse:
-       config:
-         effective_config:
-           log_level: INFORMATION
-     ...
+        * `<имя шарда>` — можно запросить со [списком шардов в кластере](#list-shards).
+        * `--cluster-name` — имя кластера.
+        Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        * `--weight` — вес шарда. Минимальное значение — `0`.
 
-     weight: "80"
-   ```
+        После успешного завершения операции CLI выведет информацию об измененном шарде.
 
 - API
 
@@ -163,6 +196,21 @@
   1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
 
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить шард из кластера, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ch }} shards delete <имя шарда> \
+       --cluster-name=<имя кластера>
+    ```
+
+    Имя шарда можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - Terraform
 

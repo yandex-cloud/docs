@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/service_account_service.md
 ---
 
-
 # ServiceAccountService
 
 A set of methods for managing ServiceAccount resources.

@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/bitcast.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/bitcast.md
 ---
-
 ## BITCAST {#bitcast}
 
 Performs a bitwise conversion of an integer value to the specified integer type. The conversion is always successful, but may lose precision or high-order bits.

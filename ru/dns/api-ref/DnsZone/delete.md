@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dns/api-ref/DnsZone/delete.md
 ---
 
-
 # Method delete
 Deletes the specified DNS zone.
  

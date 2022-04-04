@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/session_start.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/session_start.md
 ---
-
 ## SessionStart {#session-start}
 
 No arguments. It's allowed only if there is [SessionWindow](../../../syntax/group_by.md#session-window) in

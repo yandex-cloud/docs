@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/select/with.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/with.md
 ---
-
 ## WITH
 
 It's set after the data source in `FROM` and is used for additional hints for tables. You can't use hints for subqueries and [named expressions](../../expressions.md#named-nodes).

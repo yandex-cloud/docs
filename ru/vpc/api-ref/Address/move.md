@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Address/move.md
 ---
 
-
 # Method move
 Move an address to another folder
  

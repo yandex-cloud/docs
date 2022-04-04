@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_by.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_by.md
 ---
-
 # FLATTEN
 
 ## FLATTEN BY {#flatten-by}

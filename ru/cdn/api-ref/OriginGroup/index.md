@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/index.md
 ---
 
-
 # OriginGroup
 Origin Groups management service.
 ## JSON Representation {#representation}

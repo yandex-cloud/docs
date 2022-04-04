@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
-
 # Method rescheduleMaintenance
 Reschedules planned maintenance operation.
  

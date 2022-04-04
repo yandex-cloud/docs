@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/agg_list.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/agg_list.md
 ---
-
 ## AGGREGATE_LIST {#agg-list}
 
 Get all column values as a list. When combined with `DISTINCT`, it returns only distinct values. The optional second parameter sets the maximum number of values to be returned.

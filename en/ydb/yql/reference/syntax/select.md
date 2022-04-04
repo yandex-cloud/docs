@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/select.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/select.md
 ---
-
 # SELECT syntax
 
 <!-- File split by includable blocks as part of YQL docs preparation for YQL/YDB opensource -->

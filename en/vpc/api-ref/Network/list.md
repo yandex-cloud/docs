@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Network/list.md
 ---
 
-
 # Method list
 Retrieves the list of Network resources in the specified folder.
  

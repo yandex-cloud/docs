@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/STR.md
 ---
 
-
 # STR
 
 

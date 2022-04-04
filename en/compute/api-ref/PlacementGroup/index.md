@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/PlacementGroup/index.md
 ---
 
-
 # PlacementGroup
 A set of methods for managing placement groups.
 ## JSON Representation {#representation}

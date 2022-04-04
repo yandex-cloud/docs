@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Instance/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified instance.
  

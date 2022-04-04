@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/User/create.md
 ---
 
-
 # Method create
 Creates an SQL Server user in the specified cluster.
  

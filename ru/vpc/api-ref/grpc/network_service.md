@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/network_service.md
 ---
 
-
 # NetworkService
 
 A set of methods for managing Network resources.

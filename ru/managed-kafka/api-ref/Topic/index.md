@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/index.md
 ---
 
-
 # Topic
 A set of methods for managing Kafka topics.
 ## JSON Representation {#representation}

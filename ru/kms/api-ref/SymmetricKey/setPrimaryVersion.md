@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/setPrimaryVersion.md
 ---
 
-
 # Method setPrimaryVersion
 Sets the primary version for the specified key. The primary version is used
 by default for all encrypt/decrypt operations where no version ID is specified.

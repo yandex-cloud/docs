@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/backup.md
 ---
 
-
 # Method backup
 Creates a backup for the specified Redis cluster.
  

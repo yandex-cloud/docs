@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/corr_covar.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/corr_covar.md
 ---
-
 ## CORRELATION and COVARIANCE {#correlation-covariance}
 
 Correlation and covariance between two columns.

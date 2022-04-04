@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Instance/move.md
 ---
 
-
 # Method move
 Moves the specified instance to another folder of the same cloud.
  

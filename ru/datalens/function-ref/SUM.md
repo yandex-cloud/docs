@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/SUM.md
 ---
 
-
 # SUM
 
 _Функция `SUM` также доступна в следующих категориях: [Оконные функции](SUM_WINDOW.md)._

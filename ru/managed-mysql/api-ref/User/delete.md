@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/User/delete.md
 ---
 
-
 # Method delete
 Deletes a user in a cluster.
  

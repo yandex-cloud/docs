@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/k8s/api-ref/NodeGroup/list.md
 ---
 
-
 # Method list
 Retrieves the list of node group in the specified Kubernetes cluster.
  

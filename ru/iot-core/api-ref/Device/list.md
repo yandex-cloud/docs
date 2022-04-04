@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/Device/list.md
 ---
 
-
 # Method list
 Retrieves the list of devices in the specified registry.
  

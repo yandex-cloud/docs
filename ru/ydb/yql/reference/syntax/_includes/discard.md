@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/discard.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/discard.md
 ---
-
 # DISCARD
 
 Вычисляет [`SELECT`](../select.md), но не возвращает результат ни в клиент, ни в таблицу. 

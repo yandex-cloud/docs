@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/stop.md
 ---
 
-
 # Method stop
 Stops the specified SQL Server cluster.
  

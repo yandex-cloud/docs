@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/list.md
 ---
 
-
 # Method list
 Retrieves the list of triggers in the specified folder.
  

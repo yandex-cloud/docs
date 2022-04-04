@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/QUANTILE_APPROX.md
 ---
 
-
 # QUANTILE_APPROX
 
 

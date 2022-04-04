@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/alter_table.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/alter_table.md
 ---
-
 # ALTER TABLE
 
 Using the ```ALTER TABLE``` command, you can change the composition of columns and additional table parameters. You can specify several actions in one command. In general, the ```ALTER TABLE``` command looks like this:

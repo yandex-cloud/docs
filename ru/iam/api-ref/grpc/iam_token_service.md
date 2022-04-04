@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/iam_token_service.md
 ---
 
-
 # IamTokenService
 
 A set of methods for managing IAM tokens.

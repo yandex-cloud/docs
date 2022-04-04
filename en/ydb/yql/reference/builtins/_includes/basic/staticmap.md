@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/staticmap.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/staticmap.md
 ---
-
 ## StaticMap
 
 Transforms a structure or tuple by applying a lambda function to each element.

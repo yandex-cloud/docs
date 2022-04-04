@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Database/index.md
 ---
 
-
 # Database
 A set of methods for managing SQL Server databases.
 ## JSON Representation {#representation}

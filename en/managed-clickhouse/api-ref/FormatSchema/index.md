@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/FormatSchema/index.md
 ---
 
-
 # FormatSchema
 
 ## JSON Representation {#representation}

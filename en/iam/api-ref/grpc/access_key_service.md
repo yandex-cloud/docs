@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/access_key_service.md
 ---
 
-
 # AccessKeyService
 
 A set of methods for managing access keys.

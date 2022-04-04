@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/update.md
 ---
 
-
 # Method update
 Updates the specified symmetric KMS key.
  

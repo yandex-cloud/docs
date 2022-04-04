@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/as_tagged.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/as_tagged.md
 ---
-
 ## AsTagged, Untag {#as-tagged}
 
 Wraps the value in the [Tagged data type](../../../types/special.md) with the specified tag, preserving the physical data type. `Untag`: the reverse operation.

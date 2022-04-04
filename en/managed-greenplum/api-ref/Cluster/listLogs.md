@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/listLogs.md
 ---
 
-
 # Method listLogs
 Retrieves logs for the specified Greenplum® cluster.
  

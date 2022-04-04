@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-mongodb/api-ref/grpc/database_service.md
 ---
 
-
 # DatabaseService
 
 A set of methods for managing MongoDB Database resources.

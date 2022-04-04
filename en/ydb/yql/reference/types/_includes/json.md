@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/_includes/json.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/_includes/json.md
 ---
-
 # Data representation in JSON format
 
 ## Bool {#bool}

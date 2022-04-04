@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/create.md
 ---
 
-
 # Method create
 Creates a cloud in the specified organization.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Database/index.md
 ---
 
-
 # Database
 A set of methods for managing MySQL databases in a cluster.
 

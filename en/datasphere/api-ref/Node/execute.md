@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/Node/execute.md
 ---
 
-
 # Method execute
 Executes deployed Node.
  

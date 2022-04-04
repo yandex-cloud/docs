@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/count_distinct_estimate.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/count_distinct_estimate.md
 ---
-
 ## CountDistinctEstimate, HyperLogLog и HLL {#countdistinctestimate}
 
 Примерная оценка числа уникальных значений по алгоритму [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog). Логически делает то же самое, что и [COUNT(DISTINCT ...)](#count), но работает значительно быстрее ценой некоторой погрешности.

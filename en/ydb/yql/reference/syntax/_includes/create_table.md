@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/create_table.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/create_table.md
 ---
-
 # CREATE TABLE
 
 

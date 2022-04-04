@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified folder.
  

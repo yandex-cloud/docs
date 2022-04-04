@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Image/create.md
 ---
 
-
 # Method create
 Creates an image in the specified folder.
  

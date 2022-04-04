@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/MCOUNT.md
 ---
 
-
 # MCOUNT (window)
 
 

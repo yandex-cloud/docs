@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/Device/create.md
 ---
 
-
 # Method create
 Creates a device in the specified registry.
  

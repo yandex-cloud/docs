@@ -77,6 +77,8 @@ editable: false
 
 - Стандартные хосты
 
+  {% include [SAN disclaimer](../../_includes/mdb/mgp/san-pricing-disclaimer.md) %}
+
   {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}
 
 - Выделенные хосты

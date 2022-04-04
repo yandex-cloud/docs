@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/_includes/primitive.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/_includes/primitive.md
 ---
-
 # Primitive data types
 
 The terms "simple", "primitive", and "elementary" data types are used synonymously.

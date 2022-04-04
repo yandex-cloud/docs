@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/general.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/group_by/general.md
 ---
-
 ## GROUP BY
 
 Group the `SELECT` results by the values of the specified columns or expressions. `GROUP BY` is often combined with [aggregate functions](../../../builtins/aggregation.md) (`COUNT`, `MAX`, `MIN`, `SUM`, `AVG`) to perform calculations in each group.

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Backup/index.md
 ---
 
-
 # Backup
 A set of methods for managing Redis backups.
 ## JSON Representation {#representation}

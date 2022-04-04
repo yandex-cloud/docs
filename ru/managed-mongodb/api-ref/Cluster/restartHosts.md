@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/restartHosts.md
 ---
 
-
 # Method restartHosts
 Restarts hosts.
  

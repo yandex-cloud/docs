@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/list.md
 ---
 
-
 # Method list
 Lists application load balancers in the specified folder.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/logging/api-ref/LogGroup/setAccessBindings.md
 ---
 
-
 # Method setAccessBindings
 Sets access bindings for the specified log group.
  

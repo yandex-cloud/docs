@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/create.md
 ---
 
-
 # Method create
 Creates a trigger in the specified folder.
  

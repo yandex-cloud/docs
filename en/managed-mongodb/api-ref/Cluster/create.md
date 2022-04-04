@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/create.md
 ---
 
-
 # Method create
 Creates a MongoDB cluster in the specified folder.
  

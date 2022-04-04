@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/update.md
 ---
 
-
 # Method update
 Updates the specified federation.
  

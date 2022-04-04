@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Extension/index.md
 ---
 
-
 # Extension
 
 ## JSON Representation {#representation}

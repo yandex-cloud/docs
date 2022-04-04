@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/stt/v3/v3/api-ref/grpc/stt_service.md
 ---
 
-
 # Recognizer
 
 A set of methods for voice recognition.

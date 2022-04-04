@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/index.md
 ---
 
-
 # SymmetricCrypto
 Set of methods that perform symmetric encryption and decryption.
 

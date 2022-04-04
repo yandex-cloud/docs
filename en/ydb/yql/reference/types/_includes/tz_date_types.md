@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/_includes/tz_date_types.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/_includes/tz_date_types.md
 ---
-
 ### Supporting types with a time zone label
 
 Time zone label for the `TzDate`, `TzDatetime`, `TzTimestamp` types is an attribute that is used:

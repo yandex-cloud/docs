@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/ai/vision_old/api-ref/Vision/batchAnalyze.md
 ---
 
-
 # Method batchAnalyze
 Analyzes a batch of images and returns results with annotations.
  

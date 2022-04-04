@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_datetime.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_datetime.md
 ---
-
 Тип | Описание | Примечания
 ----- | ----- | -----
 `Date` | Дата, точность до дней | Диапазон значений для всех временных типов кроме `Interval` - от нуля часов 01.01.1970 до нуля часов 01.01.2106. Внутреннее представление `Date` – беззнаковое целое 16 бит  | 

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Instance/removeOneToOneNat.md
 ---
 
-
 # Method removeOneToOneNat
 Removes One-to-one NAT from the network interface.
  

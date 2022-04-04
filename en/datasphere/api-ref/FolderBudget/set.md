@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/FolderBudget/set.md
 ---
 
-
 # Method set
 Sets the unit balance and the limits of the specified folder budget.
  

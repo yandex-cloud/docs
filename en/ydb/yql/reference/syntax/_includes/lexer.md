@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
 ---
-
 # Lexical structure
 
 The query in the YQL language is a valid UTF-8 text consisting of _commands_ (statements) separated by semicolons (`;`).

@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/aggr_factory.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/aggr_factory.md
 ---
-
 ## AggregationFactory {#aggregationfactory}
 
 Create a factory for [aggregation functions](../../aggregation.md) to separately describe the methods of aggregation and data types subject to aggregation.

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/api-ref/grpc/budget_service.md
 ---
 
-
 # BudgetService
 
 A set of methods for managing Budget resources.

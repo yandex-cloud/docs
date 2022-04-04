@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/lockbox/api-ref/Secret/deactivate.md
 ---
 
-
 # Method deactivate
 Deactivates the specified secret.
  

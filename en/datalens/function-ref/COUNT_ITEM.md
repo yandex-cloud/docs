@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/COUNT_ITEM.md
 ---
 
-
 # COUNT_ITEM
 
 

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/create.md
 ---
 
-
 # Method create
 Creates a new PostgreSQL database in the specified cluster.
  

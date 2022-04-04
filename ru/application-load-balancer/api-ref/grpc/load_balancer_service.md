@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/application-load-balancer/api-ref/grpc/load_balancer_service.md
 ---
 
-
 # LoadBalancerService
 
 A set of methods for managing application load balancers.

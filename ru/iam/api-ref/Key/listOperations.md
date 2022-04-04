@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Key/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified key.
  

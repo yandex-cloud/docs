@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/POWER.md
 ---
 
-
 # POWER
 
 

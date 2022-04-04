@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/update.md
 ---
 
-
 # Method update
 Updates the specified virtual host of the specified HTTP router.
  

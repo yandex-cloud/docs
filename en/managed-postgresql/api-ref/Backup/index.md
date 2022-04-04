@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Backup/index.md
 ---
 
-
 # Backup
 A set of methods for managing PostgreSQL Backup resources.
 ## JSON Representation {#representation}

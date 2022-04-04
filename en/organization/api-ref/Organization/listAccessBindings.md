@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/listAccessBindings.md
 ---
 
-
 # Method listAccessBindings
 Lists access bindings for the specified organization.
  

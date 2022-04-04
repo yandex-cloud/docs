@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Operation/index.md
 ---
 
-
 # Operation
 A set of methods for managing operations for asynchronous API requests.
 ## JSON Representation {#representation}

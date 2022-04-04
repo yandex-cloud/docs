@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/instance_service.md
 ---
 
-
 # InstanceService
 
 A set of methods for managing Instance resources.

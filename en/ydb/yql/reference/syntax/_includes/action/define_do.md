@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/action/define_do.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/action/define_do.md
 ---
-
 ## DEFINE ACTION {#define-action}
 
 Specifies a named action that is a parameterizable block of multiple top-level expressions.

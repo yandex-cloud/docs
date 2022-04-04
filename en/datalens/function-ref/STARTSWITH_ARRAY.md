@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/STARTSWITH_ARRAY.md
 ---
 
-
 # STARTSWITH (array)
 
 _Function `STARTSWITH` is also found in the following categories: [String functions](STARTSWITH.md)._

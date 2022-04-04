@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Role/list.md
 ---
 
-
 # Method list
 Retrieves the list of Role resources.
  

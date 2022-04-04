@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/_includes/optional.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/_includes/optional.md
 ---
-
 ## Data types accepting NULL
 
 Any typed data in YQL, including table columns, can be either non-nullable (guaranteed value) or nullable (empty value denoted as `NULL`). Data types that can include `NULL` values are called _optional_ or, in SQL terms, _nullable_.

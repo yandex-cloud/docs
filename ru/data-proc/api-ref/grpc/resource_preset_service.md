@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/data-proc/api-ref/grpc/resource_preset_service.md
 ---
 
-
 # ResourcePresetService
 
 A set of methods for managing ResourcePreset resources.

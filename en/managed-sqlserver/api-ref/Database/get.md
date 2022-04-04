@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Database/get.md
 ---
 
-
 # Method get
 Returns the specified SQL Server database.
  

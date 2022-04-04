@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dns/api-ref/DnsZone/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified DNS zone.
  

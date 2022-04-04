@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/api-ref/grpc/raw_logs_service.md
 ---
 
-
 # RawLogsService
 
 

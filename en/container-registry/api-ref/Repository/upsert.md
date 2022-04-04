@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Repository/upsert.md
 ---
 
-
 # Method upsert
 Upserts a repository in the specified registry.
  

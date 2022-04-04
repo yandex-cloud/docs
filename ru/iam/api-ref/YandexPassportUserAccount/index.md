@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/YandexPassportUserAccount/index.md
 ---
 
-
 # YandexPassportUserAccount
 A set of methods for managing YandexPassportUserAccount resources.
 ## JSON Representation {#representation}

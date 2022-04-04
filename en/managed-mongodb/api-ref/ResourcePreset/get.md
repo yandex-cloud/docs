@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/ResourcePreset/get.md
 ---
 
-
 # Method get
 Returns the specified ResourcePreset resource.
  

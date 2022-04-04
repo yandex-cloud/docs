@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified API gateway.
  

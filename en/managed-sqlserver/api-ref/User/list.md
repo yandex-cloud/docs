@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/User/list.md
 ---
 
-
 # Method list
 Retrieves a list of SQL Server users in the specified cluster.
  

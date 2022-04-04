@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/storage/api-ref/Bucket/getStats.md
 ---
 
-
 # Method getStats
 Returns the statistics for the specified bucket.
  

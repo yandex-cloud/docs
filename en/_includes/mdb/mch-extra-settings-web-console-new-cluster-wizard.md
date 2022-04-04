@@ -18,8 +18,11 @@
 
 * **Access from management console**: Enables you to run SQL queries against cluster databases from the {{ yandex-cloud }} management console.
 
-* **Access from Yandex.Metrica and AppMetrica**: Enable this option to be able to [import AppMetrica data](https://appmetrica.yandex.com/docs/cloud/index.html) into the cluster.
+* **Access from Yandex.Metrica and AppMetrica**: Enables you to [import AppMetrica data](https://appmetrica.yandex.com/docs/cloud/index.html) into the cluster.
+
+* **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 * **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
 
     {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+

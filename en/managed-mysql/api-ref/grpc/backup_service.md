@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-mysql/api-ref/grpc/backup_service.md
 ---
 
-
 # BackupService
 
 A set of methods for managing MySQL backups. 

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/Device/update.md
 ---
 
-
 # Method update
 Updates the specified device.
  

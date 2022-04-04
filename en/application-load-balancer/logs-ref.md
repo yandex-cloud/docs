@@ -47,7 +47,7 @@ For more information, see [Logging](concepts/application-load-balancer.md#loggin
 | &emsp;&emsp; `code` | gRPC request error code. For more information about the gRPC statuses that correspond to HTTP codes, see [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). |
 | &emsp;&emsp; `message` | gRPC request error description. |
 | `upstream_transport_failure_reason` | Error message regarding a transport-layer connection error between the load balancer and backend, such as in the TLS connection. |
-| `request_processing_times` | Information about the time it took to process a request. |
+| `request_processing_times` | Information about the time it took to process a request. The unit of measurement in all fields is a second. |
 | &ensp; `request_time` | Total time it took to handle a request. |
 | &ensp; `response_start_time` | Time before the start of a response: between when the first request byte is received from the client by the load balancer and when the first byte of the response is sent by the load balancer to the client. |
 | &ensp; `request_processing_time` | Time the load balancer takes to process a request: between receiving the first byte from the client and sending the first byte to the backend. |

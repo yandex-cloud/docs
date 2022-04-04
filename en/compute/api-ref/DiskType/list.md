@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/DiskType/list.md
 ---
 
-
 # Method list
 Retrieves the list of disk types for the specified folder.
  

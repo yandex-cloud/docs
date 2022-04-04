@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/window.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/window.md
 ---
-
 # OVER, PARTITION BY и WINDOW
 
 Механизм оконных функций, появившийся в стандарте SQL:2003 и расширенный в стандарте SQL:2011, позволяет выполнять вычисления над набором строк таблицы, который некоторым образом соотносится с текущей строкой.

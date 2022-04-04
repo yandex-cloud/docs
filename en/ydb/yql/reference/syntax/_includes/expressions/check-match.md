@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/check-match.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/check-match.md
 ---
-
 ## Matching a string by pattern {#check-match}
 
 `REGEXP` and `RLIKE` are aliases used to call [Hyperscan::Grep](../../../udf/list/hyperscan.md#grep). `MATCH`: same for [Hyperscan::Match](../../../udf/list/hyperscan.md#match).

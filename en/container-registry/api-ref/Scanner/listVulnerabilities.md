@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Scanner/listVulnerabilities.md
 ---
 
-
 # Method listVulnerabilities
 Retrieves the list of vulnerabilities found in particular scan.
  

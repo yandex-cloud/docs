@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/list.md
 ---
 
-
 # Method list
 Retrieves the list of Cloud resources.
  

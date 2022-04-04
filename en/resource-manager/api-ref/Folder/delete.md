@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/delete.md
 ---
 
-
 # Method delete
 Deletes the specified folder.
  

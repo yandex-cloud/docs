@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Extension/get.md
 ---
 
-
 # Method get
 Returns the specified extension of Elasticsearch cluster.
  

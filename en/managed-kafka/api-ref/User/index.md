@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/User/index.md
 ---
 
-
 # User
 A set of methods for managing Kafka users.
 ## JSON Representation {#representation}

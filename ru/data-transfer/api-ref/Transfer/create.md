@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/create.md
 ---
 
-
 # Method create
 
  

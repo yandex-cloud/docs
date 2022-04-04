@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/DiskType/get.md
 ---
 
-
 # Method get
 Returns the information about specified disk type.
  

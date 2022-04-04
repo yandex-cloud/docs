@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/updateHosts.md
 ---
 
-
 # Method updateHosts
 Updates the specified hosts.
  

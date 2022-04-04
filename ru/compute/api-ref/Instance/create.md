@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Instance/create.md
 ---
 
-
 # Method create
 Creates an instance in the specified folder.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

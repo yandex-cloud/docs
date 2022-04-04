@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/_includes/cast_examples.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/_includes/cast_examples.md
 ---
-
     SELECT
         CAST("12345" AS Double),                -- 12345.0
         CAST(1.2345 AS Uint8),                  -- 1

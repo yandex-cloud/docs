@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/listLogs.md
 ---
 
-
 # Method listLogs
 Retrieves logs for the specified SQL Server cluster.
  

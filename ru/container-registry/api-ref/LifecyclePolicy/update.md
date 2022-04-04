@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/update.md
 ---
 
-
 # Method update
 Updates the specified lifecycle policy.
  

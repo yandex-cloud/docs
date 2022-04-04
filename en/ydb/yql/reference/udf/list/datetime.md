@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/datetime.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/datetime.md
 ---
-
 # DateTime
 
 In the DateTime module, the main internal representation format is `Resource<TM>`, which stores the following date components:

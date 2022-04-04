@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/stop.md
 ---
 
-
 # Method stop
 Stops the specified application load balancer.
  

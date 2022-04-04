@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/User/list.md
 ---
 
-
 # Method list
 Retrieves the list of MongoDB User resources in the specified cluster.
  

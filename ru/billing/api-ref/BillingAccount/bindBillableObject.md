@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/BillingAccount/bindBillableObject.md
 ---
 
-
 # Method bindBillableObject
 Binds billable object to the specified billing account.
  

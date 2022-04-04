@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/COUNT_IF.md
 ---
 
-
 # COUNT_IF
 
 _Function `COUNT_IF` is also found in the following categories: [Window functions](COUNT_IF_WINDOW.md)._

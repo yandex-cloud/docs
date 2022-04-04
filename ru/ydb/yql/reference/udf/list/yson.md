@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/udf/list/yson.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/yson.md
 ---
-
 # Yson
 
 {% include [_includes/yson/intro_header.md](_includes/yson/intro_header.md) %}

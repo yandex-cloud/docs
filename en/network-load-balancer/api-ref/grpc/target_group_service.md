@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/network-load-balancer/api-ref/grpc/target_group_service.md
 ---
 
-
 # TargetGroupService
 
 A set of methods for managing TargetGroup resources.

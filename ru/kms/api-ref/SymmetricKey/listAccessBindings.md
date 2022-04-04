@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/listAccessBindings.md
 ---
 
-
 # Method listAccessBindings
 Lists existing access bindings for the specified key.
  

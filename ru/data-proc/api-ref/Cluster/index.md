@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Cluster/index.md
 ---
 
-
 # Cluster
 A set of methods for managing Data Proc clusters.
 ## JSON Representation {#representation}

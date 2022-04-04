@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/AccessKey/index.md
 ---
 
-
 # AccessKey
 A set of methods for managing access keys.
 ## JSON Representation {#representation}

@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/current_tz.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/current_tz.md
 ---
-
 ## CurrentTz... {#current-tz}
 
 `CurrentTzDate()`, `CurrentTzDatetime()` и `CurrentTzTimestamp()` - получение текущей даты и/или времени в указанной в первом аргументе [IANA временной зоне](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Тип данных результата указан в конце названия функции.

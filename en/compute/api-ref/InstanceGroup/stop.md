@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/stop.md
 ---
 
-
 # Method stop
 Stops the specified instance group.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/startFailover.md
 ---
 
-
 # Method startFailover
 Starts a manual failover for a cluster.
  

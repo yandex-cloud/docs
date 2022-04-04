@@ -5,7 +5,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/auth/_include
 
 {% include [work in progress message](../../_includes/addition.md) %}
 
-Ниже приведены примеры кода анонимной аутентификации в разных {{ ydb-short-name }} SDK
+Ниже приведены примеры кода анонимной аутентификации в разных {{ ydb-short-name }} SDK.
 
 {% list tabs %}
 
@@ -14,5 +14,10 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/auth/_include
 
   {% include [go.md](anonymous/go.md) %}
 
+
+- Java
+
+
+  {% include [java.md](anonymous/java.md) %}
 
 {% endlist %}

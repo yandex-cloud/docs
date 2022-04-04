@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/HostGroup/index.md
 ---
 
-
 # HostGroup
 A set of methods for managing groups of dedicated hosts.
 ## JSON Representation {#representation}

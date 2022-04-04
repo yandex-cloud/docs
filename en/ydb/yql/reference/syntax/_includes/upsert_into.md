@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/upsert_into.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/upsert_into.md
 ---
-
 # UPSERT INTO
 
 Adds or updates multiple rows in a table based on primary key matching. Missing rows are added. For the existing rows, the values of the specified columns are updated, but the values of the other columns are preserved.

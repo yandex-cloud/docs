@@ -4,7 +4,6 @@ description: "Yandex Database (YDB): is a horizontally scalable distributed faul
 sourcePath: en/ydb/ydb-docs-core/en/core/concepts/_includes/index/intro.md
 ---
 
-
 # Yandex Database (YDB) Overview
 
 *{{ ydb-full-name }}* ({{ ydb-short-name }}) is a horizontally scalable distributed fault-tolerant DBMS. {{ ydb-short-name }} is designed to meet high performance requirements. For example, a typical server can handle dozens of thousands of queries per second. The system is designed to handle hundreds of petabytes of data. {{ ydb-short-name }} can operate in single data center and geo-distributed (cross data center) modes on a cluster of thousands of servers.

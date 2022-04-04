@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/lockbox/api-ref/Secret/update.md
 ---
 
-
 # Method update
 Updates the specified secret.
  

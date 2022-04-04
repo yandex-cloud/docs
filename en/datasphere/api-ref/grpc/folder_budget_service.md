@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/api-ref/grpc/folder_budget_service.md
 ---
 
-
 # FolderBudgetService
 
 A set of methods for managing Datasphere folder budgets.

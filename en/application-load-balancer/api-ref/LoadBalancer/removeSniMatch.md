@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/removeSniMatch.md
 ---
 
-
 # Method removeSniMatch
 Deletes the specified SNI handler.
  

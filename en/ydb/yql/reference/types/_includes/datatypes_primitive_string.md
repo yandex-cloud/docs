@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_string.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_string.md
 ---
-
 | Type | Description | Notes |
 | ----- | ----- | ----- |
 | `String` | A string that can contain any binary data |

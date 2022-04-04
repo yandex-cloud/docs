@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/tables.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/tables.md
 ---
-
 ## Табличные выражения {#table-contexts}
 
 Табличное выражения – это выражение, которое возвращает таблицу. Табличными выражениями в YQL являются:

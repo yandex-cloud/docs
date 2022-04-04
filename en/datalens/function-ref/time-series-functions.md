@@ -5,7 +5,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/time-series-functions.md
 ---
 
-
 # Time series functions
 Time series functions provide various ways to look up values corresponding to a specific time or offset along a given time axis.
 

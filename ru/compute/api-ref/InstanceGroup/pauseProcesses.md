@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/pauseProcesses.md
 ---
 
-
 # Method pauseProcesses
 Pauses all processes regarding management of the specified instance group,
 i.e. scaling, checking instances' health, auto-healing and updating them. Running instances are not stopped.

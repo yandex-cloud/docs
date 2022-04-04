@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/backup.md
 ---
 
-
 # Method backup
 Create a backup for the specified ElasticSearch cluster.
  

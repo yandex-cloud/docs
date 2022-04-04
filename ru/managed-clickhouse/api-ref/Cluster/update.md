@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/update.md
 ---
 
-
 # Method update
 Updates the specified ClickHouse cluster.
  

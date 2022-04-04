@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/availability.md
 ---
 
-
 # Function Availability
 
 Function availability for various data source types.

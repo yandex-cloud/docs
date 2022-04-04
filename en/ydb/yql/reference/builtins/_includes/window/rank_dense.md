@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/window/rank_dense.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/window/rank_dense.md
 ---
-
 ## RANK / DENSE_RANK {#rank}
 
 Number the groups of neighboring rows in the [section](../../../syntax/window.md#partition) that have the same expression value in the argument. `DENSE_RANK` numbers the groups one-by-one, and `RANK` skips `(N - 1)` values, with `N` being the number of rows in the previous group.

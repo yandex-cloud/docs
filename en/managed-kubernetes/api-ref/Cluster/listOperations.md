@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/k8s/api-ref/Cluster/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified Kubernetes cluster.
  

@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/compact.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/group_by/compact.md
 ---
-
 ## GROUP COMPACT BY
 
 Improves aggregation efficiency if the query author knows in advance that none of aggregation keys finds large amounts of data (i.e., with the order of magnitude exceeding a gigabyte or a million of rows). If this assumption fails to materialize, then the operation may fail with Out of Memory error or start running much slower compared to the non-COMPACT version.
