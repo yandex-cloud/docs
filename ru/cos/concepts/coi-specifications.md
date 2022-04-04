@@ -95,7 +95,7 @@ services:
     container_name: redis
     image: "redis"
     restart: always
-  volumes:
+    volumes:
       - /mnt/logs:/logs
       - /mnt/data:/data
 

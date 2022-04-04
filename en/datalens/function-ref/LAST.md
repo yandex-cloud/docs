@@ -30,9 +30,9 @@ Returns the value of `value` from the last row in the window. See also [FIRST](F
 
 **Return type**: Same type as (`value`)
 
-#### Example {#examples}
+#### Examples {#examples}
 
-
+{% cut "Example with grouping" %}
 
 
 Source data
@@ -68,7 +68,41 @@ Result
 | `'San Francisco'` | `'Furniture'`       | `5`                 | `23`                            | `23`                                    | `5`                                    |
 | `'San Francisco'` | `'Office Supplies'` | `23`                | `23`                            | `23`                                    | `10`                                   |
 
+{% endcut %}
 
+{% cut "Example with ORDER BY" %}
+
+
+Source data
+
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
+
+Grouped by `[City]`.
+
+Sorted by `[City]`.
+
+Result
+
+| **[City]**        | **SUM([Orders])**   | **LAST(SUM([Orders]) ORDER BY [City] DESC)**   | **LAST(SUM([Orders]) ORDER BY [Order Sum])**   |
+|:------------------|:--------------------|:-----------------------------------------------|:-----------------------------------------------|
+| `'Detroit'`       | `32`                | `32`                                           | `32`                                           |
+| `'London'`        | `11`                | `32`                                           | `32`                                           |
+| `'Moscow'`        | `6`                 | `32`                                           | `32`                                           |
+| `'San Francisco'` | `28`                | `32`                                           | `32`                                           |
+
+{% endcut %}
 
 
 #### Data source support {#data-source-support}

@@ -126,5 +126,17 @@ items:
   - name: Metric reference
     href: metrics-ref/index.md
   - name: Questions and answers
-    href: qa/index.md
+    items:
+      - name: General questions
+        href: qa/general.md
+      - name: Navigation
+        href: qa/navigation.md
+      - name: Metric collection and export
+        href: qa/metrics-export.md
+      - name: Metrics and units of measure
+        href: qa/metrics-measure.md
+      - name: Alerts / notifications
+        href: qa/alerts.md
+      - name: All questions on the same page
+        href: qa/all.md
 base: en/monitoring

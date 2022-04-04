@@ -52,25 +52,77 @@ RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] 
 
 #### Примеры {#examples}
 
-```
-RAVG([Profit])
-```
+{% cut "Пример с группировкой" %}
 
-```
-RAVG([Profit], "asc")
-```
 
-```
-RAVG([Profit] TOTAL)
-```
+Исходные данные
 
-```
-RAVG([Profit], "desc" WITHIN [Date])
-```
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-```
-RAVG([Profit] AMONG [Date])
-```
+Группировка по `[City]`, `[Category]`.
+
+Сортировка по `[City]`, `[Category]`.
+
+Результат
+
+| **[City]**        | **[Category]**      | **SUM([Orders])**   | **RAVG(SUM([Orders]) TOTAL)**   | **RAVG(SUM([Orders]) WITHIN [City])**   | **RAVG(SUM([Orders]) AMONG [City])**   |
+|:------------------|:--------------------|:--------------------|:--------------------------------|:----------------------------------------|:---------------------------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`                 | `7.00`                          | `7.00`                                  | `7.00`                                 |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `16.00`                         | `16.00`                                 | `24.00`                                |
+| `'London'`        | `'Furniture'`       | `1`                 | `11.00`                         | `1.00`                                  | `4.00`                                 |
+| `'London'`        | `'Office Supplies'` | `10`                | `10.75`                         | `5.50`                                  | `15.50`                                |
+| `'Moscow'`        | `'Furniture'`       | `2`                 | `9.00`                          | `2.00`                                  | `3.33`                                 |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `8.17`                          | `3.00`                                  | `17.33`                                |
+| `'San Francisco'` | `'Furniture'`       | `5`                 | `7.71`                          | `5.00`                                  | `3.75`                                 |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `9.62`                          | `14.00`                                 | `23.00`                                |
+
+{% endcut %}
+
+{% cut "Пример с ORDER BY" %}
+
+
+Исходные данные
+
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
+
+Группировка по `[City]`.
+
+Сортировка по `[City]`.
+
+Результат
+
+| **[City]**        | **SUM([Orders])**   | **RAVG(SUM([Orders]), "desc")**   | **RAVG(SUM([Orders]), "asc" ORDER BY [City] DESC)**   | **RAVG(SUM([Orders]) ORDER BY [Order Sum])**   |
+|:------------------|:--------------------|:----------------------------------|:------------------------------------------------------|:-----------------------------------------------|
+| `'Detroit'`       | `32`                | `19.25`                           | `19.25`                                               | `19.25`                                        |
+| `'London'`        | `11`                | `15.00`                           | `15.00`                                               | `8.50`                                         |
+| `'Moscow'`        | `6`                 | `17.00`                           | `17.00`                                               | `6.00`                                         |
+| `'San Francisco'` | `28`                | `28.00`                           | `28.00`                                               | `15.00`                                        |
+
+{% endcut %}
 
 
 #### Поддержка источников данных {#data-source-support}
