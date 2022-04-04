@@ -1,6 +1,6 @@
 {% note warning %}
 
-When connecting to an external data source (that's not a {{ yandex-cloud }} resource), grant access to the source for the DataLens IP address ranges.
+When connecting an external DB that is not a {{ yandex-cloud }} resource, grant database access to the following IP ranges belonging to {{ datalens-short-name }} (the `/` character separates the subnet mask):
 
 - `178.154.242.176/28`
 - `178.154.242.192/28`
