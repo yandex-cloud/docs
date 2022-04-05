@@ -199,21 +199,21 @@ Security Associations (1 up, 0 connecting):
 
 Статус `ESTABLISHED` означает, что туннель между шлюзами создан.
 
-Проверить статус демона strongSwan можно командой `systemctl status strongswan`:
+Проверить статус демона strongSwan можно командой `systemctl status strongswan-starter`:
 
 ```
-$ systemctl status strongswan
+$ systemctl status strongswan-starter
 ● strongswan.service - strongSwan IPsec IKEv1/IKEv2 daemon using ipsec.conf
-   Loaded: loaded (/lib/systemd/system/strongswan.service; enabled; vendor preset: enabled)
+   Loaded: loaded (/lib/systemd/system/strongswan-starter.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2019-06-20 14:54:07 UTC; 3 days ago
  Main PID: 481 (starter)
     Tasks: 18 (limit: 1117)
-   CGroup: /system.slice/strongswan.service
+   CGroup: /system.slice/strongswan-starter.service
            ├─481 /usr/lib/ipsec/starter --daemon charon --nofork
            └─527 /usr/lib/ipsec/charon
 ```           
 
-Посмотреть логи strongSwan можно с помощью команды `journalctl -u strongswan`. В логах находятся сведения об установке и работе соединения.
+Посмотреть логи strongSwan можно с помощью команды `journalctl -u strongswan-starter`. В логах находятся сведения об установке и работе соединения.
 
 ## Удалите созданные ресурсы {#clear-out}
 
