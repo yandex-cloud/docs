@@ -171,6 +171,8 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
     1. Добавьте к описанию кластера {{ mpg-name }} блок `host`.
 
         ```hcl
@@ -195,7 +197,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
   
@@ -265,6 +267,8 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
     1. Измените в описании кластера {{ mpg-name }} атрибуты блока `host`, соответствующего изменяемому хосту.
 
         ```hcl
@@ -286,7 +290,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
   
@@ -344,7 +348,9 @@
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
-  
+
+      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
   1. Удалите из описания кластера {{ mpg-name }} блок `host`, соответствующий удаляемому хосту.
   
   1. Проверьте корректность настроек.
@@ -352,10 +358,10 @@
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
  
   1. Подтвердите удаление ресурсов.
-  
+
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-  
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
   

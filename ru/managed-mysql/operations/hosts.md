@@ -164,6 +164,8 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [addHosts](../api-ref/Cluster/addHosts.md) и передайте в запросе:
@@ -254,6 +256,8 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
   Чтобы изменить параметры хоста, воспользуйтесь методом API [updateHosts](../api-ref/Cluster/updateHosts.md) и передайте в запросе:
@@ -316,6 +320,8 @@
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
 
 - API
 

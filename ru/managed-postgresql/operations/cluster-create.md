@@ -269,9 +269,9 @@
 
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     1. {% include [maintenance-window](../../_includes/mdb/mpg/terraform-maintenance-window.md) %}
+     {% include [maintenance-window](../../_includes/mdb/mpg/terraform-maintenance-window.md) %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+     Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
   1. Проверьте корректность настроек.
 
@@ -280,6 +280,8 @@
   1. Создайте кластер.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
