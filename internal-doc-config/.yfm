@@ -26,6 +26,7 @@ ignore:
   - "ru/data-proc/*"
   - "ru/datalens-api/*"
   - "ru/datasphere/*"
+  - "ru/datasphere2/*"
   - "ru/data-streams/*"
   - "ru/dns/*"
   - "ru/free-trial/*"
@@ -66,8 +67,8 @@ ignore:
   - "ru/ydb/*"
   - "ru/ydb-src/*"
   - "en/*"
-  - "ru/marketplace-v2/*"
   - "ru/tutorials/*"
+  - "ru/_includes/datasphere/*"
 
 docs-viewer:
   project-name: cloud
@@ -85,7 +86,7 @@ docs-viewer:
   index-page:
     hidden: false
     title: Yandex Cloud
-    description: Документация Yandex.Cloud
+    description: Документация Yandex Cloud
     service-url: https://yc.yandex-team.ru/
   search-by-toc: true
 

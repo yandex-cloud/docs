@@ -27,15 +27,15 @@
 
     {% include [prepare-register-billing](../tutorials/_common/prepare-register-billing.md) %}
 
-1. Если у вас есть активный платежный аккаунт, перейдите в [консоль управления]({{ link-console-main }}) и [создайте](../../resource-manager/operations/folder/create.md) или выбрите каталог, в котором будет работать ваша БД.
+1. Если у вас есть активный платежный аккаунт, перейдите в [консоль управления]({{ link-console-main }}) и {% if audience != "internal" %}[создайте](../../resource-manager/operations/folder/create.md){% else %}создайте{% endif %} или выберите каталог, в котором будет работать ваша БД.
 
-[Подробнее об иерархии ресурсов](../../resource-manager/concepts/resources-hierarchy.md).
+{% if audience != "internal" %}[Подробнее об иерархии ресурсов](../../resource-manager/concepts/resources-hierarchy.md).{% endif %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки БД {{ CH }} для Graphite входит:
-* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](../../managed-clickhouse/pricing.md));
-* плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](https://cloud.yandex.ru/docs/managed-clickhouse/pricing));
+* плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](https://cloud.yandex.ru/docs/compute/pricing)).
 
 ## Создайте кластер {#cluster-create}
 
@@ -109,8 +109,8 @@
 
 ## Создайте и настройте виртуальную машину {#VM-setup}
 
-1. В той же [облачной сети](../../vpc/concepts/network.md), где расположен кластер, [создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux.
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по SSH. 
+1. {% if audience != "internal" %}В той же [облачной сети](../../vpc/concepts/network.md), где расположен кластер, [создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. {% else %}В той же облачной сети, где расположен кластер, создайте ВМ на основе Linux. {% endif %}
+1. [Подключитесь](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh) к ВМ по SSH. 
 1. Подключите [DEB-репозиторий]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/install/#install-from-deb-packages){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/install/#install-from-deb-packages){% endif %} {{ CH }}:
 
     ```bash
@@ -154,7 +154,7 @@
 ## Подключите виртуальную машину к базе данных {#cluster-connect}
 
 1. [Настройте группы безопасности](../../managed-clickhouse/operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по SSH. 
+1. [Подключитесь](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh). 
 1. Запустите ClickHouse CLI со следующими параметрами: вместо `<FQDN хоста>`, `<имя БД>`, `<имя пользователя БД>` и `<пароль пользователя БД>` укажите ранее сохраненные параметры.
 
     ```bash
@@ -229,4 +229,4 @@
 
 Чтобы перестать платить за созданные ресурсы:
 * [Удалите кластер {{ CH }}](../../managed-clickhouse/operations/cluster-delete.md).
-* [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md).
+* {% if audience != "internal" %}[Удалите ВМ](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите ВМ{% endif %}.

@@ -13,7 +13,7 @@
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
-1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
+1. В той же сети, что и кластер {{ mkf-name }}, {% if audience != "internal" %}[создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md){% else %}создайте виртуальную машину{% endif %} c Ubuntu 20.04 и публичным IP-адресом.
 
 1. Чтобы разрешить прохождение трафика между кластером {{ mkf-name }} и виртуальной машиной, [настройте группы безопасности](../../../managed-kafka/operations/connect.md#configuring-security-groups).
 
@@ -21,7 +21,7 @@
 
 {% include [Schema registry scripts explanation](./schema-registry-scripts-explanation.md) %}
 
-1. [Подключитесь к виртуальной машине по SSH](../../../compute/operations/vm-connect/ssh.md).
+1. {% if audience != "internal" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %} к виртуальной машине по SSH.
 
 1. Установите необходимые пакеты Python:
 
