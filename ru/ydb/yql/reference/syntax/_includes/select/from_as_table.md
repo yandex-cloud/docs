@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/from_as_table.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/from_as_table.md
 ---
-
 ## FROM AS_TABLE {#as-table}
 
 Обращение к именованным выражениям как к таблицам с помощью функции `AS_TABLE`.

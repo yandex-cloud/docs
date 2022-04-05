@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/Resource/delete.md
 ---
 
-
 # Method delete
 Deletes client's CDN resource.
  

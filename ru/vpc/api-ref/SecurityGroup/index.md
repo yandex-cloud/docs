@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/SecurityGroup/index.md
 ---
 
-
 # SecurityGroup
 
 ## JSON Representation {#representation}

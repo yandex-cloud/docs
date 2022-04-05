@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/index.md
 ---
 
-
 # ApiGateway
 A set of methods for managing API gateways.
 ## JSON Representation {#representation}

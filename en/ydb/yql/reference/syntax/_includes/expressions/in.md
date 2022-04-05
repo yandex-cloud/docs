@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/in.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/in.md
 ---
-
 ## IN {#in}
 
 Checking whether a value is inside of a set of values. It's logically equivalent to a chain of equality comparisons using `OR` but implemented more efficiently.

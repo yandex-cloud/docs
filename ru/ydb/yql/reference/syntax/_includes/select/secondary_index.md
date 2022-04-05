@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/secondary_index.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/secondary_index.md
 ---
-
 ## VIEW (INDEX) {#secondary_index}
 
 Чтобы сделать запрос `SELECT` по вторичному индексу, используйте конструкцию:

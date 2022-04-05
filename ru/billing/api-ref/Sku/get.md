@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Sku/get.md
 ---
 
-
 # Method get
 Returns the specified SKU.
  

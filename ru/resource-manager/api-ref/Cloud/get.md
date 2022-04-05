@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/get.md
 ---
 
-
 # Method get
 Returns the specified Cloud resource.
  

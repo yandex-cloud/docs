@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/User/revokePermission.md
 ---
 
-
 # Method revokePermission
 Revokes permission to access a database from a user in a cluster.
  

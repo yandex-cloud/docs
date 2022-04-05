@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dns/api-ref/DnsZone/setAccessBindings.md
 ---
 
-
 # Method setAccessBindings
 Sets access bindings for the specified DNS zone.
  

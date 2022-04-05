@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/index.md
 ---
 
-
 # Federation
 A set of methods for managing federations.
 ## JSON Representation {#representation}

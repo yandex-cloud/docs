@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/api-ref/grpc/symmetric_key_service.md
 ---
 
-
 # SymmetricKeyService
 
 Set of methods for managing symmetric KMS keys.

@@ -1,6 +1,6 @@
 You can create a user and set the Administrator account password on a VM in {{ yandex-cloud }} using the [cloudbase-init](https://cloudbase-init.readthedocs.io/en/latest/) agent. To do this, create a script named `init.ps1` that the agent will run on the initial boot of the system. Variables from the `variables.tf` file will be used as credentials.
 
-{% cut "Файл init.ps1" %}
+{% cut "init.ps1 file" %}
 
 ```
 #ps1

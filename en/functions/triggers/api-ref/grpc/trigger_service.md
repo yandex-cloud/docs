@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/functions/triggers/triggers/api-ref/grpc/trigger_service.md
 ---
 
-
 # TriggerService
 
 A set of methods for managing triggers for serverless functions.

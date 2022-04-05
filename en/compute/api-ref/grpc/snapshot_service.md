@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/snapshot_service.md
 ---
 
-
 # SnapshotService
 
 A set of methods for managing Snapshot resources.

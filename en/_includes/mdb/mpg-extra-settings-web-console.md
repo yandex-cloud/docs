@@ -10,7 +10,9 @@
 
 - **Access from the management console**: Select this option to be able to [execute SQL queries](../../managed-postgresql/operations/web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console.
 
-- **Collect statistics**: Enable this option to use the [{#T}](../../managed-postgresql/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+- **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+- **Collect statistics**: Enable this option to use [{#T}](../../managed-postgresql/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
 
 - **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
 

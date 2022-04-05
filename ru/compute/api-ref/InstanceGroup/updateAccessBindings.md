@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/updateAccessBindings.md
 ---
 
-
 # Method updateAccessBindings
 Updates access bindings for the specified instance group.
  

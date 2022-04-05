@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Federation/create.md
 ---
 
-
 # Method create
 Creates a federation in the specified folder.
  

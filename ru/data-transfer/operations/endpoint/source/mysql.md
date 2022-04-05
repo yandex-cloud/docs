@@ -21,6 +21,35 @@
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql.md) %}
 
+- Terraform
+
+    * Тип эндпоинта — `mysql_source`.
+
+    {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mysql_source {
+          connection {
+            mdb_cluster_id = "<идентификатор кластера {{ mmy-name }}>"
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
 - API
 
     {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql.md) %}
@@ -42,6 +71,38 @@
     *  Тип эндпоинта — `mysql-source`.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql.md) %}
+
+- Terraform
+
+    *  Тип эндпоинта — `mysql_source`.
+
+    {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mysql_source {
+          connection {
+            on_premise {
+              hosts = ["<список хостов>"]
+              port  = <порт для подключения>
+            }
+          }
+          database = "<имя переносимой базы данных>"
+          user     = "<имя пользователя для подключения>"
+          password {
+            raw = "<пароль пользователя>"
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API
 
@@ -74,6 +135,26 @@
     * Настройки переноса схемы:
         * `--transfer-before-data` — при активации трансфера.
         * `--transfer-after-data` — при деактивации трансфера.
+
+- Terraform
+
+    * `include_table_regex` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка. Задается с помощью регулярных выражений.
+
+    * `exclude_table_regex` — список исключенных таблиц. Данные таблиц из этого списка передаваться не будут. Задается с помощью регулярных выражений.
+
+    * `timezone` — часовой пояс базы, указывается как идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
+
+    * `object_transfer_settings` — настройки переноса схемы:
+
+        * `view` — представления;
+        * `routine` — процедуры и функции;
+        * `trigger` — триггеры.
+
+        Для каждой сущности может быть задано одно из значений:
+
+        * `BEFORE_DATA` — перенос на этапе активации трансфера;
+        * `AFTER_DATA` — перенос на этапе деактивации трансфера;
+        * `NEVER` — не переносить.
 
 - API
 

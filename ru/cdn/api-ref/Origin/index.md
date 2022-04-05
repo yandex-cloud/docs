@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/Origin/index.md
 ---
 
-
 # Origin
 Origin management service.
 Origin is not a standalone entity. It can live only within origin group.

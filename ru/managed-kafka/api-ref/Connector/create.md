@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/create.md
 ---
 
-
 # Method create
 Creates a new Apache Kafka connector in the specified cluster.
  

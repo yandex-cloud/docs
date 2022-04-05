@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/HttpRouter/update.md
 ---
 
-
 # Method update
 Updates the specified HTTP router.
  

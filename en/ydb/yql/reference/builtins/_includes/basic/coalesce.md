@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/coalesce.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/coalesce.md
 ---
-
 ## COALESCE {#coalesce}
 
 Iterates through the arguments from left to right and returns the first non-empty argument found. To be sure that the result is non-empty (not of an [optional type](../../../types/optional.md)), the rightmost argument must be of this type (often a literal is used for this). With a single argument, returns this argument unchanged.

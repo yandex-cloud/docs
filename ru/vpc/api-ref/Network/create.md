@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Network/create.md
 ---
 
-
 # Method create
 Creates a network in the specified folder using the data specified in the request.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

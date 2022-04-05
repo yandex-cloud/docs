@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-mongodb/api-ref/grpc/cluster_service.md
 ---
 
-
 # ClusterService
 
 A set of methods for managing MongoDB Cluster resources.

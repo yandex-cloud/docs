@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/addBackend.md
 ---
 
-
 # Method addBackend
 Adds backends to the specified backend group.
  

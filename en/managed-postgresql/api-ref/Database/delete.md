@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/delete.md
 ---
 
-
 # Method delete
 Deletes the specified PostgreSQL database.
  

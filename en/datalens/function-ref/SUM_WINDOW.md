@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/SUM_WINDOW.md
 ---
 
-
 # SUM (window)
 
 _Function `SUM` is also found in the following categories: [Aggregate functions](SUM.md)._

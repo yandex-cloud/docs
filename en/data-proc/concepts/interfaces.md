@@ -1,6 +1,6 @@
 # Working with component network interfaces
 
-{{ dataproc-name }} allows you to create clusters both with public access and just {{ yandex-cloud }} private addresses. Regardless of the cluster configuration, we recommend making the network and web interfaces of the components inaccessible from the outside. To connect externally to components like HDFS NameNode and YARN ResourceManager, you can route traffic via an intermediate VM with a public IP address.
+{{ dataproc-name }} enables you to create clusters accessible from the internet or only from a cloud network. However, we recommend making service component interfaces inaccessible from outside {{ yandex-cloud }} in any configuration. To connect externally to components like HDFS NameNode and YARN ResourceManager, you can route traffic via an intermediate VM with a public IP address.
 
 ## Port forwarding {#routing}
 
@@ -27,3 +27,4 @@ The port numbers used for {{ dataproc-name }} components are given below.
 ## Components and ports {#port-numbers}
 
 {% include [ports-table](../../_includes/data-proc/ports-table.md) %}
+

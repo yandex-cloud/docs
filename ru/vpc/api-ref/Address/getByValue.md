@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Address/getByValue.md
 ---
 
-
 # Method getByValue
 Returns the specified Address resource by a given value.
  

@@ -1,6 +1,6 @@
 # Dedicated hosts
 
-_A dedicated host_ is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}. VMs on dedicated hosts have all the features of regular VMs plus they're physically isolated from other users' VMs. You can also distinguish your VMs used for different projects:
+A _dedicated host_ is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}. VMs on dedicated hosts have all the features of regular VMs plus they're physically isolated from other users' VMs. You can also distinguish your VMs used for different projects:
 
 ![Dedicated host](../../_assets/compute/dedicated-host.svg "Dedicated host")
 
@@ -8,23 +8,25 @@ You can create a group of one or more dedicated hosts of the same type. To optim
 
 Advantages of using dedicated hosts:
 * Security and compliance.
-  You can use a dedicated host to physically isolate your VM in the public cloud if this is required by your company's information security service or industry standards (such as medical or finance).
+   You can use a dedicated host to physically isolate your VM in the public cloud if this is required by your company's information security service or industry standards (such as medical or finance).
 * Using your own licenses.
-  If your company has licenses from Microsoft or other vendors that require linking to physical resources, you can use them in {{ yandex-cloud }} following the <q>Bring your own license</q> (BYOL) model.
+   If your company has licenses from Microsoft or other vendors that require linking to physical resources, you can use them in {{ yandex-cloud }} following the <q>Bring your own license</q> (BYOL) model.
 * Managing your VM placement.
-  You can choose which dedicated host to run your VM on or allow {{ compute-name }} to do it automatically.
+   You can choose which dedicated host to run your VM on or allow {{ compute-name }} to do it automatically.
 
 ## Types of dedicated hosts {#host-types}
 
 Characteristics of dedicated hosts:
 
-Type | Processor | Number of<br>processors | Cores | vCPU | RAM, GB
---- | --- | --- | --- | --- | ---
-`intel-6230-c66-m454` | [Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66* | 454
+| Type | Processor | Number of</br>processors | Cores | vCPU | RAM, GB | Number of</br>disks | Disk</br>size, GB |
+--- | --- | --- | --- | --- | --- | --- | ---
+| `intel-6230-c66-m454` | [Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66* | 454 | 4 | 1600 |
 
 \* Intel Xeon Gold 6230 has 80 vCPUs available, but 14 of them are used by the system.
 
 {% include [dedicated](../../_includes/compute/dedicated-quota.md) %}
+
+Dedicated hosts on Intel Ice Lake (`intel-6338-c108-m704-n3200x6`) can't be created in the `ru-central1-c` availability zone. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 ### Fragmentation of host's physical resources {#resource-fragmentation}
 
@@ -48,11 +50,7 @@ yc compute host-group create \
   ...
 ```
 
-Keys:
-
-Key | Value
---- | ---
-`fixed-size` | The number of dedicated hosts in the group.
+Where `fixed-size` is the number of dedicated hosts in the group.
 
 ## Maintenance policy {#maintenance-policy}
 
@@ -70,11 +68,7 @@ yc compute host-group create \
 ...
 ```
 
-Keys:
-
-Key | Value
---- | ---
-`maintenance-policy` | Maintenance policy.<br> Possible values:<br> - `restart`: Stop VMs for maintenance and restart them afterwards.
+Where `maintenance-policy` is the maintenance policy. Possible values: `restart`: Stop VMs for maintenance and restart them afterwards.
 
 If the physical server is completely stopped, {{ compute-name }}:
 1. Disables access to your dedicated host.
@@ -86,9 +80,9 @@ If the physical server is completely stopped, {{ compute-name }}:
 
 To uniquely map a VM and a physical server, you can create a VM that is linked:
 * To a group of dedicated hosts.
-  When the VM is stopped, it won't be available on the group hosts, and when it's restarted, it may be linked to a different host from the group.
+   When the VM is stopped, it won't be available on the group hosts, and when it's restarted, it may be linked to a different host from the group.
 * To the selected host from a group of hosts.
-  When the VM is stopped, it won't be available on the host, and when it's restarted, it will be linked to the same host from the group.
+   When the VM is stopped, it won't be available on the host, and when it's restarted, it will be linked to the same host from the group.
 
 Linking a VM ensures that it will run on the same physical server or group of servers even after a scheduled outage.
 
@@ -123,6 +117,6 @@ host-group-id: 2
 ...
 ```
 
-## Billing {#billing}
+## Pricing {#billing}
 
-For information about pricing for dedicated hosts, see [{#T}](../pricing.md#dedicated-hosts).
+For information about pricing for dedicated hosts, see [{#T}](../pricing.md#prices-dedicated-host).

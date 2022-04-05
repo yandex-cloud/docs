@@ -47,6 +47,48 @@
 
     1. Нажмите кнопку **Создать**.
 
+- Terraform
+
+    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+    Чтобы создать трансфер:
+
+    1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
+
+        1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Создайте конфигурационный файл с описанием трансфера.
+
+       Пример структуры конфигурационного файла:
+
+       ```hcl
+       resource "yandex_datatransfer_transfer" "<имя трансфера в {{ TF }}>" {
+         folder_id   = "<идентификатор каталога>"
+         name        = "<имя трансфера>"
+         description = "<описание трансфера>"
+         source_id   = "<идентификатор эндпоинта-источника>"
+         target_id   = "<идентификатор эндпоинта-приемника>"
+         type        = "<тип трансфера>"
+       }
+       ```
+
+       Доступные типы трансферов:
+
+       * `SNAPSHOT_ONLY` — _{{ dt-type-copy }}_;
+       * `INCREMENT_ONLY` — _{{ dt-type-repl }}_;
+       * `SNAPSHOT_AND_INCREMENT` — _{{ dt-type-copy-repl }}_.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    После применения изменений трансфер автоматически активируется.
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
+
 {% endlist %}
 
 ## Изменить трансфер {#update}
@@ -60,6 +102,23 @@
     1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/pencil.svg) **Редактировать** на панели сверху.
     1. Измените имя и описание трансфера.
     1. Нажмите кнопку **Сохранить**.
+
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием трансфера.
+
+      О том, как создать такой файл, см. в подразделе [Создать трансфер](#create).
+
+  1. Измените значение полей `name` и `description` (имя и описание трансфера).
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
 
 {% endlist %}
 
@@ -132,5 +191,9 @@
     1. Если нужный трансфер находится в активном состоянии, [деактивируйте его](#deactivate).
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Удалить**.
     1. Нажмите кнопку **Удалить**.
+
+- Terraform
+
+    {% include [terraform-delete](../../_includes/data-transfer/terraform-delete-transfer.md) %}
 
 {% endlist %}

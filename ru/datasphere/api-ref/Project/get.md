@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/Project/get.md
 ---
 
-
 # Method get
 Returns the specified project.
  

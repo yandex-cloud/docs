@@ -4,7 +4,6 @@ description: Yandex Tracker API предназначен для веб-серв�
 sourcePath: ru/tracker/api-ref/about-api.md
 ---
 
-
 # {{ api-name }}. Обзор
 
 Вы можете управлять {{ tracker-name }} с помощью HTTP-запросов к REST API.

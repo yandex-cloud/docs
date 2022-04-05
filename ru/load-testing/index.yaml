@@ -20,6 +20,9 @@ links:
   - title: Начало работы
     description: Как начать нагрузочное тестирование с Yandex Load Testing
     href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
   - title: Концепции
     description: Принципы работы и основные понятия сервиса
     href: concepts/

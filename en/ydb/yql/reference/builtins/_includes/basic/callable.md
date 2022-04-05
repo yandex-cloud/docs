@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/callable.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/callable.md
 ---
-
 ## Callable {#callable}
 
 Create a callable value with the specified signature from a lambda function. It's usually used to put callable values into containers.

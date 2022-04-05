@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/HostType/index.md
 ---
 
-
 # HostType
 Set of methods to view possible host configurations.
 ## JSON Representation {#representation}

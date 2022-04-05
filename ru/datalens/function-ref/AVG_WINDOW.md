@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/AVG_WINDOW.md
 ---
 
-
 # AVG (оконная)
 
 _Функция `AVG` также доступна в следующих категориях: [Агрегатные функции](AVG.md)._

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/User/get.md
 ---
 
-
 # Method get
 Retrieves information about the specified user.
  

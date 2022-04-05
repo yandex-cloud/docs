@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/HostGroup/get.md
 ---
 
-
 # Method get
 Returns the specified host group.
  

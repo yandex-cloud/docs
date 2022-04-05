@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/list.md
 ---
 
-
 # Method list
 Retrieves the list of MongoDB Cluster resources that belong
 to the specified folder.

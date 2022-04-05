@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/create.md
 ---
 
-
 # Method create
 Creates a target group in the specified folder.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/update.md
 ---
 
-
 # Method update
 Updates the specified instance group.
 This method starts an operation that can be cancelled by another operation.

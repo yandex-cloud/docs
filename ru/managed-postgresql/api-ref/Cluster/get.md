@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/get.md
 ---
 
-
 # Method get
 Returns the specified PostgreSQL Cluster resource.
  

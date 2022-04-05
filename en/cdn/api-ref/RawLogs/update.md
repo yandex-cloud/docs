@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/RawLogs/update.md
 ---
 
-
 # Method update
 
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Scanner/list.md
 ---
 
-
 # Method list
 Retrieves the list of ScanResults for specified Image.
  

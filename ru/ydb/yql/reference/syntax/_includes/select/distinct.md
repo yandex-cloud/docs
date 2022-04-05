@@ -4,7 +4,6 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/distinc
 ---
 
 
-
 ## DISTINCT {#distinct}
 
 Выбор уникальных строк.

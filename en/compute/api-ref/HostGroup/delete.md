@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/HostGroup/delete.md
 ---
 
-
 # Method delete
 Deletes the specified host group.
  

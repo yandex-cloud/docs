@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/list.md
 ---
 
-
 # Method list
 Retrieves the list of Redis clusters that belong
 to the specified folder.

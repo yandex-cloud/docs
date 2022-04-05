@@ -38,7 +38,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
 В этом примере синтезируется и записывается в аудиофайл следующий текст:
 >Я Яндекс Спичк+ит.
 Я могу превратить любой текст в речь.
-Теперь и в+ы - можете!
+Теперь и в+ы — можете!
 
 По умолчанию данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).
 
@@ -52,8 +52,8 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
   read -r -d '' TEXT << EOM
   > Я Яндекс Спичк+ит.
   > Я могу превратить любой текст в речь.
-  > Теперь и в+ы - можете!
-  > EOM
+  > Теперь и в+ы — можете!
+  EOM
   export FOLDER_ID=<идентификатор каталога>
   export IAM_TOKEN=<IAM-токен>
   curl -X POST \
@@ -84,13 +84,13 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
       static async Task Tts()
       {
         const string iamToken = "<IAM-токен>"; // Укажите IAM-токен.
-        const string folderId = "<идентификатор каталога>"; // Укажите ID каталога.
+        const string folderId = "<идентификатор каталога>"; // Укажите идентификатор каталога.
 
         HttpClient client = new HttpClient();
         client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
         var values = new Dictionary<string, string>
         {
-          { "text", "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!" },
+          { "text", "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!" },
           { "lang", "ru-RU" },
           { "voice", "filipp" },
           { "folderId", folderId }
@@ -152,22 +152,29 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
       ```bash
       export FOLDER_ID=<идентификатор каталога>
       export IAM_TOKEN=<IAM-токен>
-      python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!"
+      python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!"
       ```
 
 - PHP
 
   ```php
-  <?
-
-  $token = '<IAM-токен>'; # IAM-токен
-  $folderId = "<идентификатор каталога>"; # Идентификатор каталога
+  <?php
+  
+  $token = '<IAM-токен>'; # Укажите IAM-токен.
+  $folderId = "<идентификатор каталога>"; # Укажите идентификатор каталога.
+  
   $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-
-  $post = "text=" . urlencode("Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!") . "&lang=ru-RU&voice=filipp&folderId=${folderId}";
   $headers = ['Authorization: Bearer ' . $token];
+  $post = array(
+      'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",
+      'folderId' => $folderId,
+      'sampleRateHertz' => '48000',
+      'lang' => 'ru-RU',
+      'voice' => 'filipp',
+      'format' => 'lpcm');
+  
   $ch = curl_init();
-
+  
   curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_URL, $url);
@@ -178,8 +185,8 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
       curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
   }
   curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-
+  
+  
   $response = curl_exec($ch);
   if (curl_errno($ch)) {
       print "Error: " . curl_error($ch);
@@ -189,11 +196,10 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
       echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
       echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
   } else {
-      file_put_contents("speech.ogg", $response);
+      file_put_contents("speech.raw", $response);
   }
   curl_close($ch);
   ```
-
 
 {% endlist %}
 
@@ -211,8 +217,8 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
       read -r -d '' TEXT << EOM
       > Я Яндекс Спичк+ит.
       > Я могу превратить любой текст в речь.
-      > Теперь и в+ы - можете!
-      > EOM
+      > Теперь и в+ы — можете!
+      EOM
       export FOLDER_ID=<идентификатор каталога>
       export IAM_TOKEN=<IAM-токен>
       curl -X POST \
@@ -244,13 +250,13 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
           static async Task Tts()
           {
             const string iamToken = "<IAM-токен>"; // Укажите IAM-токен.
-            const string folderId = "<идентификатор каталога>"; // Укажите ID каталога.
+            const string folderId = "<идентификатор каталога>"; // Укажите идентификатор каталога.
 
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
             var values = new Dictionary<string, string>
             {
-              { "text", "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!" },
+              { "text", "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!" },
               { "lang", "ru-RU" },
               { "voice", "filipp" },
               { "folderId", folderId },
@@ -316,24 +322,29 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
           ```bash
           export FOLDER_ID=<идентификатор каталога>
           export IAM_TOKEN=<IAM-токен>
-          python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!"
+          python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!"
           ```
 
     - PHP
 
       ```php
-      <?
-
-      const FORMAT_PCM = "lpcm";
-      const FORMAT_OPUS = "oggopus";
-
-      $token = '<IAM-токен>'; # IAM-токен
-      $folderId = "<идентификатор каталога>"; # Идентификатор каталога
+      <?php
+      
+      $token = '<IAM-токен>'; # Укажите IAM-токен.
+      $folderId = "<идентификатор каталога>"; # Укажите идентификатор каталога.
+      
       $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-      $post = "text=" . urlencode("Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!") . "&lang=ru-RU&voice=filipp&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
       $headers = ['Authorization: Bearer ' . $token];
+      $post = array(
+          'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",
+          'folderId' => $folderId,
+          'sampleRateHertz' => '48000',
+          'lang' => 'ru-RU',
+          'voice' => 'filipp',
+          'format' => 'lpcm');
+      
       $ch = curl_init();
-
+      
       curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($ch, CURLOPT_URL, $url);
@@ -344,8 +355,8 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
           curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
       }
       curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-
+      
+      
       $response = curl_exec($ch);
       if (curl_errno($ch)) {
           print "Error: " . curl_error($ch);

@@ -4,7 +4,6 @@ description: "This section describes how to perform the creating, adding and exe
 sourcePath: en/ydb/overlay/quickstart/document-api/aws-cli/index.md
 ---
 
-
 # Overview
 
 This section describes how to perform the following operations in {{ ydb-short-name }} using the AWS CLI:

@@ -13,10 +13,8 @@ A {{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster
 
 The number of hosts with the _Data node_ role that can be created together with a {{ ES }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
-* With **local storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
-* When using network storage:
-    * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
-    * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+* With **local SSD** or **non-replicated SSD** storage, you can create a cluster with three or more hosts (a minimum of three hosts is required for fault tolerance).
+* With **HDD network** or **SSD network** storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
 
 After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
@@ -31,12 +29,10 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 - Management console
 
   1. In the management console, select the folder where you want to create a cluster.
-
   1. Select **{{ mes-name }}**.
-
   1. Click **Create cluster**.
-
   1. Under **Basic parameters**:
+
      1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your apps.
@@ -45,35 +41,31 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
-
   1. Under **User**, specify the `admin` user password.
 
      {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
 
   1. Configure hosts with the _Data node_ role by opening the **Data node** tab:
-
-     1. Under **Host class**, select the platform, host type and host class.
+     1. Under **Host class**, select the platform, host type, and host class.
 
         The host class defines the technical characteristics of virtual machines that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
      1. Under **Storage**:
+        * Select one of the following [storage types](../concepts/storage.md):
+           * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
+           * Or faster local SSD storage (`local-ssd`).
 
-        * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd` or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
-
-          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
         * Select the size of storage to be used for data.
 
      1. Under **Hosts**, select the configuration of hosts created together with the cluster.
-
         1. To add a host, click **Add host**.
-
         1. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg) icon.
 
             When changing the host, you can: {#change-data-node-settings}
 
             * Select the availability zone and subnet.
-
             * Enable public access.
 
                 {% note warning %}
@@ -86,20 +78,15 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
                 {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
-            When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
-
   1. If necessary, configure the hosts with the _Master node_ role by opening the **Master node** tab:
 
      1. Under **Host class**, select the platform, host type, and host class.
-
      1. Under **Storage**, configure storage the same way as for hosts with the _Data node_ role.
-
      1. Under **Hosts**, click **Add hosts**. Three hosts are added. To change one of the added hosts, hover over the host line and click ![image](../../_assets/pencil.svg).
 
         When changing the host, you can: {#change-master-node-settings}
 
         * Select the availability zone and subnet.
-
         * Enable public access.
 
             {% note tip %}
@@ -128,9 +115,10 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         yc vpc subnet list
         ```
 
+        
         If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-    1. View a description of the CLI create cluster command:
+    1. View a description of the CLI's create cluster command:
 
         ```bash
         {{ yc-mdb-es }} cluster create --help
@@ -165,13 +153,15 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
     {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
 
+    
     If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
         * Database cluster: Description of the cluster and its hosts.
-        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
+
+                * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
         * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
         Example configuration file structure:
@@ -286,6 +276,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     To create a cluster with a single host, pass a single `--host` parameter.
 
     Let's say we need to create a {{ ES }} cluster with the following characteristics:
+
     * Name: `my-es-clstr`.
     * Version: `7.10`.
     * `Platinum` editions.
@@ -293,9 +284,9 @@ If you specified security group IDs when creating a cluster, you may also need t
     * In the `default` network.
     * Belonging to the security group with the ID `enpp2s8l3irhk5eromd7`.
     * With a single publicly available host acting as a `{{ host-class }}`-class _Data node_ in subnet `{{ subnet-id }}` in availability zone `{{ zone-id }}`.
-    * With 20 GB of fast network storage (`{{ disk-type-example }}`).
+    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
     * With password `esadminpwd` and username `admin`.
-    * With protection against accidental cluster deletion.
+    * With accidental cluster deletion protection.
 
     Run the command:
 
@@ -318,17 +309,18 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
     Let's say we need to create a {{ ES }} cluster with the following characteristics:
-    - Name: `my-es-clstr`.
-    - Version `7.13`.
-    - With the `Basic` edition.
-    - In the `PRODUCTION` environment.
-    - In the cloud with the ID `{{ tf-cloud-id }}`.
-    - In the folder with the ID `{{ tf-folder-id }}`.
-    - In the new `mynet` network.
-    - In the new `es-sg` security group allowing an internet connection to the cluster over ports 443 (Kibana) and 9200 ({{ ES }}).
-    - With one publicly available host with the _Data node_ role and `{{ host-class }}` class in the new `mysubnet` subnet in the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-    - With 20 GB of fast network storage (`{{ disk-type-example }}`).
-    - With password `esadminpwd` and username `admin`.
+
+    * Name: `my-es-clstr`.
+    * Version `7.13`.
+    * With the `Basic` edition.
+    * In the `PRODUCTION` environment.
+    * In the cloud with the ID `{{ tf-cloud-id }}`.
+    * In the folder with the ID `{{ tf-folder-id }}`.
+    * In the new `mynet` network.
+    * In the new `es-sg` security group allowing an internet connection to the cluster over ports 443 (Kibana) and 9200 ({{ ES }}).
+    * With one publicly available host with the _Data node_ role and `{{ host-class }}` class in the new `mysubnet` subnet in the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
+    * With password `esadminpwd` and username `admin`.
 
     The configuration file for the cluster looks like this:
 
@@ -412,4 +404,3 @@ If you specified security group IDs when creating a cluster, you may also need t
     ```
 
 {% endlist %}
-

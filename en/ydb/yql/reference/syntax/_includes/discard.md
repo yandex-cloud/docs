@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/discard.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/discard.md
 ---
-
 # DISCARD
 
 Calculates [`SELECT`](../select.md) without returning the result neither to the client or table. 

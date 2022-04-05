@@ -26,10 +26,11 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
 * [Create a LoadBalancer service with a public IP address](#lb-create)
 * [Create a LoadBalancer service with an internal IP address](#lb-int-create)
 * [loadBalancerIP and externalTrafficPolicy parameters](#advanced)
+* (Optional) [{#T}](#network-policy)
 
 ## Create a simple app {#simple-app}
 
-1. Save the following app creation specification to a YAML file named `hello.yaml`.
+1. Save the following app creation specification to a YAML file named `hello.yaml`:
 
    [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is the {{ k8s }} API object that manages the replicated application.
 
@@ -87,7 +88,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
 
      Command output:
 
-     ```bash
+     ```text
      Name:                   hello
      Namespace:              default
      CreationTimestamp:      Wed, 28 Oct 2020 23:15:25 +0300
@@ -144,7 +145,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
    spec:
      ports:
      - port: 80 # Network load balancer port to handle user requests.
-       name: plaintext 
+       name: plaintext
        targetPort: 8080 # Container port the application listens on.
      selector: # Selector labels used in a pod template when creating a Deployment object.
        app: hello
@@ -187,17 +188,17 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
 
      Command output:
 
-     ```bash
+     ```text
      Name:                     hello
      Namespace:                default
      Labels:                   <none>
-     Annotations:              Selector:  app=hello
+     Annotations:              Selector: app=hello
      Type:                     LoadBalancer
      IP:                       172.20.169.7
      LoadBalancer Ingress:     130.193.50.111
-     Port:                     plaintext  80/TCP
+     Port:                     plaintext 80/TCP
      TargetPort:               8080/TCP
-     NodePort:                 plaintext  32302/TCP
+     NodePort:                 plaintext 32302/TCP
      Endpoints:                10.1.130.4:8080
      Session Affinity:         None
      External Traffic Policy:  Cluster
@@ -225,7 +226,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
 
      Command output:
 
-     ```bash
+     ```text
      Hello, world!
      Running in 'hello-74c9c1b238-c1rpa'
      ```
@@ -264,7 +265,8 @@ spec:
 
 In {{ managed-k8s-name }}, the following advanced settings are available for a service with the `LoadBalancer` type:
 * Assign a [pre-allocated public IP address](../../vpc/operations/get-static-ip.md) using the `loadBalancerIP` parameter.
-When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
+
+  When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
 * Traffic management with [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec):
   * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In this case:
     * If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node.
@@ -324,4 +326,72 @@ Where:
 
   The minimum value is `2` and the maximum is `10`.
 
-For more information, see [{#T}](../../network-load-balancer/concepts/health-check.md).
+For more information, see the [{{ network-load-balancer-full-name }} documentation](../../network-load-balancer/concepts/health-check.md).
+
+## Create a NetworkPolicy object {#network-policy}
+
+To connect to services published via {{ network-load-balancer-full-name }} from certain IP addresses, enable [network policies](../concepts/network-policy.md) in the cluster. To set up access via the load balancer, create a [NetworkPolicy]({{ k8s-api-link }}#netowrkpolicy-v1-networking-k8s-io) object with the `Ingress` policy type:
+
+```yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: <policy name>
+  namespace: <namespace>
+spec:
+  podSelector:
+    <pod filtering rules>
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 198.18.235.0/24
+    - ipBlock:
+        cidr: 198.18.248.0/24
+    - ipBlock:
+        cidr: <range of IPs allowed to access the load balancer>
+    ...
+    - ipBlock:
+        cidr: <range of IPs allowed to access the load balancer>
+```
+
+Where:
+* `metadata.name`: Policy name.
+* `metadata.namespace`: [Namespace](../concepts/index.md#namespace).
+* `spec.podSelector`: Filtering rules for [pods](../concepts/index.md#pod).
+* `spec.policyTypes`: Policy type. Enter `Ingress`.
+* `spec.ingress.from.ipBlock.cidr`: IP ranges allowed to access the load balancer.
+
+  The ranges `198.18.235.0/24` and `198.19.248.0/24` [are reserved by {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/health-check.md) to check the health of nodes. They are required in the NetworkPolicy object settings.
+
+{% cut "Example of setting up a NetworkPolicy object" %}
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: whitelist-netpol
+  namespace: ns-example
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    # IP ranges used by the load balancer to check the health of nodes.
+    - ipBlock:
+        cidr: 198.18.235.0/24
+    - ipBlock:
+        cidr: 198.18.248.0/24
+    # Ranges of pod IPs.
+    - ipBlock:
+        cidr: 172.16.1.0/12
+    - ipBlock:
+        cidr: 172.16.2.0/12
+```
+
+{% endcut %}

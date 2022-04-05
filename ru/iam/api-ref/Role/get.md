@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Role/get.md
 ---
 
-
 # Method get
 Returns the specified Role resource.
  

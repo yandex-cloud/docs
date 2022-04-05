@@ -3,7 +3,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/MIN.md
 ---
 
-
 # MIN
 
 _Функция `MIN` также доступна в следующих категориях: [Оконные функции](MIN_WINDOW.md)._

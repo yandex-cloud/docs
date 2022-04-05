@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/removeListener.md
 ---
 
-
 # Method removeListener
 Removes the listener from the specified network load balancer.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/MlModel/list.md
 ---
 
-
 # Method list
 Retrieves the list of machine learning models in the specified cluster.
  

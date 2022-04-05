@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/Resource/index.md
 ---
 
-
 # Resource
 Provider's resources management service.
 ## JSON Representation {#representation}

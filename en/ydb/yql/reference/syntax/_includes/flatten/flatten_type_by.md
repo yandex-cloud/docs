@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_type_by.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_type_by.md
 ---
-
 ### Specifying the container type {#flatten-by-specific-type}
 
 To specify the type of container to convert to, you can use:

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/addProviders.md
 ---
 
-
 # Method addProviders
 Adds new auth providers to Elasticsearch cluster.
  

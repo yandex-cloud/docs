@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/window/first_last_value.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/window/first_last_value.md
 ---
-
 ## FIRST_VALUE / LAST_VALUE
 
 Доступ к значениям из первой и последней строк [рамки окна](../../../syntax/window.md#frame). Единственный аргумент - выражение, к которому необходим доступ.

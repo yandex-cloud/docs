@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/MlModel/create.md
 ---
 
-
 # Method create
 Creates a machine learning model in the specified cluster.
  

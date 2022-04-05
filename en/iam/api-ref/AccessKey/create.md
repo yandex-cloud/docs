@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/AccessKey/create.md
 ---
 
-
 # Method create
 Creates an access key for the specified service account.
  

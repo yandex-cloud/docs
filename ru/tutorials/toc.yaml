@@ -69,6 +69,8 @@ items:
         href: testing/hpc-on-preemptible.md
       - name: Эмуляция множества IoT-устройств
         href: testing/iot-emulation.md
+      - name: Нагрузочное тестирование gRPC-сервиса
+        href: testing/loadtesting-grpc.md
   - name: Управление инфраструктурой
     items:
       - name: Все руководства

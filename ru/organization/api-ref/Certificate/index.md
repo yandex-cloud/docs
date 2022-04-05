@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Certificate/index.md
 ---
 
-
 # Certificate
 A set of methods for managing certificates.
 ## JSON Representation {#representation}

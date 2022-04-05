@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/address_service.md
 ---
 
-
 # AddressService
 
 A set of methods for managing Address resources.

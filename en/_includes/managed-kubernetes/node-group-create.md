@@ -1,5 +1,5 @@
 To create a node group:
-1. In [management console]({{ link-console-main }}), select the folder where you want to create your {{ k8s }} cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create your {{ k8s }} cluster.
 1. In the list of services, select **{{ managed-k8s-name }}**.
 1. Select the {{ k8s }} cluster to create a node group for.
 1. On the {{ k8s }} cluster page, go to the **Node groups** tab.
@@ -9,12 +9,12 @@ To create a node group:
 1. Specify the number of nodes in the group.
 1. Under **Scaling**, select a type:
    * `Fixed`: The number of nodes in the group remains unchanged. Specify the number of nodes in the group.
-   * `Automatic`: The number of nodes in the group can be controlled using automatic cluster scaling.
+   * `Automatic`: The number of nodes in the group can be controlled using [automatic cluster scaling](../../managed-kubernetes/concepts/autoscale.md#ca).
 
-      As a result, the following settings become available:
-      * **Minimum number of nodes**.
-      * **Maximum number of nodes**.
-      * **Initial number of nodes** with which the group will be created.
+     As a result, the following settings become available:
+     * **Minimum number of nodes**.
+     * **Maximum number of nodes**.
+     * **Initial number of nodes** with which the group will be created.
 
    {% note warning %}
 
@@ -27,10 +27,15 @@ To create a node group:
    * Choose a [platform](../../compute/concepts/vm-platforms.md).
    * Specify the required number of vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and RAM.
    * (optional) Specify that the VM must be [preemptible](../../compute/concepts/preemptible-vm.md).
+1. (optional) Under **Placement**, enter a name for a [placement group](../../compute/concepts/placement-groups.md) for your nodes. This setting cannot be edited after the group is created.
 1. Under **Storage**:
    * Specify the **Disk type**:
      * **HDD**: Standard network drive. Network block storage on an HDD.
      * **SSD**: Fast network drive. Network block storage on an SSD.
+     * **Non-replicated SSD**: Improved-performance network drive. You can only change the size of this type of disk in 93 GB increments.
+
+       {% include [nrd-no-backup-note](nrd-no-backup-note.md) %}
+
    * Specify the disk size.
 1. Under **Network settings**:
    * In the **Public IP** field, choose a method for assigning an IP address:

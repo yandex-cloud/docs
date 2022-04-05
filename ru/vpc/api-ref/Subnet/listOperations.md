@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Subnet/listOperations.md
 ---
 
-
 # Method listOperations
 List operations for the specified subnet.
  

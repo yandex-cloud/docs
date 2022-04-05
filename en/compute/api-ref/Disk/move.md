@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Disk/move.md
 ---
 
-
 # Method move
 Moves the specified disk to another folder of the same cloud.
  

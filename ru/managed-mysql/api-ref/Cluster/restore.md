@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/restore.md
 ---
 
-
 # Method restore
 Restores a backup to a new cluster.
  

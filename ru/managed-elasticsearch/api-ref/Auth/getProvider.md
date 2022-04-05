@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/getProvider.md
 ---
 
-
 # Method getProvider
 Returns registered auth provider by name.
  

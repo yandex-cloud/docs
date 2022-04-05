@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/api-ref/grpc/project_data_service.md
 ---
 
-
 # ProjectDataService
 
 A set of methods for managing data of the Project resource.

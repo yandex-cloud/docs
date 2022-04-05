@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/deleteExternalDictionary.md
 ---
 
-
 # Method deleteExternalDictionary
 Deletes the specified external dictionary.
  

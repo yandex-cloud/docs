@@ -24,19 +24,18 @@ If you want requests from one user session to be processed by the same applicati
 
 {% note info %}
 
-Session affinity currently only works if one backend is active (has a positive weight) in a backend group, it consists of one or more target groups, and [balancing mode](#balancing-mode) by hash table (`MAGLEV_HASH`) is selected for it.
+Currently, session affinity only works if a single backend is active (has a positive weight) in a group of backends, includes one or more target groups, and has the [load balancing mode](#balancing-mode) `MAGLEV_HASH` selected.
 
 {% endnote %}
 
 Session affinity mode determines how incoming requests are grouped into one session:
 
 * **By IP address**: Requests received from a single IP address are combined into a session.
-
 * **By HTTP header**: Requests with the same value of the specified HTTP header, such as with user authentication data, are combined into a session.
+* **By cookie**: Requests with the same cookie value and the specified file name are combined into a session.
 
-* **By cookie**: Requests with the same cookie value and the specified file name are combined into a session. For each session, the load balancer generates a cookie with a unique value and sends it in the response to the first request.
-
-  You can specify the lifetime of all generated cookies. If not specified, session cookies are used, which are stored in the client's memory, such as in the browser, and are reset when it's restarted.
+  * If session affinity settings include cookie lifetime, the load balancer generates a cookie with a unique value and sends it in its response to a user's first request. To use session cookies that are stored on a client, such as a browser, and reset when it restarts, specify a lifetime of `0`.
+  * If a lifetime is not specified, the load balancer does not generate cookies. Instead, it only uses cookie values from incoming requests to bind sessions.
 
 ## Protocol and load balancing settings {#settings}
 
@@ -51,24 +50,24 @@ The load balancer and target group VMs can exchange data over HTTP/1.1 or HTTP/2
 
 ### Balancing mode {#balancing-mode}
 
-In the backend settings, you can specify the mode for distributing traffic between backend endpoints (target group VMs).
+In the backend settings, you can specify the mode for distributing traffic between backend endpoints (target group VMs):
 
-The following modes are available by default:
+* `ROUND_ROBIN`: All endpoints will receive requests in turn. After all the endpoints receive one request each, it's the turn of the first endpoint again, and so on.
+* `RANDOM`: A random endpoint is selected to process a request. If no health checks are configured for the backend, random distribution helps avoid increased workloads on the endpoint, which, under round-robin distribution, would be in the queue after a non-working endpoint.
+* `LEAST_REQUEST`: Requests are distributed based on endpoint load using the power of two random choices algorithm. Two backend endpoints are randomly selected and the request is received by the one with fewer connections. The algorithm reduces the load on the most loaded backend endpoint. For more information on the algorithm's workings and efficiency, see [The Power of Two Random Choices: A Survey of Techniques and Results](https://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf) (Mitzenmacher et al.).
+* `MAGLEV_HASH`: Requests are distributed using the Maglev hashing algorithm.
 
-* **In a circle** (`ROUND_ROBIN`): All endpoints will receive requests in turn. After all the endpoints receive one request each, it's the turn of the first endpoint again, and so on.
-* **Random** (`RANDOM`): A random endpoint is selected to process a request. If no health checks are configured for the backend, random distribution helps avoid increased workloads on the endpoint, which, under round-robin distribution, would be in the queue after a non-working endpoint.
-* **By workload** (`LEAST_REQUEST`): Requests are distributed according to the power of two random choices algorithm. Two backend endpoints are randomly selected and the request is received by the one with fewer connections. The algorithm reduces the load on the most loaded backend endpoint. For more information about the performance and efficiency of the algorithm, see [The Power of Two Random Choices: A Survey of Techniques and Results](https://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf) (Mitzenmacher et al.).
-
-If [session affinity](#session-affinity) is enabled for a backend group, there should be one active backend (with a positive weight) in the group with the following balancing mode:
-
-* **By hash table** (`MAGLEV_HASH`): Requests are distributed according to the Maglev hashing algorithm.
   1. For each endpoint, the hash function value is calculated in the range from `0` to `65536`.
   1. Based on the resulting values, a hash table of 65537 rows is fully populated so that each endpoint corresponds to the same number of rows.
-  1. For each incoming request, the load balancer calculates the value of the same hash function and finds a row with the corresponding number in the hash table. This row indicates the endpoint that will process the request. Depending on session affinity mode, the function is calculated using the client's IP address, HTTP header, or cookie value.
+  1. For each incoming request, the load balancer calculates the value of the same hash function and finds a row with the corresponding number in the hash table. This row indicates the endpoint that will process the request. If [session affinity](#session-affinity) is enabled for a group of backends, a hash function is evaluated based on the client's IP address, the HTTP header value, or the cookie file depending on the binding mode.
 
   For more information about the performance and efficiency of the Maglev hashing algorithm, see [Maglev: A Fast and Reliable Software Network Load Balancer](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/44824.pdf) (Eisenbud et al.; chapter 3.4).
 
-If there are several active backends in the group or session affinity is disabled, the backends with the **By hash table** balancing mode selected will distribute traffic randomly, and the other backends will do that depending on the selected modes.
+  {% note info %}
+
+  If a group with session affinity enabled consists of several active backends, the backends with the `MAGLEV_HASH` mode selected will distribute traffic randomly whereas the remaining backends will operate in their selected modes.
+
+  {% endnote %}
 
 ### Panic mode {#panic-mode}
 

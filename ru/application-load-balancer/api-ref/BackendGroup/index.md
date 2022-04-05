@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/index.md
 ---
 
-
 # BackendGroup
 A set of methods for managing backend groups.
 ## JSON Representation {#representation}

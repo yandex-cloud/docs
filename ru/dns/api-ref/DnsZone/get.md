@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dns/api-ref/DnsZone/get.md
 ---
 
-
 # Method get
 Returns the specified DNS zone.
  

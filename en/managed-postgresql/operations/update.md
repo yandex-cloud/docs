@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
+* [Increase the storage size](#change-disk-size) (only available for [storage types](../concepts/storage.md) `network-hdd` and `network-ssd`).
 
 * [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
@@ -33,6 +33,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **Host class**, select the class for the {{ PG }} hosts.
@@ -84,7 +85,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       For information about how to create this file, see [{#T}](cluster-create.md).
 
-  1. In the {{ mpg-name }} cluster description, change the `resource_preset_id` attribute value under `config.resources`:
+  1. In the cluster description, {{ mpg-name }} change the `resource_preset_id` attribute value under `config.resources`:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
@@ -106,7 +107,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -124,9 +125,14 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 {% endnote %}
 
+{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+
 {% list tabs %}
 
 - Management console
+
+  To increase the storage size for a cluster:
+
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **Storage size**, specify the required value.
@@ -140,33 +146,13 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
   To increase the storage size for a cluster:
 
-  
-  1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
-
-      ```bash
-      {{ yc-mdb-pg }} cluster get <cluster ID or name>
-      ```
-
-      ```text
-      id: c7qkvr3u78qiopj3u4k2
-      folder_id: b1g0ftj57rrjk9thribv
-      ...
-      config:
-        ...
-        resources:
-          resource_preset_id: s1.micro
-          disk_size: "10737418240"
-          disk_type_id: network-ssd
-      ...
-      ```
-
   1. View a description of the CLI's update cluster command:
 
      ```bash
      {{ yc-mdb-pg }} cluster update --help
      ```
 
-  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mpg-full-name }} section still has space available in the **space** line.
+  1. Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **HDD storage capacity** or **SSD storage capacity** line.
 
   1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
 
@@ -179,11 +165,13 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 - Terraform
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  To increase the storage size for a cluster:
+
+  1. Open the current configuration file {{ TF }} with an infrastructure plan.
 
       For information about how to create this file, see [{#T}](cluster-create.md).
 
-  1. In the {{ mpg-name }} cluster description, change the `disk_size` attribute value under `config.resources`:
+  1. In the cluster description, {{ mpg-name }} change the `disk_size` attribute value under `config.resources`:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
@@ -205,13 +193,17 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
-  Use the API [update](../api-ref/Cluster/update.md) method and transmit the requisite values in the `configSpec.postgresqlConfig_<version>.resources.diskSize`.
+  To increase the storage size for a cluster, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mpg-full-name }} section still has space available in the **space** line.
+  * The cluster ID in the `clusterId` parameter.
+  * New storage size in the `configSpec.postgresqlConfig_<version {{ PG }}>.resources.diskSize` parameter.
+  * List of cluster configuration fields to be changed in the `updateMask` parameter.
+
+      {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -228,6 +220,7 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **Configure** under **DBMS settings**.
@@ -296,11 +289,11 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
-  Use the API [update](../api-ref/Cluster/update.md) method and transmit the requisite values in the `configSpec.postgresqlConfig_<version>.config`.
+  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.postgresqlConfig_<version>.config` parameter.
 
 {% endlist %}
 
@@ -311,9 +304,7 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
 - Management console
 
   1. Go to the folder page and select **{{ mpg-name }}**.
-
   1. Select the cluster and click **Edit cluster** in the top panel.
-
   1. Change additional cluster settings:
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
@@ -339,19 +330,27 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
             --backup-window-start <backup start time> \
             --datalens-access=<true or false> \
             --maintenance-window type=<weekly or anytime> \
-            --websql-access=<true or false>
+            --websql-access=<true or false> \
             --deletion-protection=<protect cluster from deletion: true or false> \
+            --connection-pooling-mode=<connections manager operating mode> \
             --serverless-access=<true or false>
         ```
 
     You can change the following settings:
 
     {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+
     * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
 
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
 
-    * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. The default value is `false`.
+    
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+    * `--connection-pooling-mode` — specifies [connections manager operating mode](../concepts/pooling.md): `SESSION`, `TRANSACTION` or `STATEMENT`.
+
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
     {% include [deletion-protection-db](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
 
@@ -393,6 +392,21 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
       }
       ```
 
+  1. To change [connections manager operating mode](../concepts/pooling.md), add a block named `config.pooler_config` to the {{ mpg-name }} block:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        config {
+          pooler_config {
+            pool_discard = <parameter Odyssey pool_discard: true or false>
+            pooling_mode = "<operating mode: SESSION, TRANSACTION or STATEMENT>"
+          }
+          ...
+        }
+      }
+      ```
+
   1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
@@ -412,31 +426,31 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
     * The cluster ID in the `clusterId` parameter.
-
     * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
-
     * Backup window settings in the `configSpec.backupWindowStart` parameter.
-
     * Cluster deletion protection settings in the `deletionProtection` parameter.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-     You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
+    You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
 
     {% note warning %}
 
-    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, pass the names of the fields to be changed in the `updateMask` parameter.
+    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
 
     {% endnote %}
+
+  
+  To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 {% endlist %}
 
@@ -500,7 +514,7 @@ You can set session or transaction mode for the connection pooler. For more info
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -524,6 +538,7 @@ To switch the master:
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you want and select the **Hosts** tab.
   1. Click **![image](../../_assets/pencil.svg) Switching the master**.
@@ -570,7 +585,7 @@ To switch the master:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - Terraform
 
@@ -608,11 +623,13 @@ To switch the master:
 
 {% endlist %}
 
+
 ## Changing security groups {#change-sg-set}
 
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **Network settings**, select security groups for cluster network traffic.
@@ -642,7 +659,7 @@ To switch the master:
 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For information about how to create this file, see [{#T}](cluster-create.md).
+      For information about how to create such a file, see [{#T}](cluster-create.md).
 
   1. Change the value of the `security_group_ids` parameter in the cluster description:
 
@@ -661,11 +678,12 @@ To switch the master:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
   * The list of groups in the `securityGroupIds` parameter.
   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
@@ -677,4 +695,3 @@ To switch the master:
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
-

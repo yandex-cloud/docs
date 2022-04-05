@@ -4,5 +4,4 @@ description: "База данных (БД) YDB — это изолированн
 sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/databases/intro.md
 ---
 
-
 # Термины и определения

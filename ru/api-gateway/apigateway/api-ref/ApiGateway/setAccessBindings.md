@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/setAccessBindings.md
 ---
 
-
 # Method setAccessBindings
 Sets access bindings for the specified API gateway.
  

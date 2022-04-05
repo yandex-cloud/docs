@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/get.md
 ---
 
-
 # Method get
 Returns the specified Greenplum® cluster.
  

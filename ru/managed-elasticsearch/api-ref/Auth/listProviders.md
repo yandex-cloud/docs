@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/listProviders.md
 ---
 
-
 # Method listProviders
 Retrieves the list of registered auth providers for Elasticsearch cluster.
  

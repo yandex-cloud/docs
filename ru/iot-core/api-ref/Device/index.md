@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/Device/index.md
 ---
 
-
 # Device
 A set of methods for managing devices.
 ## JSON Representation {#representation}

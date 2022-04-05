@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/delete.md
 ---
 
-
 # Method delete
 Deletes the specified function.
  

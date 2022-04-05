@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/move.md
 ---
 
-
 # Method move
 Moves the specified Apache Kafka® cluster to the specified folder.
  

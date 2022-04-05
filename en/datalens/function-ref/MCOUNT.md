@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/MCOUNT.md
 ---
 
-
 # MCOUNT (window)
 
 
@@ -53,25 +52,111 @@ Only constant values are accepted for the arguments (`rows_1`, `rows_2`).
 
 #### Examples {#examples}
 
-```
-MCOUNT([Profit], -2)
-```
+{% cut "Example with two and three arguments" %}
 
-```
-MCOUNT([Profit], 3)
-```
 
-```
-MCOUNT([Profit] 5, 5 TOTAL)
-```
+Source data
 
-```
-MCOUNT([Profit], -5 WITHIN [Date])
-```
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
 
-```
-MCOUNT([Profit], -5 AMONG [Date])
-```
+Grouped by `[City]`.
+
+Sorted by `[City]`.
+
+Result
+
+| **[City]**        | **SUM([Orders])**   | **MCOUNT(SUM([Orders]), 1)**   | **MCOUNT(SUM([Orders]), -2)**   | **MCOUNT(SUM([Orders]) 1, 1)**   |
+|:------------------|:--------------------|:-------------------------------|:--------------------------------|:---------------------------------|
+| `'Detroit'`       | `32`                | `1`                            | `3`                             | `2`                              |
+| `'London'`        | `11`                | `2`                            | `3`                             | `3`                              |
+| `'Moscow'`        | `6`                 | `2`                            | `2`                             | `3`                              |
+| `'San Francisco'` | `28`                | `2`                            | `1`                             | `2`                              |
+
+{% endcut %}
+
+{% cut "Example with ORDER BY" %}
+
+
+Source data
+
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
+
+Grouped by `[City]`.
+
+Sorted by `[City]`.
+
+Result
+
+| **[City]**        | **SUM([Orders])**   | **MCOUNT(SUM([Orders]), 1 ORDER BY [City] DESC)**   | **MCOUNT(SUM([Orders]), 1 ORDER BY [Order Sum])**   |
+|:------------------|:--------------------|:----------------------------------------------------|:----------------------------------------------------|
+| `'Detroit'`       | `32`                | `2`                                                 | `2`                                                 |
+| `'London'`        | `11`                | `2`                                                 | `2`                                                 |
+| `'Moscow'`        | `6`                 | `2`                                                 | `1`                                                 |
+| `'San Francisco'` | `28`                | `1`                                                 | `2`                                                 |
+
+{% endcut %}
+
+{% cut "Example with grouping" %}
+
+
+Source data
+
+| **Date**       | **City**          | **Category**        | **Orders**   | **Profit**   |
+|:---------------|:------------------|:--------------------|:-------------|:-------------|
+| `'2019-03-01'` | `'London'`        | `'Office Supplies'` | `8`          | `120.80`     |
+| `'2019-03-04'` | `'London'`        | `'Office Supplies'` | `2`          | `100.00`     |
+| `'2019-03-05'` | `'London'`        | `'Furniture'`       | `1`          | `750.00`     |
+| `'2019-03-02'` | `'Moscow'`        | `'Furniture'`       | `2`          | `1250.50`    |
+| `'2019-03-03'` | `'Moscow'`        | `'Office Supplies'` | `4`          | `85.00`      |
+| `'2019-03-01'` | `'San Francisco'` | `'Office Supplies'` | `23`         | `723.00`     |
+| `'2019-03-01'` | `'San Francisco'` | `'Furniture'`       | `1`          | `1000.00`    |
+| `'2019-03-03'` | `'San Francisco'` | `'Furniture'`       | `4`          | `4000.00`    |
+| `'2019-03-02'` | `'Detroit'`       | `'Furniture'`       | `5`          | `3700.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Office Supplies'` | `25`         | `1200.00`    |
+| `'2019-03-04'` | `'Detroit'`       | `'Furniture'`       | `2`          | `3500.00`    |
+
+Grouped by `[City]`, `[Category]`.
+
+Sorted by `[City]`, `[Category]`.
+
+Result
+
+| **[City]**        | **[Category]**      | **SUM([Orders])**   | **MCOUNT(SUM([Orders]), 1 TOTAL)**   | **MCOUNT(SUM([Orders]), 1 WITHIN [City])**   | **MCOUNT(SUM([Orders]), 1 AMONG [City])**   |
+|:------------------|:--------------------|:--------------------|:-------------------------------------|:---------------------------------------------|:--------------------------------------------|
+| `'Detroit'`       | `'Furniture'`       | `7`                 | `1`                                  | `1`                                          | `1`                                         |
+| `'Detroit'`       | `'Office Supplies'` | `25`                | `2`                                  | `2`                                          | `2`                                         |
+| `'London'`        | `'Furniture'`       | `1`                 | `2`                                  | `1`                                          | `2`                                         |
+| `'London'`        | `'Office Supplies'` | `10`                | `2`                                  | `2`                                          | `2`                                         |
+| `'Moscow'`        | `'Furniture'`       | `2`                 | `2`                                  | `1`                                          | `2`                                         |
+| `'Moscow'`        | `'Office Supplies'` | `4`                 | `2`                                  | `2`                                          | `2`                                         |
+| `'San Francisco'` | `'Furniture'`       | `5`                 | `2`                                  | `1`                                          | `2`                                         |
+| `'San Francisco'` | `'Office Supplies'` | `23`                | `2`                                  | `2`                                          | `1`                                         |
+
+{% endcut %}
 
 
 #### Data source support {#data-source-support}

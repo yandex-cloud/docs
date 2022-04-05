@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/index.md
 ---
 
-
 # LifecyclePolicy
 A set of methods for managing Lifecycle policy resources.
 ## JSON Representation {#representation}

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/dns/api-ref/grpc/dns_zone_service.md
 ---
 
-
 # DnsZoneService
 
 A set of methods for managing DNS zones.

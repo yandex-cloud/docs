@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/list.md
 ---
 
-
 # Method list
 Retrieves the list of Kafka topics in the specified cluster.
  

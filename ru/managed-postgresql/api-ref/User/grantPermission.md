@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/User/grantPermission.md
 ---
 
-
 # Method grantPermission
 Grants permission to the specified PostgreSQL user.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/security_group_service.md
 ---
 
-
 # SecurityGroupService
 
 

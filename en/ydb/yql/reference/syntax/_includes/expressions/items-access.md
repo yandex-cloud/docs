@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/items-access.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/items-access.md
 ---
-
 ## Accessing containers {#items-access}
 
 For accessing the values inside containers:

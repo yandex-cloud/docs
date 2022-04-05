@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/start.md
 ---
 
-
 # Method start
 Start the specified Redis cluster.
  

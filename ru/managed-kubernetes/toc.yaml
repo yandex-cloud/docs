@@ -23,6 +23,8 @@ items:
         items:
           - name: Основы работы с {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Установка Jaeger
+            href: operations/applications/jaeger.md
           - name: Установка Metrics Provider
             href: operations/applications/metrics-provider.md
       - name: Сетевые сценарии
@@ -112,6 +114,12 @@ items:
         href: tutorials/fluent-bit-logging.md
       - name: Синхронизация с секретами Yandex Lockbox
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: Использование продуктов {{ marketplace-full-name }}
+        items:
+          - name: >-
+              Использование Jaeger для трассировки запросов в {{ ydb-full-name
+              }}
+            href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -223,7 +231,17 @@ items:
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
-        href: qa/index.md
+        href: qa/general.md
+      - name: Хранилище данных
+        href: qa/volumes.md
+      - name: Настройка и обновление
+        href: qa/settings.md
       - name: Автоматическое масштабирование
         href: qa/cluster-autoscaler.md
+      - name: Ресурсы
+        href: qa/resources.md
+      - name: Логи
+        href: qa/logs.md
+      - name: Все вопросы на одной странице
+        href: qa/all.md
 base: ru/managed-kubernetes

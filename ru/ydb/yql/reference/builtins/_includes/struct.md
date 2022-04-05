@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/struct.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/struct.md
 ---
-
 # Функции для работы со структурами
 
 ## TryMember {#trymember}

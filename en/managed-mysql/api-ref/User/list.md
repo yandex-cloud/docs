@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/User/list.md
 ---
 
-
 # Method list
 Retrieves the list of users in a cluster.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Federation/delete.md
 ---
 
-
 # Method delete
 Deletes the specified federation.
  

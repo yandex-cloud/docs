@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/k8s/api-ref/Cluster/index.md
 ---
 
-
 # Cluster
 A set of methods for managing Kubernetes cluster.
 ## JSON Representation {#representation}

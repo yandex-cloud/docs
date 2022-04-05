@@ -76,7 +76,7 @@ Create a new domain zone:
 
 {% endlist %}
 
-### Test the availability of domain names in the internal zone {#test-resolving}
+### Test the availability of domain names in the internal zone {#test-private-resolving}
 
 Connect to `test-vm-1` via SSH:
 
@@ -97,7 +97,7 @@ host test-vm-2.testing.
 test-vm-2.testing has address 10.0.0.9
 ```
 
-## Create a public DNS zone
+## Create a public DNS zone {#create-public-zone}
 
 If you have a registered domain name, you can create a public domain zone and add a record to it. In the example, we'll use the `example.com` domain name.
 
@@ -153,7 +153,7 @@ Create a new public domain zone:
 
 Delegate your domain name by specifying the addresses of the `ns1.yandexcloud.net.` and `ns2.yandexcloud.net.` name servers in {{ yandex-cloud }} at your registrar.
 
-### Test the availability of domain names in the public zone {#test-resolving}
+### Test the availability of domain names in the public zone {#test-public-resolving}
 
 Make sure that the created record points to the VM's public IP address. Run the following command on your computer:
 

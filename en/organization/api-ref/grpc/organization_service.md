@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/organization-manager/api-ref/grpc/organization_service.md
 ---
 
-
 # OrganizationService
 
 A set of methods for managing Organization resources.

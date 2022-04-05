@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-clickhouse/api-ref/grpc/user_service.md
 ---
 
-
 # UserService
 
 A set of methods for managing ClickHouse User resources. 

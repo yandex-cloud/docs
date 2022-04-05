@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/start.md
 ---
 
-
 # Method start
 Starts the specified Apache Kafka® cluster.
  

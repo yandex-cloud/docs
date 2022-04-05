@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/index.md
 ---
 
-
 # Function
 A set of methods for managing serverless functions.
 ## JSON Representation {#representation}

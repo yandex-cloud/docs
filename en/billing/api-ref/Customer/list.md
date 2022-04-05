@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Customer/list.md
 ---
 
-
 # Method list
 Retrieves the list of customers associated with the specified reseller.
  

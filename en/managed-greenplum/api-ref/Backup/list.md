@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Backup/list.md
 ---
 
-
 # Method list
 Returns the list of available backups for the specified Greenplum® cluster.
  

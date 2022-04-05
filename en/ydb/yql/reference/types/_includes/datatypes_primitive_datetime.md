@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_datetime.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_datetime.md
 ---
-
 | Type | Description | Notes |
 | ----- | ----- | ----- |
 | `Date` | Date, precision to the day |

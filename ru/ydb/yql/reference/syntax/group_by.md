@@ -3,7 +3,6 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/gr
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/group_by.md
 ---
 
-
 {% include [x](_includes/group_by/general.md) %}
 
 {% include [x](_includes/group_by/session_window.md) %}

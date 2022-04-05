@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/hyperscan.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/hyperscan.md
 ---
-
 # Hyperscan
 
 [Hyperscan](https://www.hyperscan.io) is an opensource library for regular expression matching developed by Intel.

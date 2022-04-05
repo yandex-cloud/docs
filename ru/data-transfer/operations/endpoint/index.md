@@ -75,6 +75,58 @@
             * [{{ MY }}](target/mysql.md).
             * [{{ PG }}](target/postgresql.md).
 
+- Terraform
+
+    {% note info %}
+
+    Создание эндпоинта с помощью Terraform поддерживается только для источников и приемников типа {{ MY }} и {{ PG }}.
+
+    {% endnote %}
+
+    {% include [terraform-definition](../../../_includes/tutorials/terraform-definition.md) %}
+
+    Чтобы создать эндпоинт:
+
+    1. В командной строке перейдите в директорию, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
+
+        1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Создайте конфигурационный файл с описанием эндпоинта.
+
+       Пример структуры конфигурационного файла:
+
+       ```hcl
+       resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+         name = "<имя эндпоинта>"
+         settings {
+           <тип эндпоинта> {
+             <параметры эндпоинта>
+           }
+         }
+       }
+       ```
+
+       Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
+
+       * Источники:
+
+           * [{{ MY }}](source/mysql.md).
+           * [{{ PG }}](source/postgresql.md).
+
+       * Приемники:
+
+           * [{{ MY }}](target/mysql.md).
+           * [{{ PG }}](target/postgresql.md).
+
+    1. Проверьте корректность настроек.
+
+       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
 - API
 
     {% note info %}
@@ -130,6 +182,23 @@
             * [{{ ydb-name }}](target/yandex-database.md).
 
     1. Нажмите кнопку **Применить**.
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с описанием эндпоинта.
+
+        О том, как создать такой файл, см. в подразделе [Создать эндпоинт](#create).
+
+    1. Измените значение поля `name` (имя эндпоинта) и параметры эндпоинта в блоке `settings`.
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API
 
@@ -197,6 +266,10 @@
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) в консоли управления и выберите сервис **{{ data-transfer-full-name }}**.
     1. Нажмите на нужный эндпоинт.
+
+- Terraform
+
+    {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
 
 - API
 

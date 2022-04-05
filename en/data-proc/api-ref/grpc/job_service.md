@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/data-proc/api-ref/grpc/job_service.md
 ---
 
-
 # JobService
 
 A set of methods for managing Data Proc jobs.

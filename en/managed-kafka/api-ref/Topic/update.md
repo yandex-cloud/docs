@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/update.md
 ---
 
-
 # Method update
 Updates the specified Kafka topic.
  

@@ -4,7 +4,6 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/string-functions.md
 ---
 
-
 # Строковые функции
 
 

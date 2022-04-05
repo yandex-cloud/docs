@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/if.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/if.md
 ---
-
 ## IF {#if}
 
 Проверяет условие `IF(condition_expression, then_expression, else_expression)`.

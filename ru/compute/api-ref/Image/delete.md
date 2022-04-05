@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Image/delete.md
 ---
 
-
 # Method delete
 Deletes the specified image.
  

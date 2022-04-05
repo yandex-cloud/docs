@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Subnet/update.md
 ---
 
-
 # Method update
 Updates the specified subnet.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

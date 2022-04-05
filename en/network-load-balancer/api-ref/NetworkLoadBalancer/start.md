@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/start.md
 ---
 
-
 # Method start
 Starts load balancing and health checking with the specified network load balancer with specified settings.
 Changes network load balancer status to `` ACTIVE ``.

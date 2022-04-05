@@ -17,7 +17,7 @@
 
 - Консоль управления
 
-  1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
   1. Выберите сервис **{{ mmy-name }}**.
   1. Нажмите кнопку **Создать кластер**.
   1. Введите имя кластера в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога.
@@ -73,7 +73,7 @@
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
-     $ yc vpc subnet list
+     yc vpc subnet list
      ```
      
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
@@ -82,25 +82,25 @@
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      $ {{ yc-mdb-my }} cluster create --help
+      {{ yc-mdb-my }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания:
 
      ```bash
      {{ yc-mdb-my }} cluster create \
-        --name=<имя кластера> \
-        --environment <окружение, prestable или production> \
-        --network-name <имя сети> \
-        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-        --mysql-version <версия MySQL> \
-        --resource-preset <класс хоста> \
-        --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных> \
-        --disk-size <размер хранилища в гигабайтах> \
-        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --security-group-ids <список идентификаторов групп безопасности> \
-        --deletion-protection=<защита от удаления кластера: true или fasle>
+       --name=<имя кластера> \
+       --environment <окружение, prestable или production> \
+       --network-name <имя сети> \
+       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+       --mysql-version <версия MySQL> \
+       --resource-preset <класс хоста> \
+       --user name=<имя пользователя>,password=<пароль пользователя> \
+       --database name=<имя базы данных> \
+       --disk-size <размер хранилища в гигабайтах> \
+       --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+       --security-group-ids <список идентификаторов групп безопасности> \
+       --deletion-protection=<защита от удаления кластера: true или fasle>
      ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -236,61 +236,61 @@
   Допустим, нужно создать {{ MY }}-кластер со следующими характеристиками:
 
     
-    - С именем `my-mysql`.
-    - Версии `8.0`.
-    - В окружении `production`.
-    - В сети `default`.
-    - В группе безопасности с идентификатором `{{ security-group }}`.
-    - С одним хостом класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
-    - С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 Гб.
-    - С одним пользователем (`user1`), с паролем `user1user1`.
-    - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
-    - С защитой от случайного удаления кластера.
+    * С именем `my-mysql`.
+    * Версии `8.0`.
+    * В окружении `production`.
+    * В сети `default`.
+    * В группе безопасности с идентификатором `{{ security-group }}`.
+    * С одним хостом класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
+    * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 Гб.
+    * С одним пользователем (`user1`), с паролем `user1user1`.
+    * С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+    * С защитой от случайного удаления кластера.
 
   1. Запустите команду создания кластера:
 
       
       ```bash
       {{ yc-mdb-my }} cluster create \
-         --name="my-mysql" \
-         --mysql-version 8.0 \
-         --environment=production \
-         --network-name=default \
-         --security-group-ids {{ security-group }} \
-         --host {{ host-net-example }} \
-         --resource-preset {{ host-class }} \
-         --disk-type {{ disk-type-example }} \
-         --disk-size 20 \
-         --user name=user1,password="user1user1" \
-         --database name=db1 \
-         --deletion-protection=true
+        --name="my-mysql" \
+        --mysql-version 8.0 \
+        --environment=production \
+        --network-name=default \
+        --security-group-ids {{ security-group }} \
+        --host {{ host-net-example }} \
+        --resource-preset {{ host-class }} \
+        --disk-type {{ disk-type-example }} \
+        --disk-size 20 \
+        --user name=user1,password="user1user1" \
+        --database name=db1 \
+        --deletion-protection=true
       ```
 
   1. Запустите команду изменения привилегий пользователя `user1`.
 
       ```bash
       {{ yc-mdb-my }} user grant-permission user1 \
-         --cluster-name="my-mysql" \
-         --database=db1 \
-         --permissions ALL
+        --cluster-name="my-mysql" \
+        --database=db1 \
+        --permissions ALL
       ```
 
 - Terraform
 
   Допустим, нужно создать {{ MY }}-кластер и сеть для него со следующими характеристиками:
 
-    - С именем `my-mysql`.
-    - Версии `8.0`.
-    - В окружении `PRESTABLE`.
-    - В облаке с идентификатором `{{ tf-cloud-id }}`.
-    - В каталоге с идентификатором `{{ tf-folder-id }}`.
-    - В новой сети `mynet`.
-    - С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    - В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
-    - С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
-    - С одним пользователем (`user1`), с паролем `user1user1`.
-    - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
-    - С защитой от случайного удаления кластера.
+    * С именем `my-mysql`.
+    * Версии `8.0`.
+    * В окружении `PRESTABLE`.
+    * В облаке с идентификатором `{{ tf-cloud-id }}`.
+    * В каталоге с идентификатором `{{ tf-folder-id }}`.
+    * В новой сети `mynet`.
+    * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
+    * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
+    * С одним пользователем (`user1`), с паролем `user1user1`.
+    * С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+    * С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
 

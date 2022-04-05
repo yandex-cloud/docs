@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Job/list.md
 ---
 
-
 # Method list
 Retrieves a list of jobs for a cluster.
  

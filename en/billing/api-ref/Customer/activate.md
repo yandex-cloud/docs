@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Customer/activate.md
 ---
 
-
 # Method activate
 Activates specified customer. After customer is activated, he can use resources associated with his billing account.
  

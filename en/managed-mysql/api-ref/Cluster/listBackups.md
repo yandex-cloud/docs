@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/listBackups.md
 ---
 
-
 # Method listBackups
 Retrieves a list of backups for a cluster.
  

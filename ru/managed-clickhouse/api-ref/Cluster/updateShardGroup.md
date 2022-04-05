@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/updateShardGroup.md
 ---
 
-
 # Method updateShardGroup
 Updates the specified shard group.
  

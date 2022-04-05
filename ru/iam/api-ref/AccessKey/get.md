@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/AccessKey/get.md
 ---
 
-
 # Method get
 Returns the specified access key.
  

@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/window.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/window.md
 ---
-
 # OVER, PARTITION BY, and WINDOW
 
 Window functions were introduced in the SQL:2003 standard and expanded in the SQL:2011 standard. They let you run calculations on a set of table rows that are related to the current row in some way.

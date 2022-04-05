@@ -8,7 +8,11 @@
 
 {% include notitle [vm](vm.md) %}
 
-## Disks and snapshots {#disks}
+## Connection {#connection}
+
+{% include notitle [connection](connection.md) %}
+
+## Disks, snapshots, and image {#disks}
 
 {% include notitle [disks](disks.md) %}
 
@@ -16,7 +20,10 @@
 
 {% include notitle [disks](../_includes_service/instance-groups/general.md) %}
 
+## Monitoring {#monitoring}
+
+{% include notitle [monitoring](monitoring.md) %}
+
 ## Licensing {#licensing}
 
 {% include notitle [licensing](../../_includes/compute/qa-licensing.md) %}
-

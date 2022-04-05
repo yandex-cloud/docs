@@ -402,11 +402,11 @@
         }
         ```
 
-    2. Проверьте корректность настроек.
+    1. Проверьте корректность настроек.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    3. Подтвердите изменение ресурсов.
+    1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -420,9 +420,8 @@
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Список настроек, которые необходимо изменить, в параметре `updateMask` (одной строкой через запятую). Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
     * Новые значения [настроек {{ KF }}](../concepts/settings-list.md#cluster-settings) в параметре:
-        * `configSpec.kafka.kafkaConfig_2_1`, если используете {{ KF }} версии `2.1`;
-        * `configSpec.kafka.kafkaConfig_2_6`, если используете {{ KF }} версии `2.6`;
-        * `configSpec.kafka.kafkaConfig_2_8`, если используете {{ KF }} версии `2.8`.
+        * `configSpec.kafka.kafkaConfig_2_8`, если используете {{ KF }} версии `2.8`;
+        * `configSpec.kafka.kafkaConfig_3_0`, если используете {{ KF }} версии `3.0`.
 
 {% endlist %}
 

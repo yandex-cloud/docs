@@ -2,7 +2,6 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/simple.md
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/simple.md
 ---
-
 ## COUNT {#count}
 
 Подсчет количества строк в таблице (если в качестве аргумента указана `*` или константа) или непустых значений в столбце таблицы (если в качестве аргумента указано имя столбца).

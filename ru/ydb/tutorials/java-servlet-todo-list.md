@@ -4,7 +4,6 @@ description: "В этом сценарии вы узнаете, как с пом
 sourcePath: ru/ydb/overlay/tutorials/java-servlet-todo-list.md
 ---
 
-
 # Развертывание веб-приложения с использованием Java Servlet API
 
 {% include [java-servlet-todo-list](../../_includes/java-servlet-todo-list.md) %}

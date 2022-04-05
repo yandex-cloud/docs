@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/stop.md
 ---
 
-
 # Method stop
 Stop the specified MongoDB cluster.
  

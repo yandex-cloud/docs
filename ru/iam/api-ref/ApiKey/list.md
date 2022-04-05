@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/ApiKey/list.md
 ---
 
-
 # Method list
 Retrieves the list of API keys for the specified service account.
  

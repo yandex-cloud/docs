@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/AccessKey/delete.md
 ---
 
-
 # Method delete
 Deletes the specified access key.
  

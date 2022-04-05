@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/HostGroup/create.md
 ---
 
-
 # Method create
 Creates a host group in the specified folder.
  

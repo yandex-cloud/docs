@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/index.md
 ---
 
-
 # SymmetricKey
 Set of methods for managing symmetric KMS keys.
 ## JSON Representation {#representation}

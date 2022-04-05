@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified federation.
  

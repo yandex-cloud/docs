@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/listUserAccounts.md
 ---
 
-
 # Method listUserAccounts
 Lists users for the specified federation.
  

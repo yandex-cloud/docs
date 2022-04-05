@@ -4,7 +4,6 @@ description: "This section describes how to use the AWS SDK for several programm
 sourcePath: en/ydb/overlay/quickstart/document-api/aws-sdk/index.md
 ---
 
-
 # Overview
 
 This section describes how to use the AWS SDK for several programming languages to write simple programs that perform the following operations in {{ ydb-short-name }}:

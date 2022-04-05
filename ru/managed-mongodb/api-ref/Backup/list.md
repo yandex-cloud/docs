@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Backup/list.md
 ---
 
-
 # Method list
 Retrieves the list of backups available for the specified folder.
  

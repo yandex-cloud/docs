@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/grantPermission.md
 ---
 
-
 # Method grantPermission
 Grants a permission to the specified ClickHouse user.
  

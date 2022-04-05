@@ -1,12 +1,12 @@
 # CDN resource
 
-_A resource_ is the main logical entity in {{ cdn-full-name }} that lets you configure and manage content distribution from [origins](origins.md) over a CDN.
+A _resource_ is the main logical entity in {{ cdn-full-name }} that lets you configure and manage content distribution from [origins](origins.md) over a CDN.
 
-To start distributing content over a CDN, create a resource according to the [instructions](../operations/resources/create-resource.md) and specify the following in it:
+To start distributing content over a CDN, create a resource by following the [instructions](../operations/resources/create-resource.md) and specify the following in it:
 
 * The origin or origin group that hosts your content.
-* [The domain names for content distribution](#hostnames).
-* Basic settings for exchanging data [between clients and the CDN](clients-to-servers.md) and [between the CDN and origins](servers-to-origins.md).
+* [Domain names for content distribution](#hostnames).
+* Basic settings for exchanging data [between clients and the CDN](clients-to-servers.md) and between [the CDN and origins](servers-to-origins.md).
 
 After creating a resource, you can also configure for it:
 
@@ -15,11 +15,13 @@ After creating a resource, you can also configure for it:
 * Processing of [cross-domain queries (CORS)](cors.md).
 * [Compression](compression.md) and [segmentation](slicing.md) of content.
 
-It may take up to 15 minutes for the new resource settings to apply to CDN servers.
+{% include [after-changes-tip](../../_includes/cdn/after-changes-tip.md) %}
 
 ## Domain names for content distribution {#hostnames}
 
 _Domain names for content distribution_ are used in client requests to CDN servers. For example, to make the file `styles/common.css` available at `cdn.example.com/styles/common.css`, you need to enter `cdn.example.com` as a domain name.
+
+{{ cdn-name }} supports any domain names, including [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name) with local non-ASCII characters, for example, Cyrillic. Now you can specify the name in the original form (`пример.рф`) or transform them to [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) with the `xn--` (`xn--e1afmkfd.xn--p1ai`) prefixes added. In the [management console]({{ link-console-main }}), resource details show IDNs in the original form with no transformation to Punycode.
 
 When creating a resource, you must enter at least one domain name. The first name you enter is the primary domain name, and you can't change it after you create a resource.
 
@@ -28,11 +30,11 @@ For the resource to run properly, you must have:
 * Rights to all the domain names you entered.
 * Access to DNS settings for domain names.
 
-  For each name, in the settings of your DNS hosting, you must create a CNAME record linking this name with the domain name of the CDN load balancer, in the format `cl-<random characters>.gcdn.co`. It's displayed when creating a resource and also in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
+   For each name, in the settings of your DNS hosting, you must create a CNAME record linking this name with the domain name of the CDN load balancer, in the format `cl-<random characters>.gcdn.co`. It's displayed when creating a resource and also in the management console (on the page of an existing resource). This is a sample record for the `cdn.example.com` domain name:
 
-  ```
-  cdn.example.com. CNAME cl-4sne12sd.gcdn.co
-  ```
+   ```
+   cdn.example.com. CNAME cl-4sne12sd.gcdn.co
+   ```
 
 ## Resource usage statistics {#stats}
 

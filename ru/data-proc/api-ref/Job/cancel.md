@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Job/cancel.md
 ---
 
-
 # Method cancel
 Cancels the specified Dataproc job.
  

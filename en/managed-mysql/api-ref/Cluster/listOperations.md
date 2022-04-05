@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/listOperations.md
 ---
 
-
 # Method listOperations
 Retrieves a list of operations for a cluster.
  

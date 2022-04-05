@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/api-ref/grpc/resource_service.md
 ---
 
-
 # ResourceService
 
 Provider's resources management service.

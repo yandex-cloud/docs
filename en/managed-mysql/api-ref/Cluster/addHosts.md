@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/addHosts.md
 ---
 
-
 # Method addHosts
 Adds new hosts in a cluster.
  

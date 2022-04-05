@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/streamLogs.md
 ---
 
-
 # Method streamLogs
 Retrieves a log stream for a cluster.
  

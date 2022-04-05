@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/Project/create.md
 ---
 
-
 # Method create
 Creates a project in the specified folder.
  

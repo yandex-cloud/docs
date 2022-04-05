@@ -2,6 +2,7 @@
 title: "MySQL backup management"
 description: "You can back up and restore clusters from your existing MySQL backups. Point-in-Time Recovery (PITR) technology allows you to restore the state of the cluster to any point in time from the backup to the current moment."
 ---
+
 # Managing backups
 
 You can create backups and restore clusters from existing backups, including point-in-time recovery. For more information, see [{#T}](../concepts/backup.md).
@@ -15,37 +16,24 @@ For a new cluster, you should set all the parameters that are required at creati
 - Management console
 
   To restore an existing cluster from a backup:
-
   1. Go to the folder page and select **{{ mmy-name }}**.
-
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
-
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-
-  1. To restore the cluster state [to the desired point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), configure the **Date and time of recovery (UTC)** setting.
+  1. To restore the cluster state [at the required point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), set the desired setting value **Recovery date and time (UTC)**.
 
      If you don't change the setting, the cluster is restored to the state when the backup was completed.
-
   1. Click **Restore cluster**.
 
   To restore a previously deleted cluster from a backup:
-
   1. Go to the folder page and select **{{ mmy-name }}**.
-
   1. Click the **Backups** tab.
-
   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
-
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-
   1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC)** setting. You can enter the value manually or select it from the drop-down calendar.
 
      If you don't change the setting, the cluster is restored to the state when the backup was completed.
-
   1. Click **Restore cluster**.
 
   {{ mmy-name }} launches the operation to create a cluster from the backup.
@@ -108,11 +96,12 @@ For a new cluster, you should set all the parameters that are required at creati
       * In the `{{ network-name }}` network.
       * With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       * With databases and users that existed in the cluster at the time of recovery.
-      * With 20 GB fast network storage (`{{ disk-type-example }}`).
+      * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 
 - Terraform
 
   Use Terraform to restore:
+
   * An existing cluster from a backup.
   * A cluster created and deleted via the management console, CLI, or API.
 
@@ -205,6 +194,7 @@ For a new cluster, you should set all the parameters that are required at creati
 - API
 
   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+
   * ID of the desired backup, in the `backupId` parameter. To find out the ID, [get a list of backups](#list-backups).
   * The timestamp of the point to which you want to recover the cluster, in the `time` parameter.
   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
@@ -216,6 +206,7 @@ For a new cluster, you should set all the parameters that are required at creati
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   1. Click **Create backup**.
@@ -249,6 +240,7 @@ For a new cluster, you should set all the parameters that are required at creati
   {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
+
 
 ## Getting a list of backups {#list-backups}
 
@@ -329,6 +321,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 {% endlist %}
 
+
 ## Setting the backup start time {#set-backup-window}
 
 {% list tabs %}
@@ -378,6 +371,7 @@ For a new cluster, you should set all the parameters that are required at creati
 - API
 
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
     * The cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](cluster-list.md#list-clusters).
     * The new backup start time, in the `configSpec.backupWindowStart` parameter.
     * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Backup/list.md
 ---
 
-
 # Method list
 Retrieves the list of backups in a folder.
  

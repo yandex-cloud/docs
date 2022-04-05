@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/case.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/case.md
 ---
-
 ## CASE{#case}.
 
 Conditional expressions and branching. It's similar to `if`, `switch` and ternary operators in the imperative programming languages.

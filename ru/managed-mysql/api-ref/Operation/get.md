@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Operation/get.md
 ---
 
-
 # Method get
 Returns the specified Operation resource.
  

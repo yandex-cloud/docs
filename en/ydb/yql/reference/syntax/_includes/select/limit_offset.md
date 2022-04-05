@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/_includes/select/limit_offset.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/limit_offset.md
 ---
-
 ## LIMIT and OFFSET {#limit-offset}
 
 `LIMIT` limits the output to the specified number of rows. By default, the output is not restricted.

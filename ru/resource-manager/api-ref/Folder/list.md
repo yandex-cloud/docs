@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/list.md
 ---
 
-
 # Method list
 Retrieves the list of Folder resources in the specified cloud.
  

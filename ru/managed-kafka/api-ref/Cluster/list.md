@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/list.md
 ---
 
-
 # Method list
 Retrieves the list of Apache Kafka® clusters that belong to the specified folder.
  

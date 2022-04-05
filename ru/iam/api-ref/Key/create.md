@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Key/create.md
 ---
 
-
 # Method create
 Creates a key pair for the specified service account.
  

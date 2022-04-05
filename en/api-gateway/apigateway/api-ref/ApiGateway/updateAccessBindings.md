@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/updateAccessBindings.md
 ---
 
-
 # Method updateAccessBindings
 Updates access bindings for the specified API gateway.
  

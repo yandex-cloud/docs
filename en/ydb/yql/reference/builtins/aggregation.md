@@ -2,7 +2,6 @@
 sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/aggregation.md
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/aggregation.md
 ---
-
 {% include [x](_includes/aggregation/simple.md) %}
 
 {% include [x](_includes/aggregation/count_distinct_estimate.md) %}

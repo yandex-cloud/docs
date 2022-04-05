@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Database/create.md
 ---
 
-
 # Method create
 Creates a new database in a cluster.
  

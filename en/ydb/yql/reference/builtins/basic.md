@@ -3,7 +3,6 @@ sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/
 sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/basic.md
 ---
 
-
 {% include [x](_includes/basic/intro.md) %}
 
 {% include [x](_includes/basic/coalesce.md) %}

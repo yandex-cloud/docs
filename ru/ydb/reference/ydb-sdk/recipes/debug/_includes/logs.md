@@ -14,5 +14,9 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/_includ
 
   {% include [go.md](logs/go.md) %}
 
+- Java
+
+
+  {% include [java.md](logs/java.md) %}
 
 {% endlist %}

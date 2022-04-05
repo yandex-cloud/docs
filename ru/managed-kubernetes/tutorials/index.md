@@ -10,3 +10,7 @@
 * [{#T}](custom-dns.md)
 * [{#T}](fluent-bit-logging.md)
 * [{#T}](kubernetes-lockbox-secrets.md)
+
+## Использование продуктов {{ marketplace-full-name }} {#marketplace-scenarios}
+
+* [{#T}](marketplace/jaeger-over-ydb.md)

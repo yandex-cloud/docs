@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/Origin/get.md
 ---
 
-
 # Method get
 Get origin in origin group.
  

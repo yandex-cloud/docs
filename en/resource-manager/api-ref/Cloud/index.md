@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/index.md
 ---
 
-
 # Cloud
 A set of methods for managing Cloud resources.
 ## JSON Representation {#representation}

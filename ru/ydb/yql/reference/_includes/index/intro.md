@@ -8,7 +8,6 @@ keywords:
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/_includes/index/intro.md
 ---
 
-
 # YQL - Обзор
 
 *YQL* (YDB Query Language) — универсальный декларативный язык запросов к YDB, диалект SQL. YQL создавался для работы с большими распределенными базами данных, и поэтому обладает рядом отличий от стандарта SQL.

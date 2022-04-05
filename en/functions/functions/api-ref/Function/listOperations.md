@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/listOperations.md
 ---
 
-
 # Method listOperations
 Lists operations for the specified function.
  

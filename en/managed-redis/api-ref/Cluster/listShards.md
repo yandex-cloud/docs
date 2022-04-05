@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/listShards.md
 ---
 
-
 # Method listShards
 Retrieves a list of shards.
  

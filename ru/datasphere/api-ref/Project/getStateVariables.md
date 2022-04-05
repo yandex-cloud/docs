@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/datasphere/api-ref/Project/getStateVariables.md
 ---
 
-
 # Method getStateVariables
 Returns state variables of the specified notebook.
  

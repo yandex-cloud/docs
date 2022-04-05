@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-greenplum/api-ref/grpc/backup_service.md
 ---
 
-
 # BackupService
 
 

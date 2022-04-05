@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Customer/invite.md
 ---
 
-
 # Method invite
 Invites customer to the specified reseller.
  

@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/list.md
 ---
 
-
 # Method list
 Retrieves the list of Elasticsearch clusters that belong to the specified folder.
  

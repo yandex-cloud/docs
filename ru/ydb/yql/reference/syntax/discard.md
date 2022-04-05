@@ -3,5 +3,4 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/di
 sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/discard.md
 ---
 
-
 {% include [x](_includes/discard.md) %}

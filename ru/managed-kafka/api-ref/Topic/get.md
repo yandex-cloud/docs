@@ -3,7 +3,6 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/get.md
 ---
 
-
 # Method get
 Returns the specified Kafka topic.
  
