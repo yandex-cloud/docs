@@ -419,8 +419,16 @@ default:
   c3-c64-m128: c3-c64-m128 (64 vCPU, 128 GB)
   c3-c80-m160: c3-c80-m160 (80 vCPU, 160 GB)
   c3-c96-m192: c3-c96-m192 (96 vCPU, 192 GB)
-  local-ssd-v3-max: 2944 GB
-  local-ssd-v3-step: 368 GB
+  i2:
+    2xlarge: i2.2xlarge (16 vCPU, 128 GB)
+    4xlarge: i2.4xlarge (32 vCPU, 256 GB)
+    5xlarge: i2.5xlarge (40 vCPU, 320 GB)
+  i3:
+    c16-m128: i3-c16-m128 (16 vCPU, 128 GB)
+    c32-m256: i3-c32-m256 (32 vCPU, 256 GB)
+    c40-m320: i3-c40-m320 (40 vCPU, 320 GB)
+  local-ssd-v3-max: 2944 GB
+  local-ssd-v3-step: 368 GB
   graph-update: 15 seconds
   graph-update-burstable: 150 seconds
   mch-backup-retention: 7
