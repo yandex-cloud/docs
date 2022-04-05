@@ -16,6 +16,21 @@
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mms-name }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список баз данных в кластере, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ms }} database list \
+       --cluster-name=<имя кластера>
+    ```
+
+    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API
 
   Воспользуйтесь методом API [list](../api-ref/Database/list.md): передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
@@ -42,6 +57,36 @@
       {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
 
   1. [Выдайте роль `DB_OWNER`](grant.md) пользователю, который должен стать владельцем новой базы данных.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать базу данных в кластере:
+
+    1. Посмотрите описание команды CLI для создания БД:
+
+        ```bash
+        {{ yc-mdb-ms }} database create --help
+        ```
+
+    1. Выполните команду создания БД:
+
+        ```bash
+        {{ yc-mdb-ms }} database create <имя базы данных> \
+           --cluster-name=<имя кластера>
+        ```
+
+        {% include [db-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
+
+        Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        {{ mms-short-name }} запустит операцию создания базы данных.
+
+
+    Чтобы предоставить пользователям доступ к созданной базе данных, [следуйте инструкции](cluster-users.md#update-settings).
 
 - Terraform
 
@@ -96,8 +141,6 @@
 
       {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
 
-Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-
 {% endlist %}
 
 ## Изменить параметры сортировки базы данных {#collation}
@@ -122,6 +165,21 @@
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mms-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
   1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить базу данных, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ms }} database delete <имя базы данных> \
+       --cluster-name=<имя кластера>
+    ```
+
+    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - Terraform
 

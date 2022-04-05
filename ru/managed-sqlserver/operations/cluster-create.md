@@ -10,7 +10,7 @@
 
 {% if audience != "internal" %}
 
-Количество хостов, которые можно создать вместе с {{ MS }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md):
+Количество хостов, которые можно создать вместе с кластером {{ MS }}, зависит от выбранного [типа хранилища](../concepts/storage.md):
 
 * При использовании хранилища на **локальных SSD-дисках** или на **нереплицируемых SSD-дисках** вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
 * При использовании хранилища на **сетевых HDD-дисках** или на **сетевых SSD-дисках** вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
@@ -205,32 +205,32 @@
         * `--disk-size` — объем хранилища в гигабайтах.
         * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
         * `--deletion-protection` — защита от удаления кластера.
-
+        
         {% endif %}
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        1. Чтобы задать время начала резервного копирования, передайте нужное значение в формате `HH:MM:SS` в параметре `--backup-window-start`:
+    1. Чтобы задать время начала резервного копирования, передайте нужное значение в формате `HH:MM:SS` в параметре `--backup-window-start`:
 
-            ```bash
-            {{ yc-mdb-ms }} cluster create <имя кластера> \
-               ...
-               --backup-window-start=<время начала резервного копирования>
-            ```
+        ```bash
+        {{ yc-mdb-ms }} cluster create <имя кластера> \
+           ...
+           --backup-window-start=<время начала резервного копирования>
+        ```
 
-        {% if audience != "internal" %}
+    {% if audience != "internal" %}
 
-        1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
+    1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
-            ```bash
-            {{ yc-mdb-ms }} cluster create <имя кластера> \
-               ...
-               --host-group-ids=<идентификаторы групп выделенных хостов>
-            ```
+        ```bash
+        {{ yc-mdb-ms }} cluster create <имя кластера> \
+           ...
+           --host-group-ids=<идентификаторы групп выделенных хостов>
+        ```
 
-            {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+        {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
 
-        {% endif %}
+    {% endif %}
 
 - Terraform
 
@@ -363,9 +363,84 @@
 
 {% list tabs %}
 
+- CLI
+
+    Чтобы создать кластер с одним хостом, передайте один параметр `--host`.
+
+    Допустим, нужно создать кластер {{ MS }} со следующими характеристиками:
+
+    {% if audience != "internal" %}
+
+    * С именем `mssql-1`.
+    * Версии `2016 SP2 Standard Edition`.
+    * В окружении `PRODUCTION`.
+    * В сети `default`.
+    * В группе безопасности `{{ security-group }}`.
+    * С одним хостом класса `s2.small` в подсети `b0cd5bv7pfpr7r900tkp`, в зоне доступности `{{ zone-id }}`.
+    * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
+    * С одним пользователем (`user1`), с паролем `user1user1`.
+    * С одной базой данных `db1`.
+    * С защитой от случайного удаления кластера.
+
+    {% else %}
+
+    * С именем `mssql-1`.
+    * Версии `2016 SP2 Standard Edition`
+    * В окружении `PRODUCTION`.
+    * В группе безопасности `{{ security-group }}`.
+    * С одним хостом класса `db1.micro`, в зоне доступности `man`.
+    * С быстрым локальным хранилищем (`local-ssd`) объемом 20 ГБ.
+    * С одним пользователем (`user1`), с паролем `user1user1`.
+    * С одной базой данных `db1`.
+    * С защитой от случайного удаления кластера.
+
+    {% endif %}
+
+    Запустите следующую команду:
+
+    {% if audience != "internal" %}
+
+    ```bash
+    {{ yc-mdb-ms }} cluster create \
+       --name=mssql-1 \
+       --sqlserver-version=2016sp2std \
+       --environment=PRODUCTION \
+       --network-name=default \
+       --resource-preset=s2.small \
+       --host zone-id={{ zone-id }},`
+             `subnet-id=b0cd5bv7pfpr7r900tkp \
+       --disk-type={{ disk-type-example }} \
+       --disk-size=20 \
+       --user name=user1,`
+             `password=user1user1 \
+       --database name=db1 \
+       --security-group-ids={{ security-group }} \
+       --deletion-protection=true
+    ```
+
+    {% else %}
+
+    ```bash
+    {{ yc-mdb-ms }} cluster create \
+       --name=mssql-1 \
+       --sqlserver-version=2016sp2std \
+       --environment=PRODUCTION \
+       --network-id=' ' \
+       --host zone-id=man \
+       --resource-preset=db1.micro \
+       --disk-type=local-ssd \
+       --disk-size=20 \
+       --user name=user1,`
+             `password=user1user1 \
+       --database name=db1 \
+       --security-group-ids={{ security-group }}
+    ```
+
+    {% endif %}
+
 - Terraform
 
-    Допустим, нужно создать {{ MS }}-кластер и сеть для него со следующими характеристиками:
+    Допустим, нужно создать кластер {{ MS }} и сеть для него со следующими характеристиками:
 
     * С именем `mssql-1`.
     * В окружении `PRODUCTION`.

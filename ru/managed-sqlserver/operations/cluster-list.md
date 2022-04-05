@@ -15,6 +15,18 @@ description: "Вы можете запросить детальную инфор
 
   Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mms-name }}**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы запросить список кластеров {{ MS }} в каталоге, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ms }} cluster list
+    ```
+
 - API
 
   Воспользуйтесь методом API [list](../api-ref/Cluster/list.md): передайте значение идентификатора требуемого каталога в параметре `folderId` запроса.
@@ -31,6 +43,20 @@ description: "Вы можете запросить детальную инфор
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mms-name }}**.
   1. Нажмите на имя нужного кластера.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить информацию о кластере {{ MS }}, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ms }} cluster get <идентификатор или имя кластера>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
 - API
 
@@ -51,6 +77,20 @@ description: "Вы можете запросить детальную инфор
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mms-name }}**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите на вкладку **Операции**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список операций, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ms }} cluster list-operations <идентификатор или имя кластера>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
 - API
 
