@@ -12,6 +12,21 @@
 
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список хостов в кластере, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ms }} host list \
+       --cluster-name=<имя кластера>
+    ```
+
+    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - API
 
   Воспользуйтесь методом API [listHosts](../api-ref/Cluster/listHosts.md): передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.

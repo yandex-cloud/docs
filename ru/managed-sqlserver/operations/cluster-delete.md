@@ -23,6 +23,20 @@ description: "После удаления кластера баз данных S
   1. Нажмите значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
   1. Подтвердите удаление кластера и нажмите кнопку **Удалить**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить кластер, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ms }} cluster delete <идентификатор или имя кластера>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 - Terraform
 
     {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}

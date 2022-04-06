@@ -11,7 +11,7 @@
 ## Установка {#install}
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в {{ container-registry-name }}](../../container-registry/operations/authentication.md).
+1. [Аутентифицируйтесь в {{ container-registry-name }}](https://cloud.yandex.ru/docs/container-registry/operations/authentication).
 1. Скачайте контейнер:
 
    ```bash
@@ -39,7 +39,7 @@
      ```
      ssh-rsa AAAAB3Nz.....BdZoeQ==
      ```
-     
+
      Инструкцию по созданию пары SSH-ключей см. в [документации {{ compute-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
    * Если вы будете использовать FTPS, добавьте в папку TLS-сертификат `ftp.pem` и его ключ `ftp.key`. Например, для тестирования вы можете выпустить самоподписанный сертификат:

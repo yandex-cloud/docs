@@ -39,5 +39,7 @@ description: "После удаления кластера баз данных P
 - Terraform
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
-  
+
+  {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+
 {% endlist %}
