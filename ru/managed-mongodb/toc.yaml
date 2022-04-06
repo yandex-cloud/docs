@@ -11,8 +11,6 @@ items:
         href: operations/cluster-list.md
       - name: Создание кластера
         href: operations/cluster-create.md
-      - name: Миграция базы данных в Yandex Cloud
-        href: operations/data-migration.md
       - name: Подключение к базе данных
         href: operations/connect.md
       - name: Остановка и запуск кластера
@@ -45,6 +43,8 @@ items:
     items:
       - name: Шардирование коллекций
         href: tutorials/sharding.md
+      - name: Миграция данных в {{ mmg-name }}
+        href: tutorials/data-migration.md
       - name: Перенос коллекций из {{ MG }} в {{ mmg-name }}
         href: tutorials/mongodb-migration.md
       - name: Анализ производительности и оптимизация

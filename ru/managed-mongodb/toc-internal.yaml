@@ -29,14 +29,14 @@ items:
         href: operations/shards.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
-      - name: Миграция базы данных в Yandex Cloud
-        href: operations/data-migration.md
   - name: Практические руководства
     items:
       - name: Шардирование коллекций
         href: tutorials/sharding.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
+      - name: Миграция базы данных в Yandex Cloud
+        href: tutorials/data-migration.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

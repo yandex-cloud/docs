@@ -46,7 +46,7 @@ items:
       - name: Логическая репликация PostgreSQL
         href: tutorials/replication-overview.md
       - name: Миграция базы данных в Yandex Cloud
-        href: operations/data-migration.md
+        href: tutorials/data-migration.md
       - name: Миграция базы данных из Managed Service for PostgreSQL
         href: tutorials/outbound-replication.md
       - name: >-
