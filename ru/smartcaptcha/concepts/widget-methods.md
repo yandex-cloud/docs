@@ -80,7 +80,6 @@
 
 {% endcut %}
 
-
 ## Расширенный метод подключения {#extended-method}
 
 В расширенном методе JS-скрипт, который выполняет загрузку виджета на странице пользователя, добавляется на страницу по ссылке:
@@ -154,6 +153,61 @@
 ```
 
 В качестве аргумента метод принимает `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, то к начальному состоянию будет возвращен первый отрисованный виджет.
+
+### Метод destroy {#destroy}
+
+Метод `destroy` удаляет виджет и созданные им обработчики.
+
+```ts
+(widgetId: widgetId | undefined) => void
+```
+
+В качестве аргумента метод принимает `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, то будел удален первый отрисованный виджет.
+
+### Метод subscribe {#subscribe}
+
+Метод `subscribe` позволяет подписывать обработчики на определенные события в капче.
+Например, можно следить за открытием и закрытием челленджа. Это может быть полезно для показа клавиатуры на мобильных устройствах.
+
+```ts
+type SubscribeEvent =
+  | 'challenge-visible'
+  | 'challenge-hidden'
+  | 'network-error'
+  | 'success';
+
+(widgetId: widgetId, event: SubscribeEvent, callback: Function) =>
+  UnsubscribeFunction;
+```
+
+Пример использования:
+
+```html
+<div id="container"></div>
+
+<script
+  src="https://captcha-api.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+  async
+  defer
+></script>
+
+<script>
+  function onload() {
+    if (window.smartCaptcha) {
+      const container = document.getElementById('container');
+      const widgetId = window.smartCaptcha.render(container, {
+        /* params */
+      });
+
+      const unsubscribe = window.smartCaptcha.subscribe(
+        widgetId,
+        'challenge-visible',
+        () => console.log('challenge is visible')
+      );
+    }
+  }
+</script>
+```
 
 {% cut "Пример встраивания виджета" %}
 
