@@ -201,6 +201,8 @@
 
      {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
+     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:

@@ -72,6 +72,8 @@
 
        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
+       Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
     1. Добавьте в блок `cluster_config` нужного кластера {{ mpg-name }} поле `version` или измените его значение, если оно уже существует:
 
        ```hcl
@@ -91,7 +93,7 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 

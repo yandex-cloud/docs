@@ -99,6 +99,8 @@ description: "Вы можете управлять правами пользов
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:

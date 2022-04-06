@@ -2,6 +2,8 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{%  include [06.04.2022 — GitLab Critical Security Release](../../_includes/overview/security-bulletins/cve-2022-1162-gitlab.md) %}
+
 {%  include [18.03.2022 — cr8escape](../../_includes/overview/security-bulletins/cve-2022-0811-cr8escape.md) %}
 
 {%  include [09.03.2022 — Dirty Pipe](../../_includes/overview/security-bulletins/cve-2022-0847-dirty-pipe.md) %}

@@ -46,7 +46,7 @@ Segment hosts directly store data and process requests to it, so they are more r
 > * RAM capacity: 2560 GB.
 > * Number of vCPU cores: 256.
 >
-> This corresponds, for example, to ten `{{ m2-4xlarge }}` hosts or five `{{ m2-8xlarge }}` hosts. For more information about host classes, see [Available host classes](../concepts/instance-types.md#available-flavors).
+> This corresponds, for example, to twenty `{{ i2.2xlarge }}` hosts or ten `{{ i2.4xlarge }}` hosts. For more information about host classes, see [Available host classes](../concepts/instance-types.md#available-flavors).
 
 The number of segment hosts in a cluster is unimportant if their total characteristics are not lower than the calculated values, but keep in mind the following when scaling the cluster:
 

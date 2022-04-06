@@ -658,6 +658,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Invalid top-level LOD dimension found in expression
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INVALID_TOPLEVEL_DIMENSIONS.md
       - name: Invalid user token
         hidden: true
         href: >-

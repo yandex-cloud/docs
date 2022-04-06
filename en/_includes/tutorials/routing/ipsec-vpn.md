@@ -210,10 +210,10 @@ Security Associations (1 up, 0 connecting):
 
 The `ESTABLISHED` status means that a tunnel between gateways was created.
 
-To check the status of the strongSwan daemon, use the command `systemctl status strongswan`:
+To check the status of the strongSwan daemon, use the command `systemctl status strongswan-starter`:
 
 ```
-$ systemctl status strongswan
+$ systemctl status strongswan-starter
 ● strongswan.service - strongSwan IPsec IKEv1/IKEv2 daemon using ipsec.conf
    Loaded: loaded (/lib/systemd/system/strongswan.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2019-06-20 14:54:07 UTC; 3 days ago
@@ -224,7 +224,7 @@ $ systemctl status strongswan
            └─527 /usr/lib/ipsec/charon
 ```
 
-To view strongSwan logs, use the command `journalctl -u strongswan`. The logs contain information about connections.
+To view strongSwan logs, use the command `journalctl -u strongswan-starter`. The logs contain information about connections.
 
 ## Delete the created resources {#clear-out}
 

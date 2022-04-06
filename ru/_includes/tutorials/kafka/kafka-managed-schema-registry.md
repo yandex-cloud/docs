@@ -21,7 +21,7 @@
 
 {% include [Schema registry scripts explanation](./schema-registry-scripts-explanation.md) %}
 
-1. [Подключитесь к виртуальной машине по SSH](../../../compute/operations/vm-connect/ssh.md).
+1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
 
 1. Установите необходимые пакеты Python:
 

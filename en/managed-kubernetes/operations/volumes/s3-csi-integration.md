@@ -1,15 +1,22 @@
-# Integration with {{ objstorage-name }}
+# Integration with {{ objstorage-full-name }}
 
-{{ CSI }} lets you dynamically reserve [buckets](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} and mount them to [pods](../../concepts/index.md#pod) in a cluster.
+{{ CSI }} lets you dynamically reserve [buckets](../../../storage/concepts/bucket.md) {{ objstorage-name }} and mount them to [pods](../../concepts/index.md#pod) in a cluster. You can mount existing buckets or create new ones.
 
-To configure bucket mounting to a {{ k8s }} pod:
-1. [{#T}](#create-environment).
-1. [{#T}](#test-csi).
+To use {{ CSI }} capabilities:
+1. [Set up the runtime environment](#create-environment).
+1. [Configure {{ CSI }}](#configure-csi).
 
-## Set up a working environment {#create-environment}
+See also:
+* [Using {{ CSI }} with `PersistentVolumeClaim`](#csi-usage).
+* [Examples of creating `PersistentVolumeClaim`](#examples).
 
-1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` role.
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the service account.
+## Setting up a runtime environment {#create-environment}
+
+1. [Create a service account](../../../iam/operations/sa/create.md) with the [role of](../../../iam/concepts/access-control/roles.md) `storage.editor` assigned.
+1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/index.md#sa).
+
+## Set up {{ CSI }} {#configure-csi}
+
 1. Create a file named `secret.yaml` and specify the {{ CSI }} access settings in it:
 
    ```yaml
@@ -25,9 +32,8 @@ To configure bucket mounting to a {{ k8s }} pod:
      endpoint: https://storage.yandexcloud.net
    ```
 
+   In the `accessKeyID` and the `secretAccessKey`, specify the [previously received](#create-environment) ID and secret key value.
 1. Create a file with a description of the `storageclass.yaml` storage class:
-
-   {% cut "storageclass.yaml" %}
 
    ```yaml
    ---
@@ -39,6 +45,7 @@ To configure bucket mounting to a {{ k8s }} pod:
    parameters:
      mounter: geesefs
      options: "--memory-limit 1000 --dir-mode 0777 --file-mode 0666"
+     bucket: <optional: existing bucket name>
      csi.storage.k8s.io/provisioner-secret-name: csi-s3-secret
      csi.storage.k8s.io/provisioner-secret-namespace: kube-system
      csi.storage.k8s.io/controller-publish-secret-name: csi-s3-secret
@@ -49,72 +56,14 @@ To configure bucket mounting to a {{ k8s }} pod:
      csi.storage.k8s.io/node-publish-secret-namespace: kube-system
    ```
 
-   {% endcut %}
-
-   {% note tip %}
-
-   When running the script, the {{ CSI }} driver creates a new bucket. To use an existing bucket, add the `bucket` field to the `parameters` section and specify the bucket name there.
-
-   {% endnote %}
-
-1. Create a `pvc.yaml` file that describes a Persistent Volume Claim with the new storage class:
-
-   {% cut "pvc.yaml" %}
-
-   ```yaml
-   ---
-   apiVersion: v1
-   kind: PersistentVolumeClaim
-   metadata:
-     name: csi-s3-pvc
-     namespace: default
-   spec:
-     accessModes:
-     - ReadWriteMany
-     resources:
-       requests:
-         storage: 5Gi
-     storageClassName: csi-s3
-   ```
-
-   {% endcut %}
-
-   If necessary, change the requested storage size in the `spec.resources.requests.storage` parameter value.
-
-1. Create a file named `pod.yaml` with a pod description:
-
-   {% cut "pod.yaml" %}
-
-   ```yaml
-   ---
-   apiVersion: v1
-   kind: Pod
-   metadata:
-     name: csi-s3-test-nginx
-     namespace: default
-   spec:
-     containers:
-       - name: csi-s3-test-nginx
-         image: nginx
-         volumeMounts:
-           - mountPath: /usr/share/nginx/html/s3
-             name: webroot
-     volumes:
-       - name: webroot
-         persistentVolumeClaim:
-           claimName: csi-s3-pvc
-           readOnly: false
-   ```
-
-   {% endcut %}
-
-1. Clone the Github repository containing the current {{ CSI }} driver:
+   To use an existing bucket, specify its name in the `bucket` parameter. This setting is only relevant for [dynamic `PersistentVolumeClaim`](#dpvc-csi-usage).
+1. Clone the [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3.git) containing the current {{ CSI }} driver:
 
    ```bash
    git clone https://github.com/yandex-cloud/k8s-csi-s3.git
    ```
 
-1. Create {{ CSI }} resources:
+1. Create resources for {{ CSI }} and your storage class:
 
    ```bash
    kubectl create -f secret.yaml && \
@@ -124,86 +73,271 @@ To configure bucket mounting to a {{ k8s }} pod:
    kubectl create -f storageclass.yaml
    ```
 
-   Expected execution result:
+After installing the {{ CSI }} driver and configuring your storage class, you can create static and dynamic `PersistentVolumeClaim` to use {{ objstorage-name }} buckets.
 
-   ```text
-   secret/csi-s3-secret created
-   serviceaccount/csi-provisioner-sa created
-   clusterrole.rbac.authorization.k8s.io/external-provisioner-runner created
-   clusterrolebinding.rbac.authorization.k8s.io/csi-provisioner-role created
-   service/csi-provisioner-s3 created
-   statefulset.apps/csi-provisioner-s3 created
-   serviceaccount/csi-attacher-sa created
-   clusterrole.rbac.authorization.k8s.io/external-attacher-runner created
-   clusterrolebinding.rbac.authorization.k8s.io/csi-attacher-role created
-   service/csi-attacher-s3 created
-   statefulset.apps/csi-attacher-s3 created
-   serviceaccount/csi-s3 created
-   clusterrole.rbac.authorization.k8s.io/csi-s3 created
-   clusterrolebinding.rbac.authorization.k8s.io/csi-s3 created
-   daemonset.apps/csi-s3 created
-   storageclass.storage.k8s.io/csi-s3 created
-   ```
+## {{ CSI }} usage {#csi-usage}
 
-## Check that the pod can access the bucket {#test-csi}
+With {{ CSI }} configured, there are certain things to note about creating static and dynamic `PersistentVolumeClaims`.
 
-1. Create a Persistent Volume Claim:
+### Dynamic PersistentVolumeClaim {#dpvc-csi-usage}
 
-   ```bash
-   kubectl create -f pvc.yaml
-   ```
+For [dynamic `PersistentVolumeClaim`](../../concepts/volume.md#dynamic-provisioning):
+* Specify the name of the desired storage class in the `spec.storageClassName` parameter when creating a `PersistentVolumeClaim`.
+* If required, specify a bucket name in the`bucket` parameter when [creating a storage class](#configure-csi). This affects {{ CSI }} behavior:
+  * If you specified a bucket name in the `bucket` parameter when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each `PersistentVolumeClaim` created.
 
-1. Make sure that the Persistent Volume Claim status changed to `Bound`:
+    {% note info %}
 
-   ```bash
-   kubectl get pvc csi-s3-pvc
-   ```
+    This setting can be useful if the cloud enforces strict quotas on the number of {{ objstorage-name }} buckets.
 
-   Expected execution result:
+    {% endnote %}
 
-   ```text
-   NAME        STATUS  VOLUME             CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-   csi-s3-pvc  Bound   pvc-<bucket name>  5Gi       RWX           csi-s3        73m
-   ```
+  * If you omitted a bucket name in the `bucket` parameter, {{ CSI }} will create a separate bucket for each `PersistentVolumeClaim` created.
 
-1. Create a pod to mount the bucket to:
+[Example of creating](#create-dynamic-pvc) a dynamic `PersistentVolumeClaim`.
 
-   ```bash
-   kubectl create -f pod.yaml
-   ```
+### Static PersistentVolumeClaim {#spvc-csi-usage}
 
-1. Make sure the pod status changed to `Running`:
+For a [static `PersistentVolumeClaim`](../../concepts/volume.md#static-provisioning):
+* Leave the `spec.storageClassName` parameter empty when creating `PersistentVolumeClaim`.
+* Specify the name of the desired bucket or bucket directory in the `spec.csi.volumeHandle` parameter when creating `PersistentVolume`. If there is no such bucket, create it.
 
-   ```bash
-   kubectl get pods
-   ```
+  {% note info %}
 
-1. Check that the bucket is mounted to the pod and is available for writes:
+  Deleting this type of `PersistentVolume` will not automatically delete its associated bucket.
 
-   1. Connect to the pod console:
+  {% endnote %}
 
-      ```bash
-      kubectl exec -ti csi-s3-test-nginx bash
+[Example of creating](#create-static-pvc) a static `PersistentVolumeClaim`.
+
+## Use cases {#examples}
+
+### Dynamic PersistentVolumeClaim {#create-dynamic-pvc}
+
+To use {{ CSI }} with a dynamic `PersistentVolumeClaim`:
+1. Create a `PersistentVolumeClaim`:
+   1. [Configure {{ CSI }}](#configure-csi).
+   1. Create a file named `pvc-dynamic.yaml`containing a description of your dynamic `PersistentVolumeClaim`:
+
+      {% cut "pvc-dynamic.yaml" %}
+
+      ```yaml
+      ---
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: csi-s3-pvc-dynamic
+        namespace: default
+      spec:
+        accessModes:
+        - ReadWriteMany
+        resources:
+          requests:
+            storage: 5Gi
+        storageClassName: csi-s3
       ```
 
-   1. Check that the bucket is mounted to the pod:
+      {% endcut %}
+
+      If necessary, change the requested storage size in the `spec.resources.requests.storage` parameter value.
+   1. Create a dynamic `PersistentVolumeClaim`:
 
       ```bash
-      mount | grep fuse
+      kubectl create -f pvc-dynamic.yaml
+      ```
+
+   1. Make sure that your `PersistentVolumeClaim` has transitioned to a `Bound` state:
+
+      ```bash
+      kubectl get pvc csi-s3-pvc-dynamic
       ```
 
       Expected execution result:
 
       ```text
-      pvc-<bucket name>: on /usr/share/nginx/html/s3 type fuse.geesefs (rw,nosuid,nodev,relatime,user_id=0,group_id=0,default_permissions,allow_other)
+      NAME                STATUS  VOLUME                    CAPACITY  ACCESS MODES  STORAGECLASS  AGE
+      csi-s3-pvc-dynamic  Bound   pvc-<dynamic bucket name> 5Gi       RWX           csi-s3        73m
       ```
 
-   1. Create a file on the pod:
+1. Create a pod to test your dynamic `PersistentVolumeClaim`.
+   1. Create a file named `pod-dynamic.yaml` with the pod description:
+
+      {% cut "pod-dynamic.yaml" %}
+
+      ```yaml
+      ---
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: csi-s3-test-ubuntu-dynamic
+      spec:
+        containers:
+        - name: csi-s3-test-ubuntu
+          image: ubuntu
+          command: ["/bin/sh"]
+          args: ["-c", "for i in {1..10}; do echo $(date -u) >> /data/s3-dynamic/dynamic-date.txt; sleep 10; done"]
+          volumeMounts:
+            - mountPath: /data/dynamic
+              name: s3-volume
+        volumes:
+          - name: s3-volume
+            persistentVolumeClaim:
+              claimName: csi-s3-pvc-dynamic
+              readOnly: false
+      ```
+
+      {% endcut %}
+
+   1. Create a pod to mount a bucket to for your dynamic `PersistentVolume`:
 
       ```bash
-      echo "Test message" > /usr/share/nginx/html/s3/test.txt
+      kubectl create -f pod-dynamic.yaml
       ```
 
-   1. Make sure that the file is in the bucket:
-      1. Go to the folder page and select **{{ objstorage-name }}**.
-      1. Click on `pvc-<bucket name>`.
+   1. Make sure the pod status changed to `Running`:
+
+      ```bash
+      kubectl get pods
+      ```
+
+   While running, the pod will execute the `date` command several times and it write its output to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
+1. Make sure that the file is in the bucket:
+   1. Go to the folder page and select **{{ objstorage-name }}**.
+   1. Click the `pvc-<dynamic bucket name>` bucket.
+
+### Static PersistentVolumeClaim {#create-static-pvc}
+
+To use {{ CSI }} with a static `PersistentVolumeClaim`:
+1. Create a `PersistentVolumeClaim`:
+   1. [Configure {{ CSI }}](#configure-csi).
+   1. Create a file named `pvc-static.yaml`containing a description of your static `PersistentVolumeClaim`:
+
+      {% cut "pvс-static.yaml" %}
+
+      ```yaml
+      ---
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: csi-s3-pvc-static
+        namespace: default
+      spec:
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 10Gi
+        storageClassName: ""
+      ```
+
+      {% endcut %}
+
+      If necessary, change the requested storage size in the `spec.resources.requests.storage` parameter value.
+   1. Create a file named `pv-static.yaml`containing a description of your static `PersistentVolume`:
+
+      {% cut "pv-static.yaml" %}
+
+      ```yaml
+      ---
+      apiVersion: v1
+      kind: PersistentVolume
+      metadata:
+        name: <Persistent Volume name>
+      spec:
+        storageClassName: csi-s3
+        capacity:
+          storage: 10Gi
+        accessModes:
+          - ReadWriteMany
+        claimRef:
+          namespace: default
+          name: csi-s3-pvc-static
+        csi:
+          driver: ru.yandex.s3.csi
+          volumeHandle: <bucket name>/<optional: path to folder in bucket>
+          controllerPublishSecretRef:
+            name: csi-s3-secret
+            namespace: kube-system
+          nodePublishSecretRef:
+            name: csi-s3-secret
+            namespace: kube-system
+          nodeStageSecretRef:
+            name: csi-s3-secret
+            namespace: kube-system
+          volumeAttributes:
+            capacity: 10Gi
+            mounter: geesefs
+      ```
+
+      {% endcut %}
+
+   1. Create a static `PersistentVolumeClaim`:
+
+      ```bash
+      kubectl create -f pvc-static.yaml
+      ```
+
+   1. Create a static `PersistentVolume`:
+
+      ```bash
+      kubectl create -f pv-static.yaml
+      ```
+
+   1. Make sure that your `PersistentVolumeClaim` has transitioned to a `Bound` state:
+
+      ```bash
+      kubectl get pvc csi-s3-pvc-static
+      ```
+
+      Expected execution result:
+
+      ```text
+      NAME               STATUS  VOLUME                   CAPACITY   ACCESS MODES  STORAGECLASS  AGE
+      csi-s3-pvc-static  Bound   <PersistentVolume name>  10Gi       RWX           csi-s3        73m
+      ```
+
+1. Create a pod to test your static `PersistentVolumeClaim`.
+   1. Create a file named `pod-static.yaml` with the pod description:
+
+      {% cut "pod-static.yaml" %}
+
+      ```yaml
+      ---
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: csi-s3-test-ubuntu-static
+      spec:
+        containers:
+        - name: csi-s3-test-ubuntu
+          image: ubuntu
+          command: ["/bin/sh"]
+          args: ["-c", "for i in {1..10}; do echo $(date -u) >> /data/s3-static/static-date.txt; sleep 10; done"]
+          volumeMounts:
+            - mountPath: /data/s3-static
+              name: s3-volume
+        volumes:
+          - name: s3-volume
+            persistentVolumeClaim:
+              claimName: csi-s3-pvc-static
+              readOnly: false
+      ```
+
+      {% endcut %}
+
+   1. Create a pod to mount a bucket to for your static `PersistentVolume`:
+
+      ```bash
+      kubectl create -f pod-static.yaml
+      ```
+
+   1. Make sure the pod status changed to `Running`:
+
+      ```bash
+      kubectl get pods
+      ```
+
+   While running, the pod will execute the `date` command several times and write its output to a file named `/data/s3-static/static-date.txt`. You will find this file in the bucket.
+1. Make sure that the file is in the bucket:
+   1. Go to the folder page and select **{{ objstorage-name }}**.
+   1. Click on `<bucket name>`.
