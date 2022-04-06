@@ -165,7 +165,7 @@ description: "В этом сценарии вы узнаете, как с пом
       const { Telegraf } = require('telegraf');
 
       const bot = new Telegraf(process.env.BOT_TOKEN);
-      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Teleram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
+      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
       bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
       bot.on('text', (ctx) => {
           ctx.replyWithPhoto('<домен API-шлюза>/sayhello.png');
@@ -259,7 +259,7 @@ description: "В этом сценарии вы узнаете, как с пом
     
     ```text
     Hello.
-    My name Serverless Hello Teleram Bot
+    My name Serverless Hello Telegram Bot
     I'm working on Cloud Function in the Yandex Cloud.
     ```
 
