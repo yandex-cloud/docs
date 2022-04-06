@@ -46,6 +46,8 @@ items:
         href: operations/subcluster-update.md
       - name: Управление подкластерами
         href: operations/subclusters.md
+      - name: Подключение к интерфейсам компонентов
+        href: operations/connect-interfaces.md
       - name: Использование Sqoop
         href: operations/sqoop-usage.md
       - name: Управление заданиями
@@ -74,10 +76,8 @@ items:
         href: concepts/instance-types.md
       - name: Версии Hadoop и компонентов
         href: concepts/environment.md
-      - name: Интерфейсы и порты компонентов
+      - name: Интерфейсы и порты компонентов Data Proc
         href: concepts/interfaces.md
-      - name: Веб-интерфейсы компонентов
-        href: concepts/ui-proxy.md
       - name: Задания в Data Proc
         href: concepts/jobs.md
       - name: Автоматическое масштабирование

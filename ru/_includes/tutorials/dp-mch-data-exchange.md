@@ -67,7 +67,7 @@
 
 ### Запуск выгрузки из {{ mch-full-name }} {#start-mch-export}
 
-1. Откройте [веб-интерфейс Zeppelin](../../data-proc/concepts/ui-proxy.md) кластера {{ dataproc-full-name }}.
+1. Откройте [веб-интерфейс Zeppelin](../../data-proc/operations/connect-interfaces.md#ui-proxy-list) кластера {{ dataproc-full-name }}.
 1. Нажмите ссылку **Create new note** и укажите параметры ноутбука Zeppelin:
     * **Note name** — введите произвольное имя ноутбука;
     * **Default Interpreter** — выберите `spark`.
@@ -192,7 +192,7 @@ Maria,28
 
 ### Запуск выгрузки из {{ dataproc-full-name }} {#start-dp-export}
 
-1. Откройте [веб-интерфейс Zeppelin](../../data-proc/concepts/ui-proxy.md) кластера {{ dataproc-full-name }}.
+1. Откройте [веб-интерфейс Zeppelin](../../data-proc/operations/connect-interfaces.md#ui-proxy-list) кластера {{ dataproc-full-name }}.
 1. Нажмите ссылку **Create new note** и укажите параметры ноутбука Zeppelin:
     * **Note name** — введите произвольное имя ноутбука;
     * **Default Interpreter** — выберите `spark`.
