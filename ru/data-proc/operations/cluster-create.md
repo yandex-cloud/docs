@@ -29,7 +29,7 @@
         * тип источника: `CIDR`;
         * назначение: `0.0.0.0/0`.
 
-        Это позволит использовать [бакеты {{ objstorage-name }}](../../storage/concepts/bucket.md), [UI Proxy](../concepts/ui-proxy.md) и [автоматическое масштабирование](../concepts/autoscaling.md) кластеров.
+        Это позволит использовать [бакеты {{ objstorage-name }}](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md) и [автоматическое масштабирование](../concepts/autoscaling.md) кластеров.
 
 Если планируется использовать несколько групп безопасности для кластера, разрешите весь трафик между этими группами.
 
@@ -79,7 +79,7 @@
 
       {% endnote %}
 
-  1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/ui-proxy.md) {{ dataproc-name }}.
+  1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
   1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
 
       Для работы этой функции [назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa) роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
@@ -182,7 +182,7 @@
 
 - API
 
-    Чтобы создать кластер, воспользуйтесь методом API [../api-ref/Cluster/create](create) и передайте в запросе:
+    Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create) и передайте в запросе:
 
     * Идентификатор каталога, в котором должен быть размещен кластера, в параметре `folderId`.
     * Имя кластера в параметре `name`.

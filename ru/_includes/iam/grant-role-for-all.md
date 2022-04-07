@@ -20,10 +20,10 @@
 
     Назначьте роль `viewer` на каталог `my-folder`. В качестве субъекта укажите тип `system` и идентификатор `allAuthenticatedUsers`:
 
-    ```
-    $ yc resource-manager folder add-access-binding my-folder \
-        --role viewer \
-        --subject system:allAuthenticatedUsers
+    ```bash
+    yc resource-manager folder add-access-binding my-folder \
+      --role viewer \
+      --subject system:allAuthenticatedUsers
     ```
 
 - API
@@ -45,6 +45,7 @@
             }]
         }
         ```
+
     1. {% include [grant-role-folder-via-curl-step](grant-role-folder-via-curl-step.md) %}
 
 - Terraform

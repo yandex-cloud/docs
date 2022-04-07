@@ -16,15 +16,17 @@
 
   1. Посмотрите описание команды создания сервисного аккаунта:
 
-      ```
-      $ yc iam service-account create --help
+      ```bash
+      yc iam service-account create --help
       ```
 
-  2. Создайте сервисный аккаунт с именем `my-robot`:
+  1. Создайте сервисный аккаунт с именем `my-robot`:
 
+      ```bash
+      yc iam service-account create --name my-robot
       ```
-      $ yc iam service-account create --name my-robot
-      ```
+
+      Требования к формату имени:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -46,8 +48,8 @@
 - CLI
 
   ```bash
-  $ yc iam service-account create --name my-robot \
-      --description "this is my favorite service account"
+  yc iam service-account create --name my-robot \
+    --description "this is my favorite service account"
   ```
 
 - API

@@ -86,7 +86,7 @@ Payment for {{ yandex-cloud }} services and resources will be debited from your 
 
 {{ yandex-cloud }} doesn't debit money and doesn't invoice you until you have switched your account to paid consumption. Switching to a paid account never happens automatically.
 
-However, if the your [grant](../getting-started/usage-grant.md) expired, access to your resources will be blocked for 30 days or until you switch to a paid account. For more information about trial period expiration, see [{#T}](../getting-started/free-trial/concepts/trial-ending.md).
+However, if your [grant](../getting-started/usage-grant.md) expired, access to your resources will be blocked for 30 days or until you switch to a paid account. For more information about trial period expiration, see [{#T}](../getting-started/free-trial/concepts/trial-ending.md).
 
 ### Questions about the initial grant {#grant}
 

@@ -153,6 +153,10 @@ items:
             href: tools/s3fs.md
           - name: goofys
             href: tools/goofys.md
+      - name: FTP
+        items:
+          - name: Docker container for (S)FTP(S)
+            href: tools/sftps.md
   - name: API reference
     items:
       - name: REST (Amazon S3-compatible)

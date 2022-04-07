@@ -10,12 +10,11 @@
 
 - Консоль управления
 
-  1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. Выберите вкладку **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт и нажмите на строку с его именем.
   1. Нажмите кнопку **Создать новый ключ** на верхней панели.
-  1. Выберите пункт **Создать статический ключ доступа**.
-  1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
+  1. Задайте описание ключа и нажмите кнопку **Создать**.
   1. Сохраните идентификатор и секретный ключ.
 
       {% note alert %}
@@ -26,18 +25,25 @@
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды создания статического ключа доступа:
 
-      ```
-      $ yc iam access-key create --help
+      ```bash
+      yc iam access-key create --help
       ```
 
   1. Выберите сервисный аккаунт, например `my-robot`:
 
+      ```bash
+      yc iam service-account list
       ```
-      $ yc iam service-account list
+      
+      Результат:
+
+      ```
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -47,9 +53,13 @@
       ```
   1. Создайте ключ доступа для сервисного аккаунта `my-robot`:
 
+      ```bash
+      yc iam access-key create --service-account-name my-robot
       ```
-      $ yc iam access-key create --service-account-name my-robot
 
+      Результат:
+
+      ```
       access_key:
         id: aje6t3vsbj8lp9r4vk2u
         service_account_id: ajepg0mjt06siuj65usm
@@ -57,6 +67,7 @@
         key_id: 0n8X6WY6S24N7OjXQ0YQ
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hxtzMP1
       ```
+
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
 - API
@@ -75,22 +86,22 @@
 
 - CLI
 
-  ```
-  $ yc iam access-key create --service-account-name my-robot \
-      --description "this key is for my bucket"
+  ```bash
+  yc iam access-key create --service-account-name my-robot \
+    --description "this key is for my bucket"
   ```
 
 - API
 
   ```bash
-  $ curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{
-          "serviceAccountId": "aje6o61dvog2h6g9a33s",
-          "description": "this key is for my bucket"
-      }' \
-      https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
+  curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer <IAM-TOKEN>" \
+    -d '{
+        "serviceAccountId": "aje6o61dvog2h6g9a33s",
+        "description": "this key is for my bucket"
+    }' \
+    https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
   ```
 
 {% endlist %}

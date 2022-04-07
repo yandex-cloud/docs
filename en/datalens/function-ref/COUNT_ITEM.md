@@ -15,7 +15,7 @@ COUNT_ITEM( array, value )
 ```
 
 #### Description {#description}
-Returns the number of elements in the array `array` equal to `value`. Type of `value` must match type of `array` elements.
+Returns the number of elements in the array `array` equal to `value`. The type of `value` must match the type of the `array` elements.
 
 **Argument types:**
 - `array` — `Array of fractional numbers | Array of integers | Array of strings`

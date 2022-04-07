@@ -14,19 +14,25 @@
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды удаления сервисного аккаунта:
 
-      ```
-      $ yc iam service-account delete --help
+      ```bash
+      yc iam service-account delete --help
       ```
 
   2. Выберите сервисный аккаунт, например `my-robot`:
 
+      ```bash
+      yc iam service-account list
       ```
-      $ yc iam service-account list
+
+      Результат:
+
+      ```
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -36,7 +42,7 @@
       ```
   3. Удалите сервисный аккаунт:
 
-      ```
+      ```bash
       yc iam service-account delete my-robot
       ```
 

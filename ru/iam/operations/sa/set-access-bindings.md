@@ -10,7 +10,7 @@
 
 - Консоль управления
 
-    1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
     1. Выберите вкладку **Сервисные аккаунты**.
     1. Выберите сервисный аккаунт и нажмите на строку с его именем.
     1. Перейдите в раздел **Права доступа к сервисному аккаунту** (кнопка **Права доступа** на панели слева).
@@ -27,14 +27,19 @@
 
     1. Посмотрите описание команды для назначения роли на сервисный аккаунт как на ресурс:
 
-        ```
-        $ yc iam service-account add-access-binding --help
+        ```bash
+        yc iam service-account add-access-binding --help
         ```
 
-    2. Выберите сервисный аккаунт, например `my-robot`:
+    1. Выберите сервисный аккаунт, например `my-robot`:
+
+        ```bash
+        yc iam service-account list
+        ```
+
+        Результат:
 
         ```
-        $ yc iam service-account list
         +----------------------+----------+------------------+
         |          ID          |   NAME   |   DESCRIPTION    |
         +----------------------+----------+------------------+
@@ -43,10 +48,15 @@
         +----------------------+----------+------------------+
         ```
 
-    3. Выберите [роль](../../concepts/access-control/roles.md):
+    1. Выберите [роль](../../concepts/access-control/roles.md):
+
+        ```bash
+        yc iam role list
+        ```
+
+        Результат:
 
         ```
-        $ yc iam role list
         +--------------------------------+-------------+
         |               ID               | DESCRIPTION |
         +--------------------------------+-------------+
@@ -56,21 +66,27 @@
         | ...                            |             |
         +--------------------------------+-------------+
         ```
-    4. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
+
+    1. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
+
+        ```bash
+        yc iam user-account get test-user
+        ```
+
+        Результат:
 
         ```
-        $ yc iam user-account get test-user
         id: gfei8n54hmfhuk5nogse
         yandex_passport_user_account:
             login: test-user
             default_email: test-user@yandex.ru
         ```
-    5. Назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`. В субъекте укажите тип `userAccount` и ID пользователя:
+    1. Назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`. В субъекте укажите тип `userAccount` и ID пользователя:
 
-        ```
-        $ yc iam service-account add-access-binding my-robot \
-            --role editor \
-            --subject userAccount:gfei8n54hmfhuk5nogse
+        ```bash
+        yc iam service-account add-access-binding my-robot \
+          --role editor \
+          --subject userAccount:gfei8n54hmfhuk5nogse
         ```
 
 - API
@@ -78,10 +94,15 @@
     Воспользуйтесь методом [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
 
     1. Узнайте ID сервисного аккаунта с помощью метода [list](../../api-ref/ServiceAccount/list.md):
-        ```bash
-        $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-            https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
 
+        ```bash
+        curl -H "Authorization: Bearer <IAM-TOKEN>" \
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+        ```
+
+        Результат:
+
+        ```
         {
         "serviceAccounts": [
             {
@@ -94,11 +115,16 @@
         ]
         }
         ```
-    2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
-        ```bash
-        $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-            https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
 
+    1. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
+        ```bash
+        curl -H "Authorization: Bearer <IAM-TOKEN>" \
+          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+        ```
+
+        Результат:
+
+        ```
         {
         "id": "gfei8n54hmfhuk5nogse",
         "yandexPassportUserAccount": {
@@ -107,22 +133,23 @@
         }
         }
         ```
-    3. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+
+    1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
         ```bash
-        $ curl -X POST \
-            -H 'Content-Type: application/json' \
-            -H "Authorization: Bearer <IAM-TOKEN>" \
-            -d '{
-            "accessBindingDeltas": [{
-                "action": "ADD",
-                "accessBinding": {
-                    "roleId": "editor",
-                    "subject": {
-                        "id": "gfei8n54hmfhuk5nogse",
-                        "type": "userAccount"
-            }}}]}' \
-            https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+        curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "gfei8n54hmfhuk5nogse",
+                      "type": "userAccount"
+          }}}]}' \
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
         ```
 
 {% endlist %}
@@ -148,14 +175,17 @@
     {% endnote %}
 
     1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
+    
+        ```bash
+        yc iam service-account list-access-bindings my-robot
         ```
-        $ yc iam service-account list-access-bindings my-robot
-        ```
-    2. Например, назначьте роль нескольким пользователям:
-        ```
-        $ yc iam service-account set-access-bindings my-robot \
-            --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
-            --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+
+    1. Например, назначьте роль нескольким пользователям:
+
+        ```bash
+        yc iam service-account set-access-bindings my-robot \
+          --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
+          --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
         ```
 
 - API
@@ -163,7 +193,7 @@
     Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
     ```bash
-    $ curl -X POST \
+    curl -X POST \
         -H 'Content-Type: application/json' \
         -H "Authorization: Bearer <IAM-TOKEN>" \
         -d '{
@@ -223,8 +253,13 @@
 
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
 
+      ```bash
+      yc iam service-account list
       ```
-      $ yc iam service-account list
+
+      Результат:
+
+      ```
       +----------------------+----------+------------------+
       |          ID          |   NAME   |   DESCRIPTION    |
       +----------------------+----------+------------------+
@@ -233,12 +268,12 @@
       +----------------------+----------+------------------+
       ```
 
-  2. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его ID. В типе субъекта укажите `serviceAccount`:
+  1. Назначьте роль `editor` сервисному аккаунту `test-sa`, указав его ID. В типе субъекта укажите `serviceAccount`:
 
-      ```
-      $ yc iam service-account add-access-binding my-robot \
-          --role editor \
-          --subject serviceAccount:ajebqtreob2dpblin8pe
+      ```bash
+      yc iam service-account add-access-binding my-robot \
+        --role editor \
+        --subject serviceAccount:ajebqtreob2dpblin8pe
       ```
 
 - API
@@ -246,9 +281,13 @@
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
 
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+      curl -H "Authorization: Bearer <IAM-TOKEN>" \
+        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+      ```
 
+      Результат:
+
+      ```
       {
        "serviceAccounts": [
         {
@@ -268,23 +307,23 @@
       }
       ```
 
-  2. Назначьте сервисному аккаунту `test-sa` роль `editor` на другой сервисный аккаунт `my-robot`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-robot`:
+  1. Назначьте сервисному аккаунту `test-sa` роль `editor` на другой сервисный аккаунт `my-robot`. В свойстве `subject` укажите тип `serviceAccount` и ID `test-sa`. В URL запроса в качестве ресурса укажите ID `my-robot`:
 
-  ```bash
-  $ curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{
-      "accessBindingDeltas": [{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "editor",
-              "subject": {
-                  "id": "ajebqtreob2dpblin8pe",
-                  "type": "serviceAccount"
-      }}}]}' \
-      https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
-  ```
+      ```bash
+      curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "ajebqtreob2dpblin8pe",
+                      "type": "serviceAccount"
+          }}}]}' \
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+      ```
 
 {% endlist %}
 
@@ -300,10 +339,10 @@
 
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
 
-  ```
-  $ yc iam service-account add-access-binding my-robot \
-      --role viewer \
-      --subject system:allAuthenticatedUsers
+  ```bash
+  yc iam service-account add-access-binding my-robot \
+    --role viewer \
+    --subject system:allAuthenticatedUsers
   ```
 
 - API
@@ -312,7 +351,7 @@
   Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
 
   ```bash
-  $ curl -X POST \
+  curl -X POST \
       -H 'Content-Type: application/json' \
       -H "Authorization: Bearer <IAM-TOKEN>" \
       -d '{

@@ -8,7 +8,7 @@
 
     Чтобы назначить сервисному аккаунту роль на каталог:
 
-    1. Откройте страницу каталога. Вы можете выбрать каталог на [стартовой странице]({{ link-console-main }}) консоли управления. На этой странице отображаются каталоги для выбранного облака.
+    1. В [консоли управления]({{ link-console-main }}) откройте страницу каталога, на который будет назначена роль.
     1. Перейдите в раздел **Права доступа в каталоге** (кнопка **Права доступа** на панели слева).
     1. Установите переключатель **Наследуемые роли** в активное состояние, чтобы в списке отобразились сервисные аккаунты, которые не принадлежат текущему каталогу.
     1. Нажмите значок ![image](../../_assets/options.svg) напротив имени сервисного аккаунта.
@@ -18,31 +18,33 @@
 
 - CLI
 
-    {% include [default-catalogue](../default-catalogue.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    Чтобы назначить сервисному аккаунту роль на ресурс, выполните команду:
+  {% include [default-catalogue](../default-catalogue.md) %}
 
-    ```
-    yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
-        --role <ROLE-ID> \
-        --subject serviceAccount:<SERVICE-ACCOUNT-ID>
-    ```
+  Чтобы назначить сервисному аккаунту роль на ресурс, выполните команду:
 
-    где:
+  ```bash
+  yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
+    --role <role-id> \
+    --subject serviceAccount:<service-account-id>
+  ```
 
-    * `<SERVICE-NAME>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
-    * `<RESOURCE>` — категория ресурса, например `cloud`.
-    * `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-    * `<RESOURCE-ID>` — идентификатор ресурса.
-    * `<ROLE-ID>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
-    * `<SERVICE-ACCOUNT-ID>` — идентификатор сервисного аккаунта, которому назначается роль.
+  Где:
 
-    Например, чтобы назначить сервисному аккаунту роль `viewer` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `my-folder`:
+  * `<service-name>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
+  * `<resource>` — категория ресурса, например `cloud`.
+  * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
+  * `<resource-id>` — идентификатор ресурса.
+  * `<role-id>` — идентификатор роли, например `{{ roles-cloud-owner }}`.
+  * `<service-account-id>` — идентификатор сервисного аккаунта, которому назначается роль.
 
-    {% include [grant-role-for-sa-to-folder-via-cli](grant-role-for-sa-to-folder-via-cli.md) %}
+  Например, чтобы назначить сервисному аккаунту роль `viewer` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `my-folder`:
+
+  {% include [grant-role-for-sa-to-folder-via-cli](grant-role-for-sa-to-folder-via-cli.md) %}
 
 - API
 
-    {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
+  {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
 
 {% endlist %}

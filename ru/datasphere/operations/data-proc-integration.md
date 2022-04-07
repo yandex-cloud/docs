@@ -100,7 +100,7 @@ XL | 32 | 8 320 ГБ
         * [Zeppelin 0.7.3](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html)
         * [ZooKeeper 3.4.6](http://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin#sc_configuration)
     1. Выберите или создайте сеть для кластера.
-    1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../../data-proc/concepts/ui-proxy.md) {{ dataproc-name }}.
+    1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../../data-proc/concepts/interfaces.md) {{ dataproc-name }}.
     1. Настройте подкластеры: не больше одного главного подкластера с управляющим хостом (обозначается как **Мастер**) и подкластеры для хранения данных или вычислений.
     
         {% note info %}

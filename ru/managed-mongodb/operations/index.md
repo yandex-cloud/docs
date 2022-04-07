@@ -2,7 +2,6 @@
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
-- [{#T}](data-migration.md)
 - [{#T}](connect.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](update.md)

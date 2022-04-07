@@ -6,30 +6,39 @@
 
 - Консоль управления
 
-  1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. Выберите вкладку **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт и нажмите на строку с его именем.
-  1. Идентификатор сервисного аккаунта смотрите в разделе **Обзор**:
-
-      ![image](../../../_assets/iam/sa-get-id.png)
+  1. На странице **Обзор** отобразится **Идентификатор** сервисного аккаунта — строка вида `aje9sb6....ffd2uv0i9`.
 
 - CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   Если вы знаете имя сервисного аккаунта, получите его идентификатор с помощью команды `get`:
 
+  ```bash
+  yc iam service-account get my-robot
   ```
-  $ yc iam service-account get my-robot
+  
+  Результат:
 
+  ```
   id: aje6o61dvog2h6g9a33s
   ...
   ```
 
   Если вы не знаете имя сервисного аккаунта, получите список сервисных аккаунтов в каталоге по умолчанию:
 
+  ```bash
+  yc iam service-account list
   ```
-  $ yc iam service-account list
+
+  Результат:
+
+  ```
   +----------------------+------------------+-------------------------------+
   |          ID          |       NAME       |          DESCRIPTION          |
   +----------------------+------------------+-------------------------------+
@@ -44,10 +53,10 @@
   1. Получите информацию о сервисных аккаунтах в каталоге с помощью метода [list](../../api-ref/ServiceAccount/list.md):
 
       ```bash
-      $ export FOLDER_ID=b1gvmob95yysaplct532
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-          "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+      export FOLDER_ID=b1gvmob95yysaplct532
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+        "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
 
       {
        "serviceAccounts": [

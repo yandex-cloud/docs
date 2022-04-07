@@ -10,13 +10,14 @@
 
 - Консоль управления
 
-  1. Перейдите в каталог, которому принадлежит сервисный аккаунт.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
   1. Выберите вкладку **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт и нажмите на строку с его именем.
   1. Нажмите кнопку **Создать новый ключ** на верхней панели.
   1. Выберите пункт **Создать API-ключ**.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
   1. Сохраните идентификатор и секретный ключ.
+
       {% note alert %}
 
       После закрытия диалога значение ключа будет недоступно.
@@ -29,14 +30,19 @@
 
   1. Посмотрите описание команды создания API-ключа:
 
-      ```
-      $ yc iam api-key create --help
+      ```bash
+      yc iam api-key create --help
       ```
 
   1. Выберите сервисный аккаунт, например `my-robot`:
 
+      ```bash
+      yc iam service-account list
       ```
-      $ yc iam service-account list
+
+      Результат:
+
+      ```
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -44,10 +50,11 @@
       | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
       +----------------------+------------------+-------------------------------+
       ```
+
   1. Создайте API-ключ для сервисного аккаунта `my-robot` и запишите ответ в файл:
 
-      ```
-      $ yc iam api-key create --service-account-name my-robot > api-key.yaml
+      ```bash
+      yc iam api-key create --service-account-name my-robot > api-key.yaml
       ```
 
       В ответе в свойстве `secret` будет содержаться API-ключ:
@@ -65,16 +72,16 @@
 - API
 
   1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
-  2. Создайте API-ключ с помощью метода [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
+  1. Создайте API-ключ с помощью метода [create](../../api-ref/ApiKey/create.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
 
       ```bash
-      $ export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer $IAM_TOKEN" \
-          -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
-          https://iam.api.cloud.yandex.net/iam/v1/apiKeys
+      export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer $IAM_TOKEN" \
+        -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
+        https://iam.api.cloud.yandex.net/iam/v1/apiKeys
       ```
 
 {% endlist %}
@@ -90,27 +97,27 @@
 - CLI
 
   ```bash
-  $ yc iam api-key create --service-account-name my-robot \
-      --description "this API-key is for my-robot"
+  yc iam api-key create --service-account-name my-robot \
+    --description "this API-key is for my-robot"
   ```
 
 - API
 
   ```bash
-  $ export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
-  $ export IAM_TOKEN=CggaATEVAgA...
-  $ curl -X POST \
-      -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $IAM_TOKEN" \
-      -d "{
-          \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
-          \"description\": \"this API-key is for my-robot\"
-      }" \
-      https://iam.api.cloud.yandex.net/iam/v1/apiKeys
+  export SERVICEACCOUNT_ID=aje6o61dvog2h6g9a33s
+  export IAM_TOKEN=CggaATEVAgA...
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $IAM_TOKEN" \
+    -d "{
+        \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
+        \"description\": \"this API-key is for my-robot\"
+    }" \
+    https://iam.api.cloud.yandex.net/iam/v1/apiKeys
   ```
 
 {% endlist %}
 
 #### Что дальше {#what-is-next}
 
-- [Узнайте, какие сервисы поддерживают API-ключи](../../concepts/authorization/api-key.md#supported-services)
+* [Узнайте, какие сервисы поддерживают API-ключи](../../concepts/authorization/api-key.md#supported-services)
