@@ -2,11 +2,15 @@
 1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
 
     ```bash
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-        "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+    export FOLDER_ID=b1gvmob95yysaplct532
+    export IAM_TOKEN=CggaATEVAgA...
+    curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+    ```
 
+    Результат:
+
+    ```
     {
      "serviceAccounts": [
       {
@@ -19,6 +23,7 @@
      ]
     }
     ```
+
 1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `serviceAccount` и ID сервисного аккаунта:
 
     **body.json:**

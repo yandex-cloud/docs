@@ -450,6 +450,7 @@ default:
   link-console-main: https://console.cloud.yandex.ru
   link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.ru/iam
+  link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-support: https://console.cloud.yandex.ru/support
   link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
   link-cloud-services: https://cloud.yandex.ru/services

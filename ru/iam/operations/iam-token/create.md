@@ -14,8 +14,8 @@
 
   Получите IAM-токен:
 
-  ```
-  $ yc iam create-token
+  ```bash
+  yc iam create-token
   ```
 
 - API

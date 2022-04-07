@@ -1,1 +1,1 @@
-Откройте страницу [Управление доступом]({{ link-console-access-management }}) для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).
+Откройте страницу [Пользователи и роли]({{ link-console-iam-users }}) для выбранного облака. Если необходимо, [переключитесь на другое облако](../../resource-manager/operations/cloud/switch-cloud.md).
