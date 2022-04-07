@@ -1,20 +1,32 @@
-# Квоты и ресурсы
+# Quotas and resources
 
-В общем случае единая квота на все сервисы MDB выделяется для определенного сервиса в ABC. Каждому сервису ABC соответствует отдельное облако в MDB.
+In general, a single quota for all MDB services is allocated for a particular ABC service. Each ABC service corresponds to a separate cloud in MDB.
 
-## Просмотреть доступные ресурсы
+## View available resources
 
-Чтобы увидеть квоты вашего облака:
+To see your cloud's quotas:
 
-1. Откройте [консоль управления](https://yc.yandex-team.ru).
-1. В правом верхнем углу выберите нужное облако.
-1. Перейдите в раздел [Квоты](https://yc.yandex-team.ru/?section=quotas).
+1. Open the [management console](https://yc.yandex-team.com).
+1. In the upper-right corner, select the desired cloud.
+1. Go to [Quotas](https://yc.yandex-team.com/?section=quotas).
 
-Квоты и их потребление, с учётом иерархии проектов в ABC, также можно видеть в [Dispenser](https://dispenser.yandex-team.ru/db/projects/yandex).
+You can also find information about quotas and their use, depending on the hierarchy of ABC projects, in [Dispenser](https://dispenser.yandex-team.com/db/projects/yandex).
 
+{% note important %}
 
-## Запросить изменение квот
+Quotas and their usage details are displayed in the management console for a specific ABC service, excluding child services. Whereas quotas displayed in Dispenser factor in child services by default.
 
- Запросить изменение квоты можно в интерфейсе Dispenser, по [инструкции](https://wiki.yandex-team.ru/dispenser/ui/#quota-request).
+{% endnote %}
 
-Dispenser отсылает информацию о выделенных квотах в MDB раз в 5 минут.
+{% note warning %}
+
+In Sandy Bridge host classes (`db1.*`) the RAM limit is twice as high as the guaranteed amount. For example, the limit for `db1.small` is 16 GB, while the guaranteed amount is 8 GB. In a quota, consumption is accounted for as per guarantee, while the management console displays limits. In subsequent generations, this problem is eliminated, since guarantees and limits are equal there.
+
+{% endnote %}
+
+## Request a quota change
+
+ You can request a quota change in the Dispenser interface by following the [instructions](https://wiki.yandex-team.ru/dispenser/ui/#quota-request).
+
+Dispenser sends information about allocated quotas to MDB every 5 minutes.
+
