@@ -248,6 +248,7 @@ default:
   mch-hs-version: 21.7
   mch-ck-version: 21.11 # Minimal version ClickHouse for ClickHouse Keeper
   mmg-backup-retention: 7
+  mpg-backup-retention: 7
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
   mrd-max-disk-size: 4096 GB

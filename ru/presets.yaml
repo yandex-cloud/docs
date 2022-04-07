@@ -248,6 +248,7 @@ default:
   mch-ck-version: 21.11 # Минимальная версия ClickHouse для ClickHouse Keeper
   mch-hs-move-factor: 20%
   mmg-backup-retention: 7
+  mpg-backup-retention: 7
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
   mrd-max-disk-size: 4096 ГБ
