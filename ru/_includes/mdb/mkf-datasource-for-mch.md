@@ -1,200 +1,259 @@
-В кластер {{ mch-name }} можно поставлять данные из кластера {{ mkf-name }} в реальном времени. {{ mch-name }} будет автоматически вставлять в таблицу на [движке {{ KF }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/) данные, поступающие в определенные топики {{ KF }}.
+В кластер {{ mch-name }} можно в реальном времени поставлять данные из топиков {{ KF }}. Эти данные будут автоматически вставлены в таблицы {{ CH }} на [движке `Kafka`](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/).
 
 Чтобы настроить поставку данных из {{ mkf-name }} в {{ mch-name }}:
-1. [Настройте интеграцию с {{ KF }} для кластера {{ mch-name }}](#configure-mch-for-kf).
-1. [Изучите формат данных, поступающих от {{ mkf-name }}](#explore-kf-data-format).
-1. [Создайте в кластере {{ mch-name }} таблицу на движке {{ KF }}](#create-kf-table).
-1. [Отправьте тестовые данные в кластер {{ mkf-name }}](#send-sample-data-to-kf).
-1. [Проверьте наличие тестовых данных в таблице кластера {{ mch-name }}](#fetch-sample-data).
 
+1. [Настройте интеграцию с {{ KF }} для кластера {{ mch-name }}](#configure-mch-for-kf).
+1. [Создайте в кластере {{ mch-name }} таблицы на движке Kafka](#create-kf-table).
+1. [Отправьте тестовые данные в топики {{ mkf-name }}](#send-sample-data-to-kf).
+1. [Проверьте наличие тестовых данных в таблицах кластера {{ mch-name }}](#fetch-sample-data).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам конфигурации.
-1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с базой данных `db1`.
+1. [Создайте необходимое количество кластеров {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-kafka/concepts/instance-types.md). Для подключения к кластерам с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластерам при их создании.
 
-   {% note info %}
+1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) с одним шардом и базой данных `db1`. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
-   Интеграцию с {{ KF }} можно настроить уже на этапе [создания кластера](../../managed-clickhouse/operations/cluster-create.md). В этом практическом руководстве интеграция будет настроена [позже](#configure-mch-for-kf).
+    {% note info %}
 
-   {% endnote %}
+    Интеграцию с {{ KF }} можно настроить уже на этапе [создания кластера](../../managed-clickhouse/operations/cluster-create.md). В этом практическом руководстве интеграция будет настроена [позже](#configure-mch-for-kf).
 
-1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) `datastore` в кластере {{ mkf-name }}.
+    {% endnote %}
 
-1. [Создайте учетные записи](../../managed-kafka/operations/cluster-accounts.md#create-account) в кластере {{ mkf-name }}  для работы с топиком `datastore`:
-   - учетную запись производителя `writer`;
-   - учетную запись потребителя `reader`.
+1. [Создайте необходимое количество топиков](../../managed-kafka/operations/cluster-topics.md#create-topic) в кластерах {{ mkf-name }}. Имена топиков не должны повторяться.
 
-1. Установите утилиту `kafkacat` и убедитесь, что можете с ее помощью [подключиться к кластеру {{ mkf-name }} через SSL](../../managed-kafka/operations/connect.md#connection-string).
+1. [Создайте](../../managed-kafka/operations/cluster-accounts.md#create-account) по две учетные записи для работы с топиками в каждом кластере {{ mkf-name }}:
 
-1. Установите утилиту `clickhouse-client` и убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
+    - учетную запись производителя (`ACCESS_ROLE_PRODUCER`);
+    - учетную запись потребителя (`ACCESS_ROLE_CONSUMER`).
 
-1. Установите утилиту для потоковой обработки JSON-файлов [jq](https://stedolan.github.io/jq/).
+    Имена учетных записей в разных кластерах могут быть одинаковыми.
 
+1. Установите утилиты:
+
+    - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики {{ KF }}.
+
+        ```bash
+        sudo apt update && sudo apt install -y kafkacat
+        ```
+
+        Убедитесь, что можете с ее помощью [подключиться к кластерам {{ mkf-name }} через SSL](../../managed-kafka/operations/connect.md#connection-string).
+
+    - [clickhouse-client]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/interfaces/cli/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/interfaces/cli/){% endif %} — для подключения к базе данных в кластере {{ mch-name }}.
+
+        1. Подключите [DEB-репозиторий](https://clickhouse.tech/docs/ru/getting-started/install/#install-from-deb-packages) {{ CH }}:
+
+            ```bash
+            sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
+            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
+            echo "deb https://repo.clickhouse.tech/deb/stable/ main/" | sudo tee \
+            /etc/apt/sources.list.d/clickhouse.list
+            ```
+
+        1. Установите зависимости:
+
+            ```bash
+            sudo apt update && sudo apt install -y clickhouse-client
+            ```
+
+        1. Загрузите файл конфигурации для `clickhouse-client`:
+
+            ```bash
+            mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+            ```
+
+        Убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
+
+    - [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
+
+        ```bash
+        sudo apt update && sudo apt-get install -y jq
+        ```
 
 ## Настройте интеграцию с {{ KF }} для кластера {{ mch-name }} {#configure-mch-for-kf}
 
-[Укажите в настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) данные для аутентификации в кластере {{ mkf-name }} (секция **Настройки СУБД → Kafka**):
-1. **Sasl mechanism** — `SCRAM-SHA-512`.
-1. **Sasl password** — пароль [учетной записи потребителя](#before-you-begin) `reader`.
-1. **Sasl username** — имя [учетной записи потребителя](#before-you-begin) (в этой пошаговой инструкции — `reader`).
-1. **Security protocol** — `SASL_SSL`.
+В зависимости от количества кластеров {{ mkf-name }}:
 
-Кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику {{ KF }}.
+- Если кластеров {{ KF }} несколько, укажите данные для аутентификации каждого топика {{ mkf-name }} в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) в секции **Настройки СУБД** → **Kafka topics**.
+- Если кластер {{ KF }} один, [укажите данные для аутентификации](../../managed-clickhouse/operations/update.md#change-clickhouse-config) в секции **Настройки СУБД** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
 
+Данные для аутентификации:
 
-## Изучите формат данных, поступающих от {{ mkf-name }} {#explore-kf-data-format}
+- **Name** — имя топика (для нескольких кластеров {{ KF }}).
+- **Sasl mechanism** — `SCRAM-SHA-512`.
+- **Sasl password** — пароль [учетной записи потребителя](#before-you-begin).
+- **Sasl username** — имя [учетной записи потребителя](#before-you-begin).
+- **Security protocol** — `SASL_SSL`.
 
-Чтобы обработать данные, поступающие от {{ mkf-name }}, нужно понимать, каким образом они представлены в сообщении {{ KF }}, и соответствующим образом настроить движок {{ KF }} при [создании таблицы](#create-kf-table) в кластере {{ mch-name }}.
+## Создайте в кластере {{ mch-name }} таблицы на движке Kafka {#create-kf-table}
 
-В качестве примера в топик {{ KF }} `datastore` будут помещены данные от сенсоров автомобиля в формате JSON:
+Пусть в топики {{ KF }} поступают данные от сенсоров автомобиля в формате JSON:
+
 - строковый идентификатор устройства `device_id`;
 - дата и время формирования данных `datetime` в формате `YYYY-MM-DD HH:MM:SS`;
 - координаты автомобиля:
-  - широта `latitude`;
-  - долгота `longitude`;
-  - высота над уровнем моря `altitude`;
+
+    - широта `latitude`;
+    - долгота `longitude`;
+    - высота над уровнем моря `altitude`;
+
 - текущая скорость `speed`;
 - напряжение батарей `battery_voltage` (для электромобиля, для автомобиля с ДВС значение этого параметра — `null`);
 - температура в салоне `cabin_temperature`;
 - уровень топлива `fuel_level` (для автомобиля с ДВС, для электромобиля значение этого параметра — `null`).
 
-Эти данные будут передаваться в виде сообщений {{ KF }}. Каждое такое сообщение будет содержать JSON-объект как строку следующего вида:
+Эти данные будут передаваться в виде сообщений {{ KF }}, каждое из которых будет содержать строчку вида:
 
 ```json
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-Кластер {{ mch-name }} будет использовать при вставке в таблицу [формат данных JSONEachRow](https://clickhouse.tech/docs/ru/interfaces/formats/#jsoneachrow), который позволяет преобразовать строковое представление JSON-объекта из сообщения {{ KF }} в нужный набор значений столбцов.
+Кластер {{ mch-name }} будет использовать при вставке в таблицы на движке `Kafka` [формат данных JSONEachRow](https://clickhouse.tech/docs/ru/interfaces/formats/#jsoneachrow), который преобразует строки из сообщения {{ KF }} в нужные значения столбцов.
 
+Для каждого из топиков {{ KF }} создайте в кластере {{ mch-name }} отдельную таблицу, куда будут заноситься поступающие данные:
 
-## Создайте в кластере {{ mch-name }} таблицу на движке {{ KF }} {#create-kf-table}
-
-Исходя из формата данных, приведенного выше, создайте в кластере {{ mch-name }} таблицу, в которую будут заноситься поступающие от {{ mkf-name }} данные:
 1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 1. Выполните запрос:
 
-   ```sql
-   CREATE TABLE IF NOT EXISTS db1.kafka
-   (
-     device_id String,
-     datetime DateTime,
-     latitude Float32,
-     longitude Float32,
-     altitude Float32,
-     speed Float32,
-     battery_voltage Nullable(Float32),
-     cabin_temperature Float32,
-     fuel_level Nullable(Float32)
-   ) ENGINE = Kafka()
-   SETTINGS
-       kafka_broker_list = '<FQDN хоста-брокера Kafka>:9091',
-       kafka_topic_list = 'datastore',
-       kafka_group_name = 'sample_group',
-       kafka_format = 'JSONEachRow';
-   ```
+    ```sql
+    CREATE TABLE IF NOT EXISTS db1.<имя таблицы для топика>
+    (
+        device_id String,
+        datetime DateTime,
+        latitude Float32,
+        longitude Float32,
+        altitude Float32,
+        speed Float32,
+        battery_voltage Nullable(Float32),
+        cabin_temperature Float32,
+        fuel_level Nullable(Float32)
+    ) ENGINE = Kafka()
+    SETTINGS
+        kafka_broker_list = '<FQDN хоста-брокера>:9091'
+        kafka_topic_list = '<имя топика>',
+        kafka_group_name = 'sample_group',
+        kafka_format = 'JSONEachRow';
+    ```
 
-Эта таблица будет автоматически наполняться сообщениями, считываемыми из топика `datastore` кластера {{ mkf-name }}. При чтении данных {{ mch-name }} использует [указанные ранее настройки](#configure-mch-for-kf) для [учетной записи потребителя `reader`](#before-you-begin).
+Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков {{ mkf-name }}. При чтении данных {{ mch-name }} использует [указанные ранее настройки](#configure-mch-for-kf) для [учетных записей потребителей](#before-you-begin).
 
-Подробнее о создании таблицы на движке {{ KF }} см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/).
+Подробнее о создании таблиц на движке `Kafka` см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/).
 
+## Отправьте тестовые данные в топики {{ mkf-name }} {#send-sample-data-to-kf}
 
-## Отправьте тестовые данные в кластер {{ mkf-name }} {#send-sample-data-to-kf}
+1. Создайте файл `sample.json` со тестовыми данными:
 
-1. Создайте файл `sample.json` со следующими тестовыми данными:
+    ```json
+    {
+        "device_id": "iv9a94th6rztooxh5ur2",
+        "datetime": "2020-06-05 17:27:00",
+        "latitude": 55.70329032,
+        "longitude": 37.65472196,
+        "altitude": 427.5,
+        "speed": 0,
+        "battery_voltage": 23.5,
+        "cabin_temperature": 17,
+        "fuel_level": null
+    }
 
-   ```json
-   {
-     "device_id": "iv9a94th6rztooxh5ur2",
-     "datetime": "2020-06-05 17:27:00",
-     "latitude": 55.70329032,
-     "longitude": 37.65472196,
-     "altitude": 427.5,
-     "speed": 0,
-     "battery_voltage": 23.5,
-     "cabin_temperature": 17,
-     "fuel_level": null
-   }
+    {
+        "device_id": "rhibbh3y08qmz3sdbrbu",
+        "datetime": "2020-06-06 09:49:54",
+        "latitude": 55.71294467,
+        "longitude": 37.66542005,
+        "altitude": 429.13,
+        "speed": 55.5,
+        "battery_voltage": null,
+        "cabin_temperature": 18,
+        "fuel_level": 32
+    }
 
-   {
-     "device_id": "rhibbh3y08qmz3sdbrbu",
-     "datetime": "2020-06-06 09:49:54",
-     "latitude": 55.71294467,
-     "longitude": 37.66542005,
-     "altitude": 429.13,
-     "speed": 55.5,
-     "battery_voltage": null,
-     "cabin_temperature": 18,
-     "fuel_level": 32
-   }
+    {
+        "device_id": "iv9a94th6rztooxh5ur2",
+        "datetime": "2020-06-07 15:00:10",
+        "latitude": 55.70985913,
+        "longitude": 37.62141918,
+        "altitude": 417.0,
+        "speed": 15.7,
+        "battery_voltage": 10.3,
+        "cabin_temperature": 17,
+        "fuel_level": null
+    }
+    ```
 
-   {
-     "device_id": "iv9a94th6rztooxh5ur2",
-     "datetime": "2020-06-07 15:00:10",
-     "latitude": 55.70985913,
-     "longitude": 37.62141918,
-     "altitude": 417.0,
-     "speed": 15.7,
-     "battery_voltage": 10.3,
-     "cabin_temperature": 17,
-     "fuel_level": null
-   }
-   ```
+1. Отправьте данные из файла `sample.json` в каждый топик {{ mkf-name }} с помощью `jq` и `kafkacat`:
 
-1. Отправьте данные из файла `sample.json` в топик `datastore` кластера {{ mkf-name }} с помощью `jq`  и `kafkacat`:
+    ```bash
+    jq -rc . sample.json | kafkacat -P \
+       -b <FQDN хоста-брокера>:9091 \
+       -t <имя топика> \
+       -k key \
+       -X security.protocol=SASL_SSL \
+       -X sasl.mechanisms=SCRAM-SHA-512 \
+       -X sasl.username="<имя учетной записи производителя>" \
+       -X sasl.password="<пароль учетной записи производителя>" \
+       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
+    ```
 
-   ```bash
-   jq -rc . sample.json | kafkacat kafkacat -P  \
-      -b rc1a-gjnru23feni92o5a.{{ dns-zone }}:9091 \
-      -t datastore \
-      -k key \
-      -X security.protocol=SASL_SSL \
-      -X sasl.mechanisms=SCRAM-SHA-512 \
-      -X sasl.username=writer \
-      -X sasl.password="<пароль производителя>" \
-      -X ssl.ca.location=<путь к корневому сертификату Yandex> -Z
-   ```
+Данные отправляются с помощью [учетных записей производителей](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect.md).
 
-Данные отправляются с помощью [учетной записи производителя `writer`](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect.md).
+## Проверьте наличие тестовых данных в таблицах кластера {{ mch-name }} {#fetch-sample-data}
 
+Для доступа к данным используйте материализованное представление. Когда к таблице на движке `Kafka` присоединяется материализованное представление, оно начинает в фоновом режиме собирать данные. Это позволяет непрерывно получать сообщения от {{ KF }} и преобразовывать их в необходимый формат с помощью `SELECT`.
 
-## Проверьте наличие тестовых данных в таблице кластера {{ mch-name }} {#fetch-sample-data}
+{% note info %}
 
-Хотя можно напрямую считать данные из таблицы `db1.kafka`, это не рекомендуется, т.к. каждое сообщение из топика может быть прочитано {{ CH }} только один раз.
+Сообщение из топика может быть прочитано {{ CH }} только один раз, поэтому не рекомендуется считывать данные из таблицы напрямую.
 
-Практичнее создать материализованное представление (`MATERIALIZED VIEW`) и использовать его для доступа к данным. Когда к таблице на движке {{ KF }} присоединяется материализованное представление, оно начинает в фоновом режиме собирать данные. Это позволяет непрерывно получать сообщения от {{ KF }} и преобразовывать их в необходимый формат с помощью `SELECT`.
+{% endnote %}
 
-Чтобы создать такое представление для таблицы `db1.kafka`:
+Чтобы создать такое представление:
+
 1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
-1. Выполните запросы:
+1. Для каждой таблицы на движке `Kafka` выполните запросы:
 
-   ```sql
-   CREATE TABLE db1.kafka_data_source
-   (
-     device_id String,
-     datetime DateTime,
-     latitude Float32,
-     longitude Float32,
-     altitude Float32,
-     speed Float32,
-     battery_voltage Nullable(Float32),
-     cabin_temperature Float32,
-     fuel_level Nullable(Float32)
-   ) ENGINE = MergeTree()
-   ORDER BY device_id;
+    ```sql
+    CREATE TABLE db1.temp_<имя таблицы для топика>
+    (
+        device_id String,
+        datetime DateTime,
+        latitude Float32,
+        longitude Float32,
+        altitude Float32,
+        speed Float32,
+        battery_voltage Nullable(Float32),
+        cabin_temperature Float32,
+        fuel_level Nullable(Float32)
+    ) ENGINE = MergeTree()
+    ORDER BY device_id;
+    ```
 
-   CREATE MATERIALIZED VIEW db1.data_view TO db1.kafka_data_source
-       AS SELECT * FROM db1.kafka;
-   ```
+    ```sql
+    CREATE MATERIALIZED VIEW db1.<имя представления> TO db1.temp_<имя таблицы для топика>
+        AS SELECT * FROM db1.<имя таблицы для топика>;
+    ```
 
-Чтобы получить все данные из материализованного представления `db1.data_view`:
+Чтобы получить все данные из нужного материализованного представления:
+
 1. [Подключитесь](../../managed-clickhouse/operations/connect.md#connection-string) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 1. Выполните запрос:
 
-   ```sql
-   SELECT * FROM db1.data_view;
-   ```
+    ```sql
+    SELECT * FROM db1.<имя представления>;
+    ```
 
-После выполнения запроса вы должны получить отправленные в {{ mkf-name }} данные в табличном виде.
+Запрос вернет таблицу с данными, отправленными в соответствующий топик {{ mkf-name }}.
 
-Подробнее о работе с данными, поставляемыми из {{ KF }}, см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/).
+Подробнее о работе с данными, поставляемыми из {{ KF }}, см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/).
+
+## Удалите созданные ресурсы {#clear-out}
+
+Если созданные ресурсы вам больше не нужны, удалите их:
+
+- Удалите кластеры:
+
+    - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md);
+    - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
+
+- Если вы зарезервировали для кластеров публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
