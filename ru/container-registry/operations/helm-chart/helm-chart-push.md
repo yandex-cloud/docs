@@ -14,7 +14,7 @@
 
 - CLI
 
-  1. [Установите]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} клиент Helm версии 3.
+  1. [Установите](https://helm.sh/ru/docs/intro/install/) клиент Helm версии 3.7.1 или выше.
   1. Включите поддержку [Open Container Initiative](https://opencontainers.org/) в клиенте Helm:
 
      ```bash
@@ -49,36 +49,26 @@
   1. Сохраните Helm-чарт локально:
 
      ```bash
-     helm package . cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
+     helm package . --version <версия Helm-чарта>
      ```
 
      Результат выполнения команды:
 
      ```bash
-     ref:     cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
-     digest:  f3c306aa678756aec30ef11a9483e45d1d0c1e5bab921fe86e8716957203239c
-     size:    4.7 KiB
-     name:    <имя Helm-чарта>
-     version: 5
-     <version>: saved
+     Successfully packaged chart and saved it to: /<путь>/<имя Helm-чарта>-<версия>.tgz
      ```
 
   1. Загрузите Helm-чарт в {{ container-registry-name }}:
 
      ```bash
-     helm push cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
+     helm push <имя Helm-чарта>-<версия>.tgz oci://cr.yandex/<ID реестра>
      ```
 
      Результат выполнения команды:
 
      ```bash
-     The push refers to repository [cr.yandex/<ID реестра>/<имя Helm-чарта>]
-     ref:     cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
-     digest:  f3c306aa678756aec30ef11a9483e45d1d0c1e5bab921fe86e8716957203239c
-     size:    4.7 KiB
-     name:    <имя Helm-чарта>
-     version: 5
-     <version>: pushed to remote (1 layer, 4.7 KiB total)
+     Pushed: cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
+     Digest: <SHA256...>
      ```
 
 {% endlist %}
