@@ -546,6 +546,9 @@ default:
 
   alb-ingress-version: 0.1.0
 
+  objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
+  objstorage-sftps-gateway-version: '1.0'
+
   __system:
     dislikeVariants:
       - "There's no answer to my question"

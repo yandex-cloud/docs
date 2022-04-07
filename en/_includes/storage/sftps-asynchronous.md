@@ -1,0 +1,1 @@
+The GeeseFS client that is part of a Docker container works with files asynchronously. It caches new files and uploads them to a bucket after a while. If an FTP server connection is broken between these two points of time, uploaded files may be lost either partially or completely.

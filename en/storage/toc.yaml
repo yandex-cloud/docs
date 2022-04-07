@@ -76,7 +76,7 @@ items:
       - name: Blue-green and canary deployment
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs in DataLens
-        href: tutorials/storage-logs-analysis.md    
+        href: tutorials/storage-logs-analysis.md
   - name: Concepts
     items:
       - name: Overview
@@ -153,6 +153,10 @@ items:
             href: tools/s3fs.md
           - name: goofys
             href: tools/goofys.md
+      - name: FTP
+        items:
+          - name: Docker container for (S)FTP(S)
+            href: tools/sftps.md
   - name: API reference
     items:
       - name: REST (Amazon S3-compatible)
