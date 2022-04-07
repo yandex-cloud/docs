@@ -14,7 +14,7 @@ ARR_STR( array [ , delimiter [ , null_str ] ] )
 ```
 
 #### Description {#description}
-Concatenates elements of the array `array` using `delimiter` as a delimiter (comma by default) and `null_str` as a null string (null items are skipped by default).
+Concatenates elements of the array `array` using `delimiter` as a delimiter (comma by default) and `null_str` as a `NULL` string (`NULL` items are skipped by default).
 
 See also [STR](STR.md)
 

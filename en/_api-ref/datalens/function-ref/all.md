@@ -201,7 +201,7 @@ Returns `value` for the minimum value of `comp` in the group. If multiple values
 
 **Syntax:**`ARR_STR( array [ , delimiter [ , null_str ] ] )`
 
-Concatenates elements of the array `array` using `delimiter` as a delimiter (comma by default) and `null_str` as a null string (null items are skipped by default).
+Concatenates elements of the array `array` using `delimiter` as a delimiter (comma by default) and `null_str` as a `NULL` string (`NULL` items are skipped by default).
 
 See also [STR](STR.md)
 
@@ -415,7 +415,7 @@ Returns the number of items in the specified window meeting the `expression` con
 
 **Syntax:**`COUNT_ITEM( array, value )`
 
-Returns the number of elements in the array `array` equal to `value`. Type of `value` must match type of `array` elements.
+Returns the number of elements in the array `array` equal to `value`. The type of `value` must match the type of the `array` elements.
 
 
 
