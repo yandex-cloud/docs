@@ -12,10 +12,10 @@
 
   1. [Аутентифицируйтесь в CLI от имени федеративного пользователя](../../../cli/operations/authentication/federated-user.md).
 
-  2. Получите IAM-токен:
+  1. Получите IAM-токен:
 
-      ```
-      $ yc iam create-token
+      ```bash
+      yc iam create-token
       ```
 
 {% endlist %}

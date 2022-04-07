@@ -162,6 +162,10 @@
 
     Содержит тип данных `citext`, используемый для регистронезависимой работы со строками.
 
+* [clickhouse_fdw](https://github.com/adjust/clickhouse_fdw) {#ext-ch-fdw}
+
+    Добавляет поддержку [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) для доступа к базам данных {{ CH }}, поддерживает операции `SELECT FROM` и `INSERT INTO`.
+
 * [cube]({{ pg-docs }}/static/cube.html) {#ext-cube}
 
     Содержит тип данных `cube`, используемый для представления многомерных кубов.
@@ -228,6 +232,10 @@
     Добавляет поддержку [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) для доступа к базам данных Oracle.
 
     Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+
+* [orafce](https://github.com/orafce/orafce) {#ext-orafce}
+
+    Добавляет функции и операторы, которые эмулируют набор функций и пакетов БД Oracle.
 
 * [pg_buffercache]({{ pg-docs }}/pgbuffercache.html) {#ext-pg_buffercahce}
 

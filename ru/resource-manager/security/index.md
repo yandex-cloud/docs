@@ -27,6 +27,10 @@ description: "Управление доступом в сервисе, позв�
 * Сервисные роли:
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
     * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+    * {% include [resource-manager.admin](../../_includes/iam/roles/short-descriptions/resource-manager.admin.md) %}
+    * {% include [resource-manager.editor](../../_includes/iam/roles/short-descriptions/resource-manager.editor.md) %}
+    * {% include [resource-manager.viewer](../../_includes/iam/roles/short-descriptions/resource-manager.viewer.md) %}
+
 * Примитивные роли:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}

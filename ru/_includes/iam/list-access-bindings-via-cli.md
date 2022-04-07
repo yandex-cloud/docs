@@ -1,17 +1,24 @@
 Посмотрите, какие роли назначены на ресурс:
 
+```bash
+yc <service-name> <resource> list-access-bindings <resource-name>|<resource-id>
 ```
-$ yc <SERVICE-NAME> <RESOURCE> list-access-bindings <RESOURCE-NAME>|<RESOURCE-ID>
-```
-где:
-* `<SERVICE-NAME>` — имя сервиса, которому принадлежит ресурс, например `resource-manager`.
-* `<RESOURCE>` — категория ресурса, например `folder`.
-* `<RESOURCE-NAME>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
-* `<RESOURCE-ID>` — идентификатор ресурса.
+
+Где:
+* `<service-name>` — имя сервиса, которому принадлежит ресурс, например `resource-manager`.
+* `<resource>` — категория ресурса, например `folder`.
+* `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.
+* `<resource-id>` — идентификатор ресурса.
 
 Например, посмотрите кому и какие роли назначены на каталог `default`:
+
+```bash
+yc resource-manager folder list-access-bindings default
 ```
-$  yc resource-manager folder list-access-bindings default
+
+Результат:
+
+```
 +---------------------+----------------+----------------------+
 |       ROLE ID       |  SUBJECT TYPE  |      SUBJECT ID      |
 +---------------------+----------------+----------------------+
