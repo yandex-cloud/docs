@@ -387,25 +387,25 @@ AD FS требует создавать _отношение доверия с п
 
 ### Настройте Claims Mapping {#configure-claims-mapping}
 
-Когда AD FS аутентифицирует пользователя, она отправляет в {{ yandex-cloud }} SAML-сообщение с подтверждением об успешной аутентификации. В элементе `NameID` в этом сообщении должно указываться, кто именно был аутентифицирован. Для этого необходимо настроить соответствие данных пользователя элементам SAML-сообщения. Типы персональных данных, которые поддерживает {{ org-full-name }}, приведены ниже.
+Когда служба AD FS аутентифицирует пользователя, она отправляет в {{ yandex-cloud }} SAML-сообщение с подтверждением успешной аутентификации. Сообщение обязательно должно содержать элемент Name ID, однозначно идентифицирующий пользователя, а также может содержать другие данные пользователя (имя, электронная почта и так далее). Для этого необходимо настроить соответствие атрибутов пользователя типам исходящих утверждений (Outgoing Claim Type). Типы персональных данных, которые поддерживает {{ org-full-name }}, приведены ниже.
 
 Данные пользователя | Комментарий | Outgoing Claim Type
 ------------------- | ----------- | -------------------
-Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать User Principal Name (UPN) или адрес электронной почты. | Name Identifier 
-Фамилия | Отображается в сервисах {{yandex-cloud}}. | Surname
-Имя | Отображается в сервисах {{yandex-cloud}}. | Given Name
-Полное имя | Отображается в сервисах {{yandex-cloud}}.<br>Пример: Иван Иванов | Name
-Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com` | E-Mail Address
-Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: +71234567890 | Добавьте новый атрибут с идентификатором<br>`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`.<br>См. [документацию AD FS]({{ link-adfs-add-claim }})
-Аватар | Отображается в сервисах {{yandex-cloud}}.<br>Изображение передается в кодировке Base64. [Пример](#avatar-example) | Добавьте новый атрибут с идентификатором `thumbnailPhoto`.<br>См. [документацию AD FS]({{ link-adfs-add-claim }})
+Уникальный идентификатор пользователя | Обязательный атрибут. Рекомендуется использовать атрибут **User-Principal-Name** или адрес электронной почты. | Name ID 
+Фамилия | Отображается в сервисах {{yandex-cloud}}. Рекомендуется использовать атрибут **Surname**. | Surname
+Имя | Отображается в сервисах {{yandex-cloud}}. Рекомендуется использовать атрибут **Given-Name**.| Given Name
+Полное имя | Отображается в сервисах {{yandex-cloud}}. Пример: Иван Иванов.<br>Рекомендуется использовать атрибут **Display-Name**. | Name
+Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}. Пример:&nbsp;`ivanov@example.com`<br>Рекомендуется использовать атрибут **E-Mail-Address**. | E-Mail Address
+Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}. Пример: +71234567890<br>Рекомендуется использовать атрибут `Telephone-Number`. | В поле **Outgoing Claim Type** введите `phone`
+Аватар | Отображается в сервисах {{yandex-cloud}}.<br>Рекомендуется использовать атрибут `thumbnailPhoto`. [Как добавить аватар](#add-avatar) | В поле **Outgoing Claim Type** введите `thumbnailPhoto`
 
 {% note warning %}
 
-Идентификатор `NameID` должен быть уникальным для всех пользователей федерации. В качестве идентификатора рекомендуется указывать User Principal Name (UPN) или адрес электронной почты.
+Идентификатор Name ID должен быть уникальным для всех пользователей федерации. В качестве идентификатора рекомендуется указывать User Principal Name (UPN) или адрес электронной почты.
 
 {% endnote %}
 
-Чтобы настроить соответствие данных пользователя элементам SAML-сообщения:
+Чтобы настроить соответствие данных пользователя типам исходящих утверждений (Outgoing Claim Type):
 
 1. В консоли управления AD FS в блоке **Relying Party Trusts** нажмите правой кнопкой мыши на созданном ранее отношении доверия с проверяющей стороной и выберите **Edit Claim Issuance Policy**.
 
@@ -413,79 +413,71 @@ AD FS требует создавать _отношение доверия с п
 
 1. Выберите **Send LDAP Attributes as Claims** и нажмите **Next**.
 
-1. На следующей странице настройте, что будет передаваться в полях сообщения:
+1. На следующей странице настройте, какие данные будут передаваться в сообщении:
 
     1. В поле **Claim rule name** задайте имя правила, например `Claims mapping`
 
-    1. В поле **Attribute Store** выберите `Active Directory`.
+    1. В поле **Attribute Store** выберите **Active Directory**.
 
     1. Укажите, что будет передаваться в качестве Name ID — уникального идентификатора пользователя. Для этого добавьте строчку в списке **Mapping of LDAP attributes**:
 
-        В **LDAP Attribute** выберите `User-Principal-Name` или `E-Mail-Addresses`.
+        В столбце **LDAP Attribute** выберите **User-Principal-Name** или **E-Mail-Addresses**.
 
-        В **Outgoing Claim Type** выберите `Name ID`.
+        В столбце **Outgoing Claim Type** выберите **Name ID**.
 
-    1. Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления]({{link-console-support}}), настройте, чтобы сервер передавал адрес электронной почты (`E-Mail Address`) и имя пользователя (`Name`):
+    1. Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления]({{link-console-support}}), добавьте адрес электронной почты (тип утверждения **E-Mail Address**) и имя пользователя (тип утверждения **Name**).
 
-        ![image](../../../_assets/iam/federations/specify-claims-mapping-ad.png)
+    1. Чтобы передавать отдельно имя и фамилию пользователя, добавьте типы утверждения **Given Name** и **Surname**.
+	
+	1. Чтобы добавить номер телефона или [аватар пользователя](#add-avatar), в поле **Outgoing Claim Type** вручную введите название типа: `phone` или `thumbnailPhoto`.
 
-        Вы также можете передавать отдельно имя и фамилию пользователя. Для этого вместо `Name` используйте типы `Given Name` и `Surname`.
+       ![image](../../../_assets/iam/federations/specify-claims-mapping-ad.png)
 
 1. Нажмите **Finish**, затем нажмите **OK**, чтобы закрыть окно **Edit Claim Issuance Policy**.
 
-#### Пример изображения в кодировке Base64 {#avatar-example}
 
-Изображение для аватара передается в текстовом виде в кодировке [Base64]({{link-base64}}).
+#### Как добавить аватар в Active Directory {#add-avatar}
 
-{% cut "Пример закодированного изображения" %}
+Чтобы добавить в Active Directory аватар пользователя, запишите изображение в атрибут `thumbnailPhoto` с помощью командной оболочки PowerShell. 
 
-```
-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
-UYGmIgo9HwAAAABJRU5ErkJggg==
-```
+{% note info %}
 
-{% endcut %}
+Атрибут `thumbnailPhoto` поддерживает максимальный размер изображения 100 Кбайт. Рекомендуемый размер файла до 10 Кбайт, размер изображения до 96×96 пикселей.
 
+{% endnote %}
+
+1. Запустите командную оболочку PowerShell.
+
+1. Подключите модуль Active Directory Module for Windows PowerShell с помощью команды: 
+   
+   ```
+   Import-Module ActiveDirectory
+   ```
+
+1. Чтобы добавить аватар для одного пользователя, выполните команду:
+
+   ```
+   Set-ADUser <имя пользователя> -Replace @{thumbnailPhoto=([byte[]](Get-Content "<путь к изображению>" -Encoding byte))}
+   ```
+
+1. Чтобы массово добавить аватары для пользователей:
+
+   1. Подготовьте CSV-файл, в котором указаны имена пользователей и пути к изображениям.
+   
+      Пример CSV-файла:
+	  
+	  ```csv
+	  AD_username, Photo
+      smith, C:\Photo\smith.jpg
+      jones, C:\Photo\jones.jpg
+	  ```
+	  
+   1. Выполните команду:
+   
+      ```
+	  Import-Csv <путь к CSV-файлу> |%{Set-ADUser -Identity $_.AD_username -Replace @{thumbnailPhoto=([byte[]](Get-Content $_.Photo -Encoding byte))}}
+	  ```
+   
 ## Добавьте пользователей в организацию {#add-users}
 
 Если при создании федерации вы не включили опцию **Автоматически создавать пользователей**, федеративных пользователей нужно добавить в организацию вручную.
