@@ -189,6 +189,8 @@ items:
             href: operations/dashboard/publish.md
           - name: Managing dashboard access
             href: operations/dashboard/manage-access.md
+          - name: Dashboard auto-update
+            href: operations/dashboard/auto-update.md
       - name: Working with permissions
         items:
           - name: Granting permissions
