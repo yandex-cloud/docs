@@ -6,13 +6,17 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release 14.03.22 {#140322}
+
+The [`general:rc` version](#020322) from March 2, 2022 is available under the `general` tag.
+
+## Previous versions {#previous}
+
 ### Release 02.03.22 {#020322}
 
 Improved recognition of names, addresses, and terms as well as punctuation placement in long sentences and texts with numbers is now available in the `general` model.
 
 The `general:rc` model has undergone further upgrades based on user data.
-
-## Previous versions {#previous}
 
 ### Release 17.02.22 {#170222}
 
@@ -24,7 +28,7 @@ The current release improved the quality of the Russian-language `general:rc` mo
 
 ### Release 3.02.22 {#030222}
 
-1. In the `general:rc`, a universal mode (`auto`language) is available. In this mode, the model can recognize speech in one of the following languages:
+1. In the `general:rc`, a universal mode (`"auto"` language) is available. In this mode, the model can recognize speech in one of the following languages:
    * Russian
    * Kazakh
    * English
@@ -37,11 +41,11 @@ The current release improved the quality of the Russian-language `general:rc` mo
    * Italian
    * Spanish
 
-1. New languages are also available under their codes. The `general:rc` uses indication as a hint for language recognition. If a language is specifically indicated, the model uses it as a hint to improve recognition quality. Currently, the hint only affects quality recognition for Russian.
+1. New languages are also available under their codes. The `general:rc` model uses indication as a hint for language recognition. If a language is specifically indicated, the model uses it as a hint to improve recognition quality. Currently, the hint only affects quality recognition for Russian.
 
 When using `general:rc`, we recommend enabling [auto-tuning](stt/additional-training.md#autotuning).
 
-_Known problems_: in the universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
+_Known problems_: in universal mode, recognition quality may deteriorate in the case of continuous speech without pauses.
 
 ### Release 26.01.22 {#260122}
 
@@ -49,4 +53,4 @@ _Known problems_: in the universal mode, recognition quality may deteriorate in 
 
 1. The `general:rc` model now supports a punctuator in streaming and delayed recognition modes.
 
-1. In delayed recognition mode, you can now work with the [MP3]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/MP3){% else %}(https://en.wikipedia.org/wiki/MP3){% endif %} format.
+1. In delayed recognition mode, you can now work with [MP3]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/MP3){% else %}(https://en.wikipedia.org/wiki/MP3){% endif %} format.

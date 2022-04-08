@@ -7,7 +7,7 @@
 * Доступные амплуа голоса.
 * Поддерживаемая версия API.
 
-Примеры голосов можно услышать на [странице сервиса](https://cloud.yandex.ru/services/speechkit).
+Примеры голосов можно услышать на [странице сервиса]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit){% endif %}.
 
 ## Стандартные голоса {#standard}
 
