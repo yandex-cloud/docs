@@ -113,3 +113,53 @@ You can grant any internet user access to a dashboard using [{{ datalens-public 
 ## Access management {#access-management}
 
 You can configure dashboard permissions. For more information, see [{#T}](../security/index.md).
+
+## Auto-update {#auto-update}
+
+You can set up [automatic updates](../operations/dashboard/auto-update.md) of data in the dashboard. The update interval is specified in seconds and the minimum value is 30 seconds. The setting is global: after saving the dashboard, auto-update will work for all users that open it. Auto-update also works in the mobile version.
+
+The following limitations apply to auto-update:
+
+* Data is updated only for the tab opened in the browser.
+
+* The data is updated only for the current active tab, however:
+  * If the tab isn't selected as the current tab, it's not considered active and the data is not updated.
+  * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
+
+## Troubleshooting {#diagnostics}
+
+If a dashboard includes many charts that take a long time to load and process data, this can degrade the speed of the entire dashboard. You can analyze chart performance with an inspector.
+
+A chart Inspector is a {{ datalens-short-name }} tool that helps you troubleshoot data loading and browser rendering issues. You can use it to determine why a chart is slow or optimize data acquisition and chart rendering.
+
+​To open the chart Inspector, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) in the upper right-hand corner of the chart and select **Inspector**.
+
+{% cut "Example of a chart inspector" %}
+
+![image](../../_assets/datalens/concepts/inspector-message.png)
+
+{% endcut %}
+
+At the top of the inspector window, there is information on the speed of the base operations:
+
+* **Config resolving**: Chart configuration load time.
+* **Data fetching**: Time data takes to load from the source.
+* **Execution**: Time to process data received from the source.
+* **Rendering**: Time to render data on a chart.
+
+Values above the optimal level are highlighted (orange or red). To get recommendations for optimizing a metric, hove the mouse over the question mark next to its name.
+
+For some chart types, additional metrics are displayed:
+
+* **Columns / Rows**: Number of table columns and rows (for **Table** and **Pivot table** charts).
+* **Yandex Maps API**: Time to load modules required by Yandex Maps (for **Map** charts).
+
+The inspector also displays source request IDs (Request ID) and request traces (Trace IDs).
+
+The **Data sources** section displays information on the sources used in a chart:
+
+* Source name.
+* Link to source.
+* Request body in JSON format.
+* SQL query text sent to source (if information supplied by source).
+

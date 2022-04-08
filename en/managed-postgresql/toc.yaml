@@ -233,8 +233,16 @@ items:
     items:
       - name: General questions
         href: qa/general.md
-      - name: Questions about PostgreSQL
-        href: qa/postgresql.md
+      - name: Connection
+        href: qa/connection.md
+      - name: Updating clusters
+        href: qa/update.md
+      - name: Cluster configuration
+        href: qa/configuration.md
+      - name: Moving or restoring a cluster
+        href: qa/backup.md
+      - name: Monitoring and logs
+        href: qa/monitoring.md
       - name: All questions on the same page
         href: qa/all.md
 base: en/managed-postgresql
