@@ -6,13 +6,13 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select the service **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-   1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
-   1. In the upper-right corner, click **Edit**.
+   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
 
    1. Edit the resource settings.
 
@@ -120,7 +120,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% endcut %}
 
-      For more detailed information on the `yandex_cdn_resource` parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.
 
@@ -149,7 +149,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
+      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
 
       ```
       yc cdn resource list

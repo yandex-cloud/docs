@@ -1,6 +1,6 @@
 # Configuring log export
 
-[Log export](../../concepts/logs.md) is a paid function. For the pricing policy, see [{#T}](../../pricing.md).
+[Log export](../../concepts/logs.md) is a paid functionality. See [{#T}](../../pricing.md) for billing information.
 
 ## Enabling export {#enabling}
 
@@ -10,19 +10,21 @@ To enable log export for a [resource](../../concepts/resource.md):
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder your resource is hosted in.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-  1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
-  1. Go to the **Export logs** tab.
+   1. Go to the **Export logs** tab.
 
-  1. In the upper-right corner, click **Enable**.
+   1. In the upper-right corner, click **Enable**.
 
-  1. Select a **Bucket** and specify a **Prefix** for log file names (optional).
+   1. Select **Bucket**.
 
-  1. Click **Enable**.
+   1. (optional) Specify a **Prefix** for log file names.
+
+   1. Click **Enable**.
 
 {% endlist %}
 
@@ -38,19 +40,21 @@ To edit export parameters:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder your resource is hosted in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you a resource is located.
 
-  1. Select **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-  1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
-  1. Go to the **Export logs** tab.
+   1. Go to the **Export logs** tab.
 
-  1. In the upper-right corner, click ![image](../../../_assets/horizontal-ellipsis.svg) → **Edit**.
+   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
+
+   1. Enter the required parameters and click **Save**.
 
 {% endlist %}
 
-## Disabling export {#disabling}
+## Deactivating export {#disabling}
 
 To disable export:
 
@@ -58,15 +62,14 @@ To disable export:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder your resource is hosted in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you a resource is located.
 
-  1. Select **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-  1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
-  1. Go to the **Export logs** tab.
+   1. Go to the **Export logs** tab.
 
-  1. In the upper-right corner, click **Disable**.
+   1. In the upper-right corner, click **Disable**.
 
 {% endlist %}
-
