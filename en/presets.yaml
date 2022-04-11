@@ -246,7 +246,7 @@ default:
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
   mch-hs-version: 21.7
-  mch-ck-version: 21.11 # Minimal version ClickHouse for ClickHouse Keeper
+  mch-ck-version: 22.3 # Minimal version ClickHouse for ClickHouse Keeper
   mmg-backup-retention: 7
   mpg-backup-retention: 7
   mmg-backup-retention-min: 7
