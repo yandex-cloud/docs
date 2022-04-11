@@ -1,18 +1,26 @@
 * **Add HTTP CORS header**{#setting-add-http-cors-header} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Включает заголовок CORS в HTTP-ответы. 
+    Включает заголовок CORS в HTTP-ответы.
 
     По умолчанию заголовок CORS не включается в HTTP-ответы.
 
-* **Allow DDL**{#setting-allow-ddl} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Allow DDL**{#setting-allow-ddl} {{ tag-all }}
 
     Определяет, будут ли выполняться DDL-запросы (`CREATE`, `ALTER`, `RENAME` и другие).
 
     По умолчанию выполнение DDL-запросов разрешено.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}.
 
     См. также: настройка [Readonly](#setting-readonly).
+
+* **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} {{ tag-con }} {{ tag-sql }}
+
+    Включает устаревшее поведение сервера {{ CH }} при выполнении операций `ANY INNER|LEFT JOIN`.
+
+    По умолчанию устаревшее поведение операции `JOIN` выключено.
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#any_join_distinct_right_table_keys){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys){% endif %}.
 
 * **Compile**{#setting-compile} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -22,7 +30,7 @@
 
     По умолчанию компиляция выключена.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#compile){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#compile){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#compile){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#compile){% endif %}.
 
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -38,9 +46,55 @@
 
     Минимальное значение — `1`, по умолчанию — `10000` (10 секунд).
 
-* **DISTINCT overflow mode**{#setting-distinct-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-all }}
 
-    Определяет поведение {{ CH }} в ситуации, когда количество данных при выполнении запроса `SELECT DISTINCT` [превысило ограничения]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %} — `throw` (прервать выполнение, вернуть ошибку) или `break` (вернуть неполный результат).
+    Определяет, какая из функций `uniq*` используется при выполнении конструкции `COUNT(DISTINCT …)`:
+
+    * [uniq]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq){% endif %}
+    * [uniqCombined]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined){% endif %}
+    * [uniqCombined64]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64){% endif %}
+    * [uniqHLL12]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12){% endif %}
+    * [uniqExact]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact){% endif %}
+
+    По умолчанию используется функция `uniqExact`.
+
+* **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
+
+    Определяет, какой парсер используется для текстового представления даты и времени при обработке входного формата:
+
+    * `best_effort` — расширенный парсер;
+    * `basic` — базовый парсер.
+
+    По умолчанию используется базовый парсер (`basic`).
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-date_time_input_format){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-date_time_input_format){% endif %}.
+
+* **Date time output format**{#setting-date-time-output-format} {{ tag-con }} {{ tag-sql }}
+
+    Определяет выходной формат для текстового представления даты и времени:
+
+    * `simple` — простой формат;
+    * `iso` — формат ISO;
+    * `unix_timestamp` — формат Unix.
+
+    По умолчанию используется простой формат (`simple`).
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-date_time_output_format){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-date_time_output_format){% endif %}.
+
+* **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} {{ tag-con }} {{ tag-sql }}
+
+    Включает проверку дедупликации для материализованных представлений, которые получают данные из реплицируемых таблиц.
+
+    По умолчанию проверка выключена (`0`).
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views){% endif %}.
+
+* **Distinct overflow mode**{#setting-distinct-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+    Определяет поведение {{ CH }} в ситуации, когда количество данных при выполнении запроса `SELECT DISTINCT` [превысило ограничения]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+
+    * `throw` — прервать выполнение, вернуть ошибку;
+    * `break` — вернуть неполный результат.
 
     По умолчанию значение не выбрано (эквивалентно `throw`).
 
@@ -52,7 +106,17 @@
 
     По умолчанию режим экономии памяти выключен.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
+
+* **Distributed ddl task timeout**{#setting-distributed-ddl-task-timeout} {{ tag-all }}
+
+    Устанавливает время ожидания для ответов на DDL-запросы от всех хостов в кластере. Если DDL-запрос не был выполнен на всех хостах, то ответ будет содержать ошибку времени ожидания, и запрос будет выполнен в асинхронном режиме. Возможные значения:
+
+    * положительное целое число — время ожидания равно этому числу (в секундах);
+    * `0` — асинхронный режим;
+    * отрицательное число — бесконечное время ожидания.
+
+    По умолчанию используется значение `180`.
 
 * **Distributed product mode**{#setting-distributed-product-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -64,25 +128,27 @@
 
     По умолчанию значение не выбрано (эквивалентно `deny`).
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#distributed-product-mode){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#distributed-product-mode){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#distributed-product-mode){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#distributed-product-mode){% endif %}.
 
 * **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Определяет, в каком формате возвращается результат при агрегации данных без ключей (без `GROUP BY`) для пустого множества (например, `SELECT count(*) FROM table WHERE 0`):
-    * опция выключена (по умолчанию) — {{ CH }} вернет результат, состоящий из одной строки со значениями `NULL` для агрегатных функций, в соответствии со стандартом SQL.
-    * опция включена — {{ CH }} вернет пустой результат.
+    * настройка выключена (по умолчанию) — {{ CH }} вернет результат, состоящий из одной строки со значениями `NULL` для агрегатных функций, в соответствии со стандартом SQL.
+    * настройка включена — {{ CH }} вернет пустой результат.
 
-* **Enable HTTP compression**{#setting-enable-http-compression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Enable http compression**{#setting-enable-http-compression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Определяет, будут ли сжаты данные в ответе на HTTP-запрос.
 
-    По умолчанию {{ CH }} хранит данные в сжатом виде. Результат выполнения запроса представлен в несжатом виде. Чтобы {{ CH }} сжимал результат запроса при отправке по HTTP, включите эту настройку и передайте в заголовке `Accept-Encoding` запроса выбранный метод сжатия.
+    По умолчанию {{ CH }} хранит данные в сжатом виде. Результат выполнения запроса представлен в несжатом виде. Чтобы {{ CH }} сжимал результат запроса при отправке по HTTP, включите эту настройку и передайте в заголовке `Accept-Encoding` запроса выбранный метод сжатия:
 
-    Поддерживаются следующие методы сжатия: `gzip`, `br` и `deflate`.
+    * `gzip`
+    * `br`
+    * `deflate`
 
     По умолчанию сжатие данных в ответе на HTTP-запрос выключено.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/interfaces/http/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/interfaces/http/){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/http/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/http/){% endif %}.
 
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -90,68 +156,92 @@
 
     {{ CH }} выберет наиболее актуальную из устаревших реплик таблицы. Настройка используется при выполнении запроса `SELECT` из распределенных таблиц, указывающих на реплицированные таблицы.
 
-    По умолчанию форсирование запроса включено. 
+    По умолчанию форсирование запроса включено.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}.
 
     См. также настройку [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
 
 * **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Запрещает выполнение запросов, если использовать индекс по дате невозможно. Работает с таблицами семейства [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+    Запрещает выполнение запросов, если использовать индекс по дате невозможно. Работает с таблицами семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
 
     По умолчанию настройка выключена (выполнение запросов разрешено).
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-force_index_by_date){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-force_index_by_date){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-force_index_by_date){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-force_index_by_date){% endif %}.
 
 * **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Запрещает выполнение запросов, если использовать индекс по первичному ключу невозможно. Работает с таблицами семейства [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+    Запрещает выполнение запросов, если использовать индекс по первичному ключу невозможно. Работает с таблицами семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
 
     По умолчанию настройка выключена (выполнение запросов разрешено).
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-force_primary_key){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-force_primary_key){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-force_primary_key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-force_primary_key){% endif %}.
 
-* **GROUP BY overflow mode**{#setting-group-by-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
 
-    Определяет поведение {{ CH }}, когда количество уникальных ключей при агрегации [превысило ограничение]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
+    Задает регулярное выражение в [формате re2](https://github.com/google/re2/wiki/Syntax), которое будет применяться к каждой строке импортируемых данных. Количество подшаблонов (скобочных групп) в выражении должно быть равно количеству столбцов в таблице, куда помещаются импортируемые данные. В качестве разделителей строк должны использоваться символы переноса строки `\n` или `\r\n`, экранировать перенос строки невозможно. Если строка не подходит регулярному выражению, то она пропускается.
+
+    По умолчанию значение не задано.
+
+* **Format regexp escaping rule**{#setting-format-regexp_escaping_rule} {{ tag-con }} {{ tag-sql }}
+
+    Задает правило экранирования для регулярного выражения, заданного в настройке [Format regexp](#setting-format-regexp):
+
+    * `CSV`
+    * `JSON`
+    * `Escaped`
+    * `Quoted`
+    * `Raw`
+
+    По умолчанию выбрано значение `Raw` (экранирование не используется).
+
+* **Format regexp skip unmatched**{#setting-format-regexp-skip-unmatched} {{ tag-con }} {{ tag-sql }}
+
+    Выводит сообщение об ошибке, если строку в импортируемых данных не получается разбить по шаблону, заданному в настройке [Format regexp](#setting-format-regexp).
+
+    По умолчанию сообщение не выводится (`0`).
+
+* **Group by overflow mode**{#setting-group-by-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+    Определяет поведение {{ CH }}, когда количество уникальных ключей при агрегации [превысило ограничение]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
     * `throw` — прервать выполнение, вернуть ошибку.
     * `break` — вернуть неполный результат.
     * `any` — выполнить `GROUP BY` приближенно. Качество такого вычисления зависит от статистических свойств данных.
 
     По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **GROUP BY two level threshold**{#setting-group-by-two-level-threshold} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Group by two level threshold**{#setting-group-by-two-level-threshold} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Определяет количество ключей, при достижении которого начинается двухуровневая агрегация.
 
     Минимальное значение — `0` (не установлено), по умолчанию — `100000`.
 
-* **GROUP BY two level threshold bytes**{#setting-group-by-two-level-threshold-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Group by two level threshold bytes**{#setting-group-by-two-level-threshold-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Определяет количество байт в агрегате, при достижении которого начинается двухуровневая агрегация.
 
     Минимальное значение — `0` (не установлено), по умолчанию — `50000000`.
 
-* **HTTP connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Http connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Задает время ожидания установления HTTP-соединения (в миллисекундах).
 
     Минимальное значение — `1`, по умолчанию — `1000` (одна секунда).
 
-* **HTTP headers progress interval**{#setting-http-headers progress interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Http headers progress interval**{#setting-http-headers progress interval} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Задает минимальный интервал (в миллисекундах) между уведомлениями о ходе выполнения запроса с помощью HTTP-заголовка `X-ClickHouse-Progress`.
 
     Минимальное значение — `1`, по умолчанию — `100`.
 
-* **HTTP receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Http receive timeout**{#setting-http-receive-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Задает время ожидания приема данных через HTTP-соединение (в миллисекундах).
 
     Минимальное значение — `1`, по умолчанию — `1800000` (30 минут).
 
-* **HTTP send timeout**{#setting-http-send-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Http send timeout**{#setting-http-send-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Задает время ожидания отправки данных через HTTP-соединение (в миллисекундах).
 
@@ -163,7 +253,15 @@
 
     По умолчанию замена включена.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}.
+
+* **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
+
+    Определяет, заполнять ли ячейки со значением `NULL` значениями по умолчанию, если тип данных столбца не позволяет хранить значение `NULL`.
+
+    По умолчанию настройка включена (ячейки `NULL` заполняются значениями по умолчанию).
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-input-format-null-as-default){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input-format-null-as-default){% endif %}.
 
 * **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -171,11 +269,19 @@
 
     Например, потоковый парсер не распознает значение, содержащее в себе выражение `now()`, в то время как при включенном SQL-парсере выражение будет распознано корректно и в качестве значения будет вставлен результат выполнения SQL-функции `now()` (текущая дата и время).
 
-    Эта опция используется только для формата [Values]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/interfaces/formats/#data-format-values){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/interfaces/formats/#data-format-values){% endif %} при вставке данных.
+    Эта настройка используется только для формата [Values]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#data-format-values){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#data-format-values){% endif %} при вставке данных.
 
     По умолчанию парсер SQL включен.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}.
+
+* **Input format with names use header**{#setting-input-format-with-names-use-header} {{ tag-con }} {{ tag-sql }}
+
+    Определяет, выполнять ли проверку порядка столбцов при вставке данных.
+
+    По умолчанию проверка включена.
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-input-format-with-names-use-header){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input-format-with-names-use-header){% endif %}.
 
 * **Insert quorum**{#setting-insert-quorum} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -187,13 +293,46 @@
 
     При чтении данных, записанных с помощью Insert quorum, можно использовать настройку [Select sequential consistency](#setting-select-sequential-consistency).
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-insert_quorum){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-insert_quorum){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-insert_quorum){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-insert_quorum){% endif %}.
+
+* **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
+
+    Когда настройка включена, возможно одновременно выполнять несколько запросов `INSERT` с кворумной записью. Когда настройка выключена, будет выполнен только один запрос `INSERT` с кворумной записью к одной и той же таблице.
+
+    По умолчанию настройка включена.
 
 * **Insert quorum timeout**{#setting-insert-quorum-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Задает время ожидания [кворумной записи](#setting-insert-quorum) в миллисекундах. Если время прошло, а запись так и не состоялась, то ClickHouse прервет выполнение запроса `INSERT` и вернет ошибку.
+    Задает время ожидания [кворумной записи](#setting-insert-quorum) в миллисекундах. Если время прошло, а запись так и не состоялась, то {{ CH }} прервет выполнение запроса `INSERT` и вернет ошибку.
 
     Минимальное значение — `1000` (1 секунда), по умолчанию — `60000` (1 минута).
+
+* **Join algorithm**{#setting-join-algorithm} {{ tag-con }} {{ tag-sql }}
+
+    Определяет алгоритм выполнения запроса `JOIN`:
+
+    * `hash` — соединение хешированием (hash join);
+    * `partial_merge` — соединение слиянием отсортированных списков (sort-merge join);
+    * `prefer_partial_merge` — соединение merge, когда это возможно;
+    * `auto` — соединение хешированием (hash join), но если память на сервере заканчивается, {{ CH }} попытается применить соединение merge.
+
+    По умолчанию используется алгоритм `hash`.
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-join_algorithm){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-join_algorithm){% endif %}.
+
+* **Join overflow mode**{#setting-join-overflow-mode} {{ tag-all }}
+
+    Определяет, какое действие выполняет {{ CH }} при достижении любого из следующих ограничений для `JOIN`:
+
+    * `max_bytes_in_join`
+    * `max_rows_in_join`
+
+    Возможные значения:
+
+    * `THROW` — {{ CH }} генерирует исключение и прерывает операцию;
+    * `BREAK` — {{ CH }} прерывает операцию, но не генерирует исключение.
+
+    По умолчанию используется действие `THROW`.
 
 * **Join use nulls**{#setting-join-use-nulls} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -201,7 +340,7 @@
 
     По умолчанию настройка выключена.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#join_use_nulls){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#join_use_nulls){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#join_use_nulls){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#join_use_nulls){% endif %}.
 
 * **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -223,11 +362,11 @@
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Определяет, использовать ли [тип LowCardinality]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/sql-reference/data-types/lowcardinality/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/data-types/lowcardinality/){% endif %} в native-формате:
+    Определяет, использовать ли [тип LowCardinality]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/data-types/lowcardinality/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/data-types/lowcardinality/){% endif %} в native-формате:
     * настройка включена (по умолчанию) — использовать.
     * настройка выключена — не использовать:
-      * для запроса `SELECT` конвертировать столбцы типа LowCardinality в обычные;
-      * для запроса `INSERT` конвертировать обычные столбцы в тип LowCardinality.
+       * для запроса `SELECT` конвертировать столбцы типа LowCardinality в обычные;
+       * для запроса `INSERT` конвертировать обычные столбцы в тип LowCardinality.
 
     Столбцы этого типа позволяют эффективнее хранить данные в виде хеш-таблиц. Если возможно, {{ CH }} использует столбцы типа LowCardinality.
 
@@ -237,7 +376,7 @@
 
     По умолчанию настройка включена.
 
-* **Max AST depth**{#setting-max-ast-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max ast depth**{#setting-max-ast-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Максимальная глубина вложенности синтаксического дерева.
 
@@ -247,7 +386,7 @@
 
     По умолчанию выбрано значение `1000`. Слишком маленькое значение может привести к невозможности выполнения большинства запросов.
 
-* **Max AST elements**{#setting-max-ast-elements} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max ast elements**{#setting-max-ast-elements} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Максимальное количество элементов синтаксического дерева запроса (количество узлов дерева).
 
@@ -261,7 +400,7 @@
 
     Минимальное значение — `1`, по умолчанию — `65536`.
 
-* **Max bytes before external `GROUP BY`**{#setting-max-bytes-before-external-group-by} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max bytes before external group by**{#setting-max-bytes-before-external-group-by} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Данные, накопленные при выполнении операции агрегации `GROUP BY`, некоторое время хранятся в оперативной памяти. Настройка задает порог (в байтах), после которого эти данные сбрасываются на диск для экономии оперативной памяти.
 
@@ -271,7 +410,7 @@
 
     При использовании агрегации во внешней памяти рекомендуется задать значение этой настройки в два раза меньше значения настройки [Max memory usage](#setting-max-memory-usage) (по умолчанию максимальное использование памяти ограничено десятью гигабайтами).
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
 
     См. также настройку [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient).
 
@@ -279,9 +418,21 @@
 
     Настройка аналогична [предыдущей](#setting-max-bytes-before-external-group-by), но применяется для операции сортировки (`ORDER BY`).
 
-* **Max bytes in DISTINCT**{#setting-max-bytes-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max bytes in distinct**{#setting-max-bytes-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Максимальный объем несжатых данных (в байтах), занимаемый хеш-таблицей при использовании `DISTINCT`.
+
+    Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+* **Max bytes in join**{#setting-max-bytes-in-join} {{ tag-all }}
+
+    Максимальный объем несжатых данных (в байтах), занимаемый хеш-таблицей при использовании `JOIN`.
+
+    Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+* **Max bytes in set**{#setting-max-bytes-in-set} {{ tag-all }}
+
+    Максимальный объем несжатых данных (в байтах), занимаемый множеством в секции `IN`, которое создается из подзапроса.
 
     Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
@@ -309,6 +460,12 @@
 
     Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
+* **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} {{ tag-con }} {{ tag-sql }}
+
+    Максимальное количество одновременно обрабатываемых пользовательских запросов к таблице семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+
+    Минимальное значение `0` (нет ограничения), по умолчанию — `450`.
+
 * **Max execution time**{#setting-max-execution-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Максимальное время выполнения запроса (в миллисекундах).
@@ -317,7 +474,7 @@
 
     Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max expanded AST elements**{#setting-max-expanded-ast-elements} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max expanded ast elements**{#setting-max-expanded-ast-elements} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Максимальное количество элементов синтаксического дерева запроса (количество узлов дерева) после раскрытия псевдонимов и звездочки.
 
@@ -325,13 +482,13 @@
 
     По умолчанию выбрано значение `500000`. Слишком маленькое значение может привести к невозможности выполнения большинства запросов.
 
-* **Max INSERT block size**{#setting-max-insert-block-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max insert block size**{#setting-max-insert-block-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Формировать блоки указанного размера (в байтах), при вставке в таблицу. Настройка действует, только когда сервер сам формирует такие блоки.
+    Формировать блоки указанного размера (в байтах) при вставке в таблицу. Настройка действует только когда сервер сам формирует такие блоки.
 
     По умолчанию выбрано значение `1048576`.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_insert_block_size){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_insert_block_size){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-max_insert_block_size){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-max_insert_block_size){% endif %}.
 
 * **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -361,6 +518,14 @@
 
     Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
+* **Max partitions per insert block**{#setting-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
+
+    Ограничивает максимальное количество партиций в одном вставленном блоке.
+
+    Минимальное значение — `0` (количество разделов не ограничено), по умолчанию — `100`.
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#max-partitions-per-insert-block){% endif %}.
+
 * **Max query size**{#setting-max-query-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Ограничивает размер (в байтах) наибольшей части запроса, которая может быть передана в оперативную память для разбора с помощью SQL-парсера.
@@ -387,9 +552,23 @@
 
     Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-* **Max rows in DISTINCT**{#setting-max-rows-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Max rows in distinct**{#setting-max-rows-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Максимальное количество различных строк при использовании `DISTINCT`.
+
+    Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+* **Max rows in join**{#setting-max-rows-in-join} {{ tag-all }}
+
+    Максимальное количество строк в хеш-таблице, которая используется при соединении таблиц. Параметр применяется к операциям `SELECT… JOIN` и к движку таблиц `Join`.
+
+    Минимальное значение и значение по умолчанию — `0` (нет ограничения).
+
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#settings-max_rows_in_join){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#settings-max_rows_in_join){% endif %}.
+
+* **Max rows in set**{#setting-max-rows-in-set} {{ tag-all }}
+
+    Максимальное количество строк для множества в секции `IN`, которое создается из подзапроса.
 
     Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
@@ -435,7 +614,7 @@
 
     Минимальное значение и значение по умолчанию — `0` (вычислять значение автоматически как количество процессорных ядер без учета Hyper-Threading).
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_threads){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_threads){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-max_threads){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-max_threads){% endif %}.
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -465,7 +644,7 @@
 
     Минимальное значение — `1`, по умолчанию — `20x8192`.
 
-* **Min bytes to use Direct I/O**{#setting-merge-tree-min-bytes-to-use-direct-io} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Min bytes to use direct io**{#setting-merge-tree-min-bytes-to-use-direct-io} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Объем данных (в байтах), необходимый для прямого чтения (Direct I/O) с диска.
 
@@ -495,29 +674,29 @@
 
     Минимальное значение — `0`, по умолчанию — `3`.
 
-* **Min INSERT block size bytes**{#setting-min-insert-block-size-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Min insert block size bytes**{#setting-min-insert-block-size-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Минимальный размер блока (в байтах), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
+    Минимальный размер блока (в байтах), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
 
     Минимальное значение — `0` (склейка блоков выключена), по умолчанию — `‭268435456‬‬` (256 МБ).
 
-* **Min INSERT block size rows**{#setting-min-insert-block-size-rows} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Min insert block size rows**{#setting-min-insert-block-size-rows} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Минимальный размер блока (в строках), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
+    Минимальный размер блока (в строках), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
 
     Минимальное значение — `0` (склейка блоков выключена), по умолчанию — `1048576`.
 
-* **Output format JSON quote denormals**{#setting-output-format-json-quote-denormals} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Output format json quote denormals**{#setting-output-format-json-quote-denormals} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Определяет, выводить ли специальные значения для чисел с плавающей запятой (`+nan`, `-nan`, `+inf` и `-inf`) при использовании формата JSON для результата.
 
     По умолчанию выбрано значение `false` — специальные значения не выводятся.
 
-* **Output format JSON quote_64bit integers**{#setting-output-format-json-quote-64bit-integers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Output format json quote_64bit integers**{#setting-output-format-json-quote-64bit-integers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет формат чисел в JSON-выводе. Если опция включена, то при выводе в JSON 64-битные числа (`UInt64` и `Int64`) выводятся в кавычках (из соображений совместимости с большинством реализаций JavaScript), иначе — без кавычек. 
+    Определяет формат чисел в JSON-выводе. Если настройка включена, то при выводе в JSON 64-битные числа (`UInt64` и `Int64`) выводятся в кавычках (из соображений совместимости с большинством реализаций JavaScript), иначе — без кавычек. 
 
-  По умолчанию вывод 64-битных целых чисел в кавычках выключен.
+    По умолчанию вывод 64-битных целых чисел в кавычках выключен.
 
 * **Priority**{#setting-priority} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -541,13 +720,13 @@
 
     По умолчанию значение не выбрано (эквивалентно `default`).
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/quotas/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/quotas/){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/quotas/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/quotas/){% endif %}.
 
 * **Read overflow mode**{#setting-read-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Определяет поведение {{ CH }}, когда количество прочитанных данных [превысило одно из ограничений]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
-    * `throw` (прервать выполнение, вернуть ошибку);
-    * `break` (вернуть неполный результат).
+    Определяет поведение {{ CH }}, когда количество прочитанных данных [превысило одно из ограничений]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+    * `throw` — прервать выполнение, вернуть ошибку;
+    * `break` — вернуть неполный результат.
 
     По умолчанию значение не выбрано (эквивалентно `throw`).
 
@@ -568,32 +747,32 @@
 
     По умолчанию выбрано значение `300000` (5 минут).
 
-* **Replication ALTER partitions sync**{#setting-replication-alter-partitions-sync} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Replication alter partitions sync**{#setting-replication-alter-partitions-sync} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Задает условия ожидания завершения асинхронных действий на репликах для запросов `ALTER ... ATTACH DETACH DROP`:
-  * `0` — не ждать.
-  * `1` — ждать выполнения только у себя (значение по умолчанию).
-  * `2` — ждать всех.
- 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}.
+    Задает условия ожидания завершения асинхронных действий на репликах для запросов `ALTER ... ATTACH DETACH DROP`:
+    * `0` — не ждать.
+    * `1` — ждать выполнения только у себя (значение по умолчанию).
+    * `2` — ждать всех.
+  
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}.
  
 * **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Определяет поведение {{ CH }}, когда объем результата [превысил одно из ограничений]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
-    * `throw` (прервать выполнение, вернуть ошибку);
-    * `break` (вернуть неполный результат).
+    Определяет поведение {{ CH }}, когда объем результата [превысил одно из ограничений]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+    * `throw` — прервать выполнение, вернуть ошибку;
+    * `break` — вернуть неполный результат.
 
     По умолчанию значение не выбрано (эквивалентно `throw`).
 
-* **SELECT sequential consistency**{#setting-select-sequential-consistency} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **select sequential consistency**{#setting-select-sequential-consistency} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Определяет, нужно ли обеспечивать последовательную консистентность для запросов `SELECT`.
 
     По умолчанию последовательная консистентность не обеспечивается.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-select_sequential_consistency){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-select_sequential_consistency){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-select_sequential_consistency){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-select_sequential_consistency){% endif %}.
 
-* **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+* **Send progress in http headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Разрешает отправку уведомлений о ходе выполнения запроса с использованием заголовков `X-ClickHouse-Progress`.
 
@@ -605,6 +784,15 @@
 
     По умолчанию выбрано значение `300000` (5 минут).
 
+* **Set overflow mode**{#setting-set-overflow-mode} {{ tag-all }}
+
+    Определяет поведение {{ CH }}, когда количество данных [превысило одно из ограничений на сложность запроса]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+
+    * `throw` — прервать выполнение, вернуть ошибку;
+    * `break` — вернуть неполный результат.
+
+    По умолчанию значение не выбрано (эквивалентно `throw`).
+
 * **Skip unavailable shards**{#setting-skip-unavailable-shards} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Разрешает тихий пропуск недоступных шардов. Шард считается недоступным, если все его реплики недоступны.
@@ -613,25 +801,25 @@
 
 * **Sort overflow mode**{#setting-sort-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Определяет поведение {{ CH }}, когда количество полученных перед сортировкой строк [превысило одно из ограничений]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
-    * `throw` (прервать выполнение, вернуть ошибку);
-    * `break` (вернуть неполный результат).
+    Определяет поведение {{ CH }}, когда количество полученных перед сортировкой строк [превысило одно из ограничений]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+    * `throw` — прервать выполнение, вернуть ошибку;
+    * `break` — вернуть неполный результат.
 
     По умолчанию значение не выбрано (эквивалентно `throw`).
 
 * **Timeout overflow mode**{#setting-timeout-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
     Определяет поведение {{ CH }}, когда запрос выполняется дольше [max_execution_time](#setting-max-execution-time):
-    * `throw` (прервать выполнение, вернуть ошибку);
-    * `break` (вернуть неполный результат).
+    * `throw` — прервать выполнение, вернуть ошибку;
+    * `break` — вернуть неполный результат.
 
     По умолчанию значение не выбрано (эквивалентно `throw`).
 
 * **Transfer overflow mode**{#setting-transfer-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Определяет поведение {{ CH }}, когда количество данных для передачи на другой сервер [превысило одно из ограничений]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
-    * `throw` (прервать выполнение, вернуть ошибку);
-    * `break` (вернуть неполный результат).
+    Определяет поведение {{ CH }}, когда количество данных для передачи на другой сервер [превысило одно из ограничений]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+    * `throw` — прервать выполнение, вернуть ошибку;
+    * `break` — вернуть неполный результат.
 
     По умолчанию значение не выбрано (эквивалентно `throw`).
 
@@ -641,14 +829,14 @@
 
     По умолчанию настройка выключена.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#transform_null_in){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#transform_null_in){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#transform_null_in){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#transform_null_in){% endif %}.
 
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Определяет, использовать ли кеш разжатых блоков. Использование этого кеша может существенно сократить задержку и увеличить пропускную способность при работе с большим количеством коротких запросов (только для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}). Включите эту настройку для пользователей, от которых идут частые короткие запросы.
+    Определяет, использовать ли кеш разжатых блоков. Использование этого кеша может существенно сократить задержку и увеличить пропускную способность при работе с большим количеством коротких запросов (только для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Включите эту настройку для пользователей, от которых идут частые короткие запросы.
 
     По умолчанию кеш не используется.
 
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}.
 
     См. также настройки [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) и [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).
