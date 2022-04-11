@@ -12,17 +12,17 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select the service **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-   1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
    1. Go to the **Content** tab.
 
-   1. In the upper-right corner, click **Edit**.
+   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
 
-   1. Enable the **Compress option**.
+   1. In the **gzip compression** field, enable **Compress files**.
 
    1. Click **Save**.
 
@@ -97,12 +97,12 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
    If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of the CDN resource to create:
+   1. In the configuration file, describe the parameters of a CDN resource to create:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
-      * `origin_protocol`: Origin protocol. Optional parameter.
-      * `secondary_hostnames`: Additional domain names. Optional parameter.
+      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
+      * `origin_protocol`: Origin protocol. Optional.
+      * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `gzip_on`: A flag that indicates if compression will be used.
@@ -138,7 +138,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
       }
       ```
 
-      For more detailed information on the `yandex_cdn_resource` parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.
 
@@ -167,7 +167,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
+      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
 
       ```
       yc cdn resource list
