@@ -6,8 +6,9 @@
 
 - Консоль управления
   
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь.
   1. Откройте раздел **Message Queue**.
-  1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке очереди, которую требуется удалить.
+  1. Нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) в строке очереди, которую требуется удалить.
   1. В открывшемся меню нажмите кнопку **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
   
@@ -16,9 +17,9 @@
   Выполните в терминале команду:
   
   ```
-  $ aws sqs delete-queue \
-              --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-              --endpoint https://message-queue.api.cloud.yandex.net/      
+  aws sqs delete-queue \
+    --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+    --endpoint https://message-queue.api.cloud.yandex.net/      
   ```
   
 - Terraform
@@ -26,9 +27,9 @@
   Если вы создавали очередь сообщений с помощью Terraform, вы можете удалить ее:
 
    1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
-   2. Удалите ресурсы с помощью команды:
+   1. Удалите ресурсы с помощью команды:
       ```
-      $ terraform destroy
+      terraform destroy
       ```
       
       {% note alert %}
@@ -37,6 +38,6 @@
       
       {% endnote %}
     
-    3. Подтвердите удаление ресурсов.
+    1. Подтвердите удаление ресурсов.
   
 {% endlist %}

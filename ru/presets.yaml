@@ -132,6 +132,7 @@ default:
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
   objstorage-short-name: Object Storage
+  lockbox-short-name: Lockbox
   mpg-short-name: Managed Service for PostgreSQL
   mch-short-name: Managed Service for ClickHouse
   mmg-short-name: Managed Service for MongoDB
