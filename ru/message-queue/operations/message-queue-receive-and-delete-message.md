@@ -8,10 +8,15 @@
   
   Выполните в терминале команду:
   
-  ```
+  ```bash
   aws sqs receive-message \
-              --endpoint https://message-queue.api.cloud.yandex.net/ \
-              --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+    --endpoint https://message-queue.api.cloud.yandex.net/ \
+    --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+  ```
+  
+  Результат:
+
+  ```json
   {
       "Messages": [
           {
@@ -31,11 +36,11 @@
   
   Чтобы удалить сообщение, используйте значение параметра `receipt-handle` полученного сообщения. Выполните в терминале команду:
   
-  ```
+  ```bash
   aws sqs delete-message \
-              --endpoint https://message-queue.api.cloud.yandex.net/ \
-              --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-              --receipt-handle EAEggbjIg_8sKAM
+    --endpoint https://message-queue.api.cloud.yandex.net/ \
+    --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+    --receipt-handle EAEggbjIg_8sKAM
   ```
-  
+
 {% endlist %}

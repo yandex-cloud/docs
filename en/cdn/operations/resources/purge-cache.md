@@ -6,20 +6,20 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select the service **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-   1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
    1. Go to the **Content** tab.
 
-   1. In the upper-right corner, click **Purge cache**.
+   1. In the top right-hand corner, click ![image](../../../_assets/basket.svg) **Purge cache**.
 
    1. Select the type of cache purging:
 
-      * **Full**: To purge the cache for all files.
-      * **Selective**: To purge the cache for selected files. Enter names of desired files in the **File path field**.
+      * `Full`: To purge the cache for all files.
+      * `Selective`: To purge the cache for selected files. Enter names of desired files in the **File path field**.
 
    1. Click **Purge cache**.
 
@@ -94,4 +94,4 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
 {% endlist %}
 
-It may take up to 15 minutes to purge the cache.
+It may take up 15 minutes to purge the cache.

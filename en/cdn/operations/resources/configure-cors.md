@@ -1,25 +1,25 @@
 # Configuring CORS when responding to clients
 
-To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [resource](../../concepts/resource.md):
+To configure the [resource](../../concepts/resource.md) cross-domain requests with [CORS](../../concepts/cors.md):
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select the service **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-   1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
    1. Go to **HTTP headers and methods**.
 
-   1. In the upper-right corner, click **Edit**.
+   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
 
    1. Under **CORS when responding to client requests**:
 
       * In the **Access-Control-Allow-Origin header** field, specify whether to add this header to responses.
-      * When adding a header, select the values of the `Origin` header that allow access to the content. To allow access only to certain origins, select **Same as Origin if on the list**, specify the domain names of the origins, and click **Add domain name**.
+      * When adding a header, select the values of the `Origin` header that allow access to the content. To allow access only to certain origins, select `Same as Origin if on the list`, specify the domain names of the origins, and click **Add domain name**.
 
    1. Click **Save**.
 
@@ -87,7 +87,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       ```bash
       yc cdn resource update <resource ID> --cors <CORS value>
       ```
-      The `*` and `"$http_origin"` values grant access to content with any `Origin` header. To grant access only to specific origins, specify `"$http_origin"` and the origin domain names: `["domain.com", "second.dom.com"]`.
+      The `*` and `"$http_origin"` values grant access to content with any value of the `Origin` header. To grant access only to specific sources, specify `"$http_origin"` and the source domain names: `["domain.com", "second.dom.com"]`.
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
@@ -95,16 +95,16 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
    If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of the CDN resource to create:
+   1. In the configuration file, describe the parameters of a CDN resource to create:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
+      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
       * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
-      * `secondary_hostnames`: Additional domain names. Optional parameter.
+      * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `cors`: Value that the CDN will send in the `Access-Control-Allow-Origin` header in response to a [CORS request](../../concepts/cors.md).
-         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405`(Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. Optional parameter, defaults to: `GET`, `HEAD`, `POST`, or `OPTIONS`.
+         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405 `(Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. Optional parameter, defaults to: `GET`, `HEAD`, `POST`, or `OPTIONS`.
 
       Example configuration file structure:
 
@@ -140,7 +140,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       }
       ```
 
-      For more detailed information on the `yandex_cdn_resource` parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.
 
@@ -169,7 +169,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
+      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
 
       ```
       yc cdn resource list

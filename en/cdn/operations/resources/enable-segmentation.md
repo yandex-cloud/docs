@@ -6,17 +6,17 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select the service **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-   1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
    1. Go to the **Content** tab.
 
-   1. Click **Edit** at the top right.
+   1. At the top right, click ![image](../../../_assets/pencil.svg) **Edit**.
 
-   1. Enable the **Optimize delivery** option.
+   1. In the **Segmentation of large files** field, enable **Optimize delivery**.
 
    1. Click **Save**.
 
@@ -91,12 +91,12 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
    If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of the CDN resource to create:
+   1. In the configuration file, describe the parameters of a CDN resource to create:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
+      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
       * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
-      * `secondary_hostnames`: Additional domain names. Optional parameter.
+      * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `slice`: A flag that indicates if segmentation will be used. Optional parameter, defaults to `false`.
@@ -134,7 +134,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       }
       ```
 
-      For more detailed information on the `yandex_cdn_resource` parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.
 
@@ -163,7 +163,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
+      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
 
       ```
       yc cdn resource list

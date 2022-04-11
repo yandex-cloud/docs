@@ -10,11 +10,13 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource.
 
-   1. Select the service **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-   1. On the **CDN resources** tab, click **Create resource**.
+   1. Click **Create resource**.
 
-   1. Under **Content**, select **Origin group**.
+   1. Under **Content**, select `From origin group` in the **Content query** field.
+
+   1. Select an origin group.
 
    1. Specify the other resource settings. For more information, see [{#T}](../resources/create-resource.md).
 
@@ -79,7 +81,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
         --origin-protocol https
       ```
 
-      Command parameters:
+      Where:
 
       * `origin-group-id`: Origin group ID.
       * `origin-protocol`: Origin protocol.
@@ -157,7 +159,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
       }
       ```
 
-      For more information about the resources that you can create using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group).
+      For more information about the resources you can create using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group).
 
    1. Make sure the settings are correct.
 
@@ -175,15 +177,15 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where you a resource is located.
 
-   1. Select the service **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-   1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
-   1. In the upper-right corner, click **Edit**.
+   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
 
-   1. Under **Content**, select **Origin group**.
+   1. Select an origin group.
 
    1. Enter the other resource settings if needed. For more information, see [{#T}](../resources/configure-basics.md).
 
@@ -293,7 +295,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
           enabled: true
       ```
 
-   1. Update resource settings by specifying the ID of the origin group:
+   1. Update resource settings by specifying the ID of the appropriate origin group:
 
       ```
       yc cdn resource update --id <resource ID> \

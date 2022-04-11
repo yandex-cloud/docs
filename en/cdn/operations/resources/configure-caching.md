@@ -1,39 +1,38 @@
 # Configuring resource caching
 
-To configure the [caching](../../concepts/caching.md) parameters of a [resource](../../concepts/resource.md):
+To configure the parameters of [resource](../../concepts/resource.md) [caching](../../concepts/caching.md):
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-   1. Select the service **{{ cdn-name }}**.
+   1. Select **{{ cdn-name }}**.
 
-   1. On the **CDN resources** tab, click on the name of the desired resource.
+   1. Click the name of the desired resource.
 
    1. Go to the **Caching** tab
 
-   1. In the upper-right corner, click **Edit**.
+   1. In the top right-hand corner, click ![image](../../../_assets/pencil.svg) **Edit**.
 
    1. Select and configure the caching options:
 
       * Under **CDN**:
 
          * Enable **CDN caching**.
-         * Select the setting type: **Same as origin** or **Custom**.
+         * Select the setting type: `Same as origin` or `Custom`.
          * Select the cache lifetime from the list.
-         * (optional) For the settings type **Custom**, set the cache lifetime for the desired HTTP response codes.
+         * (optional) For the settings type `Custom`, set the cache lifetime for the desired HTTP response codes.
 
       * Under **Browser**:
 
          * Enable **Browser caching**.
-         * Select the cache lifetime from the list.
 
    1. (optional) Under **Additional**:
 
       * Select the option to ignore Cookies.
-      * Select the option to ignore the query parameters.
+      * Select the option to ignore the Query parameters.
 
    1. Click **Save**.
 
@@ -106,10 +105,12 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
         --ignore-query-string
       ```
 
+      Where:
+
       * `--cache-expiration-time`: Cache lifetime in seconds.
       * `--browser-cache-expiration-time`: Browser cache lifetime in seconds.
-      * `--ignore-cookie`: If `true`, ignores cookies.
-      * `--ignore-query-string`: Ignore query parameters.
+      * `--ignore-cookie` with the `true` value enables the ignoring of cookies.
+      * `--ignore-query-string`enables the ignoring of query parameters.
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
@@ -117,12 +118,12 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
    If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of the `yandex_cdn_resource` CDN resource to create:
+   1. In the configuration file, describe the parameters of the CDN `yandex_cdn_resource` resource to create:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
+      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
       * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
-      * `secondary_hostnames`: Additional domain names. Optional parameter.
+      * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `browser_cache_settings`: Browser cache lifetime in seconds. Optional parameter, defaults to `0`.
@@ -165,7 +166,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       }
       ```
 
-      For more detailed information on the `yandex_cdn_resource` parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.
 
@@ -194,7 +195,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
+      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
 
       ```
       yc cdn resource list
