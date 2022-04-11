@@ -110,5 +110,12 @@ items:
         include:
           repo: docs
           path: en/_api-ref/dataproc/toc.yaml
+  - name: Релизы
+    items:
+      - name: Изменения сервиса
+        href: release-notes/index.md
+        when: audience == "draft"
+      - name: Образы
+        href: release-notes/images.md
   - name: Вопросы и ответы
     href: qa/index.md
