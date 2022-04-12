@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_string.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_string.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/types/_includes/datatypes_primitive_string.md
+sourcePath: ru/ydb/yql/reference/yql-core/types/_includes/datatypes_primitive_string.md
 ---
 Тип | Описание | Примечания
 ----- | ----- | ----- 

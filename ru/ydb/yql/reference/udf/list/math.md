@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/udf/list/math.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/math.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/udf/list/math.md
+sourcePath: ru/ydb/yql/reference/yql-core/udf/list/math.md
 ---
 # Math
 Набор обёрток вокруг функций из библиотеки libm, а также утилит Яндекс.
@@ -10,12 +10,14 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/math.md
 
 * ```Math::Pi() -> Double```
 * ```Math::E() -> Double```
+* ```Math::Eps() -> Double```
 
 **Примеры**
 
 ```sql
-SELECT Math::Pi(); -- 3.141592654
-SELECT Math::E();  -- 2.718281828
+SELECT Math::Pi();  -- 3.141592654
+SELECT Math::E();   -- 2.718281828
+SELECT Math::Eps(); -- 2.220446049250313e-16
 ```
 
 ## (Double) -> Bool {#double-bool}
@@ -47,6 +49,8 @@ SELECT Math::IsFinite(1.0/0.0); -- false
 * ```Math::Cos(Double{Flags:AutoMap}) -> Double```
 * ```Math::Cosh(Double{Flags:AutoMap}) -> Double```
 * ```Math::Erf(Double{Flags:AutoMap}) -> Double```
+* ```Math::ErfInv(Double{Flags:AutoMap}) -> Double```
+* ```Math::ErfcInv(Double{Flags:AutoMap}) -> Double```
 * ```Math::Exp(Double{Flags:AutoMap}) -> Double```
 * ```Math::Exp2(Double{Flags:AutoMap}) -> Double```
 * ```Math::Fabs(Double{Flags:AutoMap}) -> Double```

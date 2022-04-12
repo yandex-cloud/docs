@@ -81,6 +81,8 @@ items:
         href: concepts/caching.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Organizations in DataLens
+        href: concepts/organizations.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -652,6 +654,9 @@ items:
       - name: Data source timed out
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
+      - name: Database authentication failed
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-AUTHENTICATION_FAILED.md
       - name: Incompatible dimensions
         hidden: true
         href: >-

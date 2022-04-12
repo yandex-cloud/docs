@@ -518,7 +518,7 @@ items:
           - name: Go
             href: reference/ydb-sdk/example/go/index.md
           - name: Java
-            href: reference/ydb-sdk/example/example-java.md
+            href: reference/ydb-sdk/example/java/index.md
           - name: Node.js
             href: reference/ydb-sdk/example/example-nodejs.md
           - name: PHP

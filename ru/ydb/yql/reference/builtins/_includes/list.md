@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/list.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/list.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/_includes/list.md
+sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/list.md
 ---
 # Функции для работы со списками
 
@@ -212,6 +212,60 @@ SELECT ListFlatten([[1,2],[3,4]]),   -- [1,2,3,4]
 Применяет соответствующую агрегатную функцию ко всем элементам списка числовых значений.
 
 **Примеры**
+
+## ListFold, ListFold1 {#listfold}
+
+Свёртка списка.
+
+Аргументы:
+
+1. Список
+2. Начальное состояние U для ListFold, initLambda(item:T)->U для ListFold1
+3. updateLambda(item:T, state:U)->U
+
+Возвращаемый тип:
+U для ListFold, опциональный U для ListFold1.
+
+**Примеры**
+
+```yql
+$l = [1, 4, 7, 2];
+$y = ($x, $y) -> { RETURN $x + $y; };
+$z = ($x) -> { RETURN 4 * $x; };
+
+SELECT
+    ListFold($l, 6, $y) AS fold,                       -- 20
+    ListFold([], 3, $y) AS fold_empty,                 -- 3
+    ListFold1($l, $z, $y) AS fold1,                    -- 17
+    ListFold1([], $z, $y) AS fold1_empty;              -- Null
+```
+
+## ListFoldMap, ListFold1Map {#listfoldmap}
+
+Преобразует каждый элемент i в списке путём вызова handler(i, state).
+
+Аргументы:
+
+1. Список
+2. Начальное состояние S для ListFoldMap, initLambda(item:T)->кортеж (U S) для ListFold1Map
+3. handler(item:T, state:S)->кортеж (U S)
+
+Возвращаемый тип:
+Список элементов U.
+
+**Примеры**
+
+```yql
+$l = [1, 4, 7, 2];
+$x = ($i, $s) -> { RETURN ($i * $s, $i + $s); };
+$t = ($i) -> { RETURN ($i + 1, $i + 2); };
+
+SELECT
+    ListFoldMap([], 1, $x),                -- []
+    ListFoldMap($l, 1, $x),                -- [1, 8, 42, 26]
+    ListFold1Map([], $t, $x),              -- []
+    ListFold1Map($l, $t, $x);              -- [2, 12, 49, 28]
+```
 
 ## ListFromRange {#listfromrange}
 

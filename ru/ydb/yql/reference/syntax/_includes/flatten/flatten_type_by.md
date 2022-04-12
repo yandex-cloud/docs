@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_type_by.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatten_type_by.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/_includes/flatten/flatten_type_by.md
+sourcePath: ru/ydb/yql/reference/yql-core/syntax/_includes/flatten/flatten_type_by.md
 ---
 ### Уточнение типа контейнера {#flatten-by-specific-type}
 

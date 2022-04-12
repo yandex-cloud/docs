@@ -20,5 +20,9 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/session_pool_
 
   {% include [go.md](_includes/go.md) %}
 
+- Java
+
+
+  {% include [java.md](_includes/java.md) %}
 
 {% endlist %}

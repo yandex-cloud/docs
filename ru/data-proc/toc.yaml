@@ -177,6 +177,10 @@ items:
                 href: api-ref/Subcluster/list.md
               - name: update
                 href: api-ref/Subcluster/update.md
+  - name: Релизы
+    items:
+      - name: Образы
+        href: release-notes/images.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/data-proc

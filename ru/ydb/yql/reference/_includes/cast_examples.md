@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/_includes/cast_examples.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/_includes/cast_examples.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/_includes/cast_examples.md
+sourcePath: ru/ydb/yql/reference/yql-core/_includes/cast_examples.md
 ---
     SELECT
         CAST("12345" AS Double),                -- 12345.0

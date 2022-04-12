@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/_includes/lexer.md
+sourcePath: ru/ydb/yql/reference/yql-core/syntax/_includes/lexer.md
 ---
 
 # Лексическая структура
@@ -14,7 +14,7 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
 ## Режимы совместимости синтаксиса {#lexer-modes}
 
 Поддерживаются два режима совместимости синтаксиса: 
-* Расширенный C++ (по умолчанию)
+* Расширенный C++ (по-умолчанию)
 * ANSI SQL
 
 Режим ANSI SQL включается с помощью специального комментария `--!ansi-lexer`, который должен стоять в начале запроса.
@@ -34,7 +34,7 @@ SELECT 1; -- A single-line comment
    Some multi-line comment
 */
 ```
-В режиме совместимости синтаксиса C++ (по умолчанию) многострочный комментарий заканчивается на _ближайшей_ последовательности символов `*/`.
+В режиме совместимости синтаксиса C++ (по-умолчанию) многострочный комментарий заканчивается на _ближайшей_ последовательности символов `*/`.
 В режиме совместимости синтаксиса ANSI SQL учитывается вложенность многострочных комментариев:
 
 ``` sql
@@ -88,7 +88,7 @@ SELECT 1 as "column with "" double quoute"; -- имя колонки будет:
 SELECT 'string with\n newline, \x0a newline and \' backtick ';
 ```
 
-В режиме совместимости синтаксиса С++ (по умолчанию) разрешается использовать вместо одинарных кавычек двойные:
+В режиме совместимости синтаксиса С++ (по-умолчанию) разрешается использовать вместо одинарных кавычек двойные:
 ```yql
 SELECT "string with\n newline, \x0a newline and \" backtick ";
 ```

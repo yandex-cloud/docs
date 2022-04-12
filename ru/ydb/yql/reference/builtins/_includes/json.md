@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/json.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/json.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/_includes/json.md
+sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/json.md
 ---
 # Функции для работы с JSON
 
@@ -20,6 +20,32 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/json.md
 Несмотря на то, что в первом объекте поле `age` имеет тип `Number` (`"age": 21`), а во втором `String` (`"age": "twenty years old"`), это полностью валидный JSON.
 
 Для работы с JSON, YQL реализует подмножество стандарта [SQL support for JavaScript Object Notation (JSON)](https://www.iso.org/standard/67367.html), являющегося частью общепринятого стандарта ANSI SQL.
+
+## Cookbook
+
+```
+$json = CAST(@@{
+    "friends": [
+        {
+            "name": "James Holden",
+            "age": 35
+        },
+        {
+            "name": "Naomi Nagata",
+            "age": 30
+        }
+    ]
+}@@ AS Json);
+
+SELECT
+    JSON_EXISTS($json, "$.friends[*].name"), -- True,
+    JSON_VALUE($json, "$.friends[0].age"), -- "35" (тип Utf8?)
+    JSON_QUERY($json, "$.friends[0]"); -- {"name": "James Holden", "age": 35}
+
+```
+
+### Обращение к полю в базе данных
+В таблицах данные могут хранить в JSON или в строковом представлении. Функции JSON_* для работы ожидают на вход JSON. Для преобразования `String->JSON` нужно воспользоваться функцией `CAST`, например `CAST (my_string AS JSON)`.
 
 ## JsonPath
 
@@ -56,30 +82,30 @@ $.comments[1].text
 
 ### Quick reference
 
-| Операция                                | Пример                                            |
-| --------------------------------------- | ------------------------------------------------- |
-| Извлечь ключ JSON объекта               | `$.key`                                           |
-| Извлечь все ключи JSON объекта          | `$.*`                                             |
-| Обращение к элементу массива            | `$[25]`                                           |
-| Извлечение подотрезка массива           | `$[2 to 5]`                                       |
-| Обращение к последнему элементу массива | `$[last]`                                         |
-| Обращение ко всем элементам массива     | `$[*]`                                            |
-| Унарные операции                        | `- 1`                                             |
-| Бинарные операции                       | `(12 * 3) % 4 + 8`                                |
-| Обращение к переменной                  | `$variable`                                       |
-| Логические операции                     | `(1 > 2) || (3 <= 4) && ("string" == "another")`  |
-| Соответствие регулярному выражению      | `$.name like_regex "^[A-Za-z]+$"`                 |
-| Проверка префикса строки                | `$.name starts with "Bobbie"`                     |
-| Проверка существования пути             | `exists ($.profile.name)`                         |
-| Проверка булевского выражения на null   | `($.age > 20) is unknown`                         |
+| Операция                                | Пример                                          |
+|-----------------------------------------|-------------------------------------------------|
+| Извлечь ключ JSON объекта               | `$.key`                                         |
+| Извлечь все ключи JSON объекта          | `$.*`                                           |
+| Обращение к элементу массива            | `$[25]`                                         |
+| Извлечение подотрезка массива           | `$[2 to 5]`                                     |
+| Обращение к последнему элементу массива | `$[last]`                                       |
+| Обращение ко всем элементам массива     | `$[*]`                                          |
+| Унарные операции                        | `- 1`                                           |
+| Бинарные операции                       | `(12 * 3) % 4 + 8`                              |
+| Обращение к переменной                  | `$variable`                                     |
+| Логические операции                     | `(1 > 2) &#124;&#124; (3 <= 4) && ("string" == "another")&#124;  |
+| Соответствие регулярному выражению      | `$.name like_regex "^[A-Za-z]+$"`               |
+| Проверка префикса строки                | `$.name starts with "Bobbie"`                   |
+| Проверка существования пути             | `exists ($.profile.name)`                       |
+| Проверка булевского выражения на null   | `($.age > 20) is unknown`                       |
 | Фильтрация значений                     | `$.friends ? (@.age >= 18 && @.gender == "male")` |
-| Получение типа значения                 | `$.name.type()`                                   |
-| Получение размера массива               | `$.friends.size()`                                |
-| Преобразование строки в число           | `$.number.double()`                               |
-| Округление числа вверх                  | `$.number.ceiling()`                              |
-| Округление числа вниз                   | `$.number.floor()`                                |
-| Абсолютное значение числа               | `$.number.abs()`                                  |
-| Получение пар ключ-значения из объекта  | `$.profile.keyvalue()`                            |
+| Получение типа значения                 | `$.name.type()`                                 |
+| Получение размера массива               | `$.friends.size()`                              |
+| Преобразование строки в число           | `$.number.double()`                             |
+| Округление числа вверх                  | `$.number.ceiling()`                            |
+| Округление числа вниз                   | `$.number.floor()`                              |
+| Абсолютное значение числа               | `$.number.abs()`                                |
+| Получение пар ключ-значения из объекта  | `$.profile.keyvalue()`                          |
 
 ### Модель данных
 
@@ -184,7 +210,7 @@ JsonPath поддерживает обращение к ключам JSON объ
 ```
 
 |                  | `lax`            | `strict` |
-| ---------------- | ---------------- | -------- |
+|------------------|------------------|----------|
 | `$.name`         | `"Amos"`         | `"Amos"` |
 | `$.surname`      | Пустой результат | Ошибка   |
 | `$.friends.name` | `"Jim", "Alex"`  | Ошибка   |
@@ -900,7 +926,7 @@ JSON_VALUE(
 )
 ```
 
-## JSON_EXISTS
+## JSON_EXISTS {#json_exists}
 
 Функция `JSON_EXISTS` позволяет проверить удовлетворяет ли JSON значение указанному JsonPath.
 
@@ -956,7 +982,7 @@ SELECT
     JSON_EXISTS($json, "strict $.nonexistent" ERROR ON ERROR);
 ```
 
-## JSON_VALUE
+## JSON_VALUE {#json_value}
 
 Функция `JSON_VALUE` позволяет извлечь из JSON скалярное значение (все что не массив и не объект).
 
@@ -1052,7 +1078,7 @@ SELECT
 
 ```
 
-## JSON_QUERY
+## JSON_QUERY {#json_query}
 
 Функция `JSON_QUERY` позволяет извлекать из JSON массивы и объекты.
 

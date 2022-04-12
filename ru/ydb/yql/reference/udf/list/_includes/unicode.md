@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/udf/list/_includes/unicode.md
+sourcePath: ru/ydb/yql/reference/yql-core/udf/list/_includes/unicode.md
 ---
 # Unicode
 Функции для работы с Unicode строками.
@@ -39,19 +39,19 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
   Aргументы: ```input```, ```find```, ```replacement```. Заменяет все вхождения строки ```find``` в ```input``` на ```replacement```.
 
 * ```Unicode::ReplaceFirst(Utf8{Flags:AutoMap}, Utf8, Utf8) -> Utf8```
-  Aргументы: ```input```, ```findSymbol```, ```replacementSymbol```. Заменяет первое вхождение символа ```findSymbol``` в ```input``` на ```replacementSymbol```. Символ не может быть суррогатной парой.
+  Aргументы: ```input```, ```find```, ```replacement```. Заменяет первое вхождение строки ```find``` в ```input``` на ```replacement```.
 
 * ```Unicode::ReplaceLast(Utf8{Flags:AutoMap}, Utf8, Utf8) -> Utf8```
-  Aргументы: ```input```, ```findSymbol```, ```replacementSymbol```. Заменяет последнее вхождение символа ```findSymbol``` в ```input``` на ```replacementSymbol```. Символ не может быть суррогатной парой.
+  Aргументы: ```input```, ```find```, ```replacement```. Заменяет последнее вхождение строки ```find``` в ```input``` на ```replacement```.
 
 * ```Unicode::RemoveAll(Utf8{Flags:AutoMap}, Utf8) -> Utf8```
-  Второй аргумент интерпретируется как неупорядоченный набор символов для удаления. Удаляются все вхождения.
+  Второй аргумент интерпретируется как неупорядоченный набор символов для удаления. Удаляются все вхождения символов из набора.
 
 * ```Unicode::RemoveFirst(Utf8{Flags:AutoMap}, Utf8) -> Utf8```
-  Второй аргумент интерпретируется как неупорядоченный набор символов для удаления. Удаляется первое вхождение.
+  Второй аргумент интерпретируется как неупорядоченный набор символов для удаления. Удаляется только первое вхождение символа из набора.
 
 * ```Unicode::RemoveLast(Utf8{Flags:AutoMap}, Utf8) -> Utf8```
-  Второй аргумент интерпретируется как неупорядоченный набор символов для удаления. Удаляется последнее вхождение.
+  Второй аргумент интерпретируется как неупорядоченный набор символов для удаления. Удаляется только последнее вхождение символа из набора.
 
 * ```Unicode::ToCodePointList(Utf8{Flags:AutoMap}) -> List<Uint32>```
 * ```Unicode::FromCodePointList(List<Uint32>{Flags:AutoMap}) -> Utf8```
@@ -68,6 +68,15 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
     - Limit:Uint64? - ограничение на число извлекаемых компонент, по умолчанию не ограничено; необработанный суффикс оригинальной строки возвращается последним элементом при превышении лимита
 
 * ```Unicode::JoinFromList(List<Utf8>{Flags:AutoMap}, Utf8) -> Utf8```
+
+* ```Unicode::ToUint64(Utf8{Flags:AutoMap}, [Uint16?]) -> Uint64```
+ Второй опциональный аргумент задает систему счисления, по умолчанию 0 - автоматическое определение по префиксу.
+ Поддерживаемые префиксы : 0x(0X) - base-16, 0 - base-8. Система по-умолчанию - base-10.
+ Знак '-' перед числом интерпретируется как в беззнаковой арифметике языка C, например -0x1 -> UI64_MAX.
+ В случае наличия в строке некорректных символов или выхода числа за границы ui64 функция завершается с ошибкой.
+* ```Unicode::TryToUint64(Utf8{Flags:AutoMap}, [Uint16?]) -> Uint64?```
+ Аналогично функции Unicode::ToUint64(), но вместо ошибки возвращает Nothing.
+
 
 **Примеры**
 

@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/union_all.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/union_all.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/_includes/select/union_all.md
+sourcePath: ru/ydb/yql/reference/yql-core/syntax/_includes/select/union_all.md
 ---
 ## UNION ALL {#union-all}
 
@@ -33,7 +33,7 @@ UNION ALL
 SELECT 3 AS z;
 ```
 
-В результате выполнения данного запроса в режиме по умолчанию будет сформирована выборка с тремя колонками x, y, и z. При включенной `PRAGMA PositionalUnionAll;` в выборке будет одна колонка x.
+В результате выполнения данного запроса в режиме по-умолчанию будет сформирована выборка с тремя колонками x, y, и z. При включенной `PRAGMA PositionalUnionAll;` в выборке будет одна колонка x.
 
 
 ``` yql

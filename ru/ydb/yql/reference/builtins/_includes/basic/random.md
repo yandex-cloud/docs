@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/random.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/random.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/_includes/basic/random.md
+sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/basic/random.md
 ---
 ## Random... {#random}
 
@@ -14,6 +14,12 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/random
 
 * Повторный вызов Random в рамках **одного запроса** при идентичном наборе аргументов возвращает тот же самый набор случайных чисел. Важно понимать, что речь именно про сами аргументы (текст между круглыми скобками), а не их значения.
 * Вызовы Random с одним и тем же набором аргументов в **разных запросах** вернут разные наборы случайных чисел.
+
+{% note warning %}
+
+Если Random используется в [именованных выражениях](../../../syntax/expressions.md#named-nodes), то его однократное вычисление не гарантируется. В зависимости от оптимизаторов и среды исполнения он может посчитаться как один раз, так и многократно. Для гарантированного однократного подсчета необходимо в этом случае материализовать именованное выражение в таблицу.
+
+{% endnote %}
 
 Сценарии использования:
 
