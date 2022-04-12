@@ -103,6 +103,9 @@ items:
         include:
           repo: docs
           path: en/_api-ref/mdb/mysql/toc.yaml
+  - name: Релизы
+    href: release-notes.md
+    when: audience == "draft"
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
