@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/limit_offset.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/limit_offset.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/_includes/select/limit_offset.md
+sourcePath: ru/ydb/yql/reference/yql-core/syntax/_includes/select/limit_offset.md
 ---
 
 ## LIMIT и OFFSET {#limit-offset}

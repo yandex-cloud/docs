@@ -13,5 +13,6 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/_includes/sdk.md
 
    * [Python](../../reference/ydb-sdk/example/python/index.md)
    * [Go](../../reference/ydb-sdk/example/go/index.md)
+   * [Java](../../reference/ydb-sdk/example/java/index.md)
 
 Полная информация о {{ ydb-short-name }} SDK находится в разделе [Работа с {{ ydb-short-name }} SDK](../../reference/ydb-sdk/index.md).

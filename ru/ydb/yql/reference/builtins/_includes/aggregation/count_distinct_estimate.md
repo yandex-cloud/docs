@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/count_distinct_estimate.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/count_distinct_estimate.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/_includes/aggregation/count_distinct_estimate.md
+sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/aggregation/count_distinct_estimate.md
 ---
 ## CountDistinctEstimate, HyperLogLog и HLL {#countdistinctestimate}
 

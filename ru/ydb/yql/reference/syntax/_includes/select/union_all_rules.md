@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/union_all_rules.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/union_all_rules.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/_includes/select/union_all_rules.md
+sourcePath: ru/ydb/yql/reference/yql-core/syntax/_includes/select/union_all_rules.md
 ---
 * в результирующую таблицу включаются все колонки, которые встречались хоть в одной из входных таблиц;
 * если колонка присутствовала не во всех входных таблицах, то ей автоматически присваивается [опциональный тип данных](../../../types/optional.md) (допускающий значение `NULL`);

@@ -67,6 +67,8 @@ items:
             href: security/domains/vulnerability-management.md
           - name: Аудитные логи
             href: security/domains/audit-logs.md
+          - name: Безопасность Kubernetes
+            href: security/domains/kubernetes.md
           - name: Физическая безопасность
             href: security/domains/physical-security.md
       - name: Бюллетени безопасности

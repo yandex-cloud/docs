@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/select.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/select.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/select.md
+sourcePath: ru/ydb/yql/reference/yql-core/syntax/select.md
 ---
 # Синтаксис SELECT
 
@@ -10,7 +10,8 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/select.md
 
 {% include [x](_includes/select/from.md) %}
 
-{% include [x](_includes/select/secondary_index.md) %}
+
+  {% include [x](_includes/select/secondary_index.md) %}
 
 {% include [x](_includes/select/with.md) %}
 

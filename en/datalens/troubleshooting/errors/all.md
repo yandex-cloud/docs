@@ -8,6 +8,7 @@ Error code | Description |
 [ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
 [ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
 [ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md) | Subquery source is disallowed in the connection settings |
+[ERR.DS_API.DB.AUTHENTICATION_FAILED](ERR-DS_API-DB-AUTHENTICATION_FAILED.md) | Database authentication failed |
 [ERR.DS_API.DB.CANNOT_PARSE.DATETIME](ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md) | Cannot parse datetime |
 [ERR.DS_API.DB.CANNOT_PARSE.NUMBER](ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md) | Cannot parse number |
 [ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST](ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md) | Requested database column does not exist |

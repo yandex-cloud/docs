@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/udf/list/datetime.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/datetime.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/udf/list/datetime.md
+sourcePath: ru/ydb/yql/reference/yql-core/udf/list/datetime.md
 ---
 # DateTime
 

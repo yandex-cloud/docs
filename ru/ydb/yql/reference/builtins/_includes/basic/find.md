@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/builtins/_includes/basic/find.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/find.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/_includes/basic/find.md
+sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/basic/find.md
 ---
 ## FIND {#find}
 
@@ -41,7 +41,7 @@ SELECT FIND("abcdefg_abcdefg", "abc", 9); -- null
 
 * Позиция — в байтах, с которой начинать поиск (целое число, или `NULL` по умолчанию, означающий «от конца исходной строки»).
 
-Возвращает первую найденную позицию подстроки, или `NULL`, означающий что искомая подстрока с указанной позиции не найдена.
+Возвращает первую найденную позицию подстроки, или `NULL`, означающий, что искомая подстрока с указанной позиции не найдена.
 
 **Примеры**
 ``` yql

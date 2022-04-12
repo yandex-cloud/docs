@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/syntax/_includes/select/with.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/with.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/_includes/select/with.md
+sourcePath: ru/ydb/yql/reference/yql-core/syntax/_includes/select/with.md
 ---
 ## WITH
 
@@ -8,7 +8,8 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/with.md
 
 Поддерживаются следующие значения:
 
-* `INFER_SCHEMA` — задает флаг вывода схемы таблицы. Поведение аналогично заданию [прагмы yt.InferSchema](../../pragma.md#inferschema), только для конкретного источника данных и без возможности указать числа строк для выведения.
+* `INFER_SCHEMA` — задает флаг вывода схемы таблицы. Поведение аналогично заданию [прагмы yt.InferSchema](../../pragma.md#inferschema), только для конкретного источника данных. Можно задать число строк для выведения (число от 1 до 1000).
+* `FORCE_INFER_SCHEMA` — задает флаг вывода схемы таблицы. Поведение аналогично заданию [прагмы yt.ForceInferSchema](../../pragma.md#inferschema), только для конкретного источника данных. Можно задать число строк для выведения (число от 1 до 1000).
 * `DIRECT_READ` — подавляет работу некоторых оптимизаторов и заставляет использовать содержимое таблицы как есть. Поведение аналогично заданию отладочной [прагмы DirectRead](../../pragma.md#debug), только для конкретного источника данных.
 * `INLINE` — указание на то, что содержимое таблицы небольшое и нужно использовать его представление в памяти для обработки запроса. Реальный объем таблицы при этом не контролируется, и если он большой, то запрос может упасть по превышению памяти.
 * `UNORDERED` — подавляет использование исходной сортировки таблицы.
@@ -24,6 +25,7 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/with.md
 
 ``` yql
 SELECT key FROM my_table WITH INFER_SCHEMA;
+SELECT key FROM my_table WITH FORCE_INFER_SCHEMA="42";
 ```
 
 ``` yql

@@ -1,6 +1,6 @@
 ---
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-docs-core-2/udf/list/_includes/string.md
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/string.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/udf/list/_includes/string.md
+sourcePath: ru/ydb/yql/reference/yql-core/udf/list/_includes/string.md
 ---
 # String
 Функции для работы с ASCII-строками.
@@ -48,11 +48,11 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/string.md
 * ```String::ToByteList(List<String>{Flags:AutoMap}) -> List<Byte>```
 * ```String::FromByteList(List<Uint8>) -> String```
 * ```String::ReplaceAll(String{Flags:AutoMap}, String, String) -> String``` - аргументы: input, find, replacement
-* ```String::ReplaceFirst(String{Flags:AutoMap}, String, String) -> String``` - аргументы: input, find, replacement, второй аргумент - 1 символ
-* ```String::ReplaceLast(String{Flags:AutoMap}, String, String) -> String``` - аргументы: input, find, replacement, второй аргумент - 1 символ
-* ```String::RemoveAll(String{Flags:AutoMap}, String) -> String``` - второй аргумент интерпретируется как неупорядоченный набор символов для удаления
-* ```String::RemoveFirst(String{Flags:AutoMap}, String) -> String``` - символ для удаления во втором аргументе
-* ```String::RemoveLast(String{Flags:AutoMap}, String) -> String ``` - символ для удаления во втором аргументе
+* ```String::ReplaceFirst(String{Flags:AutoMap}, String, String) -> String``` - аргументы: input, find, replacement
+* ```String::ReplaceLast(String{Flags:AutoMap}, String, String) -> String``` - аргументы: input, find, replacement
+* ```String::RemoveAll(String{Flags:AutoMap}, String) -> String ``` - неупорядоченный набор символов во втором аргументе, удаляются все вхождения символов из набора
+* ```String::RemoveFirst(String{Flags:AutoMap}, String) -> String ``` - неупорядоченный набор символов во втором аргументе, удаляется только первый встреченный символ из набора
+* ```String::RemoveLast(String{Flags:AutoMap}, String) -> String ``` - неупорядоченный набор символов во втором аргументе, удаляется только последний встреченный символ из набора
 * ```String::IsAscii(String{Flags:AutoMap}) -> Bool```
 * ```String::IsAsciiSpace(String{Flags:AutoMap}) -> Bool```
 * ```String::IsAsciiUpper(String{Flags:AutoMap}) -> Bool```
