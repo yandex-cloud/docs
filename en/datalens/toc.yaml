@@ -77,6 +77,8 @@ items:
         href: concepts/caching.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Organizations in DataLens
+        href: concepts/organizations.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
