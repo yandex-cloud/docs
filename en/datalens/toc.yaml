@@ -271,6 +271,9 @@ items:
       - name: Data source timed out
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
+      - name: Database authentication failed
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-AUTHENTICATION_FAILED.md
       - name: Incompatible dimensions
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INCOMPATIBLE_DIMENSIONS.md
