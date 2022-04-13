@@ -33,31 +33,28 @@
 
 ### Примеры {#include-examples}
 
-Чтобы вставить на страницу файл из репозитория, используйте код:
-```
-{{include href="https://svn.yandex.ru/wiki/planner/trunk/src/planner/urls.py" formatter="python" expired=50}}
-```
+* Чтобы вставить на страницу файл из svn-репозитория, используйте код:
+    ```
+    {{include href="https://svn.yandex.ru/wiki/planner/trunk/src/planner/urls.py" formatter="python" expired=50}}
+    ```
 
-{% cut "Как выглядит результат"%}
+* Чтобы вставить на страницу файл из git-репозитория, используйте код:
+    ```
+    {{include href="https://github.yandex-team.ru/tools/wiki.git/?a=blob_plain;f=src/wiki/formatters/classes/base.py;h=4a77086f0e26551a19b2f7aed5ca898266dbe0d6;hb=HEAD" formatter="python" expired=999 from="11" to="20"}}
+    ```
 
-```python
-from django.conf.urls.defaults import *
-from django.conf import settings
+* Чтобы вставить на страницу секцию страницы {{wiki-name}}, ограниченной якорями, используйте код:
+    ```
+    {{include page="/wiki/vodstvo/lists/Grids" from="tracker-start" to="tracker-end" nomark notitle}}
+    ```
+* Чтобы вставить на страницу файл из Arcanum, используйте код:
+    ```
+    {{include href="https://a.yandex-team.ru/api/v1/repos/arc/tree/blob/trunk/arcadia/extsearch/video/vh/common/abc_mapping/data/abc_mapping.json?commit_id=HEAD" formatter="json" expired=999 from="110" to="117"}}
+    ```
+    Чтобы получить ссылку для вставки из Arcanum, откройте файл с исходным кодом и переключитесь в режим **Raw**.
 
-from django.contrib import admin
-admin.autodiscover()
-
-urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-    (r'^',             include('rooms.urls')),
-)
-
-if settings.DEBUG:
-    urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-    )
-```
-
-{% endcut %}
+{% note info %}
 
 Чтобы посмотреть, как работает блок `include` в {{wiki-name}}, перейдите по [ссылке](https://wiki.yandex-team.ru/wiki/vodstvo/actions/actioninclude/#primery).
+
+{% endnote %}
