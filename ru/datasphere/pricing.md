@@ -86,8 +86,6 @@ g2.8 | 928
 
 ## Цены {#prices}
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
 {% if region == "ru"%}
 
 {% include [rub-unit-and-resource.md](../_pricing/datasphere/rub-unit-and-resource.md) %}

@@ -104,12 +104,6 @@ editable: false
 
 {% if region != "int" %}
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
-{% if region != "int" %}
-
 Все цены указаны с включением НДС.
 
 {% else %}
@@ -120,19 +114,19 @@ editable: false
 
 {% if region == "ru" %}
 
-{% include notitle [rub-hosts-and-storage.md](../_pricing/managed-elasticsearch/rub-hosts-and-storage.md) %}
+{% include [rub-hosts-and-storage.md](../_pricing/managed-elasticsearch/rub-hosts-and-storage.md) %}
 
 {% endif %}
 
 {% if region == "kz" %}
 
-{% include notitle [kzt-hosts-and-storage.md](../_pricing/managed-elasticsearch/kzt-hosts-and-storage.md) %}
+{% include [kzt-hosts-and-storage.md](../_pricing/managed-elasticsearch/kzt-hosts-and-storage.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
 
-{% include notitle [usd-hosts-and-storage.md](../_pricing/managed-elasticsearch/usd-hosts-and-storage.md) %}
+{% include [usd-hosts-and-storage.md](../_pricing/managed-elasticsearch/usd-hosts-and-storage.md) %}
 
 {% endif %}
 

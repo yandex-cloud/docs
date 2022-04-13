@@ -135,18 +135,6 @@ Usage prices are shown on an hourly basis (monthly for local disks). Billing occ
 
 ## Pricing {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% note alert %}
-
-Prices for Microsoft products and licenses are increasing starting March 22, 2022. Prices for other {{ compute-name }} resources are increasing starting April 13, 2022. For more details, [see the blog post](https://cloud.yandex.ru/blog/posts/2022/03/pricing-update-march-2022/). The new prices are listed in the tables below.
-
-{% endnote %}
-
-{% endif %}
-
 ### VM computing resources {#prices-instance-resources}
 
 {% if region == "ru" %}

@@ -1,5 +1,4 @@
-| Resource category | Price per 1 million requests per month, with VAT | |
-| --- | --- | --- |
-| | **Up until April 12, 2022** | **Starting April 13, 2022** |
-| Public DNS Requests — Authoritative | ₽20 | ₽32 |
-| Public DNS Requests — Recursive  | ₽20 | ₽32 |
+| Resource category | Price per 1 million requests per month, with VAT |
+| --- | --- |
+| Public DNS Requests — Authoritative | ₽32 |
+| Public DNS Requests — Recursive  | ₽32 |

@@ -1,14 +1,13 @@
-| Ресурс        | Цена за 1 час                                           | |
-|---------------|---------------------------------------------------------|---|
-| | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
-| **Intel Cascade Lake**                                             | |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.kafka.v2.cpu.c50|string }}  | 3,75 ₸ |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.kafka.v2.cpu.c100|string }} | 8,40 ₸ |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.kafka.v2.ram|string }}      | 2,25 ₸ |
-| **Intel Ice Lake**                                                 | |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c50|string }}  | 3,40 ₸ |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|string }} | 7,55 ₸ |
-| RAM (за 1 ГБ) | 1,5120 ₸                                           | 2,00 ₸ |
+| Ресурс        | Цена за 1 час                                      |
+|---------------|----------------------------------------------------|
+| **Intel Cascade Lake**                                             |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.kafka.v2.cpu.c50|string }}  |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.kafka.v2.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.kafka.v2.ram|string }}      |
+| **Intel Ice Lake**                                                 |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c50|string }}  |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|string }} |
+| RAM (за 1 ГБ) | 2,0000 ₸ |
 
 {% if audience == "cvos" %}
 

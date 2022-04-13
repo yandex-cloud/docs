@@ -18,12 +18,6 @@ Pricing features:
 
 ### Pricing {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 {% if region == "ru"%}
 
 The minimum billable unit is 1 metric value. The price is rounded up to the nearest hundredth of a ruble.

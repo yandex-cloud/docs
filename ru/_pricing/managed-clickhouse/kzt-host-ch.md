@@ -1,22 +1,21 @@
-| Ресурс        | Цена за 1 час                                           | |
-|---------------|---------------------------------------------------------|---|
-| | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
-| **Intel Broadwell**                                                     | |
-| 5% vCPU       | {{ sku|KZT|mdb.cluster.clickhouse.v1.cpu.c5|string }}   | 0,15 ₸ |
-| 20% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v1.cpu.c20|string }}  | 2,05 ₸ |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v1.cpu.c50|string }}  | 3,40 ₸ |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.clickhouse.v1.cpu.c100|string }} | 11,40 ₸ |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.clickhouse.v1.ram|string }}      | 2,60 ₸ |
-| **Intel Cascade Lake**                                                  | |
-| 5% vCPU       | {{ sku|KZT|mdb.cluster.clickhouse.v2.cpu.c5|string }}   | 0,15 ₸ |
-| 20% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v2.cpu.c20|string }}  | 2,05 ₸ |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v2.cpu.c50|string }}  | 3,40 ₸ |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.clickhouse.v2.cpu.c100|string }} | 9,60 ₸ |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.clickhouse.v2.ram|string }}      | 2,60 ₸ |
-| **Intel Ice Lake**                                                      | |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v3.cpu.c50|string }}  | 3,05 ₸ |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.clickhouse.v3.cpu.c100|string }} | 8,60 ₸ |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.clickhouse.v3.ram|string }}      | 2,35 ₸ |
+| Ресурс        | Цена за 1 час                                           |
+|---------------|---------------------------------------------------------|
+| **Intel Broadwell**                                                     | 
+| 5% vCPU       | {{ sku|KZT|mdb.cluster.clickhouse.v1.cpu.c5|string }}   |
+| 20% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v1.cpu.c20|string }}  |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v1.cpu.c50|string }}  |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.clickhouse.v1.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.clickhouse.v1.ram|string }}      |
+| **Intel Cascade Lake**                                                  |
+| 5% vCPU       | {{ sku|KZT|mdb.cluster.clickhouse.v2.cpu.c5|string }}   |
+| 20% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v2.cpu.c20|string }}  |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v2.cpu.c50|string }}  |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.clickhouse.v2.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.clickhouse.v2.ram|string }}      |
+| **Intel Ice Lake**                                                      |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v3.cpu.c50|string }}  |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.clickhouse.v3.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.clickhouse.v3.ram|string }}      |
 
 {% if audience == "cvos" %}
 

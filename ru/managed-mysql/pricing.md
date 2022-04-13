@@ -65,10 +65,6 @@ editable: false
 ## Цены {#prices}
 
 {% if region != "int" %}
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-{% endif %}
-
-{% if region != "int" %}
 
 Все цены указаны с включением НДС.
 

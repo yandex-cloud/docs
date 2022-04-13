@@ -4,12 +4,6 @@ editable: false
 
 # Правила тарификации для {{ dns-name }}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 ## Публичные DNS-запросы {#public-dns-requests}
 
 {% if region == "ru" %}

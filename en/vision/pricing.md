@@ -19,12 +19,6 @@ Each successful image analysis performed using any feature is charged as a singl
 
 ## Pricing {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 {% if region == "ru" %}
 
 {% include notitle [rub.md](../_pricing/vision/rub.md) %}

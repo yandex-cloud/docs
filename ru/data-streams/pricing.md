@@ -58,12 +58,6 @@
 
 ## Цены {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 ### Цена единицы записываемых данных {#event}
 
 Каждый месяц не тарифицируются первые 2 000 000 сообщений.

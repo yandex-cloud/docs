@@ -3,12 +3,6 @@ editable: false
 ---
 # Pricing for {{ dns-name }}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 ## Public DNS queries {#public-dns-requests}
 
 {% if region == "ru" %}

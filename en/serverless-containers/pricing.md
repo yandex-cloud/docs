@@ -22,12 +22,6 @@ You're charged for all the container invocations that trigger your code to run.
 
 ## Pricing {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 ### Invoking a container {#prices-invoking}
 
 {% if region == "ru" %}

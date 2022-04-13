@@ -105,10 +105,6 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 ## Pricing {#prices}
 
 {% if region != "int" %}
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-{% endif %}
-
-{% if region != "int" %}
 
 All prices are shown with VAT.
 
@@ -117,10 +113,6 @@ All prices are shown with VAT.
 All prices are shown without VAT.
 
 {% endif %}
-
-Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
-
-The cost of fast local storage also depends on the type of hosts.
 
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
@@ -137,6 +129,7 @@ The cost of fast local storage also depends on the type of hosts.
     {% if region == "int" %}{% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}{% endif %}
 
 {% if audience != "internal" %}
+
 * Dedicated hosts
 
     {% include notitle [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
@@ -144,6 +137,7 @@ The cost of fast local storage also depends on the type of hosts.
     {% if region == "ru" %} {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}{% endif %}
     {% if region == "kz" %} {% include notitle [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-dedicated.md) %}{% endif %}
     {% if region == "int" %}{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}{% endif %}
+  
 {% endif %}
 
 {% endlist %}
@@ -169,9 +163,14 @@ You can't order {{ ZK }} host resources using a CVoS.
 
     {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
+    To clarify the cost, [contact support]({{ link-console-support }}).
+
+    {% if audience == "draft" %}
     {% if region == "ru" %} {% include notitle [RUB: dedicated ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-dedicated.md) %}{% endif %}
     {% if region == "kz" %} {% include notitle [KZT: dedicated ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-dedicated.md) %}{% endif %}
     {% if region == "int" %}{% include notitle [USD: dedicated ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-dedicated.md) %}{% endif %}
+    {% endif %}
+  
 {% endif %}
 
 {% endlist %}

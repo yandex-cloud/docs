@@ -117,16 +117,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ## Цены {#prices}
 
-{% if region != "int" %}
-
-{% note alert %}
-
-С 22 марта 2022 года повышаются цены на продукты и лицензии Microsoft, с 13 апреля 2022 года — на остальные ресурсы {{ compute-name }}, [подробнее об этом читайте в блоге](https://cloud.yandex.ru/blog/posts/2022/03/pricing-update-march-2022/). С новыми ценами можно ознакомиться в таблицах ниже.
-
-{% endnote %}
-
-{% endif %}
-
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}
 
 {% if region == "ru" %}

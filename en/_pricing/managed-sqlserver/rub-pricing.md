@@ -11,25 +11,23 @@ For the following products, funds are debited once for the calendar month in adv
 
 ### Host computing resources {#prices-hosts}
 
-| Resource       | Cost for 1 hour                                    | |
-| ----- | ----- | ----- |
-| | **Up until April 12, 2022** | **Starting April 13, 2022** |
-| **Intel Cascade Lake**                                              | |
-| 100% vCPU      | {{ sku|RUB|mdb.cluster.mssql.v2.cpu.c100|string }} | ₽1.9200 |
-| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mssql.v2.ram|string }}      | ₽0.5100 |
-| **Intel Ice Lake**                                                  | |
-| 100% vCPU      | {{ sku|RUB|mdb.cluster.mssql.v3.cpu.c100|string }} | ₽1.7200 |
-| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mssql.v3.ram|string }}      | ₽0.4600 |
+| Resource       | Cost for 1 hour                                    |
+| ----- | ----- |
+| **Intel Cascade Lake**                                              |
+| 100% vCPU      | {{ sku|RUB|mdb.cluster.mssql.v2.cpu.c100|string }} |
+| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mssql.v2.ram|string }}      |
+| **Intel Ice Lake**                                                  |
+| 100% vCPU      | {{ sku|RUB|mdb.cluster.mssql.v3.cpu.c100|string }} |
+| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mssql.v3.ram|string }}      |
 
 ### Storage and backups {#prices-storage}
 
 {% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Service                         | Cost of 1 GB per month                                                 | |
-| ----- | ----- | ----- |
-| | **Up until April 12, 2022** | **Starting April 13, 2022** |
-| HDD network storage         | {{ sku|RUB|mdb.cluster.network-hdd.mssql|month|string }}               | ₽3.2000 |
-| Non-replicated SSD storage  | ₽5.5000                                                                | ₽8.8000 |
-| SSD network storage         | {{ sku|RUB|mdb.cluster.network-nvme.mssql|month|string }}              | ₽13.0100 |
-| Local SSD storage           | {{ sku|RUB|mdb.cluster.local-nvme.mssql|month|string }}                | ₽13.0100 |
-| Backups beyond the storage size | ₽2.5424                                                                | ₽1.9200 |
+| Service                         | Cost of 1 GB per month                                |
+| ----- | ----- |
+| HDD network storage         | {{ sku|RUB|mdb.cluster.network-hdd.mssql|month|string }}  |
+| Non-replicated SSD storage  | ₽8.8000                                                   |
+| SSD network storage         | {{ sku|RUB|mdb.cluster.network-nvme.mssql|month|string }} |
+| Local SSD storage           | {{ sku|RUB|mdb.cluster.local-nvme.mssql|month|string }}   |
+| Backups beyond the storage size | ₽1.9200                                               |

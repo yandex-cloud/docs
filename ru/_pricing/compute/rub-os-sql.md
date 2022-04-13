@@ -1,7 +1,6 @@
 #### MS SQL Server
 
-| Продукт | Цена за 1 vCPU в месяц, вкл. НДС | |
-| --- | --- | --- |
-| | **До 21 марта 2022<br>включительно** | **С 22 марта 2022** |
-| MS SQL Server Standard* | 6792,00 ₽ | 10 867,00 ₽ |
-| MS SQL Server Enterprise* | 23 227,35 ₽ | 37 163,00 ₽ |
+| Продукт | Цена за 1 vCPU в месяц, вкл. НДС |
+| --- | --- |
+| MS SQL Server Standard* | 10 867 ₽ |
+| MS SQL Server Enterprise* | 37 163 ₽ |

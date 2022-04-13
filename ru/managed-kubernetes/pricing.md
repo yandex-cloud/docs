@@ -6,15 +6,9 @@ editable: false
 
 В рамках сервиса {{ managed-k8s-name }} тарифицируется использование [мастера](concepts/index.md#master) и исходящий трафик.
 
-Узлы тарифицируются по [правилам тарификации {{ compute-short-name }}](../compute/pricing.md).
+Узлы тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md).
 
 ## Цены {#prices}
-
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
 
 ### Мастер {#master}
 

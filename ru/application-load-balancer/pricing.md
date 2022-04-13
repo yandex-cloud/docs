@@ -57,12 +57,6 @@ editable: false
 
 ## Цены {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 {% if region == "ru" %}
 
 {% include [rub-lcu.md](../_pricing/application-load-balancer/rub-lcu.md) %}

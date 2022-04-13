@@ -16,12 +16,6 @@ editable: false
 
 ## Цены {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 ### Публичные IP-адреса {#prices-public-ip}
 
 Публичный IP-адрес может находиться в двух состояниях:

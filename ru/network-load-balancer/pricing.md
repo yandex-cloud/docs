@@ -11,12 +11,6 @@ editable: false
 
 ## Цены {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 ### Использование внутреннего балансировщика нагрузки {#internal-load-balancer}
 
 Функциональность [внутреннего балансировщика нагрузки](concepts/internal-load-balancer.md) находится на стадии [Preview](../overview/concepts/launch-stages.md) и ее использование не тарифицируется.

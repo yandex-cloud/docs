@@ -55,12 +55,6 @@ Where:
 
 ## Pricing {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 ### API gateway requests {#request}
 
 {% if region == "ru" %}

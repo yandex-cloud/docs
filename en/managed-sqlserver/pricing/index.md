@@ -72,12 +72,6 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% if region != "int" %}
 
-{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
-{% if region != "int" %}
-
 All prices are shown with VAT.
 
 {% else %}

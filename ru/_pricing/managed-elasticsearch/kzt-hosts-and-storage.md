@@ -6,15 +6,14 @@
 
 - BASIC
    
-   | Ресурс        | Цена за 1 час                                               | |
-   | ----- | ----- | ----- |
-   | | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
-   | **Intel Cascade Lake**                                                      | |
-   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}  | 8,4000 ₸ |
-   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.basic|string }} | 10,5000 ₸ |
-   | **Intel Ice Lake**                                                          | |
-   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  | 8,4000 ₸ |
-   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.basic|string }} | 10,5000 ₸ |
+   | Ресурс        | Цена за 1 час                                               |
+   | ----- | ----- |
+   | **Intel Cascade Lake**                                                      |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}  |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.basic|string }} |
+   | **Intel Ice Lake**                                                          |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.basic|string }} |
    
    {% if audience == "cvos" %}
    | Ресурс        | Цена за 1 час                                               | Цена с CVoS на 1 год                                                       | Цена с CVoS на 3 года                                                      |
@@ -29,15 +28,14 @@
 
 - GOLD
 
-   | Ресурс        | Цена за 1 час                                              | |
-   | ----- | ----- | ----- |
-   | | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
-   | **Intel Cascade Lake**                                                     | |
-   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }} | 8,4000 ₸ |
-   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.gold|string }} | 12,3000 ₸ |
-   | **Intel Ice Lake**                                                         | |
-   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }} | 8,4000 ₸ |
-   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.gold|string }} | 12,3000 ₸ |
+   | Ресурс        | Цена за 1 час                                              |
+   | ----- | ----- |
+   | **Intel Cascade Lake**                                                     |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }} |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.gold|string }} |
+   | **Intel Ice Lake**                                                         |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }} |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
 
    {% if audience == "cvos" %}
    | Ресурс        | Цена за 1 час                                              | Цена с CVoS на 1 год                                                       | Цена с CVoS на 3 года                                                      |
@@ -52,15 +50,14 @@
 
 - PLATINUM
 
-   | Ресурс        | Цена за 1 час                                                  | |
-   | ----- | ----- | ----- |
-   | | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
-   | **Intel Cascade Lake**                                                         | |
-   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}     | 8,4000 ₸ |
-   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.platinum|string }} | 14,1500 ₸ |
-   | **Intel Ice Lake**                                                             | |
-   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     | 8,4000 ₸ |
-   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.platinum|string }} | 14,1500 ₸ |
+   | Ресурс        | Цена за 1 час                                                  |
+   | ----- | ----- |
+   | **Intel Cascade Lake**                                                         |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}     |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.platinum|string }} |
+   | **Intel Ice Lake**                                                             |
+   | 100% vCPU     | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     |
+   | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.platinum|string }} |
 
    {% if audience == "cvos" %}
    | Ресурс        | Цена за 1 час                                                  | Цена с CVoS на 1 год                                                          | Цена с CVoS на 3 года                                                         |
@@ -79,11 +76,10 @@
 
 {% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Услуга                                   | Цена за ГБ в месяц                                                             | |
-| ----- | ----- | ----- |
-| | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
-| Хранилище на сетевых HDD-дисках          | {{ sku|KZT|mdb.cluster.network-hdd.elasticsearch|month|string }}               | 16,0000 ₸ |
-| Хранилище на нереплицируемых SSD-дисках  | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} | 44,0000 ₸ |
-| Хранилище на сетевых SSD-дисках          | {{ sku|KZT|mdb.cluster.network-nvme.elasticsearch|month|string }}              | 65,0500 ₸ |
-| Хранилище на локальных SSD-дисках        | {{ sku|KZT|mdb.cluster.local-nvme.elasticsearch|month|string }}                | 65,0500 ₸ |
-| Резервные копии сверх размера хранилища  | 15,2544 ₸                                                                       | 9,6000 ₸ |
+| Услуга                                   | Цена за ГБ в месяц                                                             |
+| ----- | ----- |
+| Хранилище на сетевых HDD-дисках          | {{ sku|KZT|mdb.cluster.network-hdd.elasticsearch|month|string }}               |
+| Хранилище на нереплицируемых SSD-дисках  | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
+| Хранилище на сетевых SSD-дисках          | {{ sku|KZT|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
+| Хранилище на локальных SSD-дисках        | {{ sku|KZT|mdb.cluster.local-nvme.elasticsearch|month|string }}                |
+| Резервные копии сверх размера хранилища  | 9,60 ₸ |

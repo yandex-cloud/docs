@@ -17,12 +17,6 @@ editable: false
 
 ## Цены {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 {% if region == "ru"%}
 
 {% include [rub.md](../_pricing/kms/rub.md) %}

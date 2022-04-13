@@ -1,12 +1,11 @@
-| Resource | Cost for 1 hour| |
-| ----- | ----- | ----- |
-| | **Up until April 12, 2022** | **Starting April 13, 2022** |
-| **Intel Cascade Lake** | |
-| 100% vCPU | ₽1.4960 | ₽2.3900 |
-| RAM (for 1 GB) | ₽0.3960 | ₽0.6300 |
-| **Intel Ice Lake** | |
-| 100% vCPU | ₽1.3440 | ₽2.1500 |
-| RAM (for 1 GB) | ₽0.3560 | ₽0.5700 |
+| Resource | Cost for 1 hour|
+| ----- | ----- |
+| **Intel Cascade Lake** |
+| 100% vCPU | ₽2.39 |
+| RAM (for 1 GB) | ₽0.63 |
+| **Intel Ice Lake** |
+| 100% vCPU | ₽2.15 |
+| RAM (for 1 GB) | ₽0.57 |
 
 {% if audience == "cvos" %}
 

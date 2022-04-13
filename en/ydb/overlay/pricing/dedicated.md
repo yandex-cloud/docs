@@ -45,12 +45,6 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ## Pricing {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 All prices are shown with VAT. Prices are given for a 30-day month. For shorter months, the price is higher. For longer months, it's lower.
 
 ### Host computing resources {#prices-compute-units}

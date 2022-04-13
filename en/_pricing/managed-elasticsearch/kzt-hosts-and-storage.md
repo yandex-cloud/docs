@@ -6,39 +6,36 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 - BASIC
 
-   | Resource       | Cost for 1 hour                                             | |
-   | ----- | ----- | ----- |
-   | | **Up until April 12, 2022** | **Starting April 13, 2022** |
-   | **Intel Cascade Lake**                                                       | |
-   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}  | ₸8.4000 |
-   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.basic|string }} | ₸10.5000 |
-   | **Intel Ice Lake**                                                           | |
-   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  | ₸8.4000 |
-   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.basic|string }} | ₸10.5000 |
+   | Resource       | Cost for 1 hour                                             |
+   |----------------|-------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                       |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}  |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.basic|string }} |
+   | **Intel Ice Lake**                                                           |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.basic|string }} |
 
 - GOLD
 
-   | Resource       | Cost for 1 hour                                            | |
-   | ----- | ----- | ----- |
-   | | **Up until April 12, 2022** | **Starting April 13, 2022** |
-   | **Intel Cascade Lake**                                                      | |
-   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }} | ₸8.4000 |
-   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.gold|string }} | ₸12.3000 |
-   | **Intel Ice Lake**                                                          | |
-   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }} | ₸8.4000 |
-   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.gold|string }} | ₸12.3000 |
+   | Resource       | Cost for 1 hour                                            |
+   |----------------|------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                      |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }} |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.gold|string }} |
+   | **Intel Ice Lake**                                                          |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }} |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
 
 - PLATINUM
 
-   | Resource       | Cost for 1 hour                                                | |
-   | ----- | ----- | ----- |
-   | | **Up until April 12, 2022** | **Starting April 13, 2022** |
-   | **Intel Cascade Lake**                                                          | |
-   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}     | ₸8.4000 |
-   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.platinum|string }} | ₸14.1500 |
-   | **Intel Ice Lake**                                                              | |
-   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     | ₸8.4000 |
-   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.platinum|string }} | ₸14.1500 |
+   | Resource       | Cost for 1 hour                                                |
+   |----------------|----------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                          |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v2.cpu.c100|string }}     |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v2.ram.platinum|string }} |
+   | **Intel Ice Lake**                                                              |
+   | 100% vCPU      | {{ sku|KZT|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     |
+   | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.platinum|string }} |
 
 {% endlist %}
 
@@ -87,11 +84,10 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 {% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Service                         | Cost of 1 GB per month                                                         | |
-| ----- | ----- | ----- |
-| | **Up until April 12, 2022** | **Starting April 13, 2022** |
-| HDD network storage        | {{ sku|KZT|mdb.cluster.network-hdd.elasticsearch|month|string }}               | ₸16.0000 |
-| Non-replicated SSD storage  | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} | ₸44.0000 |
-| SSD network storage            | {{ sku|KZT|mdb.cluster.network-nvme.elasticsearch|month|string }}              | ₸65.0500 |
-| Local SSD storage              | {{ sku|KZT|mdb.cluster.local-nvme.elasticsearch|month|string }}                | ₸65.0500 |
-| Backups beyond the storage size | ₸15.2544                                                                       | ₸9.6000 |
+| Service                         | Cost of 1 GB per month                                                         |
+|---------------------------------|--------------------------------------------------------------------------------|
+| HDD network storage             | {{ sku|KZT|mdb.cluster.network-hdd.elasticsearch|month|string }}               |
+| Non-replicated SSD storage      | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
+| SSD network storage             | {{ sku|KZT|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
+| Local SSD storage               | {{ sku|KZT|mdb.cluster.local-nvme.elasticsearch|month|string }}                |
+| Backups beyond the storage size | ₸9.6000                                                                        |

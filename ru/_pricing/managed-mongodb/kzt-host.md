@@ -1,22 +1,21 @@
-| Ресурс        | Цена за 1 час                                        | |
-| ----- | ----- | ----- |
-| | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
-| **Intel Broadwell** | |
-| 5% vCPU       | {{ sku|KZT|mdb.cluster.mongodb.v1.cpu.c5|string }}   | 0,20 ₸ |
-| 20% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v1.cpu.c20|string }}  | 2,30 ₸ |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v1.cpu.c50|string }}  | 3,75 ₸ |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.mongodb.v1.cpu.c100|string }} | 8,00 ₸ |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mongodb.v1.ram|string }}      | 4,50 ₸ |
-| **Intel Cascade Lake** | |
-| 5% vCPU       | {{ sku|KZT|mdb.cluster.mongodb.v2.cpu.c5|string }}   | 0,20 ₸ |
-| 20% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v2.cpu.c20|string }}  | 2,30 ₸ |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v2.cpu.c50|string }}  | 3,75 ₸ |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.mongodb.v2.cpu.c100|string }} | 8,00 ₸ |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mongodb.v2.ram|string }}      | 4,50 ₸ |
-| **Intel Ice Lake** | |
-| 50% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v3.cpu.c50|string }}  | 3,75 ₸ |
-| 100% vCPU     | {{ sku|KZT|mdb.cluster.mongodb.v3.cpu.c100|string }} | 8,00 ₸ |
-| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mongodb.v3.ram|string }}      | 4,50 ₸ |
+| Ресурс        | Цена за 1 час                                        | 
+| ----- | ----- |
+| **Intel Broadwell** |
+| 5% vCPU       | {{ sku|KZT|mdb.cluster.mongodb.v1.cpu.c5|string }}   | 
+| 20% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v1.cpu.c20|string }}  | 
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v1.cpu.c50|string }}  | 
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mongodb.v1.cpu.c100|string }} | 
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mongodb.v1.ram|string }}      | 
+| **Intel Cascade Lake** |
+| 5% vCPU       | {{ sku|KZT|mdb.cluster.mongodb.v2.cpu.c5|string }}   | 
+| 20% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v2.cpu.c20|string }}  | 
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v2.cpu.c50|string }}  | 
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mongodb.v2.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mongodb.v2.ram|string }}      |
+| **Intel Ice Lake** |
+| 50% vCPU      | {{ sku|KZT|mdb.cluster.mongodb.v3.cpu.c50|string }}  | 
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mongodb.v3.cpu.c100|string }} | 
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mongodb.v3.ram|string }}      | 
 
 {% if audience == "cvos" %}
 

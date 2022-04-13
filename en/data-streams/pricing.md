@@ -54,12 +54,6 @@ Where:
 
 ## Pricing {#prices}
 
-{% if region != "int" %}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-{% endif %}
-
 ### Cost of a unit of written data {#event}
 
 The first 2000000 messages per month are free of charge.
