@@ -58,7 +58,6 @@ Where:
 
 ## Pricing {#prices}
 
-
 ### Invoking a function {#invoke}
 
 

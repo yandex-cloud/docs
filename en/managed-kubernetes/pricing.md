@@ -8,10 +8,9 @@ editable: false
 
 In {{ managed-k8s-name }}, you're charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
-Nodes are charged according to [pricing for {{ compute-short-name }}](../compute/pricing.md).
+Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/pricing.md).
 
 ## Pricing {#prices}
-
 
 ### Master {#master}
 

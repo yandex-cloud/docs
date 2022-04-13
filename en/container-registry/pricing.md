@@ -6,7 +6,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## What goes into the cost of using {{ container-registry-short-name }} {#rules}
+## What goes into the cost of using {{ container-registry-name }} {#rules}
 
 The cost of {{ container-registry-name }} usage is based on:
 * The amount of storage used by your data.
@@ -25,7 +25,6 @@ If multiple Docker images in the same registry use the same layers, reused layer
 {% endnote %}
 
 ## Prices {#prices}
-
 
 ### Data storage {#prices-storage}
 

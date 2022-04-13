@@ -49,8 +49,6 @@ editable: false
 
 ## Цены {#prices}
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
 
 Все цены указаны с включением НДС.
 

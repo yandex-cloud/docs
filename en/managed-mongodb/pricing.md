@@ -49,7 +49,6 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 ## Pricing {#prices}
 
 
-
 ### Host computing resources {#prices-host}
 
 The prices for computing resources are the same for all types of hosts: mongod, mongos, and mongocfg.

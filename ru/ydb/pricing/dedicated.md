@@ -48,9 +48,6 @@ sourcePath: ru/ydb/overlay/pricing/dedicated.md
 
 ## Цены {#prices}
 
-
-{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
-
 Все цены указаны с включением НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
 
 ### Вычислительные ресурсы хостов {#prices-compute-units}

@@ -58,8 +58,6 @@ editable: false
 
 ## Цены {#prices}
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 

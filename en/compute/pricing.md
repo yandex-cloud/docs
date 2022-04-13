@@ -115,7 +115,6 @@ Usage prices are shown on an hourly basis (monthly for local disks). Billing occ
 
 ## Pricing {#prices}
 
-
 ### VM computing resources {#prices-instance-resources}
 
 

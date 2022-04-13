@@ -68,12 +68,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 ## Pricing {#prices}
 
 
-
 All prices are shown without VAT.
-
-Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
-
-The cost of fast local storage also depends on the type of hosts.
 
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
@@ -86,6 +81,7 @@ The cost of fast local storage also depends on the type of hosts.
 * Standard hosts
 
     {% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}
+
 
 * Dedicated hosts
 
@@ -113,7 +109,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 
     {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
-    {% include notitle [USD: dedicated ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-dedicated.md) %}
+    To clarify the cost, [contact support]({{ link-console-support }}).
 
 {% endlist %}
 

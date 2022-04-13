@@ -1,4 +1,3 @@
-| Услуга | Цена за ГБ в месяц, вкл. НДС | |
-| --- | --- | --- |
-| | **До 12 апреля 2022<br>включительно** | **С 13 апреля 2022** |
-| Хранилище | {{ sku|RUB|cr.bucket.used_space.standard|month|string }} | 3 ₽ |
+Услуга | Цена за ГБ в месяц, вкл. НДС
+--- | ---
+Хранилище | {{ sku|RUB|cr.bucket.used_space.standard|month|int|string }}

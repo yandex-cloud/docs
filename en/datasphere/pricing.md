@@ -79,7 +79,6 @@ The monthly usage rate is based on 720 hours a month.
 
 
 
-
 {% include [usd-unit-and-resource.md](../_pricing/datasphere/usd-unit-and-resource.md) %}
 
 ### Performing background operations {#async}

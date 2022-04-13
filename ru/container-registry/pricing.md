@@ -6,7 +6,7 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-## Из чего складывается стоимость использования {{ container-registry-short-name }} {#rules}
+## Из чего складывается стоимость использования {{ container-registry-name }} {#rules}
 
 Расчет стоимости использования {{ container-registry-name }} учитывает:
 * Объем хранилища, занятый данными.
@@ -25,9 +25,6 @@ editable: false
 {% endnote %}
 
 ## Цены {#prices}
-
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
 
 ### Хранение данных {#prices-storage}
 

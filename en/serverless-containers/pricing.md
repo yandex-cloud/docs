@@ -22,8 +22,6 @@ You're charged for all the container invocations that trigger your code to run.
 
 ## Pricing {#prices}
 
-
-
 ### Invoking a container {#prices-invoking}
 
 
