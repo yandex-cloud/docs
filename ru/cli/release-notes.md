@@ -1,15 +1,65 @@
 # Релизы YC CLI
 
-## Версия 0.89.0 (23.03.22) {#latest-release}
+## Версия 0.90.0 (13.04.22) {#latest-release}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+#### {{ dataproc-name }} {#dataproc}
+
+* В команду `yc dataproc cluster create` добавлен флаг `--initialization-action` для указания скрипта инициализации для кластера.
+
 #### {{ compute-name }} {#compute}
+
+* В команду `yc compute instance create` добавлен флаг `--attach-local-disk` для создания инстанса с подключенным к нему локальным диском.
+
+#### {{ alb-name }} {#alb}
+
+* В команды `yc alb backend-group add-stream-backend` и `yc alb backend-group update-stream-backend` добавлен флаг `--enable-proxy-protocol` для включения proxy-протокол для бэкэнда.
+
+#### {{ dns-name }} {#dns}
+
+* В команду `yc dns zone update` добавлен флаг `--clear-network-ids` для удаления списка виртуальных сетей, из которых видны записи внутренней DNS-зоны.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* В команду `yc managed-clickhouse cluster restore` добавлен флаг `--folder-id` для указания каталога, в котором будет создан восстановленный кластер.
+
+* В команду `yc managed-clickhouse cluster update` добавлен флаг:
+  * `--datatransfer-access` — для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
+  * `--yandexquery-access` — для разрешения доступа к кластеру из сервиса {{ yq-full-name }}.
+
+**{{ mkf-name }}**
+
+* В команды `yc managed-kafka cluster [ create | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
+
+**{{ mmg-name }}**
+
+* В команды `yc managed-mongodb cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
+
+**{{ mmy-name }}**
+
+* В команды `yc managed-mysql cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
+
+* В команду `yc managed-mysql cluster update` добавлен флаг `--performance-diagnostics`, позволяющий управлять настройками сервиса диагностики производительности.
+
+**{{ mpg-name }}**
+
+* В команды `yc managed-postgresql cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.89.0 (23.03.22) {#version0.89.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ compute-name }} {#compute}
 
 * Добавлена команда `yc compute filesystem resize` для изменения размера файлового хранилища.
 * В команду `yc compute instance update` добавлен флаг `--preemptible`, позволяющий сделать обычную ВМ прерываемой и наоборот.
 
-#### {{ sf-name }} {#functions}
+##### {{ sf-name }} {#functions}
 
 * Команды `yc serverless function logs` и `yc serverless function version logs` теперь возвращают логи из {{ cloud-logging-name }}. В команды добавлены параметры:
 
@@ -18,7 +68,7 @@
 
   Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md).
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -40,8 +90,6 @@
 
 * В вывод команды `yc managed-mysql hosts list` добавлена колонка `PRIORITY`.
 * В команду `yc managed-mysql hosts update` добавлен параметр `--priority` для изменения приоритета хоста при переключении мастера.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.88.0 (16.02.22) {#version0.88.0}
 

@@ -60,13 +60,10 @@ editable: false
 ## Цены {#prices}
 
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-
 Все цены указаны с включением НДС.
 
 
-{% include notitle [rub-hosts-and-storage.md](../_pricing/managed-elasticsearch/rub-hosts-and-storage.md) %}
+{% include [rub-hosts-and-storage.md](../_pricing/managed-elasticsearch/rub-hosts-and-storage.md) %}
 
 
 

@@ -1,4 +1,3 @@
-| Услуга | Цена за запрос, вкл. НДС | |
-| ----- | ----- | ---- |
-| | **До 12 апреля 2022 <br/>включительно** | **С 13 апреля 2022** |
-| Запрос к API {{ brand-voice-name }} | {{ sku|RUB|ai.speech.tts.dialogue_platform|string }} | 0,16 ₽ |
+| Услуга | Цена за запрос, вкл. НДС |
+| ----- | ----- |
+| Запрос к API {{ brand-voice-name }} | {{ sku|RUB|ai.speech.tts.dialogue_platform|string }} |

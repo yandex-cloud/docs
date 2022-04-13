@@ -11,7 +11,6 @@ Outgoing traffic is charged similarly to other {{ yandex-cloud }} services, such
 
 ## Pricing {#prices}
 
-
 ### Using internal load balancer {#internal-load-balancer}
 
 The internal load balancer function is currently at the [Preview](../overview/concepts/launch-stages.md) stage and is not charged.

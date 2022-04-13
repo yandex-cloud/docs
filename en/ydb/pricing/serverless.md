@@ -80,7 +80,6 @@ If you restore data using the ```ydb tools restore``` utility, billing is based 
 
 
 
-
 {% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
 
 

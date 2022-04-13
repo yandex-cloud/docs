@@ -84,8 +84,6 @@ editable: false
 
 ## Цены {#prices}
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
 
 Все цены указаны с включением НДС.
 
@@ -105,6 +103,8 @@ editable: false
 * Выделенные хосты
 
     {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+    {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
 
 {% endlist %}
 
@@ -126,6 +126,8 @@ editable: false
 * Выделенные хосты
 
     {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+    Уточняйте стоимость в [технической поддержке]({{ link-console-support }}).
 
 {% endlist %}
 

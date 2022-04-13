@@ -32,7 +32,6 @@ List of commands charged under {{ iot-name }}:
 
 ## Pricing {#prices}
 
-
 ### Amount of data {#volumes}
 
    

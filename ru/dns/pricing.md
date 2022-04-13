@@ -4,9 +4,6 @@ editable: false
 
 # Правила тарификации для {{ dns-name }}
 
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
 ## Публичные DNS-запросы {#public-dns-requests}
 
 

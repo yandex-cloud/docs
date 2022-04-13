@@ -67,8 +67,6 @@ editable: false
 
 ## Цены {#prices}
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
 ### Синтез речи {#prices-tts}
 
 {% note warning %}

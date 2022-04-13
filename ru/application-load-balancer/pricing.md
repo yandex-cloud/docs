@@ -52,9 +52,6 @@ editable: false
 ## Цены {#prices}
 
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-
 {% include [rub-lcu.md](../_pricing/application-load-balancer/rub-lcu.md) %}
 
 

@@ -18,9 +18,6 @@ editable: false
 ## Цены {#prices}
 
 
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
-
-
 {% include [rub.md](../_pricing/kms/rub.md) %}
 
 

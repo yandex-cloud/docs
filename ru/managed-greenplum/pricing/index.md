@@ -62,9 +62,6 @@ editable: false
 ## Цены {#prices}
 
 
-{% include [disclaimer-new-prices](../../_pricing/disclaimer-new-prices.md) %}
-
-
 Все цены указаны с включением НДС.
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.

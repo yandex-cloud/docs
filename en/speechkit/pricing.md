@@ -61,7 +61,6 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio with
 
 ## Pricing {#prices}
 
-
 ### Speech synthesis {#prices-tts}
 
 {% note warning %}

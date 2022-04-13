@@ -22,9 +22,7 @@ editable: false
 
 * объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
-
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
@@ -39,7 +37,6 @@ editable: false
 {% endnote %}
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост СУБД или {{ ZK }} не может выполнять свои основные функции, не тарифицируется.
-
 
 ### Использование дискового пространства {#rules-storage}
 
@@ -95,8 +92,6 @@ editable: false
 
 
 ## Цены {#prices}
-
-{% include [disclaimer-new-prices](../_pricing/disclaimer-new-prices.md) %}
 
 
 Все цены указаны с включением НДС.

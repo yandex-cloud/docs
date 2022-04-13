@@ -20,5 +20,4 @@ The cost for using {{ kms-name }} is based on:
 
 
 
-
 {% include [usd.md](../_pricing/kms/usd.md) %}
