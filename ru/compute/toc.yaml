@@ -27,10 +27,10 @@ items:
             href: operations/vm-create/create-from-snapshots.md
           - name: Создать ВМ из пользовательского образа
             href: operations/vm-create/create-from-user-image.md
-          - name: Создать прерываемую ВМ
-            href: operations/vm-create/create-preemptible-vm.md
           - name: Создать ВМ c GPU
             href: operations/vm-create/create-vm-with-gpu.md
+          - name: Сделать ВМ прерываемой
+            href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
         items:
           - name: Обзор

@@ -13,6 +13,7 @@
 * [{#T}](resources/configure-http.md)
 * [{#T}](resources/enable-compression.md)
 * [{#T}](resources/enable-segmentation.md)
+* [{#T}](resources/enable-shielding.md)
 * [{#T}](resources/disable-resource.md)
 * [{#T}](resources/delete-resource.md)
 

@@ -21,6 +21,10 @@ Users can access:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
+{% include [not-charged-storage.md](../_includes/pricing/price-formula/not-charged-storage.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ### Storage usage {#rules-storage}
 
 Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.

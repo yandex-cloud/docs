@@ -165,7 +165,7 @@ items:
         href: routing/cisco.md
       - name: Установка виртуального роутера Mikrotik CHR
         href: routing/mikrotik.md
-      - name: Создание VPN-соединения с помощью OpenVPN
+      - name: Соединение с облачной сетью при помощи OpenVPN
         href: routing/openvpn.md
   - name: Визуализация и анализ данных
     items:

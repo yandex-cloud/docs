@@ -9,6 +9,10 @@ editable: false
 
 In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
+{% include [not-charged-vpc.md](../_includes/pricing/price-formula/not-charged-vpc.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ## Pricing {#prices}
 
 ### Public IP addresses {#prices-public-ip}

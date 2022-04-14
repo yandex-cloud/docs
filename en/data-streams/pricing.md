@@ -6,6 +6,10 @@ While using {{ yds-name }}, the number of units of written data and resources al
 
 Pricing for allocated resources is based on the limit of the shard throughput and data retention period.
 
+{% include [not-charged-streams.md](../_includes/pricing/price-formula/not-charged-streams.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ### Example of cost calculation {#price-example}
 
 A single-shard stream receives two 50 KB messages per second. The message retention period is 12 hours.

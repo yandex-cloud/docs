@@ -1,4 +1,8 @@
-# Создать прерываемую виртуальную машину
+# Сделать виртуальную машину прерываемой
+
+Вы можете [создать прерываемую](#create-preemptible) виртуальную машину или [изменить тип](#preemptible-to-regular) существующей ВМ.
+
+## Создать прерываемую ВМ {#create-preemptible}
 
 Чтобы создать [прерываемую](../../concepts/preemptible-vm.md) виртуальную машину:
 
@@ -88,7 +92,7 @@
   1. Посмотрите описание команды CLI для создания виртуальной машины:
 
       ```
-      $ yc compute instance create --help
+      yc compute instance create --help
       ```
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
@@ -99,13 +103,13 @@
   1.  Создайте виртуальную машину в каталоге по умолчанию:
 
       ```
-      $ yc compute instance create \
-          --name first-preemptible-instance \
-          --zone ru-central1-a \
-          --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
-          --preemptible \
-          --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-          --ssh-key ~/.ssh/id_rsa.pub
+      yc compute instance create \
+        --name first-preemptible-instance \
+        --zone ru-central1-a \
+        --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
+        --preemptible \
+        --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
+        --ssh-key ~/.ssh/id_rsa.pub
       ```
 
       Данная команда создаст прерываемую виртуальную машину со следующими характеристиками:
@@ -117,6 +121,8 @@
       * С публичным IP.
 
       Чтобы создать виртуальную машину без публичного IP, исключите опцию `nat-ip-version=ipv4`.
+
+      Требования к имени виртуальной машины:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -201,7 +207,7 @@
      1. Выполните проверку с помощью команды:
 
         ```
-        $ terraform plan
+        terraform plan
         ```
 
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
@@ -211,7 +217,7 @@
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```
-        $ terraform apply
+        terraform apply
         ```
 
      1. Подтвердите создание ресурсов.
@@ -221,6 +227,184 @@
 {% endlist %}
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
+
+## Сменить тип ВМ {#preemptible-to-regular}
+
+Чтобы сменить тип ВМ, например, сделать ВМ непрерываемой:
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится виртуальная машина.
+  1. В списке сервисов выберите **{{ compute-name }}**.
+  1. Напротив имени нужной ВМ нажмите значок ![image](../../../_assets/options.svg) и выберите **Остановить**.
+  1. Подтвердите действие. Статус ВМ изменится на `Stopped`.
+  1. Напротив имени ВМ нажмите ![image](../../../_assets/options.svg) и выберите **Редактировать**.
+  1. В блоке **Вычислительные ресурсы** выключите опцию **Прерываемая**.
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку ![image](../../../_assets/compute/run-vm.svg) **Запустить**.
+
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для остановки виртуальной машины:
+
+      ```
+      yc compute instance stop --help
+      ```
+
+  1. Получите список всех виртуальных машин в каталоге по умолчанию:
+
+      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
+
+  1. Остановите виртуальную машину:
+
+     ```
+     yc compute instance stop <идентификатор или имя виртуальной машины>
+     ```
+
+     Результат:
+
+     ```
+     done (15s)
+     ```
+
+  1. Измените параметры виртуальной машины:
+
+     ```
+     yc compute instance update <идентификатор или имя виртуальной машины> \
+       --preemptible=false
+     ```
+
+     Результат:
+
+     ```
+     done (1s)
+     id: fhm0b28lgfp4tkoa3jl6
+     folder_id: b1ghgf288nvg541tgu73
+     created_at: "2022-04-12T08:40:09Z"
+     name: first-instance
+     zone_id: ru-central1-b
+     platform_id: standard-v1
+     resources:
+       memory: "1073741824"
+       cores: "2"
+       core_fraction: "5"
+     status: STOPPED
+     boot_disk:
+       mode: READ_WRITE
+       device_name: epd8gvafrf37dmp5ofg7
+       auto_delete: true
+       disk_id: epd8gvafrf37dmp5ofg7
+     network_interfaces:
+     - index: "0"
+       mac_address: d0:0d:1e:78:30:77
+       subnet_id: e2lu3b6tbdj1cq3oa8ao
+       primary_v4_address:
+         address: 10.2.0.14
+         one_to_one_nat:
+           ip_version: IPV4
+     fqdn: example-instance.ru-central1.internal
+     scheduling_policy: {}
+     network_settings:
+       type: STANDARD
+     placement_policy: {}
+     ```
+
+  1. Вновь запустите виртуальную машину:
+
+     ```
+     yc compute instance start <идентификатор или имя виртуальной машины>
+     ```
+
+     Результат:
+
+     ```
+     done (11s)
+     id: fhm0b28lgfp4tkoa3jl6
+     folder_id: b1ghgf288nvg541tgu73
+     created_at: "2022-04-12T08:40:09Z"
+     name: first-instance
+     zone_id: ru-central1-b
+     platform_id: standard-v1
+     resources:
+       memory: "1073741824"
+       cores: "2"
+       core_fraction: "5"
+     status: RUNNING
+     boot_disk:
+       mode: READ_WRITE
+       device_name: epd8gvafrf37dmp5ofg7
+       auto_delete: true
+       disk_id: epd8gvafrf37dmp5ofg7
+     network_interfaces:
+     - index: "0"
+       mac_address: d0:0d:1e:78:30:77
+       subnet_id: e2lu3b6tbdj1cq3oa8ao
+       primary_v4_address:
+         address: 10.2.0.14
+         one_to_one_nat:
+           address: 51.250.97.205
+           ip_version: IPV4
+     fqdn: example-instance.ru-central1.internal
+     scheduling_policy: {}
+     network_settings:
+       type: STANDARD
+     placement_policy: {}
+     ```
+
+- API
+
+  Воспользуйтесь методом [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/). В теле запроса в блоке `schedulingPolicy` укажите `"preemptible": false`.
+
+- Terraform
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+
+  1. Найдите в конфигурационном файле описание политики планирования ВМ, которую нужно сделать непрерываемой:
+
+       ```
+       scheduling_policy {
+         preemptible = true
+       }
+       ```
+
+  1. Удалите поле `scheduling_policy` со значением `preemptible = true`:
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+
+  1. Разверните облачные ресурсы.
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов.
+
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+{% endlist %}
+
+Тарификация виртуальной машины после этого изменится. Подробнее о [тарификации виртуальных машин](../../pricing.md#prices-instance-resources).
 
 #### См. также {#see-also}
 

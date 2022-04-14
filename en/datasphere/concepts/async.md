@@ -5,11 +5,11 @@ You can run time-consuming operations like model training in the background. To 
 If another part of a notebook uses the same variable as an asynchronous operation, a notification appears in the notebook, and you'll need to specify the variable value explicitly when the asynchronous operation is complete.
 
 Specifics of background operations:
-
 * Running operations in the background does not guarantee their immediate execution.
 * In general, background operations may take longer than regular ones.
 * Background operations can run on [preemptible](../../compute/concepts/preemptible-vm.md) virtual machines and resources.
 * Cells with running background operations have read-only access to project storage. If there are conflicts after the calculations are complete, you will be prompted either to save the calculation output or to revert to the previous variable values.
+* Any background operations are suspended if there is an attempt to call interactive functions (such as, `input()` or `getpass()`).
 * Different pricing policies apply to background operations. For more information, see [{#T}](../pricing.md).
 
 ## Running a background operation {#run}
@@ -17,7 +17,6 @@ Specifics of background operations:
 To run a background operation, add the `#pragma async` comment to the cell.
 
 To run a test background operation:
-
 1. Specify a test model, such as:
 
     ```
