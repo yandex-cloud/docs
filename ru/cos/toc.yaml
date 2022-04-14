@@ -29,6 +29,8 @@ items:
         href: tutorials/serial-port.md
       - name: Создать ВМ и группу ВМ с Container Optimized Image с помощью Terraform
         href: tutorials/coi-with-terraform.md
+      - name: Передача логов с COI в Cloud Logging
+        href: tutorials/coi-fluent-bit-logging.md
   - name: Концепции
     items:
       - name: Образ Container Optimized Image
