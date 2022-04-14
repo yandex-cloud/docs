@@ -13,8 +13,9 @@ Specifics of special background operations:
 
 * Running operations in the background does not guarantee their immediate execution.
 * In general, special background operations may take longer than regular ones.
-* Background operations can run on [preemptible](../../compute/concepts/preemptible-vm.md) virtual machines and resources.
-* The execution of this type of operation may be interrupted if the system doesn't have enough machines with the required configuration. When computing resources are released, execution will resume from the most recently saved result.
+* Special background operations can run on [preemptible](../../compute/concepts/preemptible-vm.md) virtual machines and resources.
+* Any background operations are suspended if there is an attempt to call interactive functions (such as, `input()` or `getpass()`).
+* The execution of a special background operation may be suspended if the system doesn't have enough machines with the required configuration. When computing resources are released, execution will resume from the most recently saved result.
 
 Special background operations are billed based on [background operation rules](../pricing.md#async).
 
