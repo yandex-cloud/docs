@@ -7,6 +7,10 @@ editable: false
 
 {{ message-queue-name }} charges for the number of requests to [standard queues](concepts/queue.md#standard-queues) and [FIFO queues](concepts/queue.md#fifo-queues), as well as for outgoing traffic.
 
+{% include [not-charged-queue.md](../_includes/pricing/price-formula/not-charged-queue.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ### Requests to queues {#requests-to-queues}
 
 
