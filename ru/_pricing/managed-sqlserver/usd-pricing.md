@@ -1,6 +1,6 @@
 ### Licenses {#licence}
 
-For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
+For the following products, funds are debited [once for each calendar month](../../managed-sqlserver/pricing/index.md#license) when the cluster is running, regardless of the actual amount of time the cluster runs for or the date it was started:
 
 | Resource | Cost per vCPU per month
 | --- | ---
