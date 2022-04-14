@@ -17,79 +17,67 @@ Free tier applies to the following services:
 
 ## {{ api-gw-full-name }} {#api-gw}
 
-The first 100,000 requests to API gateways each month are not charged. They are then charged at the applicable [rate](../../api-gateway/pricing.md).
+{% include [not-charged-gateway.md](../../_includes/pricing/price-formula/not-charged-gateway.md) %}
 
-The unused balance of free services is reset at the end of the month.
+After you spend the free amount of services, you will be charged at the applicable [rate](../../api-gateway/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ sf-full-name }} {#sf}
 
-The following is offered at no extra charge each month:
-
-* The first 1,000,000 function invocations.
-* The first 10 GB×hour of function execution.
+{% include [not-charged-functions.md](../../_includes/pricing/price-formula/not-charged-functions.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../functions/pricing.md).
 
-The unused balance of free services is reset at the end of the month.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ ydb-full-name }} serverless mode {#ydb}
 
-The following is offered at no extra charge each month:
-
-* The first 1,000,000 operations (in Request Units).
-* The first 1 GB/month of data storage.
+{% include [not-charged-database.md](../../_includes/pricing/price-formula/not-charged-database.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../ydb/pricing/serverless.md).
 
-The unused balance of free services is reset at the end of the month.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ objstorage-full-name }} {#objstorage}
 
-Standard storage resources are provided free of charge every month:
-
-* The first 1 GB of storage a month.
-* The first 10,000 PUT, POST operations.
-* The first 100,000 GET, HEAD operations.
+{% include [not-charged-storage.md](../../_includes/pricing/price-formula/not-charged-storage.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../storage/pricing.md).
 
-The unused balance of free services is reset at the end of the month.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ message-queue-full-name }} {#message-queue}
 
-The first 100,000 queue requests are free of charge every month.
+{% include [not-charged-queue.md](../../_includes/pricing/price-formula/not-charged-queue.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../message-queue/pricing.md).
 
-The unused balance of free services is reset at the end of the month.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ iot-full-name }} {#iot}
 
-The first 100,000 queue messages each month are free of charge.
+{% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-iot.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../iot-core/pricing.md).
 
-The unused balance of free services is reset at the end of the month.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ vpc-full-name }} {#vpc}
 
-The first 10 GB of outgoing traffic are provided free of charge every month.
+{% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-vpc.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../vpc/pricing.md).
 
-The unused balance of free services is reset at the end of the month.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ yds-full-name }} {#yds}
 
-Data stream services with the following properties are provided free of charge each month:
-
-* Segment write speed: no more than 128 KB/s.
-* Message retention period: 1 hour.
-* Number of data units written per month: no more than 2 million.
+{% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-streams.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../data-streams/pricing.md).
 
-The unused balance of free services is reset at the end of the month.
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 {% endif %}
 

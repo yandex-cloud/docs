@@ -15,39 +15,47 @@ In {{ api-gw-name }}, you're charged for the number of requests to created API g
 
 {% if region == "ru"%}
 
+### Pricing formula {#price-formula}
+
+Cost per month = ₽75 × Number of millions of requests
+
+{% include [not-charged-gateway.md](../_includes/pricing/price-formula/not-charged-gateway.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
 ### Example of calculating the cost of an API gateway {#price-example}
 
 {% if audience != "external" %}
 
 Let's say you create an API gateway that:
 
-* Processed 10,000,000 requests over HTTPS (not including redirects).
-* Redirected 100,000 HTTP requests to their HTTPS versions.
-* Processed 80,000 redirected requests.
+* Processed 10000000 requests over HTTPS (not including redirects).
+* Redirected 100000 HTTP requests to their HTTPS versions.
+* Processed 80000 redirected requests.
 
 The cost of this API gateway is:
 
-> ₽75 × (10,000,000 / 1,000,000) + ₽75 × (100,000 / 1,000,000) + ₽75 × (80,000 / 1,000,000) = ₽763.5
+> ₽75 × (10000000 / 1000000) + ₽75 × (100000 / 1000000) + ₽75 × (80000 / 1000000) = ₽763.5
 
 Where:
 
 - ₽75: Price per 1 million API gateway calls.
-- 10,000,000 / 1,000,000: Number of millions of requests over HTTPS.
-- 100,000 / 1,000,000: Number of millions of redirects from HTTP to HTTPS.
-- 80,000 / 1,000,000: Number of millions of redirected requests processed.
+- 10000000 / 1000000: Number of millions of requests over HTTPS.
+- 100000 / 1000000: Number of millions of redirects from HTTP to HTTPS.
+- 80000 / 1000000: Number of millions of redirected requests processed.
 
 {% else %}
 
-For example, let's say you create an API gateway that processed 10,000,000 requests over HTTPS.
+For example, let's say you create an API gateway that processed 10000000 requests over HTTPS.
 
 The cost of this API gateway is:
 
->  ₽75 × (10,000,000 / 1,000,000) = ₽750
+>  ₽75 × (10000000 / 1000000) = ₽750
 
 Where:
 
 - ₽75: Price per 1 million API gateway calls.
-- 10,000,000 / 1,000,000: Number of millions of requests over HTTPS.
+- 10000000 / 1000000: Number of millions of requests over HTTPS.
 
 {% endif %}
 

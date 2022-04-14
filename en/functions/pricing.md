@@ -20,14 +20,13 @@ You're charged for all the [functions invoked](concepts/function-invoke.md) that
 
 {% if region == "ru" %}
 
-### Pricing formula
+### Pricing formula {#price-formula}
 
 Monthly cost = ₽3.42 × Memory (GB) × Call processing time (Hours) + ₽10 × Million calls
 
-At the same time, there is no charge for the first:
+{% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
 
-* 10 GB × hour.
-* Million calls.
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ### Example of cost calculation {#price-example}
 

@@ -15,8 +15,12 @@ Message Count = Command Size / 1 KB
 
 For example:
 
-- If the command size is 800 B, it's a single message.
-- If the command size is 2800 B (2.73 KB), it's three messages.
+* If the command size is 800 B, it's a single message.
+* If the command size is 2800 B (2.73 KB), it's three messages.
+
+{% include [not-charged-iot.md](../_includes/pricing/price-formula/not-charged-iot.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ## Payable commands {#mqtt-commands}
 
@@ -24,11 +28,11 @@ For example:
 
 List of commands charged under {{ iot-name }}:
 
-- `CONNECT`: Connect a client (device or registry) to the service MQTT broker.
-- `PUBLISH`: Send a message from the client (device or registry) to the service MQTT broker.
-- `SUBSCRIBE`: Subscribe the client (device or registry) to messages from the service MQTT broker.
-- `PUBLISH`: Send a message from the service MQTT broker to the client (device or registry).
-- `PINGREQ`: Check the connection from the client (device or registry) to the service MQTT broker.
+* `CONNECT`: Connect a client (device or registry) to the service MQTT broker.
+* `PUBLISH`: Send a message from the client (device or registry) to the service MQTT broker.
+* `SUBSCRIBE`: Subscribe the client (device or registry) to messages from the service MQTT broker.
+* `PUBLISH`: Send a message from the service MQTT broker to the client (device or registry).
+* `PINGREQ`: Check the connection from the client (device or registry) to the service MQTT broker.
 
 ## Pricing {#prices}
 
