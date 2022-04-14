@@ -12,8 +12,8 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
-* [{#T}](vm-create/create-preemptible-vm.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
+* [{#T}](vm-create/create-preemptible-vm.md)
 
 ## DSVM {#dsvm}
 
