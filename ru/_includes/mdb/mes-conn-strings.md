@@ -108,7 +108,7 @@
   
   ```bash
   sudo apt update && sudo apt install -y python3 python3-pip && \
-  pip3 install elasticsearch
+  pip3 install elasticsearch==7.17.2
   ```
 
   **Пример кода для подключения с использованием SSL-соединения:**
