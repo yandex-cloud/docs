@@ -1,5 +1,5 @@
 
-{% include [intro.md](_includes/system_views/intro.md) %}
+{% include [intro.md](_includes/system_views/intro_db.md) %}
 
 В настоящее время доступ к системным таблицам возможен через веб-интерфейс.
 
