@@ -152,6 +152,55 @@
           https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
         ```
 
+- Terraform
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
+
+       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+       * `role` — назначаемая роль. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+
+       ```
+       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+         service_account_id = "<идентификатор сервисного аккаунта>"
+         role               = "<роль>"
+         members            = [
+           "userAccount:<идентификатор пользователя>",
+         ]
+       }
+       ```
+
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_iam_binding).
+
+    1. Проверьте корректность конфигурационных файлов.
+
+       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+       1. Выполните проверку с помощью команды:
+
+          ```
+          terraform plan
+          ```
+
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+    1. Разверните облачные ресурсы.
+
+       1. Если в конфигурации нет ошибок, выполните команду:
+
+          ```
+          terraform apply
+          ```
+
+       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+       ```
+       yc resource-manager service-account list-access-bindings <имя сервисного аккаунта>|<идентификатор сервисного аккаунта>
+       ```
+
 {% endlist %}
 
 ## Примеры {#examples}
@@ -240,6 +289,81 @@
         https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
     ```
 
+- Terraform
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы назначить несколько ролей на сервисный аккаунт, созданный с помощью Terraform:
+
+    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
+
+       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+       * `role` — назначаемая роль. Обязательный параметр.
+
+       {% note info %}
+
+       Для каждой роли можно использовать только один ресурс `yandex_iam_service_account_iam_binding`.
+
+       {% endnote %}
+
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+
+     {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью Terraform" %}
+
+     ```hcl
+     ...
+     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+       service_account_id = "aje82upckiqhi3943ekr"
+       role               = "admin"
+       members = [
+         "userAccount:aje82upckiqhi3943ekr",
+       ]
+     }
+     resource "yandex_iam_service_account_iam_binding" "admin-account-iam2" {
+       service_account_id = "aje82upckiqhi3943ekr"
+       role               = "viewer"
+       members = [
+         "userAccount:aje82upckiqhi3943ekr",
+       ]
+     }
+     ...
+     ```
+    
+     {% endcut %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_iam_binding).
+  
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc resource-manager service-account list-access-bindings <имя сервисного аккаунта>|<идентификатор сервисного аккаунта>
+     ```
+
 {% endlist %}
 
 
@@ -325,6 +449,68 @@
           https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
       ```
 
+
+- Terraform
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы разрешить сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`, созданным при помощи Terraform:
+
+    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
+
+       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+       * `role` — назначаемая роль. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+
+     {% cut "Пример разрешения сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot` с помощью Terraform" %}
+
+     ```hcl
+     ...
+     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+       service_account_id = "aje82upckiqhi3943ekr"
+       role               = "admin"
+       members = [
+         "serviceAccount:aje82upckiqhi3943ekr",
+       ]
+     }
+     ...
+     ```
+    
+     {% endcut %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_iam_binding).
+  
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc resource-manager service-account list-access-bindings <имя сервисного аккаунта>|<идентификатор сервисного аккаунта>
+     ```
+
 {% endlist %}
 
 ### Доступ к ресурсу всем пользователям {#access-to-all}
@@ -365,5 +551,66 @@
       }}}]}' \
       https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
   ```
+
+- Terraform
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы разрешить любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`:
+
+    1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
+
+       * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
+       * `role` — назначаемая роль. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+
+     {% cut "Пример разрешения любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`" %}
+
+     ```hcl
+     ...
+     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+       service_account_id = "aje82upckiqhi3943ekr"
+       role               = "viewer"
+       members = [
+         "system:allUsers",
+       ]
+     }
+     ...
+     ```
+    
+     {% endcut %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_iam_binding).
+  
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc resource-manager service-account list-access-bindings <имя сервисного аккаунта>|<идентификатор сервисного аккаунта>
+     ```
 
 {% endlist %}
