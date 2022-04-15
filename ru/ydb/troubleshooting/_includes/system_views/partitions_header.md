@@ -1,7 +1,7 @@
 ---
 sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/_includes/system_views/partitions_header.md
 ---
-## Партиции таблиц
+## Партиции {#partitions}
 
 * **partition_stats**
 

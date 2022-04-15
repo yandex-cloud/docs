@@ -1,10 +1,20 @@
 # Auto Unseal in Hashicorp Vault
 
-A build of [Hashicorp Vault](https://www.vaultproject.io/) with {{ kms-name }} support can be found in [{{ marketplace-name }}](https://cloud.yandex.com/en/marketplace/products/yc/vault-yckms). The build will enable you to use {{ kms-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) feature.
+A [Hashicorp Vault](https://www.vaultproject.io/) build with [{{ kms-name }}](../index.yaml) support is available as a [VM image](https://cloud.yandex.com/en/marketplace/products/yc/vault-yckms) in {{ marketplace-name }} and a Docker image.
+
+The build will enable you to use {{ kms-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) mechanism.
+
+This build differs from its [official](https://hub.docker.com/_/vault) version by a single binary Vault file, which includes {{ kms-name }} support in our build.
+
+To download the most recent Docker image, use the command below:
+
+```
+docker pull cr.yandex/yc/vault
+```
 
 ## Before you start { #before-you-begin }
 
-1. Choose one of the authentication methods. You can authenticate via:
+1. Select one of the methods to authenticate Vault requests to {{ kms-short-name }}. You can authenticate via:
 
     {% list tabs %}
 
@@ -38,9 +48,23 @@ To set up the Auto Unseal feature, make the following changes to the Vault confi
 
    1. In the [seal](https://www.vaultproject.io/docs/configuration/seal#seal-stanza) section, specify `"yandexcloudkms"`.
    1. Add the `kms_key_id` parameter with the KMS encryption key ID.
-   1. If you use an arbitrary service account or your Yandex ID for authentication, enter the appropriate credentials:
-      * In the `service_account_key_file` parameter, specify the path to the file with the service account's authorized key.
-      * In the `oauth_token` parameter, specify the OAuth token of the Yandex ID.
+   1. Authenticate using one the following methods:
+
+      {% list tabs %}
+
+        - The service account linked to your VM
+
+            Bind a service account to a VM by following the [instructions](../../compute/operations/vm-connect/auth-inside-vm.md).
+
+        - Any service account
+
+            In the `service_account_key_file` parameter, specify the path to the file with the service account's authorized key.
+
+        - Yandex account
+
+            In the `oauth_token` parameter, specify the Yandex ID OAuth token.
+
+      {% endlist %}
 
 {% note warning %}
 
@@ -58,43 +82,47 @@ You can use environment variables instead of the configuration file to set param
 
 ## Sample configurations {#examples}
 
-#### Authentication via the service account linked to your VM {#example-1}
+{% list tabs %}
 
-```json
-...
-seal "yandexcloudkms" {
-  kms_key_id = "<key ID>"
-}
-...
-```
+- The service account linked to your VM
 
-#### Authentication via any service account {#example-2}
+    ```json
+    ...
+    seal "yandexcloudkms" {
+      kms_key_id = "<key ID>"
+    }
+    ...
+    ```
 
-```json
-...
-seal "yandexcloudkms" {
-  kms_key_id = "<key ID>"
-  service_account_key_file = "<path to the JSON file with the authorized key>"
-}
-...
-```
+- Any service account
 
-#### Authentication via Yandex ID {#example-3}
+    ```json
+    ...
+    seal "yandexcloudkms" {
+      kms_key_id = "<key ID>"
+      service_account_key_file = "<path to JSON file with authorized key>"
+    }
+    ...
+    ```
 
-```json
-...
-seal "yandexcloudkms" {
-  kms_key_id = "<key ID>"
-  oauth_token = "<user's OAuth token>"  
-}
-...
-```
+- Yandex account
+
+    ```json
+    ...
+    seal "yandexcloudkms" {
+      kms_key_id = "<key ID>"
+      oauth_token = "<user OAuth token>"  
+    }
+    ...
+    ```
+
+{% endlist %}
 
 ## Key rotation {#rotation}
 
-When the master key is encrypted with a KMS key, Vault additionally saves the version it was encrypted with.
+When the Vault master key is encrypted with a KMS key, Vault also saves the version it was encrypted with.
 
-When decrypting the master key (at Vault restart), the saved version is compared with the main version of the {{ kms-short-name }} key and, if they differ, Vault re-encrypts it using the main version.
+When the Vault master key is decrypted (in a Vault restart), the saved version of the KMS key used to encrypt the Vault master key is compared with the primary version of the KMS key and, if different, the Vault master key is re-encrypted with the new primary version of the KMS key.
 
 This way you can rotate the Vault master key through [key rotation in {{ kms-short-name }}](../concepts/version.md#rotate-key). Rotating the key in KMS will automatically rotate the master key when Vault is restarted next time.
 

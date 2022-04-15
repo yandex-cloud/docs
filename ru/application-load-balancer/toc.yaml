@@ -59,6 +59,8 @@ items:
         href: tutorials/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
         href: tutorials/alb-with-ddos-protection.md
+      - name: Интеграция L7-балансировщика с CDN и Object Storage
+        href: tutorials/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/l7-bluegreen-deploy.md
       - name: Терминирование TLS-соединений

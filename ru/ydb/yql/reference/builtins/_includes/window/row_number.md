@@ -6,6 +6,12 @@ sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/window/row_number.m
 
 Номер строки в рамках [раздела](../../../syntax/window.md#partition). Без аргументов.
 
+**Сигнатура**
+```
+ROW_NUMBER()->Uint64
+```
+
+
 **Примеры**
 ``` yql
 SELECT

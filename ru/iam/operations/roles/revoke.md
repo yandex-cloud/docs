@@ -87,4 +87,52 @@
 
       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
+- Terraform
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    1. Чтобы отозвать роль у субъекта на ресурс, найдите в конфигурационном файле описание ресурса:
+
+       ```
+       resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
+         cloud_id    = "<идентификатор облака>"
+         role        = "<роль>"
+         members     = [
+           "serviceAccount:<идентификатор сервисного аккаунта>",
+           "userAccount:<идентификатор пользователя>",
+         ]
+       }
+       ```
+
+    1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня пользователей `members`.
+
+       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_iam_binding).
+
+    1. Проверьте корректность конфигурационных файлов.
+
+       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+       1. Выполните проверку с помощью команды:
+
+          ```
+          terraform plan
+          ```
+
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+    1. Разверните облачные ресурсы.
+
+       1. Если в конфигурации нет ошибок, выполните команду:
+
+          ```
+          terraform apply
+          ```
+
+       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+       ```
+       yc resource-manager cloud list-access-bindings <имя облака>|<идентификатор облака>
+       ```
+
 {% endlist %}

@@ -5,3 +5,4 @@
 * [Высокопроизводительные вычисления (HPC) на прерываемых виртуальных машинах](hpc-on-preemptible.md)
 * [Эмуляция множества IoT-устройств](iot-emulation.md)
 * [Нагрузочное тестирование gRPC-сервиса](loadtesting-grpc.md)
+* [HTTPS-тест с постоянной нагрузкой с помощью Phantom](loadtesting-https-phantom.md)

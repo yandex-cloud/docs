@@ -35,6 +35,8 @@ items:
         href: tutorials/search-cloud-logging.md
       - name: Setting up alerts in {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
+      - name: Configuring a response in Cloud Functions
+        href: tutorials/logging-functions.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

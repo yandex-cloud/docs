@@ -15,6 +15,12 @@ sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/window/rank_dense.m
 
 {% endnote %}
 
+**Сигнатура**
+```
+RANK([T])->Uint64
+DENSE_RANK([T])->Uint64
+```
+
 **Примеры**
 ``` yql
 SELECT

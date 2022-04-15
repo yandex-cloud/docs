@@ -1,7 +1,7 @@
 ---
 sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/_includes/system_views/tops_header.md
 ---
-## Топы запросов
+## Топы запросов {#top-queries}
 
 * **top_queries_by_duration_one_minute**
 * **top_queries_by_duration_one_hour**

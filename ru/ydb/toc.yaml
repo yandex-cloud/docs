@@ -209,8 +209,12 @@ items:
             href: troubleshooting/system_views_db.md
           - name: Мониторинг
             href: troubleshooting/monitoring.md
+          - name: System views (deprecated)
+            href: troubleshooting/system_views.md
+            hidden: true
       - name: Справочник метрик
         href: maintenance/yc_metrics.md
+        hidden: true
   - name: Правила тарификации
     items:
       - name: Обзор
