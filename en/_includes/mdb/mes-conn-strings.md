@@ -113,7 +113,7 @@
 
   ```bash
   sudo apt update && sudo apt install -y python3 python3-pip && \
-  pip3 install elasticsearch
+  pip3 install elasticsearch==7.17.2
   ```
 
   **Code example for connecting via SSL:**

@@ -51,7 +51,9 @@ items:
     items:
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
-      - name: Сине-зеленое и канареечное развертывание
+      - name: Интеграция L7-балансировщика с CDN и Object Storage
+        href: tutorials/cdn-storage-integration.md
+      - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/blue-green-canary-deployment.md
   - name: Концепции
     items:

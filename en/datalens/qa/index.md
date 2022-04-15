@@ -77,6 +77,10 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [csv-network-error](../../_includes/datalens/qa/csv-network-error.md) %}
 
+### What should I do if a Google Sheets document doesn't work right?{#google-sheets-error}
+
+{% include [google-sheets-error](../../_includes/datalens/qa/google-sheets-error.md) %}
+
 ## Data materialization {#materialization}
 
 {% include [qa-materialization-error](../../_includes/datalens/qa/materialization-error.md) %}

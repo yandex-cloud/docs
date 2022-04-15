@@ -1,7 +1,7 @@
 ---
 sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/_includes/system_views/query_metrics_header.md
 ---
-## Подробная информация о запросах
+## Подробная информация о запросах {#query-metrics}
 
 * **query_metrics_one_minute**
 

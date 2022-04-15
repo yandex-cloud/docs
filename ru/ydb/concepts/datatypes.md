@@ -1,6 +1,4 @@
 ---
-sourcePath: ru/ydb/overlay/concepts/datatypes.md
+sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/datatypes.md
 ---
-# Типы данных {{ ydb-name }}
-
-{{ ydb-short-name }} оперирует [типами данных YQL](../yql/reference/types/index.md).
+Данная страница удалена, информация по типам данных находится в статье [Типы данных YQL](../yql/reference/types/index.md).

@@ -9,6 +9,8 @@ description: "Step-by-step instructions for managing the cloud with Yandex Resou
 
 - [{#T}](cloud/create.md)
 - [{#T}](cloud/update.md)
+- [{#T}](cloud/delete.md)
+- [{#T}](cloud/delete-cancel.md)
 - [{#T}](cloud/set-access-bindings.md)
 - [{#T}](cloud/change-organization.md)
 - [{#T}](cloud/switch-cloud.md)

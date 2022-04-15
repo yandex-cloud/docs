@@ -13,6 +13,10 @@ items:
             href: operations/cloud/create.md
           - name: Rename a cloud
             href: operations/cloud/update.md
+          - name: Deleting a cloud
+            href: operations/cloud/delete.md
+          - name: Canceling cloud deletion
+            href: operations/cloud/delete-cancel.md
           - name: Setting up access rights
             href: operations/cloud/set-access-bindings.md
           - name: Switch clouds

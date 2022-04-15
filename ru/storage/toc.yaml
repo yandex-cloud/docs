@@ -71,7 +71,9 @@ items:
         href: tutorials/billing-resource-detailing.md
       - name: Шифрование на стороне сервера
         href: tutorials/server-side-encryption.md
-      - name: Сине-зеленое и канареечное развертывание
+      - name: Интеграция L7-балансировщика с CDN и Object Storage
+        href: tutorials/cdn-storage-integration.md
+      - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/blue-green-canary-deployment.md
       - name: Анализ логов с использованием DataLens
         href: tutorials/storage-logs-analysis.md

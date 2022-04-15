@@ -27,6 +27,8 @@ items:
         href: web/wordpress-transfer.md
       - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
+      - name: Интеграция L7-балансировщика с CDN и Object Storage
+        href: web/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: web/blue-green-canary-deployment.md
   - name: Интернет-магазины
@@ -71,6 +73,8 @@ items:
         href: testing/iot-emulation.md
       - name: Нагрузочное тестирование gRPC-сервиса
         href: testing/loadtesting-grpc.md
+      - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
+        href: testing/loadtesting-https-phantom.md
   - name: Управление инфраструктурой
     items:
       - name: Все руководства
