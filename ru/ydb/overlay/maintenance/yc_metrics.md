@@ -1,3 +1,3 @@
-# Справочник метрик {{ ydb-short-name }}
+# Ссылка устарела
 
-{% include [sensors.md](../_includes/monitoring_sensors.md) %}
+Контент данной страницы перенесен в [новое место размещения](../troubleshooting/monitoring.md), обновите ссылки.

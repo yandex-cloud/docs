@@ -2,3 +2,4 @@ items:
 - include: { mode: link, path: toc_i.yaml }
 - name: Справочник метрик
   href: yc_metrics.md
+  hidden: true
