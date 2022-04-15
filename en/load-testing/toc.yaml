@@ -6,10 +6,18 @@ items:
     href: quickstart.md
   - name: Step-by-step instructions
     items:
-  #     - name: All instructions
-  #       href: operations/index.md
-      - name: Configuring security groups
-        href: operations/security-groups.md
+      - name: All instructions
+        href: operations/index.md
+      - name: Creating a test agent
+        href: operations/create-agent.md
+      - name: Setting up security groups for test agents
+        href: operations/security-groups-agent.md
+      - name: Setting up security groups for test targets
+        href: operations/security-groups-target.md
+  - name: Practical guidelines
+    items:
+      - name: gRPC service load testing
+        href: tutorials/loadtesting-grpc.md
   - name: Concepts
     items:
       - name: Service overview

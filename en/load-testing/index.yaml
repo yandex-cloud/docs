@@ -21,6 +21,9 @@ links:
   - title: Getting started
     description: How to run load tests with Yandex Load Testing
     href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
   - title: Concepts
     description: Service operation and basic concepts
     href: concepts/
