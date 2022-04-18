@@ -104,5 +104,19 @@ items:
         href: qa/general.md
       - name: Questions about MySQL
         href: qa/mysql.md
+      - name: Connection
+        href: qa/connection.md
+      - name: Cluster read/write issues
+        href: qa/read-write.md
+      - name: Performance issues
+        href: qa/performance.md
+      - name: Updating clusters
+        href: qa/updating.md
+      - name: Monitoring and logs
+        href: qa/monitoring.md
+      - name: Migration/transfer
+        href: qa/migration.md
+      - name: Configuring MySQL
+        href: qa/configuring.md
       - name: All questions on one page
         href: qa/all.md
