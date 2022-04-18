@@ -69,3 +69,11 @@
 - [{#T}](dashboard/manage-access.md)
 {% if audience == "internal" %} - [{#T}](dashboard/add-parameters.md) {% endif %}
 - [{#T}](dashboard/auto-update.md)
+
+{% if audience == "external" %}
+
+## Работа с организациями {#working-with-organizations}
+
+- [{#T}](organizations/change-organization.md)
+
+{% endif %}

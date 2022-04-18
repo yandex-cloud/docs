@@ -264,6 +264,11 @@ items:
             href: operations/marketplace/delete-marketplace-product.md
           - name: Создание и подключение коннектора (для партнеров)
             href: operations/marketplace/create-connector-for-partners.md
+      - name: Работа с организациями
+        when: audience == "external"
+        items:
+          - name: Переключение между экземплярами DataLens
+            href: operations/organizations/change-organization.md
   - name: Управление доступом
     items:
       - name: Управление доступом к DataLens

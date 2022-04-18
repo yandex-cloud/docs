@@ -21,7 +21,7 @@
 
 {% else %}
 
-Для визуализации и исследования данных [подготовьте облако к работе](data-from-csv-geo-visualization.md#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
 
 1. [Создайте подключение к CSV-файлу](#step1).
 1. [Создайте датасет и настройте его поля](#step2).
@@ -56,9 +56,9 @@
 
 {% endif %}
 
-{% if audience != "internal" %} 
+{% if audience != "internal" %}
 
-## Подготовьте облако к работе {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 

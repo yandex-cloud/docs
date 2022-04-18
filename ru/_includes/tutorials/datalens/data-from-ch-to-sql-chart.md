@@ -8,7 +8,7 @@
 
 {% if audience != "internal" %}
 
-Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
 
 {% else %}
 
@@ -30,7 +30,7 @@ SQL-запросы работают только с базами данных. C
 
 {% if audience != "internal" %}
 
-## Подготовьте облако к работе {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 

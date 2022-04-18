@@ -12,16 +12,16 @@
 
 В качестве исходных данных будет использоваться файл [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) с информацией о населении и площади Москвы на 2018 год. Источник — [Список районов и поселений Москвы](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
-Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
 
 1. [Создайте подключение](#step1).
 1. [Создайте датасет](#step2).
 1. [Создайте чарт с картой районов Москвы](#step3).
 1. [Опубликуйте чарт в DataLens Public](#step4).
 
-{% if audience != "internal" %} 
+{% if audience != "internal" %}
 
-## Подготовьте облако к работе {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 

@@ -11,7 +11,7 @@
 
 Сценарий также доступен в [записи](https://www.youtube.com/watch?v=cw6PotbQYng) на YouTube-канале {{ yandex-cloud }}.
 
-Для визуализации и исследования данных [подготовьте облако к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
 
 1. [Импортируйте геослои из Marketplace](#step1).
 1. [Создайте подключение](#step2).
@@ -23,7 +23,7 @@
 1. [Создайте дашборд](#step8).
 1. [Добавьте геослои на дашборд](#step9).
 
-## Подготовьте облако к работе {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
