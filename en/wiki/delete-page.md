@@ -1,30 +1,32 @@
 # Deleting pages
 
-A page can be deleted by the author or the administrator [of the organization](overview.md#access).
+A page can be deleted by the page owner {% if audience == "external" %}or the [admin of the organization](overview.md#access){% else %}. If the page owner no longer works at Yandex, send a message to [tools@](mailto:tools@yandex-team.ru). The request will be processed by the internal service support team{% endif %}.
 
 {% note alert %}
 
-Deleting pages is permanent. All information stored on the page will be erased along with the history of changes. If you don't want to delete your page, you can [mark it as outdated](exp-page.md) instead.
+Page deletion is permanent and irreversible. All information stored on the page will be erased along with the edit history. Instead of deleting a page, you can [mark it as outdated](exp-page.md).
 
 {% endnote %}
+
+Before deleting a page, check if there are links [leading to it](all-links.md). If there are such links, remove or redirect them so that users aren't directed to <q>Error 404 page. Page not found</q>.
 
 To delete a page:
 
 1. Open the page.
 
-1. In the upper-right corner of the page, click **Actions** and select **Delete** (for dynamic tables ![](../_assets/wiki/table-settings-footer.png) → **Delete**).
+1. In the upper-right corner of the page, click ![](../_assets/wiki/ico-actions.png) **Action** and choose **Remove** (for dynamic tables, ![](../_assets/wiki/table-settings-footer.png) → **Remove**).
 
 1. Confirm the deletion.
 
 {% note tip %}
 
-You can change the address of your page in {{ wiki-name }}. Instead of deleting and re-creating the page in another cluster, you can [move](page-managment/move-page.md) it.
+{{ wiki-name }} has a dedicated procedure for changing page address. You can [move](page-management/move-page.md) your page to another cluster instead of deleting and re-creating it in the cluster.
 
 {% endnote %}
 
 #### See also
 
-- [{#T}](page-managment/move-page.md)
+- [{#T}](page-management/move-page.md)
 
-- [{#T}](page-managment/edit-owner.md)
+- [{#T}](page-management/edit-owner.md)
 

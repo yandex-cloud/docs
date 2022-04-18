@@ -5,7 +5,7 @@
 ## Вызов блока {#include-call}
 
 ```
-{{ include page="/users/имяПользователя/адресСтраницы/" notoc notitle nomark}} 
+{{ include page="{{ wiki-pagename }}/" notoc notitle nomark}} 
 ```
 
 ## Параметры блока {#include-params}

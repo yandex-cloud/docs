@@ -2,17 +2,21 @@
 
 ## Numbered list {#section_numbered}
 
-- Before each item in the list, add a number with a dot and a space.
+### A list with numbers {#section_numbered_numbers}
+
+- Enter a number followed a dot and a space before each item.
+
+    {% note info %}
+
+    The numbered list will start with the number you enter before your first item. The numbering in the markup doesn't affect the numbering of the final list. However, working with the source text will be easier if the list items follow the regular numbering sequence.
+
+    {% endnote %}
 
 - To create a second-level list item, add three spaces at the start of the line.
 
+- To skip items in the numbering sequence, enter the `#` symbol followed by a dot and the number of the item you want to put next in the sequence.
+
 - After you're finished, add an empty line before writing the rest of the text.
-
-{% note info %}
-
-The numbered list will start with the number you enter before your first item. The number order in the markup doesn't affect the number order of the final list. But it is more convenient to work with the source text if the list items are numbered in order.
-
-{% endnote %}
 
 Markup:
 
@@ -22,18 +26,19 @@ Markup:
    1. Nested list item
    2. Nested list item
    3. Nested list item
-3. List item
+3.#8 Item after skipping items in the numbering sequence
+4. Ninth item of the list
 ```
 
 {% cut "See the result" %}
 
-![](../../_assets/wiki/numerated-list-exampe.png)
+![](../../_assets/wiki/numerated-list-example.png)
 
 {% endcut %}
 
 ## Bulleted list {#section_bullet}
 
-- Insert a marker symbol before each item in the bulleted list. You can use the following symbols as markers: `-`, `*`, or `+`.
+- Add a bullet symbol before each item in a bulleted list. You can use `-`, `*`, or `+` as bullet symbols.
 - To create a second-level list item, add two spaces at the start of the line.
 - After you're finished, add an empty line before writing the rest of the text.
 
@@ -49,13 +54,13 @@ Markup:
 
 {% cut "See the result" %}
 
-![](../../_assets/wiki/unordered-list-exampe.png)
+![](../../_assets/wiki/unordered-list-example.png)
 
 {% endcut %}
 
 ## Combined list {#section_combined}
 
-You can include a bulleted sub-list into your numbered list and vice versa.
+You can include a nested list with bullet points into your numbered list and vice versa:
 
 ```
 1. Ordered list item
@@ -67,13 +72,13 @@ You can include a bulleted sub-list into your numbered list and vice versa.
 
 {% cut "See the result" %}
 
-![](../../_assets/wiki/combined-list-exampe.png)
+![](../../_assets/wiki/combined-list-example.png)
 
 {% endcut %}
 
-## Block elements inside the list {#section_elem-incl}
+## Block elements inside a list {#section_elem-incl}
 
-For [cuts](document-strucuture.md#section-cut), [quotes](quoting.md), [code blocks](source.md), [tables](grids.md), and other elements inside the list to be displayed correctly, make a four-space indent in front of them to the left relative to the list marker:
+In order to make [collapsable sections](document-structure.md#section-cut), [quotes](quoting.md), [code snippets](source.md), [tables](grids.md), and other elements display correctly inside a list, insert a 4-space indent to the left of each element to separate it from the list bullet:
 
 ```
 1. item 1
@@ -91,13 +96,13 @@ For [cuts](document-strucuture.md#section-cut), [quotes](quoting.md), [code bloc
 
 {% endcut %}
 
-## To-do lists {#section_check}
+## To-do list {#section_check}
 
 A to-do list (checklist) is a numbered or bulleted list that lets you mark the items you've completed. To create a to-do list, enter your item number or bullet and then add a space and one of the following symbols:
 
-- `[]` for an unmarked item.
+- `[]` for an unchecked item.
 
-- `[x]` for a marked item.
+- `[x]` for a checked item.
 
 {% list tabs %}
 

@@ -1,20 +1,24 @@
-# Creating your first page
+# Create your first Wiki page
 
-Try out the features of {{ wiki-name }} by creating your first page. The page will be created in your personal cluster, so feel free to experiment.
+Try out {{ wiki-name }} features by creating your first page. The page will be created in your personal cluster, so don't be shy about experimenting.
 
+{% if audience == "internal" %}
 
+To learn about the basic features of {{ wiki-name }}, you can also [take a course on Moebius](https://moe.yandex-team.ru/courses/my/course/904).
 
-## Creating pages {#section_qvp_th2_sy}
+{% endif %}
 
-To create a page in your personal cluster:
+## Create a Wiki page {#create}
 
-1. [Go to {{ wiki-name }}]({{ link-wiki }}) and click **Create** in the upper panel.
+To create a Wiki page in your personal cluster:
 
-1. Fill in the **Title** field and click **Create**.
+1. [Go to {{ wiki-name }}]({{ link-wiki }}) and on the top panel click **Create**.
 
-    The address field is filled in automatically. Don't edit it if this is your first time creating a page.
+1. Fill in the **Header** field and click **Create**.
 
-1. Copy this example into the left panel or create your own:
+    The address field is filled in automatically. Don't edit the address field if this is your first time creating a Wiki page.
+
+1. Copy this example to the left panel or create your own:
 
     ```
     # The first level header
@@ -51,31 +55,31 @@ To create a page in your personal cluster:
 
 1. Click **Save**.
 
-A list of all your pages is available on the {{ wiki-name }} top panel in the menu **Bookmarks** → **My pages**.
+You can find a list of all pages you've created on the top panel {{ wiki-name }} under **Bookmarks** → **My Pages**.
 
-## Configuring access {#section_drd_5h2_sy}
+## Configure access {#access}
 
 To configure access to your page:
 
 1. Open the page.
 
-1. At the top of the page, click the button that indicates page access (by default **All staff employees**).
+1. At the top of the page, click the button that displays the page's access status (**All staff employees** is set by default).
 
-1. Select who will be able to view the page:
+1. Specify who will be able to view the page:
 
     - **Same as parent page**: The access level is carried over from the parent page.
 
     - **All staff employees**: All employees of your organization.
 
-    - **Only authors**: Only the page authors can view and edit the page.
+    - **Only authors**: Only the page owners can view and edit the page.
 
-    - **Specific employees**: Specify the usernames of people to grant access to view and edit the page.
+    - **Specific employees**: Specify the usernames of people to be granted viewing and editing access.
 
     {% note warning %}
 
-    We do not recommend changing access settings for the [{{ wiki-name }} home page]({{ link-homepage }}).
+    Changing access settings for [{{ wiki-name }} home page]({{ link-homepage }}) is not recommended.
 
-    By default, the author of the {{ wiki-name }} home page is a service account. If "Only authors" access is selected for this page, access for other users will be blocked. To unblock access, click the [{{link-homepage-access}}]({{ link-homepage-access }}) link and change the access parameters.
+    By default, the owner of the {{ wiki-name }} homepage is a service account. If this page's access mode is set to "Only page owners", all other users will be blocked from accessing the page. To open access to other users, follow the link [{{link-homepage-access}}]({{ link-homepage-access }}) and change access settings for the page.
 
     {% endnote %}
 

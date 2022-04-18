@@ -10,8 +10,8 @@
   ```
     {% cut "Как выглядит результат" %}
 
-    ![](../../_assets/wiki/gray-text.png)
-
+    <p style="color: gray; font-weight: bold;">Текст серого цвета</p>
+    
     {% endcut %}
 
 * ```html
@@ -20,7 +20,7 @@
 
     {% cut "Как выглядит результат" %}
 
-    ![](../../_assets/wiki/border-text.png)
+    <p style="border-width: 4px; border-style: double; border-color: orange;">Текст в рамке</p>
 
     {% endcut %}
 
@@ -33,7 +33,10 @@
 
     {% cut "Как выглядит результат" %}
 
-    ![](../../_assets/wiki/html-table.png)
+    <table border="1">
+      <tr><td>Значение 1</td><td>Значение 2</td></tr>
+      <tr><td>Значение 3</td><td>Значение 4</td></tr>
+    </table>
 
     {% endcut %}
 

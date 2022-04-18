@@ -1,16 +1,20 @@
 # Dynamic blocks
 
-A dynamic block is a part of a page where content is formed automatically based on data about the page or information from an external source.
+Dynamic blocks are fragments of a Wiki page that are auto-generated based on data taken from the page or external sources.
 
-With the help of dynamic blocks, you can:
+You can use dynamic blocks to:
 
-* Build [page lists](actions/page-lists.md) related to a specified page.
+* Build [page lists](actions/page-lists.md) related to the specified page.
 
-* Embed [a dynamic table](actions/grid-reference.md) in the page.
+* Embed [dynamic tables](actions/grid-reference.md) on Wiki pages.
 
-* Generate a [table of contents for the document](actions/objects.md#toc).
+* Compose a [table of contents for a document](actions/toc.md).
 
-General format for calling dynamic blocks:
+* Embed [objects from external sources](actions/iframe.md) on Wiki pages.
+
+* Configure integration with [{{forms-full-name}}](actions/forms.md) and [{{tracker-full-name}}](actions/tracker.md).
+
+General format for generating dynamic blocks:
 
 ```
 {{blockName parameter1="value1" parameter2="value2" ...}}
@@ -18,5 +22,6 @@ General format for calling dynamic blocks:
 
 ### See also
 
-- [{#T}](static-markup.md)
+* [{#T}](static-markup.md)
+* [{#T}](formatter.md)
 

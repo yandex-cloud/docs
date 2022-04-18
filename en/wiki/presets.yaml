@@ -1,48 +1,63 @@
 default:
 
-  service: Yandex.Wiki
+  service: Yandex Wiki
 
-  wiki-full-name: Yandex Wiki
-  wiki-name: Wiki
-  wiki-short-name: Wiki
-  link-wiki: https://wiki.yandex.com/
+  #В общем файле ru/presets.yaml
+  #wiki-full-name: Yandex Wiki
+  #wiki-name: Wiki
+  #wiki-short-name: Wiki
+  #link-wiki: https://wiki.yandex.ru/
 
   locale: en
   
   #Ссылки на сервисы
   link-yandex: https://yandex.com
-  link-tracker: https://tracker.yandex.com/
   link-homepage: https://wiki.yandex.com/homepage/
   link-homepage-access: https://wiki.yandex.com/homepage/.access
-  link-support: https://support.cloud.yandex.com/
+  link-support: https://support.cloud.yandex.com/?referral=wiki
   link-passport: https://passport.yandex.com/
-  
+  link-tracker: https://tracker.yandex.com/
+  link-metrika: https://metrika.yandex.com
+  link-metrica_termsofuse: https://yandex.com/legal/metrica_termsofuse/
 
   #Ссылки на справку на yandex.ru/support
   support-passport-create: https://yandex.com/support/passport/authorization/registration.html
-  
+  support-metrica: https://yandex.com/support/metrica/
+  support-metrica-cr-counter: https://yandex.com/support/metrica/general/creating-counter.html
+  support-metrica-count-general: https://yandex.com/support/metrica/general/counter-general.html
+  support-metrica-qs: https://yandex.com/support/metrica/quick-start.html
+  support-metrica-report-general: https://yandex.com/support/metrica/reports/report-general.html
+
+
   #Внешние ссылки
   link-about-markdown: https://en.wikipedia.org/wiki/Markdown
   link-about-graphviz: https://en.wikipedia.org/wiki/Graphviz
   link-about-diagram: https://en.wikipedia.org/wiki/Sequence_diagram
   link-about-tex: https://en.wikipedia.org/wiki/TeX
+  link-sharepoint-common: https://yandexteam.sharepoint.com/Shared%20Documents/Forms/AllItems.aspx
+  link-sharepoint-personal: https://yandexteam-my.sharepoint.com/_layouts/15/MySite.aspx?MySiteRedirect=AllDocuments
+  link-excel: https://support.microsoft.com/en-us/office/define-and-use-names-in-formulas-4d0f13ac-53b7-422e-afd2-abd7ff379c64
   
   #Тексты из примеров
   yandex-logo-link: http://img.yandex.net/i/logo95x37x8.png
   wiki-host-name: wiki.yandex.com
   wiki-username: wiki.yandex.com/users/userName
   wiki-notes: wiki.yandex.com/users/userName/notes
+  wiki-pagename: /users/userName/pageName
   username-oleg: John
   oleg-notes-title: John's notes
-  example-link-mail: "[John's email](mailto:john@yandex.com)"
+  example-link-mail: "[John's mail](mailto:john@yandex.com)"
   example-anchor: m-mycluster
   example-account: login@yandex.com
+  yandex-music: https://music.yandex.com
 
-  #Сервисы
-  tracker-full-name: Yandex Tracker
-  tracker-name: Tracker
-  forms-full-name: Yandex Forms
 
 internal:
   link-wiki: https://wiki.yandex-team.ru/
   wiki-host-name: wiki.yandex-team.ru
+  link-tracker: https://st.yandex-team.ru/
+  link-homepage: https://wiki.yandex-team.ru/homepage/
+  link-homepage-access: https://wiki.yandex-team.ru/homepage/.access
+  wiki-username: wiki.yandex-team.ru/users/userName
+  wiki-notes: wiki.yandex-team.ru/users/username/notes
+  example-link-mail: "[Oleg's mail](mailto:oleg@yandex-team.ru)"

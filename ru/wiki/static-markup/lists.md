@@ -84,7 +84,7 @@ I. Пункт списка
 
 {% cut "Как выглядит результат" %}
 
-![](../../_assets/wiki/unordered-list-exampe.png)
+![](../../_assets/wiki/unordered-list-example.png)
 
 {% endcut %}
 
@@ -102,7 +102,7 @@ I. Пункт списка
 
 {% cut "Как выглядит результат" %}
 
-![](../../_assets/wiki/combined-list-exampe.png)
+![](../../_assets/wiki/combined-list-example.png)
 
 {% endcut %}
 

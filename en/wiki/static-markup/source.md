@@ -1,13 +1,13 @@
 # Source code formatting
 
-- To format a fragment of source code (like the name of a function), surround it with backquotes (```````) on both sides.
+* To highlight a fragment of the source code (for example, the name of a function), enclose the fragment in backquotes ``` ` ```.
 
-- To format multiple lines of source code, insert three backquotes (` ````) in the line before the actual code starts, and three more in the line after it ends.
+* To format multiple lines of the source code, insert three backquotes ` ``` ` in the lines above and below the code.
 
 Example:
 
-- ```
-   The `exit()` function 
+* ```
+  `exit()` function 
   ```
 
     {% cut "See the result" %}
@@ -16,20 +16,24 @@ Example:
 
     {% endcut %}
 
-- ```
-        Beginning of the code snippet
-        ```   
-        <?
-        phpinfo();
-        $s = "Hello, World!\n";
-        print $s;
-        ```  
-        End of the code snippet
-  
+* ```
+      Start of the code snippet
+      ```
+      <?
+      phpinfo();
+      $s = "Hello, World!\n";
+      print $s;
+      ```
+      End of the code snippet
   ```
+
     {% cut "See the result" %}
 
     ![](../../_assets/wiki/listing-nomark.png)
 
     {% endcut %}
+
+#### See also
+
+[{#T}](highlight.md)
 

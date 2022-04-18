@@ -1,10 +1,10 @@
-# Formatting text
+# Text formatting
 
-## Decorating text {#inline}
+## Highlighting text {#inline}
 
 {% note alert %}
 
-To properly decorate text, don't leave any spaces between the markup symbols and the text.
+For text highlighting to work properly, don't leave any spaces between the markup symbols and the text.
 
 {% endnote %}
 
@@ -12,34 +12,43 @@ To properly decorate text, don't leave any spaces between the markup symbols and
 | --- | --- |
 | `**Bold text**` | ![](../../_assets/wiki/bold.png) |
 | `*Italic text*` | ![](../../_assets/wiki/italic.png) |
-| `_Italic text_` | ![](../../_assets/wiki/italic.png) |
+| `Italic text` | ![](../../_assets/wiki/italic.png) |
+| `//Italic text//` | ![](../../_assets/wiki/italic.png) |
 | `__Underlined text__` | ![](../../_assets/wiki/underlined.png) |
-| `~~Strikethrough text~~` | ![](../../_assets/wiki/crossed.png) |
+| `~~Strikethrough~~` | ![](../../_assets/wiki/crossed.png) |
+| `--Strikethrough text--` | ![](../../_assets/wiki/crossed.png) |
+| `##Monospaced text##` | ![](../../_assets/wiki/monospaced.png) |
+| `++Small font++` | ![](../../_assets/wiki/small-text.png) |
+| Superscript: `E=mc^^2^^` | ![](../../_assets/wiki/sup.png) |
+| Subscript: `Hvv2vvO` | ![](../../_assets/wiki/sub-no-spaces.png) |
 | `??Highlighted text??` | ![](../../_assets/wiki/red-background.png) |
-| `!!(blu)Blue text!!`<br>Supported colors:<ul><li>`red`{% if locale == "ru" %}/`red`/`red`{% endif %}</li><li>`green`{% if locale == "ru" %}/`gre`/`green`{% endif %}</li><li>`blue`{% if locale == "ru" %}/`blu`/`blue`{% endif %}</li><li>`grey`/`gray`{% if locale == "ru" %}/`gre` /`gray`{% endif %}</li><li>`yellow`{% if locale == "ru" %}/`yel`/`yellow`{% endif %}</li><li>`cyan`{% if locale == "ru" %}/`cya`/`cyan`{% endif %}</li><li>`orang`{% if locale == "ru" %}/`ora`/`orange`{% endif %}</li><li>`violet`{% if locale == "ru" %}/`vio`/`violet`{% endif %}</li></ul> | ![](../../_assets/wiki/colored.png) |
+| `!!Red text!!` | ![](../../_assets/wiki/red-colored.png) |
+| `!!(blue)Blue text!!`<br>Supported colors:<ul><li>`red`{% if locale == "ru" %}/`крас`/`красный`{% endif %};</li><li>`green`{% if locale == "ru" %}/`зел`/`зеленый`{% endif %};</li><li>`blue`{% if locale == "ru" %}/`син`/`синий`{% endif %};</li><li>`grey`/`gray`{% if locale == "ru" %}/`сер` /`серый`{% endif %};</li><li>`yellow`{% if locale == "ru" %}/`жел`/`желтый`{% endif %};</li><li>`cyan`{% if locale == "ru" %}/`голуб`/`голубой`{% endif %};</li><li>`orang`{% if locale == "ru" %}/`оранж`/`оранжевый`{% endif %};</li><li>`violet`{% if locale == "ru" %}/`фиолет`/`фиолетовый`{% endif %}.</li></ul> | ![](../../_assets/wiki/colored.png) |
 
-## Combining formatting types {#sec_combine}
+## Combining formatting elements {#sec_combine}
 
-You can apply several types of formatting to a single text fragment simultaneously:
+You can apply multiple formatting elements to a text fragment:
 
 | Markup | Result |
 | --- | --- |
 | `_**Bold italic**_` | ![](../../_assets/wiki/bold-italic.png) |
 | `*!!Red italic!!*` | ![](../../_assets/wiki/red-italic.png) |
 
-Text formatting can be used together with other markup elements:
+Text formatting elements can be combined with other markup elements:
 
 | Markup | Result |
 | --- | --- |
-| `**[Bold link](http://example.com)**` | ![](../../_assets/wiki/bold-link.png) |
-| `>Quote with *italic* text` | ![](../../_assets/wiki/quote-italic.png) |
+| `**[Bold link](http://example.com )**` | ![](../../_assets/wiki/bold-link.png) |
+| `>Quote with *italic text*` | ![](../../_assets/wiki/quote-italic.png) |
 
-## Bubbles {#other-formatting}
+## Other markup {#other-formatting}
 
-You can add a bubble with a tip to your text (for example, a definition for a term from the text) using the markup:
-
-| Markup | Result |
-| --- | --- |
-| `(?Term Definition of the term?)` | ![](../../_assets/wiki/Term-with-definition.png) |
-| `(?Long term==Definition of the term?)` | ![](../../_assets/wiki/long-term-with-definition.png) |
+| Element | Markup | Result |
+| --- | --- | --- |
+| Line break | `first line---second line` | ![](../../_assets/wiki/line-break.png) |
+| Pop-up hint | `(?Term Definition of the term?)` | ![](../../_assets/wiki/Term-with-definition.png) |
+| Pop-up (term with spaces) | `(?Term with spaces==Term definition?)` | ![](../../_assets/wiki/long-term-with-definition.png) |
+| Color code (long) | `#ff0000` | ![](../../_assets/wiki/color-code-long.png) |
+| Color code (short) | `#F00` | ![](../../_assets/wiki/color-code-short.png) |
+| Hidden comment | `%%(comments) Hidden text%% ` |
 

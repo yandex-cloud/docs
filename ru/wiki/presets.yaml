@@ -44,6 +44,7 @@ default:
   wiki-host-name: wiki.yandex.ru
   wiki-username: wiki.yandex.ru/users/имяПользователя
   wiki-notes: wiki.yandex.ru/users/имяПользователя/notes
+  wiki-pagename: /users/имяПользователя/адресСтраницы
   username-oleg: oleg
   oleg-notes-title: Заметки Олега
   example-link-mail: "[Почта Олега](mailto:oleg@yandex.ru)"

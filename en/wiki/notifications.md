@@ -1,32 +1,32 @@
 # Subscriptions and favorites
 
-Follow and bookmark the pages that interest you. This way you'll be aware of any updates.
+Follow and bookmark the pages that interest you. This way you'll stay posted on any updates.
 
-## Bookmarks {#concept_}
+## Bookmarks {#bookmarks}
 
-Pages that may be of interest to you can be found in the **Bookmarks** menu. You can find bookmarks in the {{ wiki-name }} top panel. The pages there are split into groups:
+Find the pages you're interested in under the **Bookmarks** menu. Bookmarks are found in the {{ wiki-name }} top menu. The pages there are split into groups:
 
-- **Favorites** are pages that you [added to favorites](#concept_2).
+- **Favorites**: Pages you [added to favorites](#add-fav).
 
-- **My pages** are pages owned by you.
+- **My pages**: Pages owned by you.
 
-- **Subscriptions** are pages you [follow](#concept_3)
+- **Subscriptions**: Pages you're [following](#subscribe).
 
-- **Edited by me** are all pages you made edits to.
+- **Edited by me**: All pages you made edits to.
 
-## Following pages and clusters {#concept_3}
+## How to subscribe to pages and clusters {#subscribe}
 
-Follow pages and clusters to receive notifications about any changes. To subscribe to notifications:
+Follow pages and clusters in order to receive notifications about any changes. To subscribe to notifications:
 
 1. Open a page.
 
 1. Click **Subscribe** in the upper-right corner.
 
-1. Choose the type of subscription: to a page or to a cluster (including subpages).
+1. Choose your subscription type: you can subscribe to this particular page or to the whole cluster (with subpages).
 
-## Adding pages to favorites {#concept_2}
+## Adding pages to favorites {#add-fav}
 
 1. Open a page.
 
-1. In the upper-right corner, click **Add to Favorites**.
+1. Click **Add to favorites** in the upper-right corner.
 

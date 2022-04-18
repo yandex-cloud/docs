@@ -1,8 +1,8 @@
 # Images and files
 
-## Embedding images {#add-image}
+## Embed an image {#add-image}
 
-Use markup to add images to your page:
+To add images to your page, use the following markup:
 
 ```
 ![Alternative text](image address)
@@ -18,7 +18,7 @@ If you paste an image link with no markup, the image will be displayed on the pa
 | --- | --- |
 | `![Logo]({{ yandex-logo-link }})` | ![](../../_assets/wiki/logo95x37x8.png) |
 
-### Setting image size {#img-size}
+### Set the image size {#img-size}
 
 You can set the image size in pixels with the following format:
 
@@ -28,7 +28,7 @@ You can set the image size in pixels with the following format:
 
 {% note info %}
 
-The image is scaled proportionally, so the height value can be set approximately. For example, a drawing with this markup will be displayed correctly: `300x0:<link to the picture>`.
+Images maintain their aspect ratio, so the height value you set doesn't have to be exact. For example, the image will display correctly if the following markup is used: `300x0:<link to the picture>`.
 
 {% endnote %}
 
@@ -36,9 +36,9 @@ The image is scaled proportionally, so the height value can be set approximately
 | --- | --- |
 | `no-highlight 60x20:{{ yandex-logo-link }}` | ![](../../_assets/wiki/resize-pic.png) |
 
-### Adding download links for images {#download-link}
+### Adding an image download link {#download-link}
 
-Use the usual link markup:
+Use the link markup:
 
 ```
 [link text](image URL)
@@ -48,9 +48,9 @@ Use the usual link markup:
 | --- | --- |
 | `[Yandex logo]({{ yandex-logo-link }})` | [Yandex logo]({{ yandex-logo-link }}) |
 
-### Make an image a link {#img-link}
+### Creating a link from an image {#img-link}
 
-Images can also function as links so that when you click on the image, a page or file opens. To do this, in the link markup element, instead of text, [insert an image](#add-image):
+You can create a link from an image, so that clicking an image opens a page or document. To do this, [embed an image](f#add-image) to the link markup element instead of text:
 
 ```
 [![Alternative text](image address)](link address)
@@ -60,11 +60,11 @@ Images can also function as links so that when you click on the image, a page or
 | --- | --- |
 | `[![Logo]({{ yandex-logo-link }})]({{ link-yandex }})` | [![Logo](../../_assets/wiki/logo95x37x8.png)]({{ link-yandex }}) |
 
-## Inserting a video {#video}
+## Embedding videos {#video}
 
-To add a video to a page, use the [not_var{{iframe}}](../actions/objects.md#iframe-video) dynamic block. You can insert videos from external sources, such as Vimeo or YouTube.
+To add a video to your page, use the [dynamic block not_var{{iframe}}](../actions/iframe.md). You can use it to embed videos from external sources, such as Vimeo or Youtube.
 
-## Adding links to files{#file-ref}
+## Embedding links to files {#file-ref}
 
 You can use one of the following methods to add a link to a file on your page:
 

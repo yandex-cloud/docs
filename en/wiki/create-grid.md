@@ -1,24 +1,24 @@
 # Creating dynamic tables
 
-_Dynamic tables_ are tables where users can specify which data types to display, sort by value, and set required cells. You can use the table directly or [embed it in a page](add-grid.md).
+Use _dynamic tables_ to sort values, specify columns data types, and set required cells. You can use the table as-is or [embed it in a Wiki page](add-grid.md#grid).
 
-There are several ways to create tables:
+There are multiple ways to create a table:
 
-- [From any {{ wiki-name }} page](#create-page) by manually setting the address of the new table.
+- [In any page {{ wiki-name }}](#create-page), by setting the new table's address manually.
 
-- [In a specific cluster](#create-subpage) by creating a subpage.
+- [In the destination cluster](#create-subpage), by creating a subpage.
 
-- [In the page editing window](#add-table-in-page) by clicking the button on the top panel.
+- [In the Wiki page editing window](#add-table-in-page), by clicking the button on the top panel.
 
 ## Setting the table address manually {#create-page}
 
 To create a new table:
 
-1. In the {{ wiki-name }} upper panel, Click **Create**.
+1. In the top {{ wiki-name }} menu, click **Create**.
 
 1. Select **Table**.
 
-1. Set the title and address the same way as when [creating a regular page](create-page.md).
+1. Enter the table header and address in the same way as when [creating a Wiki page](create-page.md).
 
 1. Click **Create**.
 
@@ -34,13 +34,13 @@ To create a new table:
 
         - Choose a data type to display in the column from the drop-down list.
 
-        - Specify the column width in pixels or as a percentage of the table width.
+        - Specify the column's width in pixels or as a percentage of the table's width.
 
-        - If you want cells to require a value, choose the **Required** option.
+        - To mark cells as mandatory to fill in, choose the **Required** option.
 
-        - For columns with the **Checkbox** data type, enable the **Mark as done** option. If the option is enabled, all rows selected with the checkbox will turn gray.
+        - Enable **Mark as done** for columns with the **Checkbox** data type. If the option is enabled, all checked rows will turn gray.
 
-    1. Click **Add**.
+    1. Select **Add**.
 
     {% endcut %}
 
@@ -52,37 +52,34 @@ To create a new table:
 
     {% cut "Fill in the cells" %}
 
-    Select a cell and enter your text. Use [Markdown](basic-markup.md) to format the text. To switch to a new row inside the cell, click **Shift** + **Enter**.
+    Select a cell and enter text. Use the [Markdown markup](basic-markup.md) for text formatting. To move to a new line within a cell, press **Shift**+**Enter**.
 
     {% endcut %}
 
-1. To save the changes, click **Done**.
+1. To save your changes, click **Finish**.
 
-## Creating cluster subpages {#create-subpage}
+## Create cluster subpages {#create-subpage}
 
-You can create a table in a specific cluster:
+You can create a table right from the desired cluster:
 
 1. Go to the cluster.
 
-1. In the upper-right corner of the page, click **Actions** and select **Create a subpage**.
+1. Click **Action** in the upper-right corner and select **Create subpage**.
 
 1. Select **Table**.
 
-1. Enter your page title.
+1. Enter your title.
 
-    The **Address** field is filled in automatically. You can edit the address if necessary. The `!` symbol at the beginning of the line means that the address is specified relative to the current cluster.
+    The **Address** field is filled in automatically. You can edit the address if necessary. The `!` symbol at the start of a row indicates that the address is relative to the current cluster.
 
 1. Click **Create**.
 
-## Adding a table in the page editing window {#add-table-in-page}
+## Add Wiki pages in the edit window {#add-table-in-page}
 
-To create a table and place it in the text of a Wiki page:
+To create a table and insert it into the text body of a Wiki page:
 
-1. In the panel at the top of the page, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) appears in the text:
-
-   `{{grid page="/users/username/pagename/grid-2021-01-24t163048" width="100%"}}`.
-
-   The created table becomes a subsection of the current page.
+1. Click the icon ![](../_assets/wiki/add-dynamic-grid.png) in the panel at the top of the Wiki page. The [table embed code](actions/grid-reference.md) will appear in the text: `{{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}`.
+The created table will become a sub-cluster of the current page.
 
 1. Click **Save**.
 
@@ -90,7 +87,7 @@ To create a table and place it in the text of a Wiki page:
 
 #### See also
 
-- [Inserting a simple table](add-grid.md#simple-table)
+- [How to embed a static table](add-grid.md#simple-table)
 
 - [{#T}](edit-grid.md)
 

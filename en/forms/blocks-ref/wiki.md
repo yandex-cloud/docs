@@ -73,11 +73,11 @@ The table of responses for the {{ wiki-name }} block must use a special format. 
 
 {% if audience == "external" %}
 
-1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-managment/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
+1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
 
 {% else %}
 
-1. Make sure the robot `robot-forms@` has [access to the table](../../wiki/page-managment/access-setup.md). The robot also has access to the table if the **Available to all employees** mode is on.
+1. Make sure the robot `robot-forms@` has [access to the table](../../wiki/page-management/access-setup.md). The robot also has access to the table if the **Available to all employees** mode is on.
 
 {% endif %}
 
@@ -103,11 +103,11 @@ To create a table with response filtering:
 
 {% if audience == "external" %}
 
-1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-managment/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
+1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
 
 {% else %}
 
-1. Make sure the robot `robot-forms@` has [access to the table](../../wiki/page-managment/access-setup.md). The robot also has access to the table if the **Available to all employees** mode is on.
+1. Make sure the robot `robot-forms@` has [access to the table](../../wiki/page-management/access-setup.md). The robot also has access to the table if the **Available to all employees** mode is on.
 
 {% endif %}
 
