@@ -15,6 +15,7 @@ _Подключение_ содержит информацию о парамет
 - **Oracle Database**
 - **Yandex Database**
 - **Greenplum**
+{% if audience == "internal" %} - **Prometheus** {% endif %}
 - **Metrica** (в режиме прямого доступа)
 - **AppMetrica** (в режиме прямого доступа)
 - **Yandex Cloud Billing**
@@ -51,6 +52,7 @@ _Подключение_ содержит информацию о парамет
 - [{#T}](../operations/connection/create-oracle.md)
 - [{#T}](../operations/connection/create-ydb.md)
 - [{#T}](../operations/connection/create-greenplum.md)
+{% if audience == "internal" %} - [{#T}](../operations/connection/create-prometheus.md) {% endif %}
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
 {% if audience != "internal" %} - [{#T}](../operations/connection/create-cloud-billing.md) {% endif %}

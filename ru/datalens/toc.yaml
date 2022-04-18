@@ -125,6 +125,9 @@ items:
             href: operations/connection/create-ydb.md
           - name: Создание подключения к Greenplum
             href: operations/connection/create-greenplum.md
+          - name: Создание подключения к Prometheus
+            when: audience == "internal"
+            href: operations/connection/create-prometheus.md
           - name: Создание подключения к ClickHouse over YT
             when: audience == "internal"
             items:
@@ -213,7 +216,10 @@ items:
             when: audience == "internal"
             href: operations/chart/add-parameters.md
           - name: Добавление guid в качестве параметра
-            href: operations/chart/add-guid.md   
+            href: operations/chart/add-guid.md
+          - name: Экспорт чарта из Monitoring в DataLens
+            when: audience == "internal"
+            href: operations/chart/export-from-monitoring.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда

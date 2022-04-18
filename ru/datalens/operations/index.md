@@ -11,6 +11,7 @@
 - [{#T}](connection/create-oracle.md)
 - [{#T}](connection/create-ydb.md)
 - [{#T}](connection/create-greenplum.md)
+{% if audience == "internal" %} - [{#T}](connection/create-prometheus.md) {% endif %}
 {% if audience == "internal" %} - [{#T}](connection/chyt/create-chyt.md) {% endif %}
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-appmetrica.md)
@@ -54,6 +55,7 @@
 - [{#T}](chart/manage-access.md)
 {% if audience == "internal" %} - [{#T}](chart/add-parameters.md) {% endif %}
 - [{#T}](chart/add-guid.md)
+{% if audience == "internal" %} - [{#T}](chart/export-from-monitoring.md) {% endif %}
 
 ## Работа с дашбордами {#working-with-dashboards}
 
