@@ -1,5 +1,5 @@
 * {% include [Field CLI Cluster ID](../../fields/common/cli/cluster-id.md) %}
-* {% include [Field CLI Database](../../fields/common/cli/database.md) %}
+* {% include [Field CLI Database](../../fields/mysql/cli/database-source.md) %}
 * {% include [Field CLI User](../../fields/common/cli/username.md) %}
 
 * Чтобы задать пароль пользователя для доступа к базе данных, используйте один из параметров:

@@ -6,6 +6,6 @@
         * `enabled` — включено
             * `caCertificate` — сертификат CA.
     * {% include [Field API Subnet ID](../../fields/common/api/subnet-id.md) %}
-* {% include [Field API Database](../../fields/common/api/database.md) %}
+* {% include [Field API Database](../../fields/mysql/api/database-source.md) %}
 * {% include [Field API User](../../fields/common/api/user.md) %}
 * {% include [Field API Password](../../fields/common/api/password.md) %}
