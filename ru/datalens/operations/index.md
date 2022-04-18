@@ -53,6 +53,7 @@
 {% if audience == "internal" %} - [{#T}](chart/create-alert.md){% endif %}
 {% if audience != "internal" %} - [{#T}](chart/publish.md) {% endif %}
 - [{#T}](chart/manage-access.md)
+{% if audience == "internal" %} - [{#T}](chart/use-comments.md){% endif %}
 {% if audience == "internal" %} - [{#T}](chart/add-parameters.md) {% endif %}
 - [{#T}](chart/add-guid.md)
 {% if audience == "internal" %} - [{#T}](chart/export-from-monitoring.md) {% endif %}

@@ -212,6 +212,9 @@ items:
             href: operations/chart/publish.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
+          - name: Добавление комментариев
+            when: audience == "internal"
+            href: operations/chart/use-comments.md
           - name: Добавление параметров в настройках чарта на дашборде
             when: audience == "internal"
             href: operations/chart/add-parameters.md
