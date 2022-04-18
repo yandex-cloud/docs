@@ -135,6 +135,8 @@ items:
                 href: operations/connection/chyt/create-chyt.md
               - name: Рекомендации
                 href: operations/connection/chyt/chyt-recommendations.md
+              - name: Трассировка запроса в YT
+                href: operations/connection/chyt/chyt-datalens-tracing.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к AppMetrica
