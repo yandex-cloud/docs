@@ -22,6 +22,28 @@
 
 {% endlist %}
 
+### Источник {{ CH }} {#source-ch}
+
+{% list tabs %}
+
+* {{ mch-name }}
+
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} (MaterializedView).
+    1. [Создайте пользователя](../../managed-clickhouse/operations/cluster-users.md) с доступом к базе источника.
+
+* {{ CH }}
+
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} (MaterializedView).
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    1. Настройте кластер-источник, чтобы к нему можно было подключиться из интернета.
+
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
+
+    1. Создайте пользователя с доступом к базе источника.
+
+{% endlist %}
+
 ### Источник {{ GP }} {#source-gp}
 
 {% list tabs %}
@@ -63,28 +85,6 @@
         GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA <название служебной схемы> TO <имя пользователя>;
         GRANT SELECT ON ALL TABLES IN SCHEMA <название служебной схемы> TO <имя пользователя>;
         ```
-
-{% endlist %}
-
-### Источник {{ CH }} {#source-ch}
-
-{% list tabs %}
-
-* {{ mch-name }}
-
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} (MaterializedView).
-    1. [Создайте пользователя](../../managed-clickhouse/operations/cluster-users.md) с доступом к базе источника.
-
-* {{ CH }}
-
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} (MaterializedView).
-    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
-
-    1. Настройте кластер-источник, чтобы к нему можно было подключиться из интернета.
-
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
-
-    1. Создайте пользователя с доступом к базе источника.
 
 {% endlist %}
 
@@ -527,6 +527,48 @@
 
 {% endlist %}
 
+### Приемник {{ GP }} {#target-gp}
+
+{% list tabs %}
+
+- {{ GP }}
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    1. Отключите на приемнике:
+
+        * проверку целостности внешних ключей;
+        * триггеры;
+        * другие ограничения (constraints).
+
+        {% note warning %}
+
+        Не включайте эти настройки вновь до окончания трансфера. Это обеспечит целостность данных по внешним ключам.
+
+        {% endnote %}
+
+    1. Создайте пользователя командой:
+
+        ```sql
+        CREATE ROLE <имя пользователя> LOGIN ENCRYPTED PASSWORD '<пароль>';
+        ```
+
+    1. Выдайте созданному пользователю все привилегии на базу данных, схемы и переносимые таблицы командой:
+
+        ```sql
+        GRANT ALL PRIVILEGES ON DATABASE <имя базы> TO <имя пользователя>;
+        ```
+
+        Если база не пустая, то пользователь должен быть ее владельцем (owner):
+
+        ```sql
+        ALTER DATABASE <имя базы> OWNER TO <имя пользователя>;
+        ```
+
+        После старта трансфер подключится к приемнику от имени этого пользователя.
+
+{% endlist %}
+
 ### Приемник {{ MG }} {#target-mg}
 
 {% list tabs %}
@@ -735,7 +777,7 @@
 
         {% note warning %}
 
-        Эти настройки не следует включать обратно до окончания трансфера для обеспечения целостности данных по внешним ключам.
+        Не включайте эти настройки вновь до окончания трансфера. Это обеспечит целостность данных по внешним ключам.
 
         Если вы используете тип трансфера _{{ dt-type-copy-repl }}_, настройки можно включить обратно после завершения [стадии копирования](../concepts/transfer-lifecycle.md#copy-and-replication).
 
@@ -759,7 +801,7 @@
 
         {% note warning %}
 
-        Эти настройки не следует включать обратно до окончания трансфера для обеспечения целостности данных по внешним ключам.
+        Не включайте эти настройки вновь до окончания трансфера. Это обеспечит целостность данных по внешним ключам.
 
         Если вы используете тип трансфера _{{ dt-type-copy-repl }}_, настройки можно включить обратно после завершения [стадии копирования](../concepts/transfer-lifecycle.md#copy-and-replication).
 
@@ -774,13 +816,13 @@
     1. Выдайте созданному пользователю все привилегии на базу данных, схемы и переносимые таблицы командой:
 
         ```sql
-        GRANT ALL PRIVILEGES ON DATABASE <название базы> TO <имя пользователя>;
+        GRANT ALL PRIVILEGES ON DATABASE <имя базы> TO <имя пользователя>;
         ```
 
         Если база не пустая, то пользователь должен быть ее владельцем (owner):
 
         ```sql
-        ALTER DATABASE <название базы> OWNER TO <имя пользователя>;
+        ALTER DATABASE <имя базы> OWNER TO <имя пользователя>;
         ```
 
         После старта трансфер подключится к приемнику от имени этого пользователя.

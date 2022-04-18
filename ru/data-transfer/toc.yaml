@@ -36,6 +36,8 @@ items:
             items:
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
+              - name: Greenplum®
+                href: operations/endpoint/target/greenplum.md
               - name: MongoDB
                 href: operations/endpoint/target/mongodb.md
               - name: MySQL

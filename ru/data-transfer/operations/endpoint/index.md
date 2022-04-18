@@ -26,6 +26,7 @@
             * [{{ yds-full-name }}](source/data-streams.md).
         * Приемники:
             * [{{ CH }}](target/clickhouse.md).
+            * [{{ GP }}](target/greenplum.md).
             * [{{ MG }}](target/mongodb.md).
             * [{{ MY }}](target/mysql.md).
             * [{{ objstorage-name }}](target/object-storage.md).
@@ -177,6 +178,7 @@
             * [{{ yds-name }}](source/data-streams.md).
         * Приемники:
             * [{{ CH }}](target/clickhouse.md).
+            * [{{ GP }}](target/greenplum.md).
             * [{{ MG }}](target/mongodb.md).
             * [{{ MY }}](target/mysql.md).
             * [{{ objstorage-name }}](target/object-storage.md).
