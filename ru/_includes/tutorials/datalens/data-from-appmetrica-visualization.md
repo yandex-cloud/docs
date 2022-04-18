@@ -62,6 +62,8 @@
 
     После создания подключения откроется папка с дашбордом и набором датасетов и чартов.
 
+    {% include [datalens-appmetrica-note](../../../_includes/datalens/datalens-appmetrica-note.md) %}
+
 ## Измените стандартный дашборд {#edit-dashboard}
 
 {% note warning %}

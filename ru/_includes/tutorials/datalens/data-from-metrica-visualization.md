@@ -57,6 +57,8 @@
 
     После создания подключения откроется папка с набором датасетов, чартов и дашбордом.
 
+    {% include [datalens-metrica-note](../../../_includes/datalens/datalens-metrica-note.md) %}
+
 1. Перейдите на **Дашборд по данным Метрики**.
 
     ![image](../../../_assets/datalens/solution-03/07-open-dashboard.png)
