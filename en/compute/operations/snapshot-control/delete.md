@@ -11,35 +11,54 @@ To delete a snapshot:
 {% list tabs %}
 
 - Management console
-  
-  1. In the management console, select the folder the snapshot belongs to.
-  1. Select **{{ compute-name }}**.
-  1. On the **Virtual machines** page, go to the **Disk snapshots** tab.
-  1. In the line with the appropriate snapshot, click ![image](../../../_assets/dots.svg) and select the **Delete** command.
-  1. Confirm deletion.
-  
+
+   1. In the management console, select the folder the snapshot belongs to.
+   1. Select **{{ compute-name }}**.
+   1. On the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **Disk snapshots**.
+   1. In the row with the desired snapshot, click ![image](../../../_assets/dots.svg) and select the **Delete** command from the menu.
+   1. Confirm the deletion.
+
 - CLI
-  
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
-  1. View a description of the CLI's delete snapshot commands:
-  
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. See the description of the CLI's delete snapshot commands:
+
       ```
       $ yc compute snapshot delete --help
       ```
-  
-  1. Get a list of snapshots in the default folder:
-  
+
+   1. Get a list of snapshots in the default folder:
+
       {% include [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md) %}
-  
-  1. Select the `ID` or `NAME` of the snapshot.
-  
-  1. Delete the snapshot:
-  
+
+   1. Select the ID (`ID`) or the name (`NAME`) of the desired snapshot.
+   1. Delete the snapshot:
+
       ```
       $ yc compute snapshot delete \
           --name first-snapshot
       ```
-  
-{% endlist %}
 
+- Terraform
+
+   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   If you created a snapshot with Terraform, you can delete it:
+
+   1. In the command line, go to the directory with the Terraform configuration file.
+   2. Delete resources using the command:
+
+      ```
+      $ terraform destroy
+      ```
+
+      {% note alert %}
+
+      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+
+      {% endnote %}
+
+   3. Confirm the deletion of resources.
+
+{% endlist %}

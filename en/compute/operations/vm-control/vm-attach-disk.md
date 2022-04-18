@@ -1,4 +1,5 @@
-# Attaching disks to a VM
+# Attaching a disk to a VM
+
 
 You can attach a disk to either a running or stopped VM.
 
@@ -169,18 +170,18 @@ To partition and mount an empty disk yourself:
 
    1. Partition your disk. To do this, create [partitions]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} using the `cfdisk` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %}, the `fdisk` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %}, or the `parted` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %}.
 
-   1. As an example, let's create partitions using the `fdisk` command. Use the `sudo` command or run the commands as `root` by executing `sudo su -`.
+   1. For example, let's create partitions using the `fdisk` command. Use the `sudo` command or run commands on behalf of the `root` user: to do this, run `sudo su -`.
 
       ```bash
       sudo fdisk /dev/vdb
       ```
 
-      This will take you to the `fdisk` menu. For a list of available commands press the `m` key.
+      You will be taken to the `fdisk` program menu. For a list of available commands press the `m` key.
 
-   1. Create a new partition by pressing `n`.
-   1. Specify that the partition will be primary by pressing `p`.
+   1. To create a new partition, click `n`.
+   1. Specify that the partition will be the primary one: click `p`.
    1. You will be prompted to select a partition number. Press `Enter` to create the first partition.
-   1. Keep the defaults for the partition's first and last sector numbers by pressing `Enter` twice.
+   1. Leave default values for the numbers of the first and last sectors of the partition: press `Enter` twice.
    1. Make sure that the partition has been created. To do this, press the `p` key to display a list of the disk's partitions. An example partition:
 
       ```bash
@@ -234,7 +235,7 @@ To partition and mount an empty disk yourself:
          UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdb1 ext4 defaults 0 2
          ```
 
-      1. Save the changes to the file.
+      1. Save the changes in the file.
    1. Check the status of your file systems:
 
       ```bash

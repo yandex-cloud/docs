@@ -133,6 +133,12 @@ items:
             href: operations/image-create/custom-image.md
           - name: Uploading your image
             href: operations/image-create/upload.md
+          - name: Creating an image from a disk
+            href: operations/image-create/create-from-disk.md
+          - name: Creating an image from a snapshot
+            href: operations/image-create/create-from-snapshot.md
+          - name: Creating an image from other custom image
+            href: operations/image-create/create-from-image.md
       - name: Managing images
         items:
           - name: Deleting a disk image

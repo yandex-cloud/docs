@@ -1,27 +1,27 @@
 # Attaching file storage to a VM
 
-1. If the VM is started and running (its [status](../../concepts/vm-statuses.md) is `RUNNING`), [stop it](../vm-control/vm-stop-and-start.md).
+1. If a virtual machine has been launched and is running (the `RUNNING` [status](../../concepts/vm-statuses.md)), [stop it](../vm-control/vm-stop-and-start.md#stop).
 1. Attach file storage to the VM in {{ compute-name }}:
 
    {% list tabs %}
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where your file storage was created.
-     1. Select **{{ compute-name }}**.
-     1. Go to the **File storages** tab.
-     1. Select the desired storage.
-     1. Go to the **Virtual machines** tab.
-     1. Click **Attach to VM**.
-     1. In the window that opens:
+      1. In the [management console]({{ link-console-main }}), select the folder where you created the file store.
+      1. Select **{{ compute-name }}**.
+      1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
+      1. Select the desired storage.
+      1. Go to the **Virtual machines** tab.
+      1. Click **Attach to VM**.
+      1. In the window that opens:
 
-        1. Select the **VM**.
-        1. Specify the **Device name** for accessing file storage in the VM.
-        1. Click **Attach to VM**.
+         1. Select the **VM**.
+         1. Specify the **Device name** for accessing file storage in the VM.
+         1. Click **Attach to VM**.
 
    - API
 
-     Use the [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem) method of the gRPC API or the [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) method of the Instance resource in the REST API.
+      Use the [InstanceService/AttachFilesystem](../../api-ref/grpc/instance_service.md#AttachFilesystem) gRPC API method or the [attachFilesystem](../../api-ref/Instance/attachFilesystem.md) method of the REST API Instance resource.
 
    {% endlist %}
 
@@ -59,4 +59,3 @@
       ```
       <device name>  <mount path> virtiofs    rw    0   0
       ```
-

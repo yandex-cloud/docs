@@ -66,6 +66,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
+* [{#T}](disk-create/nonreplicated.md)
 
 ## Disk management {#disk-control}
 
@@ -84,6 +85,9 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](image-create/custom-image.md)
 * [{#T}](image-create/upload.md)
+* [{#T}](image-create/create-from-disk.md)
+* [{#T}](image-create/create-from-snapshot.md)
+* [{#T}](image-create/create-from-image.md)
 
 ## Managing images {#image-control}
 
