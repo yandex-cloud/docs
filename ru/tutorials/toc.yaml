@@ -74,7 +74,9 @@ items:
       - name: Нагрузочное тестирование gRPC-сервиса
         href: testing/loadtesting-grpc.md
       - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
-        href: testing/loadtesting-https-phantom.md  
+        href: testing/loadtesting-https-phantom.md
+      - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
+        href: testing/loadtesting-https-pandora.md
   - name: Управление инфраструктурой
     items:
       - name: Все руководства
