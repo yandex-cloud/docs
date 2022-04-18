@@ -388,6 +388,12 @@
 
 {% endlist %}
 
+{% note info %}
+
+Об особенностях переноса данных из {{ PG }} в {{ CH }} трансферами типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ см. в разделе [Перенос данных из {{ PG }} в {{ CH }}](../tutorials/rdbms-to-clickhouse.md).
+
+{% endnote %}
+
 ### Источник {{ yds-full-name }} {#source-yds}
 
 {% if audience == "external" %}
@@ -783,7 +789,7 @@
 
 Сервис не переносит материализованные представления (`MATERIALIZED VIEW`). Подробнее см. в разделе [Особенности работы сервиса с источниками и приемниками](../concepts/index.md#postgresql).
 
-### {{ ydb-full-name }} {#prepare-source-ydb}
+### Приемник {{ ydb-full-name }} {#target-ydb}
 
 Чтобы принимать данные в сервисе {{ ydb-full-name }}, подготовка не требуется.
 

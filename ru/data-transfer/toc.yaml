@@ -64,6 +64,8 @@ items:
         href: tutorials/managed-mysql-to-mysql.md
       - name: Миграция базы данных в {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
+      - name: Перенос данных из {{ PG }} в {{ CH }}
+        href: tutorials/rdbms-to-clickhouse.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
