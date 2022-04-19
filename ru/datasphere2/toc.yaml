@@ -105,7 +105,7 @@ items:
         href: tutorials/index.md
       - name: Знакомство с DataSphere
         href: tutorials/basics.md
-      - name: Распознавание голоса
+      - name: Голосовая биометрия
         href: tutorials/speech-recognition.md
       - name: Оценка качества STT моделей
         href: tutorials/estimate-quality.md
