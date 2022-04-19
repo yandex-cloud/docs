@@ -119,11 +119,11 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
 
           data = {
               'text': text,
-              'lang': 'en-US',
+              'lang': 'ru-RU',
               'voice': 'filipp',
               'folderId': folder_id
           }
-
+      
           with requests.post(url, headers=headers, data=data, stream=True) as resp:
               if resp.status_code != 200:
                   raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
@@ -249,7 +249,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
             var values = new Dictionary<string, string>
             {
               { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!" },
-              { "lang", "en-US" },
+              { "lang", "ru-RU" },
               { "voice", "filipp" },
               { "folderId", folderId },
               { "format", "lpcm" },

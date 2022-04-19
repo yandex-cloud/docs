@@ -18,7 +18,7 @@ editable: false
 
 ### Использование распознавания речи {#rules-stt}
 
-Стоимость использования {{ speechkit-name }} для распознавания речи зависит от типа распознавания и длительности распознанного аудио. Стоимость рассчитывается за календарный месяц ([Отчетный период](https://cloud.yandex.ru/docs/billing/concepts/glossary)).
+Стоимость использования {{ speechkit-name }} для распознавания речи зависит от типа распознавания и длительности распознанного аудио. Стоимость рассчитывается за календарный месяц ([Отчетный период]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/billing/concepts/glossary){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/docs/billing/concepts/glossary){% endif %}).
 
 #### Потоковый режим распознавания {#rules-stt-streaming}
 

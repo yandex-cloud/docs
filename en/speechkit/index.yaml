@@ -1,20 +1,19 @@
 title: Yandex SpeechKit
 description:
   - >-
-    Yandex SpeechKit allows application developers to use Yandex speech
-    technologies: speech recognition (Speech-to-Text) and speech synthesis
-    (Text-to-Speech).
+    Yandex SpeechKit allows application developers to use
+    Yandex speech technologies: speech recognition (Speech-to-Text) and speech
+    synthesis (Text-to-Speech).
   - To access SpeechKit, use the HTTP API.
   - >-
-    Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
-    with the law No. 152-FZ of the Russian Federation "On Personal Data".
+    The Yandex.Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully complies</a>
+    with the Russian Federal Law on Personal Data (No. 152-FZ).
   - >-
-    Service is provided under the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>.
-    Service level for Yandex SpeechKit is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for Yandex
-    SpeechKit</a> document.
+    The service is subject to the <a href="https://yandex.com/legal/cloud_sla">Service
+    Level Agreement</a>. The service level is defined in the
+    <a href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for Yandex
+    Compute Cloud</a>.
 meta:
   title: Yandex SpeechKit
 links:
@@ -46,7 +45,7 @@ links:
     description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Set up access rights to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

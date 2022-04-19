@@ -1,5 +1,6 @@
 | Service | Rate for the billable unit, with VAT |
 | ----- | ----- |
-| [Short audio recognition](../../speechkit/pricing.md#rules-stt-short) | {{ sku|RUB|ai.speech.stt|string }} |
-| [Long audio recognition](../../speechkit/pricing.md#rules-stt-long) | {{ sku|RUB|ai.speech.stt_long_running|string }} |
-| [Long audio recognition](../../speechkit/pricing.md#rules-stt-long) by the [deferred-general](../../speechkit/stt/models.md#new-versions) model | {{ sku|RUB|ai.speech.stt_long_running_deferred.v1|string }} |
+| [Streaming audio recognition](../../speechkit/stt/streaming.md) | {{ sku|RUB|ai.speech.stt|string }} |
+| [Synchronous recognition](../../speechkit/stt/request.md) | {{ sku|RUB|ai.speech.stt|string }} |
+| [Asynchronous recognition](../../speechkit/stt/transcribation.md) | {{ sku|RUB|ai.speech.stt_long_running|string }} |
+| Asynchronous recognition by the [deferred-general](../../speechkit/stt/models#tags) model | {{ sku|RUB|ai.speech.stt_long_running_deferred.v1|string }} |

@@ -51,5 +51,5 @@ _Синтез речи_ в сервисе {{ speechkit-full-name }} позвол
 
 #### Что дальше {#what-is-next}
 
-* Попробуйте синтез речи с помощью демо на [странице сервиса](https://cloud.yandex.ru/services/speechkit#demo).
+* Попробуйте синтез речи с помощью демо на [странице сервиса]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}.
 * Ознакомьтесь с параметрами метода [API v1](request.md).

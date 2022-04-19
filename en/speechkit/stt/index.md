@@ -2,35 +2,42 @@
 
 _Speech recognition (speech-to-text, STT)_ is the process of converting speech to text.
 
-The service can recognize speech in several languages:
+With {{ speechkit-full-name }}, you can recognize Russian speech.
 
-* Russian
-* English
-* Turkish
+{% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
 ## Recognition methods {#stt-ways}
 
-There are three recognition methods:
+{{ speechkit-name }} provides two ways of improving the quality of speech recognition:
 
-1. [Recognition of short audio fragments](request.md). This is suitable for recognizing small single-channel audio fragments.
+1. [Streaming recognition](streaming.md) is used for real-time speech recognition. During streaming recognition, {{ speechkit-name }} receives short audio fragments and sends the results, including intermediate ones, over a single connection.
+1. Audio file recognition. {{ speechkit-name }} Can recognize audio recordings in [synchronous](request.md) and [asynchronous](transcribation.md) mode.
+   * Synchronous mode has strict limitations on the size and duration of a file and is suitable for recognizing single-channel audio fragments of up to {{ stt-short-audioLength }}.
+   * Asynchronous mode can process multi-channel audio fragments. Maximum recording duration: {{ stt-long-audioLength }}.
 
-1. [Streaming mode](streaming.md) for short audio recognition. This allows you to send audio fragments and get results, including intermediate recognition results, over a single connection.
+### Which recognition to choose {#choose-stt}
 
-1. [Recognition of long audio fragments](transcribation.md). This lets you recognize long multi-channel audio recordings, but the response may be slower.
-
-    For now, you can only recognize long audio in Russian.
+|  | [Data streaming recognition](streaming.md) | [Synchronous recognition](request.md) | [Asynchronous recognition](transcribation.md) |
+|---|---|---|---|
+| **Use cases** | Telephone assistants and robots </br> Virtual assistants | Virtual assistants </br> Voice control </br> Recognition of short voice messages in messengers | Transcription of audio calls and presentations </br> Subtitling </br> Ensuring script adherence in call centers </br> Identifying successful scripts </br> Evaluating performance of call center operators. |
+| **Input data** | Real-time voice | Pre-recorded short single-channel audio files | Pre-recorded multi-channel and long audio files |
+| **How it works** | Exchanging messages with the server over a single connection | Request — quick response | Request — delayed response |
+| **Supported APIs** | gRPC v1 </br> gRPC v3 | REST v1 | REST v1 |
+| **Maximum duration of audio data** | {{ stt-streaming-audioLength }} | {{ stt-short-audioLength }} | {{ stt-long-audioLength }} |
+| **Maximum amount of transmitted data** | {{ stt-streaming-fileSize }} | {{ stt-short-fileSize }} | {{ stt-long-fileSize }} |
+| **Number of recognition channels** | 1 | 1 | 2 |
 
 ## Recognition process {#process}
 
-Audio is recognized in three stages:
+Regardless of the mode, audio is recognized in three stages:
 
-1. Words are detected. There are usually several possible words recognized (or hypotheses).
-1. Hypotheses are checked using the language model. The model validates to what extent a new word is consistent with other words that have already been recognized.
-1. The recognized text is processed: numbers are converted to digits, certain punctuation marks (such as hyphens) are added, and so on. The converted text is the final recognition result that is sent in the response body.
+1. Identification of words. For each word, multiple hypotheses are put forward.
+1. Recognition of words. The language model checks hypotheses and determines how well a new word fits in with the words recognized earlier.
+1. Processing of text. In the recognized text, numbers are converted into digits and some punctuation, such as hyphens, is marked. After that, the result is sent in the response body.
 
 ## Recognition accuracy {#speed_and_accuracy}
 
-To increase the accuracy of recognition, specify the language model that the service should use. The model should match the speech topic.
+Recognition accuracy depends on the recognition model. You can improve a model's recognition accuracy by providing data for model retraining. For more information about ways of model retraining, see [{#T}](additional-training.md).
 
 The accuracy of speech recognition is also affected by:
 
@@ -39,11 +46,13 @@ The accuracy of speech recognition is also affected by:
 * Speech intelligibility and rate.
 * Utterance complexity and length.
 
-#### See also {#see-also}
+{% include [accuracy](../../_includes/speechkit/accuracy.md)%}
+
+#### For details, see also {#see-also}
 
 * [{#T}](formats.md)
 * [{#T}](models.md)
 * [{#T}](request.md)
 * [{#T}](streaming.md)
 * [{#T}](transcribation.md)
-
+* [{#T}](additional-training.md)
