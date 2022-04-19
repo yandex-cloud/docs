@@ -27,7 +27,7 @@ items:
       items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: API v1
+      - name: API v2
         items:
         - name: Streaming Recognition API
           href: stt/api/streaming-api.md
@@ -54,6 +54,8 @@ items:
       href: tts/index.md
     - name: List of voices
       href: tts/voices.md
+    - name: Configuring speech generation
+      href: tts/tts-markup.md
     - name: SpeechKit Brand Voice
       items:
       - name: About SpeechKit Brand Voice

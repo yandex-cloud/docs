@@ -87,9 +87,6 @@ items:
   - name: Marketplace partner interface
     href: marketplace/index.md
     when: audience == "external"
-  - name: Marketplace partners
-    href: marketplace-v2/index.md
-    when: audience == "external"
   - name: MDB
     href: mdb/index.yaml
     when: audience == "internal"
