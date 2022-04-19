@@ -6,7 +6,7 @@ editable: false
 
 Writes product image usage statistics. A user's service account is used for authentication.
 
-## HTTP request{#https-request}
+## HTTP request {#https-request}
 
 ```
 POST https://marketplace.api.cloud.yandex.net/marketplace/v1/metering/imageProductUsage/write
@@ -37,7 +37,7 @@ POST https://marketplace.api.cloud.yandex.net/marketplace/v1/metering/imageProdu
 | usageRecords[].<br>uuid | **string**<br><p>Required field. Unique identifier of a usage record in UUID format.</p> <p>The maximum string length is 36 characters.</p> |
 | usageRecords[].<br>skuId | **string**<br><p>Required field. Marketplace Sku ID indicating consumption, related to `UsageRecord.product_id`.</p> <p>The maximum string length is 50 characters.</p> |
 | usageRecords[].<br>quantity | **string** (int64)<br><p>Number of consumed SKUs measured in `sku.usage_unit` (for example, bytes).</p> <p>The value must be greater than 0.</p> |
-| usageRecords[].<br>timestamp | **string** (date-time)<br><p>Required field. Reporting period UTC Timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> |
+| usageRecords[].<br>timestamp | **string** (date-time)<br><p>Required field. Reporting period UTC Timestamp.</p> <p>String in the text format <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> |
 
 ## Response {#responses}
 
