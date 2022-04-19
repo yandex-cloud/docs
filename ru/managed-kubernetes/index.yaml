@@ -11,8 +11,8 @@ description:
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_compute">Уровень
-    обслуживания Yandex Compute Cloud</a>.
+    документе <a href="https://yandex.ru/legal/cloud_sla_kb">Уровень
+    обслуживания Yandex Managed Service for Kubernetes</a>.
 meta:
   title: Managed Service for Kubernetes
 links:
