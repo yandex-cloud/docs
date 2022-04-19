@@ -3,6 +3,7 @@ href: index.yaml
 stage: tech-preview
 items:
   - name: Начало работы
+    href: quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

@@ -473,6 +473,7 @@ default:
   link-wiki: https://wiki.yandex.ru/
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   pg-docs: https://www.postgresql.org/docs/current
+  link-datasphere-main: https://datasphere-preprod.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex Cloud
