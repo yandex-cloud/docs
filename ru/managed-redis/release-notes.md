@@ -1,5 +1,7 @@
 # Изменения сервиса {{ mrd-full-name }}
 
+{% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
 ## 01.04.2022 {#01.04.2022}
 
 * 
