@@ -103,7 +103,8 @@ Docker-образ — исполняемый пакет, который соде
     func main() {
         portStr := os.Getenv("PORT")
         fmt.Printf("App listening at port %s\n", portStr)
-        http.ListenAndServe(":"+portStr, hwHandler{})
+        http.Handle("/hello", hwHandler{})
+        http.ListenAndServe(":"+portStr, nil)
     }
 
     type hwHandler struct{}
