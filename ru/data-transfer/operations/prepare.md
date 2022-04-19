@@ -14,7 +14,7 @@
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-    1. Настройте кластер-источник, чтобы к нему можно было подключиться из интернета.
+    1. Настройте кластер-источник, чтобы к нему можно было подключиться из {% if audience != "internal" %}интернета{% else %}сети `_YTVANGANETS_`{% endif %}.
 
     1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) для учетной записи на нужный топик.
 
@@ -36,7 +36,7 @@
     1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} (MaterializedView).
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-    1. Настройте кластер-источник, чтобы к нему можно было подключиться из интернета.
+    1. Настройте кластер-источник, чтобы к нему можно было подключиться из {% if audience != "internal" %}интернета{% else %}сети `_YTVANGANETS_`{% endif %}.
 
     1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
 
@@ -105,7 +105,7 @@
 
     1. Убедитесь, что версия {{ MG }} на приемнике не ниже `4.0`.
 
-    1. [Настройте кластер-источник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из интернета:
+    1. [Настройте кластер-источник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из {% if audience != "internal" %}интернета{% else %}сети `_YTVANGANETS_`{% endif %}:
 
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
 
@@ -597,7 +597,7 @@
 
     1. Убедитесь, версия {{ MG }} на приемнике не ниже чем на источнике.
 
-    1. [Настройте кластер-приемник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из интернета:
+    1. [Настройте кластер-приемник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из {% if audience != "internal" %}интернета{% else %}сети `_YTVANGANETS_`{% endif %}:
 
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
 
