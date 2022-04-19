@@ -15,7 +15,7 @@
    - [Cloud Docs Guidelines](https://wiki.yandex-team.ru/cloud/docs/cloud-guidelines/)
    - [Соглашения по Git workflow для документов Yandex.Cloud](https://wiki.yandex-team.ru/cloud/docs/branches-workflow/);
 
-1. Cоздайте PR в репозитории https://bb.yandex-team.ru/projects/CLOUD/repos/docs/. Это репозиторий с общей кодовой базой для внутренней и внешней версии документации. Если правки затрагивают только внутреннюю документацию, используйте [условные операторы](https://github.com/yandex-cloud/yfm-transform/blob/master/DOCS.ru.md#условные-операторы-).
+1. Создайте PR в репозитории https://bb.yandex-team.ru/projects/CLOUD/repos/docs/. Это репозиторий с общей кодовой базой для внутренней и внешней версии документации. Если правки затрагивают только внутреннюю документацию, используйте [условные операторы](https://github.com/yandex-cloud/yfm-transform/blob/master/DOCS.ru.md#условные-операторы-).
 
 ## Как собрать документацию локально
 
