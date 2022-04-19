@@ -2,10 +2,10 @@ title: Yandex Translate
 description:
   - >-
     Use this service to integrate <a
-    href="https://translate.yandex.com/">Yandex.Translate</a> algorithms into
-    end-user applications or web projects. Yandex.Translate supports more than
+    href="https://translate.yandex.com/">Yandex&#160;Translate</a> algorithms into
+    end-user applications or web projects. Yandex&#160;Translate supports more than
     90 languages and can translate individual words and complete texts.
-  - To access the service, use the HTTP API.
+  - To access the service, use the <a href=api-ref/authentication>API</a>.
   - >-
     The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
@@ -30,7 +30,7 @@ links:
     href: concepts/
   - title: API reference
     description: HTTP API method descriptions
-    href: api-ref/Translation/
+    href: api-ref/authentication
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
