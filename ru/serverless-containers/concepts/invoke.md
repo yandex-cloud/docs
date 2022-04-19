@@ -5,7 +5,7 @@
 * с помощью [триггера {{ sf-full-name }}](#trigger);
 * с помощью [расширения {{ api-gw-full-name }}](#extension).
 
-При вызове контейнера приложение принимает HTTP-запросы на порт, переданный в переменной окружения `PORT`. Порт, на котором приложение обслуживает HTTP-запросы, задается в настройках ревизии контейнера.
+{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 ## HTTPS {#https}
 
