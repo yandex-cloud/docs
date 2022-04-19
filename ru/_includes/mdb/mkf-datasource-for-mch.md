@@ -256,4 +256,8 @@
     - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md);
     - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
 
+{% if audience != "internal" %}
+
 - Если вы зарезервировали для кластеров публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+
+{% endif %}

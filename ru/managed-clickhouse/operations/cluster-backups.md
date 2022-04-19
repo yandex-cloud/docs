@@ -156,11 +156,11 @@ description: "Вы можете создавать резервные копии
           * `PRODUCTION` — для стабильных версий ваших приложений.
           * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ MS}}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
 
-      * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
+      * `--network-name` — {% if audience != "internal" %}[имя сети](../../vpc/concepts/network.md#network){% else %}имя сети{% endif %}.
       * `--host` — параметры хоста:
 
           * `type` — тип хоста: `clickhouse` или `zookeeper`.
-          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+          * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
           {% if audience != "internal" %}* `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.{% endif %}
 
       * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).

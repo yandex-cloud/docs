@@ -6,11 +6,15 @@
 
 Чтобы посмотреть графики в сервисе [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %}, на главной странице выберите сервисный дашборд **{{ mmy-short-name }}**. Для просмотра отдельных метрик перейдите в раздел **Обзор метрик** и задайте параметру `service` значение **{{ mmy-short-name }}**.
 
+{% if audience != "internal" %}
+
 #### Как настроить алерты {#alerts}
 
 Настроить алерты можно можно в сервисе [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %}: для этого воспользуйтесь инструкцией в разделе [{#T}](../../monitoring/operations/alert/create-alert.md).
 
 При выборе метрики задайте параметру `service` значение **{{ mmy-short-name }}**.
+
+{% endif %}
 
 #### Как посмотреть логи {#logs}
 
