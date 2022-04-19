@@ -6,7 +6,7 @@
 
 1. In the **Manifest** field, insert a valid link to the manifest previously uploaded in {{ objstorage-full-name }}. For more information about the manifest and product requirements for {{ managed-k8s-name }}, see [{#T}](../../marketplace/operations/create-container.md).
 
-1. Fill in the product information in Russian and English:
+1. Fill in product information in Russian and English:
 
    * **Name**: The name of your product.
    * **Short description**: A brief description.
@@ -23,8 +23,8 @@
    * **Header (ru)**: The name of the product (or license agreement) in Russian.
    * **Header (en)**: The name of the product (or license agreement) in English.
    * **Type**: The type of the license agreement:
-       * For the main product: Additional terms of service.
-       * For software from other vendors included in the product: Additional terms of service by third parties.
+      * For the main product: Additional terms of service.
+      * For software from other vendors included in the product: Additional terms of service by third parties.
    * **URL**: A link to the license agreement.
 
 1. Click **Create**.
