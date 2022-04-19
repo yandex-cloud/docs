@@ -31,6 +31,7 @@ Runtime environments available in {{ sf-name }}.
 | Node.js 12 | `nodejs12` | No |
 | **PHP** |  |  |
 | PHP 7.4 | `php74` | No |
+| PHP 8.0 | `php8`  | No |
 | **Python** |  |  |
 | Python 3.9 | `python39` | Yes |
 | Python 3.8 | `python38` | No |
@@ -43,7 +44,7 @@ Runtime environments available in {{ sf-name }}.
 | **.NET Core** |  |  |
 | .NET Core 3.1 | `dotnetcore31` | No |
 | **R** |  |  |
-| R 4.0.2 | `r402` | No |
+| R 4.0.5 | `r405` | No |
 | **Other** |  |  |
 | Bash | `bash` | No |
 
