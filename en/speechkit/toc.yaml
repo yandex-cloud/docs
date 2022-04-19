@@ -90,7 +90,6 @@ items:
         - name: Speech recognition
           href: hybrid-speechkit/asr.md
         - name: Monitoring
-          hidden: true
           href: hybrid-speechkit/monitoring.md
         - name: gRPC API references
           items:
