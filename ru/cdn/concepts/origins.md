@@ -32,4 +32,4 @@
 
 #### См. также {#see-also}
 
-* [Инструкции по работе с источниками](../operations/index.md#origins).
+* [Инструкции по работе с источниками](../operations/index.md#origin-groups).

@@ -32,4 +32,4 @@ If you publish content in two or more buckets, combine them into a group of L7 l
 
 #### See also {#see-also}
 
-* [Instructions for operations with origins](../operations/index.md#origins).
+* [Instructions for operations with origins](../operations/index.md#origin-groups).
