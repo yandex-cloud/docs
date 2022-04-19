@@ -27,14 +27,15 @@ To recognize speech in [LPCM](../formats.md#lpcm) format, specify the file sampl
    }
    ```
 
-1. Send a recognition request:
+1. Send a recognition request, specifying the [IAM token](../../../iam/concepts/authorization/iam-token/) in the `IAM_TOKEN` parameter:
+
    ```bash
-   export IAM_TOKEN=CggaATEVAgA...
+   export IAM_TOKEN=<IAM token>
    curl -X POST \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -d '@body.json' \
        https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
-   
+
    {
        "done": false,
        "id": "e03sup6d5h1qr574ht99",
@@ -51,7 +52,7 @@ To recognize speech in [LPCM](../formats.md#lpcm) format, specify the file sampl
    ```bash
    curl -H "Authorization: Bearer ${IAM_TOKEN}" \
        https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
-   
+
    {
    "done": true, "response": {
     "@type": "type.googleapis.com/yandex.cloud.ai.stt.v2.LongRunningRecognitionResponse",
@@ -59,7 +60,7 @@ To recognize speech in [LPCM](../formats.md#lpcm) format, specify the file sampl
      {
       "alternatives": [
        {
-        "text": "привет мир",
+        "text": "Hello world!",
         "confidence": 1
        }
       ],

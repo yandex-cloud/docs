@@ -19,14 +19,15 @@ To recognize speech in [OggOpus](../formats.md#oggopus) format, just specify the
           }
       }
       ```
-   1. Send a recognition request:
+   1. Send a recognition request, specifying the [IAM token](../../../iam/concepts/authorization/iam-token/) in the `IAM_TOKEN` parameter:
+
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
+      export IAM_TOKEN=<IAM token>
+      curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
           https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
-      
+
       {
           "done": false,
           "id": "e03sup6d5h1qr574ht99",
@@ -41,9 +42,9 @@ To recognize speech in [OggOpus](../formats.md#oggopus) format, just specify the
    1. Send a request to [get information about the operation](../../../api-design-guide/concepts/operation.md#monitoring):
 
       ```bash
-      $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
           https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
-      
+
       {
        "done": true,
        "response": {
@@ -52,7 +53,7 @@ To recognize speech in [OggOpus](../formats.md#oggopus) format, just specify the
          {
           "alternatives": [
            {
-            "text": "твой номер 212-85-06",
+            "text": "your number is 212-85-06",
             "confidence": 1
            }
           ],
@@ -74,17 +75,17 @@ To recognize speech in [OggOpus](../formats.md#oggopus) format, just specify the
 
       ```python
       # -*- coding: utf-8 -*-
-      
+
       import requests
       import time
       import json
-      
+
       # Specify your API key and link to the audio file in Object Storage.
       key = '<API key>'
       filelink = 'https://storage.yandexcloud.net/speechkit/speech.ogg'
-      
+
       POST = "https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize"
-      
+
       body ={
           "config": {
               "specification": {
@@ -95,33 +96,33 @@ To recognize speech in [OggOpus](../formats.md#oggopus) format, just specify the
               "uri": filelink
           }
       }
-      
+
       # If you wish to use an IAM token for authentification, replace Api-Key with Bearer.
       header = {'Authorization': 'Api-Key {}'.format(key)}
-      
+
       # Send a recognition request.
       req = requests.post(POST, headers=header, json=body)
       data = req.json()
       print(data)
-      
+
       id = data['id']
-      
+
       # Request the operation status on the server until recognition is complete.
       while True:
-      
+
           time.sleep(1)
-      
+
           GET = "https://operation.api.cloud.yandex.net/operations/{id}"
           req = requests.get(GET.format(id=id), headers=header)
           req = req.json()
-      
+
           if req['done']: break
           print("Not ready")
-      
+
       # Show the full server response in JSON format.
       print("Response:")
       print(json.dumps(req, ensure_ascii=False, indent=2))
-      
+
       # Show only text from recognition results.
       print("Text chunks:")
       for chunk in req['response']['chunks']:
@@ -130,7 +131,7 @@ To recognize speech in [OggOpus](../formats.md#oggopus) format, just specify the
    1. Run the created file:
 
       ```bash
-      $ python test.py
+      python test.py
       ```
 {% endlist %}
 

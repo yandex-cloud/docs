@@ -22,13 +22,13 @@ For speech recognition, the app should first send a [message with recognition se
 
 {{ speechkit-name }} returns [intermediate results](api/streaming-api.md#response) of speech recognition before a message stream with audio fragments has finished.
 
-To enable the app to access the service, you need to generate the client interface code for the programming language you use from the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file of the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) repository.
+To enable the app to access the service, you need to generate the client interface code for the programming language you use from the [stt_service.proto](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) file of the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/) repository.
 
 See examples of client applications on [{#T}](api/streaming-examples.md). See the [gRPC documentation](https://grpc.io/docs/tutorials/) for detailed instructions on how to generate interfaces and deploy client apps for various programming languages.
 
 ### Authorization in the service {#auth}
 
-In each request, the application must transmit the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which you are granted the `editor` role or higher. For more information about permissions, see [{#T}](../security/index.md).
+In each request, the application must transmit the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which you are granted the `editor` role or higher. For more information about permissions, see [Access management](../security/index.md).
 
 The application must also be authenticated for each request, such as with an IAM token. [Learn more about service authentication](../concepts/auth.md).
 

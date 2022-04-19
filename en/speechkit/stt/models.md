@@ -45,9 +45,9 @@ Versions available by the `general:deprecated` tag stop being supported when new
    The `general` model is available for Russian. In the API request, specify the `lang` parameter value.
    * `ru-RU` (default): Russian.
 
-Possible values are case-insensitive.
+   Possible values are case-insensitive.
 
-Read more about setting up API requests for short audio recognition on the [Short audio recognition](request.md#query_params) page.
+   Read more about setting up API requests for short audio recognition on the [Short audio recognition](request.md#query_params) page.
 
 - Asynchronous recognition
 

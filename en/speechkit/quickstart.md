@@ -14,7 +14,14 @@ For information about {{ speechkit-name }} usage costs, see [{#T}](pricing.md).
 
 With [speech synthesis](tts/index.md), you can convert text to speech and save it to an audio file.
 
-Pass the text in the `text` field as the [request message](tts/request.md) body using URL encoding. In the `lang` parameter, set the text language. In the `voice` parameter, specify the [voice](tts/voices.md) for speech synthesis. In the `folderId` parameter, specify the folder ID obtained [before you started](#before-begin). Write the response to the file:
+Send the [request](tts/request.md) to convert speech to text, specifying the following in its parameters:
+* `text`: Text to be recognized with the applied URL encoding.
+* `lang`: [Language](tts/index.md#langs) of the text.
+* `voice`: [Voice](tts/voices.md) for speech synthesis.
+* `folderId`: Folder ID received [before starting](#before-begin).
+* `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+
+Write the response to the `speech.ogg` file:
 
 ```bash
 read -r -d '' TEXT << EOM
@@ -23,7 +30,7 @@ read -r -d '' TEXT << EOM
 > Now yo+u can, too!
 > EOM
 export FOLDER_ID=<folder ID>
-export IAM_TOKEN=CggaATEVAgA...
+export IAM_TOKEN=<IAM token>
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-urlencode "text=${TEXT}" \
@@ -47,7 +54,11 @@ By default, audio is created in the [OggOpus](https://wiki.xiph.org/OggOpus) for
 
 The service can recognize speech [in different ways](stt/index.md#stt-ways). In this section, [synchronous recognition](stt/request.md) is used.
 
-Pass the binary content of your audio file in the [request message](stt/request.md) body. In the query parameters, specify the recognition language (`lang`) and the folder ID (`folderId`). The service responds with the recognized text:
+Pass the binary content of your audio file in the [request](stt/request.md) body, specifying the following in its parameters:
+* `lang`: Desired recognition [language](stt/models.md#tags).
+* `folderId`: Folder ID received [before starting](#before-begin).
+
+The service responds with the recognized text:
 
 ```bash
 curl -X POST \
@@ -55,7 +66,7 @@ curl -X POST \
    --data-binary "@speech.ogg" \
    "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
 
-{"result":"Я яндекс спичкит я могу превратить любой текст в речь теперь вы можете"}
+{"result":"I'm Yandex SpeechKit. I can turn any text into speech. Now you can, too!"}
 ```
 
 #### What's next {#what-is-next}
