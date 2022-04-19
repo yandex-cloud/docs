@@ -10,7 +10,7 @@ During synthesis, {{ speechkit-name }} doesn't stitch fragments of real speech 
 
 {{ speechkit-name }} models can synthesize Russian (`ru-RU`) speech.
 
-Some voices designed for speech synthesis in Russian can speak in English, but the synthesized text will be said with accent. For example, [try synthesizing]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %} the phrase <q>Let me speak from my heart!</q> by selecting Russian in the language settings.
+Some voices designed for speech synthesis in Russian can speak in English, but the synthesized text will be said with accent. For example, [try synthesizing](https://cloud.yandex.com/services/speechkit#demo) the phrase <q>Let me speak from my heart!</q> by selecting Russian in the language settings.
 
 ## Voices and speech settings {#voices}
 
@@ -52,9 +52,12 @@ Key differences of premium voices:
 * Understanding of context. Before starting speech synthesis, the premium voice engine evaluates the whole text rather than individual sentences. This allows for intonation that is more typical of human speech.
 * Attention to detail. By using deep neural networks for premium voice synthesis, we make a much deeper analysis of the original voice. This lets us generate a much clearer voice that is richer in detail and avoids various distortions typical in [standard voices](voices.md#standard).
 
-## SSML support {#ssml}
+## Controlling pronunciation {#ssml-tts}
 
-To get more control over speech synthesis, you can use [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML). This is an XML-based markup language that lets you set the duration of pauses, the pronunciation of individual sounds, and much more. For more information about supported tags and how to use them, see [{#T}](ssml.md).
+To have more control over speech synthesis, you can use the [Speech Synthesis Markup Language](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language) (SSML) and TTS markup. These markup methods enable you to set the length of pauses, the pronunciation of individual sounds, and more. SSML and TTS markup have different data transmission parameters:
+
+* To transmit text in SSML format, include the `ssml` parameter in the call body and use the `<speak>` tag as a wrapper for the text. SSML is supported only when using API v1. For more information, see [{#T}](ssml.md).
+* To use TTS markup, include the `text` parameter in the API v1 call body. For more information, see [{#T}](tts-markup.md).
 
 #### What's next {#what-is-next}
 
