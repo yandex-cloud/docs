@@ -64,7 +64,7 @@ The table of responses for the {{ wiki-name }} block must use a special format. 
 1. Add multiple rows to the table. In cells in the `name` column, enter response options that must be available in the {{ wiki-name }} block.
 
 
-1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-managment/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
+1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
 
 1. Put a link to the table in the {{ wiki-name }} block settings.
 
@@ -87,7 +87,7 @@ To create a table with response filtering:
    ![](../../_assets/forms/table_filter_parent.png)
 
 
-1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-managment/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
+1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
 
 1. Put a link to the table in the {{ wiki-name }} block settings and [turn on response filtering](#dlentry_filter).
 

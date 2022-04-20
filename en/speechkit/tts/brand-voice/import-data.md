@@ -1,16 +1,16 @@
 # Importing data for {{ brand-voice-name }}
 
-{{ brand-voice-name }} technology lets you create unique voices for a speech synthesis model. For model training and subsequent validation, audio recordings of the speaker's voice and transcriptions of recorded phrases are required. For more information about the input data format, see [{#T}](income-data-format.md).
+{{ brand-voice-name }} technology lets you create unique voices for a speech synthesis model. For model training and subsequent validation, audio recordings of the speaker's voice and transcriptions of recorded phrases are required. For details, see [{#T}](income-data-format.md).
 
-The input data is validated using the [{{ ml-platform-full-name }}](../../../datasphere/) project:
+The input data is validated using a [{{ ml-platform-full-name }}](../../../datasphere/) project.
 
 1. [Create](../../../resource-manager/operations/folder/create.md) in your cloud the folder where you'll store data for model training. There can be only one model per folder.
 
-1. In this folder, [create a project](../../../datasphere/operations/projects/create.md) in {{ ml-platform-name }}.
+1. In this folder, [create a project](../../../datasphere/operations/projects/create.md) {{ ml-platform-name }}.
 
-1. Go to the tab **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg).
+1. Go to the **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg) tab
 
-1. Upload a ZIP archive containing audio files and a table in [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) format containing the transcripts of the audio recordings by dragging the files to the tab **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg).
+1. Upload a ZIP archive containing audio files and a table in [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) format containing the transcripts of the audio recordings by dragging the files to the **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg) tab.
 
    If you recorded the data over the course of several days, break it down into several archives. Name each archive to correspond to the date when the recording was made, such as `12.12.2021.zip`. If an archive containing the recordings made in a single day is larger than 2 GB, break the data and the transcript table into several pieces, keeping the date in the name of each archive, such as `12.12.2021-1.zip` and `12.12.2021-2.zip`
 
@@ -20,8 +20,8 @@ The input data is validated using the [{{ ml-platform-full-name }}](../../../dat
    #!nirvana
    upload_tts_audio --dataset-name <recording date> \
                     --audio-archive <archive name>.zip \
-                    --texts <name of file with texts>.tsv \ 
-                    --report-path <name of file with error details>.tsv \ 
+                    --texts <transcript filename>.tsv \
+                    --report-path <name of file with error details>.tsv \
                     --summary-path <name of file with output>.txt \
                     --language ru
    ```
@@ -45,4 +45,3 @@ The input data is validated using the [{{ ml-platform-full-name }}](../../../dat
    #!nirvana
    delete_tts_audio --dataset-name <recording date>
    ```
-

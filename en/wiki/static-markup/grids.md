@@ -1,15 +1,57 @@
-# Table
+# Tables
 
 Static tables do not have any dynamic elements and are marked up manually.
 
-## Markdown table {#tab-md}
+{{ wiki-name }} also supports table markup using standard [HTML tags](html-code.md).
 
-- Add an empty line before inserting the table.
+{% list tabs %}
 
-- To format your table, use the following markup:
+- Tables in the {{ wiki-name }} format
+
+    * To format your table, use the following markup:
+
+        ```
+        #|
+        || Heading 1 | Heading 2| Heading 3 ||
+        || cell 11 | cell 12 | cell 13 ||
+        || cell 21 | cell 22 | cell 23 ||
+        |#
+        ```
+
+        {% cut "See the result" %}
+
+        ![](../../_assets/wiki/table-with-border.png)
+
+        {% endcut %}
+
+    * To fit the table to the full page width without borders, use the following markup:
+
+        ```
+        #||
+        || cell 11 | cell 12 | cell 13||
+        || cell 21 | cell 22 | cell 23||
+        ||#
+        ```
+
+        {% cut "See the result" %}
+
+        ![](../../_assets/wiki/table-without-border.png)
+
+        {% endcut %}
+
+    {% note info %}
+
+    You can use [text formatting](formatting.md) inside table cells.
+
+    {% endnote %}
+
+- Markdown table
+
+    Add an empty line before inserting the table.
+    To format your table, use the following markup:
 
     ```
-    | Header 1 | Header 2 | Header 3 |
+    | Heading 1 | Heading 2 | Heading 3 |
     | --- | --- | --- |
     | cell 11 | cell 12 | cell 13 |
     | cell 21 | cell 22 | cell 23 |
@@ -21,39 +63,41 @@ Static tables do not have any dynamic elements and are marked up manually.
 
     {% endcut %}
 
-{% note info %}
+    {% note info %}
 
-In table cells, you can use [text styling elements](formatting.md).
+    You can use [text formatting](formatting.md) inside table cells.
 
-{% endnote %}
+    {% endnote %}
 
-## Table in CSV format {#table_csv}
+- Table in CSV format
 
-You can display CSV data as a table by using markup:
+    To display [CSV data](csv.md) as a table, use the following markup:
 
-```
-%%(csv delimiter=; head=1)
-Header 1;Header 2;Header 3
-cell11;cell12;cell13
-cell21;cell22;cell23
-%%
-```
+    ```
+    %%(csv delimiter=; head=1)
+    Heading 1; Heading 2; Heading 3
+    cell 11;cell 12;cell 13
+    cell 21; cell 22; cell 23
+    %%
+    ```
 
-{% cut "See the result" %}
+    {% cut "See the result" %}
 
-![](../../_assets/wiki/csv-table.png)
+    ![](../../_assets/wiki/csv-table.png)
 
-{% endcut %}
+    {% endcut %}
 
-Markup parameters:
+    Markup parameters:
 
-- `delimiter`: Field separator used in CSV tables.
+    - `delimiter`: a field separator used in CSV tables.
 
-- `head`: If set to 1, the first row of the table becomes a heading.
+    - `head`: if set to 1, the first row of the table becomes a header.
 
-{% note info %}
+    {% note info %}
 
-CSV tables don't support any other text markup.
+    You can't use text formatting elements in CSV tables.
 
-{% endnote %}
+    {% endnote %}
+
+{% endlist %}
 

@@ -1,13 +1,13 @@
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create your instance group.
+1. In the [management console]({{ link-console-main }}), select a folder to create your instance group in.
 1. In the list of services, select **{{ compute-name }}**.
-1. Go to the **Instance groups** tab.
+1. On the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **Instance groups**.
 1. Click **Create group**.
 1. Under **Basic parameters**:
    * Enter the **Name** and **Description** of the instance group. Naming requirements:
 
-     {% include [name-format](../name-format.md) %}
+      {% include [name-format](../name-format.md) %}
 
-     {% include [name-fqdn](../compute/name-fqdn.md) %}
+      {% include [name-fqdn](../compute/name-fqdn.md) %}
 
    * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
    * Enable **Deletion protection** if needed. You can't delete a group with this option enabled.
@@ -16,26 +16,26 @@
    * Under **Basic parameters**, enter the template **Description**:
    * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
    * In the **Disks** section:
-     * Select the [disk type](../../compute/concepts/disk.md#disks_types).
-     * Specify the **Size** of the disk.
-     * To add more disks, click **Add disk**.
+      * Select the [disk type](../../compute/concepts/disk.md#disks_types).
+      * Specify the **Size** of the disk.
+      * To add more disks, click **Add disk**.
    * Under **Computing resources**:
-     * Choose a [platform](../../compute/concepts/vm-platforms.md).
-     * Specify the required number of **vCPUs**, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of **RAM**.
-     * {% include [include](specify-preemptible-vm.md) %}
+      * Choose a [platform](../../compute/concepts/vm-platforms.md).
+      * Enter the required number of **vCPUs**, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of **RAM**.
+      * {% include [include](specify-preemptible-vm.md) %}
    * Under **Network settings**:
-     * Select the [cloud network](../../vpc/concepts/network.md#network) from the list, or specify its ID. If you don't have a network, click **Create a new network** to create one:
-       * In the window that opens, enter a name for the new network and choose the **Subnet in the zone** to connect the instance to. Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet) (if there's no subnet, [create one](../../vpc/operations/subnet-create.md).
-     * In the **Public IP** field, choose a method for assigning an IP address:
-       * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-       * **No address**: Don't assign a public IP address.
-     * (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more information, see [Yandex Cloud DNS integration with Yandex Compute Cloud](../../dns/concepts/compute-integration.md).
-     * Select the [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
+      * Select a [cloud network](../../vpc/concepts/network.md#network) from the list or enter a cloud network ID. If you don't have a network, click **Create a new network** to create one:
+         * In the window that opens, enter a name for the new network and choose the **Subnet in the zone** to connect the instance to. Each network should have a minimum of one [subnet](../../vpc/concepts/network.md#subnet) (if there are no subnets, [create one](../../vpc/operations/subnet-create.md)).
+      * In the **Public IP** field, choose a method for assigning an IP address:
+         * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
+         * **No address**: Don't assign a public IP address.
+      * Select [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
+      * (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../dns/concepts/compute-integration.md).
    * Under **Access**, specify the information required to access the instance:
-     * Specify a **Service account** to be linked to the instance.
-     * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the file contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     * If you selected a Windows image, enter the **Password** for your `Administrator` user.
-     * If needed, **Grant access to the serial console**.
+      * Specify a **Service account** to be linked to the instance.
+      * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file contents.
+      * If you selected a Windows image, enter the **Password** for your `Administrator` user.
+      * If needed, **Grant access to the serial console**.
    * Click **Save**.
 1. Under **Allow when creating and updating**:
    * In the **Add above target value** field, specify the number of instances you can exceed the group size by.
@@ -44,10 +44,10 @@
    * In **Start time**, specify the period after which the VM instance will start receiving the load.
    * In the **Stop simultaneously** field, specify how many instances can be stopped at the same time.
    * In the **Stop VMs by strategy** field, specify one of the [strategies](../../compute/concepts/instance-groups/policies/deploy-policy.md#strategy):
-     * **Proactive**: {{ ig-name }} selects which instances to stop when updating or reducing the group on its own.
-     * **Opportunistic**: {{ ig-name }} waits for the instances to stop on their own or by the user.
+      * **Proactive**: {{ ig-name }} selects which instances to stop when updating or reducing the group on its own.
+      * **Opportunistic**: {{ ig-name }} waits for the instances to stop on their own or by the user.
 1. In the **Scalability** section:
-   * Select the **Fixed** [type of scaling](../../compute/concepts/instance-groups/scale.md).
+   * Select the **Fixed** [scaling type](../../compute/concepts/instance-groups/scale.md).
    * Specify the instance group size.
 1. If needed, enable the **Health check** to get information about the state of instances and their automatic recovery on failure.
    * In the **Type** field, select the protocol for the health checks: **HTTP** or **TCP**.
@@ -57,5 +57,5 @@
    * In the **Interval in sec** field, specify the interval between the repeat checks from 1 to 60 seconds. The interval must be at least 1 second longer than the timeout.
    * In the **Performance threshold** field, specify the number of successful health checks required for the instance to be considered healthy.
    * In the **Failure threshold** field, specify the number of failed health checks for the instance to be considered unhealthy.
+1. Under **Custom variables**, enter the **Key**-**Value** pairs if needed.
 1. Click **Create**.
-

@@ -2,8 +2,6 @@
 
 В этой инструкции вы создадите свой первый [датасет](concepts/dataset/index.md), для визуализации данных построите несколько [чартов](concepts/chart/index.md) и разместите их на [дашборде](concepts/dashboard.md).
 
-## Перед началом работы {#before-you-begin}
-
 {% include [before-you-begin](../_includes/tutorials/includes/before-you-begin-datalens.md) %}
 
 ## Создайте подключение {#create-connection}

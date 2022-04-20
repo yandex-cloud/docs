@@ -6,3 +6,4 @@
 * [Эмуляция множества IoT-устройств](iot-emulation.md)
 * [Нагрузочное тестирование gRPC-сервиса](loadtesting-grpc.md)
 * [HTTPS-тест с постоянной нагрузкой с помощью Phantom](loadtesting-https-phantom.md)
+* [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](loadtesting-https-pandora.md)

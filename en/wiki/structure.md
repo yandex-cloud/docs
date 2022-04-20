@@ -1,14 +1,14 @@
-# How {{ wiki-name }} works
+# Structure of {{ wiki-full-name }}
 
-## Structure {#structure}
+## Cluster tree {#structure}
 
-{{ wiki-name }} pages are organized as a tree:
+{{ wiki-name }} pages are organized in a tree structure:
 
 ![](../_assets/wiki/wiki-sructure-diagram.png)
 
-1. **{{ wiki-host-name }}**: The {{ wiki-name }} home page. The home page usually displays links to the main clusters, important links, and news.
+1. **{{ wiki-host-name }}** — {{ wiki-name }} home page. The home page usually displays links to the main clusters, important links, or news.
 
-1. **{{ wiki-host-name }}/page**: Top-level pages. These pages usually share a common theme. For example, they can all be related to a single department, team, or project.
+1. **{{ wiki-host-name }}/page** are top-level pages. Usually these pages share a broad common theme. For example, they can all be related to a single department, team, or project.
 
     {% note info %}
 
@@ -16,24 +16,23 @@
 
     {% endnote %}
 
-1. **{{ wiki-host-name }}/page/subpage/...**: Second- and subsequent-level pages.
+1. **{{ wiki-host-name }}/page/subpage/...** are pages located on the second level or below.
 
-Each page has one or more _authors_, which are users who manage access to the page. The page author's name is displayed under the page title.
+Each page has one or more _owners_, that is, users who manage access to the page. The page owner's name is displayed under the page title.
 
-## Clusters {#section_wdq_z4d_sy}
+## Clusters {#clusters}
 
 {{ wiki-name }} pages form _clusters_:
 
 ![](../_assets/wiki/clusters.png)
 
-A page with all its subpages together form one cluster. Pages within a cluster are usually related to a 
-common topic.
+A page with all its subpages together form one cluster. Pages within a cluster are usually related to a common topic.
 
 ## Personal cluster {#personal_cluster}
 
-Each {{ wiki-name }} user has a _personal cluster_ (`{{ wiki-username }}`). You can use your personal cluster to store your personal information, schedule, drafts, or whatever you want. To access your personal cluster, click **My page** in the {{ wiki-name }} upper panel. Personal clusters can be viewed by other users by default.
+Each {{ wiki-name }} user has their own _Personal cluster_ (`{{ wiki-username }}`). You can use your personal cluster to store personal information, schedule, drafts, and other data. To access your personal cluster, click **My page** in the top {{ wiki-name }} panel. Personal clusters can be viewed by other users by default.
 
-In each personal cluster, there is a notes section that is closed to other users (`{{ wiki-notes }}`). You can [create notes](create-note.md) with two clicks from any {{ wiki-name }} page. To go to the Notes cluster, click **Notes** in the {{ wiki-name }} header.
+A user's personal cluster contains the Notes section, which is inaccessible to other users (`{{ wiki-notes }}`). You can [create notes](create-note.md) from any {{ wiki-name }} page in just two clicks. To go to the Notes section, click the **Notes** button in the top {{ wiki-name }} panel.
 
-As with other pages for which you are the author, you can [change](page-managment/access-setup.md) access settings for the pages in your personal cluster and the notes section.
+You can [change](page-management/access-setup.md) access rights to pages from your personal cluster and the Notes section, just like with any other page you own.
 

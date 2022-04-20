@@ -1,58 +1,57 @@
-# Creating pages
+# Creating a Wiki page
 
-_Pages_ are regular pages that can contain text, images, tables, attached files, and so on.
+A _Wiki page_ is a simple page containing text, images, tables, attached files, and more.
 
-There are multiple ways to create pages:
+There are different ways you can create a Wiki page:
 
-- [From any {{ wiki-name }} page](#create-page) by manually setting the address of the new page.
+- [From any page {{ wiki-name }}](#create-page) by manually setting the address of the new Wiki page.
 
-- [In a specific cluster](#create-subpage) by creating a subpage.
+- [By creating a subpage in a specific cluster](#create-subpage).
 
 ## Setting the page address manually {#create-page}
 
-To create a new page:
+To create a new Wiki page:
 
-1. In the in {{ wiki-name }} upper panel, click **Create**.
+1. In the top {{ wiki-name }} menu, click **Create**.
 
 1. Select **Page**.
 
-1. Enter your page title.
+1. Create a heading for your Wiki page.
 
-1. Choose which cluster your page will be located in:
+1. Choose a cluster for your Wiki page:
 
-    - **Personal cluster** (by default): Create a page in your [personal cluster](structure.md#personal_cluster).
+    - **Personal cluster**: create a Wiki page in your [personal cluster](structure.md#personal_cluster).
 
-    - **Current cluster**: Create a subpage for the current page.
+    - **Current cluster**: create a subpage for the current page.
 
-    - **New cluster**: Create a new [top-level page](structure.md#structure).
+    - **New cluster**: create a new [top-level page](structure.md#structure).
 
-    If necessary, you can change the page address manually.
+    If necessary, you can manually change the page address.
 
     {% note tip %}
 
-    The `~` symbol at the beginning of the line indicates that the address is specified relative to your personal cluster. The `!` symbol at the beginning of the line means that the address is specified relative to the current page.
-
-    You can enter URLs for pages that do not exist. For example, you can create a page at `~/foo/bar`, even if the page `~/foo` doesn't exist.
+    The `~` symbol at the start of a row indicates that the address is relative to your personal cluster. The `!` symbol at the start of a row indicates that the address is relative to the current page.
+You can set a page address for a page that doesn't exist. For example, you set the page address to `~/foo/bar` even the `~/foo` page doesn't exist.
 
     {% endnote %}
 
 1. Click **Create**.
 
-1. [Add text to the page](basic-markup.md) and save the changes.
+1. [Add text to the ](basic-markup.md) page and save your changes.
 
-## Creating cluster subpages {#create-subpage}
+## Create cluster subpages {#create-subpage}
 
-You can create a page in a specific cluster:
+You can create a Wiki page in a specific cluster:
 
 1. Go to the cluster.
 
-1. In the upper-right corner of the page, click **Actions** and select **Create a subpage**.
+1. Click **Action** in the upper-right corner and select **Create subpage**.
 
 1. Select **Page**.
 
-1. Enter your page title.
+1. Enter your title.
 
-    The **Address** field is filled in automatically. You can edit the address if necessary. The `!`  symbol at the beginning of the line means that the address is specified relative to the current cluster.
+    The **Address** field is filled in automatically. You can edit the address if necessary. The `!` symbol at the start of a row indicates that the address is relative to the current cluster.
 
 1. Click **Create**.
 
@@ -60,13 +59,14 @@ You can create a page in a specific cluster:
 
 #### See also
 
-- [{#T}](page-managment/access-setup.md)
+- [{#T}](page-management/access-setup.md)
 
 - [{#T}](edit-page.md)
 
 - [{#T}](create-note.md)
 
 - [{#T}](create-grid.md)
+
 
 - [{#T}](delete-page.md)
 

@@ -2,31 +2,31 @@
 
 ## Quoting a paragraph
 
-- To quote a paragraph, add the `>` symbol at the start of that paragraph.
+* To quote a paragraph, insert the `>` symbol at the start of the paragraph.
 
-- To create a subquote, add `>>` symbols at the start of the paragraph.
+* To create a nested quote, insert the `>>` symbols at the start of the paragraph.
 
-- After you're finished, add an empty line before writing the rest of the text.
+* Add an empty line after the quote to separate it from the following text.
 
-- You can use other kinds of formatting inside quotes, such as headings, lists, or bold font.
+* Use other text formatting elements within quotes, for example: headings, lists, or bold font.
 
 Markup examples:
 
-- ```
+* ```
   >Quoted text
   ```
 
     {% cut "See the result" %}
 
-    ![](../../_assets/wiki/qote-short.png)
+    ![](../../_assets/wiki/quote-short.png)
 
     {% endcut %}
 
-- ```
-  >The first level of quoting.
-  >>Nested quote.
+* ```
+  >First-level quote.
+  >Second-level quote.
   >
-  >Back to the first level.
+  >>>First level again.
   ```
 
     {% cut "See the result" %}
@@ -35,10 +35,10 @@ Markup examples:
 
     {% endcut %}
 
-- ```
-  >#### Subheading
-  > * *First* list item.
-  >* **Second** list item.
+* ```
+  >#### Subtitle
+  >* *First* item.
+  >* **Second** item.
   >
   >`code snippet`
   ```
@@ -49,17 +49,17 @@ Markup examples:
 
     {% endcut %}
 
-## Quoting a long text
+## Long quotes
 
-To quote a long piece of text, enclose the quote between the `<[` and `]>` symbols.
+To quote a long piece of text, enclose the quote inside `<[` and `]>`.
 
-This type of quote also supports subquotes and other markup featues.
+This format also supports quotes within quotes and other markup features.
 
-- ```
-  <[The first level of quoting. 
-  >Nested quote.
+* ```
+  <[First-level quote. 
+  >Second-level quote
 
-  Back to the first level.]>
+  First level again.]>
   ```
 
     {% cut "See the result" %}
@@ -68,10 +68,10 @@ This type of quote also supports subquotes and other markup featues.
 
     {% endcut %}
 
-- ```
-  <[#### Subheading
-  * *First* list item.
-  * **Second** list item.
+* ```
+  <[#### Subtitle
+  * *First* item.
+  * **Second** item.
 
   `code snippet`]>
   ```

@@ -4,7 +4,9 @@
 
 ## Подготовьте Docker-образ контейнера {#prepare}
 
-Docker-образ — исполняемый пакет, который содержит все необходимое для запуска приложения: код, среду выполнения, библиотеки, переменные окружения и файлы конфигурации. Приложение должно принимать HTTP-запросы на порт, переданный в переменной окружения `PORT`.
+Docker-образ — исполняемый пакет, который содержит все необходимое для запуска приложения: код, среду выполнения, библиотеки, переменные окружения и файлы конфигурации.
+
+{% include [port-variable-note.md](../_includes/serverless-containers/port-variable-note.md) %}
 
 Чтобы подготовить Docker-образ контейнера:
 
@@ -103,7 +105,8 @@ Docker-образ — исполняемый пакет, который соде
     func main() {
         portStr := os.Getenv("PORT")
         fmt.Printf("App listening at port %s\n", portStr)
-        http.ListenAndServe(":"+portStr, hwHandler{})
+        http.Handle("/hello", hwHandler{})
+        http.ListenAndServe(":"+portStr, nil)
     }
 
     type hwHandler struct{}
@@ -156,3 +159,7 @@ curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g*****
 ```
 Hello!
 ```
+
+## Что дальше {#whats-next}
+
+* Изучите [концепции сервиса](./concepts/invoke.md).

@@ -18,4 +18,6 @@
         
 1. Нажмите **Подключить**. Подключение появится в списке.
 
+{% include [datalens-metrica-note](../../../_includes/datalens/datalens-metrica-note.md) %}
+
 {% include [datalens-get-token](../../../_includes/datalens/operations/datalens-get-token.md) %}

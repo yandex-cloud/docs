@@ -6,7 +6,7 @@
 Для визуализации и исследования данных выполните следующие шаги:
 
 1. [Настройте подключение](#сonfigure-connection).
-    1. [Подготовьте облако к работе](#before-you-begin).
+    1. [Подготовьте {{ datalens-short-name }} к работе](#before-you-begin).
     1. [Создайте подключение](#create-connection).
     1. [Изучите статистику подкастов в DataLens](#podcasts-in-datalens). 
 1. [Отредактируйте чарт, дашборд и создайте новые](#edit-dashboard-chart).
@@ -28,38 +28,16 @@
 
 ## 1. Настройте подключение {#сonfigure-connection}
 
-### 1.1 Подготовьте облако к работе {#before-you-begin}
+### 1.1 Подготовьте {{ datalens-short-name }} к работе {#before-you-begin}
 
 {{ datalens-full-name }} разворачивается в облачной платформе {{ yandex-cloud }}. 
 
-Чтобы открыть DataLens, подготовьте облако к работе:
+Подготовьтесь к работе с {{ datalens-short-name }}, исходя из своего опыта:
 
 * Вы новый пользователь (хотите использовать {{ datalens-full-name }} только для исследования подкастов).
 * Вы уже используете {{ datalens-full-name }} (в других целях).
 
-{% list tabs %}
-
-- Новый пользователь
-
-   Если вы хотите использовать Yandex DataLens только для исследования подкастов:
-    
-   1.  Откройте [главную страницу сервиса]({{ link-datalens-main }}).
-   1.  В правом верхнем углу убедитесь, что вы вошли в нужный аккаунт.
-   1.  Выберите каталог **default** для создания экземпляра {{ datalens-full-name }}. Нажмите **Активировать {{ datalens-short-name }}**.
-        
-        ![image](../../../_assets/datalens/solution-10/32-choose-catalog.png)
-
-   1.  Откроется главная страница {{ datalens-full-name }}.
-   
--  Уже использую {{ datalens-full-name }}
-
-   Если вы уже используете {{ datalens-full-name }} для решения различных задач:
-   
-   1. Откройте [главную страницу сервиса]({{ link-datalens-main }}).
-   1. В правом верхнем углу убедитесь, что вы вошли в нужный аккаунт.
-   1. Откроется главная страница {{ datalens-full-name }}.
-
-{% endlist %}
+{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
 ### 1.2. Создайте подключение {#create-connection}
 

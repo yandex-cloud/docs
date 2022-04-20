@@ -241,7 +241,7 @@ items:
             href: user/startpage-dashboard.md
       - name: Статистика очереди
         href: manager/statistics.md
-      - name: Диаграмма Гантта
+      - name: Диаграмма Ганта
         href: manager/gantt.md
   - name: Автоматизация и шаблоны
     items:

@@ -14,7 +14,7 @@ Three versions of the `general` model are available at the same time. You can se
 
 {% note info %}
 
-Versions available by the `general:deprecated` tag stop being supported when new models are released: {{ speechkit-name }} guarantees two weeks of support for the previous version after updating the version by the  `general` tag.
+Versions available by the `general:deprecated` tag stop being supported when new models are released: {{ speechkit-name }} guarantees two weeks of support for the previous version after updating the version by the `general` tag.
 
 {% endnote %}
 
@@ -22,16 +22,30 @@ Versions available by the `general:deprecated` tag stop being supported when new
 
 - Data streaming recognition
 
-   The `general` model is available for Russian and Kazakh. To select the language, specify the `config .specification.languageCode` parameter value in the API request. Possible values are case-insensitive:
+   The `general` model is available for Russian and Kazakh. To select the language, specify the `config .specification.languageCode` parameter value in the API request.
    * `ru-RU` (default): Russian.
    * `kk-KK`: Kazakh.
+
+   The `general:rc` model also supports the following languages:
+   * `EN-us`: English.
+   * `DE-de`: German.
+   * `FR-fr`: French.
+   * `FI-fi`: Finnish.
+   * `IT-it`: Italian.
+   * `ES-es`: Spanish.
+   * `PT-pt`: Portuguese.
+   * `auto`: Automatic language recognition.
+
+   Possible values are case-insensitive.
 
    Read more about setting up API requests for streaming recognition on the [Data streaming recognition](streaming.md#specification-msg) page.
 
 - Synchronous recognition
 
-   The `general` model is available for Russian. In the API request, specify the `lang` parameter value. Possible values are case-insensitive:
+   The `general` model is available for Russian. In the API request, specify the `lang` parameter value.
    * `ru-RU` (default): Russian.
+
+   Possible values are case-insensitive.
 
    Read more about setting up API requests for short audio recognition on the [Short audio recognition](request.md#query_params) page.
 
@@ -39,17 +53,18 @@ Versions available by the `general:deprecated` tag stop being supported when new
 
    For [asynchronous recognition](transcribation.md), apart from the `general` model, the `deferred-general` model is available. This is a model for delayed recognition at a [special price](../pricing.md#prices-stt). It assumes that audio is queued with a lower priority and processed at the least busy time, but within 24 hours.
 
-  To set the language, specify the `lang` parameter value in the API request. Possible values are case-insensitive:
+   For recognition by the `deferred-general` tag, the same version of the model that is available under the `general` tag is used.
+
+   To set the language, specify the `lang` parameter value in the API request.
    * `ru-RU` (default): Russian.
    * `kk-KK`: Kazakh.
 
-  Read more about setting up API requests for long audio recognition on the [Recognition of long audio fragments](transcribation.md#sendfile-params) page.
+   Possible values are case-insensitive.
 
-   {% note info %}
-
-   For recognition by the `deferred-general` tag, the same version of the model that is available under the `general` tag is used.
-
-   {% endnote %}
+   Read more about setting up API requests for long audio recognition on the [Recognition of long audio fragments](transcribation.md#sendfile-params) page.
 
 {% endlist %}
 
+## Recognition accuracy {#speed_and_accuracy}
+
+{% include [accuracy](../../_includes/speechkit/accuracy.md)%}

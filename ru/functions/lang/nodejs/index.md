@@ -9,9 +9,9 @@ description: 'С помощью сервиса Cloud Functions вы можете
 
 | Название | Версия Node.js | Версия SDK <br>{{ yandex-cloud }} | Операционная <br>система | Предзагружаемая |
 |----|----|----|----|----|
-| nodejs12 | 12.22.6 | 1.3.3 | Ubuntu 18.04 LTS | нет |
-| nodejs14 | 14.17.6 | 1.3.3 | Ubuntu 18.04 LTS | нет |
-| nodejs16 | 16.9.1 | отсутствует | Ubuntu 18.04 LTS | да |
+| nodejs12 | 12.22.10 | 1.3.3 | Ubuntu 18.04 LTS | нет |
+| nodejs14 | 14.19.0 | 1.3.3 | Ubuntu 18.04 LTS | нет |
+| nodejs16 | 16.14.1 | отсутствует | Ubuntu 18.04 LTS | да |
 
 {% note info %}
 

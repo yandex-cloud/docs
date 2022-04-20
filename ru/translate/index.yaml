@@ -2,10 +2,10 @@ title: Yandex Translate
 description:
   - >-
     Сервис для интеграции алгоритмов <a
-    href="https://translate.yandex.ru/">Яндекс.Переводчика</a> в приложения или
-    веб-проекты для конечных пользователей. Yandex Translate поддерживает более
-    90 языков и умеет переводить отдельные слова и целые тексты.
-  - Для доступа к Translate используйте HTTP API.
+    href="https://translate.yandex.ru/">Яндекс&#160;Переводчика</a> в приложения
+    или веб-проекты для конечных пользователей. Yandex Translate поддерживает
+    более 90 языков и умеет переводить отдельные слова и целые тексты.
+  - Для доступа к Translate используйте <a href=api-ref/authentication>API</a>.
   - >-
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
@@ -30,7 +30,7 @@ links:
     href: concepts/
   - title: Справочник API
     description: Описание методов HTTP API
-    href: api-ref/Translation/
+    href: api-ref/authentication
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

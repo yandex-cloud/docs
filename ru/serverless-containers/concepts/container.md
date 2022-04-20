@@ -9,9 +9,13 @@
 
 ## Ревизия контейнера {#revision}
 
-Ревизия контейнера создается из Docker-образа, который размещен в {{ container-registry-full-name }}. Ревизия содержит всю информацию, необходимую для запуска контейнера. Чтобы обновить ревизию контейнера или изменить ее настройки, нужно [создать новую ревизию контейнера](../operations/manage-revision.md#create).
+Ревизия контейнера создается из Docker-образа, который размещен в {{ container-registry-full-name }}. Ревизия содержит всю информацию, необходимую для запуска контейнера.
 
-Если Docker-образ не публичный, в настройках ревизии необходимо указать сервисный аккаунт, у которого есть права на скачивание образа.
+{% include [manage-revision-note](../../_includes/serverless-containers/manage-revision-note.md) %}
+
+{% include [create-revision-note](../../_includes/serverless-containers/create-revision-note.md) %}
+
+{% include [revision-service-account-note](../../_includes/serverless-containers/revision-service-account-note.md) %}
 
 ## Масштабирование контейнера {#scale}
 

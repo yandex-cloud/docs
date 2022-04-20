@@ -31,6 +31,7 @@ Runtime environments available in {{ sf-name }}.
 | Node.js 12 | `nodejs12` | No |
 | **PHP** |  |  |
 | PHP 7.4 | `php74` | No |
+| PHP 8.0 | `php8`  | No |
 | **Python** |  |  |
 | Python 3.9 | `python39` | Yes |
 | Python 3.8 | `python38` | No |

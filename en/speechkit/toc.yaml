@@ -7,47 +7,77 @@ items:
     items:
       - name: About the technology
         href: stt/index.md
-      - name: Short audio recognition
-        href: stt/request.md
-      - name: Recognition of long audio fragments
-        href: stt/transcribation.md
       - name: Data streaming recognition
         href: stt/streaming.md
+      - name: Audio file recognition
+        items:
+          - name: Synchronous recognition
+            href: stt/request.md
+          - name: Asynchronous recognition
+            href: stt/transcribation.md
       - name: Audio formats
         href: stt/formats.md
       - name: Recognition models
         href: stt/models.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
-      - name: Importing data to retrain a model
+      - name: Uploading model retraining data
         href: stt/import-training-data.md
-      - name: Marking up audio files
-        href: stt/markup.md
+      - name: API reference
+        items:
+          - name: Authentication in the API
+            href: api-ref/authentication.md
+          - name: API v2
+            items:
+              - name: Streaming Recognition API
+                href: stt/api/streaming-api.md
+              - name: Example uses for Streaming Recognition API
+                href: stt/api/streaming-examples.md
+              - name: Synchronous Recognition API
+                href: stt/api/request-api.md
+              - name: Example uses for Synchronous Recognition API
+                href: stt/api/request-examples.md
+              - name: Asynchronous Recognition API
+                href: stt/api/transcribation-api.md
+              - name: Recognizing speech in LPCM format
+                href: stt/api/transcribation-lpcm.md
+              - name: Recognizing speech in OggOpus format
+                href: stt/api/transcribation-ogg.md
+          - name: gRPC v3 API
+            items:
+              - name: Overview
+                href: v3/api-ref/grpc/index.md
+              - name: Recognizer
+                href: v3/api-ref/grpc/stt_service.md
   - name: Speech synthesis
     items:
       - name: About the technology
         href: tts/index.md
-      - name: API method description
-        href: tts/request.md
       - name: List of voices
         href: tts/voices.md
-      - name: Using SSML
-        href: tts/ssml.md
-      - name: List of supported SSML phonemes
-        href: tts/supported-phonemes.md
+      - name: Configuring speech generation
+        href: tts/tts-markup.md
       - name: SpeechKit Brand Voice
         items:
           - name: About SpeechKit Brand Voice
             href: tts/brand-voice/index.md
           - name: Input data format for Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
-          - name: Importing data for Brand Voice
+          - name: Uploading data for Brand Voice
             href: tts/brand-voice/import-data.md
-      - name: APIv3 reference
+      - name: API reference
         items:
-          - name: API authentication
+          - name: Authentication in the API
             href: api-ref/authentication.md
-          - name: gRPC
+          - name: API v1
+            items:
+              - name: API method description
+                href: tts/request.md
+              - name: Using SSML
+                href: tts/ssml.md
+              - name: List of supported SSML phonemes
+                href: tts/supported-phonemes.md
+          - name: gRPC v3 API
             items:
               - name: Overview
                 href: new-v3/api-ref/grpc/index.md
@@ -64,10 +94,11 @@ items:
       - name: Speech recognition
         href: hybrid-speechkit/asr.md
       - name: Monitoring
-        hidden: true
         href: hybrid-speechkit/monitoring.md
-      - name: API Reference gRPC
+      - name: gRPC API references
         items:
+          - name: Authentication in the API
+            href: hybrid-speechkit/auth.md
           - name: Speech synthesis
             items:
               - name: Overview
@@ -95,21 +126,17 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Policy before January 1, 2019
-            href: pricing-archive/pricing-01012019.md
+    href: pricing.md
   - name: Releases
     items:
       - name: Recognition releases
         href: release-notes-stt.md
       - name: Synthesis releases
         href: release-notes-tts.md
-      - name: Archive release notes
+      - name: Release archive
         href: release-notes.md
+  - name: Public materials
+    href: public-talks.md
   - name: Questions and answers
     href: qa/index.md
 base: en/speechkit

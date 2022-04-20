@@ -22,7 +22,7 @@ For more information about voice models, see [About the technology](tts/index.md
 
 ### Release 24.01.22 {#240122}
 
-1. Updated the generation model. The new version improves the way numbers and abbreviations from the finance domain are pronounced.
+1. Generation model updated. The new version improves the the way numbers and abbreviations from the finance domain are pronounced.
 
 1. You can now emphasize using markup: `Are you **happy** to see me?`
 

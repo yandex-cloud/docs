@@ -6,33 +6,32 @@ You can create an empty disk of the specified size.
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-
-  1. Select **{{ compute-name }}**.
-  1. Go to the **Disks** tab.
-  1. Click **Create disk**.
-  1. Enter the disk name.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
+   1. Select **{{ compute-name }}**.
+   1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
+   1. Click **Create disk**.
+   1. Enter the disk name.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. If necessary, add a description of the disk.
-  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
-  1. Select the desired disk type: `HDD`, `SSD`, or `Non-replicated SSD`.
-  1. Select the desired block size.
-  1. Specify the necessary disk size.
-  1. Click **Create disk**.
+   1. If necessary, add a description of the disk.
+   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
+   1. Select the desired disk type: `HDD`, `SSD`, or `Non-replicated SSD`.
+   1. Select the desired block size.
+   1. Specify the necessary disk size.
+   1. Click **Create disk**.
 
 - CLI
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's create disk commands:
+   1. See the description of the CLI's create disk commands:
 
       ```
       yc compute disk create --help
       ```
 
-  1. Create a disk in the default folder:
+   1. Create a disk in the default folder:
 
       ```
       yc compute disk create \
@@ -45,7 +44,7 @@ You can create an empty disk of the specified size.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. Get a list of disks in the default folder:
+   1. Get a list of disks in the default folder:
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
@@ -55,8 +54,7 @@ You can create an empty disk of the specified size.
       yc compute disk list --format yaml
       ```
 
-      Result:
-
+      Output:
       ```yaml
       - id: fhm4aq4hvq5g3nepvt9b
           folder_id: b1gm3og7ei7aegv8i73m
@@ -85,48 +83,47 @@ You can create an empty disk of the specified size.
 
 - Terraform
 
-  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  To create an empty disk:
+   To create an empty disk:
 
-  1. Describe the resource parameters in the `yandex_compute_disk` configuration file.
+   1. Describe the resource parameters in the `yandex_compute_disk` configuration file.
 
-     Example configuration file structure:
+      Example configuration file structure:
 
-     ```
-     resource "yandex_compute_disk" "disk-1" {
-     
-       name = "empty-disk"
-       type = "network-hdd"
-       zone = "<availability zone>"
-       size = "<disk size in GB>"
-     }
-     ```
+      ```
+      resource "yandex_compute_disk" "disk-1" {
 
-     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+        name = "empty-disk"
+        type = "network-hdd"
+        zone = "<availability zone>"
+        size = "<disk size in GB>"
+      }
+      ```
 
-  1. Make sure that the configuration files are correct.
+      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
-     1. In the command line, go to the directory where you created the configuration file.
+   2. Make sure that the configuration files are correct.
 
-     1. Run the check using the command:
+      1. In the command line, go to the directory where you created the configuration file.
+      2. Run the check using the command:
 
-        ```bash
-        terraform plan
-        ```
+         ```bash
+         terraform plan
+         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
-  1. Deploy the cloud resources.
+   3. Deploy the cloud resources.
 
-     1. If the configuration doesn't contain any errors, run the command:
+      1. If the configuration doesn't contain any errors, run the command:
 
-        ```bash
-        terraform apply
-        ```
+         ```bash
+         terraform apply
+         ```
 
-     1. Confirm that you want to create the resources.
+      2. Confirm that you want to create the resources.
 
-     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
