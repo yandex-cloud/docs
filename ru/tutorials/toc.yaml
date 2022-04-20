@@ -75,6 +75,8 @@ items:
         href: testing/loadtesting-grpc.md
       - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
         href: testing/loadtesting-https-phantom.md
+      - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
+        href: testing/loadtesting-https-pandora.md
   - name: Управление инфраструктурой
     items:
       - name: Все руководства
@@ -111,27 +113,29 @@ items:
     items:
       - name: Все руководства
         href: dataplatform/index.md
-      - name: Синхронизация данных из MySQL с помощью Yandex DataTransfer
+      - name: >-
+          Синхронизация данных из {{ MY }} с помощью {{ data-transfer-full-name
+          }}
         href: dataplatform/sync-mysql.md
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
         href: dataplatform/dp-mch-data-exchange.md
-      - name: >-
-          Использование Confluent Schema Registry с Yandex Managed Service for
-          Apache Kafka®
+      - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
       - name: Поставка данных с помощью Debezium
         href: dataplatform/kafka-cdc.md
       - name: Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop
         href: dataplatform/sqoop.md
-      - name: Миграция базы данных из Yandex Managed Service for MySQL в MySQL
+      - name: Миграция базы данных из {{ mmy-full-name }} в {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
       - name: Перенос коллекций из {{ MG }} в {{ mmg-full-name }}
         href: dataplatform/mongodb-migration.md
       - name: Миграция базы данных в {{ mms-full-name }}
         href: dataplatform/mssql-data-migration.md
       - name: >-
-          Настройка Kafka Connect для работы с кластером Yandex Managed Service
-          for Apache Kafka®
+          Перенос данных из {{ PG }} в {{ CH }} с помощью {{
+          data-transfer-full-name }}
+        href: dataplatform/rdbms-to-clickhouse.md
+      - name: Настройка Kafka Connect для работы с кластером {{ mkf-full-name }}
         href: dataplatform/kafka-connect.md
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз

@@ -2,13 +2,13 @@
 
 {{ speechkit-name }} provides two ways to improve speech recognition.
 
-## Autotuning {#autotuning}
+## Auto-tuning {#autotuning}
 
 By default, {{ speechkit-name }} doesn't save data passed by users. However, the most effective way to improve a speech recognition model is to train it on real user data.
 
-To improve the quality of speech recognition, you can use the _autotuning_ model. With autotuning enabled, we can save user data and use it for further training. To enable it, set the `x-data-logging-enabled: true` flag in API request headers. For a sample request with logging turned on, see [{#T}](../../speechkit/concepts/support-headers.md).
+To improve the quality of speech recognition, you can use the _auto-tuning_ model. With auto-tuning enabled, you can save data transmitted in requests and use it for further training. To do this, specify the `x-data-logging-enabled: true`HTTP header in API requests. For an example with logging enabled, see [{#T}](../concepts/support-headers.md).
 
-Autotuning helps improve recognition quality while a model is running.
+Auto-tuning helps improve recognition quality while a model is running without any additional assistance.
 
 ## Model retraining {#advanced-training}
 
@@ -16,7 +16,7 @@ The basic speech recognition model is designed to work with everyday language, b
 
 * Medicine: Diagnoses, biological terms, and drug names.
 * Business: Company names.
-* Trade: Product ranges (jewelry, electrical goods, and so on).
+* Trade: Product ranges (jewelry, electronics, and so on).
 * Finance: Banking terms and names of banking products.
 
 ### Data required for retraining {#data}
@@ -36,30 +36,29 @@ Text data will be generated from the received files. Glossary terms are inserted
 For example, the `first-name.tsv`, `middle-name.tsv`, and `last-name.tsv` glossary files used for retraining a call center model may contain the first, middle, and last names of customers.
 
 | first-name.tsv | middle-name.tsv | last-name.tsv |
-| --- | --- | --- |
+|---|---|---|
 | John<br>Tom<br>Peter<br>... <br> | Wendell<br>Sean<br>Larry<br>... <br> | Thompson<br>Carter<br>Smith<br>... <br> |
 
 If the pattern phrases suggest that the glossary terms may be in possessive case forms, you need to create a separate glossary file for each form. For example, files with names in the possessive case will contain the following entries:
 
 | first-name-possessive.tsv | middle-name-possessive.tsv | last-name-possessive.tsv |
-| --- | --- | --- |
+|---|---|---|
 | John<br>Tom<br>Peter<br>... <br> | Wendell<br>Sean<br>Larry<br>... <br> | Thompson's<br>Carter's<br>Smith's<br>... <br> |
 
-Then the `templates.tsv` file will contain entries like
+Then the `templates.tsv` file may contain entries like
 
 ```
-Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
-Hello, can I talk to {first-name=first-names-possessive.tsv} {last-name=last-names-possessive.tsv} representative?
+Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv} {last-name=last-names.tsv}?
+Hello, can I talk to {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv} representative?
 ```
 
-## Importing retraining data {#import-data}
+### Importing retraining data {#import-data}
 
 For information on importing retraining data, see [{#T}](import-training-data.md).
 
 ### Testing the quality of retraining {#testing}
 
 A trained model is tested using the following data sets:
-
 1. A basket for evaluating a specific task that is created based on the received audio recordings.
 1. A basket for evaluating everyday language.
 1. (Optional) Audio recordings that are at least 1 hour long to evaluate the quality of model retraining. The structure of the recorded utterances should repeat the provided patterns.

@@ -1,7 +1,7 @@
 # Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
-1. [Подготовьте базу данных кластера-источника](../../../data-transfer/operations/prepare.md#prepare-source-my).
-1. [Подготовьте базу данных кластера-приемника](../../../data-transfer/operations/prepare.md#prepare-target-my).
+1. [Подготовьте базу данных кластера-источника](../../../data-transfer/operations/prepare.md#source-my).
+1. [Подготовьте базу данных кластера-приемника](../../../data-transfer/operations/prepare.md#target-my).
 1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create):
 
     * **Тип базы данных** — `{{ MY }}`.

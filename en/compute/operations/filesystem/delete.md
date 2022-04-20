@@ -7,15 +7,14 @@
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where your file storage is located.
-     1. Select **{{ compute-name }}**.
-     1. Go to the **File storages** tab.
-     1. In the appropriate file storage line, click ![image](../../../_assets/options-grey.svg) and select **Delete**.
-     1. In the window that opens, confirm the deletion.
+      1. In the [management console]({{ link-console-main }}), select the folder where your file store is located.
+      1. Select **{{ compute-name }}**.
+      1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
+      1. In the row of the desired file storage, click ![image](../../../_assets/options-grey.svg) and select **Delete**.
+      1. In the window that opens, confirm the deletion.
 
    - API
 
-     Use the [FilesystemService/Delete](../../api-ref/grpc/filesystem_service.md#Delete) method of the gRPC API or the [delete](../../api-ref/Filesystem/delete.md) method of the Filesystem resource in the REST API.
+      Use the [FilesystemService/Delete](../../api-ref/grpc/filesystem_service.md#Delete) gRPC API method or the [delete](../../api-ref/Filesystem/delete.md) method of the REST API Filesystem resource.
 
    {% endlist %}
-

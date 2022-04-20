@@ -1,11 +1,11 @@
 ---
 title: Development on CSharp in Yandex Cloud Functions. Overview
-description: 'With the Cloud Functions service, you can run C# (CSharp) applications for the .NET Core platform. The service provides .NET Core 3.1.401 runtime with C# 8.0 and Ubuntu 18.04 LTS operating system. '
+description: 'With the Cloud Functions service, you can run C# (CSharp) applications for the .NET Core platform. The service provides .NET Core 3.1.417 runtime with C# 8.0 and Ubuntu 18.04 LTS operating system. '
 ---
 
 # Development on C#. Overview
 
-With {{ sf-name }}, you can run applications written in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) for [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/about). The service provides the [runtime environment](../../concepts/runtime/index.md) .NET Core 3.1.401 with C# 8.0 and Ubuntu 18.04 LTS.
+With {{ sf-name }}, you can run applications written in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) for [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/about). The service provides the [runtime environment](../../concepts/runtime/index.md) .NET Core 3.1.417 with C# 8.0 and Ubuntu 18.04 LTS.
 
 You can connect the [SDK library](https://github.com/yandex-cloud/dotnet-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 

@@ -9,9 +9,9 @@ description: 'С помощью сервиса Cloud Functions вы можете
 
 | Название | Версия Python | Операционная <br>система | Предзагружаемая |
 |----|----|----|----|
-| python37 | 3.7.12 | Ubuntu 18.04 LTS | нет |
-| python38 | 3.8.12 | Ubuntu 18.04 LTS | нет |
-| python39 | 3.9.7 | Ubuntu 18.04 LTS | да |
+| python37 | 3.7.13 | Ubuntu 18.04 LTS | нет |
+| python38 | 3.8.13 | Ubuntu 18.04 LTS | нет |
+| python39 | 3.9.11 | Ubuntu 18.04 LTS | да |
 
 {% note info %}
 

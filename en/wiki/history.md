@@ -1,26 +1,26 @@
-# History
+# Viewing edit history
 
-After saving a page, a copy of it is placed in the change history. In the change history, you can view previous versions of the page, compare them with each other, or roll back to any of them.
+After you save a page, its copy appears in edit history. You can use the edit history to view all previous versions of a page, compare changes, and roll back to any of the previous versions.
 
-To view the history of page changes:
+To view a page's edit history:
 
-1. In the panel on the left, click ![](../_assets/wiki/history-sidebar.png).
+1. On the left-hand panel, click ![](../_assets/wiki/history-sidebar.png).
 
-1. Select the type of changes you want to view. **Edits** is displayed by default.
+1. Select the type of changes you want to view. **Edits** are displayed by default.
 
 ## Viewing an older version of a page {#show-old-page}
 
-Click an entry in the page history. The main window will display the version you select at the top with a caption that says **This is an old version of the page**.
+Select an entry in the page history. The selected version will appear in the main window. At the top of the page, you'll see a caption saying **This is an old version of the page**.
 
-## Comparing versions {#compare-pages}
+## Comparing two versions of a page {#compare-pages}
 
-Select the versions of the page that you want to compare. Their differences will be displayed in the main window.
+Choose the page versions you wish to compare. Their differences will be displayed in the main window.
 
-## Rolling back to an older version {#return-to-old}
+## Restoring an older version of a page {#return-to-old}
 
-1. Click an entry in the page history. The main window will display the version you select at the top with a caption that says **This is an old version of the page**.
+1. Select an entry in the page history. The selected version will appear in the main window. At the top of the page, you'll see a caption saying **This is an old version of the page**.
 
 1. Select **Edit this version**.
 
-1. You can then edit this version or simply save it without applying any changes, making it the current version of the page.
+1. You can then edit this version or simply save it without applying any changes, making it the latest current version of the page.
 

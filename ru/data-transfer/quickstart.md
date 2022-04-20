@@ -67,6 +67,7 @@
 Подготовьте сервис-приемник к получению данных:
 
 * [{{ CH }}](operations/prepare.md#target-ch);
+* [{{ GP }}](operations/prepare.md#target-gp);
 * [{{ MG }}](operations/prepare.md#target-mg);
 * [{{ MY }}](operations/prepare.md#target-my);
 * [{{ objstorage-name }}](operations/prepare.md#target-storage);

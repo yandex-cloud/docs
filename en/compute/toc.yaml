@@ -77,6 +77,8 @@ items:
             href: operations/vm-control/vm-change-zone.md
           - name: Moving a VM to another folder
             href: operations/vm-control/vm-change-folder.md
+          - name: Attaching a public IP address to a VM
+            href: operations/vm-control/vm-attach-public-ip.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
           - name: Updating a VM
@@ -131,6 +133,12 @@ items:
             href: operations/image-create/custom-image.md
           - name: Uploading your image
             href: operations/image-create/upload.md
+          - name: Creating an image from a disk
+            href: operations/image-create/create-from-disk.md
+          - name: Creating an image from a snapshot
+            href: operations/image-create/create-from-snapshot.md
+          - name: Creating an image from other custom image
+            href: operations/image-create/create-from-image.md
       - name: Managing images
         items:
           - name: Deleting a disk image

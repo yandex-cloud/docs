@@ -36,17 +36,16 @@
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where your file storage is located.
-     1. Select **{{ compute-name }}**.
-     1. Go to the **File storages** tab.
-     1. Select the desired storage.
-     1. Go to the **Virtual machines** tab.
-     1. In the line with the desired VM, click ![image](../../../_assets/options-grey.svg) and select **Detach file storage**.
-     1. In the window that opens, confirm the detach operation.
+      1. In the [management console]({{ link-console-main }}), select the folder where your file store is located.
+      1. Select **{{ compute-name }}**.
+      1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
+      1. Select the desired storage.
+      1. Go to the **Virtual machines** tab.
+      1. In the row with the desired VM, click ![image](../../../_assets/options-grey.svg) and select **Detach file storage**.
+      1. In the window that opens, confirm the detach operation.
 
    - API
 
-     Use the [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem) method of the gRPC API or the [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) method of the Instance resource in the REST API.
+      Use the [InstanceService/DetachFilesystem](../../api-ref/grpc/instance_service.md#DetachFilesystem) gRPC API method or the [detachFilesystem](../../api-ref/Instance/detachFilesystem.md) method of the REST API Instance resource.
 
    {% endlist %}
-

@@ -1,18 +1,19 @@
-# Escaping characters
+# Escaping symbols
 
-- To display markup characters, escape them by using the backward slash (`\`).
+* To display markup symbols, escape them with a backward slash `\` or tilde `~`:
 
     ```
-    \* — the "asterisk" symbol.
+    \* — asterisk
+    ~+ — plus
     ```
 
     {% cut "See the result" %}
 
-    ![](../../_assets/wiki/escape-asterisk.png)
+    ![](../../_assets/wiki/escape-symbols.png)
 
     {% endcut %}
 
-- To escape all characters in a certain text fragment, enclose this fragment in double quotes `""`:
+* To escape all symbols in a certain text fragment, enclose this fragment in double quotes `""`:
 
     ```
     ""<tag>""
@@ -24,7 +25,7 @@
 
     {% endcut %}
 
-- If you want to display a backquote inside a source code snippet, place two backquotes at the beginning and end of the code snippet ````:
+* If you want to display a backquote inside a source code snippet, place two backquotes on each side of the code snippet ` `` `:
 
     ```
     ``SELECT `id` FROM `table` ``
@@ -36,7 +37,7 @@
 
     {% endcut %}
 
-- All markup characters placed in the source code are escaped automatically:
+* All markup symbols in the source code are escaped automatically:
 
     ```
         Text formatting: 
@@ -53,7 +54,7 @@
 
     {% endcut %}
 
-- Any text in angle brackets `<...>` is processed as [HTML tag](html-code.md) and is not explicitly displayed on the page. If you need to display such text, escape it, format it as a code fragment, or replace the opening parenthesis `<` with code for `<`:
+* Any text enclosed in angle brackets `<...>` is treated like an [HTML tag](html-code.md) and will not be visibly displayed on the page. If you need to display this text, you can escape the text and format it as a code snippet, or replace the opening parenthesis `<` with the code `<`:
 
     ```
     &lt;tag>

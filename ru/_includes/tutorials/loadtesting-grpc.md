@@ -19,7 +19,7 @@
 
 {% include [prepare-register-billing](../tutorials/_common/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, перейдите в [консоль управления]({{ link-console-main }}) и [создайте](../../resource-manager/operations/folder/create.md) или выбрите каталог, в котором будет работать ваш [агент тестирования](../../load-testing/concepts/agent.md).
+Если у вас есть активный платежный аккаунт, перейдите в [консоль управления]({{ link-console-main }}) и [создайте](../../resource-manager/operations/folder/create.md) или выберите каталог, в котором будет работать ваш [агент тестирования](../../load-testing/concepts/agent.md).
 
 [Подробнее об иерархии ресурсов](../../resource-manager/concepts/resources-hierarchy.md).
 

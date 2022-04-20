@@ -2,6 +2,7 @@
 title: "How to work with virtual machines. Step-by-step instructions"
 description: "Step-by-step instructions for working and managing virtual machines in the Yandex Cloud. From the article you will learn how to create virtual machines, manage resources, connect to them using SSH, RDP and PowerShell. Learn more about working with disks, images and hosts."
 ---
+
 # Step-by-step instructions for {{ compute-name }}
 
 ## Creating VMs {#vm-create}
@@ -46,6 +47,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
+* [{#T}](vm-control/vm-attach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
@@ -64,6 +66,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
+* [{#T}](disk-create/nonreplicated.md)
 
 ## Disk management {#disk-control}
 
@@ -82,6 +85,9 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](image-create/custom-image.md)
 * [{#T}](image-create/upload.md)
+* [{#T}](image-create/create-from-disk.md)
+* [{#T}](image-create/create-from-snapshot.md)
+* [{#T}](image-create/create-from-image.md)
 
 ## Managing images {#image-control}
 
@@ -135,4 +141,3 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
-

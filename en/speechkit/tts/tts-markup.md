@@ -1,0 +1,59 @@
+# Configuring speech generation
+
+TTS markup grants the ability to control speech synthesis using special characters and SIL tags. This helps make synthesized speech more natural.
+
+Support for TTS markup is available in [API v1](request.md) when transmitting data in `text` format and in API v3.
+
+## Markup components {#markup-elements}
+
+| Description | Special characters and tags |
+| -------------------------------------------------- | -------------------------------------------------------------- |
+| [Apply stress](#a) | `+` |
+| [Indicate a pause between words](#p) | `-` |
+| [Explicitly define a pause between sentences](#pause) | `sil<[t]>`, where t is the pause in milliseconds. |
+| [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
+
+### Apply stress {#a}
+
+Use `+` before a stressed vowel any time you need to define the correct way to pronounce a word, such as:
+
+```
+They signed the c+ontract the following day.
+```
+
+or
+
+```
+If you contr+act malaria, you will have to spend a long time in a hospital.
+```
+
+### Indicate a pause between words {#p}
+
+Use the `-` character between words to indicate a pause:
+
+```
+You will come around - once you've had time to think about it.
+```
+
+### Explicitly define a pause between sentences {#pause}
+
+To explicitly define a pause between sentences, you can add a special tag, `sil<[t]>`, where t is the duration of the pause in milliseconds:
+
+```
+Stop. sil<[300]> Think about it!
+```
+
+### Place emphasis {#accent}
+
+To define emphasis, you can use the `<[accented]>` tag or highlight a word like this: ``**accented**``. For example:
+
+```
+Convenient interfaces for solving <[problems]>.
+```
+
+or
+
+```
+You become responsible **forever** for what you have tamed.
+```
+

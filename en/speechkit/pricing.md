@@ -1,27 +1,33 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ speechkit-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
-
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ speechkit-short-name }} {#rules}
 
 ### Using speech synthesis {#rules-tts}
 
-The cost of using the SpeechKit API for speech synthesis is calculated based on the voice used and the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
+The cost of using SpeechKit for speech synthesis depends on the version of the API used. For [API v1](tts/request.md), the cost is calculated based on the voice used and the total number of characters sent to generate speech from text in a calendar month ([Reporting period](../billing/concepts/glossary#period)).
 
 {% include [pricing-symbol-count](../_includes/pricing-symbol-count.md) %}
 
+The cost using [API v3](new-v3/api-ref/grpc/index.md) depends on the number of synthesis requests sent. Speech synthesis requests have limitations — {{ tts-v3-count }} and {{ tts-v3-time }}.
+
 ### Using speech recognition {#rules-stt}
 
-The final cost depends on the duration of the recognized audio. Cost is calculated for a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
+The cost of using {{ speechkit-name }} for speech recognition depends on the recognition type and duration of a recognized audio fragment. Cost is calculated for a calendar month ([Reporting period](https://cloud.yandex.com/docs/billing/concepts/glossary)).
 
-#### Short audio recognition {#rules-stt-short}
+#### Streaming speech recognition {#rules-stt-streaming}
 
-These rules apply to short audio recognition [by request](stt/request.md) and [in streaming mode](stt/streaming.md).
+
+The cost of using {{ speechkit-name }} [API v2](stt/api/streaming-api.md) is calculated based on the [pricing rules for synchronous recognition](#rules-stt-short).
+
+#### Synchronous recognition {#rules-stt-short}
+
+These rules apply to [synchronous recognition](stt/request.md) and recognition in [streaming mode](stt/streaming.md) when using API v2.
 
 Billable unit — a 15-second segment of single-channel audio. Shorter segments are rounded up (1 second becomes 15 seconds).
 
@@ -31,28 +37,28 @@ In [streaming mode](stt/streaming.md), billing begins when a [message with recog
 
 {% endnote %}
 
-**Examples:**
+> **Examples:**
+>
+> * 1 audio fragment that is 37 seconds is billed as 45 seconds.
+>
+>    **Explanation:** the audio is divided into 2 15-second segments and one 7-second segment. The length of the last segment is rounded up to 15 seconds. Total: 3 segments, 15 seconds each.
+>
+> * 2 audio fragments that are 5 and 8 seconds are billed as 30 seconds.
+>
+>    **Explanation:** the length of each audio is rounded up to 15 seconds. Total: 2 segments, 15 seconds each.
 
-- 1 audio fragment that is 37 seconds is billed as 45 seconds.
+#### Asynchronous recognition {#rules-stt-long}
 
-    **Explanation:** the audio is divided into 2 15-second segments and one 7-second segment. The length of the last segment is rounded up to 15 seconds. Total: 3 segments, 15 seconds each.
-
-- 2 audio fragments that are 5 and 8 seconds are billed as 30 seconds.
-
-    **Explanation:** the length of each audio is rounded up to 15 seconds. Total: 2 segments, 15 seconds each.
-
-#### Recognition of long audio fragments {#rules-stt-long}
-
-These rules apply to [long audio recognition](stt/transcribation.md).
+These rules apply when using [asynchronous recognition](stt/transcribation.md).
 
 Billable unit — 1 second of two-channel audio. Shorter segments are rounded up. The number of channels is rounded up to an even number.
 
-The minimum billable amount is 15 seconds for every pair of channels. Audio with a shorter duration is billed as 15 seconds.
+The minimum billable amount is 15 seconds for every pair of channels. Audio that is shorter is billed as 15 seconds.
 
 **Examples of rounding audio length:**
 
 | Length | Number of channels | Seconds charged |
-| --- | --- | --- |
+--- | --- | ---
 | 1 second | 1 | 15 |
 | 1 second | 2 | 15 |
 | 1 second | 3 | 30 |
@@ -74,14 +80,14 @@ From April 13, 2022, the usage of voices `oksana`, `ermil`, `jane`, `omazh`, `za
 
 {% include [usd.md](../_pricing/speechkit/usd-tts.md) %}
 
-#### {{ brand-voice-name }} {#brand-voice}
+#### Brand Voice {#brand-voice}
 
 
 
 
 {% include [usd.md](../_pricing/speechkit/usd-brand.md) %}
 
-### {{ brand-voice-name }} hosting {#hosting-brand-voice}
+### Hosting Brand Voice models {#hosting-brand-voice}
 
 
 

@@ -1,6 +1,6 @@
 # Creating a non-replicated disk
 
-You can create a separate [non-replicated](../../concepts/disk.md#nr-disks) disk or add it to a disk placement group.
+You can create a stand-alone [non-replicated](../../concepts/disk.md#nr-disks) disk or add a disk to a disk placement group.
 
 The size of a non-replicated disk must be a multiple of 93 GB.
 
@@ -8,50 +8,42 @@ The size of a non-replicated disk must be a multiple of 93 GB.
 
 {% list tabs %}
 
-- Management console
+* Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
-
-  1. Select **{{ compute-name }}**.
-
-  1. Go to the **Disks** tab.
-
-  1. Click **Create disk**.
-
-  1. Enter the disk name.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
+   1. Select **{{ compute-name }}**.
+   1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
+   1. Click **Create disk**.
+   1. Enter the disk name.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. If necessary, add a description of the disk.
+   1. If necessary, add a description of the disk.
+   1. Select **Non-replicated SSD** as disk type.
+   1. Select the desired block size.
+   1. Specify the desired disk size.
+   1. Click **Create disk**.
 
-  1. Select **Non-replicated SSD** as disk type.
+* CLI
 
-  1. Select the desired block size.
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Specify the desired disk size.
-
-  1. Click **Create disk**.
-
-- CLI
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. View a description of the CLI command to create disks:
+   1. View a description of the CLI command to create disks:
 
       ```bash
       yc compute disk create --help
       ```
 
-  1. To create a non-replicated disk named `nr-disk`, run the command:
+   1. To create a non-replicated disk named `nr-disk`, run the command:
 
       ```bash
       yc compute disk create \
       --name nr-disk \
       --type network-ssd-nonreplicated \
-      --size 93 
+      --size 93
       ```
 
-      Execution result:
+      Output:
 
       ```text
       done (1s)
@@ -75,45 +67,36 @@ You can only create a disk in an existing disk placement group.
 
 {% list tabs %}
 
-- Management console
+* Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk.
-
-  1. Select **{{ compute-name }}**.
-
-  1. Go to the **Disks** tab.
-
-  1. Click **Create disk**.
-
-  1. Enter the disk name.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
+   1. Select **{{ compute-name }}**.
+   1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
+   1. Click **Create disk**.
+   1. Enter the disk name.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. If necessary, add a description of the disk.
-
-  1. Select an [availability zone](../../../overview/concepts/geo-scope.md) to host the disk.
+   1. If necessary, add a description of the disk.
+   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
 
       The availability zone for a disk must be the same as that of the placement group where you want to create the disk.
+   1. Select **Non-replicated SSD** as disk type.
+   1. Select a disk placement group.
+   1. Specify the desired disk size.
+   1. Click **Create disk**.
 
-  1. Select **Non-replicated SSD** as disk type.
+* CLI
 
-  1. Select a disk placement group.
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Specify the desired disk size.
-
-  1. Click **Create disk**.
-
-- CLI
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. View a description of the CLI command to create disks:
+   1. View a description of the CLI command to create disks:
 
       ```bash
       yc compute disk create --help
       ```
 
-  1. To create a non-replicated disk in the disk placement group named `my-group`, run the command:
+   1. To create a non-replicated disk in the disk placement group named `my-group`, run the command:
 
       ```bash
       yc compute disk create \
@@ -123,7 +106,7 @@ You can only create a disk in an existing disk placement group.
       --disk-placement-group-name my-group
       ```
 
-      Execution result:
+      Output:
 
       ```text
       done (1s)

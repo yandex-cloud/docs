@@ -1,6 +1,6 @@
 # API v1 method description
 
-Generates speech from received text.
+Generates (synthesizes) speech from received text.
 
 ## HTTP request {#http_request}
 
@@ -17,13 +17,13 @@ All parameters must be URL-encoded. The maximum size of the POST request body is
 ----- | -----
 | text | **string**<br>UTF-8 encoded text to be converted into speech.<br>You can only use one `text` and `ssml` field.<br>For homographs, place a `+` before the stressed vowel. For example, `contr+ol` or `def+ect`.<br>To indicate a pause between words, use `-`.<br>Maximum string length: 5000 characters. |
 | ssml | **string**<br>Text in [SSML](ssml.md) format to be converted into speech.<br>You can only use one `text` and `ssml` fields. |
-| lang | **string**<br>Language.<br/>Acceptable values:<ul><li>`ru-RU` (default) — Russian.</li><li>`en-US` — English.</li><li>`tr-TR` — Turkish.</li></ul> |
+| lang | **string**<br>Language.<br/>Acceptable values: `ru-RU` (default): Russian. |
 | voice | **string**<br>Preferred speech synthesis voice from the [list](voices.md). Default value: `oksana`.<br/>For more information about choosing a voice, see [{#T}](./index.md#voices). |
-| emotion | **string**<br>Mode or emotional tone. Supported only for Russian language (`ru-RU`). See the [{#T}](voices.md) section for acceptable voice/emotional tone combinations. |
+| emotion | **string**<br>Voice mode or emotional tone. Supported only for Russian (`ru-RU`). See [{#T}](voices.md) for acceptable voice/emotional tone combinations. |
 | speed | **string**<br>The rate (speed) of synthesized speech.<br/>The rate of speech is set as a decimal number in the range from `0.1` to `3.0`. Where:<ul><li>`3.0`: Fastest rate.</li><li>`1.0` (default): Average human speech rate.</li><li>`0.1`: Slowest speech rate.</li></ul> |
 | format | **string**<br>The format of the synthesized audio.<br/>Acceptable values:<ul><li>`lpcm`: The audio file is synthesized in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with no WAV header. Audio features:<ul><li>Sampling: 8, 16, or 48 kHz, depending on the `sampleRateHertz` value.</li><li>Bit depth: 16-bit.</li><li>Byte order: Reversed (little-endian).</li><li>Audio data is stored as signed integers.</li></ul></li><li>`oggopus` (default): Data in the audio file is encoded using the OPUS audio codec and compressed in an OGG container ([OggOpus](https://wiki.xiph.org/OggOpus)).</li> <li>`mp3`: Available for premium voices only.</li></ul> |
 | sampleRateHertz | **string**<br>The sampling frequency of the synthesized audio.<br/>Used if `format` is set to `lpcm`. Acceptable values:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
-| folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the resource <a href="../../iam/api-ref/UserAccount/index#representation">UserAccount</a> ). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
+| folderId | **string**<br><p>[ID of the folder](../../resource-manager/operations/folder/get-id.md) that you have access to. Required for authorization with a user account (see the [{#T}](../api-ref/authentication.md) resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ## Response {#response}
 
@@ -42,6 +42,8 @@ In this example, we synthesize and record the following text as an audio file:
 
 By default, data in the audio file is encoded using the OPUS audio codec and compressed in an OGG container ([OggOpus](https://wiki.xiph.org/OggOpus)).
 
+Run the request indicating the [folder ID](../../resource-manager/operations/folder/get-id.md) and [IAM token](../../iam/concepts/authorization/iam-token.md) for authorization:
+
 {% list tabs %}
 
 - cURL
@@ -52,12 +54,12 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
    > I can turn any text into speech.
    > Now yo+u can, too!
    > EOM
-   export FOLDER_ID=b1gvmob95yysaplct532
-   export IAM_TOKEN=CggaATEVAgA...
+   export FOLDER_ID=<folder ID>
+   export IAM_TOKEN=<IAM token>
    curl -X POST \
       -H "Authorization: Bearer ${IAM_TOKEN}" \
       --data-urlencode "text=${TEXT}" \
-      -d "lang=en-US&voice=filipp&folderId=${FOLDER_ID}" \
+      -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
      "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
    ```
 
@@ -81,15 +83,15 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
 
        static async Task Tts()
        {
-         const string iamToken = "<IAM token>"; // Specify your IAM token.
-         const string folderId = "<Folder ID>"; // Specify the folder ID.
+         const string iamToken = "<IAM token>"; // Specify the IAM token.
+         const string folderId = "<folder ID>"; // Specify the folder ID.
 
          HttpClient client = new HttpClient();
          client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
          var values = new Dictionary<string, string>
          {
-           { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!" },
-           { "lang", "en-US" },
+           { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!" },
+           { "lang", "ru-RU" },
            { "voice", "filipp" },
            { "folderId", folderId }
          };
@@ -119,11 +121,11 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
 
           data = {
               'text': text,
-              'lang': 'en-US',
+              'lang': 'ru-RU',
               'voice': 'filipp',
               'folderId': folder_id
           }
-
+      
           with requests.post(url, headers=headers, data=data, stream=True) as resp:
               if resp.status_code != 200:
                   raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
@@ -135,7 +137,7 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
       if __name__ == "__main__":
           parser = argparse.ArgumentParser()
           parser.add_argument("--token", required=True, help="IAM token")
-          parser.add_argument("--folder_id", required=True, help="Folder ID")
+          parser.add_argument("--folder_id", required=True, help="Folder id")
           parser.add_argument("--text", required=True, help="Text for synthesize")
           parser.add_argument("--output", required=True, help="Output file name")
           args = parser.parse_args()
@@ -145,12 +147,12 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
                   f.write(audio_content)
       ```
 
-   1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
+   1. Execute the created file by passing arguments with the [folder ID](../../resource-manager/operations/folder/get-id.md), [IAM token](../../iam/concepts/authorization/iam-token.md), text, and name of the file for audio recording:
 
       ```bash
-      export FOLDER_ID=<Folder ID>
+      export FOLDER_ID=<folder ID>
       export IAM_TOKEN=<IAM token>
-      python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!"
+      python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "I'm Yandex Sp+eechKit. I can turn any text into speech. Now y+ou can, too!"
       ```
 
 - PHP
@@ -159,10 +161,10 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
    <?
 
    $token = '<IAM token>'; # IAM token
-   $folderId = "<Folder ID>"; # Folder ID
+   $folderId = "<folder ID>"; # Folder ID
    $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
 
-   $post = "text=" . urlencode("I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!"). "&lang=en-US&voice=filipp&folderId=${folderId}";
+   $post = "text=" . urlencode("I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!"). "&lang=ru-RU&voice=filipp&folderId=${folderId}";
    $headers = ['Authorization: Bearer ' . $token];
    $ch = curl_init();
 
@@ -187,7 +189,7 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
        echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
        echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
    } else {
-       file_put_contents("speech.raw", $response);
+       file_put_contents("speech.ogg", $response);
    }
    curl_close($ch);
    ```
@@ -199,7 +201,7 @@ By default, data in the audio file is encoded using the OPUS audio codec and com
 
 In this example, we synthesize the submitted text in LPCM format with a sampling rate of 48kHz and save it to the file `speech.raw`. This file is then converted to WAV format using the [SoX](http://sox.sourceforge.net/) utility.
 
-1. Synthesize a file in LCPM format:
+1. Synthesize a file in LCPM format, specifying the [folder ID](../../resource-manager/operations/folder/get-id.md) and [IAM token](../../iam/concepts/authorization/iam-token.md) in the parameters:
 
    {% list tabs %}
 
@@ -211,13 +213,13 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       > I can turn any text into speech.
       > Now yo+u can, too!
       > EOM
-      export FOLDER_ID=<Folder ID>
+      export FOLDER_ID=<folder ID>
       export IAM_TOKEN=<IAM token>
       curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -o speech.raw \
         --data-urlencode "text=${TEXT}" \
-        -d "lang=en-US&voice=filipp&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
+        -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
         https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
       ```
 
@@ -241,15 +243,15 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
 
           static async Task Tts()
           {
-            const string iamToken = "<IAM token>"; // Specify your IAM token.
-            const string folderId = "<Folder ID>"; // Specify the folder ID.
+            const string iamToken = "<IAM token>"; // Specify the IAM token.
+            const string folderId = "<folder ID>"; // Specify the folder ID.
 
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
             var values = new Dictionary<string, string>
             {
-              { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!" },
-              { "lang", "en-US" },
+              { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!" },
+              { "lang", "ru-RU" },
               { "voice", "filipp" },
               { "folderId", folderId },
               { "format", "lpcm" },
@@ -281,7 +283,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
 
              data = {
                  'text': text,
-                 'lang': 'en-US',
+                 'lang': 'ru-RU',
                  'voice': 'filipp',
                  'folderId': folder_id,
                  'format': 'lpcm',
@@ -299,7 +301,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
          if __name__ == "__main__":
              parser = argparse.ArgumentParser()
              parser.add_argument("--token", required=True, help="IAM token")
-             parser.add_argument("--folder_id", required=True, help="Folder ID")
+             parser.add_argument("--folder_id", required=True, help="Folder id")
              parser.add_argument("--text", required=True, help="Text for synthesize")
              parser.add_argument("--output", required=True, help="Output file name")
              args = parser.parse_args()
@@ -309,12 +311,12 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
                      f.write(audio_content)
          ```
 
-      1. Execute the created file by passing arguments with the IAM token, folder ID, text, and name of the file for audio recording:
+      1. Execute the created file by passing arguments with the [folder ID](../../resource-manager/operations/folder/get-id.md), [IAM token](../../iam/concepts/authorization/iam-token.md), text, and name of the file for audio recording:
 
          ```bash
-         export FOLDER_ID=<Folder ID>
+         export FOLDER_ID=<folder ID>
          export IAM_TOKEN=<IAM token>
-         python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!"
+         python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "I'm Yandex SpeechK+it. I can turn any text into speech. Now y+ou can, too!"
          ```
 
    - PHP
@@ -325,10 +327,10 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       const FORMAT_PCM = "lpcm";
       const FORMAT_OPUS = "oggopus";
 
-      $token = 'CggaATEVAgA...'; # IAM token
-      $folderId = "b1gvmob95yysaplct532"; # Folder ID
+      $token = '<IAM token>'; # IAM token
+      $folderId = "<folder ID>"; # Folder ID
       $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-      $post = "text=" . urlencode("I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!"). "&lang=en-US&voice=filipp&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
+      $post = "text=" . urlencode("I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!"). "&lang=ru-RU&voice=filipp&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
       $headers = ['Authorization: Bearer ' . $token];
       $ch = curl_init();
 
@@ -380,10 +382,10 @@ The text is synthesized and recorded as an audio file. By default, data in the a
 
       {% include [ssml-example](../../_includes/speechkit/ssml-example.md) %}
 
-   1. Send a request with the text to the server. Pass the text in the `ssml` parameter. In this example, the contents of the file are read using the [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) utility:
+   1. Send the request with the text to the server, specifying the [folder ID](../../resource-manager/operations/folder/get-id.md) and [IAM token](../../iam/concepts/authorization/iam-token.md) in its parameters. Pass the text in the `ssml` parameter. In this example, the contents of the file are read using the [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) utility:
 
       ```bash
-      export FOLDER_ID=<Folder ID>
+      export FOLDER_ID=<folder ID>
       export IAM_TOKEN=<IAM token>
       curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \

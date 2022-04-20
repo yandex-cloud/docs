@@ -1,8 +1,8 @@
-# Viewing pages you edited
+# Viewing the pages you edited
 
-To view the list of pages you've made edits to, open your **Bookmarks**:
+The list of all pages you've edited is found under **Bookmarks**:
 
-1. On the {{ wiki-name }} top panel, open the **Bookmarks** menu.
+1. In the top {{ wiki-name }} panel, open the **Bookmarks**.
 
 1. Choose **Edited by me**.
 

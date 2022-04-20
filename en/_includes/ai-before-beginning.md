@@ -30,7 +30,7 @@ To use the examples, install [cURL](https://curl.haxx.se) and get the authorizat
   1. Use the CLI to get an [IAM token](../iam/concepts/authorization/iam-token.md) required for authentication:
 
       ```bash
-      $ yc iam create-token
+      yc iam create-token
       ```
 
   1. [Get the ID of any folder](../resource-manager/operations/folder/get-id.md) that your account is granted the `editor` role or higher for.

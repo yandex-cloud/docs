@@ -15,7 +15,7 @@ Before you enable serial console access on a VM:
 1. Create a text file (for example, `sshkeys.txt`) and specify the following:
 
    ```txt
-   <username>:<user's public SSH key
+   <username>:<user's public SSH key>
    ```
 
    Example of a text file for `yc-user`:
@@ -130,14 +130,15 @@ To enable access to the serial console when updating a VM, set the `serial-port-
 
 ## Configuring a VM for serial port access {#configuration}
 
-For the serial console to be available from the OS, the OS must be configured properly:
+To configure access via the serial console, a virtual machine must have a public IP address. You can look up the address in the [management console]({{ link-console-main }}) in the **Compute Cloud** section on the **Virtual machines** page. If you created a virtual machine without a public IP address, you can [assign it one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can release the address. You do not need it for connections via the serial console.
 
+For the serial console to be available from the OS, the OS must be configured properly:
 * [Linux](#linux-configuration)
 * [Windows](#windows-configuration)
 
 ### Linux {#linux-configuration}
 
-To connect to the Linux serial console, make sure that [SSH password authentication is disabled](#ssh-pass-off) and, if necessary, [set a password](#create-pass) for the appropriate OS user.
+To connect to the Linux serial console, make sure that [password authentication is disabled for SSH](#ssh-pass-off) and [set a password](#create-pass) for the appropriate OS user, if necessary.
 
 #### Disable SSH password authentication {#ssh-pass-off}
 
@@ -146,11 +147,8 @@ To connect to the Linux serial console, make sure that [SSH password authenticat
 If you use your own image, make sure that SSH access with your username and password is disabled.
 
 To disable SSH password authentication:
-
 1. Open the configuration file on the SSH server (`/etc/ssh/sshd_config` by default). Only a superuser has read and write access to the file.
-
 1. Set the `PasswordAuthentication` option to `no`.
-
 1. Restart the SSH server:
 
    ```bash

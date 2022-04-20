@@ -4,39 +4,32 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
 
 {% list tabs %}
 
-- Management console
+* Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a disk placement group.
-
-  1. Select **{{ compute-name }}**.
-
-  1. Go to the **Placement groups** tab.
-
-  1. Go to the **Non-replicated disk placement groups** tab.
-
-  1. Click **Create non-replicated disk placement group**.
-
-  1. Enter group name.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk placement group.
+   1. Select **{{ compute-name }}**.
+   1. On the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **Placement groups**.
+   1. Open the **Non-replicated disk placement groups** tab.
+   1. Click **Create non-replicated disk placement** group.
+   1. Enter a name for the group.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. If required, add a free-form group description.
+   1. If required, add a group description.
+   1. Specify the [availability zone](../../../overview/concepts/geo-scope.md).
+   1. Click **Create**.
 
-  1. Specify the [availability zone](../../../overview/concepts/geo-scope.md).
+* CLI
 
-  1. Click **Create**.
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-- CLI
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. See the description of the CLI commands to create a disk placement group:
+   1. View a description of the CLI commands to create a disk placement group:
 
       ```bash
       yc compute disk-placement-group create --help
       ```
 
-  1. Create a group in the default folder:
+   1. Create a group in the default folder:
 
       ```bash
       yc compute disk-placement-group create \
@@ -44,15 +37,15 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       --description "first disk placement group"
       ```
 
-      This will create a disk placement group named `first-group` with the description `first disk placement group`.
+      This will create a disk placement group named `first-group` with the description `first disk placement group`.
 
-  1. Get a list of disk placement groups in the default folder:
+   1. Get a list of disk placement groups in the default folder:
 
       ```bash
       yc compute disk-placement-group list
       ```
 
-      Execution result:
+      Output:
 
       ```text
       +----------------------+-------------+---------------+--------+
@@ -62,14 +55,14 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       +----------------------+-------------+---------------+--------+
       ```
 
-  1. Get information about the group created:
+   1. Get information about the group created:
 
       ```bash
       yc compute disk-placement-group get \
       --name first-group
       ```
 
-      Execution result:
+      Output:
 
       ```text
       id: epd4sug6keskb72ub9m7
@@ -83,4 +76,3 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       ```
 
 {% endlist %}
-

@@ -62,3 +62,8 @@
 - [{#T}](dashboard/publish.md)
 - [{#T}](dashboard/manage-access.md)
 - [{#T}](dashboard/auto-update.md)
+
+
+## Работа с организациями {#working-with-organizations}
+
+- [{#T}](organizations/change-organization.md)

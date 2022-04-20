@@ -23,7 +23,7 @@
 
 1. Under **Required resources**:
 
-    * Set the VM configuration requirements for your software to run:
+   * Set the VM configuration requirements for your software to run:
 
       1. Click on the plus sign icon on the right.
 
@@ -33,13 +33,13 @@
          * **GPU**.
          * **Network**.
          * **Roles**.
-         To remove a parameter, click ![image](../../_assets/cross.svg) next to the name. The **CPU**, **RAM**, and **Disk size** parameters are required and can't be removed.
+           To remove a parameter, click ![image](../../_assets/cross.svg) next to the name. The **CPU**, **RAM**, and **Disk size** parameters are required and can't be removed.
 
-    * For the parameters:
+   * For the parameters:
       * **Platforms**: Select all the platforms on which the VM can be deployed.
       * **Roles**: Select the required roles. If you specify the service account role, the user will be prompted to link a service account with this role to the VM when it is deployed.
       * **Network**: Specify the maximum available number of network interfaces for VMs based on your product. By default, one network interface is available.
-    * For the other parameters in the **Minimum** field, specify the value that guarantees your software will run on the deployed VM. The user can't start a VM with the parameters below those specified. If necessary, fill in the fields:
+   * For the other parameters in the **Minimum** field, specify the value that guarantees your software will run on the deployed VM. The user can't start a VM with the parameters below those specified. If necessary, fill in the fields:
       * **Maximum**: The maximum parameter value. The user can't start a VM with parameters above those specified.
       * **Recommended value**: The optimal value for your software to run on the VM.
 
@@ -49,8 +49,8 @@
    * **Header (ru)**: The name of the product (or license agreement) in Russian.
    * **Header (en)**: The name of the product (or license agreement) in English.
    * **Type**: The type of the license agreement:
-       * For the main product: Additional terms of service.
-       * For software from other vendors included in the product: Additional terms of service by third parties.
+      * For the main product: Additional terms of service.
+      * For software from other vendors included in the product: Additional terms of service by third parties.
    * **URL**: A link to the license agreement.
 
 1. Click **Create**.

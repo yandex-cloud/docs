@@ -2,6 +2,8 @@
 
 With the Speech Synthesis Markup Language (SSML), you can control how {{ speechkit-name }} synthesizes speech from text.
 
+SSML is supported only when using [API v1](request.md).
+
 To pass text in SSML format, use the `ssml` parameter in the request body and wrap the text in the `<speak>` tag:
 
 {% include [ssml-example](../../_includes/speechkit/ssml-example.md) %}
@@ -13,7 +15,7 @@ To pass text in SSML format, use the `ssml` parameter in the request body and wr
 Currently, {{ speechkit-name }} supports the following SSML tags:
 
 | Description | Tag |
-| ----- | ----- |
+----- | -----
 | [Add a pause](#break) | `<break>` |
 | [Add a pause between paragraphs](#p) | `<p>` |
 | [Use phonetic pronunciation](#phoneme) | `<phoneme>` |
@@ -26,8 +28,8 @@ Currently, {{ speechkit-name }} supports the following SSML tags:
 Use the `<break>` tag to add a pause with a specified duration to the speech. The duration is specified using the `strength` and `time` attributes. If these attributes aren't set, the `strength="medium"` value is used by default.
 
 | Attribute | Description |
-| ----- | ----- |
-| `strength` | Pause duration. Acceptable values:<br>* `medium` or `weak` — Equivalent to the pause after a comma.<br>* `strong` — Equivalent to the pause after a period or a [sentence](#s).<br>* `x-strong` — Equivalent to the pause after a [paragraph](#p).<br>* `none` or `x-weak` — These values don't add any pause, they are kept for AWS API compatibility. |
+----- | -----
+| `strength` | Pause duration. Acceptable values:<br>* `medium` or `weak`: Equivalent to the pause after a comma.<br>* `strong`: Equivalent to the pause after a period or a [sentence](#s).<br>* `x-strong`: Equivalent to the pause after a [paragraph](#p).<br>* `none` or `x-weak`: These values don't add any pause, they are kept for AWS API compatibility. |
 | `time` | Pause duration in seconds or milliseconds, for example `2s` or `400ms`. The maximum pause duration is 5 seconds.<br>When synthesizing pauses for specified lengths, there may be an error of 100-200 ms. |
 
 ```xml
@@ -58,25 +60,25 @@ Use the `<phoneme>` tag to check the proper pronunciation using phonemes. The te
 
 * International phonetic alphabet ([IPA](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet))
 
-  ```xml
-  <speak>
-        In different regions of Russia, the letter
-        <phoneme alphabet="ipa" ph="o">О</phoneme> when it's in a word is pronounced differently.
-        Somewhere they say <phoneme alphabet="ipa" ph="məlɐko">молоко</phoneme>,
-        whereas elsewhere they say <phoneme alphabet="ipa" ph="mələko">молоко</phoneme>.
-  </speak>
-  ```
+   ```xml
+   <speak>
+         In different regions of Russia, the letter
+         <phoneme alphabet="ipa" ph="o">O</phoneme> is pronounced differently in words.
+         Somewhere they say <phoneme alphabet="ipa" ph="məlɐko">молоко</phoneme>,
+         where elsewhere they say <phoneme alphabet="ipa" ph="mələko">молоко</phoneme>.
+   </speak>
+   ```
 
 * Extended Speech Assessment Methods Phonetic Alphabet ([X-SAMPA](https://en.wikipedia.org/wiki/X-SAMPA))
 
-  ```xml
-  <speak>
-        In different regions of Russia, the letter
-        <phoneme alphabet="x-sampa" ph="o">О</phoneme> when it's in a word is pronounced differently.
-        Somewhere they say <phoneme alphabet="x-sampa" ph="m@l6ko">молоко</phoneme>,
-        whereas elsewhere they say <phoneme alphabet="x-sampa" ph="m@l@ko">молоко</phoneme>.
-  </speak>
-  ```
+   ```xml
+   <speak>
+         In different regions of Russia, the letter
+         <phoneme alphabet="x-sampa" ph="o">O</phoneme> is pronounced differently in words.
+         Somewhere they say <phoneme alphabet="x-sampa" ph="m@l6ko">молоко</phoneme>,
+         where elsewhere they say <phoneme alphabet="x-sampa" ph="m@l@ko">молоко</phoneme>.
+   </speak>
+   ```
 
 [The list of supported phonemes for each language](supported-phonemes.md).
 
@@ -107,7 +109,6 @@ Use the `<sub>` tag to replace one text with another when pronouncing it. For ex
 
 ```xml
 <speak>
-  My favorite chemical element  is <sub alias="Mercury">Hg</sub> because it's shiny.
+  My favorite chemical element is <sub alias="Mercury">Hg</sub> because it's shiny.
 </speak>
 ```
-

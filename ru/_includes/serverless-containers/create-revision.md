@@ -1,4 +1,5 @@
-Для создания ревизии сделайте Docker-образ публичным или передайте в команде [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание образа.
+
+{% include [revision-service-account-note](./revision-service-account-note.md) %}
 
 {% list tabs %}
 
@@ -39,6 +40,7 @@
 	    {% endnote %}
 
     * `--execution-timeout` — таймаут. По умолчанию — 3 секунды.
+    * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание образа.
 
 	Результат:
 

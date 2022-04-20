@@ -17,7 +17,7 @@ To send responses to {{ wiki-name }}:
 
 1. Specify the address of the wiki page where you want to send data from the form. Example: `users/login/my-page`. By default, responses are added to the bottom of the page. To add responses to a specific place on the page:
 
-    1. Insert an [anchor](../wiki/actions/objects.md#anchor) in the place where you want to add responses from the form. For example, `{{a name="form"}}`.
+    1. Insert an [anchor](../wiki/actions/anchor.md) in the place where you want to add responses from the form. For example, `{{a name="form"}}`.
 
     1. In the {{ wiki-name }} integration settings, append the `#` character and the name of the anchor to the page address like this: `users/login/my-page#form`. Responses from the form will be added to the page after the anchor.
 

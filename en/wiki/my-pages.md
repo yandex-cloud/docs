@@ -1,14 +1,14 @@
 # Viewing the list of my pages
 
-To view the list of pages that you're the owner of, open your **Bookmarks**:
+To find the list of pages you own, open your **Bookmarks**:
 
-1. On the {{ wiki-name }} top panel, open the **Bookmarks** menu.
+1. In the top {{ wiki-name }} panel, open the **Bookmarks**.
 
-1. Choose **My pages**.
+1. Go to **My pages**.
 
-## Embedding a list of owned pages
+## How to embed the list of my pages to a Wiki page
 
-Insert a `not_var{{mypages}}` dynamic block into the page text.
+Insert the `not_var{{mypages}}` dynamic block into the Wiki page text.
 
-You can use [additional block parameters](actions/page-lists.md#mypages) to sort the list and display lists of other users.
+You can use [additional block parameters](actions/page-lists.md#mypages) to set a sort order for the list and display another user's list.
 
