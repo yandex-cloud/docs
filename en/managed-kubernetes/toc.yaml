@@ -67,6 +67,8 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
           - name: Editing a Kubernetes cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
+          - name: Creating a namespace in a Kubernetes cluster
+            href: operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
           - name: Deleting a Kubernetes cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group

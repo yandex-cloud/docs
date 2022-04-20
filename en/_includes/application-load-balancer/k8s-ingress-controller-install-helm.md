@@ -1,0 +1,1 @@
+[Install the Helm package manager]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}, version {{ alb-ingress-helm-version }} or higher.
