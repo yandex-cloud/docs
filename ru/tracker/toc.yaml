@@ -84,6 +84,9 @@ items:
       href: about-tracker.md
     - name: Основные понятия
       href: glossary.md
+    - name: Роли и права доступа
+      when: audience == "external"
+      href: role-model.md
 #    - name: Обучающие материалы
 #      href: education.md
 #      when: locale == "ru"
