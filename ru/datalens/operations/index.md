@@ -31,6 +31,7 @@
 - [{#T}](dataset/materialize.md)
 {% if audience != "internal" %} - [{#T}](dataset/manage-access.md) {% endif %}
 - [{#T}](dataset/manage-row-level-security.md)
+{% if audience == "internal" %} - [{#T}](dataset/add-parameter-dataset.md) {% endif %}
 
 ## Создание и настройка чартов {#creating-and-configuring-charts}
 
@@ -56,6 +57,7 @@
 {% if audience == "internal" %} - [{#T}](chart/use-comments.md){% endif %}
 {% if audience == "internal" %} - [{#T}](chart/add-parameters.md) {% endif %}
 - [{#T}](chart/add-guid.md)
+{% if audience == "internal" %} - [{#T}](chart/add-parameter-chart.md) {% endif %}
 {% if audience == "internal" %} - [{#T}](chart/export-from-monitoring.md) {% endif %}
 
 ## Работа с дашбордами {#working-with-dashboards}

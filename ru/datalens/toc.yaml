@@ -89,6 +89,9 @@ items:
             href: concepts/calculations/index.md
           - name: Синтаксис формул
             href: concepts/calculations/formula-syntax.md
+      - name: Параметризация
+        when: audience == "internal"
+        href: concepts/parameters.md
       - name: Marketplace
         when: audience == "external"
         href: concepts/marketplace.md
@@ -172,6 +175,9 @@ items:
             href: operations/dataset/manage-access.md
           - name: Управление доступом к строкам данных
             href: operations/dataset/manage-row-level-security.md
+          - name: Добавление параметра в датасет
+            when: audience == "internal"
+            href: operations/dataset/add-parameter-dataset.md
       - name: Работа с чартами
         items:
           - name: Создание линейной диаграммы
@@ -225,6 +231,9 @@ items:
           - name: Экспорт чарта из Monitoring в DataLens
             when: audience == "internal"
             href: operations/chart/export-from-monitoring.md
+          - name: Добавление параметра в чарт
+            when: audience == "internal"
+            href: operations/chart/add-parameter-chart.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда
