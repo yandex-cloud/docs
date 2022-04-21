@@ -7,4 +7,4 @@
 
 You pay for the actual number of invocations.
 
->For example, the cost of ten thousand invocations is `₽0.75`, if price per 1 million requests (with VAT) is `₽75`.
+>For example, the cost of ten thousand invocations is `₽1.2`, if price per 1 million requests (with VAT) is `₽120`.
