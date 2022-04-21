@@ -44,7 +44,7 @@ Runtime environments available in {{ sf-name }}.
 | **.NET Core** |  |  |
 | .NET Core 3.1 | `dotnetcore31` | No |
 | **R** |  |  |
-| R 4.0.2 | `r402` | No |
+| R 4.0 | `r40` | No |
 | **Other** |  |  |
 | Bash | `bash` | No |
 
