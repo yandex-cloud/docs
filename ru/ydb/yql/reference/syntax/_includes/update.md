@@ -10,7 +10,7 @@ sourcePath: ru/ydb/yql/reference/yql-core/syntax/_includes/update.md
 
 {% note info %}
 
-Изменение состояния таблицы не отслеживается в рамках одной транзакции. Если таблица уже была изменена, для обновления данных в той же транзакции используйте [`UPDATE ON`](#update-on).
+В рамках одной транзакции операторы UPDATE или UPDATE ON для одной таблицы можно использовать только один раз.
 
 {% endnote %}
 
@@ -24,9 +24,24 @@ WHERE Key1 > 1;
 
 ## UPDATE ON {#update-on}
 
-Используется для обновления данных, если таблица уже была изменена ранее, в рамках одной транзакции.
+Это другая форма записи оператора UPDATE.
 
-**Пример**
+Синтаксис:
+
+```
+UPDATE table_name ON
+SELECT ....
+```
+
+SELECT должен возвращать выборку в которой имена всех колонок результирующего набора совпадают с соответствующими именами в table_name. Если имя какой-либо из колонок результирующего набора имеет имя, отсутствующее в table_name, то вернется ошибка.
+
+SELECT должен возвращать выборку в которой присутствуют все столбцы, формирующие primary key таблицы table_name.
+
+UPDATE ON проходится по всем записям результирующего набора, возвращаемого SELECT, ищет по primary key соответствующие записи в table_name и проводит обновление столбцов, не состоящих в primary key согласно значениям, указанным в соответствующих столбцах результирующего набора.
+
+Столбцы таблицы table_name, не задействованные в SELECT не меняют своего значения.
+
+**Примеры**
 
 ```sql
 $to_update = (
@@ -38,4 +53,44 @@ SELECT * FROM my_table;
 
 UPDATE my_table ON
 SELECT * FROM $to_update;
+```
+
+
+В примере ниже primary key таблицы season состоит только из одного столбца season_id.
+```yql
+$updated_fld=AsList(
+    AsStruct(
+        3ul as season_id,
+        'update_on title 3'u as title,
+        301ul as series_id
+    )
+);
+update season on select * from As_Table( $updated_fld);
+```
+
+
+{% note info %}
+
+Если В рамках одной транзакции Вы хотите многократно обновлять одну и ту же таблицу - то используйте оператор UPSERT
+
+{% endnote %}
+
+**Пример:**
+
+```уql
+$updated_fld=AsList(
+    AsStruct(
+        1ul as season_id,
+        'update_on title 30'u as title,
+        301ul as series_id
+    )
+);
+update season on select * from As_Table( $updated_fld);
+
+UPSERT INTO season (season_id, title)
+values (30ul,'30'u),
+        (31ul,'31'u);
+       
+UPSERT INTO season (season_id, title)
+values (33ul,'33'u);        
 ```
