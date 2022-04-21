@@ -37,4 +37,8 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/_includes/install.md
 
   {% include [install/cmd_php.md](install/cmd_php.md) %}
 
+- Node.js
+
+  {% include [install/cmd_nodejs.md](install/cmd_nodejs.md) %}
+
 {% endlist %}
