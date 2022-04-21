@@ -22,8 +22,7 @@ To get the ID of the log group created together with the L7 load balancer to sto
      yc alb load-balancer get <load balancer name>
      ```
 
-     Command execution result:
-
+     Result:
      ```
      id: a5d88ep483cmbfm63g9t
      name: test-balancer2
