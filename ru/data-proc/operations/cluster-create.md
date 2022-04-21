@@ -323,7 +323,7 @@
 
        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-       Чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/ui-proxy.md) {{ dataproc-name }}, добавьте в описание кластера поле `ui_proxy`:
+       Чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}, добавьте в описание кластера поле `ui_proxy`:
 
        ```hcl
        resource "yandex_dataproc_cluster" "<имя кластера в {{ TF }}>" {
