@@ -83,5 +83,7 @@ items:
     href: concepts/data-deletion.md
   - name: SLA
     href: sla.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     href: qa.md

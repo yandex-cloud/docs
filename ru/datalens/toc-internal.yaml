@@ -97,3 +97,6 @@ items:
     include:
       repo: docs
       path: en/_api-ref/datalens/toc.yaml
+  - name: История изменений
+    href: release-notes.md
+    when: audience == "draft"

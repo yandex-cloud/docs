@@ -270,12 +270,12 @@ default:
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   ssms: SQL Server Management Studio
-  tag-con: <code><b><small>Management console</small></b></code>
+  tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
-  tag-all: <code><b><small>All interfaces</small></b></code>
+  tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: ru-central1-c
 
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
@@ -455,6 +455,7 @@ default:
   link-cloud-marketplace: https://cloud.yandex.com/marketplace
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
+  link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
   link-pci-dss-en: https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
   link-pci-dss-ru: https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
@@ -590,12 +591,12 @@ internal:
   ZK: ZooKeeper
   MS: Microsoft SQL Server
   RMQ: RabbitMQ
-  tag-con: <code><b><small>Management console</small></b></code>
+  tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
-  tag-all: <code><b><small>All interfaces</small></b></code>
+  tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: vla
   host-class: db1.micro
   zk-host-class: b2.medium

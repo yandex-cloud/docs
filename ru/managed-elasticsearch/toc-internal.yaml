@@ -51,3 +51,5 @@ items:
     items:
       - name: Authentication
         href: api-ref/authentication.md
+  - name: История изменений
+    href: release-notes.md

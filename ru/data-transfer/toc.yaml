@@ -113,5 +113,8 @@ items:
         include:
           repo: docs
           path: en/_api-ref/datatransfer/toc.yaml
+  - name: История изменений
+    href: release-notes.md
+    when: audience == "draft"
   - name: Вопросы и ответы
     href: qa/index.md

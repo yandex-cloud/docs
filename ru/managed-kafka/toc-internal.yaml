@@ -63,3 +63,5 @@ items:
     items:
       - name: Authentication
         href: api-ref/REST/authentication.md
+  - name: История изменений
+    href: release-notes.md

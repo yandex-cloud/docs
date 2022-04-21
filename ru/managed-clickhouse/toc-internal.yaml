@@ -107,6 +107,8 @@ items:
     include:
       repo: docs
       path: en/_api-ref/mdb/clickhouse/toc.yaml
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

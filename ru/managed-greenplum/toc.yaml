@@ -60,9 +60,8 @@ items:
         include:
           repo: docs
           path: en/_api-ref/mdb/greenplum/toc.yaml
-  - name: Релизы
+  - name: История изменений
     href: release-notes.md
-    when: audience == "draft"
   - name: Вопросы и ответы
     when: audience == "draft"
     items:
