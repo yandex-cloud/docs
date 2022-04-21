@@ -77,6 +77,8 @@ items:
         href: about-tracker.md
       - name: Основные понятия
         href: glossary.md
+      - name: Роли и права доступа
+        href: role-model.md
   - name: Настроить очередь
     items:
       - name: Обзор

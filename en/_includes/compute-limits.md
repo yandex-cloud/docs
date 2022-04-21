@@ -91,11 +91,11 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
    | Maximum disk size | 256 TB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 32 GB |
    | Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 40,000 |
-   | Maximum^4^ IOPS for writes per allocation unit | 1000 |
+   | Maximum^4^ IOPS for writes per allocation unit | 1,000 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 450 MB/s |
    | Maximum^5^ bandwidth for writes per allocation unit | 15 MB/s |
-   | Maximum^4^ IOPS for reads per disk | 12,000 |
-   | Maximum^4^ IOPS for reads per allocation unit | 400 |
+   | Maximum^4^ IOPS for reads per disk | 20,000 |
+   | Maximum^4^ IOPS for reads per allocation unit | 1,000 |
    | Maximum^5^ bandwidth for reads per disk | 450 MB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 15 MB/s |
 
@@ -109,8 +109,8 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
    | Maximum^4^ IOPS for writes per allocation unit | 300 |
    | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 240 MB/s |
    | Maximum^5^ bandwidth for writes per allocation unit | 30 MB/s |
-   | Maximum^4^ IOPS for reads per disk | 300 |
-   | Maximum^4^ IOPS for reads per allocation unit | 100 |
+   | Maximum^4^ IOPS for reads per disk | 2,000 |
+   | Maximum^4^ IOPS for reads per allocation unit | 300 |
    | Maximum^5^ bandwidth for reads per disk | 240 MB/s |
    | Maximum^5^ bandwidth for reads per allocation unit | 30 MB/s |
 

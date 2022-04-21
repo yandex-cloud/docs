@@ -42,6 +42,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)
 
 ## Managing a node group {#node-group}

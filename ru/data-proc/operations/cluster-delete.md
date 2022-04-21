@@ -24,4 +24,8 @@ description: "Вы можете удалить кластер Data Proc вмес
 
     {{ dataproc-name }} запустит операцию удаления кластера.
 
+- Terraform
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+
 {% endlist %}

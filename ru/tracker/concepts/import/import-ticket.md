@@ -5,7 +5,7 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-ticket.md
 
 {% note warning %}
  
-Запрос может быть выполнен только от имени администратора организации.
+Запрос может быть выполнен только от имени [администратора](../../role-model.md).
 
 {% endnote %}
 

@@ -10,7 +10,7 @@ To edit an L7 load balancer:
   1. Click on the name of the load balancer you need.
   1. Click **Edit**.
   1. Edit the load balancer parameters, for example, rename the load balancer.
-  1. At the bottom of the page, click **Save changes**.
+  1. At the bottom of the page, click **Save**.
 
 - CLI
 
@@ -30,7 +30,7 @@ To edit an L7 load balancer:
      yc alb load-balancer update <load balancer name> --new-name <new load balancer name>
      ```
 
-     Command execution result:
+     Result:
 
      ```
      id: a5d88ep483cmbfm63g9t
