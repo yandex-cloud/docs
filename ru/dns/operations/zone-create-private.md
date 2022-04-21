@@ -35,7 +35,7 @@
      ```
      yc dns zone create --name test-zone \
      --zone staging. \
-     --private-visibility network-ids=<идентифиакторы сетей для зоны>
+     --private-visibility network-ids=<идентификаторы сетей для зоны>
      ```
 
      Результат выполнения команды:
