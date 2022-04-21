@@ -1,4 +1,4 @@
-# Образы {{ dataproc-full-name }}
+# История изменений образов {{ dataproc-full-name }}
 
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 

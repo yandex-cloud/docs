@@ -27,7 +27,7 @@ items:
         items:
           - name: Аутентификация в API
             href: api-ref/authentication.md
-          - name: API v1
+          - name: API v2
             items:
               - name: API потокового распознавания
                 href: stt/api/streaming-api.md

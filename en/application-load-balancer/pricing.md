@@ -25,29 +25,26 @@ When calculating the number of resource units, hourly maximums for indicators ar
 
 A load balancer located in one availability zone, ran for an hour with the following indicators:
 
-* 1500 RPS.
-* 6000 parallel active connections.
-* 50 new connections per second.
-* 2 MB of traffic per second.
+{% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
 
 Here's the calculation of the cost for this hour and for the month comprised of 720 hours with the same indicators:
 
-> RPS: 1500 / 1000 = 1.5 ~ 2
-> Active connections: 6000 / 4000 = 1.5 ~ 2
-> New connections: 50 / 200 = 0.25 ~ 1
-> Traffic: 2 / 22 = 0.0909... ~ 1
+> RPS: 6000 / 1000 = 6
+> Active connections: 30000 / 4000 = 7.5 ~ 8
+> New connections: 500 / 200 = 2.5 ~ 3
+> Traffic: 20 / 22 = 0.9090... ~ 1
 > Minimum number of resource units in the zone: 2
 >
-> Number of resource units: 2
+> Number of resource units: 8
 >
 > 
 > 
-> 2 × 0.017806 = $0.035612
+> 8 × 0.01776 = $0.14208
 >
-> Hourly total: $0.035612
-> Monthly total: 0.035612 × 720 = $25.64064
+> Hourly total: $0.14208
+> Monthly total: 0.14208 × 720 = $102.2976
 
-Here $0.017806 is the cost per resource unit.
+Here $0.01776 is the cost per resource unit.
 
 ## Pricing {#prices}
 

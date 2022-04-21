@@ -10,7 +10,7 @@
 
 ## Изменить количество хостов {#change-host-number}
 
-Вы можете изменить количество хостов в кластерах `DATANODE` и `COMPUTENODE`:
+Вы можете изменить количество хостов в подкластерах `DATANODE` и `COMPUTENODE`:
 
 {% list tabs %}
 
@@ -25,6 +25,27 @@
   1. Нажмите кнопку **Сохранить изменения**.
 
   {{ dataproc-name }} запустит операцию добавления хостов.
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ dataproc-name }} значение параметра `hosts_count` в блоке `subcluster_spec` соответствующего подкластера `DATANODE` или `COMPUTENODE`:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "<имя кластера>" {
+          ...
+          cluster_config {
+            ...
+            subcluster_spec {
+              name        = "<имя подкластера>"
+              ...
+              hosts_count = <число хостов в подкластере>
+          }
+        }
+        ```
 
 {% endlist %}
 
@@ -48,6 +69,40 @@
 
   {{ dataproc-name }} запустит операцию изменения подкластера. При этом все хосты изменяемого подкластера будут перезапущены.
 
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ dataproc-name }} значение параметра `resource_preset_id` в блоке `subcluster_spec.resources` соответствующего подкластера:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "<имя кластера>" {
+          ...
+          cluster_config {
+            ...
+            subcluster_spec {
+              name = "<имя подкластера>"
+              ...
+              resources {
+                resource_preset_id = "<класс хостов подкластера>"
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{tf-provider-dp}}).
+
 {% endlist %}
 
 ## Изменить правило автомасштабирования Compute подкластеров {#change-autoscaling-rule}
@@ -60,13 +115,54 @@
 
 - Консоль управления
 
-  1. Перейдите на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
   1. Выберите кластер и перейдите на вкладку **Подкластеры**.
   1. Нажмите на значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) для нужного подкластера и выберите пункт **Изменить**.
   1. В блоке **Масштабирование** включите настройку **Автоматическое масштабирование**, если она выключена.
   1. Укажите параметры автоматического масштабирования.
   1. По умолчанию в качестве метрики для автоматического масштабирования используется `yarn.cluster.containersPending`. Чтобы включить масштабирование на основе загрузки CPU, выключите настройку **Масштабирование по умолчанию** и укажите целевой уровень загрузки CPU.
   1. Нажмите кнопку **Сохранить изменения**.
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте в описании кластера {{ dataproc-name }} блок `subcluster_spec.autoscaling_config` с нужными вам параметрами автоматического масштабирования для соответствующего подкластера :
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "<имя кластера>" {
+          ...
+          cluster_config {
+            ...
+            subcluster_spec {
+              name = "<имя подкластера>"
+              role = "COMPUTENODE"
+              ...
+              autoscaling_config {
+                max_hosts_count        = <максимальное количество ВМ в группе>
+                measurement_duration   = <промежуток измерения нагрузки (в секундах)>
+                warmup_duration        = <время на разогрев ВМ (в секундах)>
+                stabilization_duration = <период стабилизации (в секундах)>
+                preemptible            = <использование прерываемых ВМ: true или false>
+                cpu_utilization_target = <целевой уровень загрузки vCPU, %>
+                decommission_timeout   = <таймаут декомиссии ВМ (в секундах)>
+              }
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{tf-provider-dp}}).
 
 {% endlist %}
 
@@ -95,6 +191,43 @@
 
   {{ dataproc-name }} запустит операцию изменения подкластера.
 
+- Terraform
+
+    Чтобы увеличить размер хранилища для подкластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ dataproc-name }} значение параметра `disk_size` в блоке `subcluster_spec.resources` соответствующего подкластера:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "<имя кластера>" {
+          ...
+          cluster_config {
+            ...
+            subcluster_spec {
+              name = "<имя подкластера>"
+              ...
+              resources {
+                disk_size = <объем хранилища, ГБ>
+                ...
+              }
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{tf-provider-dp}}).
+
 {% endlist %}
 
 ## Изменить группы безопасности {#change-sg-set}
@@ -109,6 +242,31 @@
   1. В блоке **Сеть** нажмите значок ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Изменить сетевой интерфейс**.
   1. Выберите нужные группы безопасности.
   1. Нажмите кнопку **Сохранить**.
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените значение параметра `security_group_ids` в описании кластера:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "<имя кластера>" {
+          ...
+          security_group_ids = [ "<список идентификаторов групп безопасности кластера>" ]
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера Terraform]({{tf-provider-dp}}).
 
 {% endlist %}
 

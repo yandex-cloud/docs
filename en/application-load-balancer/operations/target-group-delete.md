@@ -11,43 +11,35 @@ To delete a target group:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder that the target group belongs to.
-
-  1. Select **{{ alb-name }}**.
-
-  1. In the left menu, select **Target groups**.
-
-  1. Select the target group and click ![image](../../_assets/dots.svg).
-
-  1. In the menu that opens, select **Delete**.
+   1. In the [management console]({{ link-console-main }}), select the folder the target group belongs to.
+   1. Select **{{ alb-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
+   1. Select the target group and click ![image](../../_assets/horizontal-ellipsis.svg).
+   1. In the menu that opens, select **Delete**.
 
       To do this with multiple groups, select the groups to delete from the list and click **Delete** at the bottom of the screen.
 
-  1. Confirm the deletion.
+   1. Confirm the deletion.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's delete target group command:
+   1. See the description of the CLI's delete target group command:
+      ```
+      yc alb target-group delete --help
+      ```
 
-     ```
-     yc alb target-group delete --help
-     ```
+   1. Run the command:
+      ```
+      yc alb target-group delete <target group name or ID>
+      ```
 
-  1. Run the command:
-
-     ```
-     yc alb target-group delete <target group name or ID>
-     ```
-
-     To check the deletion, get a list of target groups by running the command:
-
-     ```
-     yc alb target-group list
-     ```
+      To check the deletion, get a list of target groups by running the command:
+      ```
+      yc alb target-group list
+      ```
 
 {% endlist %}
-

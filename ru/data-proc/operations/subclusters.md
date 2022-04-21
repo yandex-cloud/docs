@@ -58,6 +58,45 @@
 
     {{ dataproc-name }} запустит операцию создания подкластера.
 
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Добавьте в описании кластера {{ dataproc-name }} блок `subcluster_spec` с параметрами нового подкластера:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "<имя кластера>" {
+          ...
+          cluster_config {
+            ...
+            subcluster_spec {
+              name = "<имя подкластера>"
+              role = "<тип подкластера: COMPUTENODE или DATANODE>"
+              resources {
+                resource_preset_id = "<класс хоста>"
+                disk_type_id       = "<тип хранилища>"
+                disk_size          = <объем хранилища, ГБ>
+              }
+              subnet_id   = "<идентификатор подсети в {{ TF }}>"
+              hosts_count = <число хостов в подкластере>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{tf-provider-dp}}).
+
 {% endlist %}
 
 ## Удалить подкластер {#remove-host}
@@ -82,5 +121,23 @@
     1. Подтвердите удаление.
 
     {{ dataproc-name }} запустит операцию удаления подкластера.
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Удалите из описания кластера {{ dataproc-name }} блок `subcluster_spec` нужного подкластера.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите удаление ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{tf-provider-dp}}).
 
 {% endlist %}

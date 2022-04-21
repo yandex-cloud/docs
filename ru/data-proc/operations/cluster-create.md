@@ -55,7 +55,7 @@
 
   1. Введите имя кластера в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога. Требования к имени:
 
-	 {% include [name-format.md](../../_includes/name-format.md) %}
+     {% include [name-format.md](../../_includes/name-format.md) %}
 
   1. Выберите подходящую [версию образа](../concepts/environment.md) и сервисы, которые вы хотите использовать в кластере.
 
@@ -104,7 +104,6 @@
      Запросить публичный доступ после создания кластера невозможно.
 
      {% endnote %}
-
 
   1. Для `Compute` подкластеров можно задать параметры [автоматического масштабирования](../concepts/autoscaling.md).
 
@@ -180,6 +179,186 @@
 
         {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 
+- Terraform
+
+    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Чтобы создать кластер:
+
+    1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
+
+    
+    1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
+
+       Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+
+       Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+       Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
+
+       ```hcl
+       resource "yandex_vpc_network" "<имя сети в {{ TF }}>" { name = "<имя сети>" }
+
+       resource "yandex_vpc_subnet" "<имя подсети в {{ TF }}>" {
+         name           = "<имя подсети>"
+         zone           = "<зона доступности>"
+         network_id     = yandex_vpc_network.<имя сети в {{ TF }}>.id
+         v4_cidr_blocks = ["<подсеть>"]
+       }
+       ```
+
+    1. Создайте конфигурационный файл с описанием [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру, а также [статического ключа](../../iam/concepts/authorization/access-key.md) и [бакета {{ objstorage-full-name }}](../../storage/concepts/bucket.md) для хранения заданий и результатов.
+
+       ```hcl
+       resource "yandex_iam_service_account" "<имя сервисного аккаунта в {{ TF }}>" {
+         name        = "<имя сервисного аккаунта>"
+         description = "<описание сервисного аккаунта>"
+       }
+
+       resource "yandex_resourcemanager_folder_iam_binding" "dataproc" {
+         role    = "mdb.dataproc.agent"
+         members = [
+           "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
+         ]
+       }
+
+       resource "yandex_resourcemanager_folder_iam_binding" "bucket-creator" {
+         role    = "editor"
+         members = [
+           "serviceAccount:${yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id}"
+         ]
+       }
+
+       resource "yandex_iam_service_account_static_access_key" "<имя статического ключа в {{ TF }}>" {
+         service_account_id = yandex_iam_service_account.<имя сервисного аккаунта в {{ TF }}>.id
+       }
+
+       resource "yandex_storage_bucket" "<имя бакета в {{ TF }}>" {
+         depends_on = [
+           yandex_resourcemanager_folder_iam_binding.bucket-creator
+         ]
+
+         bucket     = "<имя бакета>"
+         access_key = yandex_iam_service_account_static_access_key.<имя статического ключа в {{ TF }}>.access_key
+         secret_key = yandex_iam_service_account_static_access_key.<имя статического ключа в {{ TF }}>.secret_key
+       }
+       ```
+
+    1. Создайте конфигурационный файл с описанием кластера и его подкластеров.
+
+       При необходимости здесь же можно задать [свойства компонентов кластера, заданий и среды окружения](../concepts/settings-list.md).
+
+       Пример структуры конфигурационного файла, в котором описывается кластер из одного главного подкластера и одного подкластера для хранения данных:
+
+       ```hcl
+       resource "yandex_dataproc_cluster" "<имя кластера в {{ TF }}>" {
+         bucket              = "<имя бакета в {{ TF }}>"
+         name                = "<имя кластера>"
+         description         = "<описание кластера>"
+         service_account_id  = "<идентификатор сервисного аккаунта в {{ TF }}>"
+         zone_id             = "<зона доступности>"
+         security_group_ids  = ["<список идентификаторов групп безопасности>"]
+         deletion_protection = <защита от удаления кластера: true или false>
+
+         cluster_config {
+           version_id = "<версия образа>"
+
+           hadoop {
+             services   = ["<список компонентов>"]
+             # пример списка: ["HDFS", "YARN", "SPARK", "TEZ", "MAPREDUCE", "HIVE"]
+             properties = {
+               "<свойство компонента>" = <значение>
+               ...
+             }
+             ssh_public_keys = [
+               file("<путь к файлу публичной части SSH-ключа>")
+             ]
+           }
+
+           subcluster_spec {
+             name = "<имя подкластера>"
+             role = "MASTERNODE"
+             resources {
+               resource_preset_id = "<класс хоста>"
+               disk_type_id       = "<тип хранилища>"
+               disk_size          = <объем хранилища, ГБ>
+             }
+             subnet_id   = "<идентификатор подсети в {{ TF }}>"
+             hosts_count = 1
+           }
+
+           subcluster_spec {
+             name = "<имя подкластера>"
+             role = "DATANODE"
+             resources {
+               resource_preset_id = "<класс хоста>"
+               disk_type_id       = "<тип хранилища>"
+               disk_size          = <объем хранилища, ГБ>
+             }
+             subnet_id   = "<идентификатор подсети в {{ TF }}>"
+             hosts_count = <число хостов в подкластере>
+           }
+
+           subcluster_spec {
+             name = "<имя подкластера>"
+             role = "COMPUTENODE"
+             resources {
+               resource_preset_id = "<класс хоста>"
+               disk_type_id       = "<тип хранилища>"
+               disk_size          = <объем хранилища, ГБ>
+             }
+             subnet_id   = "<идентификатор подсети в {{ TF }}>"
+             hosts_count = <число хостов в подкластере>
+           }
+         }
+       }
+       ```
+
+       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+       Чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}, добавьте в описание кластера поле `ui_proxy`:
+
+       ```hcl
+       resource "yandex_dataproc_cluster" "<имя кластера в {{ TF }}>" {
+         ...
+         ui_proxy            = <включить опцию UI Proxy: true или false>
+         ...
+       }
+       ```
+
+       Чтобы задать параметры [автоматического масштабирования](../concepts/autoscaling.md) для `Compute` подкластеров, добавьте в описание соответствующего подкластера `subcluster_spec` блок `autoscaling_config` с нужными вам настройками:
+
+       ```hcl
+       subcluster_spec {
+         name = "<имя подкластера>"
+         role = "COMPUTENODE"
+         ...
+         autoscaling_config {
+           max_hosts_count        = <максимальное количество ВМ в группе>
+           measurement_duration   = <промежуток измерения нагрузки (в секундах)>
+           warmup_duration        = <время на разогрев ВМ (в секундах)>
+           stabilization_duration = <период стабилизации (в секундах)>
+           preemptible            = <использование прерываемых ВМ: true или false>
+           cpu_utilization_target = <целевой уровень загрузки vCPU, %>
+           decommission_timeout   = <таймаут декомиссии ВМ (в секундах)>
+         }
+       }
+       ```
+
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{tf-provider-dp}}).
+
+    1. Проверьте корректность файлов конфигурации {{ TF }}:
+
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Создайте кластер:
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
 - API
 
     Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create) и передайте в запросе:
@@ -205,4 +384,4 @@
 
 {% endlist %}
 
-{{ dataproc-name }} запустит операцию создания кластера. После того, как кластер перейдет в статус **Running**, вы можете [подключиться](connect.md) к любому активному подкластеру с помощью указанного SSH-ключа.
+После того, как кластер перейдет в статус **Running**, вы можете [подключиться](connect.md) к хосту главного подкластера с помощью указанного SSH-ключа.

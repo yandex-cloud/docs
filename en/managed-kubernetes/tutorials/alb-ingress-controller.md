@@ -30,13 +30,11 @@ To set up access to the applications running in your cluster via {{ alb-name }}:
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 1. If you already have a certificate for the domain zone, [add information about it](../../certificate-manager/operations/import/cert-create.md) to {{ certificate-manager-name }}. Or [create a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
-1. [Create a {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) cluster with the following settings:
-   * **Version {{ k8s }}**: 1.19 or higher.
-   * **Public address**: `Auto`.
-1. [Create a node group](../operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.19 or higher.
+1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
+1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 1. [Configure cluster security groups and node groups](../operations/security-groups.md). A security group for a group of nodes must allow incoming TCP traffic from the load balancer subnets on ports 10501 and 10502 or from the load balancer security group (you will need to specify the subnets and the group to [create an Ingress controller](#create-ingress-and-apps) later).
-1. [Install the Helm package manager](https://helm.sh/docs/intro/install/) version 3.7.0 or higher.
-1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [set it up for working with the cluster](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) created.
+1. {% include [k8s-ingress-controller-install-helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install-links.md) %}
 1. Check that you can connect to the cluster using `kubectl`:
 
    ```bash

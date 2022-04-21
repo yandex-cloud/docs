@@ -3,6 +3,7 @@
 | Type of limit | Value |
 | ----- | ----- |
 | Number of custom log groups per cloud | 10 |
+| Maximum write speed | 1000 records per second |
 
 #### Limits {#logging-limits}
 
@@ -13,7 +14,6 @@
 | Maximum record size | 128 KB |
 | Maximum `message` size | 64 KB |
 | Maximum `json-payload` size | 64 KB |
-| Maximum write speed | 10 MB/s or 1000 records per second |
 | **Reading records** |
 | Maximum number of requests per second | 5 |
 | **Other restrictions** |

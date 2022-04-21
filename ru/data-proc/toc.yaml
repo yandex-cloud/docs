@@ -177,8 +177,10 @@ items:
                 href: api-ref/Subcluster/list.md
               - name: update
                 href: api-ref/Subcluster/update.md
-  - name: Релизы
+  - name: История изменений
     items:
+      - name: Изменения сервиса
+        href: release-notes/index.md
       - name: Образы
         href: release-notes/images.md
   - name: Вопросы и ответы
