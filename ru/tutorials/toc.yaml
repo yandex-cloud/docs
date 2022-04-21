@@ -224,3 +224,6 @@ items:
       - name: Сокращатель ссылок
         href: serverless/serverless-url-shortener.md
         when: audience == "external"
+      - name: Хранение журналов работы приложения
+        href: serverless/log-ingestion.md
+        when: audience == "external"
