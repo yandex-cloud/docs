@@ -23,6 +23,8 @@ items:
             href: instruments/laravel.md
           - name: Terraform
             href: instruments/terraform.md
+          - name: Golang
+            href: instruments/golang.md
   - name: Пошаговые инструкции
     items:
       - name: Обзор
