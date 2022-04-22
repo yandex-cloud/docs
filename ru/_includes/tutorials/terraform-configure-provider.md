@@ -5,57 +5,80 @@
 {% endnote %}
 
 
+1. Задайте настройки провайдера. В начале конфигурационного файла добавьте следующий блок:
 
-1. В начале конфигурационного файла необходимо задать настройки провайдера.
+   ```hcl
+   terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+    required_version = ">= 0.13"
+   }
 
+   provider "yandex" {
+     token     = "<OAuth>"
+     cloud_id  = "<идентификатор облака>"
+     folder_id = "<идентификатор каталога>"
+     zone      = "<зона доступности по умолчанию>"
+   }
+   ```
+
+1. Укажите источник, из которого будет устанавливаться провайдер.
+   
    {% list tabs %}
 
-   - Из реестра Hashicorp
+   - Linux и MacOS
+     
+     Откройте файл конфигурации Terraform CLI: 
 
-      ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source  = "yandex-cloud/yandex"
-          }
-        }
-        required_version = ">= 0.13"
-      }
+     ```
+     nano ~/.terraformrc
+     ```
 
-      provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<идентификатор облака>"
-        folder_id = "<идентификатор каталога>"
-        zone      = "<зона доступности по умолчанию>"
-      }
-      ```
-      
-   - Из реестра {{ yandex-cloud }}
+   - Windows
 
-      ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source = "terraform-registry.storage.yandexcloud.net/yandex-cloud/yandex"
-          }
-        }
-        required_version = ">= 0.13"
-      }
+     Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
 
-      provider "yandex" {
-        token     = "<OAuth>"
-        cloud_id  = "<идентификатор облака>"
-        folder_id = "<идентификатор каталога>"
-        zone      = "<зона доступности по умолчанию>"
-      }
-      ```
+   {% endlist %} 
 
-      Если раньше у вас был настроен провайдер из реестра Hashicorp, удалите его настройки:
-      ```
-      rm -rf .terraform*
-      ```
+   Добавьте в него следующий блок:
 
-   {% endlist %}
+
+   ```
+   provider_installation {
+     network_mirror {
+       url = "https://terraform-mirror.yandexcloud.net/"
+       include = ["registry.terraform.io/*/*"]
+     }
+     direct {
+       exclude = ["registry.terraform.io/*/*"]
+     }
+   }
+   ```
+
+   Подробнее о настройках зеркал см. в [документации](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+
+   В начале конфигурационного файла добавьте следующие блоки:
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+     required_version = ">= 0.13"
+   }
+
+   provider "yandex" {
+     token     = "<OAuth>"
+     cloud_id  = "<идентификатор облака>"
+     folder_id = "<идентификатор каталога>"
+     zone      = "<зона доступности по умолчанию>"
+   }
+   ```
 
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
    * `version` — минимальная версия провайдера, с которой совместим модуль. Номер версии можно посмотреть на [странице провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest) (кнопка **USE PROVIDER** в верхнем правом углу).
@@ -65,5 +88,21 @@
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором по умолчанию будут создаваться ресурсы.
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 
-1. Выполните команду `terraform init` в папке с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+   Если раньше у вас был настроен провайдер из реестра Hashicorp, удалите его настройки:
+   
+   ```
+   rm -rf .terraform*
+   ```
+
+1. Выполните команду `terraform init` в папке с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера. 
+
+Если провайдер не установился, создайте обращение в [поддержку](https://console.cloud.yandex.ru/support?section=contact) с именем и версией провайдера.
+
+Если вы использовали файл `.terraform.lock.hcl`, то перед инициализацией выполните команду `terraform providers lock`, указав адрес зеркала, откуда будет загружаться провайдер, и платформы, на которых будет использоваться конфигурация:
+
+```
+terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=linux_amd64 -platform=darwin_arm64 yandex-cloud/yandex
+```
+
+Если вы использовали модули, то сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
 

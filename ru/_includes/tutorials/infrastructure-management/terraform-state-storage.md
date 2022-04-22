@@ -22,6 +22,8 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+Terraform и его провайдеры распространяются под лицензией [Mozilla Public License](https://github.com/hashicorp/terraform/blob/main/LICENSE). 
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 Для развертывания инфраструктуры с помощью Terraform нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
