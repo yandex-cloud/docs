@@ -35,4 +35,84 @@
      done (1m10s)
      ```
 
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить L7-балансировщик, созданный с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием L7-балансировщика.
+     
+     {% cut "Пример описания L7-балансировщика в конфигурации Terraform" %}
+
+     ```hcl
+     ...
+     resource "yandex_alb_load_balancer" "test-balancer" {
+       name        = "my-load-balancer"
+       network_id  = yandex_vpc_network.test-network.id
+
+       allocation_policy {
+         location {
+           zone_id   = "ru-central1-a"
+           subnet_id = yandex_vpc_subnet.test-subnet.id 
+         }
+       }
+
+       listener {
+         name = "my-listener"
+         endpoint {
+           address {
+             external_ipv4_address {
+             }
+           }
+           ports = [ 9000 ]
+         }    
+         http {
+           handler {
+             http_router_id = yandex_alb_http_router.test-router.id
+           }
+         }
+       }    
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc alb load-balancer list
+     ```
+
 {% endlist %}

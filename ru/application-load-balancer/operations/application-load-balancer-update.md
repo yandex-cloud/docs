@@ -144,6 +144,80 @@
      created_at: "2022-04-04T02:12:40.160629110Z"
      ```
 
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием L7-балансировщика:
+
+     ```hcl
+     ...
+     resource "yandex_alb_load_balancer" "test-balancer" {
+       name        = "my-load-balancer"
+       network_id  = yandex_vpc_network.test-network.id
+
+       allocation_policy {
+         location {
+           zone_id   = "ru-central1-a"
+           subnet_id = yandex_vpc_subnet.test-subnet.id
+         }
+       }
+
+       listener {
+         name = "my-listener"
+         endpoint {
+           address {
+             external_ipv4_address {
+             }
+           }
+           ports = [ 9000 ]
+         }
+         http {
+           handler {
+             http_router_id = yandex_alb_http_router.test-router.id
+           }
+         }
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение L7-балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc alb load-balancer get <имя L7-балансировщика>
+     ```
+
 {% endlist %}
 
 ## Удалить обработчик {#delete-listener}
@@ -151,7 +225,6 @@
 Чтобы удалить обработчик L7-балансировщика:
 
 {% list tabs %}
-
 
 - Консоль управления
 
@@ -181,6 +254,80 @@
      Результат:
      ```
      done (50s)
+     ```
+
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации Terraform и удалите блок `listener` в описании L7-балансировщика:
+
+     ```hcl
+     ...
+     resource "yandex_alb_load_balancer" "test-balancer" {
+       name        = "my-load-balancer"
+       network_id  = yandex_vpc_network.test-network.id
+
+       allocation_policy {
+         location {
+           zone_id   = "ru-central1-a"
+           subnet_id = yandex_vpc_subnet.test-subnet.id 
+         }
+       }
+
+       listener {
+         name = "my-listener"
+         endpoint {
+           address {
+             external_ipv4_address {
+             }
+           }
+           ports = [ 9000 ]
+         }    
+         http {
+           handler {
+             http_router_id = yandex_alb_http_router.test-router.id
+           }
+         }
+       }    
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение L7-балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc alb load-balancer get <имя L7-балансировщика>
      ```
 
 {% endlist %}
