@@ -34,7 +34,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 ### Storage {#prices-storage}
 
-{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
+{% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
 | Service                        | Cost of 1 GB per month                                                 |
 |--------------------------------|------------------------------------------------------------------------|

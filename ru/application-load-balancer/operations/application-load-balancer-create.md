@@ -161,4 +161,86 @@
      created_at: "2022-04-04T02:12:40.160629110Z"
      ```
 
+- Terraform
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+     ```hcl
+     resource "yandex_alb_load_balancer" "test-balancer" {
+       name        = "<имя L7-балансировщика>"
+       network_id  = "<идентификатор сети>"
+
+       allocation_policy {
+         location {
+           zone_id   = "<зона доступности>"
+           subnet_id = "<идентификатор подсети>" 
+         }
+       }
+
+       listener {
+         name = "<имя обработчика>"
+         endpoint {
+           address {
+             external_ipv4_address {
+             }
+           }
+           ports = [ 9000 ]
+         }
+         http {
+           handler {
+             http_router_id = "<идентификатор HTTP-роутера>"
+           }
+         }
+       }
+     }
+     ```
+
+     Где:
+     * `name` — имя L7-балансировщика. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+     * `network_id` — идентификатор сети.
+     * `allocation_policy` — описание [расположения узлов](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) L7-балансировщика. Укажите идентификаторы зоны доступности и подсети.
+     * `listener` — описание параметров [обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener) для L7-балансировщика:
+        * `name` — имя обработчика. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+        * `endpoint` — описание адресов и портов обработчика. Укажите внешний IPv4-адрес и порт для приема трафика. Если параметр `external_ipv4_address` не задан, то публичный адрес будет выделен автоматически.
+        * `http` — описание HTTP-приемника для обработчика. Укажите идентификатор HTTP-роутера.
+
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+
+  1. Разверните облачные ресурсы.
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+        ```
+        yc alb load-balancer list
+        ```
+
 {% endlist %}

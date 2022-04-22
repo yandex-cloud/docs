@@ -17,11 +17,11 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы получить список баз данных в кластере, выполните команду:
+  Чтобы получить список хостов в кластере, выполните команду:
 
-  ```
-  {{ yc-mdb-my }} host list
-    --cluster-name=<имя кластера>
+  ```bash
+  {{ yc-mdb-my }} host list \
+     --cluster-name=<имя кластера>
   ```
 
   
@@ -271,9 +271,9 @@
 
   Чтобы удалить хост из кластера, выполните команду:
 
-  ```
-  {{ yc-mdb-my }} host delete <имя хоста>
-    --cluster-name=<имя кластера>
+  ```bash
+  {{ yc-mdb-my }} host delete <имя хоста> \
+     --cluster-name=<имя кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).

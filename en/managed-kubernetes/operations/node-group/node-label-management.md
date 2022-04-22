@@ -227,20 +227,20 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
 
      ```bash
      NAME                        STATUS   ROLES    AGE  VERSION
-     catkuапро07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
-     catkuапро07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
+     catkugtyu07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
+     catkugtyu07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
      ```
 
      1. Get information on a selected {{ k8s }} cluster node:
 
      ```bash
-     kubectl describe node catkuапро07enihqmk51-hgjd
+     kubectl describe node catkugtyu07enihqmk51-hgjd
      ```
 
      Command output:
 
      ```bash
-     Name:               catkuапро07enihqmk51-hgjd
+     Name:               catkugtyu07enihqmk51-hgjd
      Roles:              <none>
      Labels:             apps/tier=backend
                          beta.kubernetes.io/arch=amd64
@@ -249,12 +249,12 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
                          environment=production
                          failure-domain.beta.kubernetes.io/zone=ru-central1-a
                          kubernetes.io/arch=amd64
-                         kubernetes.io/hostname=catkuапро07enihqmk51-hgjd
+                         kubernetes.io/hostname=catkugtyu07enihqmk51-hgjd
                          kubernetes.io/os=linux
                          node.kubernetes.io/kube-proxy-ds-ready=true
                          node.kubernetes.io/masq-agent-ds-ready=true
                          node.kubernetes.io/node-problem-detector-ds-ready=true
-                         yandex.cloud/node-group-id=catkuапро07enihqmk51
+                         yandex.cloud/node-group-id=catkugtyu07enihqmk51
                          yandex.cloud/pci-topology=k8s
                          yandex.cloud/preemptible=false
      ```
