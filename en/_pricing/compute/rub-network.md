@@ -7,5 +7,5 @@
 | For VMs with less than 20 cores | ₽4.28 |
 | For VMs with 20 or more cores | ₽8.56 |
 | **Intel Ice Lake** |
-| For VMs with less than 32 cores | ₽4.28 |
-| For VMs with 32 or more cores | ₽8.56 |
+| For VMs with less than 36 cores | ₽4.28 |
+| For VMs with 36 or more cores | ₽8.56 |
