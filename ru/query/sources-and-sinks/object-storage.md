@@ -1,13 +1,13 @@
 # Чтение данных из {{ objstorage-full-name }}
 
-[{{ objstorage-full-name }}](../../storage/concepts/index.md) позволяет эффективно хранить большие объемы данных в виде древовидной структуры, состоящей из папок и файлов. 
+[{{ objstorage-full-name }}](../../storage/concepts/index.md) позволяет эффективно хранить большие объемы данных в виде древовидной структуры, состоящей из папок и файлов.
 
 {{ yq-full-name }} позволяет считывать содержимое файлов, хранящихся в {{ objstorage-full-name }}, структурировать их и выполнять над ними SQL-запросы.
 
 ```sql
 SELECT
         *
-FROM 
+FROM
     object_storage.object('*.tsv', tsv_with_names)
 WITH SCHEMA
 (
@@ -22,26 +22,26 @@ WITH SCHEMA
 
  {% endnote %}
 
-## Настройка подключения 
+## Настройка подключения
 
 Для чтения данных из {{ objstorage-full-name }} необходимо:
 1. Перейти в интерфейс {{ yq-full-name }} в раздел "Connections" и нажать кнопку "Create".
 1. В открывшемся окне в поле `Name` указать название подключения к {{ objstorage-full-name }}.
 1. В выпадающем поле `Type` выбрать `Object Storage`.
-1. В поле `Bucket auth` выбрать `Public` или `Private`. `Public` означает, что бакет, откуда производится чтение, не защищен авторизацией. `Private` означает, что необходимо использовать данные, указанные в поле `Service Account`, при обращении к бакету. 
-1. В поле `Service account` выбрать сервисный аккаунт, который будет использоваться для чтения данных, или создать новый, выдав ему права [`storage.viewer`](../../storage/security/index.md). 
+1. В поле `Bucket auth` выбрать `Public` или `Private`. `Public` означает, что бакет, откуда производится чтение, не защищен авторизацией. `Private` означает, что необходимо использовать данные, указанные в поле `Service Account`, при обращении к бакету.
+1. В поле `Service account` выбрать сервисный аккаунт, который будет использоваться для чтения данных, или создать новый, выдав ему права [`storage.viewer`](../../storage/security/index.md).
 1. Создать подключение, нажав кнопку `Create`.
 
 ## Модель данных
 
-Данные хранятся в {{ objstorage-full-name }} хранятся в файлах в бинарном виде. Чтение данных выполняется с помощью SQL-выражения 
+Данные хранятся в {{ objstorage-full-name }} хранятся в файлах в бинарном виде. Чтение данных выполняется с помощью SQL-выражения
 
 ```sql
-SELECT 
-    <expression> 
-FROM 
-    <object_storage_connection_name>.object(<file_path>,  <file_format>, <compression> AS compression) 
-WHERE 
+SELECT
+    <expression>
+FROM
+    <object_storage_connection_name>.object(<file_path>,  <file_format>, <compression> AS compression)
+WHERE
     <filter>;
 ```
 
@@ -51,7 +51,7 @@ WHERE
 - `file_format` — [формат данных](#formats) в файлах.
 - `compression` — [формат сжатия](#compression_formats) файлов.
 
-Если данные хранятся в сжатом состоянии, их необходимо распаковать для обработки. После распаковки данные нужно разобрать в соответствии с их форматом хранения внутри файлов. 
+Если данные хранятся в сжатом состоянии, их необходимо распаковать для обработки. После распаковки данные нужно разобрать в соответствии с их форматом хранения внутри файлов.
 
 ### Поддерживаемые форматы сжатия файлов { #compression_formats }
 
@@ -69,6 +69,7 @@ WHERE
 - [`csv_with_names`](#csv_with_names).
 - [`tsv_with_names`](#tsv_with_names).
 - [`json_list`](#json_list).
+- [`json_each_row`](#json_each_row).
 - [`raw`](#raw).
 
 {% if version>0.1 %}
@@ -100,7 +101,7 @@ Year    Manufacturer    Model   Price
 
 Пример корректных данных (данные представлены в виде списка объектов JSON):
 ```json
-[    
+[
     { "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 },
     { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ]
@@ -113,8 +114,17 @@ Year    Manufacturer    Model   Price
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
+#### Формат json_each_row { #json_each_row }
+Данный формат основан на [`JSON-представлении`](https://ru.wikipedia.org/wiki/JSON) данных. В этом формате в каждой строке входного файла находится объект в JSON-представлении.
+
+Пример корректных данных (данные представлены в виде JSON-представления объекта в каждой отдельной строке):
+```json
+{ "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 }
+{ "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
+```
+
 #### Формат raw { #raw }
-Данный формат позволяет считывать содержимое файлов как есть, в "сыром" виде. Считанные таким образом данные можно обработать средствами [YQL](../yql-docs-core/udf/list/string.md), разделив на строки и столбцы. 
+Данный формат позволяет считывать содержимое файлов как есть, в "сыром" виде. Считанные таким образом данные можно обработать средствами [YQL](../yql-docs-core/udf/list/string.md), разделив на строки и столбцы.
 
 Этот формат стоит использовать, если встроенных возможностей парсинга исходных данных в {{yq-full-name}} не достаточно.
 
@@ -125,7 +135,7 @@ Year    Manufacturer    Model   Price
 ```sql
 SELECT
         *
-FROM 
+FROM
     connection.object('folder/filename.csv', 'csv_with_names')
 WITH SCHEMA (
     int as Year,
