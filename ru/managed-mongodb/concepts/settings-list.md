@@ -9,6 +9,11 @@
 * `max_incoming_connections` в gRPC, CLI или Terraform;
 * `maxIncomingConnections` в REST API.
 
+Следующие настройки доступны только для Enterprise-версии кластера {{ mmg-name }}:
+
+* [Audit log](#setting-audit-log);
+* [Security](#setting-security).
+
 ## Зависимость настроек от класса хостов {#settings-instance-dependent}
 
 Значения некоторых настроек {{ MG }} могут быть автоматически скорректированы при изменении класса хостов:
