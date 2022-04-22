@@ -25,8 +25,8 @@ links:
   - title: Alerting
     description: Set up metric change alerts
     href: concepts/alerting
-  #- title: Справочник метрик
-    ##  description: Описание метрик сервисов {{ yandex-cloud }}
+  #- title: Metric reference
+    ##  description: Description of metrics for services {{ yandex-cloud }}
     ##  href: metrics-ref/
   - title: API reference
     description: HTTP API method descriptions

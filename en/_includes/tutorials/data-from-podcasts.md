@@ -5,7 +5,7 @@ Podcast analytics let you retrieve statistics and analyze podcast listening and 
 
 To visualize and analyze the data, follow these steps:
 
-1. [Set up a connection](#сonfigure-connection).
+1. [Set up a connection](#configure-connection).
    1. [Before you start](#before-you-begin).
    1. [Create a connection](#create-connection).
    1. [Review podcast statistics in DataLens](#podcasts-in-datalens).

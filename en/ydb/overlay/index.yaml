@@ -22,11 +22,11 @@ links:
   - title: Step-by-step instructions
     description: Instructions on how to perform standard operations
     href: operations/
-  # - title: Квоты и лимиты
-  #  description: Технические и организационные ограничения сервиса
+  # - title: Quotas and limits
+  #  description: Technical and organizational limitations of the service
   #  href: concepts/limits
-  #- title: Управление доступом
-  #  description: Настройте права доступа для работы с сервисом
+  #- title: Access management
+  #  description: Configure access rights to work with the service
   #  href: security/start_auth
   - title: Recommendations
     description: A set of recommendations for practical service use

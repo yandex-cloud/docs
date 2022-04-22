@@ -20,7 +20,7 @@ Before you run load testing, sign up for {{ yandex-cloud }} and create a billing
 
 {% include [prepare-register-billing](../tutorials/_common/prepare-register-billing.md) %}
 
-If you have an active billing account, go to the [консоль управления]({{ link-console-main }}) and [create](../../resource-manager/operations/folder/create.md) or choose a folder that your [test agent](../../load-testing/concepts/agent.md) will run in.
+If you have an active billing account, go to the [management console]({{ link-console-main }}) and [create](../../resource-manager/operations/folder/create.md) or choose a folder that your [test agent](../../load-testing/concepts/agent.md) will run in.
 
 [Learn more about the resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -126,7 +126,7 @@ For a service hosted in a subnet and security group other than those of the agen
 
 - Management console
 
-  1. Select **{{ load-testing-name }}** in [консоли управления]({{ link-console-main }}).
+  1. Select **{{ load-testing-name }}** in [management console]({{ link-console-main }}).
 
   1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **Tests**. Click **Create test**.
 
