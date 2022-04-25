@@ -54,7 +54,11 @@ When using a TXT record, you will have to pass the check every 60 days as part o
 
 Using a CNAME record enables you to undergo a check only once. To do this, you need to delegate to {{ certificate-manager-name }} the right to respond in the domain's DNS zone used for the check. This will pass the check.
 
+{% note info %}
+
 Please note that you only need one of the above records. Adding both records can result in caching server conflicts.
+
+{% endnote %}
 
 ### Adding a CNAME record {#cname}
 
