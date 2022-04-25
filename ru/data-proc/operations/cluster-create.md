@@ -152,14 +152,16 @@
                       `disk-type=<тип хранилища>,`
                       `disk-size=<размер хранилища, ГБ>,`
                       `subnet-name=<имя подсети>,`
-                      `hosts-count=1 \
+                      `hosts-count=1`
+                      `assign-public-ip=<назначение публичного IP-адреса всем хостам подкластера: true или false> \
           --subcluster name=<имя подкластера с ролью DATANODE>,`
                       `role=datanode,`
                       `resource-preset=<класс хоста>,`
                       `disk-type=<тип хранилища>,`
                       `disk-size=<размер хранилища, ГБ>,`
                       `subnet-name=<имя подсети>,`
-                      `hosts-count=<количество хостов> \
+                      `hosts-count=<количество хостов>,`
+                      `assign-public-ip=<назначение публичного IP-адреса всем хостам подкластера: true или false> \
           --bucket <имя бакета> \
           --ssh-public-keys-file <путь к публичной части SSH-ключа> \
           --security-group-ids <список идентификаторов групп безопасности> \
@@ -374,7 +376,7 @@
         * Версию [образа](../concepts/environment.md) в параметре `configSpec.versionId`.
         * Список компонентов в параметре `configSpec.hadoop.services`.
         * Публичную часть SSH-ключа в параметре `configSpec.hadoop.sshPublicKeys`.
-        * Настройки подкластеров в параметре `confibSpec.subclustersSpec`.
+        * Настройки подкластеров в параметре `configSpec.subclustersSpec`.
     * Зону доступности кластера в параметре `zoneId`.
     * Идентификатор сервисного аккаунта кластера в параметре `serviceAccountId`.
     * Имя бакета в параметре `bucket`.
@@ -382,6 +384,8 @@
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    Чтобы назначить публичный IP-адрес всем хостам подкластера, передайте значение `true` в параметре `configSpec.subclustersSpec.assignPublicIp`.
 
     Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
