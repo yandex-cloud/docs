@@ -1,0 +1,1 @@
+{% include [standarts](../_includes/security/standarts.md) %}

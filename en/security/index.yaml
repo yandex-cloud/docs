@@ -1,0 +1,20 @@
+title: Security in Yandex Cloud
+description:
+  - >-
+    This section contains recommendations for building a secure infrastructure
+    in Yandex Cloud, practical instructions, and security bulletins.
+meta:
+  title: Recommendations for security in Yandex Cloud
+links:
+  - title: Division of responsibility
+    description: ''
+    href: respons
+  - title: Compliance
+    description: ''
+    href: conform
+  - title: Security checklist
+    description: ''
+    href: domains/encryption
+  - title: Security bulletins
+    description: ''
+    href: security-bulletins/index
