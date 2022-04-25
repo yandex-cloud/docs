@@ -538,6 +538,13 @@ default:
   tf-provider-mmy: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
   tf-provider-mpg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
+  
+  # API
+  # Подмены доменных имен происходят при сборке справочника API в TeamCity. См. шаг 20 в сборке: https://nda.ya.ru/t/JggZA6M-4zCi6E
+  api-host: api.cloud.yandex.net
+  api-host-kms-symcrypto: kms.yandex
+  api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
+  api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
 
   # Порты
   port-any: 0-65535
