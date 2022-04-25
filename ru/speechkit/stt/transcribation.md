@@ -33,7 +33,7 @@
 {% endnote %}
 
 Чтобы получить ответ целиком, повысьте ограничение на максимальный размер сообщения:
-* для Go используйте функцию [MaxCallRecvMsgSize](https://godoc.org/google.golang.org/grpc#MaxCallRecvMsgSize);
+* для Go используйте функцию [MaxCallRecvMsgSize](https://pkg.go.dev/google.golang.org/grpc#MaxCallRecvMsgSize);
 * для C++ в [методе call](https://grpc.github.io/grpc/cpp/classgrpc_1_1internal_1_1_call.html#af04fabbdb53dea98da54c387364faf63) задайте значение `max_receive_message_size`.
 
 
