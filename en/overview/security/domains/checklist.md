@@ -2,25 +2,25 @@
 
 ## Network security {#network-security}
 
-- **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different VPCs. Traffic inside a VPC is allowed by default and is not allowed between VPCs (only via VMs with two network interfaces in different networks, VPN, or Cloud Interconnect). Watch our webinar [How a network works in Yandex.Cloud](https://www.youtube.com/watch?v=g3cZ0o50qH0).
+- **Segmentation**: Split resources into groups and put them in different folders or, if strict isolation is required, different VPCs. Traffic inside a VPC is allowed by default and is not allowed between VPCs (only via VMs with two network interfaces in different networks, VPN, or Cloud Interconnect). Watch our webinar [How a network works in {{ yandex-cloud }}](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 - **Network access restriction, security groups**: Restrict network access across resources using [security groups](../../../vpc/operations/security-group-create.md).
   ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 - **NGFW from Marketplace**: If more robust network protection is required, use NGFW from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network).
-  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a Yandex.Cloud VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 - **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN. See [the setup instructions using the strongSwan daemon](../../../tutorials/routing/ipsec-vpn.md) or use [Cloud Interconnect](../../../interconnect/index.yaml) (the GOST VPN service is also available). 
-  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to Yandex.Cloud using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
-- **Secure remote administrator access (VPN)**: Set up a VPN connection between remote devices and Yandex.Cloud using solutions from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network). See the [setup instructions for OpenVPN](../../../tutorials/routing/openvpn.md).
+  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
+- **Secure remote administrator access (VPN)**: Set up a VPN connection between remote devices and {{ yandex-cloud }} using solutions from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=network). See the [setup instructions for OpenVPN](../../../tutorials/routing/openvpn.md).
 - **Bastion host**: Create a bastion VM to access the infrastructure using control protocols (for example, SSH or RDP).
 - **Outgoing access (NAT)**: Use the [built-in NAT service](../../../vpc/operations/enable-nat.md) for secure outgoing internet access (egress NAT). This service translates your addresses into a shared address pool. If internet access should be from your controlled address pool, use a [NAT instance](../../../tutorials/routing/nat-instance.md#create-nat-instance) (a dedicated VM).
 - **DDoS protection**: When assigning public IP addresses to your cloud resources, use the built-in [DDoS protection](../../../vpc/ddos-protection/index.md) by clicking the button (L4 DDoS protection). If you need L7 DDoS protection, contact your manager.
 
 ## Authentication and access control {#authentication}
 
-- **Centralized management and identity federations**: Create an organization in [Yandex Cloud Organization](https://cloud.yandex.com/en/services/organization) and set up Single Sign-On in Yandex.Cloud via your IdP server. See the setup instructions for [AD FS](../../../organization/operations/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), and  [Google Workspace](../../../organization/operations/federations/integration-gworkspace.md).
+- **Centralized management and identity federations**: Create an organization in [Yandex Cloud Organization](https://cloud.yandex.com/en/services/organization) and set up Single Sign-On in {{ yandex-cloud }} via your IdP server. See the setup instructions for [AD FS](../../../organization/operations/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), and  [Google Workspace](../../../organization/operations/federations/integration-gworkspace.md).
 - **Federated accounts**: Use federated accounts instead of Yandex accounts where possible.
 - **Principle of least privilege**: Assign service roles (for example, `compute.images.user`) instead of primitive roles (`viewer`, `editor`, or `admin`). See a [list of all roles](../../../iam/concepts/access-control/roles.md) and [examples of assigning roles](../../../iam/operations/roles/grant.md). Watch our webinar [Access management in the cloud](https://www.youtube.com/watch?v=7VwSfPZ6eRM&t=3s).
 - **Terraform Yandex Cloud IAM module**: Organize access groups for cloud users.
-  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: IAM in Terraform for Yandex.Cloud](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: IAM in Terraform for {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud)
 - **Working with service accounts**: Apply the mechanism of [assigning a service account to a VM](../../../compute/operations/vm-connect/auth-inside-vm.md) and getting a token via the metadata service. Set up a local firewall on the VM instance so that only the necessary processes and system users have access to the metadata service (IP address: 169.254.169.254).
 - **2FA**: For an identity federation, set up 2FA on the side of your IdP. For a Yandex account, follow the [instructions](https://yandex.com/support/id/authorization/twofa.html).
 - **billing.accounts.owner protection**: After performing the initial operations, don't use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a specific employee with a federated account.
@@ -52,7 +52,7 @@
 ## Protection against malicious code {#malicious-code-protection}
 
 - **OS-level protection**: Install antivirus solutions from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=security) on VMs.
-  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Deploying Kaspersky Antivirus in Yandex.Cloud (Compute Instance, COI)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/malware-defense/kaspersy-install-in-yc)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: Deploying Kaspersky Antivirus in {{ yandex-cloud }} (Compute Instance, COI)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/malware-defense/kaspersy-install-in-yc)
 - **Network-level protection**: Use NGFW/IDS/IPS available in [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=security) (some of them have built-in sandboxes).
 - **Container image-level protection**: Use the image vulnerability scanner integrated with Yandex Container Registry.
 
@@ -62,8 +62,8 @@
 - **External security scans**: Perform scans according to the [rules](../../../overview/compliance/pentest.md).
 - **Software and OS updates**: Install updates manually and use automated update tools.
 - **Web Application Firewall**: Install WAF from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=security) or use Managed WAF — contact your manager to get access. 
-  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: PT Application Firewall built on Yandex.Cloud](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)
-  ![](../../../_assets/overview/solution-library-icon.svg)[Example: Installing a Damn Vulnerable Web Application (DVWA) in Yandex.Cloud using Terraform for Managed WAF testing](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Solution: PT Application Firewall built on {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Example: Installing a Damn Vulnerable Web Application (DVWA) in {{ yandex-cloud }} using Terraform for Managed WAF testing](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
 
 ## Collecting, monitoring and analyzing audit logs {#logs-analysis}
 
@@ -83,7 +83,7 @@ Events can be exported to any SIEM system using s3fs, see the [instructions](../
 
 ## Physical security {#physical-security}
 
-- **Physical security measures**: For more information, see the [description of Yandex.Cloud physical security measures](../../../overview/security/standarts.md#physic-sec).
+- **Physical security measures**: For more information, see the [description of {{ yandex-cloud }} physical security measures](../../../overview/security/standarts.md#physic-sec).
 
 ## Backups {#backup}
 

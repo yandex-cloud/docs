@@ -3,7 +3,7 @@
 An audit log is a record of all events in the system, including access to it and operations performed. By collecting and verifying audit logs, you can monitor compliance with the established security procedures and standards and identify vulnerabilities in your security mechanisms.
 
 Events in audit logs occur on different levels:
-- [Yandex.Cloud level](#cloud-level): Events that occur with Yandex.Cloud resources.
+- [{{ yandex-cloud }} level](#cloud-level): Events that occur with {{ yandex-cloud }} resources.
 - [OS level](#os-level).
 - [Application level](#app-level).
 - [Network level](#network-level) (Flow Logs).
@@ -14,11 +14,11 @@ For more information about Kubernetes events, see "Collecting, monitoring, and a
 
 {% endnote %}
 
-## Yandex.Cloud level {#cloud-level}
+## {{ yandex-cloud }} level {#cloud-level}
 
 ### Collecting events {#collect}
 
-The main tool for collecting Yandex.Cloud level logs is [Yandex Audit Trails](../../../audit-trails/concepts/index.md). The service lets you collect audit logs about events happening to Yandex.Cloud resources and upload these logs to Object Storage buckets or {{ cloud-logging-name }} log groups for further analysis or export. See the [instructions](../../../audit-trails/quickstart.md) on how to start collecting logs, as well as the [format](../../../audit-trails/concepts/format.md) and [events reference](../../../audit-trails/concepts/events.md).
+The main tool for collecting {{ yandex-cloud }} level logs is [Yandex Audit Trails](../../../audit-trails/concepts/index.md). The service lets you collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to Object Storage buckets or {{ cloud-logging-name }} log groups for further analysis or export. See the [instructions](../../../audit-trails/quickstart.md) on how to start collecting logs, as well as the [format](../../../audit-trails/concepts/format.md) and [events reference](../../../audit-trails/concepts/events.md).
 
 {% note info %}
 
@@ -41,7 +41,7 @@ List of important {{ yandex-cloud }}-level events to search for in audit logs:
 
 #### Audit Trails
 
-Solutions for exporting Yandex.Cloud audit logs are available for the following SIEM systems:
+Solutions for exporting {{ yandex-cloud }} audit logs are available for the following SIEM systems:
 
 - Yandex Managed Service for Elasticsearch (ELK)
 

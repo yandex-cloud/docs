@@ -1,6 +1,6 @@
 # Data encryption and key management
 
-Yandex.Cloud provides built-in encryption features for a number of services. It's the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management is done by [{{ kms-full-name }}](../../../kms/index.yaml) (KMS).
+{{ yandex-cloud }} provides built-in encryption features for a number of services. It's the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management is done by [{{ kms-full-name }}](../../../kms/index.yaml) (KMS).
 
 {{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
 
@@ -41,7 +41,7 @@ In most cases, you can only connect to {{ yandex-cloud }} services over HTTPS. H
 
 {% note warning %}
 
-When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use TLS 1.2 or higher, since its prior versions are vulnerable. For example, by using the gRPC interfaces of Yandex.Cloud, you can enforce TLS 1.2 or higher. That's because gRPC is based on HTTP/2 where TLS 1.2 is the minimum supported TLS version. Support for legacy TLS protocols in Yandex.Cloud services will [gradually be discontinued](../../security-bulletins/index.md#19112020-—-otkaz-ot-ustarevshih-tls-protokolov).
+When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use TLS 1.2 or higher, since its prior versions are vulnerable. For example, by using the gRPC interfaces of {{ yandex-cloud }}, you can enforce TLS 1.2 or higher. That's because gRPC is based on HTTP/2 where TLS 1.2 is the minimum supported TLS version. Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually be discontinued](../../security-bulletins/index.md#19112020-—-otkaz-ot-ustarevshih-tls-protokolov).
 
 {% endnote %}
 
@@ -108,7 +108,7 @@ For client-side encryption, we recommend that you use the following libraries:
 
 - AWS Encryption SDK and its [KMS integration](../../../kms/tutorials/encrypt/aws-encryption-sdk.md).
 - Google Tink and its [KMS integration](../../../kms/tutorials/encrypt/google-tink.md).
-- [Yandex.Cloud SDK](../../../kms/tutorials/encrypt/sdk.md) with any other cryptographic library compatible with PCI DSS or any standards used in your company.
+- [{{ yandex-cloud }} SDK](../../../kms/tutorials/encrypt/sdk.md) with any other cryptographic library compatible with PCI DSS or any standards used in your company.
 
 For a comparison of libraries, see [{#T}](../../../kms/tutorials/encrypt/index.md) in the KMS documentation.
 

@@ -1,14 +1,14 @@
-# Yandex.Cloud platform architecture
+# {{ yandex-cloud }} platform architecture
 
-Yandex.Cloud is natively designed to provide a single pool of unified hardware resources. Yandex.Cloud has no dedicated physical management servers, and many platform services are deployed on virtual machines similar to end-user VMs.
+{{ yandex-cloud }} is natively designed to provide a single pool of unified hardware resources. {{ yandex-cloud }} has no dedicated physical management servers, and many platform services are deployed on virtual machines similar to end-user VMs.
 
 This approach ensures easy scalability of the platform: at minimal cost, you can automatically add infrastructure capacity ranging from a single server to an entire data center running thousands of machines.
 
-The Yandex.Cloud architecture looks as follows:
+The {{ yandex-cloud }} architecture looks as follows:
 
 ![Architecture](../../_assets/overview/architecture.png "Architecture")
 
-The Storage Layer is at the core of Yandex.Cloud. This enables storage of data and system information for all Yandex.Cloud services. The Storage Layer uses the Yandex native DBMS {{ ydb-full-name }} ({{ ydb-short-name }}): it provides for the secure and efficient storage of data, accommodates heavy data loads, and horizontal scaling as Yandex.Cloud grows. The dedicated replication mechanism of {{ ydb-short-name }} covers all the hardware storage capacities used by Yandex.Cloud.
+The Storage Layer is at the core of {{ yandex-cloud }}. This enables storage of data and system information for all {{ yandex-cloud }} services. The Storage Layer uses the Yandex native DBMS {{ ydb-full-name }} ({{ ydb-short-name }}): it provides for the secure and efficient storage of data, accommodates heavy data loads, and horizontal scaling as {{ yandex-cloud }} grows. The dedicated replication mechanism of {{ ydb-short-name }} covers all the hardware storage capacities used by {{ yandex-cloud }}.
 
 {{ compute-full-name }} is built on top of the storage. It allows you to manage virtual machines used both by external users and internal platform components. KVM functions as the hypervisor, with QEMU as the emulator. VirtIO drivers are used for device virtualization.  Scheduler is an important component to enable hardware infrastructure allocation for your VMs. This is what determines which physical server to deploy a VM on.
 

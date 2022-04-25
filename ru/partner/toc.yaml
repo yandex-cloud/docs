@@ -17,7 +17,7 @@ items:
     items:
       - name: Реферальная программа
         href: program/referral.md
-      - name: VAR-программа
+      - name: Программа прямого партнерства
         href: program/var.md
   - name: Вопросы и ответы
     expanded: true

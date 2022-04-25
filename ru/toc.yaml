@@ -87,6 +87,8 @@ items:
     href: resource-manager/index.yaml
   - name: Практические руководства платформы Yandex Cloud
     href: tutorials/index.yaml
+  - name: Безопасность в Yandex Cloud
+    href: security/index.yaml
   - name: SpeechKit
     href: speechkit/index.yaml
   - name: Object Storage
