@@ -42,9 +42,10 @@ There are different ways to calculate the cost depending on the [host type](./co
 {% if audience != "internal" %}
 * Dedicated hosts
 
-    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+  {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
 {% endif %}
+
 {% note warning %}
 
 When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }} hosts with the minimal host class are created automatically in three availability zones to provide replication and fault tolerance for the cluster. If you create a cluster with a single broker host, no {{ ZK }} hosts are created.
