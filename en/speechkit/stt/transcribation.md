@@ -33,7 +33,7 @@ When requesting the results of an operation, gRPC clients by default limit the m
 {% endnote %}
 
 To get the entire response, increase the maximum message size limit:
-* For Go, use the [MaxCallRecvMsgSize](https://godoc.org/google.golang.org/grpc#MaxCallRecvMsgSize) function.
+* For Go, use the [MaxCallRecvMsgSize](https://pkg.go.dev/google.golang.org/grpc#MaxCallRecvMsgSize) function.
 * For C++, in the [call](https://grpc.github.io/grpc/cpp/classgrpc_1_1internal_1_1_call.html#af04fabbdb53dea98da54c387364faf63) method, set the `max_receive_message_size` value.
 
 
