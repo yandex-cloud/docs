@@ -121,6 +121,9 @@ items:
   - name: Практические руководства платформы Yandex Cloud
     href: tutorials/index.yaml
     when: audience == "external"
+  - name: Безопасность в Yandex Cloud
+    href: security/index.yaml
+    when: audience == "external"
   - name: SpeechKit
     href: speechkit/index.yaml
     when: audience == "external"

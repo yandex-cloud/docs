@@ -1,0 +1,33 @@
+title: Security in Yandex Cloud
+href: index.yaml
+items:
+  - name: Division of responsibility
+    href: respons.md
+  - name: Compliance
+    href: conform.md
+  - name: Security measures on the Yandex Cloud side
+    href: standarts.md
+  - name: Building a secure infrastructure
+    items:
+      - name: Checklist
+        href: domains/checklist.md
+      - name: Network security
+        href: domains/network.md
+      - name: Authentication and access control
+        href: domains/access.md  
+      - name: Data encryption and key management
+        href: domains/encryption.md           
+      - name: Secure configuration
+        href: domains/secure-config.md
+      - name: Audit logs
+        href: domains/audit-logs.md
+      - name: Vulnerability management
+        href: domains/vulnerability-management.md
+      - name: Physical security
+        href: domains/physical-security.md
+  - name: Instructions
+    items: 
+      - name: Deleting a passport account from an organization
+        href: operations/account-deletion.md
+  - name: Security bulletins
+    href: security-bulletins/index.md

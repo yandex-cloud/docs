@@ -1,6 +1,6 @@
 # Secure configuration
 
-This section provides recommendations to customers on security settings in Yandex.Cloud services and the use of additional data protection tools.
+This section provides recommendations to customers on security settings in {{ yandex-cloud }} services and the use of additional data protection tools.
 
 ## Default passwords {#default-credentials}
 
@@ -27,7 +27,7 @@ When working with a serial console:
 
 {% note info %}
 
-According to the PCI DSS standard, access to a VM via a serial console is considered "non-console", and Yandex.Cloud uses TLS encryption for it.
+According to the PCI DSS standard, access to a VM via a serial console is considered "non-console", and {{ yandex-cloud }} uses TLS encryption for it.
 
 {% endnote %}
 
@@ -120,7 +120,7 @@ Verification procedure:
     1. If the request doesn't meet any of the rules, access is denied.
 1. If the request failed the IAM or bucket policy check, access verification is performed based on an object's ACL.
 
-In the IAM service, a bucket inherits the same access rights as those of the folder and cloud where it's located. For more information, see [Inheritance of bucket access rights by Yandex.Cloud system groups](../../../storage/concepts/acl.md#inheritance). For this reason, we don't recommend assigning roles for entire folders in Object Storage. We recommend assigning only the minimum necessary roles to certain buckets or objects in Object Storage.
+In the IAM service, a bucket inherits the same access rights as those of the folder and cloud where it's located. For more information, see [Inheritance of bucket access rights by {{ yandex-cloud }} system groups](../../../storage/concepts/acl.md#inheritance). For this reason, we don't recommend assigning roles for entire folders in Object Storage. We recommend assigning only the minimum necessary roles to certain buckets or objects in Object Storage.
 
 Bucket policies are used for additional data protection, for example, to restrict access to a bucket by IP addresses, grant granular rights to objects, and so on.
 
@@ -161,13 +161,13 @@ If you need cross-domain requests to objects in buckets, the client should confi
 
 We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to allow connections to the DBMS only from specific IP addresses. See the instructions in [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
 
-You shouldn't enable access to databases containing critical data from the management console, DataLens, or other services unless you have to. You may need access to the database from the management console to send SQL queries to the database and visualize the data structure, or access from DataLens to visualize and analyze data. For such access, the Yandex.Cloud service network is used, with authentication and TLS encryption. You can enable and disable access from the management console, DataLens, or other services in the cluster settings or when creating it in the advanced settings section.
+You shouldn't enable access to databases containing critical data from the management console, DataLens, or other services unless you have to. You may need access to the database from the management console to send SQL queries to the database and visualize the data structure, or access from DataLens to visualize and analyze data. For such access, the {{ yandex-cloud }} service network is used, with authentication and TLS encryption. You can enable and disable access from the management console, DataLens, or other services in the cluster settings or when creating it in the advanced settings section.
 
 ## Yandex Cloud Functions and Yandex API Gateway {#cloud-functions-api-gateway}
 
 ### Using a service account {#cloud-functions-service-account}
 
-To get an IAM token when executing a function, you must assign a service account for the function. See the instructions in [{#T}](../../../functions/operations/function-sa.md). In this case, the function receives an IAM token using built-in Yandex.Cloud mechanisms without having to transfer any secrets to the function from outside.
+To get an IAM token when executing a function, you must assign a service account for the function. See the instructions in [{#T}](../../../functions/operations/function-sa.md). In this case, the function receives an IAM token using built-in {{ yandex-cloud }} mechanisms without having to transfer any secrets to the function from outside.
 
 ### Function access control {#cloud-functions-access-control}
 
@@ -175,11 +175,11 @@ In cases where the use of public functions is not explicitly required, we recomm
 
 ### Side-channel attacks in Cloud Functions {#cloud-functions-side-channel}
 
-Hosts and hypervisors running Cloud Functions contain all the applicable updates for side-channel attack protection. However, keep in mind that different clients' functions are not isolated by cores. Thus, there is technically an attack surface between one user's function and another's. Yandex.Cloud security experts believe that side-channel attacks are unlikely in the context of functions, but this risk must be accounted for, particularly in the overall threats and risk analysis model employed by the PCI DSS infrastructure.
+Hosts and hypervisors running Cloud Functions contain all the applicable updates for side-channel attack protection. However, keep in mind that different clients' functions are not isolated by cores. Thus, there is technically an attack surface between one user's function and another's. {{ yandex-cloud }} security experts believe that side-channel attacks are unlikely in the context of functions, but this risk must be accounted for, particularly in the overall threats and risk analysis model employed by the PCI DSS infrastructure.
 
 ### Specifics of time synchronization in functions {#cloud-functions-time}
 
-The Cloud Functions service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the Cloud Functions side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with Yandex.Cloud. For more information about time synchronization, see [{#T}](../../../compute/tutorials/ntp.md) in the Compute Cloud documentation.
+The Cloud Functions service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the Cloud Functions side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with {{ yandex-cloud }}. For more information about time synchronization, see [{#T}](../../../compute/tutorials/ntp.md) in the Compute Cloud documentation.
 
 ### Managing HTTP headers in functions {#http-headers}
 
