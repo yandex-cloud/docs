@@ -9,6 +9,6 @@
 
 {% include [multiline warning](../../../_includes/functions/multiline.md) %}
 
-Более подробно со спецификацией форматирования строк можно ознакомиться в [соответствующем разделе документации](https://golang.org/pkg/fmt/). О встроенных функциях `print` и `println` можно почитать [здесь](https://golang.org/pkg/builtin/), а о пакете `time` и его возможностях [здесь](https://golang.org/pkg/time/).
+Более подробно со спецификацией форматирования строк можно ознакомиться в [соответствующем разделе документации](https://pkg.go.dev/fmt). О встроенных функциях `print` и `println` можно почитать [здесь](https://pkg.go.dev/builtin/), а о пакете `time` и его возможностях [здесь](https://pkg.go.dev/time).
 
 {% include [router-logging](../../../_includes/functions/router-logging.md) %} 

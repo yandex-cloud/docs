@@ -30,7 +30,7 @@ To deploy a project:
     * [Terraform](../tutorials/infrastructure-management/terraform-quickstart).
 
 1. To finalize the project, you'll additionally need:
-    * [The Go programming language](https://golang.org/).
+    * [The Go programming language](https://go.dev/).
     * The [go-swagger](https://goswagger.io/) utility.
     * The [api-spec-converter](https://www.npmjs.com/package/api-spec-converter) utility.
 

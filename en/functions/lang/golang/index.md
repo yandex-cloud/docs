@@ -5,7 +5,7 @@ description: 'With the Cloud Functions service, you can run applications written
 
 # Development on Go. Overview
 
-With {{ sf-name }}, you can run applications written in [Go](https://golang.org/doc/). The service provides the [runtime environment](../../concepts/runtime/index.md) with different versions:
+With {{ sf-name }}, you can run applications written in [Go](https://go.dev/doc/). The service provides the [runtime environment](../../concepts/runtime/index.md) with different versions:
 
 | Name | Go version | Operating <br>system | Preloaded |
 | ---- | ---- | ---- | ---- |
@@ -20,4 +20,4 @@ The runtime environment automatically loads your code and invokes the [request h
 
 {{ sf-name }} automatically captures an application's standard output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. This system also logs service records about the start and end of each function and any errors that occur during its execution. For more information about the log format, see [{#T}](logging.md).
 
-To learn more about how to write in Go or how certain statements work, we recommend taking [A Tour of Go](https://tour.golang.org/).
+To learn more about how to write in Go or how certain statements work, we recommend taking [A Tour of Go](https://go.dev/tour/welcome/1).
