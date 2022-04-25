@@ -10,7 +10,7 @@ Additional messages are logged using standard language constructs:
 
 {% include [multiline warning](../../../_includes/functions/multiline.md) %}
 
-For more information about string formatting, see the [relevant section of the documentation](https://golang.org/pkg/fmt/). Learn about the `print` and `println` built-in functions [here](https://golang.org/pkg/builtin/) and about the `time` package and its functionality [here](https://golang.org/pkg/time/).
+For more information about string formatting, see the [relevant section of the documentation](https://pkg.go.dev/fmt). Learn about the `print` and `println` built-in functions [here](https://pkg.go.dev/builtin) and about the `time` package and its functionality [here](https://pkg.go.dev/time/).
 
 {% include [router-logging](../../../_includes/functions/router-logging.md) %}
 

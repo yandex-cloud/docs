@@ -32,7 +32,7 @@
     * [Terraform](../tutorials/infrastructure-management/terraform-quickstart).
 
 1. Для доработки проекта дополнительно потребуются:
-    * [Язык программирования Go](https://golang.org/).
+    * [Язык программирования Go](https://go.dev/).
     * Утилита [go-swagger](https://goswagger.io/).
     * Утилита [api-spec-converter](https://www.npmjs.com/package/api-spec-converter).
 
