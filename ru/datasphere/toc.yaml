@@ -25,7 +25,7 @@ items:
           href: operations/projects/storage-resize.md
         - name: Изменение имени или описания
           href: operations/projects/update.md
-        - name: Удаление проекта
+        - name: Удаление ноутбука или проекта
           href: operations/projects/delete.md
       - name: Поделиться ноутбуком
         items:
