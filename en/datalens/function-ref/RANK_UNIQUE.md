@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/RANK_UNIQUE.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RANK_UNIQUE( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RANK_UNIQUE( value [ , direction ]
+               [ TOTAL | WITHIN ... | AMONG ... ]
+               [ BEFORE FILTER BY ... ]
+             )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value have different rank values. This means that rank values are sequential and different for all rows, always increasing by `1` for the next row.

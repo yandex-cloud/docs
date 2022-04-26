@@ -754,7 +754,7 @@
     * `1` — ждать выполнения только у себя (значение по умолчанию).
     * `2` — ждать всех.
   
-    Подробнее см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter).
+    Подробнее см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#synchronicity-of-alter-queries).
  
 * **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 

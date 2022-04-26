@@ -63,7 +63,10 @@ AGO([Sales], [Date], "month" IGNORE DIMENSIONS [Month])
 
 ## [AGO](AGO.md)
 
-**Синтаксис:**`AGO( measure, date_dimension [ , unit [ , number ] ] [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
+**Синтаксис:**<br/>`AGO( measure, date_dimension [ , unit [ , number ] ] )`<br/>или<br/>`AGO( measure, date_dimension [ , unit [ , number ] ]
+     [ BEFORE FILTER BY ... ]
+     [ IGNORE DIMENSIONS ... ]
+   )`
 
 Вычисляет `measure` для даты/времени с указанным смещением.
 Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.
@@ -84,7 +87,10 @@ AGO([Sales], [Date], "month" IGNORE DIMENSIONS [Month])
 
 ## [AT_DATE](AT_DATE.md)
 
-**Синтаксис:**`AT_DATE( measure, date_dimension, date_expr [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
+**Синтаксис:**<br/>`AT_DATE( measure, date_dimension, date_expr )`<br/>или<br/>`AT_DATE( measure, date_dimension, date_expr
+         [ BEFORE FILTER BY ... ]
+         [ IGNORE DIMENSIONS ... ]
+       )`
 
 Вычисляет `measure` для даты/времени, заданных выражением `date_expr`.
 Аргумент `date_dimension` задает измерение, вдоль которого делается смещение.

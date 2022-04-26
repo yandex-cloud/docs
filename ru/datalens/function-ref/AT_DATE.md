@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/AT_DATE.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-AT_DATE( measure, date_dimension, date_expr [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )
-```
+- Стандартный
+
+  ```
+  AT_DATE( measure, date_dimension, date_expr )
+  ```
+
+- Расширенный
+
+  ```
+  AT_DATE( measure, date_dimension, date_expr
+           [ BEFORE FILTER BY ... ]
+           [ IGNORE DIMENSIONS ... ]
+         )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Вычисляет `measure` для даты/времени, заданных выражением `date_expr`.

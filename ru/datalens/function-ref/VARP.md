@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/VARP.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-VARP( value )
-```
+- Стандартный
+
+  ```
+  VARP( value )
+  ```
+
+- Расширенный
+
+  ```
+  VARP( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает статистическую дисперсию всех значений в выражении по всей совокупности.

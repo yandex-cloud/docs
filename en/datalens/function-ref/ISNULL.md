@@ -9,11 +9,11 @@ sourcePath: en/_api-ref/datalens/function-ref/ISNULL.md
 
 #### Syntax {#syntax}
 
-Version 1:
+As a function
 ```
 ISNULL( expression )
 ```
-Version 2:
+As an operator
 ```
 expression IS [ NOT ] NULL
 ```

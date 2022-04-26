@@ -9,10 +9,26 @@ _Функция `COUNT` также доступна в следующих кат
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-COUNT(  [ value ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  COUNT(  [ value ]
+         TOTAL | WITHIN ... | AMONG ...
+       )
+  ```
+
+- Расширенный
+
+  ```
+  COUNT(  [ value ]
+         TOTAL | WITHIN ... | AMONG ...
+         [ BEFORE FILTER BY ... ]
+       )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает количество элементов в заданном окне.

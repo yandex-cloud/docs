@@ -13,20 +13,21 @@
    1. **Релизный канал**: `RAPID`.
    1. В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
 1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей вам конфигурации.
-1. [Установите kubectl](https://kubernetes.io/docs/tasks/tools/) и [настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с созданным кластером.
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с созданным кластером.
 1. Узнайте IP-адрес сервиса `kube-dns`:
 
-    ```bash
-    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
-    ```
+   ```bash
+   kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
+   ```
 
 ## Подготовьте спецификации для Node Local DNS и Local Redirect Policy {#create-manifests}
 
 1. Создайте файл `node-local-dns.yaml`. В настройках DaemonSet `node-local-dns` укажите IP-адрес сервиса `kube-dns`:
 
-   {% cut "node-local-dns.yaml" %}
+   `node-local-dns.yaml`
 
    ```yaml
+   ---
    apiVersion: v1
    kind: ServiceAccount
    metadata:
@@ -77,7 +78,7 @@
          }
          prometheus :9253
          health
-       }
+         }
        in-addr.arpa:53 {
          errors
          cache 30
@@ -99,16 +100,18 @@
            prefer_udp
          }
          prometheus :9253
-       }
+         }
        .:53 {
          errors
          cache 30
          reload
          loop
          bind 0.0.0.0
-         forward . __PILLAR__UPSTREAM__SERVERS__
+         forward . __PILLAR__UPSTREAM__SERVERS__ {
+           prefer_udp
+         }
          prometheus :9253
-       }
+         }
    ---
    apiVersion: apps/v1
    kind: DaemonSet
@@ -144,7 +147,7 @@
            operator: "Exists"
          containers:
          - name: node-cache
-           image: k8s.gcr.io/dns/k8s-dns-node-cache:1.15.16
+           image: k8s.gcr.io/dns/k8s-dns-node-cache:1.17.0
            resources:
              requests:
                cpu: 25m
@@ -193,13 +196,12 @@
                  path: Corefile.base
    ```
 
-   {% endcut %}
-
 1. Создайте файл `node-local-dns-lrp.yaml`:
 
-   {% cut "node-local-dns.yaml" %}
+   {% cut "node-local-dns-lrp.yaml" %}
 
    ```yaml
+   ---
    apiVersion: "cilium.io/v2"
    kind: CiliumLocalRedirectPolicy
    metadata:
@@ -300,18 +302,18 @@
 1. Узнайте значение метрик для DNS-запросов до начала проверки:
 
    ```bash
-   kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_request_count_total
+   kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_requests_total
    ```
 
    Ожидаемый результат выполнения команды:
 
    ```text
-   # HELP coredns_dns_request_count_total Counter of DNS requests made per zone, protocol and family.
-   # TYPE coredns_dns_request_count_total counter
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="."} 5
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="cluster.local."} 8
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="in-addr.arpa."} 1
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="ip6.arpa."} 1
+   # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.
+   # TYPE coredns_dns_requests_total counter
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="cluster.local."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="in-addr.arpa."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="ip6.arpa."} 1
    ```
 
 1. Выполните DNS-запросы:
@@ -347,22 +349,23 @@
 1. Убедитесь, что значения метрик увеличились:
 
    ```bash
-   kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_request_count_total
+   kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_requests_total
    ```
 
-   Ожидаемый результат выполнения команды:
+  Ожидаемый результат выполнения команды:
 
    ```text
-   # HELP coredns_dns_request_count_total Counter of DNS requests made per zone, protocol and family.
-   # TYPE coredns_dns_request_count_total counter
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="."} 9
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="cluster.local."} 16
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="in-addr.arpa."} 1
-   coredns_dns_request_count_total{family="1",proto="udp",server="dns://0.0.0.0:53",zone="ip6.arpa."} 1
+   # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.
+   # TYPE coredns_dns_requests_total counter
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="A",zone="."} 3
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="A",zone="cluster.local."} 6
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="AAAA",zone="."} 1
+   coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="AAAA",zone="cluster.local."} 2
+   ...
    ```
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Если созданные ресурсы вам больше не нужны, удалите их:
-1. [Удалите кластер {{ k8s }}](./kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите кластер {{ k8s }}](kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.

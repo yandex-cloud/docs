@@ -19,10 +19,10 @@ To restore a cluster from a backup, [follow the instructions](../operations/clus
 
 Backups can be automatic or manual. In both cases, an incremental schema is used:
 
-* When creating another backup, [data parts](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are checked for uniqueness.
-* If there are identical [data parts](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) in one of the existing backups and they are no older than {{ mch-dedup-retention }} days, they are not duplicated. For cold data in [hybrid storage](storage.md#hybrid-storage-features), this period is {{ mch-backup-retention }} days.
+* When creating another backup, [data parts](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are checked for uniqueness.
+* If there are identical [data parts](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) in one of the existing backups and they are no older than {{ mch-dedup-retention }} days, they are not duplicated. For cold data in [hybrid storage](storage.md#hybrid-storage-features), this period is {{ mch-backup-retention }} days.
 
-Backup data is stored only for the `MergeTree` engine family. For other engines, backups only store table schemas. For more information about engines, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/engines/table-engines/).
+Backup data is stored only for the `MergeTree` engine family. For other engines, backups only store table schemas. For more information about engines, see the [documentation for {{ CH }}](https://{{ ch-domain }}/docs/en/engines/table-engines/).
 
 A random replica host is used to create a backup. If there is no cluster host data consistency, restoring clusters from backups does not guarantee complete data recovery. For example, this may occur if:
 

@@ -4,6 +4,7 @@
 |----|----|
 | API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
 | Application Gateway | [{{ alb-full-name }}](../../application-load-balancer/) |
+| Cloud CDN | [{{ cdn-full-name }}](../../cdn/) |
 | Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/) |
 | Cloud DNS | [{{ dns-full-name }}](../../dns/) |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |
@@ -12,6 +13,7 @@
 | Cloud Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Cloud Load Balancing, App Engine, Cloud Run | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
+| Cloud Logging | [{{ cloud-logging-full-name }}](../../logging/) |
 | Cloud Memorystore | [{{ mrd-full-name }}](../../managed-redis/) |
 | Cloud Pub/Sub | [{{ message-queue-full-name }}](../../message-queue/) |
 | Cloud Run | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
@@ -36,6 +38,7 @@
 | Managed Instance Groups | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
 | Pub/Sub | [{{ yds-full-name }}](../../data-streams/) |
 | Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
+| Secret Manager | [{{ lockbox-name }}](../../lockbox/) |
 | SQL Server on Google Cloud | [{{ mms-full-name }}](../../managed-sqlserver/) |
 | Translation API | [{{ translate-full-name }}](../../translate/) |
 | Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |

@@ -9,10 +9,25 @@ sourcePath: en/_api-ref/datalens/function-ref/MCOUNT.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  MCOUNT( value, rows_1 [ , rows_2 ] )
+  ```
+
+- Extended
+
+  ```
+  MCOUNT( value, rows_1 [ , rows_2 ]
+          [ TOTAL | WITHIN ... | AMONG ... ]
+          [ ORDER BY ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

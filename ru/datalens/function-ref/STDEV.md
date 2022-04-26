@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/STDEV.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-STDEV( value )
-```
+- Стандартный
+
+  ```
+  STDEV( value )
+  ```
+
+- Расширенный
+
+  ```
+  STDEV( value
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает статистическое стандартное отклонение всех значений в выражении на основе выборки из совокупности.

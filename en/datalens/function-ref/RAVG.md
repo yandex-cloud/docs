@@ -9,10 +9,25 @@ sourcePath: en/_api-ref/datalens/function-ref/RAVG.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RAVG( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RAVG( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

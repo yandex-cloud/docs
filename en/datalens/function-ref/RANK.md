@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/RANK.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RANK( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RANK( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `3`, so, in effect, it is rank with gaps.

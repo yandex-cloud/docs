@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/ALL_CONCAT.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-ALL_CONCAT( expression [ , separator ] )
-```
+- Standard
+
+  ```
+  ALL_CONCAT( expression [ , separator ] )
+  ```
+
+- Extended
+
+  ```
+  ALL_CONCAT( expression [ , separator ]
+              [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+              [ BEFORE FILTER BY ... ]
+            )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns a string that contains all grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).

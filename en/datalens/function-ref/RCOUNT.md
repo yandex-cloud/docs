@@ -9,10 +9,25 @@ sourcePath: en/_api-ref/datalens/function-ref/RCOUNT.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RCOUNT( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RCOUNT( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RCOUNT( value [ , direction ]
+          [ TOTAL | WITHIN ... | AMONG ... ]
+          [ ORDER BY ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

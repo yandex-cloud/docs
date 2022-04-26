@@ -114,7 +114,10 @@ SUM(
 
 ## [ALL_CONCAT](ALL_CONCAT.md)
 
-**Синтаксис:**`ALL_CONCAT( expression [ , separator ] )`
+**Синтаксис:**<br/>`ALL_CONCAT( expression [ , separator ] )`<br/>или<br/>`ALL_CONCAT( expression [ , separator ]
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )`
 
 Возвращает строку, которая содержит все попавшие в группу значения `expression`, с разделителем `separator` (по умолчанию разделитель — запятая).
 
@@ -122,7 +125,10 @@ SUM(
 
 ## [ANY](ANY.md)
 
-**Синтаксис:**`ANY( value )`
+**Синтаксис:**<br/>`ANY( value )`<br/>или<br/>`ANY( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает произвольное значение `value` из группы. Это недетерминированная агрегация — результат может различаться от запроса к запросу на одних и тех же входных данных.
 
@@ -130,7 +136,10 @@ SUM(
 
 ## [ARG_MAX](ARG_MAX.md)
 
-**Синтаксис:**`ARG_MAX( value, comp )`
+**Синтаксис:**<br/>`ARG_MAX( value, comp )`<br/>или<br/>`ARG_MAX( value, comp
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )`
 
 Возвращает значение `value`, соответствующее максимальному значению `comp`. Если есть несколько значений `value`, соответствующих максимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
 
@@ -138,7 +147,10 @@ SUM(
 
 ## [ARG_MIN](ARG_MIN.md)
 
-**Синтаксис:**`ARG_MIN( value, comp )`
+**Синтаксис:**<br/>`ARG_MIN( value, comp )`<br/>или<br/>`ARG_MIN( value, comp
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )`
 
 Возвращает значение `value`, соответствующее минимальному значению `comp`. Если есть несколько значений `value`, соответствующих минимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.
 
@@ -146,7 +158,10 @@ SUM(
 
 ## [AVG](AVG.md)
 
-**Синтаксис:**`AVG( value )`
+**Синтаксис:**<br/>`AVG( value )`<br/>или<br/>`AVG( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает среднее для всех значений. Работает с числовыми типами данных и с типами `Дата | Дата и время`.
 
@@ -154,7 +169,10 @@ SUM(
 
 ## [AVG_IF](AVG_IF.md)
 
-**Синтаксис:**`AVG_IF( expression, condition )`
+**Синтаксис:**<br/>`AVG_IF( expression, condition )`<br/>или<br/>`AVG_IF( expression, condition
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
 
@@ -162,7 +180,10 @@ SUM(
 
 ## [COUNT](COUNT.md)
 
-**Синтаксис:**`COUNT(  [ value ] )`
+**Синтаксис:**<br/>`COUNT(  [ value ] )`<br/>или<br/>`COUNT(  [ value ]
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Возвращает количество элементов в группе.
 
@@ -170,7 +191,10 @@ SUM(
 
 ## [COUNT_IF](COUNT_IF.md)
 
-**Синтаксис:**`COUNT_IF( condition )`
+**Синтаксис:**<br/>`COUNT_IF( condition )`<br/>или<br/>`COUNT_IF( condition
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )`
 
 Возвращает количество элементов в группе, которые удовлетворяют условию `condition`.
 
@@ -178,7 +202,10 @@ SUM(
 
 ## [COUNTD](COUNTD.md)
 
-**Синтаксис:**`COUNTD( value )`
+**Синтаксис:**<br/>`COUNTD( value )`<br/>или<br/>`COUNTD( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Возвращает количество уникальных значений в группе.
 
@@ -188,7 +215,10 @@ SUM(
 
 ## [COUNTD_APPROX](COUNTD_APPROX.md)
 
-**Синтаксис:**`COUNTD_APPROX( value )`
+**Синтаксис:**<br/>`COUNTD_APPROX( value )`<br/>или<br/>`COUNTD_APPROX( value
+               [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+               [ BEFORE FILTER BY ... ]
+             )`
 
 Возвращает приблизительное количество уникальных значений в группе. Работает быстрее функции [COUNTD](COUNTD.md), но не гарантирует точность.
 
@@ -196,7 +226,10 @@ SUM(
 
 ## [COUNTD_IF](COUNTD_IF.md)
 
-**Синтаксис:**`COUNTD_IF( expression, condition )`
+**Синтаксис:**<br/>`COUNTD_IF( expression, condition )`<br/>или<br/>`COUNTD_IF( expression, condition
+           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+           [ BEFORE FILTER BY ... ]
+         )`
 
 Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.
 
@@ -206,7 +239,10 @@ SUM(
 
 ## [MAX](MAX.md)
 
-**Синтаксис:**`MAX( value )`
+**Синтаксис:**<br/>`MAX( value )`<br/>или<br/>`MAX( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает максимальное значение.
 
@@ -220,7 +256,10 @@ SUM(
 
 ## [MEDIAN](MEDIAN.md)
 
-**Синтаксис:**`MEDIAN( value )`
+**Синтаксис:**<br/>`MEDIAN( value )`<br/>или<br/>`MEDIAN( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Вовзращает медианное значение.
 
@@ -228,7 +267,10 @@ SUM(
 
 ## [MIN](MIN.md)
 
-**Синтаксис:**`MIN( value )`
+**Синтаксис:**<br/>`MIN( value )`<br/>или<br/>`MIN( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает минимальное значение.
 
@@ -242,7 +284,10 @@ SUM(
 
 ## [QUANTILE](QUANTILE.md)
 
-**Синтаксис:**`QUANTILE( value, quant )`
+**Синтаксис:**<br/>`QUANTILE( value, quant )`<br/>или<br/>`QUANTILE( value, quant
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )`
 
 Возвращает точный квантиль уровня `quant` (значение от 0 до 1).
 
@@ -250,7 +295,10 @@ SUM(
 
 ## [QUANTILE_APPROX](QUANTILE_APPROX.md)
 
-**Синтаксис:**`QUANTILE_APPROX( value, quant )`
+**Синтаксис:**<br/>`QUANTILE_APPROX( value, quant )`<br/>или<br/>`QUANTILE_APPROX( value, quant
+                 [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                 [ BEFORE FILTER BY ... ]
+               )`
 
 Возвращает примерный квантиль уровня `quant` (значение от 0 до 1).
 
@@ -258,7 +306,10 @@ SUM(
 
 ## [STDEV](STDEV.md)
 
-**Синтаксис:**`STDEV( value )`
+**Синтаксис:**<br/>`STDEV( value )`<br/>или<br/>`STDEV( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Возвращает статистическое стандартное отклонение всех значений в выражении на основе выборки из совокупности.
 
@@ -266,7 +317,10 @@ SUM(
 
 ## [STDEVP](STDEVP.md)
 
-**Синтаксис:**`STDEVP( value )`
+**Синтаксис:**<br/>`STDEVP( value )`<br/>или<br/>`STDEVP( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Возвращает статистическое стандартное отклонение всех значений в выражении на основе смещенной совокупности.
 
@@ -274,7 +328,10 @@ SUM(
 
 ## [SUM](SUM.md)
 
-**Синтаксис:**`SUM( value )`
+**Синтаксис:**<br/>`SUM( value )`<br/>или<br/>`SUM( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
 
@@ -282,7 +339,10 @@ SUM(
 
 ## [SUM_IF](SUM_IF.md)
 
-**Синтаксис:**`SUM_IF( expression, condition )`
+**Синтаксис:**<br/>`SUM_IF( expression, condition )`<br/>или<br/>`SUM_IF( expression, condition
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
 
@@ -290,7 +350,10 @@ SUM(
 
 ## [TOP_CONCAT](TOP_CONCAT.md)
 
-**Синтаксис:**`TOP_CONCAT( expression, amount [ , separator ] )`
+**Синтаксис:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>или<br/>`TOP_CONCAT( expression, amount [ , separator ]
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )`
 
 Возвращает строку, которая содержит `amount` наиболее часто встречающихся значений из каждой группы `expression` с разделителем `separator` (по умолчанию разделитель — запятая).
 
@@ -298,7 +361,10 @@ SUM(
 
 ## [VAR](VAR.md)
 
-**Синтаксис:**`VAR( value )`
+**Синтаксис:**<br/>`VAR( value )`<br/>или<br/>`VAR( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает статистическую дисперсию всех значений в выражении на основе выборки из совокупности.
 
@@ -306,7 +372,10 @@ SUM(
 
 ## [VARP](VARP.md)
 
-**Синтаксис:**`VARP( value )`
+**Синтаксис:**<br/>`VARP( value )`<br/>или<br/>`VARP( value
+      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает статистическую дисперсию всех значений в выражении по всей совокупности.
 

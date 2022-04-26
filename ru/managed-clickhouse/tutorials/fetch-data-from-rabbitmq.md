@@ -1,6 +1,6 @@
 # Получение данных из {{ RMQ }}
 
-В кластер {{ mch-name }} можно поставлять данные из {{ RMQ }} в реальном времени. {{ mch-name }} будет автоматически вставлять в таблицу на [движке {{ RMQ }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/rabbitmq/) данные, поступающие на определенные точки обмена указанных очередей {{ RMQ }}.
+В кластер {{ mch-name }} можно поставлять данные из {{ RMQ }} в реальном времени. {{ mch-name }} будет автоматически вставлять в таблицу на [движке {{ RMQ }}](https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/rabbitmq/) данные, поступающие на определенные точки обмена указанных очередей {{ RMQ }}.
 
 Чтобы настроить поставку данных из {{ RMQ }} в {{ mch-name }}:
 
@@ -59,7 +59,7 @@
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-Кластер {{ mch-name }} будет использовать при вставке в таблицу [формат данных JSONEachRow](https://clickhouse.tech/docs/ru/interfaces/formats/#jsoneachrow), который позволяет преобразовать строковое представление JSON-объекта из сообщения {{ RMQ }} в нужный набор значений столбцов.
+Кластер {{ mch-name }} будет использовать при вставке в таблицу [формат данных JSONEachRow](https://{{ ch-domain }}/docs/ru/interfaces/formats/#jsoneachrow), который позволяет преобразовать строковое представление JSON-объекта из сообщения {{ RMQ }} в нужный набор значений столбцов.
 
 ## Создайте в кластере {{ mch-name }} таблицу на движке {{ RMQ }} {#create-rmq-table}
 
@@ -187,4 +187,4 @@
 
 После выполнения запроса вы должны получить отправленные в {{ RMQ }} данные в табличном виде.
 
-Подробнее о работе с данными, поставляемыми из {{ RMQ }}, см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/integrations/rabbitmq/).
+Подробнее о работе с данными, поставляемыми из {{ RMQ }}, см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/rabbitmq/).

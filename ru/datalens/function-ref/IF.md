@@ -9,26 +9,33 @@ sourcePath: ru/_api-ref/datalens/function-ref/IF.md
 
 #### Синтаксис {#syntax}
 
-Вариант 1:
-```
-IF condition_1
-    THEN result_1
-[ ELSEIF condition_2
-    THEN result_2
-  ... ]
-ELSE
-    default_result
-END
-```
-Вариант 2:
-```
-IF(
-    condition_1, result_1,
-  [ condition_2, result_2,
+{% list tabs %}
+
+- Как блок
+
+  ```
+  IF condition_1
+      THEN result_1
+  [ ELSEIF condition_2
+      THEN result_2
     ... ]
-    default_result
-)
-```
+  ELSE
+      default_result
+  END
+  ```
+
+- Как функция
+
+  ```
+  IF(
+      condition_1, result_1,
+    [ condition_2, result_2,
+      ... ]
+      default_result
+  )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Проверяет последовательно логические выражения `condition_1`, `condition_2`, ... и возвращает соответсвующий результат для первого выполнения.

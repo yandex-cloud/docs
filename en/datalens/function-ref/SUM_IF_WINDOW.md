@@ -9,10 +9,26 @@ _Function `SUM_IF` is also found in the following categories: [Aggregate functio
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-SUM_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  SUM_IF( expression, condition
+          TOTAL | WITHIN ... | AMONG ...
+        )
+  ```
+
+- Extended
+
+  ```
+  SUM_IF( expression, condition
+          TOTAL | WITHIN ... | AMONG ...
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.

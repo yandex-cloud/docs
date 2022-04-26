@@ -9,10 +9,26 @@ _Function `COUNT` is also found in the following categories: [Aggregate function
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-COUNT(  [ value ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  COUNT(  [ value ]
+         TOTAL | WITHIN ... | AMONG ...
+       )
+  ```
+
+- Extended
+
+  ```
+  COUNT(  [ value ]
+         TOTAL | WITHIN ... | AMONG ...
+         [ BEFORE FILTER BY ... ]
+       )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the number of items in the specified window.

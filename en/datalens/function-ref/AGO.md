@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/AGO.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-AGO( measure, date_dimension [ , unit [ , number ] ] [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )
-```
+- Standard
+
+  ```
+  AGO( measure, date_dimension [ , unit [ , number ] ] )
+  ```
+
+- Extended
+
+  ```
+  AGO( measure, date_dimension [ , unit [ , number ] ]
+       [ BEFORE FILTER BY ... ]
+       [ IGNORE DIMENSIONS ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Re-evaluate `measure` for a date/time with a given offset.

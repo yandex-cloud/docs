@@ -2,7 +2,7 @@
 
 {{ mch-name }} автоматически создает кластер с одним шардом. Этот шард включает все хосты кластера. 
 
-Чтобы начать использовать шардирование, [добавьте](../operations/shards.md#add-shard) нужное количество шардов и создайте таблицу на базе движка [Distributed](https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/). В статье по ссылке описаны стратегии шардирования и инструкции по созданию таблиц нужного вида, а также ограничения распределенных таблиц.
+Чтобы начать использовать шардирование, [добавьте](../operations/shards.md#add-shard) нужное количество шардов и создайте таблицу на базе движка [Distributed](https://{{ ch-domain }}/docs/ru/operations/table_engines/distributed/). В статье по ссылке описаны стратегии шардирования и инструкции по созданию таблиц нужного вида, а также ограничения распределенных таблиц.
 
 Каждая шардированная таблица в {{ CH }} состоит из:
 - распределенной таблицы на движке Distributed, которая маршрутизирует запросы;
@@ -20,7 +20,7 @@
 - Пятью шардами: `shard1, ..., shard5`;
 - Базой данных `tutorial`. 
 
-Пусть необходимо включить шардирование для [таблицы](https://clickhouse.tech/docs/ru/getting-started/example-datasets/metrica/) `hits_v1`. Таблица будет создана отдельно для каждого примера. Структура таблицы, которую нужно подставить вместо обозначения `<структура таблицы>`, приведена [в документации {{ CH }}](https://clickhouse.tech/docs/ru/getting-started/tutorial/#create-tables). 
+Пусть необходимо включить шардирование для [таблицы](https://{{ ch-domain }}/docs/ru/getting-started/example-datasets/metrica/) `hits_v1`. Таблица будет создана отдельно для каждого примера. Структура таблицы, которую нужно подставить вместо обозначения `<структура таблицы>`, приведена [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/getting-started/tutorial/#create-tables). 
 
 После включения шардирования любым из приведенных ниже способов, вы сможете отправлять `SELECT`- и `INSERT`-запросы к созданной распределенной таблице, и они будут обрабатываться согласно заданной конфигурации.
 
@@ -32,7 +32,7 @@
 
 Перед работой с распределенной таблицей:
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на [движке MergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/), которая будет размещена на все хостах кластера:
+1. Создайте таблицу `hits_v1` на [движке MergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/), которая будет размещена на все хостах кластера:
   
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <структура таблицы> )
@@ -45,7 +45,7 @@
    
 Чтобы создать распределенную таблицу `hits_v1_distributed` в кластере:
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу на [движке Distributed](https://clickhouse.tech/docs/ru/engines/table-engines/special/distributed/):
+1. Создайте таблицу на [движке Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed/):
  
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER '{cluster}' AS tutorial.hits_v1
@@ -67,7 +67,7 @@
 Перед работой с распределенной таблицей:
 1. [Создайте](../operations/shard-groups.md#create-shard-group) группу шардов `sgroup`, состоящую из шардов `shard1` и `shard2` кластера.
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на [движке MergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/), которая использует все хосты группы шардов `sgroup` кластера:
+1. Создайте таблицу `hits_v1` на [движке MergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/), которая использует все хосты группы шардов `sgroup` кластера:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <структура таблицы> )
@@ -80,7 +80,7 @@
 
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу на [движке Distributed](https://clickhouse.tech/docs/ru/engines/table-engines/special/distributed/):
+1. Создайте таблицу на [движке Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed/):
  
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup AS tutorial.hits_v1
@@ -101,7 +101,7 @@
    - `sgroup`: включает шарды `shard1` и `shard2`.
    - `sgroup_data`: включает шарды `shard3`, `shard4` и `shard5`.
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на [движке ReplicatedMergeTree](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/replication/), которая использует все хосты группы шардов `sgroup_data` кластера:
+1. Создайте таблицу `hits_v1` на [движке ReplicatedMergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/), которая использует все хосты группы шардов `sgroup_data` кластера:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <структура таблицы> )
@@ -116,7 +116,7 @@
 
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу на [движке Distributed](https://clickhouse.tech/docs/ru/engines/table-engines/special/distributed/):
+1. Создайте таблицу на [движке Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed/):
  
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <структура таблицы> )

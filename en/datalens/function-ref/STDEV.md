@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/STDEV.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-STDEV( value )
-```
+- Standard
+
+  ```
+  STDEV( value )
+  ```
+
+- Extended
+
+  ```
+  STDEV( value
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the statistical standard deviation of all values in the expression based on a selection from the population.

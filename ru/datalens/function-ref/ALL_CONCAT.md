@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/ALL_CONCAT.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-ALL_CONCAT( expression [ , separator ] )
-```
+- Стандартный
+
+  ```
+  ALL_CONCAT( expression [ , separator ] )
+  ```
+
+- Расширенный
+
+  ```
+  ALL_CONCAT( expression [ , separator ]
+              [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+              [ BEFORE FILTER BY ... ]
+            )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает строку, которая содержит все попавшие в группу значения `expression`, с разделителем `separator` (по умолчанию разделитель — запятая).

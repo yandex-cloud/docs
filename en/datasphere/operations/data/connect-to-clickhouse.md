@@ -1,6 +1,6 @@
 # Connecting to a {{ CH }} database
 
-In the {{ yandex-cloud }} infrastructure, [{{ CH }}](https://clickhouse.tech/) server clusters are deployed and maintained using the {{ mch-short-name }} service.
+In the {{ yandex-cloud }} infrastructure, [{{ CH }}](https://{{ ch-domain }}/) server clusters are deployed and maintained using the {{ mch-short-name }} service.
 
 To utilize a {{ mch-short-name }} cluster host as a data source for {{ ml-platform-name }}:
 

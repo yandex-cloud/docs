@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/COUNTD_APPROX.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-COUNTD_APPROX( value )
-```
+- Standard
+
+  ```
+  COUNTD_APPROX( value )
+  ```
+
+- Extended
+
+  ```
+  COUNTD_APPROX( value
+                 [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                 [ BEFORE FILTER BY ... ]
+               )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the approximate number of unique values in the group. Faster than [COUNTD](COUNTD.md), but doesn't guarantee accuracy.

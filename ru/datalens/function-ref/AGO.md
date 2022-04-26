@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/AGO.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-AGO( measure, date_dimension [ , unit [ , number ] ] [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )
-```
+- Стандартный
+
+  ```
+  AGO( measure, date_dimension [ , unit [ , number ] ] )
+  ```
+
+- Расширенный
+
+  ```
+  AGO( measure, date_dimension [ , unit [ , number ] ]
+       [ BEFORE FILTER BY ... ]
+       [ IGNORE DIMENSIONS ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Вычисляет `measure` для даты/времени с указанным смещением.

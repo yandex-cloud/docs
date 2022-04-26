@@ -9,26 +9,33 @@ sourcePath: en/_api-ref/datalens/function-ref/IF.md
 
 #### Syntax {#syntax}
 
-Version 1:
-```
-IF condition_1
-    THEN result_1
-[ ELSEIF condition_2
-    THEN result_2
-  ... ]
-ELSE
-    default_result
-END
-```
-Version 2:
-```
-IF(
-    condition_1, result_1,
-  [ condition_2, result_2,
+{% list tabs %}
+
+- As a block
+
+  ```
+  IF condition_1
+      THEN result_1
+  [ ELSEIF condition_2
+      THEN result_2
     ... ]
-    default_result
-)
-```
+  ELSE
+      default_result
+  END
+  ```
+
+- As a function
+
+  ```
+  IF(
+      condition_1, result_1,
+    [ condition_2, result_2,
+      ... ]
+      default_result
+  )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Checks conditional expressions `condition_1`, `result_1`, ... and returns the matching result for the first condition found to be `TRUE`. IF all conditional expressions are `FALSE`, it returns `default_result`.

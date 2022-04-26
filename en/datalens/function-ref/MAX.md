@@ -9,10 +9,24 @@ _Function `MAX` is also found in the following categories: [Window functions](MA
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-MAX( value )
-```
+- Standard
+
+  ```
+  MAX( value )
+  ```
+
+- Extended
+
+  ```
+  MAX( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the maximum value.

@@ -9,10 +9,25 @@ sourcePath: ru/_api-ref/datalens/function-ref/RMAX.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  RMAX( value [ , direction ] )
+  ```
+
+- Расширенный
+
+  ```
+  RMAX( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 

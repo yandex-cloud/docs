@@ -1,6 +1,6 @@
 # Getting data from {{ RMQ }}
 
-A {{ mch-name }} cluster can get data from {{ RMQ }} in real time. {{ mch-name }} will automatically insert the data sent to certain exchanges of the specified {{ RMQ }} queues into the table run on the [{{ RMQ }} engine](https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/).
+A {{ mch-name }} cluster can get data from {{ RMQ }} in real time. {{ mch-name }} will automatically insert the data sent to certain exchanges of the specified {{ RMQ }} queues into the table run on the [{{ RMQ }} engine](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/).
 
 To set up data delivery from {{ RMQ }} to {{ mch-name }}:
 
@@ -59,7 +59,7 @@ This data will be transmitted as {{ RMQ }} messages. Each such message will cont
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-When inserting data in the table, the {{ mch-name }} cluster will use the [JSONEachRow format](https://clickhouse.tech/docs/en/interfaces/formats/#jsoneachrow). It helps to convert a string representation of a JSON object used in {{ RMQ }} messages to the needed set of column values.
+When inserting data in the table, the {{ mch-name }} cluster will use the [JSONEachRow format](https://{{ ch-domain }}/docs/en/interfaces/formats/#jsoneachrow). It helps to convert a string representation of a JSON object used in {{ RMQ }} messages to the needed set of column values.
 
 ## In the {{ mch-name }} cluster, create a table on the {{ RMQ }} engine {#create-rmq-table}
 
@@ -90,7 +90,7 @@ Using the above-mentioned data format, create in the {{ mch-name }} cluster a ta
 
 This table will be automatically filled with messages read from the `cars` queue at the `exchange` of {{ RMQ }}. When reading the data, {{ mch-name }} uses the [provided authentication credentials](#configure-mch-for-rmq).
 
-To learn more about creating a table on the {{ RMQ }} engine, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/).
+To learn more about creating a table on the {{ RMQ }} engine, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/).
 
 ## Send the test data to the {{ RMQ }} queue {#send-sample-data-to-rmq}
 
@@ -189,5 +189,5 @@ To get all the data from the `db1.cars_view` materialized view:
 
 After you execute the query, you should get the {{ RMQ }} data in the table format.
 
-To learn more about how to work with data received from {{ RMQ }}, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/).
+To learn more about how to work with data received from {{ RMQ }}, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/).
 
