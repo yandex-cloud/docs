@@ -8,10 +8,24 @@ _Function `SUM_IF` is also found in the following categories: [Window functions]
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-SUM_IF( expression, condition )
-```
+- Standard
+
+  ```
+  SUM_IF( expression, condition )
+  ```
+
+- Extended
+
+  ```
+  SUM_IF( expression, condition
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.

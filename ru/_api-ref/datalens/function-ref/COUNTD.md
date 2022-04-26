@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-COUNTD( value )
-```
+- Стандартный
+
+  ```
+  COUNTD( value )
+  ```
+
+- Расширенный
+
+  ```
+  COUNTD( value
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает количество уникальных значений в группе.

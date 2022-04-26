@@ -8,10 +8,25 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RCOUNT( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RCOUNT( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RCOUNT( value [ , direction ]
+          [ TOTAL | WITHIN ... | AMONG ... ]
+          [ ORDER BY ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

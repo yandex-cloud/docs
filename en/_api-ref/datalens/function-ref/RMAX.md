@@ -8,10 +8,25 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RMAX( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RMAX( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

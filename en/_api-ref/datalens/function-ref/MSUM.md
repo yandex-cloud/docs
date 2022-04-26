@@ -8,10 +8,25 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  MSUM( value, rows_1 [ , rows_2 ] )
+  ```
+
+- Extended
+
+  ```
+  MSUM( value, rows_1 [ , rows_2 ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

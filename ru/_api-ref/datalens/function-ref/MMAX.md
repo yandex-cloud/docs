@@ -8,10 +8,25 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  MMAX( value, rows_1 [ , rows_2 ] )
+  ```
+
+- Расширенный
+
+  ```
+  MMAX( value, rows_1 [ , rows_2 ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 

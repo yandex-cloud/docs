@@ -8,10 +8,24 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-COUNTD_IF( expression, condition )
-```
+- Standard
+
+  ```
+  COUNTD_IF( expression, condition )
+  ```
+
+- Extended
+
+  ```
+  COUNTD_IF( expression, condition
+             [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+             [ BEFORE FILTER BY ... ]
+           )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the number of unique values in the group that meet the `condition` condition.

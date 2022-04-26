@@ -8,25 +8,32 @@ editable: false
 
 #### Синтаксис {#syntax}
 
-Вариант 1:
-```
-CASE expression
-    WHEN value_1 THEN result_1
-    [ WHEN value_2 THEN result_2
+{% list tabs %}
+
+- Как блок
+
+  ```
+  CASE expression
+      WHEN value_1 THEN result_1
+      [ WHEN value_2 THEN result_2
+        ... ]
+      ELSE default_result
+  END
+  ```
+
+- Как функция
+
+  ```
+  CASE(
+      expression,
+      value_1, result_1,
+    [ value_2, result_2,
       ... ]
-    ELSE default_result
-END
-```
-Вариант 2:
-```
-CASE(
-    expression,
-    value_1, result_1,
-  [ value_2, result_2,
-    ... ]
-    default_result
-)
-```
+      default_result
+  )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Сравнивает выражение `expression` с последовательностью значений `value_1`, `value_2`, ... и возвращает результат для первого совпадения.

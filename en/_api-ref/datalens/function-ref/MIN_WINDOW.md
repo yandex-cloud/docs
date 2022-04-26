@@ -8,10 +8,26 @@ _Function `MIN` is also found in the following categories: [Aggregate functions]
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-MIN( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  MIN( value
+       TOTAL | WITHIN ... | AMONG ...
+     )
+  ```
+
+- Extended
+
+  ```
+  MIN( value
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the minimum value.

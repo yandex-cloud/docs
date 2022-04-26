@@ -8,10 +8,24 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-VARP( value )
-```
+- Standard
+
+  ```
+  VARP( value )
+  ```
+
+- Extended
+
+  ```
+  VARP( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the statistical variance of all values in an expression across the entire population.

@@ -8,10 +8,25 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-FIRST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  FIRST( value )
+  ```
+
+- Extended
+
+  ```
+  FIRST( value
+         [ TOTAL | WITHIN ... | AMONG ... ]
+         [ ORDER BY ... ]
+         [ BEFORE FILTER BY ... ]
+       )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  RANK_PERCENTILE( value [ , direction ] )
+  ```
+
+- Расширенный
+
+  ```
+  RANK_PERCENTILE( value [ , direction ]
+                   [ TOTAL | WITHIN ... | AMONG ... ]
+                   [ BEFORE FILTER BY ... ]
+                 )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Выполняет относительное ранжирование. Возвращает дробный ранг (от `0` до `1`). Расчитывается как `(RANK(...) - 1) / (количество строк)`.

@@ -8,10 +8,25 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RAVG( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RAVG( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

@@ -8,11 +8,11 @@ editable: false
 
 #### Syntax {#syntax}
 
-Version 1:
+As a function
 ```
 ISNULL( expression )
 ```
-Version 2:
+As an operator
 ```
 expression IS [ NOT ] NULL
 ```

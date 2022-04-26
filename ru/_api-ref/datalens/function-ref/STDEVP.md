@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-STDEVP( value )
-```
+- Стандартный
+
+  ```
+  STDEVP( value )
+  ```
+
+- Расширенный
+
+  ```
+  STDEVP( value
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает статистическое стандартное отклонение всех значений в выражении на основе смещенной совокупности.

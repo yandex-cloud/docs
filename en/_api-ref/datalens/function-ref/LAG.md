@@ -8,10 +8,25 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  LAG( value [ , offset [ , default ] ] )
+  ```
+
+- Extended
+
+  ```
+  LAG( value [ , offset [ , default ] ]
+       [ TOTAL | WITHIN ... | AMONG ... ]
+       [ ORDER BY ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

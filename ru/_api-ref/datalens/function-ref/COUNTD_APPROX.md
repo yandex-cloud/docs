@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-COUNTD_APPROX( value )
-```
+- Стандартный
+
+  ```
+  COUNTD_APPROX( value )
+  ```
+
+- Расширенный
+
+  ```
+  COUNTD_APPROX( value
+                 [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                 [ BEFORE FILTER BY ... ]
+               )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает приблизительное количество уникальных значений в группе. Работает быстрее функции [COUNTD](COUNTD.md), но не гарантирует точность.

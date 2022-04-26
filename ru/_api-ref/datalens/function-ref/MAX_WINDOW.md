@@ -8,10 +8,26 @@ _Функция `MAX` также доступна в следующих кате
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-MAX( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  MAX( value
+       TOTAL | WITHIN ... | AMONG ...
+     )
+  ```
+
+- Расширенный
+
+  ```
+  MAX( value
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает максимальное значение.

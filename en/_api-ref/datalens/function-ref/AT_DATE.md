@@ -8,10 +8,24 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-AT_DATE( measure, date_dimension, date_expr [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )
-```
+- Standard
+
+  ```
+  AT_DATE( measure, date_dimension, date_expr )
+  ```
+
+- Extended
+
+  ```
+  AT_DATE( measure, date_dimension, date_expr
+           [ BEFORE FILTER BY ... ]
+           [ IGNORE DIMENSIONS ... ]
+         )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Re-evaluate `measure` for a date/time specified by `date_expr`.

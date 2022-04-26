@@ -8,10 +8,24 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-TOP_CONCAT( expression, amount [ , separator ] )
-```
+- Standard
+
+  ```
+  TOP_CONCAT( expression, amount [ , separator ] )
+  ```
+
+- Extended
+
+  ```
+  TOP_CONCAT( expression, amount [ , separator ]
+              [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+              [ BEFORE FILTER BY ... ]
+            )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).

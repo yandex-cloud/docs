@@ -8,10 +8,24 @@ _Function `AVG` is also found in the following categories: [Window functions](AV
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-AVG( value )
-```
+- Standard
+
+  ```
+  AVG( value )
+  ```
+
+- Extended
+
+  ```
+  AVG( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.

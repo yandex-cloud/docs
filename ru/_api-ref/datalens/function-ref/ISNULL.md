@@ -8,11 +8,11 @@ editable: false
 
 #### Синтаксис {#syntax}
 
-Вариант 1:
+Как функция
 ```
 ISNULL( expression )
 ```
-Вариант 2:
+Как оператор
 ```
 expression IS [ NOT ] NULL
 ```

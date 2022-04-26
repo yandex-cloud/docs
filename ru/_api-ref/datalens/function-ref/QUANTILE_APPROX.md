@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-QUANTILE_APPROX( value, quant )
-```
+- Стандартный
+
+  ```
+  QUANTILE_APPROX( value, quant )
+  ```
+
+- Расширенный
+
+  ```
+  QUANTILE_APPROX( value, quant
+                   [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                   [ BEFORE FILTER BY ... ]
+                 )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает примерный квантиль уровня `quant` (значение от 0 до 1).

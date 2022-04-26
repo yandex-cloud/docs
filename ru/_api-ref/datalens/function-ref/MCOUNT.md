@@ -8,10 +8,25 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  MCOUNT( value, rows_1 [ , rows_2 ] )
+  ```
+
+- Расширенный
+
+  ```
+  MCOUNT( value, rows_1 [ , rows_2 ]
+          [ TOTAL | WITHIN ... | AMONG ... ]
+          [ ORDER BY ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 

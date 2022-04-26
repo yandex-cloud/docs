@@ -8,10 +8,24 @@ _Function `SUM` is also found in the following categories: [Window functions](SU
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-SUM( value )
-```
+- Standard
+
+  ```
+  SUM( value )
+  ```
+
+- Extended
+
+  ```
+  SUM( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the sum of all expression values. Applicable to numeric data types only.

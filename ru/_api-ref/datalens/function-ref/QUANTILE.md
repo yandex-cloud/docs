@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-QUANTILE( value, quant )
-```
+- Стандартный
+
+  ```
+  QUANTILE( value, quant )
+  ```
+
+- Расширенный
+
+  ```
+  QUANTILE( value, quant
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает точный квантиль уровня `quant` (значение от 0 до 1).

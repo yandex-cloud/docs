@@ -8,10 +8,24 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-COUNTD( value )
-```
+- Standard
+
+  ```
+  COUNTD( value )
+  ```
+
+- Extended
+
+  ```
+  COUNTD( value
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the number of unique values in the group.

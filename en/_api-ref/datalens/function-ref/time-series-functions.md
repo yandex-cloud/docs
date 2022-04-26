@@ -59,7 +59,10 @@ AGO([Sales], [Date], "month" IGNORE DIMENSIONS [Month])
 
 ## [AGO](AGO.md)
 
-**Syntax:**`AGO( measure, date_dimension [ , unit [ , number ] ] [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
+**Syntax:**<br/>`AGO( measure, date_dimension [ , unit [ , number ] ] )`<br/>or<br/>`AGO( measure, date_dimension [ , unit [ , number ] ]
+     [ BEFORE FILTER BY ... ]
+     [ IGNORE DIMENSIONS ... ]
+   )`
 
 Re-evaluate `measure` for a date/time with a given offset.
 The `date_dimension` argument is the dimension along which the offset is made.
@@ -80,7 +83,10 @@ See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 ## [AT_DATE](AT_DATE.md)
 
-**Syntax:**`AT_DATE( measure, date_dimension, date_expr [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
+**Syntax:**<br/>`AT_DATE( measure, date_dimension, date_expr )`<br/>or<br/>`AT_DATE( measure, date_dimension, date_expr
+         [ BEFORE FILTER BY ... ]
+         [ IGNORE DIMENSIONS ... ]
+       )`
 
 Re-evaluate `measure` for a date/time specified by `date_expr`.
 The `date_dimension` argument is the dimension along which the offset is made.

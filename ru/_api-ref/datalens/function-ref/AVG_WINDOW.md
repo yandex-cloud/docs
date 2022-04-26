@@ -8,10 +8,26 @@ _Функция `AVG` также доступна в следующих кате
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-AVG( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  AVG( value
+       TOTAL | WITHIN ... | AMONG ...
+     )
+  ```
+
+- Расширенный
+
+  ```
+  AVG( value
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает среднее арифметическое значений выражения. Работает только с числовыми типами данных.

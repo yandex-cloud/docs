@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-MEDIAN( value )
-```
+- Стандартный
+
+  ```
+  MEDIAN( value )
+  ```
+
+- Расширенный
+
+  ```
+  MEDIAN( value
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Вовзращает медианное значение.

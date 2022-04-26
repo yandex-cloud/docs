@@ -8,10 +8,24 @@ _Function `MIN` is also found in the following categories: [Window functions](MI
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-MIN( value )
-```
+- Standard
+
+  ```
+  MIN( value )
+  ```
+
+- Extended
+
+  ```
+  MIN( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the minimum value.

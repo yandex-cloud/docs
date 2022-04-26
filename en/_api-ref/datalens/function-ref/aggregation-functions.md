@@ -108,7 +108,10 @@ There are the following features of using aggregations:
 
 ## [ALL_CONCAT](ALL_CONCAT.md)
 
-**Syntax:**`ALL_CONCAT( expression [ , separator ] )`
+**Syntax:**<br/>`ALL_CONCAT( expression [ , separator ] )`<br/>or<br/>`ALL_CONCAT( expression [ , separator ]
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )`
 
 Returns a string that contains all grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
@@ -116,7 +119,10 @@ Returns a string that contains all grouped values of `expression` delimited by `
 
 ## [ANY](ANY.md)
 
-**Syntax:**`ANY( value )`
+**Syntax:**<br/>`ANY( value )`<br/>or<br/>`ANY( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns one of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
 
@@ -124,7 +130,10 @@ Returns one of the values of `value` from the group. This is a nondeterministic 
 
 ## [ARG_MAX](ARG_MAX.md)
 
-**Syntax:**`ARG_MAX( value, comp )`
+**Syntax:**<br/>`ARG_MAX( value, comp )`<br/>or<br/>`ARG_MAX( value, comp
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )`
 
 Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
@@ -132,7 +141,10 @@ Returns `value` for the maximum value of `comp` in the group. If multiple values
 
 ## [ARG_MIN](ARG_MIN.md)
 
-**Syntax:**`ARG_MIN( value, comp )`
+**Syntax:**<br/>`ARG_MIN( value, comp )`<br/>or<br/>`ARG_MIN( value, comp
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )`
 
 Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
@@ -140,7 +152,10 @@ Returns `value` for the minimum value of `comp` in the group. If multiple values
 
 ## [AVG](AVG.md)
 
-**Syntax:**`AVG( value )`
+**Syntax:**<br/>`AVG( value )`<br/>or<br/>`AVG( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.
 
@@ -148,7 +163,10 @@ Returns the average of all values. Applicable to numeric data types as well as `
 
 ## [AVG_IF](AVG_IF.md)
 
-**Syntax:**`AVG_IF( expression, condition )`
+**Syntax:**<br/>`AVG_IF( expression, condition )`<br/>or<br/>`AVG_IF( expression, condition
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
 
@@ -156,7 +174,10 @@ Returns the average of all values that meet the `condition` condition. If the va
 
 ## [COUNT](COUNT.md)
 
-**Syntax:**`COUNT(  [ value ] )`
+**Syntax:**<br/>`COUNT(  [ value ] )`<br/>or<br/>`COUNT(  [ value ]
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Returns the number of items in the group.
 
@@ -164,7 +185,10 @@ Returns the number of items in the group.
 
 ## [COUNT_IF](COUNT_IF.md)
 
-**Syntax:**`COUNT_IF( condition )`
+**Syntax:**<br/>`COUNT_IF( condition )`<br/>or<br/>`COUNT_IF( condition
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )`
 
 Returns the number of items in the group meeting the `condition` condition.
 
@@ -172,7 +196,10 @@ Returns the number of items in the group meeting the `condition` condition.
 
 ## [COUNTD](COUNTD.md)
 
-**Syntax:**`COUNTD( value )`
+**Syntax:**<br/>`COUNTD( value )`<br/>or<br/>`COUNTD( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the number of unique values in the group.
 
@@ -182,7 +209,10 @@ See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 ## [COUNTD_APPROX](COUNTD_APPROX.md)
 
-**Syntax:**`COUNTD_APPROX( value )`
+**Syntax:**<br/>`COUNTD_APPROX( value )`<br/>or<br/>`COUNTD_APPROX( value
+               [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+               [ BEFORE FILTER BY ... ]
+             )`
 
 Returns the approximate number of unique values in the group. Faster than [COUNTD](COUNTD.md), but doesn't guarantee accuracy.
 
@@ -190,7 +220,10 @@ Returns the approximate number of unique values in the group. Faster than [COUNT
 
 ## [COUNTD_IF](COUNTD_IF.md)
 
-**Syntax:**`COUNTD_IF( expression, condition )`
+**Syntax:**<br/>`COUNTD_IF( expression, condition )`<br/>or<br/>`COUNTD_IF( expression, condition
+           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+           [ BEFORE FILTER BY ... ]
+         )`
 
 Returns the number of unique values in the group that meet the `condition` condition.
 
@@ -200,7 +233,10 @@ See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 ## [MAX](MAX.md)
 
-**Syntax:**`MAX( value )`
+**Syntax:**<br/>`MAX( value )`<br/>or<br/>`MAX( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the maximum value.
 
@@ -214,7 +250,10 @@ If `value`:
 
 ## [MEDIAN](MEDIAN.md)
 
-**Syntax:**`MEDIAN( value )`
+**Syntax:**<br/>`MEDIAN( value )`<br/>or<br/>`MEDIAN( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the median value.
 
@@ -222,7 +261,10 @@ Returns the median value.
 
 ## [MIN](MIN.md)
 
-**Syntax:**`MIN( value )`
+**Syntax:**<br/>`MIN( value )`<br/>or<br/>`MIN( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the minimum value.
 
@@ -236,7 +278,10 @@ If `value`:
 
 ## [QUANTILE](QUANTILE.md)
 
-**Syntax:**`QUANTILE( value, quant )`
+**Syntax:**<br/>`QUANTILE( value, quant )`<br/>or<br/>`QUANTILE( value, quant
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )`
 
 Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
@@ -244,7 +289,10 @@ Returns the precise `quant`-level quantile (`quant` should be in range from 0 to
 
 ## [QUANTILE_APPROX](QUANTILE_APPROX.md)
 
-**Syntax:**`QUANTILE_APPROX( value, quant )`
+**Syntax:**<br/>`QUANTILE_APPROX( value, quant )`<br/>or<br/>`QUANTILE_APPROX( value, quant
+                 [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                 [ BEFORE FILTER BY ... ]
+               )`
 
 Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).
 
@@ -252,7 +300,10 @@ Returns the approximate `quant`-level quantile (`quant` should be in range from 
 
 ## [STDEV](STDEV.md)
 
-**Syntax:**`STDEV( value )`
+**Syntax:**<br/>`STDEV( value )`<br/>or<br/>`STDEV( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Returns the statistical standard deviation of all values in the expression based on a selection from the population.
 
@@ -260,7 +311,10 @@ Returns the statistical standard deviation of all values in the expression based
 
 ## [STDEVP](STDEVP.md)
 
-**Syntax:**`STDEVP( value )`
+**Syntax:**<br/>`STDEVP( value )`<br/>or<br/>`STDEVP( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the statistical standard deviation of all values in the expression based on the biased population.
 
@@ -268,7 +322,10 @@ Returns the statistical standard deviation of all values in the expression based
 
 ## [SUM](SUM.md)
 
-**Syntax:**`SUM( value )`
+**Syntax:**<br/>`SUM( value )`<br/>or<br/>`SUM( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the sum of all expression values. Applicable to numeric data types only.
 
@@ -276,7 +333,10 @@ Returns the sum of all expression values. Applicable to numeric data types only.
 
 ## [SUM_IF](SUM_IF.md)
 
-**Syntax:**`SUM_IF( expression, condition )`
+**Syntax:**<br/>`SUM_IF( expression, condition )`<br/>or<br/>`SUM_IF( expression, condition
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
@@ -284,7 +344,10 @@ Returns the sum of all the expression values that meet the `condition` condition
 
 ## [TOP_CONCAT](TOP_CONCAT.md)
 
-**Syntax:**`TOP_CONCAT( expression, amount [ , separator ] )`
+**Syntax:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>or<br/>`TOP_CONCAT( expression, amount [ , separator ]
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )`
 
 Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
@@ -292,7 +355,10 @@ Returns a string that contains top `amount` grouped values of `expression` delim
 
 ## [VAR](VAR.md)
 
-**Syntax:**`VAR( value )`
+**Syntax:**<br/>`VAR( value )`<br/>or<br/>`VAR( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the statistical variance of all values in an expression based on a selection from the population.
 
@@ -300,7 +366,10 @@ Returns the statistical variance of all values in an expression based on a selec
 
 ## [VARP](VARP.md)
 
-**Syntax:**`VARP( value )`
+**Syntax:**<br/>`VARP( value )`<br/>or<br/>`VARP( value
+      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the statistical variance of all values in an expression across the entire population.
 

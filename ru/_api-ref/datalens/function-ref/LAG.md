@@ -8,10 +8,25 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  LAG( value [ , offset [ , default ] ] )
+  ```
+
+- Расширенный
+
+  ```
+  LAG( value [ , offset [ , default ] ]
+       [ TOTAL | WITHIN ... | AMONG ... ]
+       [ ORDER BY ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 

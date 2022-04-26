@@ -8,10 +8,24 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RANK_PERCENTILE( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RANK_PERCENTILE( value [ , direction ]
+                   [ TOTAL | WITHIN ... | AMONG ... ]
+                   [ BEFORE FILTER BY ... ]
+                 )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the relative rank (from `0` to `1`) of the current row if ordered by the given argument. Calculated as `(RANK(...) - 1) / (row count) `.

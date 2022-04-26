@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  RANK_UNIQUE( value [ , direction ] )
+  ```
+
+- Расширенный
+
+  ```
+  RANK_UNIQUE( value [ , direction ]
+               [ TOTAL | WITHIN ... | AMONG ... ]
+               [ BEFORE FILTER BY ... ]
+             )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Выполняет уникальное ранжирование. Возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют разные значения ранга. Ни для каких двух строк значения не совпадают. Принимает все значения от `1` до значения, которое равно количеству строк.

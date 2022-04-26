@@ -8,10 +8,24 @@ editable: false
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-STDEVP( value )
-```
+- Standard
+
+  ```
+  STDEVP( value )
+  ```
+
+- Extended
+
+  ```
+  STDEVP( value
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the statistical standard deviation of all values in the expression based on the biased population.

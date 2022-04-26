@@ -8,10 +8,26 @@ _Function `MAX` is also found in the following categories: [Aggregate functions]
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-MAX( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  MAX( value
+       TOTAL | WITHIN ... | AMONG ...
+     )
+  ```
+
+- Extended
+
+  ```
+  MAX( value
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the maximum value.

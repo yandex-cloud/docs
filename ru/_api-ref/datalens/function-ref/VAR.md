@@ -8,10 +8,24 @@ editable: false
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-VAR( value )
-```
+- Стандартный
+
+  ```
+  VAR( value )
+  ```
+
+- Расширенный
+
+  ```
+  VAR( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает статистическую дисперсию всех значений в выражении на основе выборки из совокупности.

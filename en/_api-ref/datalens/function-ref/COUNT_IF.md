@@ -8,10 +8,24 @@ _Function `COUNT_IF` is also found in the following categories: [Window function
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-COUNT_IF( condition )
-```
+- Standard
+
+  ```
+  COUNT_IF( condition )
+  ```
+
+- Extended
+
+  ```
+  COUNT_IF( condition
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the number of items in the group meeting the `condition` condition.
