@@ -38,7 +38,7 @@ To create a secret:
       yc lockbox secret create --help
       ```
 
-  1. Run the command, specifying the subnet name and the resource's internal IP address in the parameters:
+  1. Run the command, specifying the secret name and the secret description in the parameters:
      ```
      yc lockbox secret create --name <secret name> --description <secret description> --payload '[{"key": "<key>", "text_value": "<text value>"}[,{"key": "<key>", "text_value": "<text value>"}]]' --cloud-id <cloud ID> --folder-name <folder name> 
      ```
