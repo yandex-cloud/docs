@@ -28,12 +28,11 @@
         * `PRODUCTION` — для стабильных версий ваших приложений.
         * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mkf-name }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
      1. Выберите версию {{ KF }}.
-     1. Чтобы управлять топиками через Admin API {{ KF }}:
-
-         {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
+     1. Чтобы [управлять топиками через Admin API {{ KF }}](../concepts/topics.md#management):
          1. Включите настройку **Управление топиками через API**.
          1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
+
+         {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
      1. Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), включите настройку **Реестр схем данных**.
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
