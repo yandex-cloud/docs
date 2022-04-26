@@ -104,9 +104,11 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 
    If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
 
-   1. Right-click on the Pageant icon in the task bar.
-   1. Select the **Saved sessions** menu item.
-   1. In the saved sessions list, select the necessary session.
+  If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
+
+  1. Right-click on the Pageant icon in the task bar.
+  1. Select the **Saved sessions** menu item.
+  1. In the saved sessions list, select the necessary session.
 
 {% endlist %}
 
@@ -168,7 +170,7 @@ You can add SSH keys for another VM user. To do this, create a new user and add 
 1. Check the connection for the new user:
 
    ```bash
-   ssh testuser@<VM-public-IP>
+   ssh testuser@<VM_public_IP_address>
    ```
 
 #### What's next {#what-is-next}
