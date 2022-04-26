@@ -32,7 +32,7 @@
 Для каждого пользователя есть квота по умолчанию, которая учитывает потребление всех ресурсов за каждый час, но не накладывает никаких ограничений.
 Сведения об уровне потребления ресурсов записываются в лог сервера {{ CH }}.
 
-Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/quotas/).
+Подробнее см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/operations/quotas/).
 
 Доступны следующие настройки квот:
 
@@ -50,6 +50,6 @@
 
 {{ tag-sql }}
 
-[Пользовательские настройки](https://clickhouse.tech/docs/ru/operations/settings/#custom_settings) можно переопределять, как переменные, в [профиле настроек](https://clickhouse.tech/docs/ru/operations/access-rights/#settings-profiles-management), сессии или запросе. Работа с профилями настроек доступна, если для кластера включено [управление пользователями через SQL](../operations/cluster-users.md#sql-user-management).
+[Пользовательские настройки](https://{{ ch-domain }}/docs/ru/operations/settings/#custom_settings) можно переопределять, как переменные, в [профиле настроек](https://{{ ch-domain }}/docs/ru/operations/access-rights/#settings-profiles-management), сессии или запросе. Работа с профилями настроек доступна, если для кластера включено [управление пользователями через SQL](../operations/cluster-users.md#sql-user-management).
 
 Название пользовательской настройки в {{ mch-name }} должно начинаться с предопределенного префикса `custom_`. Префикс фиксированный — пользователь не может его менять.

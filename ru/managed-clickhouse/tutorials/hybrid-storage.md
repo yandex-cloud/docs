@@ -1,6 +1,6 @@
 # Использование гибридного хранилища
 
-Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера {{ mch-name }}, а редко используемые данные — в {{ objstorage-full-name }}. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Подробнее см. в разделе [{#T}](../concepts/storage.md).
+Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера {{ mch-name }}, а редко используемые данные — в {{ objstorage-full-name }}. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Подробнее см. в разделе [{#T}](../concepts/storage.md).
 
 Чтобы воспользоваться гибридным хранилищем:
 
@@ -71,13 +71,13 @@
 
 ### Познакомьтесь с тестовым набором данных (необязательный шаг) {#explore-dataset}
 
-Для демонстрации работы гибридного хранилища используются анонимизированные данные о хитах (`hits_v1`) Яндекс.Метрики. Этот [датасет](https://clickhouse.tech/docs/ru/getting-started/example-datasets/metrica/) содержит данные о почти девяти миллионах хитов за неделю с 17 марта 2014 года по 23 марта 2014 года.
+Для демонстрации работы гибридного хранилища используются анонимизированные данные о хитах (`hits_v1`) Яндекс.Метрики. Этот [датасет](https://{{ ch-domain }}/docs/ru/getting-started/example-datasets/metrica/) содержит данные о почти девяти миллионах хитов за неделю с 17 марта 2014 года по 23 марта 2014 года.
 
 Таблица `tutorial.hits_v1` будет [настроена при создании](#create-table) таким образом, чтобы все <q>свежие</q> данные в таблице с 21 марта 2014 года и позже попали в хранилище на сетевых дисках, а более старые данные (с 17 марта по 20 марта 2014 года) — в объектное хранилище.
 
 ## Создайте таблицу {#create-table}
 
-Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/tutorial/#create-tables){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/tutorial/#create-tables){% endif %}:
+Создайте таблицу `tutorial.hits_v1`, которая использует гибридное хранилище. Для этого выполните SQL-запрос, подставив вместо `<схема>` схему таблицы из [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/getting-started/tutorial/#create-tables){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/getting-started/tutorial/#create-tables){% endif %}:
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -116,9 +116,9 @@ SETTINGS index_granularity = 8192
 
 {% endnote %}
 
-Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}. Старайтесь выбирать выражение TTL и [ключ партиционирования]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище при истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
+Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}. Старайтесь выбирать выражение TTL и [ключ партиционирования]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище при истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
 
-Подробнее о настройке TTL см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}.
+Подробнее о настройке TTL см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}.
 
 ## Наполните таблицу данными {#fill-table-with-data}
 
@@ -146,7 +146,7 @@ SETTINGS index_granularity = 8192
 
 1. Дождитесь завершения операции, вставка данных может занять некоторое время.
 
-Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/tutorial/#import-data){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/tutorial/#import-data){% endif %}.
+Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/getting-started/tutorial/#import-data){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/getting-started/tutorial/#import-data){% endif %}.
 
 ## Проверьте размещение данных в кластере {#check-table-tiering}
 

@@ -22,11 +22,11 @@
 {% list tabs %}
 
 * {{ mch-name }}
-    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
+    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
     1. [Create a user](../../managed-clickhouse/operations/cluster-users.md) with access to the source database.
 
 * {{ CH }}
-    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
+    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
     1. Set up the source cluster so that you can connect to it from the internet.
     1. Create a user with access to the source database.
 

@@ -2,7 +2,7 @@
 
 To migrate your database to {{ mch-name }}, you need to directly transfer the data, disable writing to the old database, and then switch the load over to the database cluster in {{ yandex-cloud }}.
 
-To transfer data to a {{ mch-name }} cluster, you can use [Apache ZooKeeper](http://zookeeper.apache.org) and [clickhouse-copier]( https://clickhouse.yandex/docs/ruoperations/utils/clickhouse-copier/).
+To transfer data to a {{ mch-name }} cluster, you can use [Apache ZooKeeper](http://zookeeper.apache.org) and [clickhouse-copier]( https://{{ ch-domain }}/docs/ruoperations/utils/clickhouse-copier/).
 
 Transfer data to an intermediate virtual machine in Compute Cloud if:
 
@@ -121,7 +121,7 @@ To launch `clickhouse-copier` using ZooKeeper, you need to prepare:
 * A ZooKeeper configuration file (`config.xml`).
 * A file describing the task (`cp-task.xml`).
 
-Instructions for `clickhouse-copier` can be found in the [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/utils/clickhouse-copier/).
+Instructions for `clickhouse-copier` can be found in the [ClickHouse documentation](https://{{ ch-domain }}/docs/en/operations/utils/clickhouse-copier/).
 
 ### Prepare a configuration file for ZooKeeper {#zookeeper-config}
 

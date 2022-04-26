@@ -17,11 +17,11 @@
   1. `DEBUG`: System information for subsequent use in debugging.
   1. `TRACE`: All available information on cluster operation.
 
-  For more information about logging levels, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}.
+  For more information about logging levels, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}.
 
 * **Mark cache size**{#setting-mark-cache-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Approximate size (in bytes) of the mark cache used by table engines in the [MergeTree] family {% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. The cache is shared by a cluster host. Memory is allocated as needed.
+    Approximate size (in bytes) of the mark cache used by table engines in the [MergeTree] family {% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. The cache is shared by a cluster host. Memory is allocated as needed.
 
     The selected parameter value is not a hard and fast restriction. {{ CH }} can make this cache a little smaller or larger.
 
@@ -41,13 +41,13 @@
 
 * **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Maximum size (in bytes) of the [partition]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/custom_partitioning_key/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/custom_partitioning_key/){% endif %} of a table in the [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family at which you can delete a table using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
+    Maximum size (in bytes) of the [partition]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/table_engines/custom_partitioning_key/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/table_engines/custom_partitioning_key/){% endif %} of a table in the [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family at which you can delete a table using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
 
     The default is `53687091200` (50 GB). When the value is `0`, you can delete tables of any size.
 
 * **Max table size to drop**{#setting-max-table-size-to-drop} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Maximum size (bytes) of a table in the [MergeTree] {% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family that you can delete using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
+    Maximum size (bytes) of a table in the [MergeTree] {% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family that you can delete using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
 
     The default is `53687091200` (50 GB). When the value is `0`, you can delete tables of any size.
 
@@ -99,7 +99,7 @@
 
     The default is `true`.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/system-tables/query_thread_log){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/system-tables/query_thread_log){% endif %}.
 
 * **Query thread log retention size**{#setting-query-thread-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
@@ -121,7 +121,7 @@
 
 * **Text log level**{#setting-text-log-level} {{ tag-con }} {{ tag-tf }}
 
-  Event logging level for the [system.text_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% endif %} table. At each next level, the log will contain complete information from the previous one:
+  Event logging level for the [system.text_log]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/system-tables/text_log){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/system-tables/text_log){% endif %} table. At each next level, the log will contain complete information from the previous one:
   1. `ERROR`: Information about errors in the DBMS.
   1. `WARNING`: Information about events that may cause errors in the DBMS.
   1. `INFORMATION`: Confirmation and information about events that don't lead to errors in the DBMS.
@@ -146,7 +146,7 @@
 
   Server time zone. Specified by the IANA identifier as the UTC time zone or geographical location (for example, Africa/Abidjan).
 
-  For more information, see the [{{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %} documentation.
+  For more information, see the [{{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %} documentation.
 
 * **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-tf }}
 
@@ -168,24 +168,24 @@
 
 * **Uncompressed cache size**{#setting-uncompressed-cache-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Size (in bytes) of the uncompressed data cache used by table engines in the [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family.
+    Size (in bytes) of the uncompressed data cache used by table engines in the [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family.
 
     The default is `8589934592` (8 GB).
 
 * **Compression**{#setting-compression} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Data compression rules for tables in the [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family. For each rule, specify:
+    Data compression rules for tables in the [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family. For each rule, specify:
     * **Method**: Compression method. Two methods are available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
-    * **Min part size** is the minimum size of a [data part]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} (in bytes).
+    * **Min part size** is the minimum size of a [data part]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} (in bytes).
     * **Min part size ratio**: Minimum ratio of table part size to total table size. {{ CH }} only applies the rule to tables in which this ratio is greater than or equal to the **Min part size ratio** value.
 
     You can add multiple compression rules. {{ CH }} checks the **Min part size** and **Min part size ratio** conditions and applies the rules to those tables that meet both of them. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If no rule fits, {{ CH }} will apply the [LZ4](https://lz4.github.io/lz4/) compression method.
 
-    For more information, see the [{{ CH }}]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression){% endif %} documentation.
+    For more information, see the [{{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server_settings/settings/#compression){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server_settings/settings/#compression){% endif %} documentation.
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Engine configuration for [GraphiteMergeTree]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/){% endif %} to decimate and aggregate/roll up [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data:
+    Engine configuration for [GraphiteMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/table_engines/graphitemergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/table_engines/graphitemergetree/){% endif %} to decimate and aggregate/roll up [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data:
     * **Name**: Configuration name.
     * **Patterns**: Set of thinning rules. A rule applies if the metric name matches the **Regexp** parameter value and the age of the data matches the **Retention** parameter group value.
        * **Function**: Aggregation function name.
@@ -196,11 +196,11 @@
 
     You can set up multiple configurations and use them for different tables.
 
-    For more information on Graphite support, see the [{{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/graphitemergetree/){% endif %} documentation.
+    For more information on Graphite support, see the [{{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/graphitemergetree/){% endif %} documentation.
 
 * **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-tf }}
 
-  Global authentication settings for [integration with {{ KF }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% endif %}:
+  Global authentication settings for [integration with {{ KF }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/kafka/){% endif %}:
   * **Sasl mechanism**: SASL authentication mechanism:
     - `GSSAPI`: Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
     - `PLAIN`: Authentication [using the "username-password" pair passed as plain text](https://kafka.apache.org/documentation/#security_sasl_plain).
@@ -217,7 +217,7 @@
 
 * **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-tf }}
 
-    Authentication settings at the [topics](../../managed-kafka/concepts/topics.md) level for [integration with {{ KF }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% endif %}:
+    Authentication settings at the [topics](../../managed-kafka/concepts/topics.md) level for [integration with {{ KF }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/kafka/){% endif %}:
 
      * **Name**: {{ KF }} topic name.
 
@@ -231,7 +231,7 @@
 
     MergeTree engine configuration:
 
-    * **Max bytes to merge at min space in pool**: Maximum total size of [data chunks]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %} for merging when the number of free threads in the background pool is at its minimum.
+    * **Max bytes to merge at min space in pool**: Maximum total size of [data chunks]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %} for merging when the number of free threads in the background pool is at its minimum.
 
       The default is `1048576` (1 MB).
 
@@ -259,10 +259,10 @@
 
       The default is `604800`.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}.
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-tf }}
 
-    Global authentication settings for [integration with {{ RMQ }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/){% endif %}:
+    Global authentication settings for [integration with {{ RMQ }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/){% endif %}:
     * **Password**: {{ RMQ }} Account password.
     * **Username**: {{ RMQ }} Account name.

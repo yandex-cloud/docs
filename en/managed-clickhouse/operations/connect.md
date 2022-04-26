@@ -4,7 +4,7 @@ You can connect to {{ mch-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-Using encryption via ports `9440` for [clickhouse-client]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/interfaces/cli/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/interfaces/cli/){% endif %} and `8443` for the [HTTP interface]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/interfaces/http/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/interfaces/http/){% endif %} or without encryption via ports `9000` and `8123`, respectively.
+Using encryption via ports `9440` for [clickhouse-client]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/cli/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/cli/){% endif %} and `8443` for the [HTTP interface]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/http/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/http/){% endif %} or without encryption via ports `9000` and `8123`, respectively.
 
 ## Configuring security groups {#configuring-security-groups}
 

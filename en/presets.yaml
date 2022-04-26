@@ -475,6 +475,7 @@ default:
   yandex-cloud: Yandex Cloud
   yds-short-name: Data Streams
   yds: yds
+  ch-domain: clickhouse.com
 
   # ML
   stt-short-fileSize: 1 MB

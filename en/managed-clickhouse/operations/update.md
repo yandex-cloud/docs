@@ -8,7 +8,7 @@ After creating a cluster, you can:
 
 * [{#T}](#change-disk-size) (only available for [storage types](../concepts/storage.md) `network-hdd` and `network-ssd`).
 
-* [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
+* [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server_settings/settings/){% endif %}.
 
 * [Change additional cluster settings](#change-additional-settings).
 

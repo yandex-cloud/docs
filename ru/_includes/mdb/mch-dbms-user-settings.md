@@ -50,11 +50,11 @@
 
     Определяет, какая из функций `uniq*` используется при выполнении конструкции `COUNT(DISTINCT …)`:
 
-    * [uniq]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq){% endif %}
-    * [uniqCombined]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined){% endif %}
-    * [uniqCombined64]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64){% endif %}
-    * [uniqHLL12]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12){% endif %}
-    * [uniqExact]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact){% endif %}{% if lang == "en" %}(https://clickhouse.com/docs/en/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact){% endif %}
+    * [uniq]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq){% endif %}
+    * [uniqCombined]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined){% endif %}{% if lang == "en" %}(https:/{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined){% endif %}
+    * [uniqCombined64]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64){% endif %}
+    * [uniqHLL12]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12){% endif %}
+    * [uniqExact]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact){% endif %}
 
     По умолчанию используется функция `uniqExact`.
 
@@ -754,7 +754,7 @@
     * `1` — ждать выполнения только у себя (значение по умолчанию).
     * `2` — ждать всех.
   
-    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}.
+    Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#synchronicity-of-alter-queries){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries){% endif %}.
  
 * **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 

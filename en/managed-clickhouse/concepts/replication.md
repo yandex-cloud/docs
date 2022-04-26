@@ -22,7 +22,7 @@ Using {{ CK }} is associated with the following limitations:
 * To use {{ CK }}, you need {{ CH }} {{ mch-ck-version }} or higher.
 * Clusters using {{ ZK }} hosts cannot be changed to use {{ CK }}.
 
-For more information about {{ CK }}, see [documentation {{ CH }}]({% if lang == "ru" %}https://clickhouse.com/docs/ru/operations/clickhouse-keeper/{% endif %}{% if lang == "en" %}https://clickhouse.com/docs/en/operations/clickhouse-keeper/{% endif %}).
+For more information about {{ CK }}, see [документации {{ CH }}]({% if lang == "ru" %}https://{{ ch-domain }}/docs/ru/operations/clickhouse-keeper/{% endif %}{% if lang == "en" %}https://{{ ch-domain }}/docs/en/operations/clickhouse-keeper/{% endif %}).
 
 ## {{ ZK }} {#zk}
 
@@ -55,7 +55,7 @@ Note:
 
 ## Replicated tables {#replicated-tables}
 
-{{ CH }} supports automatic replication only for tables on [the ReplicatedMergeTree engine]({% if lang == "ru" %}https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/replication/{% endif %}{% if lang == "en" %}https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/{% endif %}). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
+{{ CH }} supports automatic replication only for tables on [the ReplicatedMergeTree engine]({% if lang == "ru" %}https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/{% endif %}{% if lang == "en" %}https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/{% endif %}). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
 
 {% note warning %}
 
@@ -82,7 +82,7 @@ Where:
 * `/table_01` is the path to the table in {{ ZK }} or {{ CK }}, which must start with the forward slash <q>/</q>.
 * `{replica}` is the host ID macro.
 
-To create replicated tables on all cluster hosts, send [a distributed DDL request](https://clickhouse.tech/docs/en/sql-reference/distributed-ddl/):
+To create replicated tables on all cluster hosts, send [a distributed DDL request](https://{{ ch-domain }}/docs/en/sql-reference/distributed-ddl/):
 
 ```sql
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (

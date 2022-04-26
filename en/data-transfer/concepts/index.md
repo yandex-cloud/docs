@@ -63,8 +63,8 @@ Different DBMS systems can act as a source and as a target. Possible source and 
 
 If replication is enabled on a {{ CH }} target, the engines for recreating tables are selected depending on the source type:
 
-* When transferring data from string DBMS, the [ReplicatedReplacingMergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/replication/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/){% endif %} and [ReplacingMergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/replacingmergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replacingmergetree/){% endif %} engines are used.
-* When transferring data from {{ CH }}, the [ReplicatedMergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/replication/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/){% endif %} engines are used.
+* When transferring data from string DBMS, the [ReplicatedReplacingMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/){% endif %} and [ReplacingMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replacingmergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replacingmergetree/){% endif %} engines are used.
+* When transferring data from {{ CH }}, the [ReplicatedMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/){% endif %} engines are used.
 
 ## Bandwidth {#bandwidth}
 

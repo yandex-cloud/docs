@@ -2,7 +2,7 @@ title: Yandex Managed Service for ClickHouse
 description:
   - >-
     Сервис Managed Service for ClickHouse помогает разворачивать и поддерживать
-    кластеры серверов <a href="https://clickhouse.tech">ClickHouse</a> в
+    кластеры серверов <a href="https://{{ ch-domain }}">ClickHouse</a> в
     инфраструктуре Yandex Cloud. ClickHouse — это высокопроизводительная
     колоночная СУБД с открытым исходным кодом.
   - >-
@@ -15,7 +15,7 @@ description:
   - >-
     Взаимодействие с сервисом осуществляется с помощью консоли управления,
     интерфейса командной строки Yandex Cloud (CLI), API или <a
-    href="https://clickhouse.tech/docs/ru/interfaces/http">HTTP-интерфейса</a>.
+    href="https://{{ ch-domain }}/docs/ru/interfaces/http">HTTP-интерфейса</a>.
     Managed Service for ClickHouse позволяет визуализировать структуру данных на
     вашем ClickHouse-кластере и отправлять SQL-запросы к базам из <a
     href="https://cloud.yandex.ru/docs/managed-clickhouse/operations/web-sql-query">консоли

@@ -10,7 +10,7 @@
 
 * [{#T}](#SQL-management)
 
-* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
+* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server_settings/settings/){% endif %}.
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 

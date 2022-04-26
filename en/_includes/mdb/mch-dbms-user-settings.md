@@ -10,7 +10,7 @@
 
     By default, DDL queries are allowed.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}.
 
     See also: the [Readonly](#setting-readonly) setting.
 
@@ -22,7 +22,7 @@
 
     Compilation is disabled by default.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#compile){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#compile){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#compile){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#compile){% endif %}.
 
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -40,7 +40,7 @@
 
 * **DISTINCT overflow mode**{#setting-distinct-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Determines the {{ CH }} behavior when running the `SELECT DISTINCT` [exceeds the limit]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}: `throw` (stop execution, return error) or `break` (return incomplete result).
+    Determines the {{ CH }} behavior when running the `SELECT DISTINCT` [exceeds the limit]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}: `throw` (stop execution, return error) or `break` (return incomplete result).
 
     By default, the value is not set (equivalent to `throw`).
 
@@ -52,7 +52,7 @@
 
     By default, memory saving mode is disabled.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
 
 * **Distributed product mode**{#setting-distributed-product-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -64,7 +64,7 @@
 
     By default, the value is not set (equivalent to `deny`).
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#distributed-product-mode){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#distributed-product-mode){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#distributed-product-mode){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#distributed-product-mode){% endif %}.
 
 * **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -82,7 +82,7 @@
 
     By default, data compression in HTTP responses is disabled.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/interfaces/http/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/interfaces/http/){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/http/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/http/){% endif %}.
 
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -92,29 +92,29 @@
 
     By default, query forcing is enabled.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}.
 
     See also the [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries) setting.
 
 * **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Disables queries if you can't use an index by date. Works with the [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family of tables.
+    Disables queries if you can't use an index by date. Works with the [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family of tables.
 
     By default, the setting is disabled (query execution is enabled).
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-force_index_by_date){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-force_index_by_date){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-force_index_by_date){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-force_index_by_date){% endif %}.
 
 * **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Disables queries if you can't use an index by primary key. Works with the [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family of tables.
+    Disables queries if you can't use an index by primary key. Works with the [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} family of tables.
 
     By default, the setting is disabled (query execution is enabled).
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-force_primary_key){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-force_primary_key){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-force_primary_key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-force_primary_key){% endif %}.
 
 * **GROUP BY overflow mode**{#setting-group-by-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Defines {{ CH }} behavior when the number of unique keys during aggregation [exceeds the limit]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
+    Defines {{ CH }} behavior when the number of unique keys during aggregation [exceeds the limit]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
     * `throw`: Abort query execution and return an error.
     * `break`: Return a partial result.
     * `any`: Run `GROUP BY` in fuzzy mode. The quality of this computation depends on the data's statistical properties.
@@ -163,7 +163,7 @@
 
     By default, replacement is enabled.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}.
 
 * **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -171,11 +171,11 @@
 
     For instance, the stream parser does not recognize a value containing `now()` while the SQL parser, if enabled, will parse the value correctly causing the output of the `now()` SQL function (current date and time) to be inserted.
 
-    This option is used only for the [Values]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/interfaces/formats/#data-format-values){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/interfaces/formats/#data-format-values){% endif %} format when inserting data.
+    This option is used only for the [Values]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#data-format-values){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#data-format-values){% endif %} format when inserting data.
 
     By default, the SQL parser is enabled.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}.
 
 * **Insert quorum**{#setting-insert-quorum} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -187,7 +187,7 @@
 
     You can use the [Select sequential consistency](#setting-select-sequential-consistency) setting to read data written with Insert quorum.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-insert_quorum){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-insert_quorum){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-insert_quorum){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-insert_quorum){% endif %}.
 
 * **Insert quorum timeout**{#setting-insert-quorum-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -201,7 +201,7 @@
 
     This setting is disabled by default.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#join_use_nulls){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#join_use_nulls){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#join_use_nulls){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#join_use_nulls){% endif %}.
 
 * **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -223,7 +223,7 @@
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Determines whether to use [LowCardinality]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/sql-reference/data-types/lowcardinality/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/data-types/lowcardinality/){% endif %} in native format:
+    Determines whether to use [LowCardinality]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/data-types/lowcardinality/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/data-types/lowcardinality/){% endif %} in native format:
     * If this setting is enabled (by default), use native format.
     * If the setting is off, do not use native format:
       * For `SELECT` queries, convert LowCardinality type columns to regular ones.
@@ -271,7 +271,7 @@
 
     When using aggregation in the external memory, we recommend setting the value of this setting twice as low as the [Max memory usage](#setting-max-memory-usage) setting value (by default, the maximum memory usage is limited to 10 GB).
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
 
     See also the [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient) setting.
 
@@ -331,7 +331,7 @@
 
     The default value is `1048576`.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_insert_block_size){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_insert_block_size){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-max_insert_block_size){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-max_insert_block_size){% endif %}.
 
 * **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -435,7 +435,7 @@
 
     Minimum and default values are `0` (compute the value automatically as the number of processor cores without accounting for Hyper-Threading).
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_threads){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_threads){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-max_threads){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-max_threads){% endif %}.
 
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -497,13 +497,13 @@
 
 * **Min INSERT block size bytes**{#setting-min-insert-block-size-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    The minimum block size (in bytes) that can be inserted into a table by an `INSERT` query. Smaller blocks [are squashed together]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
+    The minimum block size (in bytes) that can be inserted into a table by an `INSERT` query. Smaller blocks [are squashed together]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
 
     Minimum value is `0` (block squashing disabled). Default is `‭268435456‬‬` (256 MB).
 
 * **Min INSERT block size rows**{#setting-min-insert-block-size-rows} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    The minimum block size (in rows) that can be inserted into a table by an `INSERT` query. Smaller blocks [are squashed together]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
+    The minimum block size (in rows) that can be inserted into a table by an `INSERT` query. Smaller blocks [are squashed together]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
 
     Minimum value is `0` (block squashing disabled). Default is `1048576`.
 
@@ -541,11 +541,11 @@
 
     By default, no value is set (equivalent to `default`).
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/quotas/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/quotas/){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/quotas/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/quotas/){% endif %}.
 
 * **Read overflow mode**{#setting-read-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Defines {{ CH }} behavior when the amount of data read [exceeds a limit]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
+    Defines {{ CH }} behavior when the amount of data read [exceeds a limit]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
     * `throw` (abort execution, return error).
     * `break` (return partial output).
 
@@ -575,11 +575,11 @@
   * `1`: Only wait for execution at its own (default).
   * `2`: Wait for every action to complete.
 
-  For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}.
+  For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}.
 
 * **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Defines {{ CH }} behavior when the amount of output [exceeds a limit]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
+    Defines {{ CH }} behavior when the amount of output [exceeds a limit]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
     * `throw` (abort execution, return error).
     * `break` (return partial output).
 
@@ -591,7 +591,7 @@
 
     By default, sequential consistency is disabled.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-select_sequential_consistency){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-select_sequential_consistency){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-select_sequential_consistency){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-select_sequential_consistency){% endif %}.
 
 * **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -613,7 +613,7 @@
 
 * **Sort overflow mode**{#setting-sort-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Defines {{ CH }} behavior when the number of pre-sort rows received [exceeds a limit]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
+    Defines {{ CH }} behavior when the number of pre-sort rows received [exceeds a limit]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
     * `throw` (abort execution, return error).
     * `break` (return partial output).
 
@@ -629,7 +629,7 @@
 
 * **Transfer overflow mode**{#setting-transfer-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Defines {{ CH }} when the amount of data to pass to another server [exceeds a limit]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
+    Defines {{ CH }} when the amount of data to pass to another server [exceeds a limit]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
     * `throw` (abort execution, return error).
     * `break` (return partial output).
 
@@ -641,14 +641,14 @@
 
     This setting is disabled by default.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#transform_null_in){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#transform_null_in){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#transform_null_in){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#transform_null_in){% endif %}.
 
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-    Determines whether to use a cache of uncompressed blocks. Using this type of cache can help significantly reduce latency and improve throughput for a large number of short queries (only for the [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}) family. Enable this setting for users who initiate small queries frequently.
+    Determines whether to use a cache of uncompressed blocks. Using this type of cache can help significantly reduce latency and improve throughput for a large number of short queries (only for the [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}) family. Enable this setting for users who initiate small queries frequently.
 
     By default, the cache is disabled.
 
-    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}.
+    For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}.
 
     See also the [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) and [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache) settings.

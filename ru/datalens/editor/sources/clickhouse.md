@@ -1,7 +1,7 @@
 
 # ClickHouse
 
-**Документация**: [`https://clickhouse.yandex`](https://clickhouse.yandex)
+**Документация**: [`https://{{ ch-domain }}`](https://{{ ch-domain }})
 
 **Префиксы**:
 * `/_clickhouse_mtmega` -> `http://mtmega.yandex.ru:8123`

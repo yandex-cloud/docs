@@ -47,12 +47,12 @@ If you plan to use the CLI, install and configure it according to the [instructi
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
-1. Add the {{ CH }} [DEB repository](https://clickhouse.tech/docs/en/getting-started/install/#install-from-deb-packages):
+1. Add the {{ CH }} [DEB repository](https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages):
 
    ```bash
    sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
-   echo "deb https://repo.clickhouse.tech/deb/stable/ main/" | sudo tee \
+   echo "deb https://repo.{{ ch-domain }}/deb/stable/ main/" | sudo tee \
    /etc/apt/sources.list.d/clickhouse.list
    ```
 
@@ -127,7 +127,7 @@ If you plan to use the CLI, install and configure it according to the [instructi
     {% endif %}
 
 1. Use the ClickHouse CLI to connect:
-    1. Specify the path to the SSL certificate in the [configuration file](https://clickhouse.yandex/docs/en/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
+    1. Specify the path to the SSL certificate in the [configuration file](https://{{ ch-domain }}/docs/en/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
 
     ```xml
     <config>

@@ -3,7 +3,7 @@
 {{ mch-name }} lets you use {{ objstorage-full-name }} to:
 
 - Enable [ML models](ml-models.md), [data format schemas](format-schemas.md), and your [own geobase](internal-dictionaries.md).
-- Process data that is stored in object storage if this data is represented in any of the [supported {{ CH }} formats]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/interfaces/formats/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/interfaces/formats/){% endif %}.
+- Process data that is stored in object storage if this data is represented in any of the [supported {{ CH }} formats]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/){% endif %}.
 
 To access data in a [bucket](../../storage/concepts/bucket.md) of {{ objstorage-name }} from a cluster, use one of the following methods:
 
@@ -48,7 +48,7 @@ To use {{ mch-name }} for working with data of an object from {{ objstorage-name
 
 [You can use object links](#get-link-to-object) like `https://{{ s3-storage-host }}/<bucket name>/<object name>` to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
 
-The `S3` table engine is similar to [File]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/file/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/file/){% endif %} and [URL]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/url/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/url/){% endif %} engines, except that data is stored in S3-compatible storage (such as {{ objstorage-full-name }}) rather than using a file system or a remote HTTP/HTTPS server. This engine allows reading or writing data from/to storage using standard SQL queries such as `SELECT` and `INSERT`.
+The `S3` table engine is similar to [File]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/special/file/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/special/file/){% endif %} and [URL]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/special/url/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/special/url/){% endif %} engines, except that data is stored in S3-compatible storage (such as {{ objstorage-full-name }}) rather than using a file system or a remote HTTP/HTTPS server. This engine allows reading or writing data from/to storage using standard SQL queries such as `SELECT` and `INSERT`.
 
 The `s3` table function provides the same functionality as the `S3` table engine, but you don't need to create a table before using it.
 
