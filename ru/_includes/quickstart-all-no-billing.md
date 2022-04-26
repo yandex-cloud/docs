@@ -31,11 +31,11 @@
   * {% if audience != "internal" %} [Управляйте потоками данных в {{ yds-name }}](../data-streams/quickstart/index.md). {% endif %}
   * [Используйте {{ iot-name }} как основу вашей разработки умного дома](../iot-core/quickstart.md).
 * Базы данных и кластеры баз данных:
-  * [ClickHouse](../managed-clickhouse/quickstart.md).
-  * [MongoDB](../managed-mongodb/quickstart.md).
-  * [MySQL](../managed-mysql/quickstart.md).
-  * [Redis](../managed-redis/quickstart.md).
-  * [PostgreSQL](../managed-postgresql/quickstart.md).
+  * [{{ CH }}](../managed-clickhouse/quickstart.md).
+  * [{{ MG }}](../managed-mongodb/quickstart.md).
+  * [{{ MY }}](../managed-mysql/quickstart.md).
+  * [{{ RD }}](../managed-redis/quickstart.md).
+  * [{{ PG }}](../managed-postgresql/quickstart.md).
   * [{{ ES }}](../managed-elasticsearch/quickstart.md).
   * [{{ KF }}](../managed-kafka/quickstart.md).
   * [{{ GP }}](../managed-greenplum/quickstart.md).
