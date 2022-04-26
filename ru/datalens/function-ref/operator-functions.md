@@ -69,7 +69,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/operator-functions.md
 
 ## [Сравнение](OP_COMPARISON.md)
 
-**Синтаксис:**<br/>`value_1 = value_2`<br/>или<br/>`value_1 != value_2`<br/>или<br/>`value_1 < value_2`<br/>или<br/>`value_1 <= value_2`<br/>или<br/>`value_1 > value_2`<br/>или<br/>`value_1 => value_2`
+**Синтаксис:**<br/>`value_1 = value_2`<br/>или<br/>`value_1 != value_2`<br/>или<br/>`value_1 < value_2`<br/>или<br/>`value_1 <= value_2`<br/>или<br/>`value_1 > value_2`<br/>или<br/>`value_1 >= value_2`
 
 Сравнивают значение `value_1` со значением `value_2`.
 

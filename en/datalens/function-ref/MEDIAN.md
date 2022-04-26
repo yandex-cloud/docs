@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/MEDIAN.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-MEDIAN( value )
-```
+- Standard
+
+  ```
+  MEDIAN( value )
+  ```
+
+- Extended
+
+  ```
+  MEDIAN( value
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the median value.

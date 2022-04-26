@@ -68,7 +68,7 @@ Divides the number `number_1` by the number `number_2`.
 
 ## [Comparison](OP_COMPARISON.md)
 
-**Syntax:**<br/>`value_1 = value_2`<br/>or<br/>`value_1 != value_2`<br/>or<br/>`value_1 < value_2`<br/>or<br/>`value_1 <= value_2`<br/>or<br/>`value_1 > value_2`<br/>or<br/>`value_1 => value_2`
+**Syntax:**<br/>`value_1 = value_2`<br/>or<br/>`value_1 != value_2`<br/>or<br/>`value_1 < value_2`<br/>or<br/>`value_1 <= value_2`<br/>or<br/>`value_1 > value_2`<br/>or<br/>`value_1 >= value_2`
 
 Compares the value `value_1` with the value `value_2`.
 
@@ -139,7 +139,10 @@ Returns the arccosine of `number` in radians.
 
 ## [AGO](AGO.md)
 
-**Syntax:**`AGO( measure, date_dimension [ , unit [ , number ] ] [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
+**Syntax:**<br/>`AGO( measure, date_dimension [ , unit [ , number ] ] )`<br/>or<br/>`AGO( measure, date_dimension [ , unit [ , number ] ]
+     [ BEFORE FILTER BY ... ]
+     [ IGNORE DIMENSIONS ... ]
+   )`
 
 Re-evaluate `measure` for a date/time with a given offset.
 The `date_dimension` argument is the dimension along which the offset is made.
@@ -160,7 +163,10 @@ See also [AT_DATE](AT_DATE.md), [LAG](LAG.md).
 
 ## [ALL_CONCAT](ALL_CONCAT.md)
 
-**Syntax:**`ALL_CONCAT( expression [ , separator ] )`
+**Syntax:**<br/>`ALL_CONCAT( expression [ , separator ] )`<br/>or<br/>`ALL_CONCAT( expression [ , separator ]
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )`
 
 Returns a string that contains all grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
@@ -176,7 +182,10 @@ Performs a Boolean join of two expressions with the `AND` condition.
 
 ## [ANY](ANY.md)
 
-**Syntax:**`ANY( value )`
+**Syntax:**<br/>`ANY( value )`<br/>or<br/>`ANY( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns one of the values of `value` from the group. This is a nondeterministic aggregation — the result may vary for the same data over multiple queries.
 
@@ -184,7 +193,10 @@ Returns one of the values of `value` from the group. This is a nondeterministic 
 
 ## [ARG_MAX](ARG_MAX.md)
 
-**Syntax:**`ARG_MAX( value, comp )`
+**Syntax:**<br/>`ARG_MAX( value, comp )`<br/>or<br/>`ARG_MAX( value, comp
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )`
 
 Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
@@ -192,7 +204,10 @@ Returns `value` for the maximum value of `comp` in the group. If multiple values
 
 ## [ARG_MIN](ARG_MIN.md)
 
-**Syntax:**`ARG_MIN( value, comp )`
+**Syntax:**<br/>`ARG_MIN( value, comp )`<br/>or<br/>`ARG_MIN( value, comp
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )`
 
 Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.
 
@@ -234,7 +249,10 @@ Returns the arcsine of `number` in radians.
 
 ## [AT_DATE](AT_DATE.md)
 
-**Syntax:**`AT_DATE( measure, date_dimension, date_expr [ BEFORE FILTER BY ... ] [ IGNORE DIMENSIONS ... ] )`
+**Syntax:**<br/>`AT_DATE( measure, date_dimension, date_expr )`<br/>or<br/>`AT_DATE( measure, date_dimension, date_expr
+         [ BEFORE FILTER BY ... ]
+         [ IGNORE DIMENSIONS ... ]
+       )`
 
 Re-evaluate `measure` for a date/time specified by `date_expr`.
 The `date_dimension` argument is the dimension along which the offset is made.
@@ -261,7 +279,10 @@ Returns the arctangent in radians for the specified coordinates `x` and `y`.
 
 ## [AVG](AVG.md)
 
-**Syntax:**`AVG( value )`
+**Syntax:**<br/>`AVG( value )`<br/>or<br/>`AVG( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the average of all values. Applicable to numeric data types as well as `Date | Datetime`.
 
@@ -269,7 +290,12 @@ Returns the average of all values. Applicable to numeric data types as well as `
 
 ## [AVG (window)](AVG_WINDOW.md)
 
-**Syntax:**`AVG( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`AVG( value
+     TOTAL | WITHIN ... | AMONG ...
+   )`<br/>or<br/>`AVG( value
+     TOTAL | WITHIN ... | AMONG ...
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the average of all values. Applicable to numeric data types.
 
@@ -277,7 +303,10 @@ Returns the average of all values. Applicable to numeric data types.
 
 ## [AVG_IF](AVG_IF.md)
 
-**Syntax:**`AVG_IF( expression, condition )`
+**Syntax:**<br/>`AVG_IF( expression, condition )`<br/>or<br/>`AVG_IF( expression, condition
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
 
@@ -285,7 +314,12 @@ Returns the average of all values that meet the `condition` condition. If the va
 
 ## [AVG_IF (window)](AVG_IF_WINDOW.md)
 
-**Syntax:**`AVG_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`AVG_IF( expression, condition
+        TOTAL | WITHIN ... | AMONG ...
+      )`<br/>or<br/>`AVG_IF( expression, condition
+        TOTAL | WITHIN ... | AMONG ...
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.
 
@@ -382,7 +416,10 @@ Returns the cotangent of `number` in radians.
 
 ## [COUNT](COUNT.md)
 
-**Syntax:**`COUNT(  [ value ] )`
+**Syntax:**<br/>`COUNT(  [ value ] )`<br/>or<br/>`COUNT(  [ value ]
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Returns the number of items in the group.
 
@@ -390,7 +427,12 @@ Returns the number of items in the group.
 
 ## [COUNT (window)](COUNT_WINDOW.md)
 
-**Syntax:**`COUNT(  [ value ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`COUNT(  [ value ]
+       TOTAL | WITHIN ... | AMONG ...
+     )`<br/>or<br/>`COUNT(  [ value ]
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Returns the number of items in the specified window.
 
@@ -398,7 +440,10 @@ Returns the number of items in the specified window.
 
 ## [COUNT_IF](COUNT_IF.md)
 
-**Syntax:**`COUNT_IF( condition )`
+**Syntax:**<br/>`COUNT_IF( condition )`<br/>or<br/>`COUNT_IF( condition
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )`
 
 Returns the number of items in the group meeting the `condition` condition.
 
@@ -406,7 +451,12 @@ Returns the number of items in the group meeting the `condition` condition.
 
 ## [COUNT_IF (window)](COUNT_IF_WINDOW.md)
 
-**Syntax:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`COUNT_IF( expression, condition
+          TOTAL | WITHIN ... | AMONG ...
+        )`<br/>or<br/>`COUNT_IF( expression, condition
+          TOTAL | WITHIN ... | AMONG ...
+          [ BEFORE FILTER BY ... ]
+        )`
 
 Returns the number of items in the specified window meeting the `expression` condition.
 
@@ -422,7 +472,10 @@ Returns the number of elements in the array `array` equal to `value`. The type o
 
 ## [COUNTD](COUNTD.md)
 
-**Syntax:**`COUNTD( value )`
+**Syntax:**<br/>`COUNTD( value )`<br/>or<br/>`COUNTD( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the number of unique values in the group.
 
@@ -432,7 +485,10 @@ See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 ## [COUNTD_APPROX](COUNTD_APPROX.md)
 
-**Syntax:**`COUNTD_APPROX( value )`
+**Syntax:**<br/>`COUNTD_APPROX( value )`<br/>or<br/>`COUNTD_APPROX( value
+               [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+               [ BEFORE FILTER BY ... ]
+             )`
 
 Returns the approximate number of unique values in the group. Faster than [COUNTD](COUNTD.md), but doesn't guarantee accuracy.
 
@@ -440,7 +496,10 @@ Returns the approximate number of unique values in the group. Faster than [COUNT
 
 ## [COUNTD_IF](COUNTD_IF.md)
 
-**Syntax:**`COUNTD_IF( expression, condition )`
+**Syntax:**<br/>`COUNTD_IF( expression, condition )`<br/>or<br/>`COUNTD_IF( expression, condition
+           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+           [ BEFORE FILTER BY ... ]
+         )`
 
 Returns the number of unique values in the group that meet the `condition` condition.
 
@@ -662,7 +721,11 @@ If the `start_index` option is specified, the search starts from the specified p
 
 ## [FIRST (window)](FIRST.md)
 
-**Syntax:**`FIRST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`FIRST( value )`<br/>or<br/>`FIRST( value
+       [ TOTAL | WITHIN ... | AMONG ... ]
+       [ ORDER BY ... ]
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Returns the value of `value` from the first row in the window. See also [LAST](LAST.md).
 
@@ -868,7 +931,11 @@ Stylizes the passed text in cursive font.
 
 ## [LAG (window)](LAG.md)
 
-**Syntax:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`LAG( value [ , offset [ , default ] ] )`<br/>or<br/>`LAG( value [ , offset [ , default ] ]
+     [ TOTAL | WITHIN ... | AMONG ... ]
+     [ ORDER BY ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns `value` re-evaluated against the row that is offset from the current row by `offset` within the specified window:
 - Positive `offset` seeks among preceding rows.
@@ -884,7 +951,11 @@ See also [AGO](AGO.md) for a non-window function alternative.
 
 ## [LAST (window)](LAST.md)
 
-**Syntax:**`LAST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`LAST( value )`<br/>or<br/>`LAST( value
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the value of `value` from the last row in the window. See also [FIRST](FIRST.md).
 
@@ -983,7 +1054,11 @@ Merges marked up text pieces. Can also be used for converting strings to marked 
 
 ## [MAVG (window)](MAVG.md)
 
-**Syntax:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`MAVG( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MAVG( value, rows_1 [ , rows_2 ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the moving average of values in a fixed-size window defined by the sort order and arguments:
 
@@ -1002,7 +1077,10 @@ See also [AVG](AVG.md), [RAVG](RAVG.md).
 
 ## [MAX](MAX.md)
 
-**Syntax:**`MAX( value )`
+**Syntax:**<br/>`MAX( value )`<br/>or<br/>`MAX( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the maximum value.
 
@@ -1016,7 +1094,12 @@ If `value`:
 
 ## [MAX (window)](MAX_WINDOW.md)
 
-**Syntax:**`MAX( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`MAX( value
+     TOTAL | WITHIN ... | AMONG ...
+   )`<br/>or<br/>`MAX( value
+     TOTAL | WITHIN ... | AMONG ...
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the maximum value.
 
@@ -1030,7 +1113,11 @@ If `value`:
 
 ## [MCOUNT (window)](MCOUNT.md)
 
-**Syntax:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`MCOUNT( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MCOUNT( value, rows_1 [ , rows_2 ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the moving count of (non-`NULL`) values in a fixed-size window defined by the sort order and arguments:
 
@@ -1049,7 +1136,10 @@ See also [COUNT](COUNT.md), [RCOUNT](RCOUNT.md).
 
 ## [MEDIAN](MEDIAN.md)
 
-**Syntax:**`MEDIAN( value )`
+**Syntax:**<br/>`MEDIAN( value )`<br/>or<br/>`MEDIAN( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the median value.
 
@@ -1057,7 +1147,10 @@ Returns the median value.
 
 ## [MIN](MIN.md)
 
-**Syntax:**`MIN( value )`
+**Syntax:**<br/>`MIN( value )`<br/>or<br/>`MIN( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the minimum value.
 
@@ -1071,7 +1164,12 @@ If `value`:
 
 ## [MIN (window)](MIN_WINDOW.md)
 
-**Syntax:**`MIN( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`MIN( value
+     TOTAL | WITHIN ... | AMONG ...
+   )`<br/>or<br/>`MIN( value
+     TOTAL | WITHIN ... | AMONG ...
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the minimum value.
 
@@ -1093,7 +1191,11 @@ Returns the number of the minute in the hour of the specified date `datetime`. W
 
 ## [MMAX (window)](MMAX.md)
 
-**Syntax:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`MMAX( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MMAX( value, rows_1 [ , rows_2 ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the moving maximum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -1112,7 +1214,11 @@ See also [MAX](MAX.md), [RMAX](RMAX.md).
 
 ## [MMIN (window)](MMIN.md)
 
-**Syntax:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`MMIN( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MMIN( value, rows_1 [ , rows_2 ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the moving minimum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -1139,7 +1245,11 @@ Returns the number of the month in the year of the specified date `datetime`.
 
 ## [MSUM (window)](MSUM.md)
 
-**Syntax:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`MSUM( value, rows_1 [ , rows_2 ] )`<br/>or<br/>`MSUM( value, rows_1 [ , rows_2 ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the moving sum of values in a fixed-size window defined by the sort order and arguments:
 
@@ -1206,7 +1316,10 @@ Raises `base` to the power of `power`.
 
 ## [QUANTILE](QUANTILE.md)
 
-**Syntax:**`QUANTILE( value, quant )`
+**Syntax:**<br/>`QUANTILE( value, quant )`<br/>or<br/>`QUANTILE( value, quant
+          [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+          [ BEFORE FILTER BY ... ]
+        )`
 
 Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).
 
@@ -1214,7 +1327,10 @@ Returns the precise `quant`-level quantile (`quant` should be in range from 0 to
 
 ## [QUANTILE_APPROX](QUANTILE_APPROX.md)
 
-**Syntax:**`QUANTILE_APPROX( value, quant )`
+**Syntax:**<br/>`QUANTILE_APPROX( value, quant )`<br/>or<br/>`QUANTILE_APPROX( value, quant
+                 [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                 [ BEFORE FILTER BY ... ]
+               )`
 
 Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).
 
@@ -1238,7 +1354,10 @@ Converts `degrees` degrees to radians.
 
 ## [RANK (window)](RANK.md)
 
-**Syntax:**`RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RANK( value [ , direction ] )`<br/>or<br/>`RANK( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `3`, so, in effect, it is rank with gaps.
 
@@ -1250,7 +1369,10 @@ See also [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCE
 
 ## [RANK_DENSE (window)](RANK_DENSE.md)
 
-**Syntax:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RANK_DENSE( value [ , direction ] )`<br/>or<br/>`RANK_DENSE( value [ , direction ]
+            [ TOTAL | WITHIN ... | AMONG ... ]
+            [ BEFORE FILTER BY ... ]
+          )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value used for sorting have the same rank. If the first two rows both have rank of `1`, then the next row (if it features a different value) will have rank `2`, (rank without gaps).
 
@@ -1262,7 +1384,10 @@ See also [RANK](RANK.md), [RANK_UNIQUE](RANK_UNIQUE.md), [RANK_PERCENTILE](RANK_
 
 ## [RANK_PERCENTILE (window)](RANK_PERCENTILE.md)
 
-**Syntax:**`RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RANK_PERCENTILE( value [ , direction ] )`<br/>or<br/>`RANK_PERCENTILE( value [ , direction ]
+                 [ TOTAL | WITHIN ... | AMONG ... ]
+                 [ BEFORE FILTER BY ... ]
+               )`
 
 Returns the relative rank (from `0` to `1`) of the current row if ordered by the given argument. Calculated as `(RANK(...) - 1) / (row count) `.
 
@@ -1274,7 +1399,10 @@ See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_UNIQUE](RANK_UNIQUE
 
 ## [RANK_UNIQUE (window)](RANK_UNIQUE.md)
 
-**Syntax:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RANK_UNIQUE( value [ , direction ] )`<br/>or<br/>`RANK_UNIQUE( value [ , direction ]
+             [ TOTAL | WITHIN ... | AMONG ... ]
+             [ BEFORE FILTER BY ... ]
+           )`
 
 Returns the rank of the current row if ordered by the given argument. Rows corresponding to the same value have different rank values. This means that rank values are sequential and different for all rows, always increasing by `1` for the next row.
 
@@ -1286,7 +1414,11 @@ See also [RANK](RANK.md), [RANK_DENSE](RANK_DENSE.md), [RANK_PERCENTILE](RANK_PE
 
 ## [RAVG (window)](RAVG.md)
 
-**Syntax:**`RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RAVG( value [ , direction ] )`<br/>or<br/>`RAVG( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the average of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1306,7 +1438,11 @@ See also [AVG](AVG.md), [MAVG](MAVG.md).
 
 ## [RCOUNT (window)](RCOUNT.md)
 
-**Syntax:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RCOUNT( value [ , direction ] )`<br/>or<br/>`RCOUNT( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the count of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1378,7 +1514,11 @@ Returns a string that contains the number of characters specified in `number` fr
 
 ## [RMAX (window)](RMAX.md)
 
-**Syntax:**`RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RMAX( value [ , direction ] )`<br/>or<br/>`RMAX( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the maximum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1398,7 +1538,11 @@ See also [MAX](MAX.md), [MMAX](MMAX.md).
 
 ## [RMIN (window)](RMIN.md)
 
-**Syntax:**`RMIN( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RMIN( value [ , direction ] )`<br/>or<br/>`RMIN( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the minimum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1427,7 +1571,11 @@ If the number `precision` is omitted, `number` is rounded to the nearest integer
 
 ## [RSUM (window)](RSUM.md)
 
-**Syntax:**`RSUM( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`RSUM( value [ , direction ] )`<br/>or<br/>`RSUM( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the sum of all values in a growing (or shrinking) window defined by the sort order and the value of `direction`:
 
@@ -1538,7 +1686,10 @@ Returns `TRUE` if `string` starts with `substring`. For case-insensitive searche
 
 ## [STDEV](STDEV.md)
 
-**Syntax:**`STDEV( value )`
+**Syntax:**<br/>`STDEV( value )`<br/>or<br/>`STDEV( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Returns the statistical standard deviation of all values in the expression based on a selection from the population.
 
@@ -1546,7 +1697,10 @@ Returns the statistical standard deviation of all values in the expression based
 
 ## [STDEVP](STDEVP.md)
 
-**Syntax:**`STDEVP( value )`
+**Syntax:**<br/>`STDEVP( value )`<br/>or<br/>`STDEVP( value
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the statistical standard deviation of all values in the expression based on the biased population.
 
@@ -1572,7 +1726,10 @@ If an additional argument `length` is specified, a substring of the specified le
 
 ## [SUM](SUM.md)
 
-**Syntax:**`SUM( value )`
+**Syntax:**<br/>`SUM( value )`<br/>or<br/>`SUM( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the sum of all expression values. Applicable to numeric data types only.
 
@@ -1580,7 +1737,12 @@ Returns the sum of all expression values. Applicable to numeric data types only.
 
 ## [SUM (window)](SUM_WINDOW.md)
 
-**Syntax:**`SUM( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`SUM( value
+     TOTAL | WITHIN ... | AMONG ...
+   )`<br/>or<br/>`SUM( value
+     TOTAL | WITHIN ... | AMONG ...
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the sum of all expression values. Applicable to numeric data types only.
 
@@ -1588,7 +1750,10 @@ Returns the sum of all expression values. Applicable to numeric data types only.
 
 ## [SUM_IF](SUM_IF.md)
 
-**Syntax:**`SUM_IF( expression, condition )`
+**Syntax:**<br/>`SUM_IF( expression, condition )`<br/>or<br/>`SUM_IF( expression, condition
+        [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
@@ -1596,7 +1761,12 @@ Returns the sum of all the expression values that meet the `condition` condition
 
 ## [SUM_IF (window)](SUM_IF_WINDOW.md)
 
-**Syntax:**`SUM_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Syntax:**<br/>`SUM_IF( expression, condition
+        TOTAL | WITHIN ... | AMONG ...
+      )`<br/>or<br/>`SUM_IF( expression, condition
+        TOTAL | WITHIN ... | AMONG ...
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Returns the sum of all the expression values that meet the `condition` condition. Applicable to numeric data types only.
 
@@ -1620,7 +1790,10 @@ Returns the current date, depending on the data source and connection type.
 
 ## [TOP_CONCAT](TOP_CONCAT.md)
 
-**Syntax:**`TOP_CONCAT( expression, amount [ , separator ] )`
+**Syntax:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>or<br/>`TOP_CONCAT( expression, amount [ , separator ]
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )`
 
 Returns a string that contains top `amount` grouped values of `expression` delimited by `separator` (if `separator` is not specified, a comma is used).
 
@@ -1686,7 +1859,10 @@ Converts the `string` string encoding to `UTF8`.
 
 ## [VAR](VAR.md)
 
-**Syntax:**`VAR( value )`
+**Syntax:**<br/>`VAR( value )`<br/>or<br/>`VAR( value
+     [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Returns the statistical variance of all values in an expression based on a selection from the population.
 
@@ -1694,7 +1870,10 @@ Returns the statistical variance of all values in an expression based on a selec
 
 ## [VARP](VARP.md)
 
-**Syntax:**`VARP( value )`
+**Syntax:**<br/>`VARP( value )`<br/>or<br/>`VARP( value
+      [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Returns the statistical variance of all values in an expression across the entire population.
 

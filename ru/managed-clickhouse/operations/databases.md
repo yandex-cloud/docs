@@ -136,7 +136,7 @@
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  Подробнее о создании баз данных см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/create/database/).
+  Подробнее о создании баз данных см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/database/).
 
 {% endlist %}
 
@@ -196,7 +196,7 @@
       DROP DATABASE <имя базы данных>;
       ```
 
-  Подробнее об удалении объектов см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/drop/).
+  Подробнее об удалении объектов см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/).
 
 {% endlist %}
 

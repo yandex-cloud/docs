@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/TOP_CONCAT.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-TOP_CONCAT( expression, amount [ , separator ] )
-```
+- Стандартный
+
+  ```
+  TOP_CONCAT( expression, amount [ , separator ] )
+  ```
+
+- Расширенный
+
+  ```
+  TOP_CONCAT( expression, amount [ , separator ]
+              [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+              [ BEFORE FILTER BY ... ]
+            )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает строку, которая содержит `amount` наиболее часто встречающихся значений из каждой группы `expression` с разделителем `separator` (по умолчанию разделитель — запятая).

@@ -9,10 +9,26 @@ _Function `COUNT_IF` is also found in the following categories: [Aggregate funct
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  COUNT_IF( expression, condition
+            TOTAL | WITHIN ... | AMONG ...
+          )
+  ```
+
+- Extended
+
+  ```
+  COUNT_IF( expression, condition
+            TOTAL | WITHIN ... | AMONG ...
+            [ BEFORE FILTER BY ... ]
+          )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the number of items in the specified window meeting the `expression` condition.

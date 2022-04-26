@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/QUANTILE_APPROX.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-QUANTILE_APPROX( value, quant )
-```
+- Standard
+
+  ```
+  QUANTILE_APPROX( value, quant )
+  ```
+
+- Extended
+
+  ```
+  QUANTILE_APPROX( value, quant
+                   [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                   [ BEFORE FILTER BY ... ]
+                 )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the approximate `quant`-level quantile (`quant` should be in range from 0 to 1).

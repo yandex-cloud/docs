@@ -9,10 +9,26 @@ _Function `AVG_IF` is also found in the following categories: [Aggregate functio
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-AVG_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  AVG_IF( expression, condition
+          TOTAL | WITHIN ... | AMONG ...
+        )
+  ```
+
+- Extended
+
+  ```
+  AVG_IF( expression, condition
+          TOTAL | WITHIN ... | AMONG ...
+          [ BEFORE FILTER BY ... ]
+        )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the average of all values that meet the `condition` condition. If the values don't exist, it returns `NULL`. Applicable to numeric data types only.

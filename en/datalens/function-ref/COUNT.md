@@ -9,10 +9,24 @@ _Function `COUNT` is also found in the following categories: [Window functions](
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-COUNT(  [ value ] )
-```
+- Standard
+
+  ```
+  COUNT(  [ value ] )
+  ```
+
+- Extended
+
+  ```
+  COUNT(  [ value ]
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the number of items in the group.

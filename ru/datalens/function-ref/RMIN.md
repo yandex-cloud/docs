@@ -9,10 +9,25 @@ sourcePath: ru/_api-ref/datalens/function-ref/RMIN.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-RMIN( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  RMIN( value [ , direction ] )
+  ```
+
+- Расширенный
+
+  ```
+  RMIN( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 

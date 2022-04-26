@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/COUNTD_IF.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-COUNTD_IF( expression, condition )
-```
+- Стандартный
+
+  ```
+  COUNTD_IF( expression, condition )
+  ```
+
+- Расширенный
+
+  ```
+  COUNTD_IF( expression, condition
+             [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+             [ BEFORE FILTER BY ... ]
+           )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает количество уникальных значений в группе, которые удовлетворяют условию `condition`.

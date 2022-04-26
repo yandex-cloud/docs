@@ -9,10 +9,26 @@ _Функция `MIN` также доступна в следующих кате
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-MIN( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  MIN( value
+       TOTAL | WITHIN ... | AMONG ...
+     )
+  ```
+
+- Расширенный
+
+  ```
+  MIN( value
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает минимальное значение.

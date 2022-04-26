@@ -9,10 +9,25 @@ sourcePath: ru/_api-ref/datalens/function-ref/FIRST.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-FIRST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  FIRST( value )
+  ```
+
+- Расширенный
+
+  ```
+  FIRST( value
+         [ TOTAL | WITHIN ... | AMONG ... ]
+         [ ORDER BY ... ]
+         [ BEFORE FILTER BY ... ]
+       )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 

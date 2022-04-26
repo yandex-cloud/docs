@@ -63,8 +63,8 @@ Different DBMS systems can act as a source and as a target. Possible source and 
 
 If replication is enabled on a {{ CH }} target, the engines for recreating tables are selected depending on the source type:
 
-* When transferring data from string DBMS, the [ReplicatedReplacingMergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replacingmergetree/) engines are used.
-* When transferring data from {{ CH }}, the [ReplicatedMergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/) engines are used.
+* When transferring data from string DBMS, the [ReplicatedReplacingMergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replacingmergetree/) engines are used.
+* When transferring data from {{ CH }}, the [ReplicatedMergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/) engines are used.
 
 ## Bandwidth {#bandwidth}
 

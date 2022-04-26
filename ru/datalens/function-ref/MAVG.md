@@ -9,10 +9,25 @@ sourcePath: ru/_api-ref/datalens/function-ref/MAVG.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  MAVG( value, rows_1 [ , rows_2 ] )
+  ```
+
+- Расширенный
+
+  ```
+  MAVG( value, rows_1 [ , rows_2 ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 

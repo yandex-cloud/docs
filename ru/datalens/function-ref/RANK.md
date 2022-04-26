@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/RANK.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  RANK( value [ , direction ] )
+  ```
+
+- Расширенный
+
+  ```
+  RANK( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Выполняет ранжирование значений с пропусками: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `3`. Значение `2` в этом случае пропускается.

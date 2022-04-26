@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/ANY.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-ANY( value )
-```
+- Стандартный
+
+  ```
+  ANY( value )
+  ```
+
+- Расширенный
+
+  ```
+  ANY( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает произвольное значение `value` из группы. Это недетерминированная агрегация — результат может различаться от запроса к запросу на одних и тех же входных данных.

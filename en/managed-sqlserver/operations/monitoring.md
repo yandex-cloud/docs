@@ -53,24 +53,6 @@ To view detailed information about the status of individual {{ mms-name }} hosts
 
 This page displays the following charts:
 
-<<<<<<< HEAD
-* **Active Transactions**: The number of active transactions per database.
-
-* **Bytes send/received**: The speed of data exchange over the network (bytes per second).
-
-* **CPU (processor time)**: CPU usage.
-
-* **Disk Latency**: Waiting time for disk operations:
-    * **avg.\_disk_sec/transfer**: The average time it takes to perform disk operations.
-    * **avg.\_disk_sec/write**: The average data write time.
-    * **avg.\_disk_sec/read**: The average data read time.
-
-* **Disk bytes**: The speed of disk operations (bytes per second).
-
-* **Disk read/write time**: Disk usage (%).
-
-* **Memory Grants Pending**: The number of queries waiting for a memory grant.
-=======
 * **Active Transactions [count]**: The number of active transactions per database.
 
 * **Bytes send/received**: The average number of bytes per second:
@@ -92,7 +74,6 @@ This page displays the following charts:
 * **Disk read/write time**: The average amount of time it takes to write data to or read it from storage (in milliseconds).
 
 * **Memory Grants Pending**: The number of queries waiting for a memory grant on the host.
->>>>>>> 89acb7bb464aa7fb18d7afcb9d749b3e663d7f50
 
 * **Packets send/received**: The number of processed network packets:
 

@@ -24,12 +24,12 @@
    {% endnote %}
 
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-1. Подключите [DEB-репозиторий](https://clickhouse.tech/docs/ru/getting-started/install/#install-from-deb-packages) {{ CH }}:
+1. Подключите [DEB-репозиторий](https://{{ ch-domain }}/docs/ru/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
    sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
-   echo "deb https://repo.clickhouse.tech/deb/stable/ main/" | sudo tee \
+   echo "deb https://repo.{{ ch-domain }}/deb/stable/ main/" | sudo tee \
    /etc/apt/sources.list.d/clickhouse.list
    ```
 
@@ -80,7 +80,7 @@
 
 1. Используйте для подключения ClickHouse CLI:
 
-    1. Укажите путь к SSL-сертификату в [конфигурационном файле](https://clickhouse.yandex/docs/ru/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
+    1. Укажите путь к SSL-сертификату в [конфигурационном файле](https://{{ ch-domain }}/docs/ru/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
 
     ```xml
     <config>

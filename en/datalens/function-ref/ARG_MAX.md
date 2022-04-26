@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/ARG_MAX.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-ARG_MAX( value, comp )
-```
+- Standard
+
+  ```
+  ARG_MAX( value, comp )
+  ```
+
+- Extended
+
+  ```
+  ARG_MAX( value, comp
+           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+           [ BEFORE FILTER BY ... ]
+         )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns `value` for the maximum value of `comp` in the group. If multiple values of `value` match the maximum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.

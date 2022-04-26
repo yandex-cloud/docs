@@ -9,29 +9,29 @@ sourcePath: ru/_api-ref/datalens/function-ref/OP_COMPARISON.md
 
 #### Синтаксис {#syntax}
 
-Вариант 1:
+Равенство
 ```
 value_1 = value_2
 ```
-Вариант 2:
+Неравенство
 ```
 value_1 != value_2
 ```
-Вариант 3:
+Меньше
 ```
 value_1 < value_2
 ```
-Вариант 4:
+Меньше или равно
 ```
 value_1 <= value_2
 ```
-Вариант 5:
+Больше
 ```
 value_1 > value_2
 ```
-Вариант 6:
+Больше или равно
 ```
-value_1 => value_2
+value_1 >= value_2
 ```
 
 #### Описание {#description}

@@ -9,10 +9,26 @@ _Функция `SUM` также доступна в следующих кате
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-SUM( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  SUM( value
+       TOTAL | WITHIN ... | AMONG ...
+     )
+  ```
+
+- Расширенный
+
+  ```
+  SUM( value
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.

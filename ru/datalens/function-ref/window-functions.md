@@ -115,7 +115,12 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [AVG](AVG_WINDOW.md)
 
-**Синтаксис:**`AVG( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`AVG( value
+     TOTAL | WITHIN ... | AMONG ...
+   )`<br/>или<br/>`AVG( value
+     TOTAL | WITHIN ... | AMONG ...
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает среднее арифметическое значений выражения. Работает только с числовыми типами данных.
 
@@ -123,7 +128,12 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [AVG_IF](AVG_IF_WINDOW.md)
 
-**Синтаксис:**`AVG_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`AVG_IF( expression, condition
+        TOTAL | WITHIN ... | AMONG ...
+      )`<br/>или<br/>`AVG_IF( expression, condition
+        TOTAL | WITHIN ... | AMONG ...
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Возвращает среднее для всех значений, которые удовлетворяют условию `condition`. Если значения отсутствуют, то возвращается `NULL`. Работает только с числовыми типами данных.
 
@@ -131,7 +141,12 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [COUNT](COUNT_WINDOW.md)
 
-**Синтаксис:**`COUNT(  [ value ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`COUNT(  [ value ]
+       TOTAL | WITHIN ... | AMONG ...
+     )`<br/>или<br/>`COUNT(  [ value ]
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Возвращает количество элементов в заданном окне.
 
@@ -139,7 +154,12 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [COUNT_IF](COUNT_IF_WINDOW.md)
 
-**Синтаксис:**`COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`COUNT_IF( expression, condition
+          TOTAL | WITHIN ... | AMONG ...
+        )`<br/>или<br/>`COUNT_IF( expression, condition
+          TOTAL | WITHIN ... | AMONG ...
+          [ BEFORE FILTER BY ... ]
+        )`
 
 Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.
 
@@ -147,7 +167,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [FIRST](FIRST.md)
 
-**Синтаксис:**`FIRST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`FIRST( value )`<br/>или<br/>`FIRST( value
+       [ TOTAL | WITHIN ... | AMONG ... ]
+       [ ORDER BY ... ]
+       [ BEFORE FILTER BY ... ]
+     )`
 
 Возвращает значение `value` из первой строки заданного окна. См. также [LAST](LAST.md).
 
@@ -155,7 +179,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [LAG](LAG.md)
 
-**Синтаксис:**`LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`LAG( value [ , offset [ , default ] ] )`<br/>или<br/>`LAG( value [ , offset [ , default ] ]
+     [ TOTAL | WITHIN ... | AMONG ... ]
+     [ ORDER BY ... ]
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает значение `value` из строки со смещением `offset` относительно текущей в рамках заданного окна:
 - положительное значение `offset` делает смещение назад;
@@ -171,7 +199,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [LAST](LAST.md)
 
-**Синтаксис:**`LAST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`LAST( value )`<br/>или<br/>`LAST( value
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает значение `value` из последней строки заданного окна. См. также [FIRST](FIRST.md).
 
@@ -179,7 +211,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [MAVG](MAVG.md)
 
-**Синтаксис:**`MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`MAVG( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MAVG( value, rows_1 [ , rows_2 ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает скользящее среднее значений по окну записей. Значение определяется порядком сортировки и аргументами:
 
@@ -199,7 +235,12 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [MAX](MAX_WINDOW.md)
 
-**Синтаксис:**`MAX( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`MAX( value
+     TOTAL | WITHIN ... | AMONG ...
+   )`<br/>или<br/>`MAX( value
+     TOTAL | WITHIN ... | AMONG ...
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает максимальное значение.
 
@@ -213,7 +254,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [MCOUNT](MCOUNT.md)
 
-**Синтаксис:**`MCOUNT( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`MCOUNT( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MCOUNT( value, rows_1 [ , rows_2 ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Возвращает количество значений (не равных `NULL`) по окну записей, которое определяется порядком сортировки и аргументами:
 
@@ -233,7 +278,12 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [MIN](MIN_WINDOW.md)
 
-**Синтаксис:**`MIN( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`MIN( value
+     TOTAL | WITHIN ... | AMONG ...
+   )`<br/>или<br/>`MIN( value
+     TOTAL | WITHIN ... | AMONG ...
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает минимальное значение.
 
@@ -247,7 +297,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [MMAX](MMAX.md)
 
-**Синтаксис:**`MMAX( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`MMAX( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MMAX( value, rows_1 [ , rows_2 ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает скользящий максимум значений по окну записей. Значение определяется порядком сортировки и аргументами:
 
@@ -267,7 +321,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [MMIN](MMIN.md)
 
-**Синтаксис:**`MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`MMIN( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MMIN( value, rows_1 [ , rows_2 ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает скользящий минимум значений по окну записей, определяемому порядком сортировки и аргументами:
 
@@ -287,7 +345,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [MSUM](MSUM.md)
 
-**Синтаксис:**`MSUM( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`MSUM( value, rows_1 [ , rows_2 ] )`<br/>или<br/>`MSUM( value, rows_1 [ , rows_2 ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает скользящую сумму значений по окну записей, которое определяется порядком сортировки и аргументами:
 
@@ -307,7 +369,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RANK](RANK.md)
 
-**Синтаксис:**`RANK( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RANK( value [ , direction ] )`<br/>или<br/>`RANK( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Выполняет ранжирование значений с пропусками: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `3`. Значение `2` в этом случае пропускается.
 
@@ -319,7 +384,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RANK_DENSE](RANK_DENSE.md)
 
-**Синтаксис:**`RANK_DENSE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RANK_DENSE( value [ , direction ] )`<br/>или<br/>`RANK_DENSE( value [ , direction ]
+            [ TOTAL | WITHIN ... | AMONG ... ]
+            [ BEFORE FILTER BY ... ]
+          )`
 
 Выполняет ранжирование значений без пропусков: возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют одно и то же значение ранга. Если первые две строки получают ранг `1`, то ранг следующей строки (если значение `value` не совпадает) будет равен `2`. Значения ранга не пропускаются.
 
@@ -331,7 +399,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RANK_PERCENTILE](RANK_PERCENTILE.md)
 
-**Синтаксис:**`RANK_PERCENTILE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RANK_PERCENTILE( value [ , direction ] )`<br/>или<br/>`RANK_PERCENTILE( value [ , direction ]
+                 [ TOTAL | WITHIN ... | AMONG ... ]
+                 [ BEFORE FILTER BY ... ]
+               )`
 
 Выполняет относительное ранжирование. Возвращает дробный ранг (от `0` до `1`). Расчитывается как `(RANK(...) - 1) / (количество строк)`.
 
@@ -343,7 +414,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RANK_UNIQUE](RANK_UNIQUE.md)
 
-**Синтаксис:**`RANK_UNIQUE( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RANK_UNIQUE( value [ , direction ] )`<br/>или<br/>`RANK_UNIQUE( value [ , direction ]
+             [ TOTAL | WITHIN ... | AMONG ... ]
+             [ BEFORE FILTER BY ... ]
+           )`
 
 Выполняет уникальное ранжирование. Возвращает порядковый номер строки при сортировке по `value`. Строки, которые соответствуют одному и тому же значению `value`, имеют разные значения ранга. Ни для каких двух строк значения не совпадают. Принимает все значения от `1` до значения, которое равно количеству строк.
 
@@ -355,7 +429,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RAVG](RAVG.md)
 
-**Синтаксис:**`RAVG( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RAVG( value [ , direction ] )`<br/>или<br/>`RAVG( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает среднее арифметическое значений в рамках окна записей, определяемого аргументом `direction`:
 
@@ -375,7 +453,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RCOUNT](RCOUNT.md)
 
-**Синтаксис:**`RCOUNT( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RCOUNT( value [ , direction ] )`<br/>или<br/>`RCOUNT( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Возвращает количество значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -395,7 +477,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RMAX](RMAX.md)
 
-**Синтаксис:**`RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RMAX( value [ , direction ] )`<br/>или<br/>`RMAX( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает максимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -415,7 +501,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RMIN](RMIN.md)
 
-**Синтаксис:**`RMIN( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RMIN( value [ , direction ] )`<br/>или<br/>`RMIN( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает минимальное из значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -435,7 +525,11 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [RSUM](RSUM.md)
 
-**Синтаксис:**`RSUM( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`RSUM( value [ , direction ] )`<br/>или<br/>`RSUM( value [ , direction ]
+      [ TOTAL | WITHIN ... | AMONG ... ]
+      [ ORDER BY ... ]
+      [ BEFORE FILTER BY ... ]
+    )`
 
 Возвращает сумму значений в рамках окна записей, определяемого порядком сортировки и значением аргумента `direction`:
 
@@ -455,7 +549,12 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [SUM](SUM_WINDOW.md)
 
-**Синтаксис:**`SUM( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`SUM( value
+     TOTAL | WITHIN ... | AMONG ...
+   )`<br/>или<br/>`SUM( value
+     TOTAL | WITHIN ... | AMONG ...
+     [ BEFORE FILTER BY ... ]
+   )`
 
 Возвращает сумму всех значений выражения. Работает только с числовыми типами данных.
 
@@ -463,7 +562,12 @@ sourcePath: ru/_api-ref/datalens/function-ref/window-functions.md
 
 ## [SUM_IF](SUM_IF_WINDOW.md)
 
-**Синтаксис:**`SUM_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )`
+**Синтаксис:**<br/>`SUM_IF( expression, condition
+        TOTAL | WITHIN ... | AMONG ...
+      )`<br/>или<br/>`SUM_IF( expression, condition
+        TOTAL | WITHIN ... | AMONG ...
+        [ BEFORE FILTER BY ... ]
+      )`
 
 Возвращает сумму всех значений выражения, которые удовлетворяют условию `condition`. Работает только с числовыми типами данных.
 

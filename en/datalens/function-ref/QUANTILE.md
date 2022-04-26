@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/QUANTILE.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-QUANTILE( value, quant )
-```
+- Standard
+
+  ```
+  QUANTILE( value, quant )
+  ```
+
+- Extended
+
+  ```
+  QUANTILE( value, quant
+            [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+            [ BEFORE FILTER BY ... ]
+          )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the precise `quant`-level quantile (`quant` should be in range from 0 to 1).

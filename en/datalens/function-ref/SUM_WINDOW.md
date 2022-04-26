@@ -9,10 +9,26 @@ _Function `SUM` is also found in the following categories: [Aggregate functions]
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-SUM( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  SUM( value
+       TOTAL | WITHIN ... | AMONG ...
+     )
+  ```
+
+- Extended
+
+  ```
+  SUM( value
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the sum of all expression values. Applicable to numeric data types only.

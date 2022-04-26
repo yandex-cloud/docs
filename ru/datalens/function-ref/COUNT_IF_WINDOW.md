@@ -9,10 +9,26 @@ _Функция `COUNT_IF` также доступна в следующих к�
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-COUNT_IF( expression, condition [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  COUNT_IF( expression, condition
+            TOTAL | WITHIN ... | AMONG ...
+          )
+  ```
+
+- Расширенный
+
+  ```
+  COUNT_IF( expression, condition
+            TOTAL | WITHIN ... | AMONG ...
+            [ BEFORE FILTER BY ... ]
+          )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает количество элементов в заданном окне, которые удовлетворяют условию `expression`.

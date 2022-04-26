@@ -1,6 +1,6 @@
 # Connecting external dictionaries
 
-You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. To learn more about dictionaries, see the [documentation for {{ CH }}](https://clickhouse.yandex/docs/en/query_language/dicts/).
+You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. To learn more about dictionaries, see the [documentation for {{ CH }}](https://{{ ch-domain }}/docs/en/query_language/dicts/).
 
 {{ mch-name }} supports several types of dictionary sources.
 
@@ -26,7 +26,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
     1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
 
-    1. Execute [DDL request](https://clickhouse.tech/docs/ru/sql-reference/statements/create/dictionary/):
+    1. Execute [DDL request](https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/dictionary/):
 
        ```sql
        CREATE DICTIONARY <dictionary name>(
@@ -55,7 +55,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
        Different types of sources take different connection parameters.
         * **URL**: HTTP(s) source URL.
-        * **File format**: HTTP(s) source file [format](https://clickhouse.yandex/docs/en/interfaces/formats/#formats). For more information about formats, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/interfaces/formats/#formats).
+        * **File format**: HTTP(s) source file [format](https://{{ ch-domain }}/docs/en/interfaces/formats/#formats). For more information about formats, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/interfaces/formats/#formats).
         * **Replicas**: List of {{ MY }} replicas to use as the dictionary source.
           You can configure replica-specific connection parameters (port, username, and password) or set general parameters.
         * **Host**: Source host name. The host must be in the same network as the {{ CH }} cluster.
@@ -70,41 +70,41 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
         * **Collection**: Name of the collection for the {{ MG }} source.
         * **Dictionary status check**: Optional parameter. An SQL query to check changes in a dictionary.
           {{ CH }} updates the dictionary only if there are changes in the query results.
-          For more information, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+          For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
         * **SSL mode**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database.
           For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
-       For more information about dictionary sources and their connection parameters, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_sources/).
+       For more information about dictionary sources and their connection parameters, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_sources/).
 
     1. Configure the structure and how the dictionary is stored in memory:
 
        **{{ mch-name }}** supports several ways to store dictionaries in memory:
        ```flat```, ```hashed```, ```cache```, ```range_hashed```, ```complex_key_hashed```, ```complex_key_cache```.
-       For more information about how to store dictionaries in memory, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/).
+       For more information about how to store dictionaries in memory, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_layout/).
 
        Parameters vary for the different methods of storing dictionaries in memory:
         * **Cache size**: Number of cache cells for the `cache` and `complex_key_cache` methods .
-          For more information about the cache, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/#cache).
+          For more information about the cache, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_layout/#cache).
         * **Numeric key**: Dictionary key column name. The key column must be in the UInt64 data type.
           Used for `flat`, `hashed`, `cache`, and `range_hashed` methods.
-          For more information about keys, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_structure/#chislovoi-kliuch).
+          For more information about keys, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_structure/#chislovoi-kliuch).
         * **Composite key**: Columns that make up the composite key of a dictionary. Specify the column IDs and their data types.
           Used for the `complex_key_hashed` and `complex_key_cache` methods.
-          For more information about composite keys, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_structure/#sostavnoi-kliuch).
+          For more information about composite keys, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_structure/#sostavnoi-kliuch).
         * **Start of range column** and **End of range column**: Columns indicating the start and end of the range for the `range_hashed` method.
           Specify the column IDs and their data types.
-          For more information about ranges, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
+          For more information about ranges, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
         * **Data columns**: List of columns with dictionary data:
             * **Name**: Column name.
             * **Type**: Column data type.
             * **Default value**: Default value for an empty element.
               When loading a dictionary, all empty elements are replaced with this value.
               You can't use NULL in this field. Optional parameter.
-            * **Expression**: [Expression](https://clickhouse.yandex/docs/en/query_language/syntax/#syntax-expressions) that {{ CH }} executes with the column value. Optional parameter.
+            * **Expression**: [Expression](https://{{ ch-domain }}/docs/en/query_language/syntax/#syntax-expressions) that {{ CH }} executes with the column value. Optional parameter.
             * **Hierarchical**: Hierarchical support flag.
             * **Injective**: Flag that shows whether the id -> attribute image is injective
 
-       For more information about column parameters, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_structure/#ext_dict_structure-attributes).
+       For more information about column parameters, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_structure/#ext_dict_structure-attributes).
 
     1. Set how often the dictionary updates:
 
@@ -112,7 +112,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
        You can set a fixed update interval in seconds, or specify a time range for {{ CH }} to randomly select the time for update.
        This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.
 
-       For more information about dictionary updates, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+       For more information about dictionary updates, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
 
 - CLI
 
@@ -166,7 +166,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 - SQL
     1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-    1. Execute  [the request](https://clickhouse.tech/docs/ru/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
+    1. Execute  [the request](https://{{ ch-domain }}/docs/ru/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
 
 - Management console
     1. Go to the folder page and select **{{ mch-name }}**.
@@ -206,7 +206,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 - SQL
     1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-    1. Execute [the request](https://clickhouse.tech/docs/ru/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <database name>.<dictionary name>`.
+    1. Execute [the request](https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <database name>.<dictionary name>`.
 
 - Management console
     1. Go to the folder page and click **{{ mch-name }}**.

@@ -9,29 +9,29 @@ sourcePath: en/_api-ref/datalens/function-ref/OP_COMPARISON.md
 
 #### Syntax {#syntax}
 
-Version 1:
+Equality
 ```
 value_1 = value_2
 ```
-Version 2:
+Inequality
 ```
 value_1 != value_2
 ```
-Version 3:
+Less than
 ```
 value_1 < value_2
 ```
-Version 4:
+Less than or equal
 ```
 value_1 <= value_2
 ```
-Version 5:
+Greater than
 ```
 value_1 > value_2
 ```
-Version 6:
+Greater than or equal
 ```
-value_1 => value_2
+value_1 >= value_2
 ```
 
 #### Description {#description}

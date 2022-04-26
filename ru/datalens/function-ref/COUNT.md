@@ -9,10 +9,24 @@ _Функция `COUNT` также доступна в следующих кат
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-COUNT(  [ value ] )
-```
+- Стандартный
+
+  ```
+  COUNT(  [ value ] )
+  ```
+
+- Расширенный
+
+  ```
+  COUNT(  [ value ]
+         [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+         [ BEFORE FILTER BY ... ]
+       )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает количество элементов в группе.

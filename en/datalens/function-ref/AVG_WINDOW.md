@@ -9,10 +9,26 @@ _Function `AVG` is also found in the following categories: [Aggregate functions]
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-AVG( value [ TOTAL | WITHIN ... | AMONG ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  AVG( value
+       TOTAL | WITHIN ... | AMONG ...
+     )
+  ```
+
+- Extended
+
+  ```
+  AVG( value
+       TOTAL | WITHIN ... | AMONG ...
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns the average of all values. Applicable to numeric data types.

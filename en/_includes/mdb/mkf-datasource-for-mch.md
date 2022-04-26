@@ -1,4 +1,4 @@
-A {{ mch-name }} cluster can get data from a {{ mkf-name }} cluster in real time. {{ mch-name }} will automatically insert the data sent to certain {{ KF }} topics into the table run on the [{{ KF }} engine](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/).
+A {{ mch-name }} cluster can get data from a {{ mkf-name }} cluster in real time. {{ mch-name }} will automatically insert the data sent to certain {{ KF }} topics into the table run on the [{{ KF }} engine](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/kafka/).
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
@@ -66,7 +66,7 @@ This data will be transmitted as {{ KF }} messages. Each message will contain a 
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-When inserting data in the table, the {{ mch-name }} cluster will use [JSONEachRow format](https://clickhouse.tech/docs/en/interfaces/formats/#jsoneachrow). It helps to convert a string representation of a JSON object used in {{ KF }} messages to the required set of column values.
+When inserting data in the table, the {{ mch-name }} cluster will use [JSONEachRow format](https://{{ ch-domain }}/docs/en/interfaces/formats/#jsoneachrow). It helps to convert a string representation of a JSON object used in {{ KF }} messages to the required set of column values.
 
 ## In the {{ mch-name }} cluster, create a table on the {{ KF }} engine {#create-kf-table}
 
@@ -98,7 +98,7 @@ Using the above-mentioned data format, create a table to accept data received fr
 
 This table will be automatically filled with messages read from the `datastore` topic of the {{ mkf-name }} cluster. When reading the data, {{ mch-name }} uses the [existing settings](#configure-mch-for-kf) for the [`reader` consumer account](#before-you-begin).
 
-To learn more about creating a table on the {{ KF }} engine, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/).
+To learn more about creating a table on the {{ KF }} engine, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/kafka/).
 
 ## Send the test data to the {{ mkf-name }} cluster {#send-sample-data-to-kf}
 
@@ -201,4 +201,4 @@ To get all the data from the `db1.data_view` materialized view:
 
 After you execute the query, you should get the {{ mkf-name }} data in the table format.
 
-To learn more about how to work with data received from {{ KF }}, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/).
+To learn more about how to work with data received from {{ KF }}, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/kafka/).

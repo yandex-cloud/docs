@@ -6,6 +6,7 @@
 | Azure Application Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
 | Azure Active Directory | [{{ iam-full-name }}](../../iam/) |
 | Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-redis/) |
+| Azure Container Apps | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Azure Cosmos DB | [{{ mmg-full-name }}](../../managed-mongodb/) |
 | Azure Database for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Azure Database for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
@@ -17,10 +18,12 @@
 | Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
+| Azure Load Testing | [{{ load-testing-full-name }}](../../load-testing/) |
 | Azure Machine Learning, Azure Databricks, ONNX Runtime | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Azure Monitor | [{{ monitoring-full-name }}](../../monitoring/) |
 | Azure Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | Azure SQL | [{{ mms-full-name }}](../../managed-sqlserver/) |
+| Azure Virtual Desktop | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Blob Storage | [{{ objstorage-full-name }}](../../storage/) |
 | Cognitive Services: Language | [{{ translate-full-name }}](../../translate/) |
 | Cognitive Services: Speech | [{{ speechkit-full-name }}](../../speechkit/) |

@@ -9,10 +9,25 @@ sourcePath: en/_api-ref/datalens/function-ref/RMAX.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-RMAX( value [ , direction ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Standard
+
+  ```
+  RMAX( value [ , direction ] )
+  ```
+
+- Extended
+
+  ```
+  RMAX( value [ , direction ]
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 

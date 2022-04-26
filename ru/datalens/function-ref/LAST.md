@@ -9,10 +9,25 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAST.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-LAST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  LAST( value )
+  ```
+
+- Расширенный
+
+  ```
+  LAST( value
+        [ TOTAL | WITHIN ... | AMONG ... ]
+        [ ORDER BY ... ]
+        [ BEFORE FILTER BY ... ]
+      )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 

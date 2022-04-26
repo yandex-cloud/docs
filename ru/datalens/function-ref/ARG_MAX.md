@@ -9,10 +9,24 @@ sourcePath: ru/_api-ref/datalens/function-ref/ARG_MAX.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-ARG_MAX( value, comp )
-```
+- Стандартный
+
+  ```
+  ARG_MAX( value, comp )
+  ```
+
+- Расширенный
+
+  ```
+  ARG_MAX( value, comp
+           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+           [ BEFORE FILTER BY ... ]
+         )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает значение `value`, соответствующее максимальному значению `comp`. Если есть несколько значений `value`, соответствующих максимальному значению `comp`, то возвращет первое попавшееся из них. Это делает функцию недетерминированной.

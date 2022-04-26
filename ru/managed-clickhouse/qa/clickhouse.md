@@ -24,11 +24,11 @@
 
 Да. Подключиться к хостам {{ CH }}-кластера можно:
 
-* через [HTTPS-интерфейс](https://clickhouse.yandex/docs/ru/interfaces/http_interface/):
+* через [HTTPS-интерфейс](https://{{ ch-domain }}/docs/ru/interfaces/http_interface/):
     * по шифрованному соединению с использованием SSL — порт 8443;
     * без шифрования — порт 8123;
 
-* через [клиент командной строки](https://clickhouse.yandex/docs/ru/interfaces/cli/):
+* через [клиент командной строки](https://{{ ch-domain }}/docs/ru/interfaces/cli/):
     * по шифрованному соединению с использованием SSL — порт 9440;
     * без шифрования — порт 9000.
 
@@ -36,12 +36,12 @@
 
 #### Как загружать данные в {{ CH }}? {#load-data}
 
-Используйте запрос INSERT, описанный в [документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/insert-into/).
+Используйте запрос INSERT, описанный в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/insert-into/).
 
 
 #### Как загрузить в {{ CH }} очень большое количество данных? {#loadalot}
 
-Используйте [CLI](https://clickhouse.yandex/docs/en/interfaces/cli/) для эффективного сжатия данных при передаче (рекомендуемая частота — не больше 1 команды INSERT в секунду).
+Используйте [CLI](https://{{ ch-domain }}/docs/en/interfaces/cli/) для эффективного сжатия данных при передаче (рекомендуемая частота — не больше 1 команды INSERT в секунду).
 
 Перенос данных с физических носителей пока не поддерживается.
 
@@ -50,7 +50,7 @@
 
 Кластеры БД состоят минимум из 2 реплик, поэтому при потере одной ноды кластер продолжит работу.
 
-Данные могут потеряться только если вышла из строя нода с [нереплицируемой таблицей](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/replication/).
+Данные могут потеряться только если вышла из строя нода с [нереплицируемой таблицей](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/).
 
 
 #### Можно ли развернуть кластер БД {{ CH }} в нескольких зонах доступности? {#multiple-az}
@@ -74,4 +74,4 @@
 
 При создании кластера {{ CH }} из 2 и более хостов {{ mch-short-name }} автоматически создает кластер из 3 хостов {{ ZK }} для управления репликацией и отказоустойчивостью, если не включена поддержка {{ CK }}. Эти хосты учитываются в расчете использованной [квоты ресурсов]({{ link-console-quotas }}) в облаке и в расчете стоимости кластера. По умолчанию хосты {{ ZK }} создаются с минимальным [классом хостов](../concepts/instance-types.md).
 
-Подробнее об использовании {{ ZK }} см. [документацию ClickHouse](https://clickhouse.yandex/docs/ru/operations/table_engines/replication/).
+Подробнее об использовании {{ ZK }} см. [документацию ClickHouse](https://{{ ch-domain }}/docs/ru/operations/table_engines/replication/).

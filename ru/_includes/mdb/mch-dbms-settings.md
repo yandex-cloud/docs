@@ -53,7 +53,7 @@
 
 * **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-    Максимальный размер (в байтах) [партиции](https://clickhouse.yandex/docs/ru/operations/table_engines/custom_partitioning_key/) таблицы семейства [MergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/), при котором таблицу можно удалить с помощью запроса `DROP TABLE`. Настройку можно использовать, чтобы предотвратить ошибочное удаление таблиц с реальными данными: такие таблицы обычно имеют большой размер по сравнению с тестовыми таблицами.
+    Максимальный размер (в байтах) [партиции](https://{{ ch-domain }}/docs/ru/operations/table_engines/custom_partitioning_key/) таблицы семейства [MergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/), при котором таблицу можно удалить с помощью запроса `DROP TABLE`. Настройку можно использовать, чтобы предотвратить ошибочное удаление таблиц с реальными данными: такие таблицы обычно имеют большой размер по сравнению с тестовыми таблицами.
 
     По умолчанию выбрано значение `53687091200` (50 ГБ). При значении `0` можно удалять таблицы любого размера.
 
@@ -194,11 +194,11 @@
 
     Вы можете добавить несколько правил сжатия. {{ CH }} проверит условия **Min part size** и **Min part size ratio** и применит правила к тем таблицам, для которых выполнены оба условия. Если к одной таблице подходит несколько правил, {{ CH }} применит первое из них. Если ни одно из правил не подходит, {{ CH }} применит метод сжатия [LZ4](https://lz4.github.io/lz4/).
 
-    Подробнее см. в документации [{{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression).
+    Подробнее см. в документации [{{ CH }}](https://{{ ch-domain }}/docs/ru/operations/server_settings/settings/#compression).
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Конфигурации движка [GraphiteMergeTree](https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/) для прореживания и агрегирования/усреднения (rollup) данных [Graphite](http://graphite.readthedocs.io/en/latest/index.html):
+    Конфигурации движка [GraphiteMergeTree](https://{{ ch-domain }}/docs/ru/operations/table_engines/graphitemergetree/) для прореживания и агрегирования/усреднения (rollup) данных [Graphite](http://graphite.readthedocs.io/en/latest/index.html):
     * **Name** — имя конфигурации.
     * **Patterns** — набор правил прореживания. Правило применяется, если имя метрики соответствует значению параметра **Regexp**, а возраст данных соответствует значению группы параметров **Retention**.
         * **Function** — имя агрегирующей функции.

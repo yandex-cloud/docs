@@ -1,6 +1,6 @@
 # Подключение моделей машинного обучения
 
-{{ mch-short-name }} позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов. Чтобы применить модель, подключите ее к кластеру и вызовите в SQL-запросе с помощью встроенной функции [`modelEvaluate()`](https://clickhouse.yandex/docs/ru/query_language/functions/other_functions/#function-modelevaluate). В результате выполнения такого запроса вы получите предсказания модели для каждой строки входных данных. Подробнее о машинном обучении в {{ CH }} читайте в [документации](https://clickhouse.yandex/docs/ru/guides/apply_catboost_model/).
+{{ mch-short-name }} позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов. Чтобы применить модель, подключите ее к кластеру и вызовите в SQL-запросе с помощью встроенной функции [`modelEvaluate()`](https://{{ ch-domain }}/docs/ru/query_language/functions/other_functions/#function-modelevaluate). В результате выполнения такого запроса вы получите предсказания модели для каждой строки входных данных. Подробнее о машинном обучении в {{ CH }} читайте в [документации](https://{{ ch-domain }}/docs/ru/guides/apply_catboost_model/).
 
 ## Перед подключением модели {#prereq}
 
@@ -329,13 +329,13 @@
 
 {% note info %}
 
-Для этого примера мы будем использовать открытые данные из [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). Модель обучена предсказывать значение столбца `ACTION`. Те же данные и модель используются в примерах в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/guides/apply_catboost_model/) и на [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
+Для этого примера мы будем использовать открытые данные из [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). Модель обучена предсказывать значение столбца `ACTION`. Те же данные и модель используются в примерах в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/guides/apply_catboost_model/) и на [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
 
 {% endnote %}
 
 Чтобы загрузить данные в {{ CH }} и протестировать модель:
 
-1. Установите [{{ CH }} CLI](https://clickhouse.yandex/docs/ru/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
+1. Установите [{{ CH }} CLI](https://{{ ch-domain }}/docs/ru/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
 1. Скачайте [файл с данными](https://storage.yandexcloud.net/managed-clickhouse/train.csv) для анализа:
    ```bash
    wget https://storage.yandexcloud.net/managed-clickhouse/train.csv  

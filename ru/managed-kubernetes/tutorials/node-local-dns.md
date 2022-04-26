@@ -45,10 +45,10 @@
    Создайте кластер {{ k8s }}:
 
    ```bash
-   yc managed-kubernetes cluster create \
+   {{ yc-k8s }} cluster create \
      --name node-local-dns \
-     --service-account-name <имя сервисного аккаунта> \
-     --node-service-account-name <имя сервисного аккаунта> \
+     --service-account-name <имя сервисного аккаунта кластера> \
+     --node-service-account-name <имя сервисного аккаунта групп узлов> \
      --public-ip \
      --zone ru-central1-a \
      --network-name <имя облачной сети>
@@ -64,7 +64,7 @@
    Создайте группу узлов:
 
    ```bash
-   yc managed-kubernetes node-group create \
+   {{ yc-k8s }} node-group create \
      --name node-group \
      --cluster-name node-local-dns \
      --location zone=ru-central1-a \
@@ -81,153 +81,259 @@
 
    {% endcut %}
 
-1. Настройте kubectl.
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с созданным кластером.
 
-   Чтобы запускать команды для кластера {{ k8s }}, установите и настройте консоль управления kubectl.
-
-   {% cut "Как настроить kubectl" %}
-
-   Установите {{ k8s }} CLI [kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/).
-
-   Добавьте учетные данные кластера {{ k8s }} в конфигурационный файл kubectl:
+1. Узнайте IP-адрес сервиса `kube-dns`:
 
    ```bash
-   yc managed-kubernetes cluster get-credentials --external --name node-local-dns
+   kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
    ```
 
-   Результат выполнения:
+## Подготовьте спецификацию для Node Local DNS и запустите DaemonSet {#daemonset}
+
+1. Создайте файл `node-local-dns.yaml`. В настройках DaemonSet `node-local-dns` укажите IP-адрес сервиса `kube-dns`:
+
+   `node-local-dns.yaml`
+
+   ```yaml
+   # Copyright 2018 The Kubernetes Authors.
+   #
+   # Licensed under the Apache License, Version 2.0 (the "License");
+   # you may not use this file except in compliance with the License.
+   # You may obtain a copy of the License at
+   #
+   #     http://www.apache.org/licenses/LICENSE-2.0
+   #
+   # Unless required by applicable law or agreed to in writing, software
+   # distributed under the License is distributed on an "AS IS" BASIS,
+   # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   # See the License for the specific language governing permissions and
+   # limitations under the License.
+   # Modified for Yandex.Cloud Usage
+   ---
+   apiVersion: v1
+   kind: ServiceAccount
+   metadata:
+     name: node-local-dns
+     namespace: kube-system
+     labels:
+   ---
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: kube-dns-upstream
+     namespace: kube-system
+     labels:
+       k8s-app: kube-dns
+       kubernetes.io/name: "KubeDNSUpstream"
+   spec:
+     ports:
+     - name: dns
+       port: 53
+       protocol: UDP
+       targetPort: 53
+     - name: dns-tcp
+       port: 53
+       protocol: TCP
+       targetPort: 53
+     selector:
+       k8s-app: kube-dns
+   ---
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: node-local-dns
+     namespace: kube-system
+     labels:
+   data:
+     Corefile: |
+       cluster.local:53 {
+         errors
+         cache {
+           success 9984 30
+           denial 9984 5
+         }
+         reload
+         loop
+         bind 169.254.20.10 10.96.128.2
+         forward . __PILLAR__CLUSTER__DNS__ {
+           prefer_udp
+         }
+         prometheus :9253
+         health 169.254.20.10:8080
+         }
+       in-addr.arpa:53 {
+         errors
+         cache 30
+         reload
+         loop
+         bind 169.254.20.10 10.96.128.2
+         forward . __PILLAR__CLUSTER__DNS__ {
+           prefer_udp
+         }
+         prometheus :9253
+         }
+       ip6.arpa:53 {
+         errors
+         cache 30
+         reload
+         loop
+         bind 169.254.20.10 10.96.128.2
+         forward . __PILLAR__CLUSTER__DNS__ {
+           prefer_udp
+         }
+         prometheus :9253
+         }
+       .:53 {
+         errors
+         cache 30
+         reload
+         loop
+         bind 169.254.20.10 10.96.128.2
+         forward . __PILLAR__UPSTREAM__SERVERS__ {
+           prefer_udp
+         }
+         prometheus :9253
+         }
+   ---
+   apiVersion: apps/v1
+   kind: DaemonSet
+   metadata:
+     name: node-local-dns
+     namespace: kube-system
+     labels:
+       k8s-app: node-local-dns
+   spec:
+     updateStrategy:
+       rollingUpdate:
+         maxUnavailable: 10%
+     selector:
+       matchLabels:
+         k8s-app: node-local-dns
+     template:
+       metadata:
+         labels:
+           k8s-app: node-local-dns
+         annotations:
+           prometheus.io/port: "9253"
+           prometheus.io/scrape: "true"
+       spec:
+         priorityClassName: system-node-critical
+         serviceAccountName: node-local-dns
+         hostNetwork: true
+         dnsPolicy: Default # Don't use cluster DNS.
+         tolerations:
+         - key: "CriticalAddonsOnly"
+           operator: "Exists"
+         - effect: "NoExecute"
+           operator: "Exists"
+         - effect: "NoSchedule"
+           operator: "Exists"
+         containers:
+         - name: node-cache
+           image: k8s.gcr.io/dns/k8s-dns-node-cache:1.17.0
+           resources:
+             requests:
+               cpu: 25m
+               memory: 5Mi
+           args: [ "-localip", "169.254.20.10,<IP-адрес сервиса kube-dns>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
+           securityContext:
+             privileged: true
+           ports:
+           - containerPort: 53
+             name: dns
+             protocol: UDP
+           - containerPort: 53
+             name: dns-tcp
+             protocol: TCP
+           - containerPort: 9253
+             name: metrics
+             protocol: TCP
+           livenessProbe:
+             httpGet:
+               host: 169.254.20.10
+               path: /health
+               port: 8080
+             initialDelaySeconds: 60
+             timeoutSeconds: 5
+           volumeMounts:
+           - mountPath: /run/xtables.lock
+             name: xtables-lock
+             readOnly: false
+           - name: config-volume
+             mountPath: /etc/coredns
+           - name: kube-dns-config
+             mountPath: /etc/kube-dns
+         volumes:
+         - name: xtables-lock
+           hostPath:
+             path: /run/xtables.lock
+             type: FileOrCreate
+         - name: kube-dns-config
+           configMap:
+             name: kube-dns
+             optional: true
+         - name: config-volume
+           configMap:
+             name: node-local-dns
+             items:
+               - key: Corefile
+                 path: Corefile.base
+   ---
+   # A headless service is a service with a service IP but instead of load-balancing it will return the IPs of our associated Pods.
+   # We use this to expose metrics to Prometheus.
+   apiVersion: v1
+   kind: Service
+   metadata:
+     annotations:
+       prometheus.io/port: "9253"
+       prometheus.io/scrape: "true"
+     labels:
+       k8s-app: node-local-dns
+     name: node-local-dns
+     namespace: kube-system
+   spec:
+     clusterIP: None
+     ports:
+       - name: metrics
+         port: 9253
+         targetPort: 9253
+     selector:
+       k8s-app: node-local-dns
+   ```
+
+1. Создайте ресурсы для Node Local DNS:
+
+   ```bash
+   kubectl apply -f node-local-dns.yaml
+   ```
+
+   Ожидаемый результат выполнения команды:
 
    ```text
-   Context 'node-local-dns' was added as default to kubeconfig '/home/<ваш домашний каталог>/.kube/config'.
-   ...
+   serviceaccount/node-local-dns created
+   service/kube-dns-upstream created
+   configmap/node-local-dns created
+   daemonset.apps/node-local-dns created
+   service/node-local-dns created
    ```
 
-   {% endcut %}
+1. Убедитесь, что DaemonSet успешно развернут и запущен:
 
-## Настройте DaemonSet {#daemonset}
+   ```bash
+   kubectl get ds -l k8s-app=node-local-dns -n kube-system
+   ```
 
-### Загрузите шаблон спецификации {#download-spec}
+   Ожидаемый результат выполнения команды:
 
-Вы можете скачать [шаблон спецификации](https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml) вручную или с помощью команды:
+   ```text
+   NAME             DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+   node-local-dns   3         3         3       3            3           <none>          24m
+   ```
 
-{% list tabs %}
+## Измените конфигурацию NodeLocal DNS Cache {#configure}
 
-- Windows (PowerShell)
-
-  ```
-  wget "https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml" -OutFile "nodelocaldns.yaml"
-  ```
-
-- Linux
-
-  ```bash
-  wget https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml
-  ```
-
-- macOS
-
-  ```bash
-  brew install wget
-
-  wget https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml
-  ```
-
-{% endlist %}
-
-### Замените переменные в шаблоне {#variables}
-
-Шаблон содержит конфигурацию NodeLocal DNS Cache. Чтобы изменить конфигурацию под свои нужды, используйте 5 переменных:
-* `__PILLAR__DNS__DOMAIN__`
-  Зона кластера {{ k8s }} (`cluster.local` по умолчанию).
-* `__PILLAR__LOCAL__DNS__`
-  Адрес `link-local`, на котором будет слушать NodeLocal DNS Cache. Рекомендуется использовать адрес из диапазонов 169.254.0.0/16 для IPv4 или fd00::/8 для IPv6.
-* `__PILLAR__DNS__SERVER__`
-  Адрес `ClusterIp` сервиса `kube-dns`. Запросы с пользовательских подов по этому адресу также будут направляться к NodeLocal DNS Cache с помощью правил iptables.
-* `__PILLAR__CLUSTER__DNS__`
-  Сервер upstream для запросов внутри зоны кластера. При запуске NodeLocal DNS Cache создается новый сервис `kube-dns-upstream` с `ClusterIp`. С помощью этого адреса можно получить доступ к `kube-dns`, минуя кеширующий агент. Переменная должна быть заполнена автоматически.
-* `__PILLAR__UPSTREAM__SERVERS__`
-  Серверы upstream для запросов вне зоны кластера. Переменная должна быть заполнена автоматически из `configmap` сервиса `kube-dns`.
-
-Установите следующие значения:
-* `__PILLAR__DNS__DOMAIN__`: `cluster.local`.
-* `__PILLAR__LOCAL__DNS__`: `169.254.20.10`.
-* `__PILLAR__DNS__SERVER__`: `ClusterIp` сервиса `kube-dns`.
-
-Для этого произведите автозамену в любом текстовом редакторе или с помощью командной строки:
-
-{% list tabs %}
-
-- Windows (PowerShell)
-
-  ```
-  $domain="cluster.local"
-  $localdns="169.254.20.10"
-  $kubedns=(kubectl get svc kube-dns -n kube-system -o jsonpath="{.spec.clusterIP}")
-
-  ((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__LOCAL__DNS__',$localdns) | Set-Content -Path nodelocaldns.yaml
-  ((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__DNS__DOMAIN__',$domain) | Set-Content -Path nodelocaldns.yaml
-  ((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__DNS__SERVER__',$kubedns) | Set-Content -Path nodelocaldns.yaml
-  ```
-
-- Linux
-
-  ```bash
-  domain=cluster.local
-  localdns=169.254.20.10
-  kubedns=$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})
-
-  sed -i "s/__PILLAR__LOCAL__DNS__/$localdns/g; s/__PILLAR__DNS__DOMAIN__/$domain/g; s/__PILLAR__DNS__SERVER__/$kubedns/g" nodelocaldns.yaml
-  ```
-
-- macOS
-
-  ```bash
-  brew install gnu-sed
-
-  domain=cluster.local
-  localdns=169.254.20.10
-  kubedns=$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})
-
-  gsed -i "s/__PILLAR__LOCAL__DNS__/$localdns/g; s/__PILLAR__DNS__DOMAIN__/$domain/g; s/__PILLAR__DNS__SERVER__/$kubedns/g" nodelocaldns.yaml
-  ```
-
-{% endlist %}
-
-### Запустите NodeLocal DNS Cache {#startup}
-
-Для запуска NodeLocal DNS Cache используйте команду:
-
-```bash
-kubectl create -f nodelocaldns.yaml
-```
-
-Результат выполнения:
-
-```text
-serviceaccount/node-local-dns created
-service/kube-dns-upstream created
-configmap/node-local-dns created
-daemonset.apps/node-local-dns created
-service/node-local-dns created
-```
-
-Чтобы убедиться, что [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) развернут успешно, выполните команду:
-
-```bash
-kubectl get ds -l k8s-app=node-local-dns -n kube-system
-```
-
-Результат выполнения:
-
-```text
-NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
-node-local-dns  3        3        3      3           3          <none>         24m
-```
-
-### Измените конфигурацию NodeLocal DNS Cache {#configure}
-
-Чтобы изменить конфигурацию, отредактируйте соответствующий `configmap`. Например, чтобы включить логи DNS-запросов для зоны `cluster.local`, выполните следующие шаги:
-
+Чтобы изменить конфигурацию, отредактируйте соответствующий `configmap`. Например, чтобы включить логи DNS-запросов для зоны `cluster.local`.
 1. Выполните команду:
 
    ```bash
@@ -240,20 +346,20 @@ node-local-dns  3        3        3      3           3          <none>         2
    ...
    apiVersion: v1
    data:
-     Corefile: |
-       cluster.local:53 {
-         log
-         errors
-         cache {
-           success 9984 30
-           denial 9984 5
-         }
+   Corefile: |
+   cluster.local:53 {
+     log
+     errors
+     cache {
+       success 9984 30
+       denial 9984 5
+     }
    ...
    ```
 
 1. Сохраните изменения.
 
-   Результат выполнения:
+   Ожидаемый результат выполнения команды:
 
    ```text
    configmap/node-local-dns edited
@@ -261,7 +367,7 @@ node-local-dns  3        3        3      3           3          <none>         2
 
 Обновление конфигурации может занять несколько минут.
 
-### Выполните DNS-запросы {#dns-queries}
+## Выполните DNS-запросы {#dns-queries}
 
 Чтобы выполнить [тестовые запросы](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment), используйте под с утилитами диагностики DNS.
 
@@ -271,42 +377,46 @@ node-local-dns  3        3        3      3           3          <none>         2
    kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
    ```
 
-   Результат выполнения:
+   Ожидаемый результат выполнения команды:
 
    ```text
    pod/dnsutils created
    ```
 
-1. Убедитесь, что под в состоянии `Running`:
+1. Убедитесь, что под перешел в состояние `Running`:
 
    ```bash
    kubectl get pods dnsutils
    ```
 
-   Результат выполнения:
+   Ожидаемый результат выполнения команды:
 
    ```text
    NAME      READY  STATUS   RESTARTS  AGE
    dnsutils  1/1    Running  0         26m
    ```
 
-1. Подключитесь к поду и выполните запросы:
+1. Подключитесь к поду:
 
-   ```text
+   ```bash
    kubectl exec -i -t dnsutils -- sh
+   ```
 
-   # dig +short @169.254.20.10 www.com
-   # dig +short @10.96.128.2 example.com
-   # nslookup kubernetes.default
+1. Выполните запросы:
+
+   ```bash
+   dig +short @169.254.20.10 www.com
+   dig +short @10.96.128.2 example.com
+   nslookup kubernetes.default
    ```
 
    После запуска `node-local-dns` правила iptables настраиваются так, что по обоим адресам (10.96.128.2:53 и 169.254.20.10:53) отвечает [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack).
 
-   К `kube-dns` можно обращаться по новому адресу, `ClusterIp` сервиса `kube-dns-upstream`. Этот адрес может понадобиться, чтобы настроить forward (перенаправление) запросов.
+   К `kube-dns` можно обращаться по новому адресу, `ClusterIp` сервиса `kube-dns-upstream`. Этот адрес может понадобиться, чтобы настроить перенаправление (forwarding) запросов.
 
-   Результат выполнения:
+   Команды и результат их выполнения:
 
-   ```text
+   ```bash
    # dig +short @169.254.20.10 www.com
    52.128.23.153
    # dig +short @10.96.128.2 example.com
@@ -319,9 +429,9 @@ node-local-dns  3        3        3      3           3          <none>         2
    Address: 10.96.128.1
    ```
 
-### Проверьте логи {#check-logs}
+## Проверьте логи {#check-logs}
 
-Для проверки логов используйте команду:
+Выполните команду:
 
 ```bash
 kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
@@ -329,7 +439,7 @@ kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 
 Чтобы остановить вывод лога на экран, нажмите ___Ctrl + C___.
 
-Результат выполнения:
+Ожидаемый результат выполнения команды:
 
 ```text
 ...
@@ -338,15 +448,15 @@ kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 ...
 ```
 
-### Остановите DaemonSet {#stop-daemonset}
+## Остановите DaemonSet {#stop-daemonset}
 
-Чтобы выключить DaemonSet NodeLocal DNS Cache, выполните:
+Чтобы выключить DaemonSet NodeLocal DNS Cache, выполните команду:
 
 ```bash
-kubectl delete -f nodelocaldns.yaml
+kubectl delete -f node-local-dns.yaml
 ```
 
-Результат выполнения:
+Ожидаемый результат выполнения команды:
 
 ```text
 serviceaccount "node-local-dns" deleted
@@ -355,3 +465,9 @@ configmap "node-local-dns" deleted
 daemonset.apps "node-local-dns" deleted
 service "node-local-dns" deleted
 ```
+
+## Удалите созданные ресурсы {#clear-out}
+
+Если созданные ресурсы вам больше не нужны, удалите их:
+1. [Удалите кластер {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.

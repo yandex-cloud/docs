@@ -40,7 +40,7 @@ If the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-featu
 
 Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
-1. See the {{ CH }} [changelog](https://clickhouse.tech/docs/en/whats-new/changelog/) to check which updates might affect your apps.
+1. See the {{ CH }} [changelog](https://{{ ch-domain }}/docs/en/whats-new/changelog/) to check which updates might affect your apps.
 1. Try changing versions on a test cluster (you can try deploying it from a backup of the main cluster). Please note that when you deploy a cluster from a backup, only MergeTree engine tables are recovered.
 1. [Make a backup](cluster-backups.md#create-backup) of the main cluster before changing the version.
 

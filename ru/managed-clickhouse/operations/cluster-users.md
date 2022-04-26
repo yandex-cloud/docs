@@ -16,7 +16,7 @@
 * Существующие пользователи и настройки пользователей, созданные с помощью стандартных интерфейсов {{ yandex-cloud }}, будут сохранены.
 * Управление пользователями осуществляется с помощью учетной записи `admin`. Пароль для нее задается при выборе опции **Управление пользователями через SQL**.
 
-Подробнее об управлении пользователями через SQL см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/access-rights).
+Подробнее об управлении пользователями через SQL см. в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/operations/access-rights).
 
 ## Получить список пользователей {#list-users}
 
@@ -157,7 +157,7 @@
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-  Подробнее о создании пользователей см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/create/user/).
+  Подробнее о создании пользователей см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/user/).
 
 {% endlist %}
 
@@ -236,7 +236,7 @@
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-  Подробнее об изменении пользователей см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/).
+  Подробнее об изменении пользователей см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/user/).
 
 {% endlist %}
 
@@ -305,7 +305,7 @@
 
         {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-    Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/).
+    Подробнее см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/user/).
 
 - API
 
@@ -473,19 +473,19 @@
 - SQL
 
   1. [Подключитесь](connect.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
-  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT](https://clickhouse.tech/docs/ru/sql-reference/statements/grant/) и [REVOKE](https://clickhouse.tech/docs/ru/sql-reference/statements/revoke/). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
+  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT](https://{{ ch-domain }}/docs/ru/sql-reference/statements/grant/) и [REVOKE](https://{{ ch-domain }}/docs/ru/sql-reference/statements/revoke/). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
 
       ```sql
       GRANT SELECT ON <имя базы данных>.* TO <имя пользователя>;
       ```
 
-  1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement) и [DROP QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/drop/#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
+  1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement) и [DROP QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
 
       ```sql
       CREATE QUOTA <название квоты> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <имя пользователя>;
       ```
 
-  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/). Например для изменения [настроек {{ CH }}](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
+  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER](https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/user/). Например для изменения [настроек {{ CH }}](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
 
       ```sql
       ALTER USER <имя пользователя> SETTINGS <список настроек {{ CH }}>;
@@ -545,7 +545,7 @@
       DROP USER <имя пользователя>;
       ```
 
-  Подробнее об удалении объектов см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/drop/).
+  Подробнее об удалении объектов см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/).
 
 {% endlist %}
 

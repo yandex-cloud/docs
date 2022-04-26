@@ -9,10 +9,24 @@ _Функция `MAX` также доступна в следующих кате
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-MAX( value )
-```
+- Стандартный
+
+  ```
+  MAX( value )
+  ```
+
+- Расширенный
+
+  ```
+  MAX( value
+       [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 Возвращает максимальное значение.

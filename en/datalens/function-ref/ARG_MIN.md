@@ -9,10 +9,24 @@ sourcePath: en/_api-ref/datalens/function-ref/ARG_MIN.md
 
 #### Syntax {#syntax}
 
+{% list tabs %}
 
-```
-ARG_MIN( value, comp )
-```
+- Standard
+
+  ```
+  ARG_MIN( value, comp )
+  ```
+
+- Extended
+
+  ```
+  ARG_MIN( value, comp
+           [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+           [ BEFORE FILTER BY ... ]
+         )
+  ```
+
+{% endlist %}
 
 #### Description {#description}
 Returns `value` for the minimum value of `comp` in the group. If multiple values of `value` match the minimum value of `comp`, then the first one encountered is returned. This makes the function non-deterministic.

@@ -9,10 +9,25 @@ sourcePath: ru/_api-ref/datalens/function-ref/LAG.md
 
 #### Синтаксис {#syntax}
 
+{% list tabs %}
 
-```
-LAG( value [ , offset [ , default ] ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER BY ... ] )
-```
+- Стандартный
+
+  ```
+  LAG( value [ , offset [ , default ] ] )
+  ```
+
+- Расширенный
+
+  ```
+  LAG( value [ , offset [ , default ] ]
+       [ TOTAL | WITHIN ... | AMONG ... ]
+       [ ORDER BY ... ]
+       [ BEFORE FILTER BY ... ]
+     )
+  ```
+
+{% endlist %}
 
 #### Описание {#description}
 
