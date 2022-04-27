@@ -617,6 +617,8 @@
 
   {% endif %}
 
+  Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
+
 {% endlist %}
 
 ## Изменить группы безопасности {#change-sg-set}

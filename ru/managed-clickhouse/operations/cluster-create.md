@@ -132,6 +132,7 @@
        --user name=<имя пользователя>,password=<пароль пользователя> \
        --database name=<имя базы данных> \
        --security-group-ids <список идентификаторов групп безопасности> \
+       --yandexquery-access=<доступ через {{ yq-full-name }}: true или false> \
        --deletion-protection=<защита от удаления кластера: true или false>
      ```
 
@@ -151,6 +152,7 @@
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных> \
         --security-group-ids <список идентификаторов групп безопасности> \
+        --yandexquery-access=<доступ через {{ yq-full-name }}: true или false> \
         --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
@@ -350,6 +352,8 @@
   {% if audience != "internal" %}
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
   {% endif %}
+
+  Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 
   При создании кластера из нескольких хостов:
 
