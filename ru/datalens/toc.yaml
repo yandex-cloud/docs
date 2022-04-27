@@ -589,3 +589,6 @@ items:
   - name: История изменений
     href: release-notes.md
     when: audience == "draft"
+  - name: Релизы документации
+    when: audience == "internal"
+    href: docs-release-notes.md
