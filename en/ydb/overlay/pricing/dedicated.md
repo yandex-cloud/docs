@@ -37,7 +37,7 @@ The following is charged:
 
    {% note info %}
 
-   For each DB, Yandex Database automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
+   For each DB, {{ ydb-full-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
 
    {% endnote %}
 

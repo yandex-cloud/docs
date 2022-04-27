@@ -124,7 +124,7 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
-          - name: Создание подключения к Yandex Database
+          - name: Создание подключения к YDB
             href: operations/connection/create-ydb.md
           - name: Создание подключения к Greenplum
             href: operations/connection/create-greenplum.md

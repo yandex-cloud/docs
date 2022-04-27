@@ -24,7 +24,7 @@
 
 1. Установите и инициализируйте следующие программы:
     * [Yandex Cloud CLI](../cli/quickstart.md);
-    * [Yandex Database CLI]{% if audience == "external" %}(../ydb/quickstart/yql-api/ydb-cli.md){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart/yql-api/ydb-cli){% endif %};
+    * [{{ ydb-short-name }} CLI]{% if audience == "external" %}(../ydb/quickstart/yql-api/ydb-cli.md){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart/yql-api/ydb-cli){% endif %};
     * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/);
     * [AWS CLI](../storage/tools/aws-cli);
     * [jq](https://stedolan.github.io/jq/download/);
@@ -71,8 +71,8 @@ cp variables-template.json variables.json
 *  `folder-id` — идентификатор каталога в облаке.
 *  `domain` — служебный домен API-шлюза.
 *  `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс.OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
-*  `database` — база данных из конфигурации Yandex Database.
-*  `database-endpoint` — эндпойнт из конфигурации Yandex Database.
+*  `database` — база данных из конфигурации {{ ydb-name }}.
+*  `database-endpoint` — эндпойнт из конфигурации {{ ydb-name }}.
 *  `yc-profile` — [название профиля](../cli/operations/profile/profile-list.md) Yandex Cloud CLI.
 *  `secure-config-path` — путь к файлу секретов.
 *  `storage-bucket` — имя созданного бакета для хранения статических данных, `frontend-statics`.

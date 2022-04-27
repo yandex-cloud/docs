@@ -13,7 +13,7 @@ _Подключение_ содержит информацию о парамет
 - **Google Sheets**
 - **MS SQL Server**
 - **Oracle Database**
-- **Yandex Database**
+- **YDB**
 - **Greenplum**
 {% if audience == "internal" %} - **Prometheus** {% endif %}
 - **Metrica** (в режиме прямого доступа)

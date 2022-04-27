@@ -27,7 +27,7 @@ default:
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   iot-full-name: Yandex IoT Core
   sf-full-name: Yandex Cloud Functions
-  ydb-full-name: Yandex Database
+  ydb-full-name: Yandex Managed Service for YDB
   kms-full-name: Yandex Key Management Service
   interconnect-full-name: Yandex Cloud Interconnect
   cos-full-name: Yandex Container Optimized Solutions
@@ -61,7 +61,7 @@ default:
   managed-k8s-name: Managed Service for Kubernetes
   iot-name: Yandex IoT Core
   sf-name: Cloud Functions
-  ydb-name: Yandex Database
+  ydb-name: Managed Service for YDB
   kms-name: Key Management Service
   interconnect-name: Cloud Interconnect
   cos-name: Container Optimized Solutions

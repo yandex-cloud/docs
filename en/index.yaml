@@ -193,7 +193,7 @@ links:
     description: Cloud-based network management
     href: vpc/
     when: audience == "external"
-  - title: Yandex Database
+  - title: Yandex Managed Service for YDB
     description: Fault-tolerant distributed NewSQL DBMS
     href: ydb/
     when: audience == "external"

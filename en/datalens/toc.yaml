@@ -99,7 +99,7 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Creating an Oracle Database connection
             href: operations/connection/create-oracle.md
-          - name: Creating a Yandex Database connection
+          - name: Creating a YDB connection
             href: operations/connection/create-ydb.md
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md

@@ -1,14 +1,14 @@
-title: Yandex Database
+title: Yandex Managed Service for YDB
 description:
   - >-
-    <i>Yandex Database</i> (YDB) — это распределённая отказоустойчивая Distributed SQL СУБД.
+    <i>YDB</i> — это распределенная отказоустойчивая Distributed SQL СУБД.
     YDB обеспечивает высокую доступность, горизонтальную масштабируемость, а также строгую консистентность и поддержку ACID-транзакций.
     Для запросов используется диалект SQL (<a
     href="yql/reference/overview">YQL</a>).
 nav:
-  title: Yandex Database
+  title: Yandex Managed Service for YDB
 meta:
-  title: Yandex Database
+  title: Yandex Managed Service for YDB
 links:
   - title: Начало работы
     description: Создание базы данных, подключение, настройка доступа, простейшие операции

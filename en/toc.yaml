@@ -140,6 +140,6 @@ items:
   - name: Virtual Private Cloud
     href: vpc/index.yaml
     when: audience == "external"
-  - name: Yandex Database
+  - name: Managed Service for YDB
     href: ydb/index.yaml
     when: audience == "external"

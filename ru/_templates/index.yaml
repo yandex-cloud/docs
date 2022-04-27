@@ -1,14 +1,14 @@
 <!-- Полное имя сервиса -->
-title: Yandex Database
+title: Managed Service for YDB
 description:
 <!-- Находится ли в Preview?
-- "<em>Сервис Yandex Database находится на стадии <a href=\"/docs/overview/concepts/launch-stages\">Preview</a>.</em>"
+- "<em>Сервис Yandex Managed Service for YDB находится на стадии <a href=\"/docs/overview/concepts/launch-stages\">Preview</a>.</em>"
 -->
 <!-- Вводный абзац
  — Что из себя представляет сервис? Для чего он нужен?
  — Это отдельный сервис, или дополнительная функциональность для существующего сервиса?
  -->
-- "<em>Yandex Database</em> (YDB) — это распределённая отказоустойчивая Distributed SQL СУБД. YDB обеспечивает высокую доступность и масштабируемость, и, в то же время, строгую консистентность и поддержку ACID-транзакций."
+- "<em>YDB</em> — это распределённая отказоустойчивая Distributed SQL СУБД. YDB обеспечивает высокую доступность и масштабируемость, и, в то же время, строгую консистентность и поддержку ACID-транзакций."
 <!-- Юзкейсы
  — Описание 2-4 задач (use-cases), которые сервис позволяет решить.
 -->
@@ -33,7 +33,7 @@ description:
 - "Для сервиса действует <a href=\"https://yandex.ru/legal/cloud_sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://yandex.ru/legal/cloud_sla_storage\">Уровень обслуживания Yandex Object Storage</a>."
 -->
 meta:
- title: "Yandex Database"
+ title: "Yandex Managed Service for YDB"
 links:
  - title: "Начало работы"
    description: "Создайте первую базу и выполните простейшие операции с ней"
