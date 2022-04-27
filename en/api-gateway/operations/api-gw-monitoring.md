@@ -11,23 +11,28 @@ The chart update period is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
-1. In the [management console]({{ link-console-main }}), go to the folder where the API gateway is located.
-1. Open **{{ api-gw-name }}**.
-1. Select the API gateway whose monitoring charts you want to view.
-1. Go to the **Monitoring** tab.
-1. The following charts open on the page:
+{% list tabs %}
 
-    * **Requests**: The number of API gateway requests.
-     
-	    ![image](../../_assets/api-gateway/requests.png)
+- Management console
 
-    * **Errors**: The number of API gateway access errors.
-     
-	    ![image](../../_assets/api-gateway/errors.png)
+   1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
+   1. Open **{{ api-gw-name }}**.
+   1. Select the API gateway whose monitoring charts you want to view.
+   1. Go to the **Monitoring** tab.
+   1. The following charts open on the page:
 
-    * **Latency**: Amount of time its takes for an API gateway request to run.
-     
-	    ![image](../../_assets/api-gateway/latency.png)
+      * **Requests**: The number of API gateway requests.
 
-    You can select the time interval to display information for: hour, day, week, month, or a custom interval.
+         ![image](../../_assets/api-gateway/requests.png)
 
+      * **Errors**: The number of API gateway access errors.
+
+         ![image](../../_assets/api-gateway/errors.png)
+
+      * **Latency**: Amount of time its takes for an API gateway request to run.
+
+         ![image](../../_assets/api-gateway/latency.png)
+
+      You can select a time period to display information for on a graph, such as an hour, three hours, a day, a week, a month, or a custom interval.
+
+{% endlist %}
