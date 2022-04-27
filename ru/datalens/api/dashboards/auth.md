@@ -2,18 +2,10 @@
 
 Сервис поддерживает аутентификацию следующими способами:
   - Domain Cookie
-  - OAuth токен
-    - если у вас нет OAuth токена, то вы можете получить его по [этой](https://oauth.yandex-team.ru/authorize?response_type=token&client_id=09cea1cc285845b7b4dc3f409fcacad9) ссылке
+  - OAuth-токен
+    
 
-Далее в описаниях примеров работы API будет использоваться заголовок авторизации вида:
-```bash
--H "Authorization: OAuth $CHARTS_OAUTH_TOKEN"
-```
-Для корректной работы примеров необходимо выполнить в терминале следующее:
-```bash
-export CHARTS_OAUTH_TOKEN=AQAD-qKSJyAIABAKs8yk1fuH1kIdr1H5k_ccXDX
-```
-где после `=` нужно подставить OAuth токен, полученный по ссылке выше.
+{% include [datalens-api-oath](../../../_includes/datalens/internal/oauth.md) %}
 
 ### Пример (cURL, используя строку path) {#example-string-path}
 

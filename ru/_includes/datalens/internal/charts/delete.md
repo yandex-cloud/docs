@@ -1,6 +1,6 @@
 ## Удаление {#delete}
 
-[Аутентификация](../../../../datalens/api/auth.md) • [Идентификация](../../../../datalens/api/identification.md)
+[Аутентификация](../../../../datalens/api/dashboards/auth.md) • [Идентификация](../../../../datalens/api/dashboards/identification.md)
 
 `DELETE` `https://api.charts.yandex.net/v1/charts/<id>`
 

@@ -1,4 +1,4 @@
-# API чартов
+# Чарты ChartEditor
 
 {% include [include](../../../_includes/datalens/internal/charts/intro.md) %}
 

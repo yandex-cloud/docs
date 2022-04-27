@@ -402,24 +402,58 @@ items:
         href: api/index.md
       - name: TLS/SSL сертификат
         href: api/certificate.md
-      - name: Аутентификация
-        href: api/auth.md
-      - name: Идентификация
-        href: api/identification.md
-      - name: Данные
-        href: api/data.md
-      - name: Скриншоты
-        href: api/scr.md
-      - name: Комментарии
-        href: api/comments/index.md
-      - name: Дашборды
+      - name: API Воркбуков β
         items:
-          - name: Обзор
-            href: api/dash/index.md
-          - name: Схема
-            href: api/dash/scheme.md
-      - name: Чарты
-        href: api/charts/index.md
+          - name: Аутентификация
+            href: api/workbooks/auth.md
+          - name: Workbooks
+            href: api/workbooks/index.md
+          - name: CalcSpec
+            href: api/workbooks/CalcSpec.md
+          - name: ChartFieldSource
+            href: api/workbooks/ChartFieldSource.md
+          - name: Chart
+            href: api/workbooks/Chart.md
+          - name: Connection
+            href: api/workbooks/Connection.md
+          - name: ControlValueSource
+            href: api/workbooks/ControlValueSource.md
+          - name: Dashboard
+            href: api/workbooks/Dashboard.md
+          - name: DashElement
+            href: api/workbooks/DashElement.md
+          - name: Dataset
+            href: api/workbooks/Dataset.md
+          - name: DataSourceSpec
+            href: api/workbooks/DataSourceSpec.md
+          - name: EntryRef
+            href: api/workbooks/EntryRef.md
+          - name: Secret
+            href: api/workbooks/Secret.md
+          - name: Value
+            href: api/workbooks/Value.md
+          - name: Visualization
+            href: api/workbooks/Visualization.md
+      - name: API Дашбордов
+        items:
+          - name: Аутентификация
+            href: api/dashboards/auth.md
+          - name: Идентификация
+            href: api/dashboards/identification.md
+          - name: Дашборды (deprecated)
+            items:
+              - name: Обзор
+                href: api/dashboards/dash/index.md
+              - name: Схема
+                href: api/dashboards/dash/scheme.md
+          - name: Данные
+            href: api/dashboards/data.md
+          - name: Скриншоты
+            href: api/dashboards/scr.md
+          - name: Комментарии
+            href: api/dashboards/comments/index.md
+          - name: Чарты ChartEditor
+            href: api/dashboards/charts.md
   - name: Charts PDF
     when: audience == "internal"
     items:

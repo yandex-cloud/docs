@@ -1,6 +1,6 @@
 ## Чтение {#read}
 
-[Аутентификация](../../../../datalens/api/auth.md) • [Идентификация](../../../../datalens/api/identification.md)
+[Аутентификация](../../../../datalens/api/dashboards/auth.md) • [Идентификация](../../../../datalens/api/dashboards/identification.md)
 
 
 - `GET` `https://api.charts.yandex.net/v1/charts/<id>`
