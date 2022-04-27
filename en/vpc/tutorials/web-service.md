@@ -76,7 +76,7 @@ To provide secure access to your resources, create an IPSec instance.
 
 - Management console
     1. In the [management console]({{ link-console-main }}), open your folder and click **Create resource**. Select **Virtual machine**.
-    1. Enter the VM name: `vpc`.
+    1. Enter the VM name: `vpn`.
     1. Select the `ru-central1-a` availability zone.
     1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the [IPSec instance]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e70ohdvsd0jgp2302j){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e70ohdvsd0jgp2302j){% endif %} image.
     1. Under **Network settings**, select `subnet-a`. Under **Public address**, select a reserved IP address from the list.
