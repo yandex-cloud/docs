@@ -45,7 +45,7 @@ items:
                 href: operations/endpoint/target/object-storage.md
               - name: PostgreSQL
                 href: operations/endpoint/target/postgresql.md
-              - name: Yandex Database
+              - name: YDB
                 href: operations/endpoint/target/yandex-database.md
       - name: Управление трансфером
         href: operations/transfer.md

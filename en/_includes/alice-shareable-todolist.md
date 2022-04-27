@@ -22,7 +22,7 @@ To deploy a project:
 
 1. Install and initialize the following software programs:
     * [Yandex Cloud CLI](../cli/quickstart.md).
-    * [Yandex Database CLI](../ydb/quickstart/yql-api/ydb-cli.md);
+    * [{{ ydb-short-name }} CLI](../ydb/quickstart/yql-api/ydb-cli.md);
     * [Bash command interpreter](http://www.gnu.org/software/bash/).
     * [AWS CLI](../storage/tools/aws-cli).
     * [jq](https://stedolan.github.io/jq/download/).
@@ -77,8 +77,8 @@ Set the project parameters in the `variables.json` file:
 * `folder-id`: ID of the cloud folder.
 * `domain`: API gateway service domain.
 * `oauth-client-id`: ID of the client app registered in [Yandex.OAuth](https://oauth.yandex.ru/).
-* `database`: DB from the Yandex Database configuration.
-* `database-endpoint`: Endpoint from the Yandex Database configuration.
+* `database`: DB from the {{ ydb-name }} configuration.
+* `database-endpoint`: Endpoint from the {{ ydb-name }} configuration.
 * `yc-profile`: Yandex Cloud CLI [profile name](../cli/operations/profile/profile-list.md).
 * `secure-config-path`: Path to the secret file.
 * `storage-bucket`: Name of the bucket you created for storing static data, `frontend-statics`.

@@ -127,9 +127,30 @@
   150 × <количество vCPU на одном хосте> + 400
   ```
 
-  Например, для кластера [класса s2.small](../../managed-postgresql/concepts/instance-types.md) vCPU равно `4` и значение настройки по умолчанию `150 × 4 + 400 = 1000`, а для кластера класса m2.medium (`vCPU = 6`) — `150 × 6 + 400 = 1300`.
+  Пример:
+
+  Класс хоста | vCPU | Значение по умолчанию
+  ---|----|-----
+  s2.small | 4 | `150 × 4 + 400 = 1000`
+  m2.medium| 6 | `150 × 6 + 400 = 1300`
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT).
+
+- **Autovacuum vacuum insert scale factor**{#setting-autovacuum-vacuum-insert-scale-factor} {{ tag-all }}
+
+  Доля от размера таблицы, добавляемая к величине настройки [Autovacuum vacuum insert threshold](#setting-autovacuum-vacuum-insert-threshold), по достижении которой запустится [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
+
+  Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.2`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-SCALE-FACTOR).
+
+- **Autovacuum vacuum insert threshold**{#setting-autovacuum-vacuum-insert-threshold} {{ tag-all }}
+
+  Задает количество строк, вставка которых в любую таблицу запустит [процесс автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
+
+  Минимальное значение — `-1` (настройка не применяется), максимальное значение — `2147483647`, по умолчанию — `1000`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
 
 - **Autovacuum vacuum scale factor**{#setting-autovacuum-vacuum-scale-factor} {{ tag-all }}
 
@@ -197,7 +218,7 @@
 - **Bgwriter lru multiplier**{#setting-bgwriter-lru-multiplier} {{ tag-all }}
 
   Множитель, на который при следующем запуске будет увеличено среднее число буферов, сохраняемых процессом фоновой записи.
-  
+
   Минимальное значение — `0`, максимальное значение — `10`, по умолчанию — `2`.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER).
@@ -219,7 +240,7 @@
 
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.5`.
 
-  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/wal-configuration.html)
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/wal-configuration.html).
 
 - **Checkpoint flush after**{#setting-checkpoint-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
@@ -227,7 +248,7 @@
 
   Минимальное значение — `0`, максимальное значение — `2048`, по умолчанию — `256`.
 
-  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER)
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER).
 
 - **Checkpoint timeout**{#setting-checkpoint-timeout} {{ tag-all }}
 
@@ -236,6 +257,14 @@
   Минимальное значение — `30000`, максимальное значение — `86400000`, по умолчанию — `300000`.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
+
+- **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-sql }}
+
+  Период времени между проверками клиентских соединений при выполнении запросов (в миллисекундах). Проверка опрашивает сокет сервера для подключения и прерывает длительные запросы, если обнаруживает, что соединение закрыто. Функциональность поддерживается {{ PG }} начиная с версии 14.
+
+  Минимальное значение — `0` (проверка не выполняется), максимальное значение — `2147483647`. По умолчанию установлено минимальное значение.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
 
 - **Client min messages**{#setting-client-min-messages} {{ tag-all }}
 
@@ -300,7 +329,7 @@
 
   Подробнее об уровнях изоляции см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/transaction-iso.html).
 
-  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Default transaction read only**{#setting-default-transaction-read-only} {{ tag-all }}
 
@@ -339,6 +368,14 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
 
+- **Enable async append**{#setting-enable-async-append} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-sql }}
+
+  Разрешает планировщику учитывать асинхронное выполнение плана запроса на разных хостах при добавлении данных из внешних источников. Функциональность поддерживается {{ PG }} начиная с версии 14.
+
+  По умолчанию настройка включена.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
+
 - **Enable bitmapscan**{#setting-enable-bitmapscan} {{ tag-all }}
 
   Разрешает планировщику сканировать битовую карту индекса при просмотре таблиц, даже если это явно не указано в запросе. Этот способ доступа похож на обычный индексный доступ, но происходит в два этапа:
@@ -346,14 +383,22 @@
   1. Сканируется индекс (Bitmap Index Scan) и строится битовая карта, в которой отмечаются те строки, которые должны быть прочитаны в запросе.
   1. Выполняется сканирование таблицы (Bitmap Heap Scan). При этом:
 
-    - страницы читаются последовательно (увеличивается шанс воспользоваться кешем ОС);
-    - каждая страница просматривается только один раз.
+     - страницы читаются последовательно (увеличивается шанс воспользоваться кешем ОС);
+     - каждая страница просматривается только один раз.
 
   Настройка эффективна при повторных запросах к таблицам.
 
   По умолчанию настройка включена.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
+
+- **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }} {{ tag-sql }}
+
+  Разрешает планировщику использовать узел Gather Merge для слияния с сохранением порядка результатов выполнения запросов в параллельном плане запроса. Функциональность поддерживается {{ PG }} начиная с версии 14.
+
+  По умолчанию настройка включена.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
 
 - **Enable hashagg**{#setting-enable-hashagg} {{ tag-all }}
 
@@ -370,6 +415,14 @@
   По умолчанию настройка включена.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHJOIN).
+
+- **Enable incremental sort**{#setting-enable-incremental-sort} {{ tag-all }}
+
+  Разрешает планировщику использование инкрементной сортировки. Такой способ сортировки позволяет уменьшить время выполнения запроса и объем требуемой оперативной памяти, если необходимо упорядочить строки по нескольким столбцам, и по одному или нескольким из них сортировка уже выполнена. Функциональность поддерживается {{ PG }} начиная с версии 13.
+
+  По умолчанию настройка включена.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
 
 - **Enable indexonlyscan**{#setting-enable-indexonlyscan} {{ tag-all }}
 
@@ -567,7 +620,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
 
-  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Log checkpoints**{#setting-log-checkpoints} {{ tag-all }}
 
@@ -621,7 +674,7 @@
 
 - **Log min duration sample**{#setting-log-min-duration-sample} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Настройка работает также, как [Log min duration statement](#setting-log-min-duration-statement), но применяется только к командам, указанным в параметре [Log statement sample rate](#setting-log-statement-sample-rate).
+  Настройка работает так же, как [Log min duration statement](#setting-log-min-duration-statement), но применяется только к командам, указанным в параметре [Log statement sample rate](#setting-log-statement-sample-rate).
 
   При значении `0` логируется время работы всех указанных команд.
 
@@ -639,7 +692,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT).
 
-  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Log min error statement**{#setting-log-min-error-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
@@ -661,6 +714,34 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES).
 
+- **Log parameter max length**{#setting-log-parameter-max-length} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
+
+  Сокращает до указанного количества байтов значение каждого привязанного SQL-параметра, которые выводятся вместе с SQL-операторами при логировании всех сообщений, кроме сообщений об ошибках.
+
+  При значении `0` логирование отключено.
+
+  Минимальное значение — `-1` (значения параметров логируются полностью), максимальное значение — `1073741823`. По умолчанию установлено минимальное значение.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
+
+- **Log parameter max length on error**{#setting-log-parameter-max-length} {{ tag-all }}
+
+  Сокращает до указанного количества байтов значение каждого привязанного SQL-параметра, которые выводятся вместе с SQL-операторами при логировании сообщений об ошибках.
+
+  При значении `0` логирование отключено.
+
+  Минимальное значение — `-1` (значения параметров логируются полностью), максимальное значение — `1073741823`. По умолчанию установлено минимальное значение.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
+
+- **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+
+  Управляет логированием длительных ожиданий конфликтов восстановления при чтении WAL для продолжения репликации. При включенной настройке в логе создается запись, когда в сессии {{ PG }} время ожидания разрешения конфликтов восстановления превышает значение настройки [Deadlock timeout](#setting-deadlock-timeout). Функциональность поддерживается {{ PG }} начиная с версии 14.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
+
 - **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   Фильтр команд SQL, которые должны записываться в лог {{ PG }}:
@@ -674,7 +755,7 @@
 
   Подробнее см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Log statement sample rate**{#setting-log-statement-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -699,6 +780,22 @@
   Минимальное значение — `0.0`, максимальное значение — `1.0`, по умолчанию — `0.0`.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
+
+- **Logical decoding work mem**{#setting-logical-decoding-work-mem} {{ tag-all }}
+
+  Максимальный объем памяти (в байтах), выделяемый для [логического декодирования](https://www.postgresql.org/docs/current/logicaldecoding.html) перед записью на локальный диск. Настройка ограничивает объем памяти, используемый в соединении для логической репликации.
+
+  Минимальное значение — `65536` (64 КБ), максимальное значение — `1099511627776` (1 ТБ), по умолчанию – `67108864` (64 МБ).
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
+
+- **Maintenance io concurrency**{#setting-maintenance-io-concurrency} {{ tag-all }}
+
+  Максимальное число параллельных операций дискового ввода-вывода при обслуживании {{ PG }} командами `VACUUM`, `CREATE INDEX` и `ALTER TABLE ADD FOREIGN KEY`, в отдельной сессии работы с БД. Чем больше это число, тем больше команд обслуживания {{ PG }} будет пытаться выполнить параллельно в отдельной сессии.
+
+  Минимальное значение — `0`, максимальное значение — `1000`, по умолчанию — `10`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
 
 - **Maintenance work mem**{#setting-maintenance-work-mem} {{ tag-all }}
 
@@ -730,6 +827,14 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION).
 
+- **Max logical replication workers**{#setting-max-logical-replication-workers} {{ tag-con }}
+
+  Максимальное число работающих процессов логической репликации {{ PG }}.
+
+  Минимальное значение — `4`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS).
+
 - **Max parallel maintenance workers**{#setting-max-parallel-maintenance-workers} {{ tag-all }}
 
   Максимальное число параллельно работающих процессов {{ PG }}, инициированных одной служебной командой (например, `CREATE INDEX`).
@@ -756,7 +861,7 @@
 
 - **Max pred locks per transaction**{#setting-max-pred-locks-transaction} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Среднее количество объектов, которые могут быть заблокированы [предикатными блокировками](https://www.postgresql.org/docs/13/transaction-iso.html#XACT-SERIALIZABLE) за одну транзакцию. Отдельные транзакции могут блокировать больше объектов, чем здесь указано, если общее количество объектов, заблокированных всеми транзакциями, помещается в таблицу блокировок.
+  Среднее количество объектов, которые могут быть заблокированы [предикатными блокировками](https://www.postgresql.org/docs/current/transaction-iso.html#XACT-SERIALIZABLE) за одну транзакцию. Отдельные транзакции могут блокировать больше объектов, чем указано в настройке, если общее количество объектов, заблокированных всеми транзакциями, помещается в таблицу блокировок.
 
   Минимальное значение — `10`, максимальное значение — `2147483647` (2 ГБ), по умолчанию — `64`.
 
@@ -769,6 +874,14 @@
   Минимальное значение — `0`, максимальное значение — `262143`, по умолчанию — `0`.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
+
+- **Max replication slots**{#setting-max-replication-slots} {{ tag-con }}
+
+  Максимальное число [слотов репликации](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS). Слоты репликации автоматически обеспечивают механизм сохранения файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log), пока они не будут получены всеми репликами.
+
+  Минимальное значение — `20`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
 
 - **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
@@ -785,6 +898,14 @@
   Минимальное значение — `-1`, максимальное значение — `2147483647` (2 ГБ), по умолчанию — `30000`.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY).
+
+- **Max wal senders**{#setting-max-wal-senders} {{ tag-con }}
+
+  Максимальное число параллельных соединений от хостов-источников потока репликации.
+
+  Минимальное значение — `20`, максимальное значение — `100`. По умолчанию установлено минимальное значение.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
 
 - **Max wal size**{#setting-max-wal-size} {{ tag-all }}
 
@@ -824,7 +945,7 @@
 
 - **Operator precedence warning**{#setting-operator-precedence-warning} {{ tag-all }}
 
-  Разрешает анализатору запроса выдавать предупреждение для всех конструкций, которые поменяли поведение после версии 9.4 в результате изменения приоритетов команд.
+  Разрешает анализатору запроса выдавать предупреждение для всех конструкций, которые поменяли поведение после версии 9.4 в результате изменения приоритетов команд. Функциональность не поддерживается {{ PG }} начиная с версии 14.
 
   По умолчанию настройка выключена.
 
@@ -853,14 +974,14 @@
 
 - **Pg hint plan enable hint table**{#setting-pg-hint-plan-enable-hint-table} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Включает использование таблицы `hint_plan.hints`. Она содержит «указания» для модуля `pg_hint_plan` и применяется, если нет возможности редактировать запросы. Таблица содержит столбцы:
+  Включает использование таблицы `hint_plan.hints`. Она содержит <q>указания</q> для модуля `pg_hint_plan` и применяется, если нет возможности редактировать запросы. Таблица содержит столбцы:
 
   - `id` — уникальный номер строки с <q>указанием</q>. Этот столбец заполняется автоматически.
   - `norm_query_string` — шаблон для выбора запросов, к которым будет относиться <q>указание</q>. Вместо констант используйте символ `?`. Пробельные символы в шаблоне являются значимыми.
   - `application_name` — приложение-инициатор сессий, в которых будет действовать <q>указание</q>.
   - `hint` — <q>указания</q> без обрамляющей разметки комментариев.
 
-- **Pg hint plan message level**{#setting-pghint-plan-message} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+- **Pg hint plan message level**{#setting-pg-hint-plan-message} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Уровень отладочных сообщений модуля `pg_hint_plan`, которые будут попадать в лог {{ PG }}. Действует при включенной настройке [Pg hint plan enable hint](#setting-pg-hint-plan-enable). Возможные значения:
 
@@ -870,6 +991,38 @@
   - `info` (по умолчанию);
   - `log`;
   - `debug`.
+
+- **Pg qualstats enabled**{#setting-pg-qualstats-enabled} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+
+  Включает использование модуля `pg_qualstats` для сбора статистики по предикатам в операторах `WHERE` и блоках `JOIN`. Применяется для анализа наиболее часто вычисляемых предикатов запросов.
+
+- **Pg qualstats max**{#setting-pg-qualstats-max} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+
+  Максимальное число отслеживаемых предикатов для модуля `pg_qualstats`. Действует при включенной настройке [Pg qualstats enabled](#setting-pg-qualstats-enabled).
+
+  Минимальное значение — `100`, максимальное значение — `2147483647`, по умолчанию — `1000`.
+
+- **Pg qualstats resolve oids**{#setting-pg-qualstats-resolve-oids} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+
+  Включает восстановление имен таблиц по идентификатору `OID` в процессе сбора статистики запроса для модуля `pg_qualstats`. Настройка облегчает анализ данных, но требует больше дискового пространства для хранения статистики. Действует при включенной настройке [Pg qualstats enabled](#setting-pg-qualstats-enabled).
+
+  По умолчанию настройка выключена.
+
+- **Pg qualstats sample rate**{#setting-pg-qualstats-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+
+  Доля запросов (число от 0 до 1), для которых выполняется сбор статистики модулем `pg_qualstats`. Действует при включенной настройке [Pg qualstats enabled](#setting-pg-qualstats-enabled). Особые значения настройки:
+
+  - `0` — отключает настройку;
+  - `1` — анализируются все запросы;
+  - `-1` — автоматический режим, доля запросов обратна к значению настройки [Max connections](#setting-max-connections) и [зависит от выбранного класса хостов](#settings-instance-dependent).
+
+  По умолчанию используется значение `-1`.
+
+- **Pg qualstats track constants**{#setting-pg-qualstats-track-constants} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+
+  Включает отслеживание уже встреченных предикатов в последующих запросах при сборе статистики модулем `pg_qualstats`. Действует при включенной настройке [Pg qualstats enabled](#setting-pg-qualstats-enabled).
+
+  По умолчанию настройка включена.
 
 - **Plan cache mode**{#setting-plan-cache-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
@@ -939,7 +1092,7 @@
 
 - **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-  Разделенные запятыми имена библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Библиотеки требуются для работы некоторых [расширений {{ PG }}](../../managed-postgresql/operations/cluster-extensions.md).
+  Разделенные запятыми имена библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Библиотеки требуются для работы некоторых [расширений {{ PG }}](../../../managed-postgresql/operations/cluster-extensions.md).
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 
@@ -983,7 +1136,7 @@
 
   Подробнее см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
-  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Temp buffers**{#setting-temp-buffers} {{ tag-all }}
 
@@ -1003,7 +1156,7 @@
 
   Подробнее см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT).
 
-  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  Настройка действует на уровне кластера {{ mpg-name }}, но ее можно [переопределить на уровне пользователя](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Timezone**{#setting-timezone} {{ tag-all }}
 
@@ -1031,7 +1184,7 @@
 
 - **Vacuum cleanup index scale factor**{#setting-vacuum-index-scale-factor} {{ tag-all }}
 
-  Доля кортежей в индексе, попавших в предыдущий срез статистики. При выполнении операции `VACUUM` статистика индекса считается устаревшей, если отношение числа кортежей, добавляемых в индекс, к текущему числу кортежей в индексе превышает указанную долю. В этом случае будет выполнено новое сканирование индекса.
+  Доля кортежей в индексе, попавших в предыдущий срез статистики. При выполнении операции `VACUUM` статистика индекса считается устаревшей, если отношение числа кортежей, добавляемых в индекс, к текущему числу кортежей в индексе превышает указанную долю. В этом случае будет выполнено новое сканирование индекса. Функциональность не поддерживается {{ PG }} начиная с версии 14.
 
   Минимальное значение — `0.0`, максимальное значение — `10000000000.0`, по умолчанию — `0.1`.
 
@@ -1077,9 +1230,25 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
 
+- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }} {{ tag-sql }}
+
+  Максимальный возраст <q>замороженной</q> (уже завершенной) транзакции, измеряемый в количестве транзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика транзакций. Функциональность поддерживается {{ PG }} начиная с версии 14.
+
+  Минимальное значение — `0`, максимальное значение — `2100000000`, по умолчанию — `1600000000`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
+
+- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }} {{ tag-sql }}
+
+  Максимальный возраст замороженной (уже завершенной) [мультитранзакции](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND), измеряемый в количестве мультитранзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика мультитранзакций. Функциональность поддерживается {{ PG }} начиная с версии 14.
+
+  Минимальное значение — `0`, максимальное значение — `2100000000`, по умолчанию — `1600000000`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
+
 - **Wal keep size**{#setting-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
-  Минимальный размер устаревших сегментов лога (в байтах), сохраняемых в папке [WAL](https://www.postgresql.org/docs/current/wal-intro.html), чтобы при необходимости [реплики](../../managed-postgresql/concepts/replication.md#replication) могли их загрузить.
+  Минимальный размер устаревших сегментов лога (в байтах), сохраняемых в папке [WAL](https://www.postgresql.org/docs/current/wal-intro.html), чтобы при необходимости [реплики](../../../managed-postgresql/concepts/replication.md#replication) могли их загрузить.
 
   Минимальное значение — `0` (прошлые фрагменты не сохраняются для репликации), максимальное значение — `2251799812636672` (2 ТБ), по умолчанию — `0`.
 

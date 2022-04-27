@@ -53,6 +53,10 @@ curl https://api.cloud.yandex.net/endpoints
    "address": "data.certificate-manager.api.cloud.yandex.net:443"
   },
   {
+   "id": "clouddesktops",
+   "address": "clouddesktops.api.cloud.yandex.net:443"
+  },
+  {
    "id": "compute",
    "address": "compute.api.cloud.yandex.net:443"
   },
@@ -213,6 +217,10 @@ curl https://api.cloud.yandex.net/endpoints
    "address": "mdbproxy.api.cloud.yandex.net:443"
   },
   {
+   "id": "monitoring",
+   "address": "monitoring.api.cloud.yandex.net:443"
+  },
+  {
    "id": "operation",
    "address": "operation.api.cloud.yandex.net:443"
   },
@@ -255,6 +263,10 @@ curl https://api.cloud.yandex.net/endpoints
   {
    "id": "storage",
    "address": "storage.yandexcloud.net:443"
+  },
+  {
+   "id": "storage-api",
+   "address": "storage.api.cloud.yandex.net:443"
   },
   {
    "id": "vpc",

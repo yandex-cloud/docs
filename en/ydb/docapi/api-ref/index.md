@@ -1,6 +1,6 @@
 ---
-title: Methods of working with Yandex Database HTTP API
-description: "The Yandex Database HTTP API provides the following methods of operation. Working with tables (Create Table, DeleteTable, DescripeTable, ListTables). Working with elements (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
+title: Methods of working with Yandex Managed Service for YDB HTTP API
+description: "The Yandex Managed Service for YDB HTTP API provides the following methods of operation. Working with tables (Create Table, DeleteTable, DescripeTable, ListTables). Working with elements (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
 sourcePath: en/ydb/overlay/docapi/api-ref/index.md
 ---
 

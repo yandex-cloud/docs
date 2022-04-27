@@ -3,6 +3,7 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-ticket.md
 ---
 # Импортировать задачу
 
+
 {% note warning %}
  
 Запрос может быть выполнен только от имени [администратора](../../role-model.md).

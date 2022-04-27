@@ -21,7 +21,7 @@
 
 1. Установите и инициализируйте следующие программы:
     * [Yandex Cloud CLI](../cli/quickstart.md);
-    * [Yandex Database CLI](../ydb/quickstart/yql-api/ydb-cli.md);
+    * [{{ ydb-short-name }} CLI](../ydb/quickstart/yql-api/ydb-cli.md);
     * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/);
     * [AWS CLI](../storage/tools/aws-cli);
     * [jq](https://stedolan.github.io/jq/download/);
@@ -68,8 +68,8 @@ cp variables-template.json variables.json
 *  `folder-id` — идентификатор каталога в облаке.
 *  `domain` — служебный домен API-шлюза.
 *  `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс.OAuth](https://oauth.yandex.ru/).
-*  `database` — база данных из конфигурации Yandex Database.
-*  `database-endpoint` — эндпойнт из конфигурации Yandex Database.
+*  `database` — база данных из конфигурации {{ ydb-name }}.
+*  `database-endpoint` — эндпойнт из конфигурации {{ ydb-name }}.
 *  `yc-profile` — [название профиля](../cli/operations/profile/profile-list.md) Yandex Cloud CLI.
 *  `secure-config-path` — путь к файлу секретов.
 *  `storage-bucket` — имя созданного бакета для хранения статических данных, `frontend-statics`.

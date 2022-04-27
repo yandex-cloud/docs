@@ -105,6 +105,6 @@ items:
     href: vpc/index.yaml
   - name: Wiki
     href: wiki/index.yaml
-  - name: Yandex Database
+  - name: Managed Service for YDB
     href: ydb/index.yaml
 base: ru

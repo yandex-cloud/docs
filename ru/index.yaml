@@ -153,6 +153,6 @@ links:
   - title: Virtual Private Cloud
     description: Управление сетями в облаке
     href: vpc/
-  - title: Yandex Database
+  - title: Yandex Managed Service for YDB
     description: Распределенная отказоустойчивая NewSQL СУБД
     href: ydb/
