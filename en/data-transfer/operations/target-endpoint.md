@@ -193,7 +193,7 @@ Additional settings:
 
 * **Subfolder to place tables**: Specify a [subfolder](../../ydb/concepts/databases.md#directory) to place tables.
 
-    Final table placement path: `<Path in Yandex Database>/<Subfolder>/<Table>`.
+    Final table placement path: `<Path in YDB>/<Subfolder>/<Table>`.
 
 * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop.md) %}
 

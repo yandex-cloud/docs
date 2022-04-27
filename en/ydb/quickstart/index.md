@@ -1,5 +1,5 @@
 ---
-title: Work with Yandex Database (YDB). Overview
+title: Work with Yandex Managed Service for YDB. Overview
 description: "To get used to working in YDB, follow these instructions. Create database, work with databases in the management console, work with YDB CLI, work with YDB SDK, set up AWS, work with data in HTTP, work with AWS CLI, work with AWS SDK."
 sourcePath: en/ydb/overlay/quickstart/index.md
 ---

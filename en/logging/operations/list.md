@@ -4,35 +4,32 @@
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), go to the folder where the log group is located.
-    1. Open **{{ cloud-logging-name }}**.
-    1. Click the **Groups** tab.
+   In the [management console]({{ link-console-main }}), change to the folder containing your log group and select **{{ cloud-logging-name }}**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of log groups in the folder, run the command:
+   To get a list of log groups in the folder, run the command:
 
-    ```
-    yc logging group list
-    ```
+   ```
+   yc logging group list
+   ```
 
-    Result:
+   Result:
 
-    ```
-    +----------------------+---------+----------------------+--------+
-    |          ID          |  NAME   |      FOLDER ID       | STATUS |
-    +----------------------+---------+----------------------+--------+
-    | af36gk8qv2********** | default | aoek6qrs8t********** | ACTIVE |
-    +----------------------+---------+----------------------+--------+
-    ```
+   ```
+   +----------------------+---------+----------------------+--------+
+   |          ID          |  NAME   |      FOLDER ID       | STATUS |
+   +----------------------+---------+----------------------+--------+
+   | af36gk8qv2********** | default | aoek6qrs8t********** | ACTIVE |
+   +----------------------+---------+----------------------+--------+
+   ```
 
 - API
 
-    You can retrieve a list of log groups using the API [list](../api-ref/LogGroup/list.md) method.
+   You can retrieve a list of log groups using the API [list](../api-ref/LogGroup/list.md) method.
 
 {% endlist %}
-

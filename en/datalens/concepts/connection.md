@@ -13,7 +13,7 @@ The following connection types are available in {{ datalens-short-name }}:
 - **Google Sheets**
 - **MS SQL Server**
 - **Oracle Database**
-- **Yandex Database**
+- **YDB**
 - **Greenplum**  
 - **Metrica** (in direct access mode)
 - **AppMetrica** (in direct access mode)

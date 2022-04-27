@@ -576,6 +576,8 @@
   
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+  Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
+
 {% endlist %}
 
 ## Изменить группы безопасности {#change-sg-set}

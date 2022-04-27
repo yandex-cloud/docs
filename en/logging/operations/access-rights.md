@@ -49,35 +49,46 @@ You can see what roles are [assigned](#list) for a log group, [revoke](#revoke) 
     To assign a [role](../security/index.md) for a custom log group, run the command:
 
     * User:
+
         ```
         yc logging group add-access-binding \
-            --name <log_group_name> \
-            --user-account-id <user_ID> \
-            --role <role>
+          --name <log_group_name> \
+          --user-account-id <user_ID> \
+          --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```
+
     * [Service account](../../iam/concepts/users/service-accounts.md):
+
         ```
         yc logging group add-access-binding \
-            --name <log_group_name> \
-            --service-account-id <service_account_ID> \
-            --role <role>
+          --name <log_group_name> \
+          --service-account-id <service_account_ID> \
+          --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```
+
     * All authorized users (`allAuthenticatedUsers` system group):
+
         ```
         yc logging group add-access-binding \
-            --name <log_group_name> \
-            --all-authenticated-users \
-            --role <role>
+          --name <log_group_name> \
+          --all-authenticated-users \
+          --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```
@@ -97,35 +108,46 @@ You can see what roles are [assigned](#list) for a log group, [revoke](#revoke) 
     To revoke a [role](../security/index.md) assigned for a custom log group, run the command:
 
     * User:
+
         ```
         yc logging group remove-access-binding \
-            --name <log_group_name> \
-            --user-account-id <user-ID> \
-            --role <role>
+          --name <log_group_name> \
+          --user-account-id <user-ID> \
+          --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```
+
     * [Service account](../../iam/concepts/users/service-accounts.md):
+
         ```
         yc logging group remove-access-binding \
-            --name <log_group_name> \
-            --service-account-id <service_acount_ID> \
-            --role <role>
+          --name <log_group_name> \
+          --service-account-id <service_acount_ID> \
+          --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```
+
     * All authorized users (`allAuthenticatedUsers` system group):
+
         ```
         yc logging group remove-access-binding \
-            --name <log_group_name> \
-            --all-authenticated-users \
-            --role <role>
+          --name <log_group_name> \
+          --all-authenticated-users \
+          --role <role>
         ```
+
         Result:
+
         ```
         done (1s)
         ```

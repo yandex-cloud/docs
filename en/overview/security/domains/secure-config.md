@@ -46,7 +46,7 @@ We don't recommend using private information in Terraform configuration files, s
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 - Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan` and `terraform apply`.
-- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a Terraform state to Yandex Object Storage (see [Uploading Terraform states to Object Storage](../../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using Yandex Database to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
+- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a Terraform state to Yandex Object Storage (see [Uploading Terraform states to Object Storage](../../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
 - Use the [mechanism for transferring secrets to Terraform using env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text, or use built-in {{ kms-name }} capabilities for [encrypting data in Terraform](https://cloud.yandex.com/en/docs/kms/tutorials/terraform-secret) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073))
 
    For more information about Yandex Object Storage security, see [Object Storage](#object-storage) below.
@@ -186,7 +186,7 @@ The Cloud Functions service does not guarantee time synchronization prior to or 
 If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. Cloud Functions will automatically process this JSON and the user will receive data as a standard HTTP response.
 The client needs to manage the response headers on their own in accordance with regulator requirements and the threat model. For more information on how to process an HTTP request, see [Invoking a function using HTTP](../../../functions/concepts/function-invoke.md#http) in the Cloud Functions documentation.
 
-## Yandex Database {#ydb}
+## {{ ydb-full-name }} {#ydb}
 
 ### Operations with data {#ydb-data}
 
@@ -198,7 +198,7 @@ When working with a database, use [parameterized prepared statements](../../../y
 
 ### Network access {#ydb-network}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. For more information about operation modes, see [Serverless and Dedicated modes Yandex Database](../../../ydb/concepts/serverless_and_dedicated.md) in YDB documentation.
+When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. For more information about operation modes, see [Serverless and Dedicated modes {{ ydb-full-name }}](../../../ydb/concepts/serverless_and_dedicated.md) in YDB documentation.
 
 When setting up database permissions, use the principle of least privilege.
 

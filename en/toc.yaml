@@ -99,6 +99,6 @@ items:
     href: vision/index.yaml
   - name: Virtual Private Cloud
     href: vpc/index.yaml
-  - name: Yandex Database
+  - name: Managed Service for YDB
     href: ydb/index.yaml
 base: en

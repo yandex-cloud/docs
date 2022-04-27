@@ -99,7 +99,7 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
-          - name: Создание подключения к Yandex Database
+          - name: Создание подключения к YDB
             href: operations/connection/create-ydb.md
           - name: Создание подключения к Greenplum
             href: operations/connection/create-greenplum.md
@@ -135,6 +135,8 @@ items:
             href: operations/dataset/manage-access.md
           - name: Управление доступом к строкам данных
             href: operations/dataset/manage-row-level-security.md
+          - name: Правила тарификации
+            href: pricing.md
       - name: Работа с чартами
         items:
           - name: Создание линейной диаграммы
@@ -221,8 +223,6 @@ items:
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
-  - name: Правила тарификации
-    href: pricing.md
   - name: Справочник функций
     items:
       - name: Все функции

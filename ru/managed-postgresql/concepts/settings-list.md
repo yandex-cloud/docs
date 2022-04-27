@@ -38,7 +38,7 @@
 
 Доступны следующие настройки:
 
-{% include [mpg-dbms-settings](../../_includes/mdb/mpg-dbms-settings.md) %}
+{% include [mpg-dbms-settings](../../_includes/mdb/mpg/dbms-settings.md) %}
 
 ## Настройки на уровне пользователя {#dbms-user-settings}
 
