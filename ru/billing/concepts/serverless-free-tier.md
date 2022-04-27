@@ -78,4 +78,12 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+## {{ serverless-containers-full-name }} {#serverless-containers}
+
+{% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-serverless-containers.md) %}
+
+После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../serverless-containers/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
 {% endif %}
