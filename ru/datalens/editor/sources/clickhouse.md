@@ -1,5 +1,10 @@
-
 # ClickHouse
+
+{% note warning %}
+
+Новые прямые подключения из Editor в {{ CH }} не создаются. Используйте стандартные [подключения](connections.md) для работы с источниками из Editor.
+
+{% endnote %}
 
 **Документация**: [`https://{{ ch-domain }}`](https://{{ ch-domain }})
 
