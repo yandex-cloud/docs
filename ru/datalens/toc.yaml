@@ -175,6 +175,9 @@ items:
             href: operations/dataset/manage-access.md
           - name: Управление доступом к строкам данных
             href: operations/dataset/manage-row-level-security.md
+          - name: Правила тарификации
+            when: audience == "external"
+            href: pricing.md
           - name: Добавление параметра в датасет
             when: audience == "internal"
             href: operations/dataset/add-parameter-dataset.md
@@ -287,8 +290,6 @@ items:
         href: security/external-access.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
-  - name: Правила тарификации
-    href: pricing.md
   - name: Справочник функций
     items: null
     include:
