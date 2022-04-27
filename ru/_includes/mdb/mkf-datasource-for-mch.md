@@ -11,31 +11,76 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте необходимое количество кластеров {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-kafka/concepts/instance-types.md). Для подключения к кластерам с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластерам при их создании.
+### Подготовьте инфраструктуру {#deploy-infrastructure}
 
-1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) с одним шардом и базой данных `db1`. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
+{% list tabs %}
 
-    {% note info %}
+* Вручную
 
-    Интеграцию с {{ KF }} можно настроить уже на этапе [создания кластера](../../managed-clickhouse/operations/cluster-create.md). В этом практическом руководстве интеграция будет настроена [позже](#configure-mch-for-kf).
+    1. [Создайте необходимое количество кластеров {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-kafka/concepts/instance-types.md). Для подключения к кластерам с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластерам при их создании.
 
-    {% endnote %}
+    1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) с одним шардом и базой данных `db1`. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
-1. [Создайте необходимое количество топиков](../../managed-kafka/operations/cluster-topics.md#create-topic) в кластерах {{ mkf-name }}. Имена топиков не должны повторяться.
+        {% note info %}
 
-1. [Создайте](../../managed-kafka/operations/cluster-accounts.md#create-account) по две учетные записи для работы с топиками в каждом кластере {{ mkf-name }}:
+        Интеграцию с {{ KF }} можно настроить уже на этапе [создания кластера](../../managed-clickhouse/operations/cluster-create.md). В этом практическом руководстве интеграция будет настроена [позже](#configure-mch-for-kf).
 
-    - учетную запись производителя (`ACCESS_ROLE_PRODUCER`);
-    - учетную запись потребителя (`ACCESS_ROLE_CONSUMER`).
+        {% endnote %}
 
-    Имена учетных записей в разных кластерах могут быть одинаковыми.
+    1. [Создайте необходимое количество топиков](../../managed-kafka/operations/cluster-topics.md#create-topic) в кластерах {{ mkf-name }}. Имена топиков не должны повторяться.
+
+    1. [Создайте](../../managed-kafka/operations/cluster-accounts.md#create-account) по две учетные записи для работы с топиками в каждом кластере {{ mkf-name }}:
+
+        - учетную запись производителя (`ACCESS_ROLE_PRODUCER`);
+        - учетную запись потребителя (`ACCESS_ROLE_CONSUMER`).
+
+        Имена учетных записей в разных кластерах могут быть одинаковыми.
+
+* С помощью Terraform
+
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. Скачайте в ту же рабочую директорию файл конфигурации [data-from-kafka-to-clickhouse.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-from-kafka-to-clickhouse/data-from-kafka-to-clickhouse.tf).
+
+        В этом файле описаны:
+
+        * Сеть.
+        * Подсеть.
+        * Группа безопасности по умолчанию и правила, необходимые для подключения к кластерам из интернета.
+        * Кластер {{ mkf-name }} c описанием одного топика и учетных записей потребителя и производителя. Для создания нескольких топиков или кластеров продублируйте блоки с их описанием и укажите новые уникальные имена. Имена учетных записей в разных кластерах могут быть одинаковыми.
+        * Кластер {{ mch-name }} с одним шардом и базой данных `db1`.
+
+    1. Укажите в файле `data-from-kafka-to-clickhouse.tf`:
+
+        * имена и пароли учетных записей потребителя и производителя кластеров {{ mkf-name }};
+        * имена топиков кластеров {{ mkf-name }};
+        * имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
+
+    1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+       ```bash
+       terraform validate
+       ```
+
+       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+### Выполните дополнительные настройки {#additional-settings}
 
 1. Установите утилиты:
 
     - [kafkacat](https://github.com/edenhill/kcat) — для чтения и записи данных в топики {{ KF }}.
 
         ```bash
-        sudo apt update && sudo apt install -y kafkacat
+        sudo apt update && sudo apt install --yes kafkacat
         ```
 
         Убедитесь, что можете с ее помощью [подключиться к кластерам {{ mkf-name }} через SSL](../../managed-kafka/operations/connect.md#connection-string).
@@ -45,7 +90,7 @@
         1. Подключите [DEB-репозиторий](https://{{ ch-domain }}/docs/ru/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
             ```bash
-            sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
+            sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
             sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
             echo "deb https://repo.{{ ch-domain }}/deb/stable/ main/" | sudo tee \
             /etc/apt/sources.list.d/clickhouse.list
@@ -54,13 +99,14 @@
         1. Установите зависимости:
 
             ```bash
-            sudo apt update && sudo apt install -y clickhouse-client
+            sudo apt update && sudo apt install --yes clickhouse-client
             ```
 
         1. Загрузите файл конфигурации для `clickhouse-client`:
 
             ```bash
-            mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+            mkdir --parents ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" \
+                --output-document=~/.clickhouse-client/config.xml
             ```
 
         Убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
@@ -68,23 +114,81 @@
     - [jq](https://stedolan.github.io/jq/) — для потоковой обработки JSON-файлов.
 
         ```bash
-        sudo apt update && sudo apt-get install -y jq
+        sudo apt update && sudo apt-get install --yes jq
         ```
 
 ## Настройте интеграцию с {{ KF }} для кластера {{ mch-name }} {#configure-mch-for-kf}
 
-В зависимости от количества кластеров {{ mkf-name }}:
+{% list tabs %}
 
-- Если кластеров {{ KF }} несколько, укажите данные для аутентификации каждого топика {{ mkf-name }} в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) в секции **Настройки СУБД** → **Kafka topics**.
-- Если кластер {{ KF }} один, [укажите данные для аутентификации](../../managed-clickhouse/operations/update.md#change-clickhouse-config) в секции **Настройки СУБД** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
+* Вручную
 
-Данные для аутентификации:
+    В зависимости от количества кластеров {{ mkf-name }}:
 
-- **Name** — имя топика (для нескольких кластеров {{ KF }}).
-- **Sasl mechanism** — `SCRAM-SHA-512`.
-- **Sasl password** — пароль [учетной записи потребителя](#before-you-begin).
-- **Sasl username** — имя [учетной записи потребителя](#before-you-begin).
-- **Security protocol** — `SASL_SSL`.
+    - Если кластер {{ KF }} один, [укажите данные для аутентификации](../../managed-clickhouse/operations/update.md#change-clickhouse-config) в секции **Настройки СУБД** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
+    - Если кластеров {{ KF }} несколько, укажите данные для аутентификации каждого топика {{ mkf-name }} в [настройках кластера {{ mch-name }}](../../managed-clickhouse/operations/update.md#change-clickhouse-config) в секции **Настройки СУБД** → **Kafka topics**.
+
+    Данные для аутентификации:
+
+    - **Name** — имя топика (для нескольких кластеров {{ KF }}).
+    - **Sasl mechanism** — `SCRAM-SHA-512`.
+    - **Sasl password** — пароль [учетной записи потребителя](#before-you-begin).
+    - **Sasl username** — имя [учетной записи потребителя](#before-you-begin).
+    - **Security protocol** — `SASL_SSL`.
+
+* С помощью Terraform
+
+    1. В зависимости от количества кластеров {{ mkf-name }}:
+
+        - Если кластер {{ KF }} один, укажите данные для аутентификации в блоке `clickhouse.config.kafka`:
+
+            ```hcl
+            resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
+            clickhouse {
+                ...
+                config {
+                kafka {
+                    security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
+                    sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
+                    sasl_username     = "<имя учетной записи потребителя>"
+                    sasl_password     = "<пароль учетной записи потребителя>"
+                }
+                }
+            }
+            }
+            ```
+
+        - Если кластеров {{ KF }} несколько, укажите данные для аутентификации каждого топика {{ mkf-name }} в блоке `clickhouse.config.kafka_topic`:
+
+            ```hcl
+            resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
+            clickhouse {
+                ...
+                config {
+                kafka_topic {
+                    name = "<имя топика>"
+                    settings {
+                    security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
+                    sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
+                    sasl_username     = "<имя учетной записи потребителя>"
+                    sasl_password     = "<пароль учетной записи потребителя>"
+                    }
+                }
+                ...
+                }
+            }
+            }
+            ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+{% endlist %}
 
 ## Создайте в кластере {{ mch-name }} таблицы на движке Kafka {#create-kf-table}
 
@@ -249,15 +353,41 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+{% list tabs %}
 
-- Удалите кластеры:
+* Вручную
 
-    - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md);
-    - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
+    Если созданные ресурсы вам больше не нужны, удалите их:
 
-{% if audience != "internal" %}
+    - Удалите кластеры:
 
-- Если вы зарезервировали для кластеров публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+        - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md);
+        - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-{% endif %}
+    {% if audience != "internal" %}
+
+    - Если вы зарезервировали для кластеров публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+
+    {% endif %}
+
+* С помощью Terraform
+
+    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
+
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите конфигурационный файл `data-from-kafka-to-clickhouse.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        Все ресурсы, которые были описаны в конфигурационном файле `data-from-kafka-to-clickhouse.tf`, будут удалены.
+
+{% endlist %}
