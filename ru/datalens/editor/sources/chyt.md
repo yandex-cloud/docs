@@ -4,7 +4,7 @@
 
 {% note alert %}
 
-Рекомендуем использовать [созданное подключение](../../operations/connection/chyt/create-chyt.md) {{ datalens-short-name }} вместо работы с CHYT через ChartEditor.
+Рекомендуем использовать [созданное подключение](../../operations/connection/chyt/create-chyt.md) {{ datalens-short-name }} вместо работы с CHYT через ChartEditor. Подробнее о том, как работать с подключением, см. раздел [{#T}](connections.md).
 
 {% endnote %}
 
