@@ -36,4 +36,50 @@
      yc alb backend-group list
      ```
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  1. Откройте конфигурационный файл Terraform и удалите фрагмент с описанием группы бэкендов.
+  
+      Пример описания группы бэкендов в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_alb_backend_group" "test-backend-group" {
+        name                     = "<имя группы бэкендов>"
+
+        http_backend {
+          name                   = "<имя бэкенда>"
+          weight                 = 1
+          port                   = 80
+          target_group_ids       = ["<идентификатор целевой группы>"]
+          load_balancing_config {
+            panic_threshold      = 90
+          }    
+          healthcheck {
+            timeout              = "10s"
+            interval             = "2s"
+            healthy_threshold    = 10
+            unhealthy_threshold  = 15 
+            http_healthcheck {
+              path               = "/"
+            }
+          }
+        }
+      }
+      ```
+
+      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
+  1. Примените изменения:
+      
+      {% include [terraform-validate-plan-apply](../../_includes/tutorials/terraform-validate-plan-apply.md) %}
+
+      Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+      ```bash
+      yc alb backend-group list
+      ```
+
 {% endlist %}

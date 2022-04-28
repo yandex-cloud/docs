@@ -34,7 +34,7 @@ description: 'Сервис Identity and Access Management (IAM) контроли
 
 ### Аккаунт на Яндексе {#passport}
 
-_Аккаунт на Яндексе_ — ваш аккаунт на [Яндексе](https://yandex.ru/support/passport/index.html) или в [Яндекс.Коннекте]({{ link-yandex-connect }}).
+_Аккаунт на Яндексе_ — ваш аккаунт на [Яндексе](https://yandex.ru/support/passport/index.html) или в [Яндекс 360](https://360.yandex.ru/).
 
 {% note info %}
 

@@ -41,7 +41,7 @@ If you didn't receive an email within that period, send a request to: [cloud_doc
 #### I unlinked a bank card from my Yandex.Passport account and now my billing account is blocked. What should I do?  {#account-card}
 
 Your billing account status changed to `SUSPENDED` in accordance with the [terms and conditions of the agreement (clause 6.11.4.)](https://yandex.ru/legal/cloud_oferta/).
-After suspension, an email with instructions on how to restore access was sent to the email address specified in your Yandex or Yandex.Connect account.
+After suspension, an email with instructions on how to restore access was sent to the email address specified in your Yandex or Yandex 360 account.
 
 #### I can't link a bank card when creating a billing account. What should I do?  {#cant-create}
 
@@ -55,7 +55,7 @@ You most likely logged in under a Yandex account that is already linked to a pay
 
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
-To create a billing account with a payer who is a resident of another country, log in under a different Yandex.Passport or Yandex.Connect account.
+To create a billing account with a payer who is a resident of another country, log in under a different Yandex.Passport or Yandex 360 account.
 
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
 

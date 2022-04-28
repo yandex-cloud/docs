@@ -36,7 +36,7 @@ Non-residents shall pay all taxes and fees stipulated by the laws of their count
 
 To activate a billing account for a non-resident of the Russian Federation, you must receive confirmation from {{ yandex-cloud }} managers.
 
-When you click the **Create** button on the **Create billing account** page, a billing account is created with the `PAYMENT_NOT_CONFIRMED` status. An email with further instructions is sent to the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your account.
+When you click the **Create** button on the **Create billing account** page, a billing account is created with the `PAYMENT_NOT_CONFIRMED` status. An email with further instructions is sent to the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your account.
 
 #### I didn't receive an email with instructions on what to do after creating a billing account. Why?  {#account-notification}
 

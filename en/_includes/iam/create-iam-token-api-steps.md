@@ -1,4 +1,4 @@
-1. [Log in]({{ link-passport-login }}) to your Yandex or Yandex.Connect account.
+1. [Log in]({{ link-passport-login }}) to your Yandex or Yandex 360 account.
 
 2. Get an OAuth token from Yandex.OAuth. To do this, follow the [link]({{ link-cloud-oauth }}), click **Allow**, and copy the OAuth token obtained.
 

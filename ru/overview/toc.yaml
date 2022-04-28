@@ -35,6 +35,8 @@ items:
     href: concepts/quotas-limits.md
   - name: API
     href: api.md
+  - name: Архитектура платформы
+    href: architecture.md
   - name: Безопасность и соответствие стандартам
     items:
       - name: Обзор
