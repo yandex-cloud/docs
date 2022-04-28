@@ -1,6 +1,6 @@
 # Как начать работать c {{ translate-short-name }}
 
-В этом разделе вы научитесь переводить текст, используя {{ translate-name }} API. Чтобы перевести текст, передайте его с помощью метода [translate](api-ref/Translation/translate).
+В этом разделе вы научитесь переводить текст, используя {{ translate-name }} API.
 
 {% include [translate-instruction](../_includes/translate/translate-instruction.md) %}
 
