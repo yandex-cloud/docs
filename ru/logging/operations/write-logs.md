@@ -7,3 +7,9 @@
 {% endnote %}
 
 {% include [write-logs](../../_includes/logging/write-logs.md) %}
+
+
+### См. также {#see-also_}
+
+- [Чтение записей](read-logs.md)
+- [Мониторинг](monitoring.md)
