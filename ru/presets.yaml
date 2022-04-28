@@ -538,6 +538,8 @@ default:
   tf-provider-mmy: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
   tf-provider-mpg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
+  tf-provider-alb-targetgroup: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_target_group
+  tf-provider-alb-backendgroup: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_backend_group
   
   # API
   # Подмены доменных имен происходят при сборке справочника API в TeamCity. См. шаг 20 в сборке: https://nda.ya.ru/t/JggZA6M-4zCi6E
