@@ -77,7 +77,7 @@
 
 ```sql
 SELECT *
-FROM   SYS.STATEMENT_ANALYSIS
+FROM   sys.statement_analysis
 LIMIT  10
 ```
 

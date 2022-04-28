@@ -42,4 +42,46 @@ description: "Чтобы удалить целевую группу, в конс
      yc alb target-group list
      ```
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  1. Откройте конфигурационный файл Terraform и удалите фрагмент с описанием целевой группы.
+  
+      Пример описания целевой группы в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_alb_target_group" "foo" {
+        name           = "<имя целевой группы>"
+
+        target {
+          subnet_id    = "<идентификатор подсети>"
+          ip_address   = "<внутренний IP-адрес ВМ 1>"
+        }
+
+        target {
+          subnet_id    = "<идентификатор подсети>"
+          ip_address   = "<внутренний IP-адрес ВМ 2>"
+        }
+
+        target {
+          subnet_id    = "<идентификатор подсети>"
+          ip_address   = "<внутренний IP-адрес ВМ 3>"
+        }
+      }
+      ```
+
+      Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../_includes/tutorials/terraform-validate-plan-apply.md) %}
+
+      Проверить изменения целевой группы можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+      ```bash
+      yc alb target-group list
+      ```
+
 {% endlist %}

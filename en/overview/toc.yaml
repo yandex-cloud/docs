@@ -35,6 +35,8 @@ items:
     href: concepts/quotas-limits.md
   - name: API
     href: api.md
+  - name: Platform architecture
+    href: security/architecture.md
   - name: Security and compliance
     items:
       - name: Overview

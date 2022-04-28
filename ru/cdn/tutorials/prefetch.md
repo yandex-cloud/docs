@@ -1,8 +1,8 @@
 # Публикация обновлений для игр с помощью {{ cdn-full-name }}
 
-Сценарий описывает создание и настройку [CDN-ресурса](../concepts/resource.md) {{ cdn-full-name }} для размещения в нем контента, к которому ожидается большое количество запросов в малый промежуток времени, например файлов для обновления игры (патчей, DLC и т. п.). Чтобы в этот промежуток не создавалась высокая нагрузка на источники контента со стороны CDN-серверов, файлы будут однократно [предзагружены](../concepts/caching.md#prefetch) в кеш серверов.
+Создайте и настройте [CDN-ресурс](../concepts/resource.md) {{ cdn-full-name }} для размещения в нем контента, к которому ожидается большое количество запросов в малый промежуток времени, например файлов для обновления игры (патчей, DLC и т. п.). Чтобы в этот промежуток не создавалась высокая нагрузка на источники контента со стороны CDN-серверов, файлы будут однократно [предзагружены](../concepts/caching.md#prefetch) в кеш серверов.
 
-Для примера в сценарии предполагается, что патч состоит из одного файла с именем `ycgame-update-v1.1.exe`. Он будет загружен в бакет {{ objstorage-full-name }}.
+Предполагается, что патч состоит из одного файла с именем `ycgame-update-v1.1.exe`. Он будет загружен в бакет {{ objstorage-full-name }}.
 
 {% note info %}
 
@@ -12,7 +12,7 @@
 
 Чтобы создать CDN-инфраструктуру:
 
-1. [{#T}](#before-you-begin).
+1. [Подготовьтесь к работе](#before-you-begin).
 1. [{#T}](#create-buckets).
 1. [{#T}](#enable-logging).
 1. [{#T}](#upload-object).
@@ -23,7 +23,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-## Подготовьтесь к работе {#before-you-begin}
+## Перед началом работы {#before-you-begin}
 
 Перед тем, как создавать CDN-ресурс:
 
@@ -31,7 +31,7 @@
 
    {% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
 
-1. На [странице облака]({{ link-console-cloud }}) выберите каталог, в котором будет работать ваш CDN-ресурс, или [создайте каталог](../../resource-manager/operations/folder/create.md). Все действия сценария нужно выполнять в этом каталоге.
+1. На [странице облака]({{ link-console-cloud }}) выберите каталог, в котором будет работать ваш CDN-ресурс, или [создайте каталог](../../resource-manager/operations/folder/create.md). Все действия нужно выполнять в этом каталоге.
 
    [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -47,7 +47,7 @@
 
 ## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
 
-В сценарии будет создано два бакета: в первом, `ycprojektblue-storage`, будут храниться файлы, а во втором, `ycprojektblue-logs`, — логи запросов к первому.
+Необходимо создать два бакета: в первом, `ycprojektblue-storage`, будут храниться файлы, а во втором, `ycprojektblue-logs`, — логи запросов к первому.
 
 {% list tabs %}
 
@@ -78,7 +78,7 @@
        --acl public-read
      ```
   
-     Результат выполнения команды:
+     Результат:
   
      ```json
      {
@@ -94,7 +94,7 @@
        --bucket ycprojektblue-logs
      ```
   
-     Результат выполнения команды:
+     Результат:
   
      ```json
      {
@@ -102,7 +102,7 @@
      }
      ```
   
-- Terraform
+- {{ TF }}
 
   Перед началом работы получите [статические ключи доступа](../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
   
@@ -143,7 +143,7 @@
         terraform plan
         ```
   
-     Если конфигурация описана верно, в терминале отобразятся параметры создаваемого бакета. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразятся параметры создаваемого бакета. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   
   1. Разверните бакет:
   
@@ -163,7 +163,7 @@
 
 ## Включите логирование бакета с файлами {#enable-logging}
 
-Чтобы в конце сценария проверить, что при пользовательском запросе файл скачивается не напрямую из бакета, а из кеша CDN-сервера, нужно включить логирование бакета.
+Чтобы проверить, что при пользовательском запросе файл скачивается не напрямую из бакета, а из кеша CDN-сервера, нужно включить логирование бакета.
 
 {% list tabs %}
 
@@ -206,13 +206,13 @@
     s3://ycprojektblue-storage/ycgame-update-v1.1.exe
   ```
   
-  Результат выполнения команды:
+  Результат:
   
   ```
   upload: <путь к файлу ycgame-update-v1.1.exe> to s3://ycprojektblue-storage/ycgame-update-v1.1.exe
   ```
   
-- Terraform
+- {{ TF }}
 
   1. Добавьте к конфигурационному файлу из [шага с созданием бакетов](#create-buckets) параметры объекта, который необходимо загрузить:
   
@@ -241,7 +241,7 @@
         terraform plan
         ```
   
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
   
   1. Разверните облачные ресурсы.
   
@@ -300,7 +300,100 @@
      1. Нажмите кнопку **Редактировать**.
      1. Включите **Кеширование в CDN**.
      1. Нажмите кнопку **Сохранить**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
   
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  1. Если CDN-провайдер ещё не активирован, выполните команду:
+
+     ```
+     yc cdn provider activate --folder-id <идентификатор каталога> --type gcore
+     ```
+  
+  1. Создайте CDN-ресурс:
+
+     ```
+     yc cdn resource create \
+       --cname cdn.ycprojectblue.example \
+       --origin-bucket-source ycprojektblue-storage.storage.yandexcloud.net \
+       --origin-bucket-name ycprojektblue-storage \
+       --origin-protocol https \
+       --lets-encrypt-gcore-ssl-cert \
+       --host-header ycprojektblue-storage.storage.yandexcloud.net \
+       --redirect-http-to-https
+     ```
+
+     Результат:
+
+     ```
+     id: bc8e3l7s4dhadigoh3jr
+     folder_id: b1g86q4m5vej8lkljme5
+     cname: cdn.ycprojektblue.example
+     ...
+     active: true
+     ...
+     ```
+
+     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+
+- {{ TF }}
+
+  1. Добавьте в конфигурационный файл параметры CDN-ресурсов:
+
+     ```hcl
+     ...
+
+     resource "yandex_cdn_origin_group" "my_group" {
+       name     = "updates-origin-group"
+       use_next = true
+       origin {
+         source = "ycprojektblue-storage.storage.yandexcloud.net"
+       }
+     }
+     
+     resource "yandex_cdn_resource" "my_resource" {
+       cname               = "cdn.ycprojectblue.example"
+       active              = true
+       origin_protocol     = "https"
+       origin_group_id     = yandex_cdn_origin_group.my_group.id
+       options {
+         redirect_https_to_http = true
+         custom_host_header     = "ycprojektblue-storage.storage.yandexcloud.net"
+       }
+       ssl_certificate {
+         type = "lets_encrypt_gcore"
+       }
+     }
+     ```
+
+     Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group) и [yandex_cdn_resource](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource) в документации провайдера {{ TF }}.
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут созданы. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
 - API
 
   Используйте вызов gRPC API [ResourceService/Create](../api-ref/grpc/resource_service.md#Create) или метод REST API [create](../api-ref/Resource/create.md). Чтобы включить кеширование на CDN-серверах, добавьте в тело запроса поле `edge_cache_settings`.
@@ -366,7 +459,7 @@
         * `--zone` — доменная зона — ваш домен с точкой на конце.
         * `--public-visibility` — опция публичной видимости зоны.
         
-        Результат выполнения команды:
+        Результат:
         
         ```bash
         id: aetuvdw77q61dwbl1z2d
@@ -392,7 +485,7 @@
         yc dns zone list-records --name cdn-dns-a
         ```
         
-        Результат выполнения команды:
+        Результат:
                 
         ```bash
         +----------------------------+------+-------+--------------------------------+
@@ -435,7 +528,22 @@
      ```
 
   1. Нажмите кнопку **Предзагрузить контент**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
   
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  Укажите путь к файлу, который нужно предзагрузить:
+
+  ```
+  yc cdn cache prefetch --resource-id <идентификатор ресурса> \
+    --path /ycgame-update-v1.1.exe
+  ```
+
+  Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
+
 - API
 
   Используйте вызов gRPC API [CacheService/Prefetch](../api-ref/grpc/cache_service.md#Prefetch) или метод REST API [prefetch](../api-ref/Cache/prefetch.md).
@@ -471,7 +579,7 @@
           s3 ls s3://ycprojektblue-logs
         ```
         
-        Результат выполнения операции:
+        Результат:
         
         ```
         2021-10-01 08:37:53         10 2021-10-01-08-37-53-631E0FC3B732AEDD
@@ -490,7 +598,7 @@
           2021-10-01-13-38-02-E69EAEC1C9083756
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         download: s3://ycprojektblue-logs/2021-10-01-13-38-02-E69EAEC1C9083756 to 2021-10-01-13-38-02-E69EAEC1C9083756 
@@ -506,7 +614,7 @@
 
 1. По логам запросов к бакету-источнику убедитесь, что CDN-серверы не скачивали файл из источника после вашего запроса. Подробнее о содержимом логов см. в разделе [{#T}](../../storage/concepts/server-logs.md#object-format) документации {{ objstorage-name }}.
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы остановить работу CDN-ресурса и перестать платить за созданные ресурсы: 
 

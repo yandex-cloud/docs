@@ -41,7 +41,7 @@ items:
     items:
       - name: Configuring a local caching DNS resolver
         href: tutorials/local-dns-cache.md
-      - name: Migrating DNS zones from Yandex.Connect
+      - name: "Migrating DNS zones from Yandex\_360"
         href: tutorials/connect-migration.md
       - name: Integrating with a corporate DNS service
         href: tutorials/dns-integration.md
