@@ -2,5 +2,5 @@
 
 | Product | Cost per vCPU per month, without VAT |
 | --- | --- |
-| MS SQL Server Standard* | $139.320515 |
-| MS SQL Server Enterprise* | $476.448725 |
+| MS SQL Server Standard* | $86.936000 |
+| MS SQL Server Enterprise* | $297.304000 |
