@@ -41,7 +41,7 @@ items:
     items:
       - name: Настройка локального кеширующего DNS-резолвера
         href: tutorials/local-dns-cache.md
-      - name: Миграция DNS-зон из Яндекс.Коннект
+      - name: Миграция DNS-зон из Яндекс 360
         href: tutorials/connect-migration.md
       - name: Интеграция с корпоративным сервисом DNS
         href: tutorials/dns-integration.md

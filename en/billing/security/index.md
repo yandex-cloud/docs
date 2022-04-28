@@ -1,6 +1,6 @@
 ---
 title: Billing access management
-description: "Access to Billing is provided to users with a registered account on Yandex or Yandex.Connect. Access to a billing account is provided through the Billing service. Operations that a user can perform with a billing account are determined by the role assigned to him."
+description: "Access to Billing is provided to users with a registered account on Yandex or Yandex 360. Access to a billing account is provided through the Billing service. Operations that a user can perform with a billing account are determined by the role assigned to him."
 ---
 # Access management
 
@@ -72,7 +72,7 @@ The owner of a billing account can expand the **Users** list to include any {{ y
 1. Select an account on the **List of accounts** page.
 1. Go to **Access control**.
 1. Click **Add user**.
-1. Enter your Yandex ID or Yandex.Connect login. The drop-down list will display the users who meet the search conditions. Select the one you need.
+1. Enter your Yandex ID or Yandex 360 login. The drop-down list will display the users who meet the search conditions. Select the one you need.
 1. Click **Add**.
 
 The user with the specified username is assigned the `billing.accounts.member` role and added to the **Users** list. To grant billing account access, assign the user the desired role.

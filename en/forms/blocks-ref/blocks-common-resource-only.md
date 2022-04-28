@@ -103,7 +103,7 @@ Validation
 : Use an external validator if you need to see if responses match the specified format. When selecting this option in the form settings, specify the [validation server address](../validation.md).
 
 - Yandex
-- Yandex.Connect
+- Yandex 360
 - General
 
 [Contact support](../feedback.md)

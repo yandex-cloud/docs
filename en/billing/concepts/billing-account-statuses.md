@@ -8,7 +8,7 @@ A billing account can have one of the following statuses:
 
 - `NEW`: a billing account is being created.
 - `PENDING`: account confirmation required.
-- `PAYMENT_NOT_CONFIRMED`: account confirmation required. An email with further instructions is sent to the email address specified in your Yandex or Yandex.Connect account.
+- `PAYMENT_NOT_CONFIRMED`: account confirmation required. An email with further instructions is sent to the email address specified in your Yandex or Yandex 360 account.
 - `TRIAL_ACTIVE`: the trial period has been activated and there is at least one unspent grant.
 - `TRIAL_SUSPENDED`: the trial period has not been activated, since the initial grant was given to one of your previously created billing account.
 - `TRIAL_EXPIRED`: the trial period has ended or all available grants have been spent.

@@ -26,7 +26,9 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
-   1. Log in to your Yandex ID or Yandex.Connect account. If you don't have an account yet, sign up and create your first cloud in the management console. If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
+   1. Log in to your Yandex ID or Yandex 360 account. If you don't have an account yet, sign up.
+      * Your phone number must be linked to this account. For detailed instructions, see Help for [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/passport/authorization/registration.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/passport/authorization/registration.html){% endif %} and [Yandex 360]{% if lang == "ru" %}(https://yandex.ru/support/business/add-users.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/business/add-users.html){% endif %}.
+      * If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
@@ -69,7 +71,9 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
-   1. Log in to your Yandex ID or Yandex.Connect account. If you don't have an account yet, sign up and create your first cloud in the management console. If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
+   1. Log in to your Yandex ID or Yandex 360 account. If you don't have an account yet, sign up.
+      * Your phone number must be linked to this account. For detailed instructions, see Help for [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/passport/authorization/registration.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/passport/authorization/registration.html){% endif %} and [Yandex 360]{% if lang == "ru" %}(https://yandex.ru/support/business/add-users.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/business/add-users.html){% endif %}.
+      * If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
@@ -111,7 +115,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    1. Click **Create**.
 
-   If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex.Connect account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it's automatically created with the trial period enabled. To continue to use the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
+   If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex 360 account. In this case, it may take up to three business days to activate your billing account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it's automatically created with the trial period enabled. To continue to use the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
 
 {% endlist %}
 

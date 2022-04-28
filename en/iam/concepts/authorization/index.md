@@ -18,7 +18,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
 - Management console
 
-  Authentication is carried out automatically when you log in to your Yandex or Yandex.Connect account.
+  Authentication is carried out automatically when you log in to your Yandex or Yandex 360 account.
 
 - CLI
 
