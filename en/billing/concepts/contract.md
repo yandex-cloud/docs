@@ -10,7 +10,7 @@ You can learn more about the terms of the agreement in the section [Yandex Legal
 
 {% note info %}
 
-Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us](https://console.cloud.yandex.com/support) page. A {{ yandex-cloud }} manager will contact you to discuss terms and conditions of signing the agreement.
+Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using [the form]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/billing/concepts/contract#contact-form){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/docs/billing/concepts/contract#contact-form){% endif %}. A {{ yandex-cloud }} manager will contact you to discuss terms and conditions of signing the agreement.
 
 {% endnote %}
 

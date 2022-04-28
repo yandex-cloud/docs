@@ -10,7 +10,7 @@
 
 {% note info %}
 
-Организации и ИП могут заключить договор с двусторонним подписанием. Для этого необходимо отправить заявку через форму **Задать вопрос** на странице [Свяжитесь с нами](https://console.cloud.yandex.ru/support). С вами свяжется менеджер {{ yandex-cloud }} для обсуждения условий подписания.
+Организации и ИП могут заключить договор с двусторонним подписанием. Для этого необходимо отправить заявку через [форму]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/billing/concepts/contract#contact-form){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/docs/billing/concepts/contract#contact-form){% endif %}. С вами свяжется менеджер {{ yandex-cloud }} для обсуждения условий подписания.
 
 {% endnote %}
 
@@ -22,7 +22,7 @@
 
 {% note info %}
 
-Организации и ИП могут заключить договор с двусторонним подписанием. Для этого необходимо отправить заявку через форму **Задать вопрос** на странице [Свяжитесь с нами](https://console.cloud.yandex.ru/support). С вами свяжется менеджер {{ yandex-cloud }} для обсуждения условий подписания.
+Организации и ИП могут заключить договор с двусторонним подписанием. Для этого необходимо отправить заявку через [форму]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/billing/concepts/contract#contact-form){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/docs/billing/concepts/contract#contact-form){% endif %}. С вами свяжется менеджер {{ yandex-cloud }} для обсуждения условий подписания.
 
 {% endnote %}
 
