@@ -1,4 +1,4 @@
-# Voice recognition
+# Voice biometrics
 
 {{ ml-platform-full-name }} lets you build machine learning (ML) models using the Jupyter Notebook interface. Take a look at the case of speaker voice recognition using speech signal modeling with numerical features:
 
@@ -7,41 +7,38 @@
 1. [Train a model on voice data](#model-fit).
 1. [Get the results of feature prediction based on test data](#model-test).
 
-## Before you begin {#before-you-begin}
+## Before you start {#before-you-begin}
 
 1. [Create a project](../operations/projects/create) in **{{ ml-platform-name }}** and open it.
-
 1. [Clone](../operations/projects/work-with-git.md#clone) the Git repository that contains the prepared notebook with the dataset:
 
-    ```text
-    https://github.com/yandex-cloud/examples
-    ```
+   ```text
+   https://github.com/yandex-cloud/examples
+   ```
 
-    Wait until the cloning is complete. It may take some time. Once the operation is completed, in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, a folder of the cloned repository will appear.
+   Wait for the cloning to complete. It may take some time. Once the operation is complete, the folder of the cloned repository will appear in the **File Browser** section.
 
 1. Open the **examples/datasphere/** folder and review the contents of the **speech-recognition.ipynb** notebook. At the beginning of the notebook, you'll see the basic principles of speech signal modeling with audio features.
 
-    {% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
+   {% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
 
 ## Install dependencies {#satisfy-dependencies}
 
 1. Select all cells with code in the **Installing and importing required packages** section by holding *Shift* and clicking to the left of the desired cells:
 
-    ```python
-    %pip install numba==0.48.0
-    %pip install librosa
-    %pip install cffi==1.14.2
-    %pip show numba
-    import time
-    import os
-    from tqdm import tqdm
-    ...
-    ```
+   ```python
+   %pip install numba==0.48.0
+   %pip install librosa
+   %pip install cffi==1.14.2
+   %pip show numba
+   import time
+   import os
+   from tqdm import tqdm
+   ...
+   ```
 
 1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press *Shift+Enter*.
-
 1. Wait for the operation to complete.
-
 1. Restart the kernel. To do this, choose **Kernel → Restart kernel**.
 
 Some packages are already installed and imported using the `import` command. Other are installed using the `%pip install` command and imported after that. For the full list of packages pre-installed in {{ ml-platform-name }}, see [{#T}](../concepts/preinstalled-packages.md).
@@ -88,7 +85,7 @@ Training a model is a resource-intensive operation. To make sure it's executed e
 Go to the **Testing on a test sample** section. The following operations are performed there:
 
 1. Uploading the trained models from the `pickle` files.
-1. Audio files from the test dataset are uploaded and processed the same way as [for the training dataset](#load-dataset).
+1. Audio files from the test dataset are uploaded and processed the same way as for the [training dataset](#load-dataset).
 1. Each model predicts the speaker by features.
 1. The best prediction result determines the speaker's choice.
 1. The accuracy of determining the speaker selected in the test is displayed.
@@ -105,4 +102,3 @@ To get the test results:
 You can [share](../operations/projects/publication.md) the available notebook containing the computations or [export the entire project](../operations/projects/export.md).
 
 {% endnote %}
-

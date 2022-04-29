@@ -123,9 +123,11 @@ items:
         href: early-access/repeat.md
   - name: Practical guidelines
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Getting started with Yandex DataSphere
         href: tutorials/basics.md
-      - name: Voice recognition
+      - name: Voice biometrics
         href: tutorials/speech-recognition.md
       - name: Evaluating the quality of STT models
         href: tutorials/estimate-quality.md
