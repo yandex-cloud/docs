@@ -2,7 +2,7 @@
 
 - Management console
    1. In the [management console]({{ link-console-main }}), select the folder where the device is located.
-   1. Select the **{{ iot-name }}**.
+   1. Select the **{{ iot-short-name }}**.
    1. Select the registry where the device is located.
    1. Go to the **Devices** tab.
    1. Select the device.

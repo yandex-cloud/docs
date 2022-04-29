@@ -59,4 +59,61 @@
 	status: ACTIVE
 	```
 
+- Terraform
+
+  {% include [terraform-definition](../tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  В Terraform ревизия создается при каждом обновлении параметров работы ресурса. 
+
+  Чтобы создать ревизию:
+
+  1. Обновите в конфигурационном файле параметры работы ресурса `yandex_serverless_container`:
+
+     ```hcl
+     provider "yandex" {
+       token     = "<OAuth>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "ru-central1-a"
+     }
+     
+     resource "yandex_serverless_container" "test-container" {
+        name               = "<имя контейнера>"
+        memory             = <объем памяти>
+        service_account_id = "<идентификатор сервисного аккаунта>"
+        image {
+            url = "<URL Docker-образа>"
+        }
+     }
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где был создан конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых или обновляемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+
+
+  1. Если в конфигурации нет ошибок, выполните команду:
+        ```
+        terraform apply
+        ```
+
+  1. Подтвердите создание или обновление ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+     После этого будет создана ревизия. Проверить создание ревизии можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+     ```
+     yc serverless container revision list
+     ```
+
 {% endlist %}

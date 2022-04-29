@@ -26,8 +26,8 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Open **{{ sf-name }}**.
    1. Select a function.
-   1. Under **Version history**, move the mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) whose scaling settings you wish to view.
-   1. Information about these scaling settings will be displayed in a pop-up window:
+   1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) whose scaling settings you wish to view.
+   1. Information on these scaling settings will be displayed in a pop-up window:
       * **zone_instances_limit**: Number of function instances in an availability zone.
       * **zone_requests_limit**: Number of concurrent function calls in an availability zone.
 
@@ -40,7 +40,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    To view a function's scaling settings, run the command:
 
    ```
-   yc serverless function list-scaling-policies --id=d4eokpuol55h********
+   	yc serverless function list-scaling-policies --id=d4eokpuol55h********
    ```
 
    Where:
@@ -50,16 +50,16 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    Result:
 
    ```
-   +----------------------+---------+----------------------+---------------------+
-   |     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT |
-   +----------------------+---------+----------------------+---------------------+
-   | d4eokpuol55hmj15k7g1 | $latest |                    1 |                   2 |
-   +----------------------+---------+----------------------+---------------------+
+   	+----------------------+---------+----------------------+---------------------+
+   	|     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT |
+   	+----------------------+---------+----------------------+---------------------+
+   	| d4eokpuol55hmj15k7g1 | $latest |                    1 |                   2 |
+   	+----------------------+---------+----------------------+---------------------+
    ```
 
 - API
 
-   You can view a function's scaling settings using the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) API method.
+   You can view a function's scaling settings using the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md).
 
 - Yandex Cloud Toolkit
 
@@ -76,7 +76,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Open **{{ sf-name }}**.
    1. Select a function.
-   1. Under **Version history**, move the mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) that you wish to add scaling settings for.
+   1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) you wish to add scaling settings for.
    1. In the pop-up window, click **Add**.
    1. In the window that opens, specify:
       * **zone_instances_limit**: Number of function instances in an availability zone.
@@ -88,11 +88,11 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    To add scaling settings for a function, run the command:
 
    ```
-   yc serverless function set-scaling-policy \
-     --id=d4eokpuol55h******** \
-     --tag=\$latest \
-     --zone-instances-limit=1 \
-     --zone-requests-limit=2
+   	yc serverless function set-scaling-policy \
+   	  --id=d4eokpuol55h******** \
+   	  --tag=\$latest \
+   	  --zone-instances-limit=1 \
+   	  --zone-requests-limit=2
    ```
 
    Where:
@@ -105,10 +105,10 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    Result:
 
    ```
-   function_id: d4eokpuol55h********
-   tag: $latest
-   zone_instances_limit: "1"
-   zone_requests_limit: "2"
+   	function_id: d4eokpuol55h********
+   	tag: $latest
+   	zone_instances_limit: "1"
+   	zone_requests_limit: "2"
    ```
 
 - Terraform
@@ -170,7 +170,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
 - API
 
-   You can add scaling settings for a function using the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) API method.
+   You can add scaling settings for a function using the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md).
 
 - Yandex Cloud Toolkit
 
@@ -187,9 +187,9 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Open **{{ sf-name }}**.
    1. Select a function.
-   1. Under **Version history**, move the mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) that you wish to delete scaling settings for.
-   1. In the pop-up window, click **Edit**.
-   1. To delete scaling settings, set its value to zero.
+   1. Under **Version history**, mouse over the version tag of the function (such as, ![image](../../../_assets/settings.svg) `$latest`) which you wish to delete scaling settings for.
+   1. In the pop-up window, click **Change**.
+   1. To delete a scaling setting, set it equal to zero.
    1. Click **Save**.
 
 - CLI
@@ -197,9 +197,9 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    To delete a function's scaling settings, run the command:
 
    ```
-   yc serverless function remove-scaling-policy \
-     --id=d4eokpuol55h******** \
-     --tag=\$latest
+   	yc serverless function remove-scaling-policy \
+   	  --id=d4eokpuol55h******** \
+   	  --tag=\$latest
    ```
 
    Where:
@@ -209,7 +209,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
 - API
 
-   You can delete scaling settings for a function using the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) API method.
+   You can delete scaling settings for a function using the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md).
 
 - Yandex Cloud Toolkit
 

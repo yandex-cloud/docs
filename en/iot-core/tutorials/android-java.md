@@ -42,27 +42,27 @@ If you already have a certificate, go directly to the second step.
 1. Create a certificate for the registry (skip this step if you already have a registry certificate):
 
    ```shell script
-    $ openssl req -x509 \
-        -newkey rsa:4096 \
-        -keyout registry-key.pem \
-        -out registry-cert.pem \
-        -nodes \
-        -days 365 \
-        -subj '/CN=localhost'
+    openssl req -x509 \
+      -newkey rsa:4096 \
+      -keyout registry-key.pem \
+      -out registry-cert.pem \
+      -nodes \
+      -days 365 \
+      -subj '/CN=localhost'
    ```
 
 1. Create a registry:
 
     ```
-    $ yc iot registry create --name my-registry
+    yc iot registry create --name my-registry
     ```
 
 1. Add a certificate to the registry:
 
     ```
-    $ yc iot registry certificate add \
-    --registry-name my-registry \ # Registry name.
-    --certificate-file registry-cert.pem # Path to the public part of the certificate.
+    yc iot registry certificate add \
+      --registry-name my-registry \ # Registry name.
+      --certificate-file registry-cert.pem # Path to the public part of the certificate.
     ```
 
 ### Create a device and add a certificate to it {#device}
@@ -72,27 +72,27 @@ If you already have a certificate, go directly to the second step.
 1. (optional) Create a certificate for the device:
 
    ```shell script
-    $ openssl req -x509 \
-        -newkey rsa:4096 \
-        -keyout device-key.pem \
-        -out device-cert.pem \
-        -nodes \
-        -days 365 \
-        -subj '/CN=localhost'
+    openssl req -x509 \
+      -newkey rsa:4096 \
+      -keyout device-key.pem \
+      -out device-cert.pem \
+      -nodes \
+      -days 365 \
+      -subj '/CN=localhost'
    ```
 
 1. Create a device:
 
     ```
-    $ yc iot registry create --name my-registry
+    yc iot registry create --name my-registry
     ```
 
 1. Add a certificate to the device:
 
     ```
-    $ yc iot registry certificate add \
-    --registry-name my-registry \ # Registry name.
-    --certificate-file registry-cert.pem # Path to the public part of the certificate.
+    yc iot registry certificate add \
+      --registry-name my-registry \ # Registry name.
+      --certificate-file registry-cert.pem # Path to the public part of the certificate.
     ```
 
 ## Connect to {{ iot-full-name }} {#connect}

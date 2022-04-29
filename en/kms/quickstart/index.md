@@ -20,7 +20,7 @@ To start working with {{ kms-name }}:
     Create a symmetric encryption key:
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a key.
     1. Select {{ kms-name }}.
-    1. In the **Keys** tab, click **Create** and set the key parameters:
+    1. Click **Create** and set the key parameters:
        * In the **Name** field, enter `my-first-key`.
        * In the **Encryption algorithm** field, specify `AES-256`.
        * In the **Rotation period, days** field, leave the value `No rotation`.

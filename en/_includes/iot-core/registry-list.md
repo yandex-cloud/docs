@@ -2,7 +2,7 @@
 
 - Management console
   1. In the [management console]({{ link-console-main }}), select the folder where you want to get a list of registries.
-  1. Select the **{{ iot-name }}**.
+  1. Select the **{{ iot-short-name }}**.
   1. The **Registries** page shows the list of registries.
 
 - CLI

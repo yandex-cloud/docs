@@ -1,4 +1,4 @@
-Create a trigger for a device [topic](../../iot-core/concepts/topic/index.md) or {{ iot-name }} registry and process copies of messages using a {{ sf-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-name}} [container](../../serverless-containers/concepts/container.md).
+Create a trigger for a device [topic](../../iot-core/concepts/topic/index.md) or the {{ iot-name }} service registry and process copies of messages using a {{ sf-name }} [function](../../functions/concepts/function.md) or a {{ serverless-containers-name}} [container](../../serverless-containers/concepts/container.md).
 
 {% note warning %}
 
@@ -39,7 +39,7 @@ To create a trigger, you need:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
 
    1. Open **{{ sf-name }}**.
 
@@ -53,14 +53,14 @@ To create a trigger, you need:
       * In the **Type** field, select **Yandex IoT Core**.
       * Choose what the trigger will launch — a function or a container.
 
-   1. Under **Yandex IoT Core message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you are creating a trigger for a registry topic, you don't have to specify a device or MQTT topic.
+   1. Under **Yandex IoT Core message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you are creating a trigger for a registry topic, you don't need to specify a device or an MQTT topic.
 
    1. If the trigger launches:
 
       * A function, select one under **Function settings** and specify:
 
          * [Tag of the function version](../../functions/concepts/function.md#tag);
-         * [A service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
+         * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
 
       * A container, select one under **Container settings** and specify:
 
@@ -72,7 +72,7 @@ To create a trigger, you need:
       * In the **Interval** field, specify the time after which the function or the container will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
       * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
 
-   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges to this queue.
+   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 

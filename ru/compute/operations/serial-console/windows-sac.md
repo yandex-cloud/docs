@@ -78,4 +78,14 @@
     PS C:\Windows\system32>
     ```
 
+    {% note warning %}
+
+    Для ввода текста на английском языке при использовании PowerShell в серийной консоли настройте языковые параметры Windows:
+
+    Перейдите в **Control Panel** → **Region** → **Administrative** → **Welcome screen and new user accounts settings**. В блоке **Welcome Screen** установите:
+    * `Display Language` — `English (United States)`.
+    * `Input Language` — `English (United States) — US`.
+
+    {% endnote %}
+
 1. Чтобы вернуться в консоль управления нажмите сочетание клавиш `ESC+TAB+0`.

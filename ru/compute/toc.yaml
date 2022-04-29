@@ -141,6 +141,8 @@ items:
             href: operations/image-create/create-from-image.md
       - name: Управление образом
         items:
+          - name: Получить список образов
+            href: operations/image-control/get-list.md
           - name: Удалить образ
             href: operations/image-control/delete.md
       - name: Файловые хранилища

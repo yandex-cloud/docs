@@ -97,9 +97,9 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
         ```
         yc serverless container add-access-binding \
-            --name <container_name> \
-            --user-account-id <user_ID> \
-            --role <role>
+          --name <container_name> \
+          --user-account-id <user_ID> \
+          --role <role>
         ```
 
         Result:
@@ -112,9 +112,9 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
         ```
         yc serverless container add-access-binding \
-            --name <container_name> \
-            --service-account-id <service_account_id> \
-            --role <role>
+          --name <container_name> \
+          --service-account-id <service_account_id> \
+          --role <role>
         ```
 
         Result:
@@ -127,9 +127,9 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
         ```
         yc serverless container add-access-binding \
-            --name <container_name> \
-            --all-authenticated-users \
-            --role <role>
+          --name <container_name> \
+          --all-authenticated-users \
+          --role <role>
         ```
 
         Result:
@@ -152,9 +152,9 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
         ```
         yc serverless container remove-access-binding \
-            --name <container_name> \
-            --user-account-id <user_ID> \
-            --role <role>
+          --name <container_name> \
+          --user-account-id <user_ID> \
+          --role <role>
         ```
 
         Result:
@@ -166,9 +166,9 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
         ```
         yc serverless container remove-access-binding \
-            --name <container_name> \
-            --service-account-id <service_account_id> \
-            --role <role>
+          --name <container_name> \
+          --service-account-id <service_account_id> \
+          --role <role>
         ```
 
         Result:
@@ -181,9 +181,9 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
         ```
         yc serverless container remove-access-binding \
-            --name <container_name> \
-            --all-authenticated-users \
-            --role <role>
+          --name <container_name> \
+          --all-authenticated-users \
+          --role <role>
         ```
 
         Result:

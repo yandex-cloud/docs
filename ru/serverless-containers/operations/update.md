@@ -52,6 +52,63 @@
 	status: ACTIVE
 	```
 
+- Terraform
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы изменить имя или описание контейнера, созданного с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и измените значения полей `name` и `description` в описании ресурса `yandex_serverless_container`:
+
+     ```hcl
+     ...
+     resource "yandex_serverless_container" "test-container" {
+       name               = "my-conrainer"
+       description        = "my first container with description"
+       memory             = 256
+       service_account_id = "ajec........34ova"
+       image {
+           url = "cr.yandex/yc/test-image:v1"
+       }
+     }
+     ...
+     ```
+
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+  Проверить изменение контейнера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+  ```
+  yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
+  ```
+
 {% endlist %}
 
 ## Управлять метками контейнера {#manage-label}
@@ -91,6 +148,63 @@
 	url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
 	status: ACTIVE
     ```
+- Terraform
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы добавить метки в контейнер, созданный с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и в ресурс `yandex_serverless_container` добавьте блок `labels`:
+
+     ```hcl
+     ...
+     resource "yandex_serverless_container" "test-container" {
+       name   = "my first container with description"
+       memory = 256
+       image {
+          url = "cr.yandex/yc/test-image:v1"
+       }
+       labels = {
+          label1 = "test"
+       }
+     }
+     ...
+     ```
+
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите Enter.
+
+  Проверить создание меток для контейнера можно в [CLI](../../cli/):
+
+  ```
+  yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
+  ```
 
 {% endlist %}
 
@@ -126,6 +240,64 @@
 	status: ACTIVE
     ```
 
+- Terraform
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы изменить метку контейнера, созданного с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и в ресурсе `yandex_serverless_container` измените блок `labels`:
+
+     ```hcl
+     ...
+     resource "yandex_serverless_container" "test-container" {
+       name   = "my first container with description"
+       memory = 256
+       image {
+          url = "cr.yandex/yc/test-image:v1"
+       }
+       labels = {
+          label1 = "new-label"
+       }
+     }
+     ...
+     ```
+
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+  Проверить изменение метки для контейнера можно в [CLI](../../cli/):
+
+  ```
+  yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
+  ```
+
 {% endlist %}
 
 ### Удалить метку {#remove-label}
@@ -151,5 +323,61 @@
 	url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
 	status: ACTIVE
     ```
+- Terraform
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить метку контейнера, созданнго с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и в ресурсе `yandex_serverless_container` удалите метку в блоке `labels`:
+     ```hcl
+     ...
+     resource "yandex_serverless_container" "test-container" {
+       name   = "my first container with description"
+       memory = 256
+       image {
+          url = "cr.yandex/yc/test-image:v1"
+       }
+       labels = {
+          label1 = "new-label"
+       }
+     }
+     ...
+     ```
+
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+  Проверить удаление метки для контейнера можно в [CLI](../../cli/):
+
+  ```
+  yc serverless container get <идентификатор_контейнера>|<имя_контейнера>
+  ```
 
 {% endlist %}

@@ -23,5 +23,62 @@
 	```
 	done (2s)
 	```
+- Terraform
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить контейнер, созданный с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и удалите блок с описанием контейнера.
+
+     Пример описания контейнера в конфигурации Terraform:
+     
+     ```hcl
+     ...
+     resource "yandex_serverless_container" "test-container" {
+       name               = "my-container"
+       memory             = 256
+       service_account_id = "ajec........34ova"
+       image {
+           url = "cr.yandex/yc/test-image:v1"
+       }
+     }
+     ...
+     ```
+
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+  Проверить удаление контейнера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+  ```
+  yc serverless container list 
+  ```
 
 {% endlist %}

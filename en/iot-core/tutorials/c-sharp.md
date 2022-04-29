@@ -42,27 +42,27 @@ If you already have a certificate, start with the second step.
 1. Create a certificate for the registry (skip this step if you already have a registry certificate):
 
    ```shell script
-    $ openssl req -x509 \
-        -newkey rsa:4096 \
-        -keyout registry-key.pem \
-        -out registry-cert.pem \
-        -nodes \
-        -days 365 \
-        -subj '/CN=localhost'
+   openssl req -x509 \
+     -newkey rsa:4096 \
+     -keyout registry-key.pem \
+     -out registry-cert.pem \
+     -nodes \
+     -days 365 \
+     -subj '/CN=localhost'
    ```
 
 1. Create a registry:
 
     ```shell script
-    $ yc iot registry create --name my-registry
+    yc iot registry create --name my-registry
     ```
 
 1. Add a certificate to the registry:
 
     ```shell script
-    $ yc iot registry certificate add \
-    --registry-name my-registry \ # Registry name.
-    --certificate-file registry-cert.pem # Path to the public part of the certificate.
+    yc iot registry certificate add \
+      --registry-name my-registry \ # Registry name.
+      --certificate-file registry-cert.pem # Path to the public part of the certificate.
     ```
 
 ### Create a device and add a certificate to it {#device}
@@ -72,13 +72,13 @@ If you already have a certificate, start with the second step.
 1. (optional) Create a certificate for the device:
 
    ```shell script
-    $ openssl req -x509 \
-        -newkey rsa:4096 \
-        -keyout device-key.pem \
-        -out device-cert.pem \
-        -nodes \
-        -days 365 \
-        -subj '/CN=localhost'
+   openssl req -x509 \
+     -newkey rsa:4096 \
+     -keyout device-key.pem \
+     -out device-cert.pem \
+     -nodes \
+     -days 365 \
+     -subj '/CN=localhost'
    ```
 
 1. [View the list of registries](../operations/registry/registry-list.md#registry-list) where you can create a device or [create a new registry](../operations/registry/registry-create.md).
@@ -86,15 +86,15 @@ If you already have a certificate, start with the second step.
 1. Create a device:
 
     ```shell script
-    $ yc iot device create --registry-name my-registry --name my-device
+    yc iot device create --registry-name my-registry --name my-device
     ```
 
 1. Add a certificate to the device:
 
     ```shell script
-    $ yc iot device certificate add \
-    --device-name my-device \ # Device name.
-    --certificate-file device-cert.pem # Path to the public part of the certificate.
+    yc iot device certificate add \
+      --device-name my-device \ # Device name.
+      --certificate-file device-cert.pem # Path to the public part of the certificate.
     ```
 
 ## Connect to {{ iot-full-name }} {#connect}
