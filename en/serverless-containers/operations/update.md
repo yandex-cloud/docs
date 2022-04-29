@@ -30,15 +30,15 @@ You can update a [container name or description](#update-name) and [manage conta
   * A container name, run the command:
       ```
       yc serverless container \
-         --name <container_name> \
-         --new-name <new_container_name>
+        --name <container_name> \
+        --new-name <new_container_name>
       ```
 
   * A container description, run the command:
       ```
       yc serverless container \
-         --name <container_name> \
-         --description <new_container_description>
+        --name <container_name> \
+        --description <new_container_description>
       ```
 
   Result:
