@@ -21,7 +21,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
     * `--ciphertext-file`: Output file with ciphertext.
 
     ```
-    $ yc kms symmetric-crypto encrypt \
+    yc kms symmetric-crypto encrypt \
       --id abj76v82ficsmn446ri7 \
       --plaintext-file plaintext-file \
       --ciphertext-file ciphertext-file
@@ -59,7 +59,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
     * `--plaintext-file`: Output file with ciphertext.
 
     ```
-    $ yc kms symmetric-crypto decrypt \
+    yc kms symmetric-crypto decrypt \
       --id abj76v82ficsmn446ri7 \
       --ciphertext-file ciphertext-file \
       --plaintext-file decrypted-file

@@ -11,12 +11,9 @@ The registry connection log contains information about operations performed with
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to view the registry connection log.
-
-    2. Select **{{ iot-name }}**.
-
-    3. Select the registry with the desired device from the list.
-
-    4. In the left part of the window, select **Logs**.
+    1. Select **{{ iot-name }}**.
+    1. Select the registry with the desired device from the list.
+    1. In the left part of the window, select **Logs**.
 
 - CLI
 
@@ -27,11 +24,10 @@ The registry connection log contains information about operations performed with
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. [Get](registry/registry-list.md##registry-list) a list of registries in a folder.
-
-  2. View the registry connection log:
+  1. View the registry connection log:
 
         ```
-        $ yc iot registry logs my-registry
+        yc iot registry logs my-registry
         ```
 
         Result:
@@ -58,16 +54,11 @@ The device connection log contains information about operations performed with t
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to view the device connection log.
-
-    2. Select **{{ iot-name }}**.
-
-    3. Select the registry with the desired device from the list.
-
-    4. In the left part of the window, select **Devices**.
-
-    5. Select the desired device from the list.
-
-    6. In the left part of the window, select **Logs**.
+    1. Select **{{ iot-name }}**.
+    1. Select the registry with the desired device from the list.
+    1. In the left part of the window, select **Devices**.
+    1. Select the desired device from the list.
+    1. In the left part of the window, select **Logs**.
 
 - CLI
 
@@ -78,11 +69,10 @@ The device connection log contains information about operations performed with t
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     1. [Get](device/device-list.md##device-list) a list of devices in a registry.
-
-    2. View the device connection log:
+    1. View the device connection log:
 
         ```
-        $ yc iot devices logs my-device
+        yc iot devices logs my-device
         ```
 
         Result:

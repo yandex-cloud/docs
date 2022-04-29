@@ -29,8 +29,8 @@ The scenario is based on [authorization using a username and password](../../iot
 1. In the **Name** field, enter `my-registry`.
 1. Enter the password.
 
-    - Minimum password length is 14 characters.
-    - The password must contain uppercase and lowercase letters and numbers.
+    * Minimum password length is 14 characters.
+    * The password must contain uppercase and lowercase letters and numbers.
 
     {% note warning %}
 
@@ -51,8 +51,8 @@ After creating the registry, you'll be automatically redirected to the **Registr
 1. In the **Name** field, enter `my-device`.
 1. Enter the password.
 
-    - Minimum password length is 14 characters.
-    - The password must contain uppercase and lowercase letters and numbers.
+    * Minimum password length is 14 characters.
+    * The password must contain uppercase and lowercase letters and numbers.
 
     {% note warning %}
 
@@ -79,9 +79,9 @@ After creating the registry, you'll be automatically redirected to the **Registr
 1. In the **Version** field, select `12`.
 1. Under **Host class**:
 
-    - Specify the `Intel Cascade Lake` platform.
-    - Select the `burstable` type.
-    - Specify the `b2.nano` class.
+    * Specify the `Intel Cascade Lake` platform.
+    * Select the `burstable` type.
+    * Specify the `b2.nano` class.
 
     {% note warning %}
 
@@ -91,8 +91,8 @@ After creating the registry, you'll be automatically redirected to the **Registr
 
 1. Under **Storage size**:
 
-    - Choose `network-ssd`.
-    - Set the size to 10 GB.
+    * Choose `network-ssd`.
+    * Set the size to 10 GB.
 
     {% note info %}
 
@@ -102,9 +102,9 @@ After creating the registry, you'll be automatically redirected to the **Registr
 
 1. Under **Database**, specify the DB attributes:
 
-    - Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-    - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
-    - User password. From 8 to 128 characters.
+    * Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+    * The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
+    * User password. From 8 to 128 characters.
 
     For a database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You can't change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
 
@@ -131,10 +131,10 @@ After creating the cluster, you'll be automatically redirected to the **Clusters
 
 As a sample data source, the scenario uses an air sensor that measures the following parameters:
 
-- Humidity.
-- The level of carbon dioxide (CO2).
-- Pressure.
-- Temperature.
+* Humidity.
+* The level of carbon dioxide (CO2).
+* Pressure.
+* Temperature.
 
 The sensor outputs the result in JSON format. For example:
 
@@ -194,8 +194,8 @@ After creating the function, you'll be automatically redirected to the **Editor*
 
 1. Under **Code**:
 
-    - In the **Runtime environment** field, choose `python37`.
-    - In the **Method** field, leave the default value: Code editor.
+    * In the **Runtime environment** field, choose `python37`.
+    * In the **Method** field, leave the default value: Code editor.
 
 1. Create a file named `myfunction.py`.
 1. In the file editing area, insert the function code from [Github](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/PostgreSQL).
@@ -209,8 +209,8 @@ After creating the function, you'll be automatically redirected to the **Editor*
 1. In the **Entry point** field, specify `myfunction.msgHandler`.
 1. Specify the following version parameters:
 
-    - **Timeout, sec:** 10.
-    - **RAM:** 128 MB.
+    * **Timeout, sec:** 10.
+    * **RAM:** 128 MB.
 
 1. Create a service account:
 
@@ -223,12 +223,12 @@ After creating the function, you'll be automatically redirected to the **Editor*
 
 1. Add environment variables:
 
-    - `VERBOSE_LOG`: Parameter that displays detailed information about the function execution. Set it to `True`.
-    - `DB_HOSTNAME`: Name of the {{ PG }} DB host to connect to.
-    - `DB_PORT`: Port to connect to.
-    - `DB_NAME`: Name of the database to connect to.
-    - `DB_USER`: Username for the connection.
-    - `DB_PASSWORD`: Password that you entered when [creating your cluster](#cluster).
+    * `VERBOSE_LOG`: Parameter that displays detailed information about the function execution. Set it to `True`.
+    * `DB_HOSTNAME`: Name of the {{ PG }} DB host to connect to.
+    * `DB_PORT`: Port to connect to.
+    * `DB_NAME`: Name of the database to connect to.
+    * `DB_USER`: Username for the connection.
+    * `DB_PASSWORD`: Password that you entered when [creating your cluster](#cluster).
 
     To define the values of connection parameters:
 
@@ -252,15 +252,15 @@ The trigger will accept copies of messages from the device topic and pass them t
 1. Click **Create trigger**.
 1. Under **Basic parameters**:
 
-    - In the **Name** field, enter a name for the trigger.
-    - In the **Description** field, enter a description for the trigger.
-    - In the **Type** field, select **{{ iot-full-name }}**.
+    * In the **Name** field, enter a name for the trigger.
+    * In the **Description** field, enter a description for the trigger.
+    * In the **Type** field, select **{{ iot-full-name }}**.
 
 1. Under **{{ iot-full-name }} message settings**:
 
-    - In the **Registry** field, enter `my-registry`.
-    - In the **Device** field, enter `my-device`.
-    - In the **Topic** field, specify the topic that the device sends data to:
+    * In the **Registry** field, enter `my-registry`.
+    * In the **Device** field, enter `my-device`.
+    * In the **Topic** field, specify the topic that the device sends data to:
 
         ```
         $devices/<device id>/events
@@ -272,9 +272,9 @@ The trigger will accept copies of messages from the device topic and pass them t
 
 1. Under **Function settings**:
 
-    - Select the data processing function that you created earlier.
-    - In the **Tag version** field, specify `$latest`.
-    - In the **Service account** field, specify `my-db-function-service-account`.
+    * Select the data processing function that you created earlier.
+    * In the **Tag version** field, specify `$latest`.
+    * In the **Service account** field, specify `my-db-function-service-account`.
 
 1. Leave the other fields empty or fill them in at your discretion.
 1. Click **Create trigger**.

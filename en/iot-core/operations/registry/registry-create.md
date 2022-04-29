@@ -5,13 +5,14 @@
 - Management console
 
    To create a registry:
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
-   1. Select **{{ iot-name }}**.
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your registry.
+   1. Select **{{ iot-short-name }}**.
    1. Click **Create registry**.
-   1. Specify **basic parameters** for the registry:
-      - Enter the registry **Name**. For example, `my-registry`.
-      - (optional) Add a **Description** with additional information about the registry.
-      - Set a **Password** that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
+   1. Under **General information**, add:
+      - A **name** for the registry. For example, `my-registry`.
+      - (optional) A **description** with further information about the registry.
+      - A **password** that you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password — you will need it later.
       - (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
    1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
       - To add a file:
@@ -27,55 +28,63 @@
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Create a registry:
+   1. Create a registry:
 
-     ```
-     $ yc iot registry create --name my-registry
-     
+      ```
+      yc iot registry create --name my-registry
+      ```
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+      Result:
+      ```
       id: b91ki3851hab9m0l68je
       folder_id: aoek49ghmknnpj1ll45e
       created_at: "2019-05-28T11:29:42.420Z"
       name: my-registry
-     ```
+      ```
 
-     {% include [name-format](../../../_includes/name-format.md) %}
-
-  1. Make sure the registry was created:
+   1. Make sure the registry was created:
 
       ```
-      $ yc iot registry list
-       +----------------------+-------------+
-       |          ID          |    NAME     |
-       +----------------------+-------------+
-       | b91ki3851hab9m0l68je | my-registry |
-       +----------------------+-------------+
+      yc iot registry list
+      ```
+
+      Result:
+      ```
+      +----------------------+-------------+
+      |          ID          |    NAME     |
+      +----------------------+-------------+
+      | b91ki3851hab9m0l68je | my-registry |
+      +----------------------+-------------+
       ```
 
 - Terraform
 
    {% include [terraform-definition](../../../_includes/tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note info %}
 
-   To add certificates to the registry, [create](../certificates/create-certificates.md) them in advance.
+   To add certificates to a registry, [generate](../certificates/create-certificates.md) them in advance.
 
    {% endnote %}
 
    To create a device registry:
 
    1. In the configuration file, describe the parameters of the resource to create:
+
       * `yandex_iot_core_registry`: Registry parameters:
-        * `name`: Registry name.
-        * `description`: Registry description.
-        * `labels`: Registry labels in `key:value` format.
-        * `passwords`: List of registry passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
-        * `certificates`: List of registry certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+         * `name`: Registry name.
+         * `description`: Registry description.
+         * `labels`: Registry labels in `key:value` format.
+         * `passwords`: List of registry passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
+         * `certificates`: List of registry certificates for authorization using [certificates](../../concepts/authorization.md#certs).
 
       Sample resource structure in the configuration file:
 
@@ -93,8 +102,8 @@
         ]
       
         certificates = [
-          file("<path to the first certificate file>"),
-          file("<path to the second certificate file>")
+          file("<path to first certificate file>"),
+          file("<path to second certificate file>")
         ]
       }
       
@@ -106,24 +115,22 @@
       For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
    2. Make sure that the configuration files are correct.
+
       1. In the command line, go to the directory where you created the configuration file.
       2. Run the check using the command:
-
          ```
-         $ terraform plan
+         terraform plan
          ```
-
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
    3. Deploy the cloud resources.
-      1. If the configuration doesn't contain any errors, run the command:
 
+      1. If the configuration doesn't contain any errors, run the command:
          ```
-         $ terraform apply
+         terraform apply
          ```
       2. Confirm that you want to create the resources.
 
-      Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
-
