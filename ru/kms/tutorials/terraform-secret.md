@@ -2,7 +2,7 @@
 
 [Terraform-провайдер для {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html) позволяет зашифровать секреты ключом {{ kms-short-name }} для последующего их использования в Terraform-конфигурации.
 
-Открытый текст и ключ {{ kms-short-name }}, который следует использовать для шифрования, необходимо указать в блоке [yandex_kms_secret_ciphertext](https://www.terraform.io/docs/providers/yandex/r/kms_secret_ciphertext.html):
+Открытый текст и ключ {{ kms-short-name }}, который следует использовать для шифрования, необходимо указать в блоке [yandex_kms_secret_ciphertext](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kms_secret_ciphertext):
 
 ```
 resource "yandex_kms_secret_ciphertext" "encrypted_strong_password" {

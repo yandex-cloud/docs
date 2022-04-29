@@ -39,27 +39,27 @@ Send a message with data using the following parameters:
     - Send data to the device topic:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$devices/<device ID>/events' \
-        -m 'Test data' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$devices/<device ID>/events' \
+          -m 'Test data' \
+          -q 1
         ```
 
     - Send data to the permanent device topic:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$devices/<device ID>/state' \
-        -m 'Test data' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$devices/<device ID>/state' \
+          -m 'Test data' \
+          -q 1
         ```
 
         Registries subscribed to this topic will know which device sent the data, because the topic contains a unique device ID.
@@ -67,27 +67,27 @@ Send a message with data using the following parameters:
     - Send data to the registry topic:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$registries/<registry ID>/events' \
-        -m 'Test data' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$registries/<registry ID>/events' \
+          -m 'Test data' \
+          -q 1
         ```
 
     - Send data to the permanent registry topic:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert device-cert.pem \
-        --key device-key.pem \
-        -t '$registries/<registry ID>/state' \
-        -m 'Test data' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert device-cert.pem \
+          --key device-key.pem \
+          -t '$registries/<registry ID>/state' \
+          -m 'Test data' \
+          -q 1
         ```
 
         The registry subscribed to this topic will not know which device sent the data, because the topic doesn't contain a unique device ID.
@@ -118,81 +118,81 @@ Send a message with a command using the following parameters:
     - Send a command to a single device:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<device ID>/commands' \
-        -m 'Test command for first device' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<device ID>/commands' \
+          -m 'Test command for first device' \
+          -q 1
         ```
 
     - Send a command to a single device using the permanent topic:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile rootCA.crt \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<device ID>/config' \
-        -m 'Test command for first device via permanent topic' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile rootCA.crt \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<device ID>/config' \
+          -m 'Test command for first device via permanent topic' \
+          -q 1
         ```
 
     - Send a command to two devices:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile cert.pem \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID of the first device>/commands' \
-        -t '$devices/<ID of the second device>/commands' \
-        -m 'Test command for first and second device' \
-        -q 1 # QoS 1.
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile cert.pem \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID of the first device>/commands' \
+          -t '$devices/<ID of the second device>/commands' \
+          -m 'Test command for first and second device' \
+          -q 1 # QoS 1.
         ```
 
     - Send a command to two devices using the permanent topic:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile cert.pem \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$devices/<ID of the first device>/config' \
-        -t '$devices/<ID of the second device>/config' \
-        -m 'Test command for first and second devices via permanent topic' \
-        -q 1 # QoS 1.
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile cert.pem \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$devices/<ID of the first device>/config' \
+          -t '$devices/<ID of the second device>/config' \
+          -m 'Test command for first and second devices via permanent topic' \
+          -q 1 # QoS 1.
         ```
 
     - Send a command to all devices added to the registry:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile cert.pem \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$registries/<registry ID>/commands' \
-        -m 'Test command for all devices' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile cert.pem \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$registries/<registry ID>/commands' \
+          -m 'Test command for all devices' \
+          -q 1
         ```
 
     - Send a command to all devices added to the registry using the permanent topic:
 
         ```
-        $ mosquitto_pub -h mqtt.cloud.yandex.net \
-        -p 8883 \
-        --cafile cert.pem \
-        --cert registry-cert.pem \
-        --key registry-key.pem \
-        -t '$registries/<registry ID>/config' \
-        -m 'Test command for all devices via permanent topic' \
-        -q 1
+        mosquitto_pub -h mqtt.cloud.yandex.net \
+          -p 8883 \
+          --cafile cert.pem \
+          --cert registry-cert.pem \
+          --key registry-key.pem \
+          -t '$registries/<registry ID>/config' \
+          -m 'Test command for all devices via permanent topic' \
+          -q 1
         ```
 
 {% endlist %}

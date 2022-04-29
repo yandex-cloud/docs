@@ -4,7 +4,7 @@
 
 ## Добавление ключа {#add}
 
-Добавить ключ {{ kms-short-name }} можно с помощью блока [yandex_kms_symmetric_key](https://www.terraform.io/docs/providers/yandex/r/kms_symmetric_key.html):
+Добавить ключ {{ kms-short-name }} можно с помощью блока [yandex_kms_symmetric_key](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kms_secret_ciphertext):
 
 ```
 resource "yandex_kms_symmetric_key" "kms-key" {

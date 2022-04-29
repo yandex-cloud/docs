@@ -18,7 +18,7 @@ Security group rules define the protocols and IP addresses for receiving and sen
 
 Rules store session statuses. Security groups monitor the status of connections and map response traffic to an already open session to allow traffic receipt.
 
-   > For example, a rule allows a VM to create an outgoing session to port 80 of an IP address. Responses from port 80 to the request source port are automatically resolved.
+> For example, a rule allows a VM to create an outgoing session to port 80 of an IP address. Responses from port 80 to the request source port are automatically resolved.
 
 ### Types of rules {#rules-types}
 
@@ -56,34 +56,47 @@ Security groups don't block sending traffic to the addresses of services require
 * The metadata server address: `169.254.169.254`.
 * The address of the [DNS server](network.md#subnet): The second-in-order internal IP address (usually `x.x.x.2`) in each subnet.
 
-To enable [health checks](../../network-load-balancer/concepts/health-check.md) for resources connected to the network load balancer, use one of the following methods:
+To enable [health checks](../../network-load-balancer/concepts/health-check.md) for resources connected to a network load balancer, use one of the methods below:
 
 * Recommended method: in the `predefined_target` field, enter `loadbalancer_healthchecks`.
 * Manually allow traffic to be transferred between `198.18.235.0/24`, `198.18.248.0/24`, and target resources.
 
-### Recommendations for incoming traffic {#incoming-traffic-recommendations}
-
-For incoming traffic, we recommend rules allowing:
-
-* Any incoming traffic from members of the same security group.
-* SSH connections to port `22` (`TCP`) from any address (`0.0.0.0/0`).
-* RDP connections to port `3389` (`TCP`) from any address (`0.0.0.0/0`).
-* All incoming traffic over `ICMP` from any address (`0.0.0.0/0`).
-
 ## Default security group {#default-security-group}
 
-A new network automatically creates a default security group. This group:
+The default security group is automatically:
+* Created in a new network.
+* Assigned to VMs when connecting to the new network subnets if they don't have any security groups.
 
-* Allows any incoming and outgoing traffic.
-* Assigns itself to VMs connecting to subnets on the new network if they don't have any security groups.
+   In this case, the automatically assigned security group isn't displayed in API or CLI responses.
 
-    If the default security group is assigned automatically, the security group will not display in API or CLI responses to information requests about the VM interface, managed database cluster, or Managed Service for Kubernetes. A prompt will appear in the management console that the default security group applies.
+   {% note info %}
 
-You can't delete the default security group.
+   You can't delete the default security group.
+
+   {% endnote %}
+
+### Default security group rules {#rules-default}
+
+The default security group is created with the following rules:
+
+{% list tabs %}
+
+- Outgoing traffic
+
+   All outgoing traffic is allowed.
+
+- Incoming traffic
+
+   Allowed:
+   * All incoming traffic from members of the same security group.
+   * SSH connections to port `22` (`TCP`) from any address (`0.0.0.0/0`).
+   * RDP connections to port `3389` (`TCP`) from any address (`0.0.0.0/0`).
+   * All incoming traffic over `ICMP` from any address (`0.0.0.0/0`).
+
+{% endlist %}
 
 {% note info %}
 
 In networks created before the security group functionality was launched, traffic will be transmitted without any restrictions to maintain backward compatibility.
 
 {% endnote %}
-

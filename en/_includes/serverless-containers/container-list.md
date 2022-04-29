@@ -4,7 +4,6 @@
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of containers.
   1. Open **{{ serverless-containers-name }}**.
-  1. Go to the **Containers** tab.
 
 - CLI
 
