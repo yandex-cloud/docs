@@ -140,7 +140,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
    | Maximum storage size | 8 TB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 32 GB |
    | Maximum number of files in storage | 1,000,000 |
-   | Maximum size of one file in storage | 8 TB |
+   | Maximum size of one file in storage | 300 GB |
 
 - HDD storage
 
@@ -149,7 +149,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
    | Maximum storage size | 8 TB |
    | [Allocation unit](../compute/concepts/storage-read-write.md) size | 256 GB |
    | Maximum number of files in storage | 1,000,000 |
-   | Maximum size of one file in storage | 8 TB |
+   | Maximum size of one file in storage | 300 GB |
 
 {% endlist %}
 
