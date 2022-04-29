@@ -42,7 +42,7 @@ To create a trigger, you need:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your trigger.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create your trigger.
 
    1. Open **{{ sf-name }}**.
 
@@ -70,7 +70,7 @@ To create a trigger, you need:
       * A function, select one under **Function settings** and specify:
 
          * [Tag of the function version](../../functions/concepts/function.md#tag);
-         * [A service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
+         * A [service account](../../iam/concepts/users/service-accounts.md) to be used to invoke the function.
 
       * A container, select one under **Container settings** and specify:
 

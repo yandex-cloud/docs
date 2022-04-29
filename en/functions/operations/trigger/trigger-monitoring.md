@@ -6,19 +6,25 @@ The chart update period is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
-1. In the [management console]({{ link-console-main }}), go to the folder where the trigger is located.
-1. Open **{{ sf-name }}**.
-1. Select a trigger to view its monitoring charts.
-1. Go to the **Monitoring** tab.
-1. The following charts open on the page:
-    * **Request latency**: The average time it takes a trigger to process a request.
-    * **Function call errors**: The number of errors when calling a function or a container.
-    * **Read events**: The number of events causing a trigger to fire.
-    * **DLQ access errors**: The number of errors when accessing the [Dead Letter Queue](../../concepts/dlq.md).
-    * **Function access errors**: The number of access errors when calling a function or a container.
-    * **Send to DLQ errors**: The number of errors when sending messages to the Dead Letter Queue.
+{% list tabs %}
+
+- Management console
+
+    1. In the [management console]({{ link-console-main }}), go to the folder where the trigger is located.
+    1. Open **{{ sf-name }}**.
+    1. Select a trigger to view its monitoring charts.
+    1. Go to the **Monitoring** tab.
+    1. The following charts open on the page:
+        * **Request latency**: The average time it takes a trigger to process a request.
+        * **Function call errors**: The number of errors when calling a function or a container.
+        * **Read events**: The number of events causing a trigger to fire.
+        * **DLQ access errors**: The number of errors when accessing the [Dead Letter Queue](../../concepts/dlq.md).
+        * **Function access errors**: The number of access errors when calling a function or a container.
+        * **Send to DLQ errors**: The number of errors when sending messages to the Dead Letter Queue.
 
     You can select the time interval to display information for: hour, day, week, month, or a custom interval.
+
+{% endlist %}
 
 ## Custom metrics {#metrics}
 

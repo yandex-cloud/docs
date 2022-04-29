@@ -129,9 +129,9 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
 
         ```
         yc serverless function add-access-binding \
-            --id <function ID> \
-            --user-account-id <user id> \
-            --role <role>
+          --id <function ID> \
+          --user-account-id <user id> \
+          --role <role>
         ```
 
         Result:
@@ -143,9 +143,9 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
 
         ```
         yc serverless function add-access-binding \
-            --id <function ID> \
-            --service-account-id <service account ID> \
-            --role <role>
+          --id <function ID> \
+          --service-account-id <service account ID> \
+          --role <role>
         ```
 
         Result:
@@ -157,9 +157,9 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
 
         ```
         yc serverless function add-access-binding \
-            --id <function ID> \
-            --all-authenticated-users \
-            --role <role>
+          --id <function ID> \
+          --all-authenticated-users \
+          --role <role>
         ```
 
         Result:
@@ -189,9 +189,9 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
 
         ```
         yc serverless function remove-access-binding \
-            --id <function ID> \
-            --user-account-id <user id> \
-            --role <role>
+          --id <function ID> \
+          --user-account-id <user id> \
+          --role <role>
         ```
 
         Result:
@@ -203,9 +203,9 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
 
         ```
         yc serverless function remove-access-binding \
-            --id <function ID> \
-            --service-account-id <service account ID> \
-            --role <role>
+          --id <function ID> \
+          --service-account-id <service account ID> \
+          --role <role>
         ```
 
         Result:
@@ -217,9 +217,9 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
 
         ```
         yc serverless function remove-access-binding \
-            --id <function ID> \
-            --all-authenticated-users \
-            --role <role>
+          --id <function ID> \
+          --all-authenticated-users \
+          --role <role>
         ```
 
         Result:
