@@ -1,207 +1,135 @@
 # Подключение внешних словарей
 
-Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/).
+Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/){% endif %}.
 
 {{ mch-name }} поддерживает несколько типов источников словарей:
-   * HTTP(s); 
-   * {{ PG }};
-   * {{ MY }};
-   * {{ CH }};
-   * {{ MG }}.
+
+* {{ CH }};
+* HTTP(s);
+* {{ MG }};
+* {{ MY }};
+* {{ PG }}.
 
 Словарями можно управлять либо через SQL, либо через интерфейсы облака. SQL — рекомендуемый способ.
+
+## Получить список словарей {#get-dicts-list}
+
+{% list tabs %}
+
+* SQL
+
+    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. Выполните [запрос]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/show/#show-dictionaries){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/show/#show-dictionaries){% endif %} `SHOW DICTIONARIES`.
+
+* Консоль управления
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
+
+* CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы подключить внешний словарь к кластеру {{ CH }}:
+
+    1. Посмотрите описание команды CLI для получения детальной информации о кластере:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster get --help
+        ```
+
+    1. Выполните команду:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster get <имя кластера>
+        ```
+
+    Подключенные словари отображаются в блоке `dictionaries:` результата выполнения команды.
+
+* API
+
+    Просмотреть список словарей можно вместе с остальными параметрами кластера с помощью метода [get](../api-ref/Cluster/get.md).
+
+{% endlist %}
 
 ## Подключить словарь {#add-dictionary}
 
 {% list tabs %}
 
-- SQL
+* SQL
 
-  {% note alert %}
+    {% note warning %}
 
-  Если словарь добавлен через SQL, для него недоступно управление через консоль, CLI и API.
+    Если словарь добавлен через SQL, для него недоступно управление через консоль, CLI и API.
 
-  {% endnote %}
-    
-  1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-  1. Выполните [DDL-запрос](https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/dictionary/):
+    {% endnote %}
 
-     ```sql
-     CREATE DICTIONARY <имя словаря>(
-     <столбцы данных>
-     )
-     PRIMARY KEY <имя столбца с ключами>
-     SOURCE(<источник>(<конфигурация источника>))
-     LIFETIME(<интервал обновления>)
-     LAYOUT(<способ размещения в памяти>());
-     ```
+    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. Выполните [DDL-запрос]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/dictionary/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/create/dictionary/){% endif %} и укажите [настройки словаря](#settings-sql):
 
-- Консоль управления
+        ```sql
+        CREATE DICTIONARY <имя словаря>(
+        <столбцы данных>
+        )
+        PRIMARY KEY <имя столбца с ключами>
+        SOURCE(<источник>(<конфигурация источника>))
+        LIFETIME(<интервал обновления>)
+        LAYOUT(<способ размещения в памяти>());
+        ```
 
-  {% note alert %}
+* Консоль управления
 
-  Если словарь добавлен через консоль, для него недоступно управление через SQL.
+    {% note warning %}
 
-  {% endnote %}
-  
-  1. Выберите кластер:
-  
-     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-     1. Нажмите на имя нужного кластера, затем выберите вкладку **Словари**.
-     1. В правом верхнем углу экрана нажмите **Добавить словарь**.
+    Если словарь добавлен через консоль, для него недоступно управление через SQL.
 
-  1. Настройте параметры источника словаря:
-    
-     Параметры подключения будут отличаться для разных типов источников.
-     
-     * **URL** — URL HTTP(s)-источника;
-     * **Формат файла** — [Формат](https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats).
-     * **Реплики** — список реплик {{ MY }}, которые будут использоваться как источник словаря.
-     Для реплик можно настроить собственные параметры подключения (порт, имя пользователя и пароль) или задать общие.
-     * **Хост** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-     * **Приоритет** — приоритет реплики {{ MY }}.  При попытке соединения {{ CH }} обходит реплики в соответствии с приоритетом. Чем меньше цифра, тем выше приоритет.
-     * **Порт** — порт для подключения к источнику.
-     * **Пользователь** — имя пользователя базы данных источника.
-     * **Пароль** — пароль для доступа к базе данных источника.
-     * **База данных** — имя базы данных источника.
-     * **Условие выбора** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора ```id=10``` эквивалентно SQL-команде ```WHERE id=10```. 
-     Параметр доступен для {{ MY }} и {{ CH }}.
-     * **Таблица** — имя таблицы источника.
-     * **Коллекция** — имя коллекции для {{ MG }}-источника.
-     * **Проверка статуса словаря** — Необязательный параметр. SQL-запрос для проверки изменений словаря.
-     {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-     Подробнее читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_lifetime/).
-     * **SSL mode** — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}.
-     Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+    {% endnote %}
 
-     Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_sources/).
-     
-  1. Настройте структуру и способы размещения словаря в памяти:
-  
-     **{{ mch-name }}** поддерживает несколько способов размещения словарей в памяти:
-     ```flat```, ```hashed```, ```cache```, ```range_hashed```, ```complex_key_hashed```, ```complex_key_cache```.
-     Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_layout/). 
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
+    1. В правом верхнем углу экрана нажмите **Добавить словарь**.
+    1. Укажите [настройки словаря](#settings-console) и нажмите **Сохранить**.
 
-     Параметры будут отличаться для разных способов размещения в памяти:
-     
-     * **Размер кэша** — количество ячеек кэша для способов `cache`, `complex_key_cache`.
-     Подробнее о кэше читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_layout/#cache).
-     * **Числовой ключ** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64.
-     Используется для способов `flat`, `hashed`, `cache`, `range_hashed`.
-     Подробнее о ключах читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_structure/#chislovoi-kliuch).
-     * **Составной ключ** — столбцы, образующие составной ключ словаря. Укажите идентификаторы столбцов и их типы данных.
-     Используется для способов `complex_key_hashed`, `complex_key_cache`.
-     Подробнее о составных ключах читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_structure/#sostavnoi-kliuch).
-     * **Столбец начала диапазона** и **Столбец конца диапазона** — столбцы, обозначающие начало и конец диапазона для способа `range_hashed`.
-     Укажите идентификаторы столбцов и их типы данных.
-     Подробнее о диапазонах читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_layout/#range-hashed).
-     * **Столбцы данных** — список столбцов с данными словаря:
-        * **Имя** — имя столбца.
-        * **Тип** — тип данных столбца.
-        * **Значение по умолчанию** — значение по умолчанию для пустого элемента.
-        При загрузке словаря все пустые элементы будут заменены на это значение.
-        Нельзя указать значение NULL. Необязательный параметр.
-        * **Выражение** — [выражение](https://{{ ch-domain }}/docs/ru/query_language/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца. Необязательный параметр.
-        * **Иерархический** — признак поддержки иерархии.
-        * **Инъективность** — признак инъективности отображения id -> attribute.
- 
-     Подробнее о параметрах столбцов читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_structure/#ext_dict_structure-attributes).
-  
-  1. Задайте периодичность обновления словаря:
-  
-     {{ CH }} загружает словари в оперативную память и периодически их обновляет.
-     Вы можете задать фиксированный интервал обновления в секундах или указать диапазон,
-     внутри которого {{ CH }} случайно выберет время для обновления.
-     Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов.
-     
-     Подробнее об обновлении словарей читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/query_language/dicts/external_dicts_dict_lifetime/). 
-  
-  
-- CLI
+* CLI
 
-  {% note alert %}
+    {% note warning %}
 
-  Если словарь добавлен через CLI, для него недоступно управление через SQL.
+    Если словарь добавлен через CLI, для него недоступно управление через SQL.
 
-  {% endnote %}
-  
-  {% include [cli-install](../../_includes/cli-install.md) %}
-  
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% endnote %}
 
-  Чтобы подключить внешний словарь к кластеру {{ CH }}:
-  
-  1. Посмотрите описание команды CLI для добавления словарей:
-    
-     ```
-     {{ yc-mdb-ch }} cluster add-external-dictionary --help
-     ```
-     
-  1. Выполните команду добавления словаря. Пример команды для {{ PG }} словаря: 
-   
-     ```
-     {{ yc-mdb-ch }} cluster add-external-dictionary \
-       --name <имя кластера {{ CH }}> \
-       --dict-name <имя словаря> \
-       --structure-id <имя ключевого столбца> \
-       --structure-attribute name=<имя столбца данных>,type=<тип данных>,null-value=<значение для пустого элемента>,expression=<выражение>,hierarchical=<true|false>,injective=<true|false> \
-       --fixed-lifetime <период обновления в секундах> \
-       --layout-type <flat|hashed|cache|range_hashed|complex_key_hashed|complex_key_cache> \
-       --postgresql-source db=<имя БД источника>,table=<имя таблицы источника>,port=<порт для подключения>,user=<имя пользователя БД источника>,password=<пароль БД источника>,ssl-mode=<disable|allow|prefer|require|verify-ca|verify-full> \
-       --postgresql-source-hosts <хосты БД источника> \
-     ```
-    
-- API
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% note alert %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Если словарь добавлен через API, для него недоступно управление через SQL.
+    Чтобы подключить внешний словарь к кластеру {{ CH }}:
 
-  {% endnote %}
+    1. Посмотрите описание команды CLI для добавления словарей:
 
-  Подключить словарь можно с помощью метода [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md).
+        ```bash
+        {{ yc-mdb-ch }} cluster add-external-dictionary --help
+        ```
 
-{% endlist %}
+    1. Выполните команду добавления словаря и укажите [его настройки](#settings-cli):
 
-## Просмотреть список словарей {#get-dicts-list}
+        ```bash
+        {{ yc-mdb-ch }} cluster add-external-dictionary \
+           --name=<имя кластера {{ CH }}> \
+           --dict-name=<имя словаря> \
+           ...
+        ```
 
-{% list tabs %}
+* API
 
-- SQL
-  
-  1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-  1. Выполните [запрос](https://{{ ch-domain }}/docs/ru/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
+    {% note warning %}
 
-- Консоль управления
+    Если словарь добавлен через API, для него недоступно управление через SQL.
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Словари**.
+    {% endnote %}
 
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-  
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы подключить внешний словарь к кластеру {{ CH }}:
-  
-  1. Посмотрите описание команды CLI для получения детальной информации о кластере:
-  
-     ```
-     {{ yc-mdb-ch }} cluster get --help
-     ```
-  
-  1. Выполните команду:
-  
-     ```
-     {{ yc-mdb-ch }} cluster get <имя кластера>
-     ```
-  
-  Подключенные словари отображаются в блоке ```dictionaries:``` результата выполнения команды.
-
-- API
-
-  Просмотреть список словарей можно вместе с остальными параметрами кластера с помощью метода [get](../api-ref/Cluster/get.md).
+    Подключить словарь можно с помощью метода [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md).
 
 {% endlist %}
 
@@ -209,41 +137,306 @@
 
 {% list tabs %}
 
-- SQL
-  
-  1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-  1. Выполните [запрос](https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя БД>.<имя словаря>`.
+* SQL
 
-- Консоль управления
-  
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и нажмите плитку **{{ mch-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
-  1. Нажмите значок ![image](../../_assets/options.svg) в строке нужного хоста и выберите пункт **Удалить**.
+    1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+    1. Выполните [запрос]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/#drop-dictionary){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/#drop-dictionary){% endif %} `DROP DICTIONARY <имя БД>.<имя словаря>`.
 
-- CLI
+* Консоль управления
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
-  
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Словари**.
+    1. Нажмите на значок ![image](../../_assets/options.svg) в строке нужного хоста и выберите пункт **Удалить**.
 
-  Чтобы удалить внешний словарь:
-  
-  1. Посмотрите описание команды CLI для удаления словаря:
-  
-     ```
-     {{ yc-mdb-ch }} cluster remove-external-dictionary --help
-     ```
-  
-  1. Удалите словарь с помощью команды:
-  
-     ```
-     {{ yc-mdb-ch }} cluster remove-external-dictionary \
-       --name <имя кластера> \
-       --dict-name <имя словаря> \
-     ```
+* CLI
 
-- API
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-  Удалить словарь можно с помощью метода [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md).
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить внешний словарь:
+
+    1. Посмотрите описание команды CLI для удаления словаря:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster remove-external-dictionary --help
+        ```
+
+    1. Удалите словарь с помощью команды:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster remove-external-dictionary \
+           --name=<имя кластера> \
+           --dict-name=<имя словаря>
+        ```
+
+* API
+
+    Удалить словарь можно с помощью метода [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md).
+
+{% endlist %}
+
+## Настройки словарей {#settings}
+
+### SQL {#settings-sql}
+
+* <имя словаря> — имя нового словаря.
+* <столбцы данных> — список столбцов с данными словаря и их тип.
+* PRIMARY KEY — имя ключевого столбца словаря.
+* SOURCE — источник и его параметры.
+* LIFETIME — периодичность обновления словаря.
+* LAYOUT — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`.
+
+Подробные описание настроек читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+
+### Консоль управления {#settings-console}
+
+* **Имя** — имя нового словаря.
+
+#### Источник {#console-source}
+
+{% list tabs %}
+
+* {{ CH }}
+
+    * **Хост** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * **Порт** — порт для подключения к источнику.
+    * **Пользователь** — имя пользователя базы данных источника.
+    * **Пароль** — пароль для доступа к базе данных источника.
+    * **База данных** — имя базы данных источника.
+    * **Таблица** — имя таблицы источника.
+    * **Условие выбора** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+    * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+        Подробнее читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+
+* HTTP(s)
+
+    * **URL** — URL HTTP(s)-источника.
+    * **Формат файла** — [формат]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %} файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %}.
+
+* {{ MG }}
+
+    * **Хост** — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * **Порт** — порт для подключения к источнику.
+    * **Пользователь** — имя пользователя базы данных источника.
+    * **Пароль** — пароль для доступа к базе данных источника.
+    * **База данных** — имя базы данных источника.
+    * **Коллекция** — имя коллекции источника.
+
+* {{ MY }}
+
+    * **Реплики** — список реплик {{ MY }}, которые будут использоваться как источник словаря.
+        Для реплик можно задать общие параметры подключения или настроить порт, имя пользователя и пароль.
+    * **Порт** — порт для подключения к источнику.
+    * **Пользователь** — имя пользователя базы данных источника.
+    * **Пароль** — пароль для доступа к базе данных источника.
+    * **База данных** — имя базы данных источника.
+    * **Таблица** — имя таблицы источника.
+    * **Условие выбора** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+    * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+        Подробнее читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+
+* {{ PG }}
+
+    * **Хосты** — имена хоста {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
+    * **Порт** — порт для подключения к источнику.
+    * **Пользователь** — имя пользователя базы данных источника.
+    * **Пароль** — пароль для доступа к базе данных источника.
+    * **База данных** — имя базы данных источника.
+    * **Таблица** — имя таблицы источника.
+    * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+        Подробнее читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+    * **SSL mode** — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}.
+        Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+
+{% endlist %}
+
+Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
+
+#### Способ размещения в памяти {#console-method}
+
+* **Размещение в памяти** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
+* **Размер кэша** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}.
+* **Числовой ключ** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}.
+* **Столбцы данных** — список столбцов с данными словаря:
+
+    * **Имя** — имя столбца.
+    * **Тип** — тип данных столбца.
+    * (Опционально) **Значение по умолчанию** — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
+    * (Опционально) **Выражение** — [выражение]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %}, которое {{ CH }} выполняет со значением столбца.
+    * **Иерархический** — признак поддержки иерархии.
+    * **Инъективность** — признак инъективности отображения `id` → `attribute`.
+
+Подробнее о параметрах столбцов читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes){% endif %}.
+
+#### Частота обновления {#console-rate}
+
+* **Период** — задайте периодичность обновления словаря:
+
+    * **фиксированный** — фиксированный период между обновлениями словаря:
+
+        * **Длительность периода** — период обновления данных словаря в секундах.
+
+    * **переменный** — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов:
+
+        * **Минимум** — минимальное значение периода между обновлениями словаря в секундах.
+        * **Максимум** — максимальное значение периода между обновлениями словаря в секундах.
+
+Подробнее об обновлении словарей читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+
+### CLI {#settings-cli}
+
+* `--dict-name` — имя нового словаря.
+
+{% list tabs %}
+
+* {{ CH }}
+
+    * `--clickhouse-source` — настройки источника {{ CH }}:
+
+        * `db` — имя базы данных источника.
+        * `table` — имя таблицы источника.
+        * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+        * `port` — порт для подключения к источнику.
+        * `user` — имя пользователя базы данных источника.
+        * `password` — пароль для доступа к базе данных источника.
+        * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+
+* HTTP(s)
+
+    * `--http-source-url` — URL HTTP(s)-источника.
+    * `--http-source-format` — [формат]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %} файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %}.
+
+* {{ MG }}
+
+    * `--mongodb-source` — настройки источника {{ MG }}:
+
+        * `db` — имя базы данных источника.
+        * `connection` — имя коллекции для {{ MG }}-источника.
+        * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+        * `port` — порт для подключения к источнику.
+        * `user` — имя пользователя базы данных источника.
+        * `password` — пароль для доступа к базе данных источника.
+
+* {{ MY }}
+
+    * `--mysql-source` — настройки источника {{ MY }}:
+
+        * `db` — имя базы данных источника.
+        * `table` — имя таблицы источника.
+        * `port` — порт для подключения к источнику.
+        * `user` — имя пользователя базы данных источника.
+        * `password` — пароль для доступа к базе данных источника.
+        * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+
+    * `--mysql-replica` — настройки реплик источника {{ MY }}:
+
+        * `host` — имя хоста реплики.
+        * `priority` — приоритет реплики. При попытке соединения {{ CH }} обходит реплики в соответствии с приоритетом. Чем меньше цифра, тем выше приоритет.
+        * `port` — порт для подключения к реплике.
+        * `user` — имя пользователя базы данных.
+        * `password` — пароль для доступа к базе данных.
+
+    * `--mysql-invalidate-query` — запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+
+* {{ PG }}
+
+    * `--postgresql-source` — настройки источника {{ PG }}:
+
+        * `db` — имя базы данных источника.
+        * `table` — имя таблицы источника.
+        * `port` — порт для подключения к источнику.
+        * `user` — имя пользователя базы данных источника.
+        * `password` — пароль для доступа к базе данных источника.
+        * `ssl-mode` — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}. Допустимые значения: `disable`, `allow`, `prefer`, `verify-ca`, `verify-full`.
+
+    * `--postgresql-source-hosts` — имена хоста {{ PG }} и его [реплик](../../managed-postgresql/concepts/replication.md), которые будут использоваться в качестве источника словаря. Хосты должны находиться в той же сети, что и кластер {{ CH }}.
+
+    * `--postgresql-invalidate-query` — запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
+
+{% endlist %}
+
+* `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}.
+* `--structure-key` — список столбцов с данными словаря:
+
+    * `name` — имя столбца.
+    * `type` — тип данных столбца.
+    * `null-value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
+    * `expression` — [выражение]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %}, которое {{ CH }} выполняет со значением столбца.
+    * `hierarchical` — признак поддержки иерархии.
+    * `injective` — признак инъективности отображения `id` → `attribute`.
+
+* `--structure-attribute` — описание полей, доступных для запросов к базе данных:
+
+    * `name` — имя столбца.
+    * `type` — тип данных столбца.
+    * `null-value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
+    * `expression` — [выражение]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %}, которое {{ CH }} выполняет со значением столбца.
+    * `hierarchical` — признак поддержки иерархии.
+    * `injective` — признак инъективности отображения `id` → `attribute`.
+
+* `--fixed-lifetime` — фиксированный период между обновлениями словаря в секундах.
+* `--lifetime-range` — диапазон, внутри которого {{ CH }} случайно выберет время для обновления. Это поможет распределить нагрузку на источник словаря при обновлении на большом количестве серверов.
+
+    * `min` — минимальное значение периода между обновлениями словаря в секундах.
+    * `max` — максимальное значение периода между обновлениями словаря в секундах.
+
+* `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
+* `--layout-size-in-cells` — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}.
+
+### API {#settings-api}
+
+Описание настроек приведены на странице описания метода API [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md).
+
+## Примеры
+
+{% list tabs %}
+
+* CLI
+
+    Допустим, нужно подключить словарь со следующими параметрами:
+
+    * кластер `mych`;
+    * имя `mychdict`;
+    * имя ключевого столбца `id`;
+    * поля, доступные для запросов к базе данных:
+
+        * `id` с типом `UInt64`;
+        * `field1`с типом `String`;
+
+    * фиксированный период между обновлениями словаря 300 секунд;
+    * способ размещения словаря в памяти `cache`;
+    * источник {{ PG }}:
+
+        * база данных `db1`;
+        * имя таблицы `table`;
+        * порт для подключения `5432`;
+        * имя пользователя базы данных `user1`;
+        * пароль для доступа к базе данных `user1user1`;
+        * режим для установки защищенного SSL TCP/IP соединения с базой данных `verify-full`;
+
+    * имя хоста `rc1b-05vjbfhfkrycjyq8.mdb.yandexcloud.net`.
+
+    Чтобы подключить такой словарь, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ch }} cluster add-external-dictionary \
+       --name=mych \
+       --dict-name=mychdict \
+       --structure-id=id \
+       --structure-attribute name=id,`
+                            `type=UInt64,`
+                            `name=field1,`
+                            `type=String \
+       --fixed-lifetime=300 \
+       --layout-type=cache \
+       --postgresql-source db=db1,`
+                          `table=table,`
+                          `port=5432,`
+                          `user=user1,`
+                          `password=user1user1,`
+                          `ssl-mode=verify-full \
+       --postgresql-source-hosts=rc1b-05vjbfhfkrycjyq8.mdb.yandexcloud.net
+    ```
 
 {% endlist %}
