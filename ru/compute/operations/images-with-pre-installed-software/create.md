@@ -23,7 +23,7 @@
 
       {% note info %}
 
-      Для создания виртуальной машины из образа [GitLab]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537){% endif %} требуется не меньше 4 виртуальных ядер и 8 ГБ оперативной памяти.
+      Каждый публичный образ имеет свои минимальные системные требования к виртуальной машине. Например, для образа [GitLab]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537){% endif %} требуется не меньше 4 виртуальных ядер и 8 ГБ оперативной памяти.
 
       {% endnote %}
 
