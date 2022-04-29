@@ -12,9 +12,9 @@
 
 - Management console
 
-  1. Open **{{ managed-k8s-name }}** in the folder you want to delete the {{ k8s }} cluster from.
-  1. Click ![image](../../../_assets/vertical-ellipsis.svg) icon in the row of the {{ k8s }} cluster to be deleted.
-  1. In the menu that opens, click **Delete**.
+  1. Open **{{ managed-k8s-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to delete the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) from.
+  1. Click ![image](../../../_assets/vertical-ellipsis.svg) in the row of the {{ k8s }} cluster to delete.
+  1. In the resulting menu, click **Delete**.
   1. In the window that opens, click **Delete**.
 
 - CLI
@@ -25,18 +25,32 @@
 
      ```bash
      yc managed-kubernetes cluster delete test-k8s-cluster
-     .....................done
+     ```
+
+     Command output:
+
+     ```bash
+     done
      ```
 
   1. Make sure that the {{ k8s }} cluster was deleted:
 
      ```bash
      yc managed-kubernetes cluster list
+     ```
+
+     Command output:
+
+     ```bash
      +----+------+------------+--------+--------+-------------------+-------------------+
      | ID | NAME | CREATED AT | HEALTH | STATUS | EXTERNAL ENDPOINT | INTERNAL ENDPOINT |
      +----+------+------------+--------+--------+-------------------+-------------------+
      +----+------+------------+--------+--------+-------------------+-------------------+
      ```
+
+- {{ TF }}
+
+  {% include [terraform-delete-mdb-cluster](../../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
 - API
 

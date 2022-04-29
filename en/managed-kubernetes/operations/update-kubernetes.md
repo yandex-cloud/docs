@@ -113,7 +113,6 @@ Select automatic update mode for the cluster and set the update schedule:
   1. Open the current configuration file with the cluster description.
 
      For information about how to create this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
-
   1. Change automatic update settings in the {{ k8s }} cluster description.
 
      {% note info %}
@@ -266,7 +265,6 @@ If necessary, update the {{ k8s }} cluster version manually. You can only update
   1. Open the current configuration file with the cluster description.
 
      For information about how to create this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
-
   1. Change the version in the {{ k8s }} cluster description:
 
      ```hcl
@@ -384,7 +382,6 @@ Select automatic update mode for the node group and set the desired update sched
   1. Open the current configuration file with the description of the node group.
 
      For information about how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
-
   1. Change automatic update settings in the node group description.
 
      {% note info %}
@@ -471,7 +468,7 @@ Select automatic update mode for the node group and set the desired update sched
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-k8s-node-group }}).
+  For more information, see [provider documentation {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API
 
@@ -573,7 +570,6 @@ Update the cluster version before updating the node group.
   1. Open the current configuration file with the description of the node group.
 
      For information about how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
-
   1. Change the version in the node group description:
 
      ```hcl
@@ -592,7 +588,7 @@ Update the cluster version before updating the node group.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-k8s-node-group }}).
+  For more information, see [provider documentation {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API
 
