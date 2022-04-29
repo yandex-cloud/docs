@@ -14,7 +14,7 @@ description: "Как получить логи моей работы в упра
 
 #### Какая версия {{ k8s }} CLI (kubectl) должна быть установлена для полноценной работы с кластером? {#kubectl-version}
 
-Мы рекомендуем использовать последнюю доступную официальную версию [kubectl]{% if region == "int" %}(https://kubernetes.io/docs/tasks/tools/#kubectl){% else %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/), чтобы избежать проблем совместимости.{% endif %}
+Мы рекомендуем использовать последнюю доступную официальную версию [kubectl]{% if region == "int" %}(https://kubernetes.io/docs/tasks/tools/#kubectl){% else %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/), чтобы избежать проблем совместимости{% endif %}.
 
 #### Сможет ли {{ yandex-cloud }} восстановить работоспособность кластера, если я допущу ошибки при его настройке? {#tech-support-cases}
 

@@ -170,6 +170,16 @@ items:
   - name: Questions and answers
     items:
       - name: General questions
-        href: qa/index.md
+        href: qa/general.md
+      - name: Data storage
+        href: qa/volumes.md
+      - name: Configuring and updating
+        href: qa/settings.md
       - name: Automatic scaling
         href: qa/cluster-autoscaler.md
+      - name: Resources
+        href: qa/resources.md
+      - name: Logs
+        href: qa/logs.md
+      - name: All questions on one page
+        href: qa/all.md
