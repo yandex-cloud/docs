@@ -11,15 +11,15 @@ In this scenario, direct access is used. The application added to [AppMetrica](h
 
 If you don't have any apps available, then before performing this scenario, [add an app](https://appmetrica.yandex.ru/docs/quick-start/concepts/quick-start.html) or use the standard **AppMetrica dashboard**.
 
-To visualize and analyze data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+To visualize and analyze data, [set up {{ datalens-short-name }}](#before-you-begin) and follow these steps:
 
 1. [Create a connection and a standard dashboard](#create-dashboard).
 1. [Edit the standard dashboard](#edit-dashboard).
 
-
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
 
 ## Create a connection and a standard dashboard {#create-dashboard}
 

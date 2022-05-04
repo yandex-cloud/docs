@@ -6,7 +6,7 @@ Podcast analytics let you retrieve statistics and analyze podcast listening and 
 To visualize and analyze the data, follow these steps:
 
 1. [Set up a connection](#сonfigure-connection).
-   1. [Before you start](#before-you-begin).
+   1. [Set up {{ datalens-short-name }}](#before-you-begin).
    1. [Create a connection](#create-connection).
    1. [Review podcast statistics in DataLens](#podcasts-in-datalens).
 1. [Edit and create a chart or a dashboard](#edit-dashboard-chart).
@@ -28,38 +28,16 @@ We recommend that you review the [Questions and answers](#qa) section to help yo
 
 ## 1. Set up a connection {#сonfigure-connection}
 
-### 1.1 Before you start {#before-you-begin}
+### 1.1 Set up {{ datalens-short-name }} {#before-you-begin}
 
 {{ datalens-full-name }} is deployed on the {{ yandex-cloud }} platform.
 
-To open DataLens, prepare the cloud:
+Set up {{ datalens-short-name }} based on your experience:
 
 * You're a new user (you only want to use {{ datalens-full-name }} for podcast analysis).
 * You're already using {{ datalens-full-name }} (for other purposes).
 
-{% list tabs %}
-
-- New user
-
-  If you want to use Yandex DataLens for podcast analysis only:
-
-  1. Open the [service home page]({{ link-datalens-main }}).
-  1. In the upper-right corner, check that you are logged in to the correct account.
-  1. Select the **default** folder to create an instance of {{ datalens-full-name }}. Click **Activate {{ datalens-short-name }}**.
-
-     ![image](../../../_assets/datalens/solution-10/32-choose-catalog.png)
-
-  1. The {{ datalens-full-name }} home page opens.
-
-- I'm already using {{ datalens-full-name }}
-
-  If you're already using {{ datalens-full-name }} for various purposes:
-
-  1. Open the [service home page]({{ link-datalens-main }}).
-  1. In the upper-right corner, check that you are logged in to the correct account.
-  1. The {{ datalens-full-name }} home page opens.
-
-{% endlist %}
+{% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
 ### 1.2. Create a connection {#create-connection}
 

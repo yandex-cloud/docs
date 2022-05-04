@@ -2,90 +2,10 @@
 
 You can add labels to all nodes in a node group at the same time. To do this, specify a set of labels using the `node_labels` parameter when creating a node group.
 
-1. Create a {{ k8s }} cluster.
+You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes in a [node group](../../concepts/index.md#node-group) at the same time. To do this, specify a set of labels using the `node_labels` parameter when [creating a node group](../../operations/node-group/node-group-create.md).
+1. Create a [cluster{{ k8s }}](../../concepts/index.md#kubernetes-cluster).
 
-   You can use an existing {{ k8s }} cluster or create a new one.
-
-   {% cut "How to create a cluster" %}
-
-   {% list tabs %}
-
-   - Management console
-
-     {% include [create-cluster](../../../_includes/managed-kubernetes/cluster-create.md) %}
-
-   - CLI
-
-     {% include [cli-install](../../../_includes/cli-install.md) %}
-
-     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-     Create a {{ k8s }} cluster:
-
-     ```bash
-     yc managed-kubernetes cluster create \
-       --name k8s-labels \
-       --service-account-name k8s \
-       --node-service-account-name docker \
-       --zone ru-central1-a \
-       --network-name k8s-labels
-     ```
-
-     Where:
-     * `--name`: The {{ k8s }} cluster name.
-     * `--service-account-id`: The unique ID of the service account for the resources. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
-     * `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
-     * `--zone`: Availability zone.
-     * `--network-name`: Name of the network.
-
-     Command output:
-
-     ```bash
-     done (6m9s)
-     id: abcsk1s2f3fmb5h0pd94
-     folder_id: d4f56ga82mev0cljderg
-     created_at: "2020-09-24T13:20:45Z"
-     name: k8s-labels
-     status: RUNNING
-     health: HEALTHY
-     network_id: higph7rfondivd8jflu9
-     master:
-      zonal_master:
-        zone_id: ru-central1-a
-        internal_v4_address: 10.0.0.32
-      version: "1.16"
-      endpoints:
-        internal_v4_endpoint: https://10.0.0.32
-      master_auth:
-        cluster_ca_certificate: |
-          -----BEGIN CERTIFICATE-----
-          MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
-          ...
-          piOjXzqDCLzCkfFuNimHejsSvVFN4N1bYYBCBMkhaYDzV5Ypfy/Jy0aHJ9U=
-          -----END CERTIFICATE-----
-      version_info:
-        current_version: "1.16"
-      maintenance_policy:
-        auto_upgrade: true
-        maintenance_window:
-          anytime: {}
-     ip_allocation_policy:
-      cluster_ipv4_cidr_block: 10.112.0.0/16
-      node_ipv4_cidr_mask_size: "24"
-      service_ipv4_cidr_block: 10.96.0.0/16
-     service_account_id: ajedclfluactb5868n99
-     node_service_account_id: ajeo8f063dmnicot7t7j
-     release_channel: REGULAR
-     ```
-
-   - API
-
-     To create a {{ k8s }} cluster, use the [create](../../api-ref/Cluster/create.md) method for a [Cluster](../../api-ref/Cluster/) resource.
-
-   {% endlist %}
-
-   {% endcut %}
-
+   You can use an existing {{ k8s }} cluster or [create a new one](../kubernetes-cluster/kubernetes-cluster-create.md).
 1. Create a group of nodes with labels.
 
    When creating a node group, specify node labels as `key:value` pairs:
@@ -110,12 +30,12 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
      1. Under **Allow when creating and updating**, specify the maximum number of instances that you can exceed and reduce the size of the group by.
      1. Under **Computing resources**:
         * Choose a [platform](../../../compute/concepts/vm-platforms.md).
-        * Specify the required number of vCPUs, [guaranteed vCPU performance](../../../compute/concepts/performance-levels.md), and RAM.
+        * Specify the requisite number of vCPUs and [guaranteed vCPU performance](../../../compute/concepts/performance-levels.md) as well as the amount of RAM.
      1. Under **Storage**:
         * Specify the **Disk type**:
           * **HDD**: Standard network drive. Network block storage on an HDD.
           * **SSD**: Fast network drive. Network block storage on an SSD.
-         * Specify the disk size.
+        * Specify the [disk](../../../compute/concepts/disk.md) size.
      1. Under **Network settings**:
         * In the **Public IP** field, choose a method for assigning an IP address:
           * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
@@ -123,9 +43,9 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
         * Specify how nodes should be distributed across availability zones and networks.
      1. Under **Access**, specify the information required to access the node:
         * Enter the username in the **Login** field.
-        * In the **SSH key** field, paste the contents of the [public key file](../../operations/node-connect-ssh.md#creating-ssh-keys).
+        * In the **SSH key** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
      1. Under **Maintenance window settings**:
-        * In the **Maintenance frequency / Disable** field, choose the maintenance window:
+        * In the **Maintenance frequency / Disable** field, choose the [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
           * **Disabled**: Automatic updates are disabled.
           * **Anytime**: Maintenance is allowed at any time.
           * **Daily**: Maintenance is performed during the interval specified in the **Time (UTC) and duration** field.
@@ -148,9 +68,9 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
      ```
 
      Where:
-     * `--name`: Name of the node group.
+     * `--name`: The name of the node group.
      * `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
-     * `--disk-type`: The type of the disk on the node.
+     * `--disk-type`: [Type of the disk](../../../compute/concepts/disk.md) on the node.
      * `--fixed-size`: Number of nodes in the group.
      * `--node-labels`: Node labels. You can specify multiple labels separated by commas.
 
@@ -197,6 +117,41 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
        environment: production
      ```
 
+   - {{ TF }}
+
+     {% note warning %}
+
+     A node group will be re-created from scratch.
+
+     {% endnote %}
+
+     1. Open the current configuration file with the description of the node group.
+
+        For more information about creating this file, see [{#T}](node-group-create.md).
+     1. Add the `node_labels` property to the node group description:
+
+        ```hcl
+        resource "yandex_kubernetes_node_group" "<node group name>" {
+          cluster_id = yandex_kubernetes_cluster.<cluster name>.id
+          ...
+          node_labels = {
+            "<label1>" = "<value1>"
+            "<label2>" = "<value2>"
+            ...
+          }
+        }
+        ```
+
+     1. Make sure that the configuration files are correct.
+
+        {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+     1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+        For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+
    - API
 
      To create a node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
@@ -227,20 +182,20 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
 
      ```bash
      NAME                        STATUS   ROLES    AGE  VERSION
-     catkugtyu07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
-     catkugtyu07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
+     catkuапро07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
+     catkuапро07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
      ```
 
      1. Get information on a selected {{ k8s }} cluster node:
 
      ```bash
-     kubectl describe node catkugtyu07enihqmk51-hgjd
+     kubectl describe node catkuапро07enihqmk51-hgjd
      ```
 
      Command output:
 
      ```bash
-     Name:               catkugtyu07enihqmk51-hgjd
+     Name:               catkuапро07enihqmk51-hgjd
      Roles:              <none>
      Labels:             apps/tier=backend
                          beta.kubernetes.io/arch=amd64
@@ -249,12 +204,12 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
                          environment=production
                          failure-domain.beta.kubernetes.io/zone=ru-central1-a
                          kubernetes.io/arch=amd64
-                         kubernetes.io/hostname=catkugtyu07enihqmk51-hgjd
+                         kubernetes.io/hostname=catkuапро07enihqmk51-hgjd
                          kubernetes.io/os=linux
                          node.kubernetes.io/kube-proxy-ds-ready=true
                          node.kubernetes.io/masq-agent-ds-ready=true
                          node.kubernetes.io/node-problem-detector-ds-ready=true
-                         yandex.cloud/node-group-id=catkugtyu07enihqmk51
+                         yandex.cloud/node-group-id=catkuапро07enihqmk51
                          yandex.cloud/pci-topology=k8s
                          yandex.cloud/preemptible=false
      ```

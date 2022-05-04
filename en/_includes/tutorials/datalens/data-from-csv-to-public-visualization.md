@@ -12,7 +12,7 @@ In this scenario, we'll use {{ datalens-short-name }} to visualize the measures 
 
 The file [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) is used as the source of data on the Moscow population and area for 2018. Source: [List of districts and settlements in Moscow](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
-To visualize and analyze data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+To visualize and analyze data, [set up {{ datalens-short-name }}](#before-you-begin) and follow these steps:
 
 1. [Create a connection](#step1).
 1. [Create a dataset](#step2).

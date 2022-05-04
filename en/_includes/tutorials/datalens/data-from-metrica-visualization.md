@@ -4,7 +4,7 @@ One of the Yandex Metrica tags that you have access to will be used as the data 
 
 If no tags are available in your list, gain access to a tag or use the Yandex Metrica demo dashboard. It's automatically created when you create a {{ datalens-short-name }} instance.
 
-To visualize your data, follow these steps:
+To visualize your data, [set up {{ datalens-short-name }}](#before-you-begin) follow these steps:
 
 1. [Before you start](#before-you-begin).
 1. [Create a connection and a standard dashboard](#step1).

@@ -16,7 +16,7 @@
 
 Поды `kube-system`, поды с `local-storage` и поды без контроллера репликации можно расселить. Для этого установите аннотацию `"safe-to-evict": "true"`:
 
-```
+```bash
 kubectl annotate pod <имя пода> cluster-autoscaler.kubernetes.io/safe-to-evict=true
 ```
 
@@ -32,25 +32,25 @@ kubectl annotate pod <имя пода> cluster-autoscaler.kubernetes.io/safe-to-
 
   Проверьте наличие аннотации на узле:
 
-  ```
+  ```bash
   kubectl describe node <имя узла> | grep scale-down-disabled
   ```
 
   Результат выполнения команды:
 
-  ```
+  ```bash
   Annotations:        cluster-autoscaler.kubernetes.io/scale-down-disabled: true
   ```
 
   Установите аннотацию:
 
-  ```
+  ```bash
   kubectl annotate node <имя узла> cluster-autoscaler.kubernetes.io/scale-down-disabled=true
   ```
 
-  Снять аннотацию можно, выполнив команду `kubectl` со знаком <q>-<\q>:
+  Снять аннотацию можно, выполнив команду `kubectl` со знаком `-`:
 
-  ```
+  ```bash
   kubectl annotate node <имя узла> cluster-autoscaler.kubernetes.io/scale-down-disabled-
   ```
 

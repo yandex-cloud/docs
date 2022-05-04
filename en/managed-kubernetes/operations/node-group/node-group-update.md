@@ -9,16 +9,16 @@ You can change the following parameters of a [node group](../../concepts/index.m
 * Description.
 * Number of nodes.
 * {{ k8s }} version.
-* List of security groups.
+* List of [security groups](../../../vpc/concepts/security-groups.md).
 * Computing resources and node disk size.
-* Update policy.
+* [Update](../../concepts/release-channels-and-updates.md#updates) policy.
 
 {% list tabs %}
 
 - Management console
 
   To change a [node group](../../concepts/index.md#node-group):
-  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
+  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
   1. Click on the name of the desired cluster.
   1. Go to the **Node group** tab.
   1. Click **Edit** in the upper-right corner.
@@ -36,33 +36,58 @@ You can change the following parameters of a [node group](../../concepts/index.m
   Use the following parameters to edit the node group:
   * `--new-name`: Change the name.
   * `--description`: Edit the description.
-  * `--service-account-id`, `--service-account-name`: Edit the resource service account.
-  * `--node-service-account-id`, `--node-service-account-name`: Edit the node service account.
-  * `--version`: Change the {{ k8s }} version.
-  * `--network-interface`: Network settings:
+  * `--service-account-id`, `--service-account-name`: edit resource [service account](../../../iam/concepts/index.md#sa).
+  * `--node-service-account-id`, `--node-service-account-name`: edit node service account.
+  * `--version`: change {{ k8s }} version.
+  * `--network-interface`: [Network](../../../vpc/concepts/network.md#network) settings:
 
     {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-  * `--network-acceleration-type`: Selection of the type of network acceleration:
-    * `standard`: Without acceleration.
-    * `software-accelerated`: [Software-accelerated network](../../../vpc/concepts/software-accelerated-network.md).
+  * `--network-acceleration-type`: The type of [network acceleration](../../../vpc/concepts/software-accelerated-network.md):
+    * `standard`: no acceleration.
+    * `software-accelerated`: Software-accelerated network.
 
     {% note warning %}
 
-    Before turning on the software-accelerated network, make sure that you have enough [resources available in the cloud](../../concepts/limits.md) to create an additional node.
+    Prior to activating a software-accelerated network, please make sure that you have sufficient [cloud resources available](../../concepts/limits.md) to create an additional node.
 
     {% endnote %}
 
-  * `--latest-revision`: Get all available updates for the current version of the master.
+  * `--latest-revision`: get all available updates for current version of [master](../../concepts/index.md#master).
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
-    * `--anytime-maintenance-window`: Run the maintenance at any time.
-    * `--daily-maintenance-window`: Update daily at a specified time.
-    * `--weekly-maintenance-window`: Update on specified days.
+    * `--anytime-maintenance-window`: Perform maintenance at any time.
+    * `--daily-maintenance-window`: update daily at specified time.
+    * `--weekly-maintenance-window`: update on specified days.
+
+  {% note warning %}
+
+  * The `user-data` metadata switch is not supported for virtual machine post-configuration or user data transmission.
+  * To manage SSH keys, [use the `ssh-keys` key](../../../compute/concepts/vm-metadata.md).
+  * For post-configuring nodes, use privileged DaemonSets. For example, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
+
+  {% endnote %}
+
+- {{ TF }}
+
+  To change a [node group](../../concepts/index.md#node-group):
+  1. Open the current {{ TF }} configuration file describing the node group.
+
+     For more information about creating this file, see [{#T}](node-group-create.md).
+  1. Edit properties in the node group description.
+  1. Make sure that the configuration files are correct.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API
 
-  To change the parameters of a node group, use the method [update](../../api-ref/NodeGroup/update.md) for the [NodeGroup](../../api-ref/NodeGroup) resource.
+  To edit the properties of a [node group](../../concepts/index.md#node-group), use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
 {% endlist %}
 
@@ -72,8 +97,8 @@ You can change the following parameters of a [node group](../../concepts/index.m
 
 - Management console
 
-  1. Go to the folder page and select **{{ compute-full-name}}**.
-  1. Click on the VM name.
+  1. Go to the folder page and select **{{ compute-name}}**.
+  1. Click the name of the desired VM.
   1. Under **Network**, click ![options](../../../_assets/horizontal-ellipsis.svg) and select **Add public IP address**.
   1. Specify the appropriate settings and click **Add**.
 
@@ -83,8 +108,7 @@ You can change the following parameters of a [node group](../../concepts/index.m
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To enable access to nodes from the internet:
-
+  To enable access to [nodes](../../concepts/index.md#node-group) from the internet:
   1. Get detailed information about the command to edit the node group:
 
      ```bash
@@ -96,23 +120,23 @@ You can change the following parameters of a [node group](../../concepts/index.m
      ```bash
      {{ yc-k8s }} node-group update <node group ID or name> \
      ...
-       --network-interface subnets=<name of node group subnet>, ipv4-address=nat
+       --network-interface subnets=<name of node group subnet>,ipv4-address=nat
      ```
 
      You can find out the names and IDs of node groups in the [list of node groups in the folder](node-group-list.md#list).
 
 - API
 
-  Use the method [update](../../api-ref/NodeGroup/update.md) for the [NodeGroup](../../api-ref/NodeGroup) resource.
+  Use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
 {% endlist %}
 
 ## Managing node group labels {#manage-label}
 
-You can perform the following actions with node group labels:
-* [Add a label](#add-label)
-* [Update a label](#update-label)
-* [Delete a label](#remove-label)
+You can perform the following actions with node group [labels](../../../overview/concepts/services.md#labels):
+* [Add](#add-label)
+* [Edit](#update-label)
+* [Delete](#remove-label)
 
 ### Adding a label {#add-label}
 
@@ -122,7 +146,7 @@ You can perform the following actions with node group labels:
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Add a label to a node group:
+  Add a label to a [node group](../../concepts/index.md#node-group):
 
   ```bash
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
@@ -136,6 +160,34 @@ You can perform the following actions with node group labels:
   cluster_id: catcsqidoos7tq0513us
   ...
   ```
+
+- {{ TF }}
+
+  1. Open the current {{ TF }} configuration file describing the node group.
+
+     For more information about creating this file, see [{#T}](node-group-create.md).
+  1. Add the `labels` property to the node group description:
+
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<node group name>" {
+       cluster_id = yandex_kubernetes_cluster.<cluster name>.id
+       ...
+       labels = {
+         "<label>" = "<value>"
+       }
+       ...
+     }
+     ```
+
+  1. Make sure that the configuration files are correct.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
 
@@ -166,6 +218,35 @@ You can perform the following actions with node group labels:
   ...
   ```
 
+- {{ TF }}
+
+  1. Open the current {{ TF }} configuration file describing the node group.
+
+     For more information about creating this file, see [{#T}](node-group-create.md).
+  1. Edit the `labels` property in the node group description:
+
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<node group name>" {
+       cluster_id = yandex_kubernetes_cluster.<cluster name>.id
+       ...
+       labels = {
+         "<label>" = "<value>"
+         ...
+       }
+       ...
+     }
+     ```
+
+  1. Make sure that the configuration files are correct.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+
 {% endlist %}
 
 ### Deleting a label {#remove-label}
@@ -189,12 +270,20 @@ You can perform the following actions with node group labels:
   ...
   ```
 
+- {{ TF }}
+
+  1. Open the current {{ TF }} configuration file describing the node group.
+
+     For more information about creating this file, see [{#T}](node-group-create.md).
+  1. In the node group description, delete the labels you no longer need under `labels`.
+  1. Make sure that the configuration files are correct.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+
 {% endlist %}
-
-{% note warning %}
-
-* The `user-data` metadata key is not supported for post-configuring the VM and user data transmission.
-* To manage SSH keys, [use the key](../../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) `ssh-keys`.
-* For post-configuring nodes, use privileged DaemonSets. For example, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
-
-{% endnote %}

@@ -12,7 +12,7 @@ With {{ datalens-short-name }}, you'll analyze locations based on real data:
 
 This scenario is also available as a [recording](https://www.youtube.com/watch?v=cw6PotbQYng) from the {{ yandex-cloud }} YouTube channel.
 
-To visualize and explore data, [set up your cloud](#before-you-begin), then follow the steps below:
+To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin), then follow the steps below:
 
 1. [Import geolayers from the Marketplace](#step1).
 1. [Create a connection](#step2).

@@ -213,6 +213,10 @@ items:
             href: operations/marketplace/delete-marketplace-product.md
           - name: Creating and using a connector (for partners)
             href: operations/marketplace/create-connector-for-partners.md
+      - name: Working with organizations
+        items:
+          - name: Switching between DataLens instances
+            href: operations/organizations/change-organization.md
   - name: Access management
     items:
       - name: Managing access to DataLens
