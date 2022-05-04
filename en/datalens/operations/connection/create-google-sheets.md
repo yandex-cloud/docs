@@ -5,15 +5,11 @@
 To create a Google Sheets connection:
 
 1. Go to the [connections page](https://datalens.yandex.com/connections).
-
 1. Click **Create connection**.
-
 1. Select the **Google Sheets** connection.
-
 1. Specify the connection parameters:
-
-    - **Connection name**. Specify a name for the connection. You can set any name.
-    - **Link**. Specify a link to the desired sheet in Google Sheets. To do this, in the Google Sheets share settings, select `Anyone with the link`, select the desired sheet, and copy the link from the browser's address bar. If you copy the link from the Google Sheets share dialog box, it will point to the spreadsheet's first sheet.
+   - **Connection name**. Specify a name for the connection. You can set any name.
+   - **Link**. Specify a link to the desired sheet in Google Sheets. To do this, in the Google Sheets access settings, select ``Anyone with the link`` and copy the link to the desired sheet from the browser's address bar. If you copy the link from the Google Sheets sharing window, it will point to the spreadsheet's first sheet.
 
 1. Click **Create**. The connection appears in the list.
 
@@ -25,7 +21,19 @@ A cache with a 5-minute lifetime is used when loading data from Google Sheets, s
 
 {% cut "What to do if a table from Google Sheets does not work correctly?" %}
 
-{% include [google-sheets-error](../../../_includes/datalens/qa/google-sheets-error.md) %}
+If a Google Sheets spreadsheet contains empty cells, {{ datalens-short-name }} may display column headers incorrectly and fail to display the first several lines.
+
+To correct this, you need to fill in the empty cells in the Google Sheets spreadsheet with any appropriate values, such as `unavailable`, `none`, and `unknown`.
+
+To complete empty cells in a Google Sheets spreadsheet quickly:
+
+1\. Highlight the entire Google Sheets sheet.
+2\. In the spreadsheet menu, select **Data** → **Create a filter**.
+3\. In the right-hand corner of the first column's top cell, click the filter icon.
+4\. Select **Clear** and then select **(Blanks)**.
+5\. In the column's top cell, enter the desired values, such as `0`, `unavailable`, `none`, or any other.
+6\. Drag the cell down to fill all the empty cells in the column with the entered value.
+7\. Click the filter icon again and click **Select all**.
+8\. Repeat all the steps starting with Step 3 for the other columns in the spreadsheet.
 
 {% endcut %}
-
