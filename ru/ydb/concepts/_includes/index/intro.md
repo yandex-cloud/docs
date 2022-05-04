@@ -16,7 +16,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/_includes/index/intro.md
 * высокую доступность с автоматической обработкой отказов вычислительных узлов, стоек, или зон доступности;
 * автоматическое партицирование данных при увеличении их объема или увеличении нагрузки.
 
-Для взаимодействия с {{ ydb-short-name }} доступен [{{ ydb-short-name }} CLI](../../../reference/ydb-cli/index.md), а также [SDK](../../../reference/ydb-sdk/index.md) для   Java, Python, Node.js, PHP и Go.
+Для взаимодействия с {{ ydb-short-name }} доступен [{{ ydb-short-name }} CLI](../../../reference/ydb-cli/index.md), а также [SDK](../../../reference/ydb-sdk/index.md) для   Java, Python, Node.js, PHP, Go и C#.
 
 {{ ydb-short-name }} поддерживает реляционную [модель данных](../../../concepts/datamodel.md) и оперирует таблицами с предопределённой схемой. Для удобства организации таблиц поддерживается создание директорий по аналогии с файловой системой.
 
