@@ -2,9 +2,9 @@
 editable: false
 ---
 
-# REPLACE
+# REPLACE (string)
 
-
+_Function `REPLACE` is also found in the following categories: [Array functions](REPLACE_ARRAY.md)._
 
 #### Syntax {#syntax}
 
