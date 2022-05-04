@@ -10,7 +10,7 @@ In this example, {{ datalens-short-name }} is used to visualize:
 
 A connection named **Sample ClickHouse** will be created for database access.
 
-To visualize and analyze data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+To visualize and analyze data, [set up {{ datalens-short-name }}](#before-you-begin) and follow these steps:
 
 1. [Define the data source for a dataset](#step1).
 1. [Configure dataset fields](#step2).

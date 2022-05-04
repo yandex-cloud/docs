@@ -70,7 +70,7 @@
   {% note warning %}
 
   * Не поддерживается использование ключа метаданных `user-data` для донастройки виртуальной машины и передачи пользовательских данных.
-  * Для управления ssh-ключами можно [воспользоваться ключом `ssh-keys`](../../../compute/concepts/vm-metadata).
+  * Для управления ssh-ключами можно [воспользоваться ключом `ssh-keys`](../../../compute/concepts/vm-metadata.md).
   * Для донастройки узлов используйте привилегированные наборы DaemonSet. Например, [sysctl-tuner](https://github.com/elemir/yc-recipes/tree/master/sysctl-tuner).
 
   {% endnote %}

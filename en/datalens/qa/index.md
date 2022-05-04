@@ -24,36 +24,43 @@ Sections:
 
 To allow another user with a Yandex account to open your dashboard, configure access to {{ datalens-full-name }}:
 
-{% cut "1. Add a user to the cloud." %}
+1. Add a user:
 
-   1. Open the page [Access control]({{ link-console-access-management }}).
-   1. In the upper-right corner, click **Add user**.
-   1. Enter the user's Yandex email address and click **Add**. The new user appears in the list of users.
-   1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Configure roles**.
-   1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
+   {% list tabs %}
 
-      After that, the user has access to your {{ datalens-full-name }} instance.
+   - To an organization
 
-{% endcut %}
+     {% include [datalens-add-user-organization](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
 
-{% cut "2. Make sure the user has permission to access the dashboard." %}
+     After that, the user has access to your {{ datalens-full-name }} instance.
+
+   - To a cloud
+
+     1. Go to [Access control]({{ link-console-access-management }}).
+     1. In the top right-hand corner, click **Add user**.
+     1. Enter the user's Yandex email address and click **Add**. The new user appears in the list of users.
+     1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Configure roles**.
+     1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
+
+     After that, the user has access to your {{ datalens-full-name }} instance.
+
+   {% endlist %}
+
+1. Make sure that the user has access to the dashboard:
 
    1. Open the dashboard.
-   1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Permissions**.
    1. In the **Add member** field, enter "All" or the name of the user who needs extended permissions.
    1. Go to the **Current object** section and set the permissions for the dashboard:
 
       * View: Read only is available.
       * Edit: View and edit options are available.
       * Administration: View, edit, and manage options are available.
-      
-   1. Enable the **Linked objects** option to grant permission to other dashboard-related objects (connections, dashboards, and charts).
 
-   The user is granted access to your {{ datalens-short-name }} and objects with **All** permissions. You can assign this user individual permissions to objects.
+   1. Enable the **Linked objects** option to grant permissions to other dashboard-related objects (connections, dashboards, and charts).
 
-{% endcut %}
+The user is granted access to your {{ datalens-short-name }} and objects with **All** permissions. You can assign this user individual permissions to objects.
 
-You can send the link to the dashboard from the browser. To learn more about permissions for {{ datalens-short-name }} objects, see the [documentation](https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions).
+You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see the [documentation](https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions).
 
 You can also make your dashboard public using [{#T}](../concepts/datalens-public.md).
 
@@ -131,6 +138,7 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
 
+
 ## Calculated fields {#calculation-fields}
 
 {% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}
@@ -157,9 +165,9 @@ Yes, you can request log records about your resources from {{ yandex-cloud }} se
 
 {{ datalens-short-name }} is offered only as a cloud service. We would also like to note:
 
-- {{ datalens-short-name }} is a {{ yandex-cloud }} service, which complies with Federal Law No. 152 and industry safety standards. For more information, see [{{ yandex-cloud }} security](https://cloud.yandex.com/en-ru/security).
+- {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. More information is available in [{{ yandex-cloud }} security](https://cloud.yandex.com/en-ru/security).
 
-- For {{ datalens-short-name }} you can [set up identity federations](../../organization/quick-start.md).
+- For {{ datalens-short-name }}, you can [set up identity federations](../../organization/quick-start.md).
 
 ### Why is the cloud with a {{ datalens-short-name }} instance blocked? {#datalens-suspended}
 
@@ -167,27 +175,25 @@ Your cloud may be blocked in the following cases:
 
 - Outstanding charges for {{ yandex-cloud }} paid services that are in the same cloud as {{ datalens-short-name }}.
 - Expiration of a trial period for {{ yandex-cloud }} paid services.
-- Violation of [Terms of Use](https://yandex.ru/legal/cloud_termsofuse/?lang=en) {{ yandex-cloud }}.
+- Violation of the [Terms of use](https://yandex.ru/legal/cloud_termsofuse/?lang=en) {{ yandex-cloud }}.
 
 When a cloud is suspended, your {{ datalens-short-name }} instance will be unavailable. You won't be able to use {{ datalens-short-name }} until access to the cloud is restored.
 
-For more information about cloud suspension, see [Automatic cloud suspension](../../overview/concepts/data-deletion.md#block).
+Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion.md#block).
 
 {% include [object-id](../../_includes/datalens/qa/object-id.md) %}
 
 ## How to report a problem {#how-to-resolve-problem}
 
 There are two ways to report a problem:
-
-* Via the {{ datalens-full-name }} interface. In the {{ datalens-full-name }} interface, next to the error code, click **Report problem** and leave all the necessary details of the problem in the description. A {{ yandex-cloud }} support ticket will be created automatically.
-* As a direct query to [technical support]({{ link-console-support }}) {{ yandex-cloud }}.
+* From the {{ datalens-full-name }} interface. In the {{ datalens-full-name }} interface, next to the error code, click **Report problem** and enter all the necessary details of the problem in the description. A {{ yandex-cloud }} support ticket will be created automatically.
+* From a direct report to [technical support]({{ link-console-support }}) {{ yandex-cloud }}.
 
 In your report, please provide (if possible):
-
 * The most accurate description of the problem and the sequence of your actions.
 * Images, GIFs, or videos.
 
-You can leave your ideas and suggestions in the [{{ yandex-cloud }} community](https://cloud.yandex.ru/features?serviceId=23).
+You can leave feedback and suggestions regarding the service in the [{{ yandex-cloud }} user community](https://cloud.yandex.ru/features?serviceId=23).
 
-To receive the news and discuss best service practices, join the [DataLens](https://t.me/YandexDataLens) community in Telegram.
+To receive news and discuss best service practices, join the [DataLens](https://t.me/YandexDataLens) community in Telegram.
 

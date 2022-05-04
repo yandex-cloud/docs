@@ -5,7 +5,6 @@
 1. Создайте [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
 
    Вы можете использовать уже работающий кластер {{ k8s }} или [создать новый](../kubernetes-cluster/kubernetes-cluster-create.md).
-
 1. Создайте группу узлов с метками.
 
    {% list tabs %}
@@ -73,7 +72,7 @@
 
      ```bash
      done (2m19s)
-     id: catkuапро07enihqmk51
+     id: catkuapro07enihqmk51
      cluster_id: abcsk1s2f3fmb5h0pd94
      created_at: "2020-09-24T13:32:24Z"
      name: k8s-labels-node
@@ -123,7 +122,6 @@
      1. Откройте актуальный конфигурационный файл с описанием группы узлов.
 
         О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
-
      1. Добавьте к описанию группы узлов параметр `node_labels`:
 
         ```hcl
@@ -178,20 +176,20 @@
 
      ```bash
      NAME                        STATUS   ROLES    AGE  VERSION
-     catkuапро07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
-     catkuапро07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
+     catkuapro07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
+     catkuapro07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
      ```
 
      1. Посмотрите информацию о выбранном узле кластера {{ k8s }}:
 
      ```bash
-     kubectl describe node catkuапро07enihqmk51-hgjd
+     kubectl describe node catkuapro07enihqmk51-hgjd
      ```
 
      Результат выполнения команды:
 
      ```bash
-     Name:               catkuапро07enihqmk51-hgjd
+     Name:               catkuapro07enihqmk51-hgjd
      Roles:              <none>
      Labels:             apps/tier=backend
                          beta.kubernetes.io/arch=amd64
@@ -200,12 +198,12 @@
                          environment=production
                          failure-domain.beta.kubernetes.io/zone=ru-central1-a
                          kubernetes.io/arch=amd64
-                         kubernetes.io/hostname=catkuапро07enihqmk51-hgjd
+                         kubernetes.io/hostname=catkuapro07enihqmk51-hgjd
                          kubernetes.io/os=linux
                          node.kubernetes.io/kube-proxy-ds-ready=true
                          node.kubernetes.io/masq-agent-ds-ready=true
                          node.kubernetes.io/node-problem-detector-ds-ready=true
-                         yandex.cloud/node-group-id=catkuапро07enihqmk51
+                         yandex.cloud/node-group-id=catkuapro07enihqmk51
                          yandex.cloud/pci-topology=k8s
                          yandex.cloud/preemptible=false
      ```

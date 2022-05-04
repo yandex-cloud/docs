@@ -6,7 +6,7 @@ We recommend using a QL chart if creating a regular chart from a dataset isn't s
 
 A direct connection to a demo database will be used as your data source.
 
-To visualize and explore data, [set up your cloud](#before-you-begin), then follow the steps below:
+To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin), then follow the steps below:
 
 1. [Create a connection](#create-connection).
 1. [Create a QL chart](#create-sql-chart).
