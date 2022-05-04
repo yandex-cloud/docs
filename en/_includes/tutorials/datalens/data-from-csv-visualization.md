@@ -7,7 +7,7 @@ In this scenario, you can use {{ datalens-short-name }} to analyze dependencies,
 - A superhero's weight from their gender.
 - A superhero's weight from whether they're good or bad.
 
-To visualize and explore your data, follow these steps:
+To visualize and explore your data, [set up {{ datalens-short-name }}](#before-you-begin) follow these steps:
 
 1. [Before you start](#before-you-begin).
 1. [Create a connection](#step1).

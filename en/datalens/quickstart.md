@@ -2,8 +2,6 @@
 
 In this tutorial, you'll create your first [dataset](concepts/dataset/index.md), build several [charts](concepts/chart/index.md) to visualize data, and place them on a [dashboard](concepts/dashboard.md).
 
-## Before you start {#before-you-begin}
-
 {% include [before-you-begin](../_includes/tutorials/includes/before-you-begin-datalens.md) %}
 
 ## Create a connection {#create-connection}
