@@ -131,5 +131,5 @@ The amount of used disk space is displayed on the **Disk space usage per host, t
 
 ## Troubleshooting disk space issues {#solve-disk-deficit}
 
-For recommendations on troubleshooting these issues, see [{#T}](../concepts/storage.md#read-only-solutions) and [{#T}](../operations/monitoring.md#read-only-monitor).
+For recommendations on troubleshooting these issues, see [{#T}](../concepts/storage.md#read-only-solutions).
 
