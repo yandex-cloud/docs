@@ -10,7 +10,7 @@ Validates app token.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v1/appTokens/{token}:validate
+POST https://datasphere.{{ api-host }}/datasphere/v1/appTokens/{token}:validate
 ```
  
 ## Path parameters {#path_params}

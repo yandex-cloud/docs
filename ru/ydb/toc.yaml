@@ -477,6 +477,8 @@ items:
             href: reference/ydb-cli/export_import/s3_export.md
           - name: Загрузка из S3
             href: reference/ydb-cli/export_import/s3_import.md
+          - name: Импорт данных из файла в существующую таблицу
+            href: reference/ydb-cli/export_import/import-file.md
       - name: Управление профилями
         items:
           - name: Обзор

@@ -29,7 +29,7 @@ Returns the specified Key resource. <br>To get the list of available Key resourc
 Field | Description
 --- | ---
 key_id | **string**<br>Required. ID of the Key resource to return. To get the ID use a [KeyService.List](#List) request. The maximum string length in characters is 50.
-format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li><ul/>
+format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li></ul>
 
 
 ### Key {#Key}
@@ -42,7 +42,7 @@ subject | **oneof:** `user_account_id` or `service_account_id`<br>
 &nbsp;&nbsp;service_account_id | **string**<br>ID of the service account that the Key resource belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the Key resource. 0-256 characters long. 
-key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li><ul/>
+key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li></ul>
 public_key | **string**<br>A public key of the Key resource. 
 
 
@@ -56,7 +56,7 @@ Retrieves the list of Key resources for the specified service account.
 
 Field | Description
 --- | ---
-format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li><ul/>
+format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li></ul>
 service_account_id | **string**<br>ID of the service account to list key pairs for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListKeysResponse.next_page_token](#ListKeysResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListKeysResponse.next_page_token](#ListKeysResponse) returned by a previous list request. The maximum string length in characters is 100.
@@ -80,7 +80,7 @@ subject | **oneof:** `user_account_id` or `service_account_id`<br>
 &nbsp;&nbsp;service_account_id | **string**<br>ID of the service account that the Key resource belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the Key resource. 0-256 characters long. 
-key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li><ul/>
+key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li></ul>
 public_key | **string**<br>A public key of the Key resource. 
 
 
@@ -96,7 +96,7 @@ Field | Description
 --- | ---
 service_account_id | **string**<br>ID of the service account to create a key pair for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
 description | **string**<br>Description of the key pair. The maximum string length in characters is 256.
-format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li><ul/>
+format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li></ul>
 key_algorithm | **[Key.Algorithm](#Key2)**<br>An algorithm used to generate a key pair of the Key resource. 
 
 
@@ -118,7 +118,7 @@ subject | **oneof:** `user_account_id` or `service_account_id`<br>
 &nbsp;&nbsp;service_account_id | **string**<br>ID of the service account that the Key resource belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the Key resource. 0-256 characters long. 
-key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li><ul/>
+key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li></ul>
 public_key | **string**<br>A public key of the Key resource. 
 
 
@@ -174,7 +174,7 @@ subject | **oneof:** `user_account_id` or `service_account_id`<br>
 &nbsp;&nbsp;service_account_id | **string**<br>ID of the service account that the Key resource belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 description | **string**<br>Description of the Key resource. 0-256 characters long. 
-key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li><ul/>
+key_algorithm | enum **Algorithm**<br>An algorithm used to generate a key pair of the Key resource. <ul><li>`RSA_2048`: RSA with a 2048-bit key size. Default value.</li><li>`RSA_4096`: RSA with a 4096-bit key size.</li></ul>
 public_key | **string**<br>A public key of the Key resource. 
 
 

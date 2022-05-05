@@ -10,7 +10,7 @@ Creates a host group in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/hostGroups
+POST https://compute.{{ api-host }}/compute/v1/hostGroups
 ```
  
 ## Body parameters {#body_params}

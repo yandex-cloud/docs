@@ -10,7 +10,7 @@ Creates an address in the specified folder and network.
  
 ## HTTP request {#https-request}
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/addresses
+POST https://vpc.{{ api-host }}/vpc/v1/addresses
 ```
  
 ## Body parameters {#body_params}

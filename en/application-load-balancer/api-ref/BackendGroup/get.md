@@ -10,7 +10,7 @@ To get the list of all available backend groups, make a [list](/docs/application
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}
+GET https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}
 ```
  
 ## Path parameters {#path_params}

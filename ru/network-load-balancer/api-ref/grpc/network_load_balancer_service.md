@@ -49,9 +49,9 @@ name | **string**<br>Name of the network load balancer. The name is unique withi
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
-status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
-type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
-session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
+status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li></ul>
+type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
+session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup)**<br>List of target groups attached to the network load balancer. 
 
@@ -63,10 +63,10 @@ Field | Description
 name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
 address | **string**<br>IP address for the listener. 
 port | **int64**<br>Port. 
-protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. 
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup}
@@ -81,7 +81,7 @@ health_checks[] | **[HealthCheck](#HealthCheck)**<br>A health check to perform o
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -119,7 +119,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder that the network load balancer belongs to. To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [<ResponseMessage>.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworkLoadBalancersResponse.next_page_token](#ListNetworkLoadBalancersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only filter by the [NetworkLoadBalancer.name](#NetworkLoadBalancer1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can only filter by the [NetworkLoadBalancer.name](#NetworkLoadBalancer1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListNetworkLoadBalancersResponse {#ListNetworkLoadBalancersResponse}
@@ -141,9 +141,9 @@ name | **string**<br>Name of the network load balancer. The name is unique withi
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
-status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
-type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
-session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
+status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li></ul>
+type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
+session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener1)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup1)**<br>List of target groups attached to the network load balancer. 
 
@@ -155,10 +155,10 @@ Field | Description
 name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
 address | **string**<br>IP address for the listener. 
 port | **int64**<br>Port. 
-protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. 
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup1}
@@ -173,7 +173,7 @@ health_checks[] | **[HealthCheck](#HealthCheck1)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -213,7 +213,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a network load balancer in. To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the network load balancer. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the network load balancer. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 region_id | **string**<br>ID of the region where the network load balancer resides. The maximum string length in characters is 50.
@@ -226,7 +226,7 @@ attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup2)**<br>L
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
 protocol | **[Listener.Protocol](#Listener2)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
@@ -240,7 +240,7 @@ target_port | **int64**<br>Port of a target. Acceptable values are 1 to 65535, i
 Field | Description
 --- | ---
 address | **string**<br>Public IP address for a listener. If you provide a static public IP address for the [NetworkLoadBalancerService.Update](#Update) method, it will replace the existing listener address. 
-ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### InternalAddressSpec {#InternalAddressSpec}
@@ -249,7 +249,7 @@ Field | Description
 --- | ---
 address | **string**<br>Internal IP address for a listener. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup2}
@@ -264,7 +264,7 @@ health_checks[] | **[HealthCheck](#HealthCheck2)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -323,9 +323,9 @@ name | **string**<br>Name of the network load balancer. The name is unique withi
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
-status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
-type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
-session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
+status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li></ul>
+type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
+session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener2)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup3)**<br>List of target groups attached to the network load balancer. 
 
@@ -337,10 +337,10 @@ Field | Description
 name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
 address | **string**<br>IP address for the listener. 
 port | **int64**<br>Port. 
-protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. 
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup3}
@@ -355,7 +355,7 @@ health_checks[] | **[HealthCheck](#HealthCheck3)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -396,7 +396,7 @@ Field | Description
 --- | ---
 network_load_balancer_id | **string**<br>Required. ID of the network load balancer to update. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the NetworkLoadBalancer resource are going to be updated. 
-name | **string**<br>Name of the network load balancer. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the network load balancer. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>A list of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
@@ -407,7 +407,7 @@ attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup4)**<br>A
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
 protocol | **[Listener.Protocol](#Listener3)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
@@ -421,7 +421,7 @@ target_port | **int64**<br>Port of a target. Acceptable values are 1 to 65535, i
 Field | Description
 --- | ---
 address | **string**<br>Public IP address for a listener. If you provide a static public IP address for the [NetworkLoadBalancerService.Update](#Update) method, it will replace the existing listener address. 
-ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### InternalAddressSpec {#InternalAddressSpec1}
@@ -430,7 +430,7 @@ Field | Description
 --- | ---
 address | **string**<br>Internal IP address for a listener. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup4}
@@ -445,7 +445,7 @@ health_checks[] | **[HealthCheck](#HealthCheck4)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -504,9 +504,9 @@ name | **string**<br>Name of the network load balancer. The name is unique withi
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
-status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
-type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
-session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
+status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li></ul>
+type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
+session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener3)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
 
@@ -518,10 +518,10 @@ Field | Description
 name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
 address | **string**<br>IP address for the listener. 
 port | **int64**<br>Port. 
-protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. 
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup5}
@@ -536,7 +536,7 @@ health_checks[] | **[HealthCheck](#HealthCheck5)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -711,7 +711,7 @@ health_checks[] | **[HealthCheck](#HealthCheck6)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -771,9 +771,9 @@ name | **string**<br>Name of the network load balancer. The name is unique withi
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
-status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
-type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
-session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
+status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li></ul>
+type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
+session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener4)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup7)**<br>List of target groups attached to the network load balancer. 
 
@@ -785,10 +785,10 @@ Field | Description
 name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
 address | **string**<br>IP address for the listener. 
 port | **int64**<br>Port. 
-protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. 
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup7}
@@ -803,7 +803,7 @@ health_checks[] | **[HealthCheck](#HealthCheck7)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -881,9 +881,9 @@ name | **string**<br>Name of the network load balancer. The name is unique withi
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
-status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
-type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
-session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
+status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li></ul>
+type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
+session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener5)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup8)**<br>List of target groups attached to the network load balancer. 
 
@@ -895,10 +895,10 @@ Field | Description
 name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
 address | **string**<br>IP address for the listener. 
 port | **int64**<br>Port. 
-protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. 
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup8}
@@ -913,7 +913,7 @@ health_checks[] | **[HealthCheck](#HealthCheck8)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -965,7 +965,7 @@ Field | Description
 --- | ---
 subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 address | **string**<br>IP address of the target. 
-status | enum **Status**<br>Status of the target. <ul><li>`INITIAL`: The network load balancer is setting up health checks for this target.</li><li>`HEALTHY`: Health check passed and the target is ready to receive traffic.</li><li>`UNHEALTHY`: Health check failed and the target is not receiving traffic.</li><li>`DRAINING`: Target is being deleted and the network load balancer is no longer sending traffic to this target.</li><li>`INACTIVE`: The network load balancer is stopped and not performing health checks on this target.</li><ul/>
+status | enum **Status**<br>Status of the target. <ul><li>`INITIAL`: The network load balancer is setting up health checks for this target.</li><li>`HEALTHY`: Health check passed and the target is ready to receive traffic.</li><li>`UNHEALTHY`: Health check failed and the target is not receiving traffic.</li><li>`DRAINING`: Target is being deleted and the network load balancer is no longer sending traffic to this target.</li><li>`INACTIVE`: The network load balancer is stopped and not performing health checks on this target.</li></ul>
 
 
 ## AddListener {#AddListener}
@@ -990,7 +990,7 @@ listener_spec | **[ListenerSpec](#ListenerSpec)**<br>Required. Listener spec.
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 port | **int64**<br>Port for incoming traffic. Acceptable values are 1 to 65535, inclusive.
 protocol | **[Listener.Protocol](#Listener6)**<br>Required. Protocol for incoming traffic. 
 address | **oneof:** `external_address_spec` or `internal_address_spec`<br>IP address for incoming traffic. Either the ID of the previously created address or the address specification.
@@ -1004,7 +1004,7 @@ target_port | **int64**<br>Port of a target. Acceptable values are 1 to 65535, i
 Field | Description
 --- | ---
 address | **string**<br>Public IP address for a listener. If you provide a static public IP address for the [NetworkLoadBalancerService.Update](#Update) method, it will replace the existing listener address. 
-ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### InternalAddressSpec {#InternalAddressSpec2}
@@ -1013,7 +1013,7 @@ Field | Description
 --- | ---
 address | **string**<br>Internal IP address for a listener. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### Operation {#Operation7}
@@ -1050,9 +1050,9 @@ name | **string**<br>Name of the network load balancer. The name is unique withi
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
-status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
-type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
-session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
+status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li></ul>
+type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
+session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener6)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup9)**<br>List of target groups attached to the network load balancer. 
 
@@ -1064,10 +1064,10 @@ Field | Description
 name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
 address | **string**<br>IP address for the listener. 
 port | **int64**<br>Port. 
-protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. 
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup9}
@@ -1082,7 +1082,7 @@ health_checks[] | **[HealthCheck](#HealthCheck9)**<br>A health check to perform 
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.
@@ -1122,7 +1122,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 network_load_balancer_id | **string**<br>Required. ID of the network load balancer to remove the listener from. To get the network load balancer ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
-listener_name | **string**<br>Required. Name of the listener to delete. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+listener_name | **string**<br>Required. Name of the listener to delete. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 
 
 ### Operation {#Operation8}
@@ -1159,9 +1159,9 @@ name | **string**<br>Name of the network load balancer. The name is unique withi
 description | **string**<br>Optional description of the network load balancer. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 region_id | **string**<br>ID of the region that the network load balancer belongs to. 
-status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li><ul/>
-type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li><ul/>
-session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li><ul/>
+status | enum **Status**<br>Status of the network load balancer. <ul><li>`CREATING`: Network load balancer is being created.</li><li>`STARTING`: Network load balancer is being started.</li><li>`ACTIVE`: Network load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: Network load balancer is being stopped.</li><li>`STOPPED`: Network load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: Network load balancer is being deleted.</li><li>`INACTIVE`: The load balancer doesn't have any listeners or target groups, or attached target groups are empty. The load balancer doesn't perform any health checks or send traffic in this state.</li></ul>
+type | enum **Type**<br>Type of the network load balancer. Only external network load balancers are available now. <ul><li>`EXTERNAL`: External network load balancer.</li><li>`INTERNAL`: Internal network load balancer.</li></ul>
+session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener7)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup10)**<br>List of target groups attached to the network load balancer. 
 
@@ -1173,10 +1173,10 @@ Field | Description
 name | **string**<br>Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long. 
 address | **string**<br>IP address for the listener. 
 port | **int64**<br>Port. 
-protocol | enum **Protocol**<br>Network protocol for incoming traffic. <ul><ul/>
+protocol | enum **Protocol**<br>Network protocol for incoming traffic. 
 target_port | **int64**<br>Port of a target. 
 subnet_id | **string**<br>ID of the subnet. 
-ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li><ul/>
+ip_version | enum **IpVersion**<br>IP version of the external address. <ul><li>`IPV4`: IPv4</li><li>`IPV6`: IPv6</li></ul>
 
 
 ### AttachedTargetGroup {#AttachedTargetGroup10}
@@ -1191,7 +1191,7 @@ health_checks[] | **[HealthCheck](#HealthCheck10)**<br>A health check to perform
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The interval between health checks. The default is 2 seconds. 
 timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for a target to return a response for the health check. The default is 1 second. 
 unhealthy_threshold | **int64**<br>Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. Acceptable values are 2 to 10, inclusive.

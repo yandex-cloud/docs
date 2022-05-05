@@ -28,7 +28,7 @@ Utterance | **oneof:** `text` or `text_template`<br>Text to synthesis, one of te
 &nbsp;&nbsp;text_template | **[TextTemplate](#TextTemplate)**<br>Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`. 
 hints[] | **[Hints](#Hints)**<br>Optional hints for synthesis. 
 output_audio_spec | **[AudioFormatOptions](#AudioFormatOptions)**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header 
-loudness_normalization_type | enum **LoudnessNormalizationType**<br>Optional. Default: LUFS, type of loudness normalization, default value -19. <ul><ul/>
+loudness_normalization_type | enum **LoudnessNormalizationType**<br>Optional. Default: LUFS, type of loudness normalization, default value -19. 
 unsafe_mode | **bool**<br>Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible. 
 
 
@@ -91,7 +91,7 @@ AudioFormat | **oneof:** `raw_audio` or `container_audio`<br>
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li><ul/>
+audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li></ul>
 sample_rate_hertz | **int64**<br>Sampling frequency of the signal. 
 
 
@@ -99,7 +99,7 @@ sample_rate_hertz | **int64**<br>Sampling frequency of the signal.
 
 Field | Description
 --- | ---
-container_audio_type | enum **ContainerAudioType**<br> <ul><li>`WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li><ul/>
+container_audio_type | enum **ContainerAudioType**<br> <ul><li>`WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li></ul>
 
 
 ### TextTemplate {#TextTemplate1}
@@ -140,7 +140,7 @@ AudioFormat | **oneof:** `raw_audio` or `container_audio`<br>
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li><ul/>
+audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li></ul>
 sample_rate_hertz | **int64**<br>Sampling frequency of the signal. 
 
 
@@ -148,7 +148,7 @@ sample_rate_hertz | **int64**<br>Sampling frequency of the signal.
 
 Field | Description
 --- | ---
-container_audio_type | enum **ContainerAudioType**<br> <ul><li>`WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li><ul/>
+container_audio_type | enum **ContainerAudioType**<br> <ul><li>`WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).</li></ul>
 
 
 ### UtteranceSynthesisResponse {#UtteranceSynthesisResponse}

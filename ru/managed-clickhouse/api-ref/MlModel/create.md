@@ -10,7 +10,7 @@ Creates a machine learning model in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/mlModels
+POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels
 ```
  
 ## Path parameters {#path_params}

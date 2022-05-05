@@ -10,7 +10,7 @@ Retrieves the list of versions in the specified release channel.
  
 ## HTTP request {#https-request}
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/versions
+GET https://mks.{{ api-host }}/managed-kubernetes/v1/versions
 ```
  
 ## Response {#responses}

@@ -10,7 +10,7 @@ Retrieves the list of certificates in the specified federation.
  
 ## HTTP request {#https-request}
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates
 ```
  
 ## Query parameters {#query_params}

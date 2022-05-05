@@ -10,7 +10,7 @@ Deletes the specified bucket.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}
+DELETE https://storage.{{ api-host }}/storage/v1/buckets/{name}
 ```
  
 ## Path parameters {#path_params}

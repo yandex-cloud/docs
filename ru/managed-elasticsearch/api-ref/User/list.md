@@ -10,7 +10,7 @@ Retrieves the list of Elasticsearch users in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/users
+GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/users
 ```
  
 ## Path parameters {#path_params}

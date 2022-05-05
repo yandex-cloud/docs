@@ -39,7 +39,7 @@ id | **string**<br>ID of the billing account.
 name | **string**<br>Name of the billing account. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 country_code | **string**<br>ISO 3166-1 alpha-2 country code of the billing account. 
-currency | **string**<br><ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
+currency | **string**<br>Currency of the billing account. Can be one of the following: <ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
 active | **bool**<br>Represents whether corresponding billable objects can be used or not. 
 balance | **string**<br>Current balance of the billing account. 
 
@@ -74,7 +74,7 @@ id | **string**<br>ID of the billing account.
 name | **string**<br>Name of the billing account. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 country_code | **string**<br>ISO 3166-1 alpha-2 country code of the billing account. 
-currency | **string**<br><ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
+currency | **string**<br>Currency of the billing account. Can be one of the following: <ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
 active | **bool**<br>Represents whether corresponding billable objects can be used or not. 
 balance | **string**<br>Current balance of the billing account. 
 
@@ -115,7 +115,7 @@ billable_object | **[BillableObject](#BillableObject)**<br>Object that is bound 
 Field | Description
 --- | ---
 id | **string**<br>ID of the object in other service. 
-type | **string**<br><ul><li>`cloud`</li></ul> 
+type | **string**<br>Billable object type. Can be one of the following: <ul><li>`cloud`</li></ul> 
 
 
 ## BindBillableObject {#BindBillableObject}
@@ -141,7 +141,7 @@ billable_object | **[BillableObject](#BillableObject1)**<br>`yandex.cloud.billin
 Field | Description
 --- | ---
 id | **string**<br>ID of the object in other service. 
-type | **string**<br><ul><li>`cloud`</li></ul> 
+type | **string**<br>Billable object type. Can be one of the following: <ul><li>`cloud`</li></ul> 
 
 
 ### Operation {#Operation}
@@ -180,7 +180,7 @@ billable_object | **[BillableObject](#BillableObject2)**<br>Object that is bound
 Field | Description
 --- | ---
 id | **string**<br>ID of the object in other service. 
-type | **string**<br><ul><li>`cloud`</li></ul> 
+type | **string**<br>Billable object type. Can be one of the following: <ul><li>`cloud`</li></ul> 
 
 
 ## ListAccessBindings {#ListAccessBindings}
@@ -218,8 +218,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## UpdateAccessBindings {#UpdateAccessBindings}
@@ -244,7 +244,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -260,8 +260,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation1}

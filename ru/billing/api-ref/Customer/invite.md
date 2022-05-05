@@ -10,7 +10,7 @@ Invites customer to the specified reseller.
  
 ## HTTP request {#https-request}
 ```
-POST https://billing.api.cloud.yandex.net/billing/v1/customers:invite
+POST https://billing.{{ api-host }}/billing/v1/customers:invite
 ```
  
 ## Body parameters {#body_params}

@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/deactivate.md
  
 ## HTTP request {#https-request}
 ```
-POST https://datatransfer.api.cloud.yandex.net/v1/transfer/{transferId}:deactivate
+POST https://datatransfer.{{ api-host }}/v1/transfer/{transferId}:deactivate
 ```
  
 ## Path parameters {#path_params}

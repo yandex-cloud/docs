@@ -21,7 +21,7 @@ links:
     href: concepts/events
   - title: Searching events
     description: Searching events in the audit log
-    href: concepts/search
+    href: tutorials/search-bucket
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits

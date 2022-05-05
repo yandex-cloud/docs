@@ -2,6 +2,8 @@
 sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/aggregation.md
 sourcePath: ru/ydb/yql/reference/yql-core/builtins/aggregation.md
 ---
+# Агрегатные функции
+
 {% include [simple.md](_includes/aggregation/simple.md) %}
 
 {% include [count_distinct_estimate.md](_includes/aggregation/count_distinct_estimate.md) %}

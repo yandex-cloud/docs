@@ -10,7 +10,7 @@ Updates the configuration of the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}
+PATCH https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

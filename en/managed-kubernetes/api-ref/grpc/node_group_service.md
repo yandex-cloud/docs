@@ -42,7 +42,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li></ul>
 node_template | **[NodeTemplate](#NodeTemplate)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
@@ -76,14 +76,14 @@ container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSetti
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ContainerRuntimeSettings {#ContainerRuntimeSettings}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -100,7 +100,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -115,7 +115,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>One-to-one NAT 
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### SchedulingPolicy {#SchedulingPolicy}
@@ -146,7 +146,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy}
@@ -267,7 +267,7 @@ Field | Description
 --- | ---
 key | **string**<br>The taint key to be applied to a node. 
 value | **string**<br>The taint value corresponding to the taint key. 
-effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li></ul>
 
 
 ## List {#List}
@@ -283,7 +283,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list node groups in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNodeGroupsResponse.next_page_token](#ListNodeGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [NodeGroup.name](#NodeGroup1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [NodeGroup.name](#NodeGroup1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListNodeGroupsResponse {#ListNodeGroupsResponse}
@@ -304,7 +304,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li></ul>
 node_template | **[NodeTemplate](#NodeTemplate1)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy1)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
@@ -338,14 +338,14 @@ container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSetti
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ContainerRuntimeSettings {#ContainerRuntimeSettings1}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ResourcesSpec {#ResourcesSpec1}
@@ -362,7 +362,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -377,7 +377,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### SchedulingPolicy {#SchedulingPolicy1}
@@ -408,7 +408,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy1}
@@ -529,7 +529,7 @@ Field | Description
 --- | ---
 key | **string**<br>The taint key to be applied to a node. 
 value | **string**<br>The taint value corresponding to the taint key. 
-effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li></ul>
 
 
 ## Create {#Create}
@@ -547,7 +547,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Kubernetes cluster to create a node group in. To get the Kubernetes cluster ID, use a [ClusterService.List](./cluster_service#List) request. 
-name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the node group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 node_template | **[NodeTemplate](#NodeTemplate2)**<br>Required. Node template for creating the node group. 
@@ -581,14 +581,14 @@ container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSetti
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ContainerRuntimeSettings {#ContainerRuntimeSettings2}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ResourcesSpec {#ResourcesSpec2}
@@ -605,7 +605,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -620,7 +620,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### SchedulingPolicy {#SchedulingPolicy2}
@@ -651,7 +651,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy2}
@@ -762,7 +762,7 @@ Field | Description
 --- | ---
 key | **string**<br>The taint key to be applied to a node. 
 value | **string**<br>The taint value corresponding to the taint key. 
-effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li></ul>
 
 
 ### Operation {#Operation}
@@ -798,7 +798,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li></ul>
 node_template | **[NodeTemplate](#NodeTemplate3)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy3)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
@@ -832,14 +832,14 @@ container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSetti
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ContainerRuntimeSettings {#ContainerRuntimeSettings3}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ResourcesSpec {#ResourcesSpec3}
@@ -856,7 +856,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -871,7 +871,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec6)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### SchedulingPolicy {#SchedulingPolicy3}
@@ -902,7 +902,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec7)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy3}
@@ -1023,7 +1023,7 @@ Field | Description
 --- | ---
 key | **string**<br>The taint key to be applied to a node. 
 value | **string**<br>The taint value corresponding to the taint key. 
-effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li></ul>
 
 
 ## Update {#Update}
@@ -1042,7 +1042,7 @@ Field | Description
 --- | ---
 node_group_id | **string**<br>Required. ID of the node group to update. To get the node group ID use a [NodeGroupService.List](#List) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the node group are going to be updated. 
-name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the node group. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the node group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 node_template | **[NodeTemplate](#NodeTemplate4)**<br>Node template for the node group. Change may trigger nodes rolling reboot or recreate. 
@@ -1076,14 +1076,14 @@ container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSetti
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ContainerRuntimeSettings {#ContainerRuntimeSettings4}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ResourcesSpec {#ResourcesSpec4}
@@ -1100,7 +1100,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -1115,7 +1115,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec8)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### SchedulingPolicy {#SchedulingPolicy4}
@@ -1146,7 +1146,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec9)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy4}
@@ -1266,7 +1266,7 @@ Field | Description
 --- | ---
 key | **string**<br>The taint key to be applied to a node. 
 value | **string**<br>The taint value corresponding to the taint key. 
-effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li></ul>
 
 
 ### Operation {#Operation1}
@@ -1302,7 +1302,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li></ul>
 node_template | **[NodeTemplate](#NodeTemplate5)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy5)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
@@ -1336,14 +1336,14 @@ container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSetti
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ContainerRuntimeSettings {#ContainerRuntimeSettings5}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ResourcesSpec {#ResourcesSpec5}
@@ -1360,7 +1360,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -1375,7 +1375,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec10)**<br>One-to-one NA
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### SchedulingPolicy {#SchedulingPolicy5}
@@ -1406,7 +1406,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec11)**<br>One-to-one NA
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy5}
@@ -1527,7 +1527,7 @@ Field | Description
 --- | ---
 key | **string**<br>The taint key to be applied to a node. 
 value | **string**<br>The taint value corresponding to the taint key. 
-effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li></ul>
 
 
 ## Delete {#Delete}
@@ -1637,7 +1637,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li><ul/>
+status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li></ul>
 spec | **[Spec](#Spec)**<br>Node specificaion. 
 cloud_status | **[CloudStatus](#CloudStatus)**<br>Cloud instance status. Not available in `MISSING` status. 
 kubernetes_status | **[KubernetesStatus](#KubernetesStatus)**<br>Kubernetes node status. Not available in `PROVISIONING` and `NOT_CONNECTED` states. 

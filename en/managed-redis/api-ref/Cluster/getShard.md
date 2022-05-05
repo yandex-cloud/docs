@@ -10,7 +10,7 @@ Returns the specified shard.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shards/{shardName}
+GET https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}/shards/{shardName}
 ```
  
 ## Path parameters {#path_params}

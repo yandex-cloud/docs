@@ -10,7 +10,7 @@ Retrieves the list of available ResourcePreset resources.
  
 ## HTTP request {#https-request}
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/resourcePresets
+GET https://dataproc.{{ api-host }}/dataproc/v1/resourcePresets
 ```
  
 ## Query parameters {#query_params}

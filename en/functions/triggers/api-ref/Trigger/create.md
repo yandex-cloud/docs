@@ -10,7 +10,7 @@ Creates a trigger in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers
+POST https://serverless-triggers.{{ api-host }}/triggers/v1/triggers
 ```
  
 ## Body parameters {#body_params}

@@ -10,7 +10,7 @@ To get the list of available disk types, make a [list](/docs/compute/api-ref/Dis
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes/{diskTypeId}
+GET https://compute.{{ api-host }}/compute/v1/diskTypes/{diskTypeId}
 ```
  
 ## Path parameters {#path_params}

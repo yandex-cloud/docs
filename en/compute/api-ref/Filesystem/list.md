@@ -10,7 +10,7 @@ Lists filesystems in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/filesystems
+GET https://compute.{{ api-host }}/compute/v1/filesystems
 ```
  
 ## Query parameters {#query_params}

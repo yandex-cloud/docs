@@ -10,7 +10,7 @@ Returns the specified budget.
  
 ## HTTP request {#https-request}
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/budgets/{id}
+GET https://billing.{{ api-host }}/billing/v1/budgets/{id}
 ```
  
 ## Path parameters {#path_params}

@@ -8,7 +8,7 @@ sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/basic/data-type-lit
 
 **Синтаксис**
 
-<Простой тип>(<строка>[, <дополнительные атрибуты>])
+`<Простой тип>( <строка>[, <дополнительные атрибуты>] )`
 
 В отличие от `CAST("myString" AS MyType)`:
 

@@ -10,7 +10,7 @@ Lists virtual hosts of the specified HTTP router.
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts
+GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts
 ```
  
 ## Path parameters {#path_params}

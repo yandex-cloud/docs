@@ -10,7 +10,7 @@ Returns the specified project.
  
 ## HTTP request {#https-request}
 ```
-GET https://datasphere.api.cloud.yandex.net/datasphere/v1/projects/{projectId}
+GET https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}
 ```
  
 ## Path parameters {#path_params}

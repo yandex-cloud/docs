@@ -10,7 +10,7 @@ Retrieves the list of Organization resources.
  
 ## HTTP request {#https-request}
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/organizations
 ```
  
 ## Query parameters {#query_params}

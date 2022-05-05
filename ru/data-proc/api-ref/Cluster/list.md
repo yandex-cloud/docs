@@ -10,7 +10,7 @@ Retrieves the list of clusters in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters
 ```
  
 ## Query parameters {#query_params}
@@ -107,7 +107,7 @@ clusters[].<br>config.<br>hadoop.<br>initializationActions[] | **object**<br><p>
 clusters[].<br>config.<br>hadoop.<br>initializationActions[].<br>uri | **string**<br><p>URI of the executable file</p> 
 clusters[].<br>config.<br>hadoop.<br>initializationActions[].<br>args[] | **string**<br><p>Arguments to the initialization action</p> 
 clusters[].<br>config.<br>hadoop.<br>initializationActions[].<br>timeout | **string** (int64)<br><p>Execution timeout</p> 
-clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
+clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: Object is in unknown state (we have no data).</li> <li>ALIVE: Object is alive and well (for example, all hosts of the cluster are alive).</li> <li>DEAD: Object is inoperable (it cannot perform any of its essential functions).</li> <li>DEGRADED: Object is partially alive (it can perform some of its essential functions).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Cluster status.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 clusters[].<br>zoneId | **string**<br><p>ID of the availability zone where the cluster resides.</p> 
 clusters[].<br>serviceAccountId | **string**<br><p>ID of service account for the Data Proc manager agent.</p> 

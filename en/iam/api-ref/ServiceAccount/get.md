@@ -10,7 +10,7 @@ To get the list of available ServiceAccount resources, make a [list](/docs/iam/a
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{serviceAccountId}
+GET https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
 ```
  
 ## Path parameters {#path_params}

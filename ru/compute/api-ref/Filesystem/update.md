@@ -10,7 +10,7 @@ Updates the specified filesystem.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://compute.api.cloud.yandex.net/compute/v1/filesystems/{filesystemId}
+PATCH https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
 ```
  
 ## Path parameters {#path_params}

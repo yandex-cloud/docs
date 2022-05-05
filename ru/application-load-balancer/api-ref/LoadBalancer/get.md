@@ -10,7 +10,7 @@ To get the list of all available application load balancers, make a [list](/docs
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}
+GET https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}
 ```
  
 ## Path parameters {#path_params}

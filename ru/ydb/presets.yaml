@@ -112,6 +112,7 @@ default:
   ydb_local_docker_image: cr.yandex/yc/yandex-docker-local-ydb
   ydb_local_docker_image_tag: latest
   concept_table: ../../../../concepts/datamodel#table
+  corporate-paste: https://www.paste.example.com
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor

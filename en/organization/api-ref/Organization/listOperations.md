@@ -10,7 +10,7 @@ Lists operations for the specified organization.
  
 ## HTTP request {#https-request}
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{organizationId}/operations
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/operations
 ```
  
 ## Path parameters {#path_params}

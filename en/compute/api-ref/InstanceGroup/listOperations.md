@@ -10,7 +10,7 @@ Lists operations for the specified instance group.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}/operations
+GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

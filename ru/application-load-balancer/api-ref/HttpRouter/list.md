@@ -10,7 +10,7 @@ Lists HTTP routers in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters
+GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters
 ```
  
 ## Query parameters {#query_params}

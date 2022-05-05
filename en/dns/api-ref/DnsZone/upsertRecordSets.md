@@ -11,7 +11,7 @@ Deletes records that match all specified fields which allows to delete only spec
  
 ## HTTP request {#https-request}
 ```
-POST https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:upsertRecordSets
+POST https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:upsertRecordSets
 ```
  
 ## Path parameters {#path_params}

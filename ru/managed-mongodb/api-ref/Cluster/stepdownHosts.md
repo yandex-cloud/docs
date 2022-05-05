@@ -10,7 +10,7 @@ Stepdown hosts.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:stepdownHosts
+POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:stepdownHosts
 ```
  
 ## Path parameters {#path_params}

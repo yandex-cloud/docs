@@ -10,7 +10,7 @@ Starts the specified Kubernetes cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{clusterId}:start
+POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

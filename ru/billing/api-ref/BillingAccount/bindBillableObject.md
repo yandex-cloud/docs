@@ -10,7 +10,7 @@ Binds billable object to the specified billing account.
  
 ## HTTP request {#https-request}
 ```
-POST https://billing.api.cloud.yandex.net/billing/v1/billingAccounts/{billingAccountId}/billableObjectBindings
+POST https://billing.{{ api-host }}/billing/v1/billingAccounts/{billingAccountId}/billableObjectBindings
 ```
  
 ## Path parameters {#path_params}

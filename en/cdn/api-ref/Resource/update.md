@@ -13,7 +13,7 @@ Changes may take up to 15 minutes to apply. Afterwards, it is recommended to pur
  
 ## HTTP request {#https-request}
 ```
-PATCH https://cdn.api.cloud.yandex.net/cdn/v1/resources/{resourceId}
+PATCH https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Moves a ClickHouse cluster to the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:move
+POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:move
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/vpc/api-ref/SecurityGroup/move.md
  
 ## HTTP request {#https-request}
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}:move
+POST https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}:move
 ```
  
 ## Path parameters {#path_params}

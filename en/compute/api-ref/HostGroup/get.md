@@ -10,7 +10,7 @@ Returns the specified host group.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}
+GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
 ```
  
 ## Path parameters {#path_params}

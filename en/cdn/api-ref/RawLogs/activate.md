@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/cdn/api-ref/RawLogs/activate.md
  
 ## HTTP request {#https-request}
 ```
-POST https://cdn.api.cloud.yandex.net/cdn/v1/rawLogs:activate
+POST https://cdn.{{ api-host }}/cdn/v1/rawLogs:activate
 ```
  
 ## Body parameters {#body_params}

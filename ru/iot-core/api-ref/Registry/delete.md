@@ -10,7 +10,7 @@ Deletes the specified registry.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}
+DELETE https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}
 ```
  
 ## Path parameters {#path_params}

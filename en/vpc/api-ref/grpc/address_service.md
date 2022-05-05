@@ -47,8 +47,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
-type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address}
@@ -96,8 +96,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address1)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
-type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address1}
@@ -130,7 +130,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list addresses in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListAddressesResponse.next_page_token](#ListAddressesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAddressesResponse.next_page_token](#ListAddressesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Address.name](#Address2) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> 
+filter | **string**<br>A filter expression that filters Address listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Address.name](#Address2) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-address`. 
 
 
 ### ListAddressesResponse {#ListAddressesResponse}
@@ -155,8 +155,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address2)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
-type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address2}
@@ -191,7 +191,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a address in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the address. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the address. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the address. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 address_spec | **oneof:** `external_ipv4_address_spec`<br>External ipv4 address specification.
@@ -252,8 +252,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address3)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
-type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address3}
@@ -289,9 +289,9 @@ Field | Description
 --- | ---
 address_id | **string**<br>Required. ID of the address to update. <br>To get the address ID make a [AddressService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the Address should be updated. 
-name | **string**<br>New name for the address. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>New name for the address. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New description of the address. The maximum string length in characters is 256.
-labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [AddressService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+labels | **map<string,string>**<br>Address labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [AddressService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 reserved | **bool**<br>Specifies if address is reserved or not. 
 
 
@@ -332,8 +332,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address4)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
-type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address4}
@@ -487,8 +487,8 @@ address | **oneof:** `external_ipv4_address`<br>External ipv4 address specificat
 &nbsp;&nbsp;external_ipv4_address | **[ExternalIpv4Address](#ExternalIpv4Address5)**<br>External ipv4 address specification. 
 reserved | **bool**<br>Specifies if address is reserved or not. 
 used | **bool**<br>Specifies if address is used or not. 
-type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li><ul/>
-ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li><ul/>
+type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
+ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address5}

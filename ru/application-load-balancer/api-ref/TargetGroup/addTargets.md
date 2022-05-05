@@ -10,7 +10,7 @@ Adds targets to the specified target group.
  
 ## HTTP request {#https-request}
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}:addTargets
+POST https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}:addTargets
 ```
  
 ## Path parameters {#path_params}

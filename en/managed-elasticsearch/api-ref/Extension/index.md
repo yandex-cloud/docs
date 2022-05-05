@@ -19,10 +19,10 @@ sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Extension/index.md
 Field | Description
 --- | ---
 name | **string**<br><p>Name of the extension.</p> 
-id | **string**<br><p>Extension unique ID</p> 
+id | **string**<br><p>Unique ID of the extension.</p> 
 clusterId | **string**<br><p>ID of the Elasticsearch cluster the extension belongs to.</p> 
-version | **string** (int64)<br><p>Extension version</p> 
-active | **boolean** (boolean)<br><p>Flag is extension active now</p> 
+version | **string** (int64)<br><p>Version of the extension.</p> 
+active | **boolean** (boolean)<br><p>The flag shows whether the extension is active.</p> 
 
 ## Methods {#methods}
 Method | Description

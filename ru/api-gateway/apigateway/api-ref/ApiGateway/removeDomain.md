@@ -10,7 +10,7 @@ Detaches domain from the specified API gateway.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}:removeDomain
+POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}:removeDomain
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Adds password for the specified registry.
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}/passwords
+POST https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/passwords
 ```
  
 ## Path parameters {#path_params}

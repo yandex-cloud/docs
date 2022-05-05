@@ -10,7 +10,7 @@ Pause the specified Apache Kafka connector.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/connectors/pause/{connectorName}
+POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors/pause/{connectorName}
 ```
  
 ## Path parameters {#path_params}

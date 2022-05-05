@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/vpc/api-ref/SecurityGroup/update.md
  
 ## HTTP request {#https-request}
 ```
-PATCH https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}
+PATCH https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
 ```
  
 ## Path parameters {#path_params}

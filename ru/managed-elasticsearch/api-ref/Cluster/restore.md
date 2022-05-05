@@ -10,7 +10,7 @@ Creates a new ElasticSearch cluster from the specified backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters:restore
+POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}
@@ -116,8 +116,8 @@ deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits de
 folderId | **string**<br><p>Required. ID of the folder to create the ElasticSearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 extensionSpecs[] | **object**<br>
 extensionSpecs[].<br>name | **string**<br><p>Required. Name of the extension.</p> <p>The maximum string length in characters is 50.</p> 
-extensionSpecs[].<br>uri | **string**<br><p>URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
-extensionSpecs[].<br>disabled | **boolean** (boolean)<br>
+extensionSpecs[].<br>uri | **string**<br><p>URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
+extensionSpecs[].<br>disabled | **boolean** (boolean)<br><p>The flag shows whether to create the extension in disabled state.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

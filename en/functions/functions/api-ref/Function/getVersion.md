@@ -10,7 +10,7 @@ To get the list of available version, make a [listVersions](/docs/functions/func
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{functionVersionId}
+GET https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}
 ```
  
 ## Path parameters {#path_params}

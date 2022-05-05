@@ -12,7 +12,7 @@ To stop the running instance, make a [stop](/docs/compute/api-ref/Instance/stop)
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:detachFilesystem
+POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:detachFilesystem
 ```
  
 ## Path parameters {#path_params}

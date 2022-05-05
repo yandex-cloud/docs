@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/get.md
  
 ## HTTP request {#https-request}
 ```
-GET https://datatransfer.api.cloud.yandex.net/v1/endpoint/{endpointId}
+GET https://datatransfer.{{ api-host }}/v1/endpoint/{endpointId}
 ```
  
 ## Path parameters {#path_params}
@@ -31,7 +31,7 @@ endpointId |
   "labels": "object",
   "settings": {
 
-    // `settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`
+    // `settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`
     "mysqlSource": {
       "connection": {
 
@@ -57,7 +57,11 @@ endpointId |
         // end of the list of possible fields`settings.mysqlSource.connection`
 
       },
+      "securityGroups": [
+        "string"
+      ],
       "database": "string",
+      "serviceDatabase": "string",
       "user": "string",
       "password": {
         "raw": "string"
@@ -100,6 +104,9 @@ endpointId |
         // end of the list of possible fields`settings.postgresSource.connection`
 
       },
+      "securityGroups": [
+        "string"
+      ],
       "database": "string",
       "user": "string",
       "password": {
@@ -129,8 +136,107 @@ endpointId |
         "rule": "string",
         "collation": "string",
         "policy": "string",
-        "cast": "string"
+        "cast": "string",
+        "materializedView": "string"
       }
+    },
+    "mongoSource": {
+      "connection": {
+        "connectionOptions": {
+          "user": "string",
+          "password": {
+            "raw": "string"
+          },
+          "authSource": "string",
+
+          // `settings.mongoSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
+          "mdbClusterId": "string",
+          "onPremise": {
+            "hosts": [
+              "string"
+            ],
+            "port": "string",
+            "tlsMode": {
+
+              // `settings.mongoSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
+              "disabled": "object",
+              "enabled": {
+                "caCertificate": "string"
+              },
+              // end of the list of possible fields`settings.mongoSource.connection.connectionOptions.onPremise.tlsMode`
+
+            },
+            "replicaSet": "string"
+          },
+          // end of the list of possible fields`settings.mongoSource.connection.connectionOptions`
+
+        }
+      },
+      "subnetId": "string",
+      "securityGroups": [
+        "string"
+      ],
+      "collections": [
+        {
+          "databaseName": "string",
+          "collectionName": "string"
+        }
+      ],
+      "excludedCollections": [
+        {
+          "databaseName": "string",
+          "collectionName": "string"
+        }
+      ],
+      "secondaryPreferredMode": true
+    },
+    "clickhouseSource": {
+      "connection": {
+        "connectionOptions": {
+          "database": "string",
+          "user": "string",
+          "password": {
+            "raw": "string"
+          },
+
+          // `settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
+          "mdbClusterId": "string",
+          "onPremise": {
+            "shards": [
+              {
+                "name": "string",
+                "hosts": [
+                  "string"
+                ]
+              }
+            ],
+            "httpPort": "string",
+            "nativePort": "string",
+            "tlsMode": {
+
+              // `settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
+              "disabled": "object",
+              "enabled": {
+                "caCertificate": "string"
+              },
+              // end of the list of possible fields`settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode`
+
+            }
+          },
+          // end of the list of possible fields`settings.clickhouseSource.connection.connectionOptions`
+
+        }
+      },
+      "subnetId": "string",
+      "securityGroups": [
+        "string"
+      ],
+      "includeTables": [
+        "string"
+      ],
+      "excludeTables": [
+        "string"
+      ]
     },
     "mysqlTarget": {
       "connection": {
@@ -157,6 +263,9 @@ endpointId |
         // end of the list of possible fields`settings.mysqlTarget.connection`
 
       },
+      "securityGroups": [
+        "string"
+      ],
       "database": "string",
       "user": "string",
       "password": {
@@ -193,11 +302,122 @@ endpointId |
         // end of the list of possible fields`settings.postgresTarget.connection`
 
       },
+      "securityGroups": [
+        "string"
+      ],
       "database": "string",
       "user": "string",
       "password": {
         "raw": "string"
       },
+      "cleanupPolicy": "string"
+    },
+    "clickhouseTarget": {
+      "connection": {
+        "connectionOptions": {
+          "database": "string",
+          "user": "string",
+          "password": {
+            "raw": "string"
+          },
+
+          // `settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
+          "mdbClusterId": "string",
+          "onPremise": {
+            "shards": [
+              {
+                "name": "string",
+                "hosts": [
+                  "string"
+                ]
+              }
+            ],
+            "httpPort": "string",
+            "nativePort": "string",
+            "tlsMode": {
+
+              // `settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
+              "disabled": "object",
+              "enabled": {
+                "caCertificate": "string"
+              },
+              // end of the list of possible fields`settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode`
+
+            }
+          },
+          // end of the list of possible fields`settings.clickhouseTarget.connection.connectionOptions`
+
+        }
+      },
+      "subnetId": "string",
+      "securityGroups": [
+        "string"
+      ],
+      "clickhouseClusterName": "string",
+      "altNames": [
+        {
+          "fromName": "string",
+          "toName": "string"
+        }
+      ],
+      "sharding": {
+
+        // `settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`
+        "columnValueHash": {
+          "columnName": "string"
+        },
+        "customMapping": {
+          "columnName": "string",
+          "mapping": [
+            {
+              "columnValue": {},
+              "shardName": "string"
+            }
+          ]
+        },
+        "transferId": "object",
+        // end of the list of possible fields`settings.clickhouseTarget.sharding`
+
+      },
+      "cleanupPolicy": "string"
+    },
+    "mongoTarget": {
+      "connection": {
+        "connectionOptions": {
+          "user": "string",
+          "password": {
+            "raw": "string"
+          },
+          "authSource": "string",
+
+          // `settings.mongoTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`
+          "mdbClusterId": "string",
+          "onPremise": {
+            "hosts": [
+              "string"
+            ],
+            "port": "string",
+            "tlsMode": {
+
+              // `settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`
+              "disabled": "object",
+              "enabled": {
+                "caCertificate": "string"
+              },
+              // end of the list of possible fields`settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode`
+
+            },
+            "replicaSet": "string"
+          },
+          // end of the list of possible fields`settings.mongoTarget.connection.connectionOptions`
+
+        }
+      },
+      "subnetId": "string",
+      "securityGroups": [
+        "string"
+      ],
+      "database": "string",
       "cleanupPolicy": "string"
     },
     // end of the list of possible fields`settings`
@@ -215,9 +435,9 @@ name | **string**<br>
 description | **string**<br>
 labels | **object**<br>
 settings | **object**<br>
-settings.<br>mysqlSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
+settings.<br>mysqlSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`<br><br>
 settings.<br>mysqlSource.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for MySQL cluster ID</p> 
+settings.<br>mysqlSource.<br>connection.<br>mdbClusterId | **string** <br>`settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed MySQL cluster ID</p> 
 settings.<br>mysqlSource.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise MySQL <br>`settings.mysqlSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Default: 3306.</p> 
@@ -227,7 +447,9 @@ settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<
 settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.mysqlSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br>
 settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
 settings.<br>mysqlSource.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint</p> <p>Default: public IPv4.</p> 
+settings.<br>mysqlSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 settings.<br>mysqlSource.<br>database | **string**<br><p>Database name</p> <p>You can leave it empty, then it will be possible to transfer tables from several databases at the same time from this source.</p> 
+settings.<br>mysqlSource.<br>serviceDatabase | **string**<br><p>Database for service tables</p> <p>Default: data source database. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
 settings.<br>mysqlSource.<br>user | **string**<br><p>Username</p> <p>User for database access.</p> 
 settings.<br>mysqlSource.<br>password | **object**<br><p>Password</p> <p>Password for database access.</p> 
 settings.<br>mysqlSource.<br>password.<br>raw | **string**<br><p>Password</p> 
@@ -238,9 +460,9 @@ settings.<br>mysqlSource.<br>objectTransferSettings | **object**<br><p>Schema mi
 settings.<br>mysqlSource.<br>objectTransferSettings.<br>view | **string**<br><p>Views</p> <p>CREATE VIEW ...</p> 
 settings.<br>mysqlSource.<br>objectTransferSettings.<br>routine | **string**<br><p>Routines</p> <p>CREATE PROCEDURE ... ; CREATE FUNCTION ... ;</p> 
 settings.<br>mysqlSource.<br>objectTransferSettings.<br>trigger | **string**<br><p>Triggers</p> <p>CREATE TRIGGER ...</p> 
-settings.<br>postgresSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
+settings.<br>postgresSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`<br><br>
 settings.<br>postgresSource.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for PostgreSQL cluster ID</p> 
+settings.<br>postgresSource.<br>connection.<br>mdbClusterId | **string** <br>`settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed PostgreSQL cluster ID</p> 
 settings.<br>postgresSource.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise PostgreSQL <br>`settings.postgresSource.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 settings.<br>postgresSource.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 settings.<br>postgresSource.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Will be used if the cluster ID is not specified. Default: 6432.</p> 
@@ -250,6 +472,7 @@ settings.<br>postgresSource.<br>connection.<br>onPremise.<br>tlsMode.<br>disable
 settings.<br>postgresSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.postgresSource.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br>
 settings.<br>postgresSource.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
 settings.<br>postgresSource.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint</p> <p>Default: public IPv4.</p> 
+settings.<br>postgresSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 settings.<br>postgresSource.<br>database | **string**<br><p>Database name</p> 
 settings.<br>postgresSource.<br>user | **string**<br><p>Username</p> <p>User for database access.</p> 
 settings.<br>postgresSource.<br>password | **object**<br><p>Password</p> <p>Password for database access.</p> 
@@ -257,7 +480,7 @@ settings.<br>postgresSource.<br>password.<br>raw | **string**<br><p>Password</p>
 settings.<br>postgresSource.<br>includeTables[] | **string**<br><p>Included tables</p> <p>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns.</p> 
 settings.<br>postgresSource.<br>excludeTables[] | **string**<br><p>Excluded tables</p> <p>If none or empty list is presented, all tables are replicated. Full table name with schema. Can contain schema_name.* patterns.</p> 
 settings.<br>postgresSource.<br>slotByteLagLimit | **string** (int64)<br><p>Maximum WAL size for the replication slot</p> <p>Maximum WAL size held by the replication slot. Exceeding this limit will result in a replication failure and deletion of the replication slot. Unlimited by default.</p> 
-settings.<br>postgresSource.<br>serviceSchema | **string**<br><p>Database schema for service table</p> <p>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder).</p> 
+settings.<br>postgresSource.<br>serviceSchema | **string**<br><p>Database schema for service tables</p> <p>Default: public. Here created technical tables (__consumer_keeper, __data_transfer_mole_finder).</p> 
 settings.<br>postgresSource.<br>objectTransferSettings | **object**<br><p>Schema migration</p> <p>Select database objects to be transferred during activation or deactivation.</p> 
 settings.<br>postgresSource.<br>objectTransferSettings.<br>sequence | **string**<br><p>Sequences</p> <p>CREATE SEQUENCE ...</p> 
 settings.<br>postgresSource.<br>objectTransferSettings.<br>sequenceOwnedBy | **string**<br><p>Owned sequences</p> <p>CREATE SEQUENCE ... OWNED BY ...</p> 
@@ -275,9 +498,59 @@ settings.<br>postgresSource.<br>objectTransferSettings.<br>rule | **string**<br>
 settings.<br>postgresSource.<br>objectTransferSettings.<br>collation | **string**<br><p>Collations</p> <p>CREATE COLLATION ...</p> 
 settings.<br>postgresSource.<br>objectTransferSettings.<br>policy | **string**<br><p>Policies</p> <p>CREATE POLICY ...</p> 
 settings.<br>postgresSource.<br>objectTransferSettings.<br>cast | **string**<br><p>Casts</p> <p>CREATE CAST ...</p> 
-settings.<br>mysqlTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
+settings.<br>postgresSource.<br>objectTransferSettings.<br>materializedView | **string**<br><p>Materialized views</p> <p>CREATE MATERIALIZED VIEW ...</p> 
+settings.<br>mongoSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`<br><br>
+settings.<br>mongoSource.<br>connection | **object**<br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions | **object**<br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>user | **string**<br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>password | **object**<br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Password</p> 
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>authSource | **string**<br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.mongoSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`settings.mongoSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>hosts[] | **string**<br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>port | **string** (int64)<br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode | **object**<br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.mongoSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.mongoSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.mongoSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br>
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+settings.<br>mongoSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>replicaSet | **string**<br>
+settings.<br>mongoSource.<br>subnetId | **string**<br>
+settings.<br>mongoSource.<br>securityGroups[] | **string**<br><p>Security groups</p> 
+settings.<br>mongoSource.<br>collections[] | **object**<br>
+settings.<br>mongoSource.<br>collections[].<br>databaseName | **string**<br>
+settings.<br>mongoSource.<br>collections[].<br>collectionName | **string**<br>
+settings.<br>mongoSource.<br>excludedCollections[] | **object**<br>
+settings.<br>mongoSource.<br>excludedCollections[].<br>databaseName | **string**<br>
+settings.<br>mongoSource.<br>excludedCollections[].<br>collectionName | **string**<br>
+settings.<br>mongoSource.<br>secondaryPreferredMode | **boolean** (boolean)<br>
+settings.<br>clickhouseSource | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`<br><br>
+settings.<br>clickhouseSource.<br>connection | **object**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions | **object**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>database | **string**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>user | **string**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password | **object**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Password</p> 
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`settings.clickhouseSource.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>httpPort | **string** (int64)<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>nativePort | **string** (int64)<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode | **object**<br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.clickhouseSource.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br>
+settings.<br>clickhouseSource.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+settings.<br>clickhouseSource.<br>subnetId | **string**<br>
+settings.<br>clickhouseSource.<br>securityGroups[] | **string**<br>
+settings.<br>clickhouseSource.<br>includeTables[] | **string**<br>
+settings.<br>clickhouseSource.<br>excludeTables[] | **string**<br>
+settings.<br>mysqlTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`<br><br>
 settings.<br>mysqlTarget.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for MySQL cluster ID</p> 
+settings.<br>mysqlTarget.<br>connection.<br>mdbClusterId | **string** <br>`settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed MySQL cluster ID</p> 
 settings.<br>mysqlTarget.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise MySQL <br>`settings.mysqlTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Default: 3306.</p> 
@@ -287,6 +560,7 @@ settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>disabled.<
 settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.mysqlTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br>
 settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
 settings.<br>mysqlTarget.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint</p> <p>Default: public IPv4.</p> 
+settings.<br>mysqlTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 settings.<br>mysqlTarget.<br>database | **string**<br><p>Database name</p> <p>Allowed to leave it empty, then the tables will be created in databases with the same names as on the source. If this field is empty, then you must fill below db schema for service table.</p> 
 settings.<br>mysqlTarget.<br>user | **string**<br><p>Username</p> <p>User for database access.</p> 
 settings.<br>mysqlTarget.<br>password | **object**<br><p>Password</p> <p>Password for database access.</p> 
@@ -296,9 +570,9 @@ settings.<br>mysqlTarget.<br>skipConstraintChecks | **boolean** (boolean)<br><p>
 settings.<br>mysqlTarget.<br>timezone | **string**<br><p>Database timezone</p> <p>Is used for parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone.</p> 
 settings.<br>mysqlTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> <p>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED.</p> 
 settings.<br>mysqlTarget.<br>serviceDatabase | **string**<br><p>Database schema for service table</p> <p>Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).</p> 
-settings.<br>postgresTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
+settings.<br>postgresTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`<br><br>
 settings.<br>postgresTarget.<br>connection | **object**<br><p>Connection settings</p> <p>Database connection settings</p> 
-settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex Managed Service for PostgreSQL cluster ID</p> 
+settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br><p>Managed cluster</p> <p>Yandex.Cloud Managed PostgreSQL cluster ID</p> 
 settings.<br>postgresTarget.<br>connection.<br>onPremise | **object**<br>On-premise  Connection options for on-premise PostgreSQL <br>`settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
 settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>hosts[] | **string**<br>
 settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>port | **string** (int64)<br><p>Database port</p> <p>Will be used if the cluster ID is not specified. Default: 6432.</p> 
@@ -308,8 +582,66 @@ settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>disable
 settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.postgresTarget.connection.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br>
 settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
 settings.<br>postgresTarget.<br>connection.<br>onPremise.<br>subnetId | **string**<br><p>Network interface for endpoint</p> <p>Default: public IPv4.</p> 
+settings.<br>postgresTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
 settings.<br>postgresTarget.<br>database | **string**<br><p>Database name</p> 
 settings.<br>postgresTarget.<br>user | **string**<br><p>Username</p> <p>User for database access.</p> 
 settings.<br>postgresTarget.<br>password | **object**<br><p>Password</p> <p>Password for database access.</p> 
 settings.<br>postgresTarget.<br>password.<br>raw | **string**<br><p>Password</p> 
 settings.<br>postgresTarget.<br>cleanupPolicy | **string**<br><p>Cleanup policy</p> <p>Cleanup policy for activate, reactivate and reupload processes. Default is DISABLED.</p> 
+settings.<br>clickhouseTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`<br><br>
+settings.<br>clickhouseTarget.<br>connection | **object**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions | **object**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>database | **string**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>user | **string**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password | **object**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Password</p> 
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`settings.clickhouseTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[] | **object**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>name | **string**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>shards[].<br>hosts[] | **string**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>httpPort | **string** (int64)<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>nativePort | **string** (int64)<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode | **object**<br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.clickhouseTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br>
+settings.<br>clickhouseTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+settings.<br>clickhouseTarget.<br>subnetId | **string**<br>
+settings.<br>clickhouseTarget.<br>securityGroups[] | **string**<br>
+settings.<br>clickhouseTarget.<br>clickhouseClusterName | **string**<br>
+settings.<br>clickhouseTarget.<br>altNames[] | **object**<br>
+settings.<br>clickhouseTarget.<br>altNames[].<br>fromName | **string**<br><p>From table name</p> 
+settings.<br>clickhouseTarget.<br>altNames[].<br>toName | **string**<br><p>To table name</p> 
+settings.<br>clickhouseTarget.<br>sharding | **object**<br>
+settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br>
+settings.<br>clickhouseTarget.<br>sharding.<br>columnValueHash.<br>columnName | **string**<br>
+settings.<br>clickhouseTarget.<br>sharding.<br>customMapping | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br>
+settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>columnName | **string**<br>
+settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[] | **object**<br>
+settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue | **object**<br>
+settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>shardName | **string**<br>
+settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>clickhouseTarget.<br>cleanupPolicy | **string**<br>
+settings.<br>mongoTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `mongoTarget`<br><br>
+settings.<br>mongoTarget.<br>connection | **object**<br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions | **object**<br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>user | **string**<br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>password | **object**<br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>password.<br>raw | **string**<br><p>Password</p> 
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>authSource | **string**<br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>mdbClusterId | **string** <br>`settings.mongoTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise | **object** <br>`settings.mongoTarget.connection.connectionOptions` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>hosts[] | **string**<br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>port | **string** (int64)<br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode | **object**<br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled | **object** <br>`settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>disabled.<br>disabled | **object** <br>`settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br><p>Empty JSON object ``{}``.</p> 
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled | **object** <br>`settings.mongoTarget.connection.connectionOptions.onPremise.tlsMode` includes only one of the fields `disabled`, `enabled`<br><br>
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>tlsMode.<br>enabled.<br>caCertificate | **string**<br><p>CA certificate</p> <p>X.509 certificate of the certificate authority which issued the server's certificate, in PEM format. When CA certificate is specified TLS is used to connect to the server.</p> 
+settings.<br>mongoTarget.<br>connection.<br>connectionOptions.<br>onPremise.<br>replicaSet | **string**<br>
+settings.<br>mongoTarget.<br>subnetId | **string**<br>
+settings.<br>mongoTarget.<br>securityGroups[] | **string**<br><p>Security groups</p> 
+settings.<br>mongoTarget.<br>database | **string**<br>
+settings.<br>mongoTarget.<br>cleanupPolicy | **string**<br>

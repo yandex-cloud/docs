@@ -10,7 +10,7 @@ Updates access bindings for the specified repository.
  
 ## HTTP request {#https-request}
 ```
-POST https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories/{resourceId}:updateAccessBindings
+POST https://container-registry.{{ api-host }}/container-registry/v1/repositories/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

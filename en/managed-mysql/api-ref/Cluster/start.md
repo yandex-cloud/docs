@@ -10,7 +10,7 @@ Starts a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:start
+POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

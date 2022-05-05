@@ -10,7 +10,7 @@ Suspend specified customer. After customer is suspended, he can't use resources 
  
 ## HTTP request {#https-request}
 ```
-POST https://billing.api.cloud.yandex.net/billing/v1/customers/{customerId}:suspend
+POST https://billing.{{ api-host }}/billing/v1/customers/{customerId}:suspend
 ```
  
 ## Path parameters {#path_params}

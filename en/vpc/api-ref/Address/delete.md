@@ -10,7 +10,7 @@ Deletes the specified address.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://vpc.api.cloud.yandex.net/vpc/v1/addresses/{addressId}
+DELETE https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Analyzes a batch of images and returns results with annotations.
  
 ## HTTP request {#https-request}
 ```
-POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
+POST https://vision.{{ api-host }}/vision/v1/batchAnalyze
 ```
  
 ## Body parameters {#body_params}

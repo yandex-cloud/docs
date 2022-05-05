@@ -44,9 +44,9 @@ name | **string**<br>Name of the group. The name is unique within the folder.
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
-status | enum **Status**<br>Status of the group. <ul><ul/>
+status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -100,9 +100,9 @@ name | **string**<br>Name of the group. The name is unique within the folder.
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
-status | enum **Status**<br>Status of the group. <ul><ul/>
+status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy1)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -136,12 +136,12 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a host group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 zone_id | **string**<br>Required. Availability zone where all dedicated hosts will be allocated. The maximum string length in characters is 50.
 type_id | **string**<br>Required. ID of host type. Resources provided by each host of the group. The maximum string length in characters is 50.
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy2)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -194,9 +194,9 @@ name | **string**<br>Name of the group. The name is unique within the folder.
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
-status | enum **Status**<br>Status of the group. <ul><ul/>
+status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy3)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -231,10 +231,10 @@ Field | Description
 --- | ---
 host_group_id | **string**<br>Required. ID of the host group to update. To get the host group ID, use an [HostGroupService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the HostGroup resource are going to be updated. 
-name | **string**<br>Name of the group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy4)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -287,9 +287,9 @@ name | **string**<br>Name of the group. The name is unique within the folder.
 description | **string**<br>Description of the group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>Availability zone where all dedicated hosts are allocated. 
-status | enum **Status**<br>Status of the group. <ul><ul/>
+status | enum **Status**<br>Status of the group. 
 type_id | **string**<br>ID of host type. Resources provided by each host of the group. 
-maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li><ul/>
+maintenance_policy | enum **MaintenancePolicy**<br>Behaviour on maintenance events. <ul><li>`RESTART`: Restart instances on the same host after maintenance event.</li><li>`MIGRATE`: Migrate instances to another host before maintenance event.</li></ul>
 scale_policy | **[ScalePolicy](#ScalePolicy5)**<br>Scale policy. Only fixed number of hosts are supported at this moment. 
 
 
@@ -424,7 +424,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
@@ -452,7 +452,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -470,7 +470,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -501,7 +501,7 @@ dns_records[] | **[DnsRecord](#DnsRecord)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration 
 
 
@@ -536,7 +536,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy}
@@ -552,7 +552,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of aff
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -584,7 +584,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 id | **string**<br>ID of the host. 
-status | enum **Status**<br>Current status of the host. New instances are unable to start on host in DOWN status. <ul><ul/>
+status | enum **Status**<br>Current status of the host. New instances are unable to start on host in DOWN status. 
 server_id | **string**<br>ID of the physical server that the host belongs to. 
 
 

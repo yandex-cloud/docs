@@ -10,7 +10,7 @@ Deletes the specified HTTP router.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}
+DELETE https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}
 ```
  
 ## Path parameters {#path_params}

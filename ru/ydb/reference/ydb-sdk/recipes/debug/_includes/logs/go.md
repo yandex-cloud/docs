@@ -22,9 +22,9 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/_includ
         ctx, cancel := context.WithCancel(context.Background())
         defer cancel()
         var log *zap.Logger // zap-logger with init out of this scope
-        db, err := ydb.New(
+        db, err := ydb.Open(
             ctx,
-            ...
+            os.Getenv("YDB_CONNECTION_STRING"),
             ydbZap.WithTraces(
                 log,
                 ydbZap.WithDetails(trace.DetailsAll),
@@ -58,9 +58,9 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/_includ
         ctx, cancel := context.WithCancel(context.Background())
         defer cancel()
         var log zerolog.Logger // zap-logger with init out of this scope
-        db, err := ydb.New(
+        db, err := ydb.Open(
             ctx,
-            ydb.WithConnectionString(os.Getenv("YDB_CONNECTION_STRING")),
+            os.Getenv("YDB_CONNECTION_STRING"),
             ydbZerolog.WithTraces(
                 log,
                 ydbZerolog.WithDetails(trace.DetailsAll),
@@ -92,9 +92,9 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/_includ
         ctx, cancel := context.WithCancel(context.Background())
         defer cancel()
         var logger log.Logger // logger implementation with init out of this scope
-        db, err := ydb.New(
+        db, err := ydb.Open(
             ctx,
-            ydb.WithConnectionString(os.Getenv("YDB_CONNECTION_STRING")),
+            os.Getenv("YDB_CONNECTION_STRING"),
             ydb.WithLogger(
                 trace.DetailsAll,
 			    ydb.WithExternalLogger(logger),

@@ -10,7 +10,7 @@ Lists existing access bindings for the specified log group.
  
 ## HTTP request {#https-request}
 ```
-GET https://logging.api.cloud.yandex.net/logging/v1/logGroups/{resourceId}:listAccessBindings
+GET https://logging.{{ api-host }}/logging/v1/logGroups/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

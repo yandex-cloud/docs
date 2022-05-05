@@ -10,7 +10,7 @@ Updates the specified API key.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://iam.api.cloud.yandex.net/iam/v1/apiKeys/{apiKeyId}
+PATCH https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
 ```
  
 ## Path parameters {#path_params}

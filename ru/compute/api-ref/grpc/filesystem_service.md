@@ -45,7 +45,7 @@ type_id | **string**<br>ID of the filesystem type. <br>To get a list of availabl
 zone_id | **string**<br>ID of the availability zone where the filesystem resides. <br>A filesystem can be attached only to instances residing in the same availability zone. 
 size | **int64**<br>Size of the filesystem, specified in bytes. 
 block_size | **int64**<br>Block size used for the filesystem, specified in bytes. 
-status | enum **Status**<br>Current status of the filesystem. <ul><li>`CREATING`: The filesystem is being created.</li><li>`READY`: The filesystem is ready to use.</li><li>`ERROR`: The filesystem encountered a problem and cannot operate.</li><li>`DELETING`: The filesystem is being deleted.</li><ul/>
+status | enum **Status**<br>Current status of the filesystem. <ul><li>`CREATING`: The filesystem is being created.</li><li>`READY`: The filesystem is ready to use.</li><li>`ERROR`: The filesystem encountered a problem and cannot operate.</li><li>`DELETING`: The filesystem is being deleted.</li></ul>
 
 
 ## List {#List}
@@ -61,7 +61,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list filesystems in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFilesystemsResponse.next_page_token](#ListFilesystemsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFilesystemsResponse.next_page_token](#ListFilesystemsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Filesystem.name](#Filesystem1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`. </li></ol> 
+filter | **string**<br>A filter expression that filters filesystems listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [Filesystem.name](#Filesystem1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`. </li></ol>Example of a filter: `name=my-filesystem`. 
 
 
 ### ListFilesystemsResponse {#ListFilesystemsResponse}
@@ -86,7 +86,7 @@ type_id | **string**<br>ID of the filesystem type. <br>To get a list of availabl
 zone_id | **string**<br>ID of the availability zone where the filesystem resides. <br>A filesystem can be attached only to instances residing in the same availability zone. 
 size | **int64**<br>Size of the filesystem, specified in bytes. 
 block_size | **int64**<br>Block size used for the filesystem, specified in bytes. 
-status | enum **Status**<br>Current status of the filesystem. <ul><li>`CREATING`: The filesystem is being created.</li><li>`READY`: The filesystem is ready to use.</li><li>`ERROR`: The filesystem encountered a problem and cannot operate.</li><li>`DELETING`: The filesystem is being deleted.</li><ul/>
+status | enum **Status**<br>Current status of the filesystem. <ul><li>`CREATING`: The filesystem is being created.</li><li>`READY`: The filesystem is ready to use.</li><li>`ERROR`: The filesystem encountered a problem and cannot operate.</li><li>`DELETING`: The filesystem is being deleted.</li></ul>
 
 
 ## Create {#Create}
@@ -104,7 +104,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a filesystem in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the filesystem. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the filesystem. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the filesystem. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Filesystem labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 type_id | **string**<br>ID of the filesystem type. <br>To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/disk_type_service#List) request. <br>The filesystem type cannot be updated after the filesystem creation. The maximum string length in characters is 50.
@@ -150,7 +150,7 @@ type_id | **string**<br>ID of the filesystem type. <br>To get a list of availabl
 zone_id | **string**<br>ID of the availability zone where the filesystem resides. <br>A filesystem can be attached only to instances residing in the same availability zone. 
 size | **int64**<br>Size of the filesystem, specified in bytes. 
 block_size | **int64**<br>Block size used for the filesystem, specified in bytes. 
-status | enum **Status**<br>Current status of the filesystem. <ul><li>`CREATING`: The filesystem is being created.</li><li>`READY`: The filesystem is ready to use.</li><li>`ERROR`: The filesystem encountered a problem and cannot operate.</li><li>`DELETING`: The filesystem is being deleted.</li><ul/>
+status | enum **Status**<br>Current status of the filesystem. <ul><li>`CREATING`: The filesystem is being created.</li><li>`READY`: The filesystem is ready to use.</li><li>`ERROR`: The filesystem encountered a problem and cannot operate.</li><li>`DELETING`: The filesystem is being deleted.</li></ul>
 
 
 ## Update {#Update}
@@ -169,9 +169,9 @@ Field | Description
 --- | ---
 filesystem_id | **string**<br>Required. ID of the filesystem to update. <br>To get the filesystem ID, make a [FilesystemService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the filesystem should be updated. 
-name | **string**<br>New name of the filesystem. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>New name of the filesystem. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description of the filesystem. The maximum string length in characters is 256.
-labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [FilesystemService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+labels | **map<string,string>**<br>New filesystem labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [FilesystemService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 size | **int64**<br>Size of the filesystem, specified in bytes. 
 
 
@@ -212,7 +212,7 @@ type_id | **string**<br>ID of the filesystem type. <br>To get a list of availabl
 zone_id | **string**<br>ID of the availability zone where the filesystem resides. <br>A filesystem can be attached only to instances residing in the same availability zone. 
 size | **int64**<br>Size of the filesystem, specified in bytes. 
 block_size | **int64**<br>Block size used for the filesystem, specified in bytes. 
-status | enum **Status**<br>Current status of the filesystem. <ul><li>`CREATING`: The filesystem is being created.</li><li>`READY`: The filesystem is ready to use.</li><li>`ERROR`: The filesystem encountered a problem and cannot operate.</li><li>`DELETING`: The filesystem is being deleted.</li><ul/>
+status | enum **Status**<br>Current status of the filesystem. <ul><li>`CREATING`: The filesystem is being created.</li><li>`READY`: The filesystem is ready to use.</li><li>`ERROR`: The filesystem encountered a problem and cannot operate.</li><li>`DELETING`: The filesystem is being deleted.</li></ul>
 
 
 ## Delete {#Delete}

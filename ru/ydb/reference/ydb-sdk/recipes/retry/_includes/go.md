@@ -27,9 +27,9 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/retry/_includ
     )
 
     func main() {
-        db, err := ydb.New(
+        db, err := ydb.Open(
             ctx,
-            ...
+            os.Getenv("YDB_CONNECTION_STRING"),
         )
         if err != nil {
             panic(err)
@@ -49,9 +49,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/retry/_includ
                 }
                 fmt.Println(whoAmI)
             },
-            retry.WithIdempotent(),
-            retry.WithTrace(trace.Trace{}),
-            retry.WithID("my high-level call"),
+            retry.WithIdempotent(true),
         )
         if err != nil {
             panic(err)

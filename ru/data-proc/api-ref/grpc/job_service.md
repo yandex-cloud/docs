@@ -30,7 +30,7 @@ Field | Description
 cluster_id | **string**<br>Required. ID of the cluster to list jobs for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListJobsResponse.next_page_token](#ListJobsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListJobsResponse.next_page_token](#ListJobsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Job.name](#Job) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters jobs listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Job.name](#Job) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-job`. The maximum string length in characters is 1000.
 
 
 ### ListJobsResponse {#ListJobsResponse}
@@ -52,7 +52,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
 name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
 created_by | **string**<br>The id of the user who created the job 
-status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li><ul/>
+status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li></ul>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob)**<br>Specification for a MapReduce job. 
 &nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob)**<br>Specification for a Spark job. 
@@ -158,7 +158,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to create a job for. The maximum string length in characters is 50.
-name | **string**<br>Name of the job. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the job. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob1)**<br>Specification for a MapReduce job. 
 &nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob1)**<br>Specification for a Spark job. 
@@ -267,7 +267,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
 name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
 created_by | **string**<br>The id of the user who created the job 
-status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li><ul/>
+status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li></ul>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob2)**<br>Specification for a MapReduce job. 
 &nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob2)**<br>Specification for a Spark job. 
@@ -383,7 +383,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
 name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
 created_by | **string**<br>The id of the user who created the job 
-status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li><ul/>
+status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li></ul>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob3)**<br>Specification for a MapReduce job. 
 &nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob3)**<br>Specification for a Spark job. 
@@ -551,7 +551,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the job was finished. 
 name | **string**<br>Name of the job, specified in the [JobService.Create](#Create) request. 
 created_by | **string**<br>The id of the user who created the job 
-status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li><ul/>
+status | enum **Status**<br>Job status. <ul><li>`PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.</li><li>`PENDING`: Job is acquired by the agent and is in the queue for execution.</li><li>`RUNNING`: Job is being run in the cluster.</li><li>`ERROR`: Job failed to finish the run properly.</li><li>`DONE`: Job is finished.</li><li>`CANCELLED`: Job is cancelled.</li><li>`CANCELLING`: Job is waiting for cancellation.</li></ul>
 job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<br>Specification for the job.
 &nbsp;&nbsp;mapreduce_job | **[MapreduceJob](#MapreduceJob4)**<br>Specification for a MapReduce job. 
 &nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob4)**<br>Specification for a Spark job. 

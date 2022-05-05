@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/cdn/api-ref/RawLogs/get.md
  
 ## HTTP request {#https-request}
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/rawLogs/{resourceId}
+GET https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
 ```
  
 ## Path parameters {#path_params}

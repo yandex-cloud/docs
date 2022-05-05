@@ -10,7 +10,7 @@ Lists existing access bindings for the specified function.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{resourceId}:listAccessBindings
+GET https://serverless-functions.{{ api-host }}/functions/v1/functions/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

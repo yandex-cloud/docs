@@ -10,7 +10,7 @@ Executes scanning of specified image.
  
 ## HTTP request {#https-request}
 ```
-POST https://container-registry.api.cloud.yandex.net/container-registry/v1/scans
+POST https://container-registry.{{ api-host }}/container-registry/v1/scans
 ```
  
 ## Body parameters {#body_params}

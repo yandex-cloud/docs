@@ -10,7 +10,7 @@ Stops the specified Greenplum® cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}:stop
+POST https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/{clusterId}:stop
 ```
  
 ## Path parameters {#path_params}

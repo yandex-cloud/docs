@@ -11,7 +11,7 @@ Changes network load balancer status to `` ACTIVE ``.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start
+POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start
 ```
  
 ## Path parameters {#path_params}

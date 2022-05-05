@@ -10,7 +10,7 @@ To get the list of all available placement groups, make a [list](/docs/compute/a
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placementGroupId}
+GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
 ```
  
 ## Path parameters {#path_params}

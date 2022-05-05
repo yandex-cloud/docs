@@ -10,7 +10,7 @@ Creates a log group in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://logging.api.cloud.yandex.net/logging/v1/logGroups
+POST https://logging.{{ api-host }}/logging/v1/logGroups
 ```
  
 ## Body parameters {#body_params}

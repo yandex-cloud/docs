@@ -10,7 +10,7 @@ Retrieves logs for the specified MongoDB cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:logs
+GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}

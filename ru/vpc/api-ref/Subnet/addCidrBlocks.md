@@ -11,7 +11,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
  
 ## HTTP request {#https-request}
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}:add-cidr-blocks
+POST https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:add-cidr-blocks
 ```
  
 ## Path parameters {#path_params}

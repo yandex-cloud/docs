@@ -10,7 +10,7 @@ Creates a device in the specified registry.
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices
+POST https://iot-devices.{{ api-host }}/iot-devices/v1/devices
 ```
  
 ## Body parameters {#body_params}

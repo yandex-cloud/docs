@@ -10,7 +10,7 @@ Activates specified customer. After customer is activated, he can use resources 
  
 ## HTTP request {#https-request}
 ```
-POST https://billing.api.cloud.yandex.net/billing/v1/customers/{customerId}:activate
+POST https://billing.{{ api-host }}/billing/v1/customers/{customerId}:activate
 ```
  
 ## Path parameters {#path_params}

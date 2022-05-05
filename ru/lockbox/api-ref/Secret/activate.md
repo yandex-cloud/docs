@@ -10,7 +10,7 @@ Activates the specified secret.
  
 ## HTTP request {#https-request}
 ```
-POST https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}:activate
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:activate
 ```
  
 ## Path parameters {#path_params}

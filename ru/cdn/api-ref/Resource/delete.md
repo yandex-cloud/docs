@@ -10,7 +10,7 @@ Deletes client's CDN resource.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://cdn.api.cloud.yandex.net/cdn/v1/resources/{resourceId}
+DELETE https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
 ```
  
 ## Path parameters {#path_params}

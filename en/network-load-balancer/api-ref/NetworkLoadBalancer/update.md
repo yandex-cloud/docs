@@ -10,7 +10,7 @@ Updates the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
+PATCH https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
 ```
  
 ## Path parameters {#path_params}

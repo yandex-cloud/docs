@@ -10,7 +10,7 @@ Lists operations for the specified target group.
  
 ## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups/{targetGroupId}/operations
+GET https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

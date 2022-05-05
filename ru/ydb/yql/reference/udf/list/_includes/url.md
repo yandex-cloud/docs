@@ -18,8 +18,8 @@ sourcePath: ru/ydb/yql/reference/yql-core/udf/list/_includes/url.md
 **Примеры**
 
 ```sql
-SELECT Url::Normalize("hTTp://wWw.yAnDeX.RU/"); -- "http://www.yandex.ru/"
-SELECT Url::Normalize("http://ya.ru#foo");      -- "http://ya.ru/"
+SELECT Url::Normalize("hTTp://wWw.yDb.TECH/"); -- "http://www.ydb.tech/"
+SELECT Url::Normalize("http://ydb.tech#foo");      -- "http://ydb.tech/"
 ```
 
 ## NormalizeWithDefaultHttpScheme {#normalizewithdefaulthttpscheme}
@@ -36,8 +36,8 @@ SELECT Url::Normalize("http://ya.ru#foo");      -- "http://ya.ru/"
 **Примеры**
 
 ```sql
-SELECT Url::NormalizeWithDefaultHttpScheme("wWw.yAnDeX.RU");    -- "http://www.yandex.ru/"
-SELECT Url::NormalizeWithDefaultHttpScheme("http://ya.ru#foo"); -- "http://ya.ru/"
+SELECT Url::NormalizeWithDefaultHttpScheme("wWw.yDb.TECH");    -- "http://www.ydb.tech/"
+SELECT Url::NormalizeWithDefaultHttpScheme("http://ydb.tech#foo"); -- "http://ydb.tech/"
 ```
 
 ## Encode / Decode {#encode}
@@ -52,10 +52,10 @@ SELECT Url::NormalizeWithDefaultHttpScheme("http://ya.ru#foo"); -- "http://ya.ru
 **Примеры**
 
 ```sql
-SELECT Url::Decode("http://ya.ru/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"); 
-  -- "http://ya.ru/страница"
-SELECT Url::Encode("http://ya.ru/страница");                                         
-  -- "http://ya.ru/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"
+SELECT Url::Decode("http://ydb.tech/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"); 
+  -- "http://ydb.tech/страница"
+SELECT Url::Encode("http://ydb.tech/страница");                                         
+  -- "http://ydb.tech/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"
 ```
 
 ## Parse {#parse}
@@ -109,13 +109,13 @@ SELECT Url::Parse(
   Возвращает домен второго уровня в большинстве случаев и домен третьего уровня для хостеймов вида: ***.XXX.YY, где XXX — одно из com, net, org, co, gov, edu. Этот список можно переопределить через опциональный второй аргумент
 
 * ```Url::GetOwner(String{Flags:AutoMap}) -> String```
-  Возвращает домен, которым с наибольшей вероятностью владеет отдельный человек или организация. В отличие от Url::GetSignificantDomain работает по специальному whitelist, и помимо доменов из серии ***.co.uk возвращает домен третьего уровня для, например, бесплатных хостингов и блогов, скажем something.livejournal.com
+  Возвращает домен, которым с наибольшей вероятностью владеет отдельный человек или организация. В отличие от Url::GetSignificantDomain работает по специальному разрешительному списку, и помимо доменов из серии ***.co.uk возвращает домен третьего уровня для, например, бесплатных хостингов и блогов, например something.livejournal.com
 
 **Примеры**
 
 ```sql
-SELECT Url::GetScheme("https://ya.ru");           -- "https://"
-SELECT Url::GetDomain("http://www.yandex.ru", 2); -- "yandex.ru"
+SELECT Url::GetScheme("https://ydb.tech");           -- "https://"
+SELECT Url::GetDomain("http://www.ydb.tech", 2); -- "ydb.tech"
 ```
 
 ## Cut... {#cut}
@@ -124,10 +124,10 @@ SELECT Url::GetDomain("http://www.yandex.ru", 2); -- "yandex.ru"
   Возвращает переданный URL уже без схемы (http://, https:// и т.п.).
 
 * ```Url::CutWWW(String?) -> String?```
-  Возвращает переданный домен без префикса "www.", если он имелся.
+  Возвращает переданный домен без префикса "www.", если он присутствовал.
 
 * ```Url::CutWWW2(String?) -> String?```
-Возвращает переданный домен без префикса "www.", "www2.", "wwww777." и тому подобных, если он имелся.
+  Возвращает переданный домен без префикса "www.", "www2.", "wwww777." и тому подобных, если он присутствовал.
 
 * ```Url::CutQueryStringA­ndFragment(String{Flags:AutoMap}) -> String```
   Возращает копию переданного URL с удаленными всеми CGI параметрами и фрагментами ("?foo=bar" и/или "#baz").
@@ -135,8 +135,8 @@ SELECT Url::GetDomain("http://www.yandex.ru", 2); -- "yandex.ru"
 **Примеры**
 
 ```sql
-SELECT Url::CutScheme("http://www.yandex.ru"); -- "www.yandex.ru"
-SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
+SELECT Url::CutScheme("http://www.ydb.tech"); -- "www.ydb.tech"
+SELECT Url::CutWWW("www.ydb.tech");           -- "ydb.tech"
 ```
 
 ## ...Punycode... {#punycode}
@@ -154,7 +154,7 @@ SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
 **Примеры**
 
 ```sql
-SELECT Url::PunycodeToHostName("xn--d1acpjx3f.xn--p1ai"); -- "яндекс.рф"
+SELECT Url::PunycodeToHostName("xn--80aniges7g.xn--j1aef"); -- "экзампл.ком"
 ```
 
 ## ...Query... {#query}

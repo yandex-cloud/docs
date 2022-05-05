@@ -10,7 +10,7 @@ Retrieves the list of functions in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions
+GET https://serverless-functions.{{ api-host }}/functions/v1/functions
 ```
  
 ## Query parameters {#query_params}

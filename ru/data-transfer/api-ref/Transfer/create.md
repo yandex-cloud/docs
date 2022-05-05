@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/create.md
  
 ## HTTP request {#https-request}
 ```
-POST https://datatransfer.api.cloud.yandex.net/v1/transfer
+POST https://datatransfer.{{ api-host }}/v1/transfer
 ```
  
 ## Body parameters {#body_params}

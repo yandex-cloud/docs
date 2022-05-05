@@ -10,7 +10,7 @@ Sets access bindings for the specified organization.
  
 ## HTTP request {#https-request}
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{resourceId}:setAccessBindings
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

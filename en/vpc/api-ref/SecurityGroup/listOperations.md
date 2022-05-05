@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/vpc/api-ref/SecurityGroup/listOperations.md
  
 ## HTTP request {#https-request}
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}/operations
+GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

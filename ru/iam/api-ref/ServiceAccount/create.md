@@ -10,7 +10,7 @@ Creates a service account in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
+POST https://iam.{{ api-host }}/iam/v1/serviceAccounts
 ```
  
 ## Body parameters {#body_params}

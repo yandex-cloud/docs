@@ -10,7 +10,7 @@ Returns the specified SKU.
  
 ## HTTP request {#https-request}
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/skus/{id}
+GET https://billing.{{ api-host }}/billing/v1/skus/{id}
 ```
  
 ## Path parameters {#path_params}

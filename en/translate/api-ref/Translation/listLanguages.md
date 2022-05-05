@@ -10,7 +10,7 @@ Retrieves the list of supported languages.
  
 ## HTTP request {#https-request}
 ```
-POST https://translate.api.cloud.yandex.net/translate/v2/languages
+POST https://translate.{{ api-host }}/translate/v2/languages
 ```
  
 ## Body parameters {#body_params}

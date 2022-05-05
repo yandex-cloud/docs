@@ -10,7 +10,7 @@ Attaches domain to the specified API gateway.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}:addDomain
+POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}:addDomain
 ```
  
 ## Path parameters {#path_params}

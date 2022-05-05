@@ -10,7 +10,7 @@ Returns the list of versions of the specified symmetric KMS key.
  
 ## HTTP request {#https-request}
 ```
-GET https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}/versions
+GET https://kms.{{ api-host }}/kms/v1/keys/{keyId}/versions
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Retrieves the list of machine learning models in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/mlModels
+GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels
 ```
  
 ## Path parameters {#path_params}

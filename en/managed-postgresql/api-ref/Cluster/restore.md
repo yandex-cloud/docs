@@ -10,7 +10,7 @@ Creates a new PostgreSQL cluster using the specified backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters:restore
+POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}

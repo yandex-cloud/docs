@@ -10,7 +10,7 @@ Deletes the specified virtual host.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
+DELETE https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
 ```
  
 ## Path parameters {#path_params}

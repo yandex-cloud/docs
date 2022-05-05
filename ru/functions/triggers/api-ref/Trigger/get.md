@@ -10,7 +10,7 @@ To get the list of all available triggers, make a [list](/docs/functions/trigger
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers/{triggerId}
+GET https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}
 ```
  
 ## Path parameters {#path_params}

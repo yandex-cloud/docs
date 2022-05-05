@@ -11,7 +11,7 @@ i.e. scaling, checking instances' health, auto-healing and updating them. Runnin
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:pauseProcesses
+POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:pauseProcesses
 ```
  
 ## Path parameters {#path_params}

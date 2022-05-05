@@ -10,7 +10,7 @@ Updates the specified virtual host of the specified HTTP router.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
+PATCH https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
 ```
  
 ## Path parameters {#path_params}

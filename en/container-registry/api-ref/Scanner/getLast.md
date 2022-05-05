@@ -10,7 +10,7 @@ Returns the last finished ScanResult for the specified Image.
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/images/{imageId}:lastScanResult
+GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imageId}:lastScanResult
 ```
  
 ## Path parameters {#path_params}

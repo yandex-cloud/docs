@@ -18,13 +18,13 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/_includes/se
 Создание вторичного индекса выполняется командой `table index add`:
 
 ```bash
-{{ ydb-cli }} [connection options] table index add <sync_async> <table> \
+{{ ydb-cli }} [connection options] table index add <sync-async> <table> \
   --index-name STR --columns STR [--cover STR]
 ```
 
 Параметры:
 
-`<sync_async>` : Тип вторичного индекса. Укажите `global_sync` для построения индекса [с синхронным обновлением](../../../../concepts/secondary_indexes.md#sync) или `global_async` для индекса [с асинхронным обновлением](../../../../concepts/secondary_indexes.md#async).
+`<sync-async>` : Тип вторичного индекса. Укажите `global-sync` для построения индекса [с синхронным обновлением](../../../../concepts/secondary_indexes.md#sync) или `global-async` для индекса [с асинхронным обновлением](../../../../concepts/secondary_indexes.md#async).
 
 `<table>`: Путь и имя таблицы, для которой выполняется построение индекса
 

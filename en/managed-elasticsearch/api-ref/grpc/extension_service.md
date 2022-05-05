@@ -27,8 +27,8 @@ Returns the specified extension of Elasticsearch cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the cluster. The maximum string length in characters is 50.
-extension_id | **string**<br>Required. Required. ID of the extension to return. 
+cluster_id | **string**<br>Required. ID of the cluster. The maximum string length in characters is 50.
+extension_id | **string**<br>Required. ID of the extension to return. 
 
 
 ### Extension {#Extension}
@@ -36,10 +36,10 @@ extension_id | **string**<br>Required. Required. ID of the extension to return.
 Field | Description
 --- | ---
 name | **string**<br>Name of the extension. 
-id | **string**<br>Extension unique ID 
+id | **string**<br>Unique ID of the extension. 
 cluster_id | **string**<br>ID of the Elasticsearch cluster the extension belongs to. 
-version | **int64**<br>Extension version 
-active | **bool**<br>Flag is extension active now 
+version | **int64**<br>Version of the extension. 
+active | **bool**<br>The flag shows whether the extension is active. 
 
 
 ## List {#List}
@@ -52,9 +52,9 @@ Returns the list of available extensions for the specified Elasticsearch cluster
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the cluster to list extensions in. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a `next_page_token` that can be used to get the next page of results in subsequent ListBackups requests. Acceptable values are 0 to 1000, inclusive. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups request to get the next page of results. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the cluster to list extensions in. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListExtensionsResponse.next_page_token](#ListExtensionsResponse) that can be used to get the next page of results in subsequent [ExtensionService.List](#List) requests. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListExtensionsResponse.next_page_token](#ListExtensionsResponse) returned by the previous [ExtensionService.List](#List) request. The maximum string length in characters is 100.
 
 
 ### ListExtensionsResponse {#ListExtensionsResponse}
@@ -62,7 +62,7 @@ page_token | **string**<br>Page token. Set `page_token` to the `next_page_token`
 Field | Description
 --- | ---
 extensions[] | **[Extension](#Extension1)**<br>Requested list of extensions. 
-next_page_token | **string**<br>This token allows you to get the next page of results for ListBackups requests, if the number of results is larger than `page_size` specified in the request. To get the next page, specify the value of `next_page_token` as a value for the `page_token` parameter in the next ListBackups request. Subsequent ListBackups requests will have their own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListExtensionsRequest.page_size](#ListExtensionsRequest), use the `next_page_token` as the value for the [ListExtensionsRequest.page_token](#ListExtensionsRequest) in the subsequent [ExtensionService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [ExtensionService.List] requests should use the `next_page_token` value returned in the previous request to continue paging through the results. 
 
 
 ### Extension {#Extension1}
@@ -70,10 +70,10 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 name | **string**<br>Name of the extension. 
-id | **string**<br>Extension unique ID 
+id | **string**<br>Unique ID of the extension. 
 cluster_id | **string**<br>ID of the Elasticsearch cluster the extension belongs to. 
-version | **int64**<br>Extension version 
-active | **bool**<br>Flag is extension active now 
+version | **int64**<br>Version of the extension. 
+active | **bool**<br>The flag shows whether the extension is active. 
 
 
 ## Create {#Create}
@@ -90,10 +90,10 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the cluster. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the cluster. The maximum string length in characters is 50.
 name | **string**<br>Required. Name of the extension. The maximum string length in characters is 50.
-uri | **string**<br>Required. URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
-disabled | **bool**<br> 
+uri | **string**<br>Required. URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
+disabled | **bool**<br>The flag that disables the extension. 
 
 
 ### Operation {#Operation}
@@ -116,8 +116,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the cluster. The maximum string length in characters is 50.
-extension_id | **string**<br>Required. Required. ID of the extension. 
+cluster_id | **string**<br>Required. ID of the cluster. The maximum string length in characters is 50.
+extension_id | **string**<br>Required. ID of the extension. 
 
 
 ### Extension {#Extension2}
@@ -125,10 +125,10 @@ extension_id | **string**<br>Required. Required. ID of the extension.
 Field | Description
 --- | ---
 name | **string**<br>Name of the extension. 
-id | **string**<br>Extension unique ID 
+id | **string**<br>Unique ID of the extension. 
 cluster_id | **string**<br>ID of the Elasticsearch cluster the extension belongs to. 
-version | **int64**<br>Extension version 
-active | **bool**<br>Flag is extension active now 
+version | **int64**<br>Version of the extension. 
+active | **bool**<br>The flag shows whether the extension is active. 
 
 
 ## Update {#Update}
@@ -145,9 +145,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the cluster. The maximum string length in characters is 50.
-extension_id | **string**<br>Required. Required. ID of the extension to delete. 
-active | **bool**<br> 
+cluster_id | **string**<br>Required. ID of the cluster. The maximum string length in characters is 50.
+extension_id | **string**<br>Required. ID of the extension to update. 
+active | **bool**<br>The flag shows whether to make the extension active. 
 
 
 ### Operation {#Operation1}
@@ -170,8 +170,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the cluster. The maximum string length in characters is 50.
-extension_id | **string**<br>Required. Required. ID of the extension. 
+cluster_id | **string**<br>Required. ID of the cluster. The maximum string length in characters is 50.
+extension_id | **string**<br>Required. ID of the extension. 
 
 
 ### Extension {#Extension3}
@@ -179,10 +179,10 @@ extension_id | **string**<br>Required. Required. ID of the extension.
 Field | Description
 --- | ---
 name | **string**<br>Name of the extension. 
-id | **string**<br>Extension unique ID 
+id | **string**<br>Unique ID of the extension. 
 cluster_id | **string**<br>ID of the Elasticsearch cluster the extension belongs to. 
-version | **int64**<br>Extension version 
-active | **bool**<br>Flag is extension active now 
+version | **int64**<br>Version of the extension. 
+active | **bool**<br>The flag shows whether the extension is active. 
 
 
 ## Delete {#Delete}
@@ -199,8 +199,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the cluster. The maximum string length in characters is 50.
-extension_id | **string**<br>Required. Required. ID of the extension to delete. 
+cluster_id | **string**<br>Required. ID of the cluster. The maximum string length in characters is 50.
+extension_id | **string**<br>Required. ID of the extension to delete. 
 
 
 ### Operation {#Operation2}
@@ -223,7 +223,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the cluster. The maximum string length in characters is 50.
-extension_id | **string**<br>Required. Required. ID of the extension to delete. 
+cluster_id | **string**<br>Required. ID of the cluster. The maximum string length in characters is 50.
+extension_id | **string**<br>Required. ID of the extension to delete. 
 
 

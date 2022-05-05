@@ -10,7 +10,7 @@ Replase the list of auth providers.
  
 ## HTTP request {#https-request}
 ```
-PUT https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
+PUT https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
 ```
  
 ## Path parameters {#path_params}

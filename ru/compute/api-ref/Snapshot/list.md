@@ -10,7 +10,7 @@ Retrieves the list of Snapshot resources in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/snapshots
+GET https://compute.{{ api-host }}/compute/v1/snapshots
 ```
  
 ## Query parameters {#query_params}

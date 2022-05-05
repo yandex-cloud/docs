@@ -10,7 +10,7 @@ Updates the specified listener of the specified application load balancer.
  
 ## HTTP request {#https-request}
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateListener
+POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateListener
 ```
  
 ## Path parameters {#path_params}

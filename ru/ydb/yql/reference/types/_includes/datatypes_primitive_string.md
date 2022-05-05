@@ -8,7 +8,7 @@ sourcePath: ru/ydb/yql/reference/yql-core/types/_includes/datatypes_primitive_st
 `Utf8` | Текст в кодировке [UTF-8](https://en.wikipedia.org/wiki/UTF-8) | 
 `Json` | [JSON](https://en.wikipedia.org/wiki/JSON) в текстовом представлении|Не поддерживает возможность сравнения, не может быть использован в первичном ключе
 `JsonDocument` | [JSON](https://en.wikipedia.org/wiki/JSON) в бинарном индексированном представлении | Не поддерживает возможность сравнения, не может быть использован в первичном ключе
-`Yson` | [YSON](https://yt.yandex-team.ru/docs/description/common/yson.html) в текстовом или бинарном представлении | Не поддерживает возможность сравнения, не может быть использован в первичном ключе
+`Yson` | [YSON](../../udf/list/yson.md) в текстовом или бинарном представлении | Не поддерживает возможность сравнения, не может быть использован в первичном ключе
 `Uuid` | Универсальный идентификатор [UUID](https://tools.ietf.org/html/rfc4122) | Не поддержан для столбцов таблиц 
 
 {% note info "Ограничения на размер" %}

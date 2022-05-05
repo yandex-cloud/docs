@@ -10,7 +10,7 @@ Updates the specified cloud.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{cloudId}
+PATCH https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}
 ```
  
 ## Path parameters {#path_params}

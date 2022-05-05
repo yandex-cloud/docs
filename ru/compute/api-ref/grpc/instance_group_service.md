@@ -42,7 +42,7 @@ Returns the specified InstanceGroup resource. <br>To get the list of available I
 Field | Description
 --- | ---
 instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to return. To get the instance group ID, use a [InstanceGroupService.List](#List) request. The maximum string length in characters is 50.
-view | enum **InstanceGroupView**<br>Defines which information about the Instance template should be returned in the server response. <ul><li>`BASIC`: Doesn't include the metadata of the instance template in the server response.</li><li>`FULL`: Returns the metadata of the instance template in the server response.</li><ul/>
+view | enum **InstanceGroupView**<br>Defines which information about the Instance template should be returned in the server response. <ul><li>`BASIC`: Doesn't include the metadata of the instance template in the server response.</li><li>`FULL`: Returns the metadata of the instance template in the server response.</li></ul>
 
 
 ### InstanceGroup {#InstanceGroup}
@@ -64,7 +64,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState)**<br
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -105,8 +105,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -148,7 +148,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
 
@@ -184,7 +184,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy}
@@ -200,7 +200,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of aff
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -226,7 +226,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule}
@@ -240,8 +240,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -265,7 +265,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy}
@@ -328,7 +328,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -416,7 +416,7 @@ folder_id | **string**<br>Required. ID of the folder to list instance groups in.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceGroupsResponse.next_page_token](#ListInstanceGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupsResponse.next_page_token](#ListInstanceGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](#InstanceGroup1) field. The maximum string length in characters is 1000.
-view | enum **InstanceGroupView**<br>Defines which information about the Instance template should be returned in the server response. <ul><li>`BASIC`: Doesn't include the metadata of the instance template in the server response.</li><li>`FULL`: Returns the metadata of the instance template in the server response.</li><ul/>
+view | enum **InstanceGroupView**<br>Defines which information about the Instance template should be returned in the server response. <ul><li>`BASIC`: Doesn't include the metadata of the instance template in the server response.</li><li>`FULL`: Returns the metadata of the instance template in the server response.</li></ul>
 
 
 ### ListInstanceGroupsResponse {#ListInstanceGroupsResponse}
@@ -446,7 +446,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState1)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec1)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec1)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable1)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec1)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -487,8 +487,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec1)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -530,7 +530,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec2)**<br>External DNS configuration 
 
@@ -566,7 +566,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy1}
@@ -582,7 +582,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule1)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -608,7 +608,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule1)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule1)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule1}
@@ -622,8 +622,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale1) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale1) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale1) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale1) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -647,7 +647,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy1}
@@ -710,7 +710,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -799,7 +799,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create an instance group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
-name | **string**<br>Name of the instance group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the instance group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the instance group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 instance_template | **[InstanceTemplate](#InstanceTemplate2)**<br>Required. Instance template that the instance group belongs to. 
@@ -848,8 +848,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec2)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -891,7 +891,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec4)**<br>External DNS configuration 
 
@@ -927,7 +927,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy2}
@@ -943,7 +943,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule2)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -969,7 +969,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule2)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule2)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule2}
@@ -983,8 +983,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale2) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale2) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale2) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale2) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -1008,7 +1008,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy2}
@@ -1037,7 +1037,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -1145,7 +1145,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState2)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec3)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec3)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable3)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec3)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -1186,8 +1186,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec3)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -1229,7 +1229,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec6)**<br>External DNS configuration 
 
@@ -1265,7 +1265,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy3}
@@ -1281,7 +1281,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule3)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -1307,7 +1307,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule3)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule3)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule3}
@@ -1321,8 +1321,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale3) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale3) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale3) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale3) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -1346,7 +1346,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy3}
@@ -1409,7 +1409,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -1543,7 +1543,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState3)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec4)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec4)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable4)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec4)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -1584,8 +1584,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec4)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -1627,7 +1627,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec8)**<br>External DNS configuration 
 
@@ -1663,7 +1663,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy4}
@@ -1679,7 +1679,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule4)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -1705,7 +1705,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule4)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule4)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule4}
@@ -1719,8 +1719,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale4) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale4) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale4) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale4) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -1744,7 +1744,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy4}
@@ -1807,7 +1807,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -1897,7 +1897,7 @@ Field | Description
 --- | ---
 instance_group_id | **string**<br>Required. ID of the instance group to update. To get the instance group ID, use a [InstanceGroupService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the InstanceGroup resource are going to be updated. 
-name | **string**<br>Name of the instance group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the instance group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the instance group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 instance_template | **[InstanceTemplate](#InstanceTemplate5)**<br>Required. Instance template that the instance group belongs to. 
@@ -1946,8 +1946,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec5)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -1989,7 +1989,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec10)**<br>External DNS configuration 
 
@@ -2025,7 +2025,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy5}
@@ -2041,7 +2041,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule5)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -2067,7 +2067,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule5)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule5)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule5}
@@ -2081,8 +2081,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale5) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale5) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale5) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale5) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -2106,7 +2106,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy5}
@@ -2171,7 +2171,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -2243,7 +2243,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState4)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec6)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec6)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable6)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec6)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -2284,8 +2284,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec6)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -2327,7 +2327,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec12)**<br>External DNS configuration 
 
@@ -2363,7 +2363,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy6}
@@ -2379,7 +2379,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule6)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -2405,7 +2405,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule6)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule6)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule6}
@@ -2419,8 +2419,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale6) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale6) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale6) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale6) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -2444,7 +2444,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy6}
@@ -2507,7 +2507,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -2641,7 +2641,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState5)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec7)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec7)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable7)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec7)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -2682,8 +2682,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec7)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -2725,7 +2725,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec14)**<br>External DNS configuration 
 
@@ -2761,7 +2761,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy7}
@@ -2777,7 +2777,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule7)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -2803,7 +2803,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule7)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule7)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule7}
@@ -2817,8 +2817,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale7) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale7) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale7) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale7) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -2842,7 +2842,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy7}
@@ -2905,7 +2905,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -3038,7 +3038,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState6)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec8)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec8)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable8)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec8)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -3079,8 +3079,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec8)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -3122,7 +3122,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec16)**<br>External DNS configuration 
 
@@ -3158,7 +3158,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy8}
@@ -3174,7 +3174,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule8)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -3200,7 +3200,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule8)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule8)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule8}
@@ -3214,8 +3214,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale8) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale8) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale8) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale8) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -3239,7 +3239,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy8}
@@ -3302,7 +3302,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -3435,7 +3435,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState7)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec9)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec9)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable9)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec9)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -3476,8 +3476,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec9)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -3519,7 +3519,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec18)**<br>External DNS configuration 
 
@@ -3555,7 +3555,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy9}
@@ -3571,7 +3571,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule9)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -3597,7 +3597,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule9)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule9)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule9}
@@ -3611,8 +3611,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale9) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale9) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale9) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale9) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -3636,7 +3636,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy9}
@@ -3699,7 +3699,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -3842,7 +3842,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 id | **string**<br>ID of the managed instance. 
-status | enum **Status**<br>Status of the managed instance. <ul><li>`CREATING_INSTANCE`: Instance is being created.</li><li>`UPDATING_INSTANCE`: Instance is being updated.</li><li>`DELETING_INSTANCE`: Instance is being deleted.</li><li>`STARTING_INSTANCE`: Instance is being started.</li><li>`STOPPING_INSTANCE`: Instance is being stopped.</li><li>`AWAITING_STARTUP_DURATION`: Instance has been created successfully, but startup duration has not elapsed yet.</li><li>`CHECKING_HEALTH`: Instance has been created successfully and startup duration has elapsed, but health checks have not passed yet and the managed instance is not ready to receive traffic.</li><li>`OPENING_TRAFFIC`: Instance Groups is initiating health checks and routing traffic to the instances.</li><li>`AWAITING_WARMUP_DURATION`: Instance is now receiving traffic, but warmup duration has not elapsed yet.</li><li>`CLOSING_TRAFFIC`: Instance Groups has initiated the process of stopping routing traffic to the instances.</li><li>`RUNNING_ACTUAL`: Instance is running normally and its attributes match the current InstanceTemplate.</li><li>`RUNNING_OUTDATED`: Instance is running normally, but its attributes do not match the current InstanceTemplate. It will be updated, recreated or deleted shortly.</li><li>`STOPPED`: Instance was stopped.</li><li>`DELETED`: Instance was deleted.</li><li>`PREPARING_RESOURCES`: Instance Groups is preparing dependent resources.</li><ul/>
+status | enum **Status**<br>Status of the managed instance. <ul><li>`CREATING_INSTANCE`: Instance is being created.</li><li>`UPDATING_INSTANCE`: Instance is being updated.</li><li>`DELETING_INSTANCE`: Instance is being deleted.</li><li>`STARTING_INSTANCE`: Instance is being started.</li><li>`STOPPING_INSTANCE`: Instance is being stopped.</li><li>`AWAITING_STARTUP_DURATION`: Instance has been created successfully, but startup duration has not elapsed yet.</li><li>`CHECKING_HEALTH`: Instance has been created successfully and startup duration has elapsed, but health checks have not passed yet and the managed instance is not ready to receive traffic.</li><li>`OPENING_TRAFFIC`: Instance Groups is initiating health checks and routing traffic to the instances.</li><li>`AWAITING_WARMUP_DURATION`: Instance is now receiving traffic, but warmup duration has not elapsed yet.</li><li>`CLOSING_TRAFFIC`: Instance Groups has initiated the process of stopping routing traffic to the instances.</li><li>`RUNNING_ACTUAL`: Instance is running normally and its attributes match the current InstanceTemplate.</li><li>`RUNNING_OUTDATED`: Instance is running normally, but its attributes do not match the current InstanceTemplate. It will be updated, recreated or deleted shortly.</li><li>`STOPPED`: Instance was stopped.</li><li>`DELETED`: Instance was deleted.</li><li>`PREPARING_RESOURCES`: Instance Groups is preparing dependent resources.</li></ul>
 instance_id | **string**<br>ID of the instance. 
 fqdn | **string**<br>Fully Qualified Domain Name. 
 name | **string**<br>The name of the managed instance. 
@@ -3877,7 +3877,7 @@ dns_records[] | **[DnsRecord](#DnsRecord)**<br>Internal DNS configuration.
 Field | Description
 --- | ---
 address | **string**<br>An IPv4 external network address that is assigned to the managed instance for this network interface. 
-ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration. 
 
 
@@ -3962,7 +3962,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState8)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec10)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec10)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable10)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec10)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -4003,8 +4003,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec10)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -4046,7 +4046,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec20)**<br>External DNS configuration 
 
@@ -4082,7 +4082,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy10}
@@ -4098,7 +4098,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule10)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -4124,7 +4124,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule10)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule10)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule10}
@@ -4138,8 +4138,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale10) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale10) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale10) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale10) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -4163,7 +4163,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy10}
@@ -4226,7 +4226,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -4360,7 +4360,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState9)**<b
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec11)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec11)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable11)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec11)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -4401,8 +4401,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec11)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -4444,7 +4444,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec22)**<br>External DNS configuration 
 
@@ -4480,7 +4480,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy11}
@@ -4496,7 +4496,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule11)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -4522,7 +4522,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule11)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule11)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule11}
@@ -4536,8 +4536,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale11) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale11) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale11) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale11) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -4561,7 +4561,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy11}
@@ -4624,7 +4624,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -4805,8 +4805,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type`(./disk_type#undefined) is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -4839,8 +4839,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type`(./disk_type#undefined) is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation10}
@@ -4888,7 +4888,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -4904,8 +4904,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type`(./disk_type#undefined) is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation11}
@@ -4990,7 +4990,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState10)**<
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec12)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec12)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable12)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec12)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -5031,8 +5031,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec12)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -5074,7 +5074,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec24)**<br>External DNS configuration 
 
@@ -5110,7 +5110,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy12}
@@ -5126,7 +5126,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule12)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -5152,7 +5152,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule12)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule12)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule12}
@@ -5166,8 +5166,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale12) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale12) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale12) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale12) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -5191,7 +5191,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy12}
@@ -5254,7 +5254,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -5387,7 +5387,7 @@ managed_instances_state | **[ManagedInstancesState](#ManagedInstancesState11)**<
 load_balancer_spec | **[LoadBalancerSpec](#LoadBalancerSpec13)**<br>Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts) (OSI model layer 3). 
 health_checks_spec | **[HealthChecksSpec](#HealthChecksSpec13)**<br>Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). 
 service_account_id | **string**<br>ID of the service account. The service account will be used for all API calls made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
-status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li><ul/>
+status | enum **Status**<br>Status of the instance group. <ul><li>`STARTING`: Instance group is being started and will become active soon.</li><li>`ACTIVE`: Instance group is active. In this state the group manages its instances and monitors their health, creating, deleting, stopping, updating and starting instances as needed. <br>To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](/docs/compute/api-ref/grpc/instance_group_service#Stop). To pause the processes in the instance group, i.e. scaling, checking instances' health, auto-healing and updating them, without stopping the instances, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](/docs/compute/api-ref/grpc/instance_group_service#PauseProcesses).</li><li>`STOPPING`: Instance group is being stopped. Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.</li><li>`STOPPED`: Instance group is stopped. In this state the group cannot be updated and does not react to any changes made to its instances. To start the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Start](/docs/compute/api-ref/grpc/instance_group_service#Start).</li><li>`DELETING`: Instance group is being deleted.</li><li>`PAUSED`: Instance group is paused. In this state all the processes regarding the group management, i.e. scaling, checking instances' health, auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however, may still be running. <br>To resume the processes in the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/instance_group_service#ResumeProcesses). The group status will change to `ACTIVE`.</li></ul>
 variables[] | **[Variable](#Variable13)**<br> 
 deletion_protection | **bool**<br>Flag prohibiting deletion of the instance group. <br>Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted. <br>The default is `false`. 
 application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#ApplicationLoadBalancerSpec13)**<br>Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts) (OSI model layer 7). 
@@ -5428,8 +5428,8 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
-device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` |[a-z][-_0-9a-z]{0,19} `.
+mode | enum **Mode**<br>Required. Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
+device_name | **string**<br>Serial number that is reflected in the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. Value must match the regular expression ` \|[a-z][-_0-9a-z]{0,19} `.
 disk_spec | **[DiskSpec](#DiskSpec13)**<br>Required. oneof disk_spec or disk_id Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). 
 disk_id | **string**<br>Set to use an existing disk. To set use variables. The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `.
 
@@ -5471,7 +5471,7 @@ address | **string**<br>Optional. Manual set static internal IP. To set use vari
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 address | **string**<br>Manual set static public IP. To set use variables. (optional) 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec26)**<br>External DNS configuration 
 
@@ -5507,7 +5507,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy13}
@@ -5523,7 +5523,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule13)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -5549,7 +5549,7 @@ stabilization_duration | **[google.protobuf.Duration](https://developers.google.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
 cpu_utilization_rule | **[CpuUtilizationRule](#CpuUtilizationRule13)**<br>Defines an autoscaling rule based on the average CPU utilization of the instance group. <br>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`custom_rules`), the size of the instance group will be equal to the maximum of sizes calculated according to each metric. 
 custom_rules[] | **[CustomRule](#CustomRule13)**<br>Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring. <br>If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. The maximum number of elements is 3.
-auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li><ul/>
+auto_scale_type | enum **AutoScaleType**<br>Autoscaling type. <ul><li>`ZONAL`: Scale each zone independently. This is the default.</li><li>`REGIONAL`: Scale group as a whole.</li></ul>
 
 
 ### CpuUtilizationRule {#CpuUtilizationRule13}
@@ -5563,8 +5563,8 @@ utilization_target | **double**<br>Target CPU utilization level. Instance Groups
 
 Field | Description
 --- | ---
-rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li><ul/>
-metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale13) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale13) field.</li><ul/>
+rule_type | enum **RuleType**<br>Required. Custom metric rule type. This field affects which label from the custom metric should be used: `zone_id` or `instance_id`. <ul><li>`UTILIZATION`: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the `instance_id` label.</li><li>`WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.</li></ul>
+metric_type | enum **MetricType**<br>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value. <ul><li>`GAUGE`: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance. <br>Instance Groups calculates the average metric value for the period specified in the [AutoScale.measurement_duration](#AutoScale13) field.</li><li>`COUNTER`: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance. <br>Instance Groups calculates the average value increase for the period specified in the [AutoScale.measurement_duration](#AutoScale13) field.</li></ul>
 metric_name | **string**<br>Required. Name of custom metric in Yandex Monitoring that should be used for scaling. Value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `.
 labels | **map<string,string>**<br>Labels of custom metric in Yandex Monitoring that should be used for scaling. Each value must match the regular expression ` [a-zA-Z0-9./@_][0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `.
 target | **double**<br>Target value for the custom metric. Instance Groups maintains this level for each availability zone. Value must be greater than 0.
@@ -5588,7 +5588,7 @@ max_deleting | **int64**<br>The maximum number of instances that can be deleted 
 max_creating | **int64**<br>The maximum number of instances that can be created at the same time. <br>The value 0 is any number of virtual machines within the allowed values. Acceptable values are 0 to 100, inclusive.
 max_expansion | **int64**<br>The maximum number of instances that can be temporarily allocated above the group's target size during the update process. If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. Acceptable values are 0 to 100, inclusive.
 startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Instance startup duration. Instance will be considered up and running (and start receiving traffic) only after startup_duration has elapsed and all health checks are passed. See `yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status` for more information. Acceptable values are 0m to 1h, inclusive.
-strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li><ul/>
+strategy | enum **Strategy**<br>Affects the lifecycle of the instance during deployment. <ul><li>`PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.</li><li>`OPPORTUNISTIC`: Instance Groups does not stop a running instance. Instead, it will wait until the instance stops itself or becomes unhealthy.</li></ul>
 
 
 ### AllocationPolicy {#AllocationPolicy13}
@@ -5651,7 +5651,7 @@ max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.g
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the target group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the target group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 

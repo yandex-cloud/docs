@@ -10,7 +10,7 @@ To get the list of available federations, make a [list](/docs/iam/api-ref/Federa
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}
+GET https://iam.{{ api-host }}/iam/v1/saml/federations/{federationId}
 ```
  
 ## Path parameters {#path_params}

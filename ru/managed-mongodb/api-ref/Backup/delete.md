@@ -10,7 +10,7 @@ Returns the list of available backups for the specified MongoDB cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}
+DELETE https://mdb.{{ api-host }}/managed-mongodb/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

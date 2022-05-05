@@ -10,7 +10,7 @@ Reschedule planned maintenance operation.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}:rescheduleMaintenance
+POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}:rescheduleMaintenance
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Moves the specified disk to another folder of the same cloud.
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}:move
+POST https://compute.{{ api-host }}/compute/v1/disks/{diskId}:move
 ```
  
 ## Path parameters {#path_params}

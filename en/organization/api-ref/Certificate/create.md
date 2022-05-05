@@ -10,7 +10,7 @@ Creates a certificate in the specified federation.
  
 ## HTTP request {#https-request}
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates
 ```
  
 ## Body parameters {#body_params}
