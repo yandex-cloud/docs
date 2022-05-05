@@ -9,7 +9,7 @@ Lists operations for the specified alert.
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts/{alertId}/operations
+GET https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}/operations
 ```
  
 ## Path parameters {#path_params}

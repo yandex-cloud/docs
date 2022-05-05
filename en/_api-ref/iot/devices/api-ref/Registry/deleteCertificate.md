@@ -9,7 +9,7 @@ Deletes the specified registry certificate.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}/certificates/{fingerprint}
+DELETE https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/certificates/{fingerprint}
 ```
  
 ## Path parameters {#path_params}

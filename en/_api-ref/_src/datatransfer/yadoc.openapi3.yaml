@@ -332,12 +332,140 @@ components:
     ActivateTransferRequest:
       type: object
       properties: {}
+    AltName:
+      type: object
+      properties:
+        fromName:
+          description: From table name
+          type: string
+        toName:
+          description: To table name
+          type: string
     CleanupPolicy:
       type: string
       enum:
       - DISABLED
       - DROP
       - TRUNCATE
+    ClickhouseCleanupPolicy:
+      type: string
+      enum:
+      - CLICKHOUSE_CLEANUP_POLICY_DISABLED
+      - CLICKHOUSE_CLEANUP_POLICY_DROP
+    ClickhouseConnection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          connectionOptions:
+            $ref: '#/components/schemas/ClickhouseConnectionOptions'
+    ClickhouseConnectionOptions:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          database:
+            type: string
+          user:
+            type: string
+          password:
+            $ref: '#/components/schemas/Secret'
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          mdbClusterId:
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremiseClickhouse'
+    ClickhouseShard:
+      type: object
+      properties:
+        name:
+          type: string
+        hosts:
+          type: array
+          items:
+            type: string
+    ClickhouseSharding:
+      type: object
+      allOf:
+      - title: sharding
+        type: object
+        maxProperties: 1
+        properties:
+          columnValueHash:
+            $ref: '#/components/schemas/ClickhouseShardingColumnValueHash'
+          customMapping:
+            $ref: '#/components/schemas/ClickhouseShardingColumnValueMapping'
+          transferId:
+            $ref: '#/components/schemas/Empty'
+    ClickhouseShardingColumnValueHash:
+      type: object
+      properties:
+        columnName:
+          type: string
+    ClickhouseShardingColumnValueMapping:
+      type: object
+      properties:
+        columnName:
+          type: string
+        mapping:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickhouseShardingColumnValueMappingValueToShard'
+    ClickhouseShardingColumnValueMappingValueToShard:
+      type: object
+      properties:
+        columnValue:
+          $ref: '#/components/schemas/ColumnValue_in_ClickhouseShardingColumnValueMappingValueToShard_columnValue'
+        shardName:
+          type: string
+    ClickhouseSource:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/ClickhouseConnection_in_ClickhouseSource_connection'
+        subnetId:
+          type: string
+        securityGroups:
+          type: array
+          items:
+            type: string
+        includeTables:
+          type: array
+          items:
+            type: string
+        excludeTables:
+          type: array
+          items:
+            type: string
+    ClickhouseTarget:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/ClickhouseConnection_in_ClickhouseTarget_connection'
+        subnetId:
+          type: string
+        securityGroups:
+          type: array
+          items:
+            type: string
+        clickhouseClusterName:
+          type: string
+        altNames:
+          type: array
+          items:
+            $ref: '#/components/schemas/AltName'
+        sharding:
+          $ref: '#/components/schemas/ClickhouseSharding_in_ClickhouseTarget_sharding'
+        cleanupPolicy:
+          $ref: '#/components/schemas/ClickhouseCleanupPolicy_in_ClickhouseTarget_cleanupPolicy'
+    ColumnValue:
+      type: object
+      properties: {}
     CreateEndpointMetadata:
       type: object
       properties:
@@ -432,10 +560,18 @@ components:
             $ref: '#/components/schemas/MysqlSource'
           postgresSource:
             $ref: '#/components/schemas/PostgresSource'
+          mongoSource:
+            $ref: '#/components/schemas/MongoSource'
+          clickhouseSource:
+            $ref: '#/components/schemas/ClickhouseSource'
           mysqlTarget:
             $ref: '#/components/schemas/MysqlTarget'
           postgresTarget:
             $ref: '#/components/schemas/PostgresTarget'
+          clickhouseTarget:
+            $ref: '#/components/schemas/ClickhouseTarget'
+          mongoTarget:
+            $ref: '#/components/schemas/MongoTarget'
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -483,6 +619,80 @@ components:
             included in the subsequent ListTransfersRequest to fetch the next transfers
             page.
           type: string
+    MongoCollection:
+      type: object
+      properties:
+        databaseName:
+          type: string
+        collectionName:
+          type: string
+    MongoConnection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          connectionOptions:
+            $ref: '#/components/schemas/MongoConnectionOptions'
+    MongoConnectionOptions:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          user:
+            type: string
+          password:
+            $ref: '#/components/schemas/Secret'
+          authSource:
+            type: string
+      - title: address
+        type: object
+        maxProperties: 1
+        properties:
+          mdbClusterId:
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremiseMongo'
+    MongoSource:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/MongoConnection_in_MongoSource_connection'
+        subnetId:
+          type: string
+        securityGroups:
+          description: Security groups
+          type: array
+          items:
+            type: string
+        collections:
+          type: array
+          items:
+            $ref: '#/components/schemas/MongoCollection'
+        excludedCollections:
+          type: array
+          items:
+            $ref: '#/components/schemas/MongoCollection'
+        secondaryPreferredMode:
+          type: boolean
+          format: boolean
+    MongoTarget:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/MongoConnection_in_MongoTarget_connection'
+        subnetId:
+          type: string
+        securityGroups:
+          description: Security groups
+          type: array
+          items:
+            type: string
+        database:
+          type: string
+        cleanupPolicy:
+          $ref: '#/components/schemas/CleanupPolicy_in_MongoTarget_cleanupPolicy'
     MysqlConnection:
       type: object
       allOf:
@@ -494,7 +704,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex Managed Service for MySQL cluster ID
+              Yandex.Cloud Managed MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -516,12 +726,24 @@ components:
       properties:
         connection:
           $ref: '#/components/schemas/MysqlConnection_in_MysqlSource_connection'
+        securityGroups:
+          description: Security groups
+          type: array
+          items:
+            type: string
         database:
           description: |-
             Database name
 
             You can leave it empty, then it will be possible to transfer tables from several
             databases at the same time from this source.
+          type: string
+        serviceDatabase:
+          description: |-
+            Database for service tables
+
+            Default: data source database. Here created technical tables (__tm_keeper,
+            __tm_gtid_keeper).
           type: string
         user:
           description: |-
@@ -553,6 +775,11 @@ components:
       properties:
         connection:
           $ref: '#/components/schemas/MysqlConnection_in_MysqlTarget_connection'
+        securityGroups:
+          description: Security groups
+          type: array
+          items:
+            type: string
         database:
           description: |-
             Database name
@@ -605,6 +832,35 @@ components:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
+    OnPremiseClickhouse:
+      type: object
+      properties:
+        shards:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickhouseShard'
+        httpPort:
+          type: string
+          format: int64
+        nativePort:
+          type: string
+          format: int64
+        tlsMode:
+          $ref: '#/components/schemas/TLSMode_in_OnPremiseClickhouse_tlsMode'
+    OnPremiseMongo:
+      type: object
+      properties:
+        hosts:
+          type: array
+          items:
+            type: string
+        port:
+          type: string
+          format: int64
+        tlsMode:
+          $ref: '#/components/schemas/TLSMode_in_OnPremiseMongo_tlsMode'
+        replicaSet:
+          type: string
     OnPremiseMysql:
       type: object
       properties:
@@ -717,7 +973,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex Managed Service for PostgreSQL cluster ID
+              Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
@@ -760,11 +1016,18 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_policy'
         cast:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_cast'
+        materializedView:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_materializedView'
     PostgresSource:
       type: object
       properties:
         connection:
           $ref: '#/components/schemas/PostgresConnection_in_PostgresSource_connection'
+        securityGroups:
+          description: Security groups
+          type: array
+          items:
+            type: string
         database:
           description: Database name
           type: string
@@ -805,7 +1068,7 @@ components:
           format: int64
         serviceSchema:
           description: |-
-            Database schema for service table
+            Database schema for service tables
 
             Default: public. Here created technical tables (__consumer_keeper,
             __data_transfer_mole_finder).
@@ -817,6 +1080,11 @@ components:
       properties:
         connection:
           $ref: '#/components/schemas/PostgresConnection_in_PostgresTarget_connection'
+        securityGroups:
+          description: Security groups
+          type: array
+          items:
+            type: string
         database:
           description: Database name
           type: string
@@ -966,6 +1234,45 @@ components:
           type: string
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateTransferRequest_updateMask'
+    ColumnValue_in_ClickhouseShardingColumnValueMappingValueToShard_columnValue:
+      type: object
+      properties: {}
+    ClickhouseConnection_in_ClickhouseSource_connection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          connectionOptions:
+            $ref: '#/components/schemas/ClickhouseConnectionOptions'
+    ClickhouseConnection_in_ClickhouseTarget_connection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          connectionOptions:
+            $ref: '#/components/schemas/ClickhouseConnectionOptions'
+    ClickhouseSharding_in_ClickhouseTarget_sharding:
+      type: object
+      allOf:
+      - title: sharding
+        type: object
+        maxProperties: 1
+        properties:
+          columnValueHash:
+            $ref: '#/components/schemas/ClickhouseShardingColumnValueHash'
+          customMapping:
+            $ref: '#/components/schemas/ClickhouseShardingColumnValueMapping'
+          transferId:
+            $ref: '#/components/schemas/Empty'
+    ClickhouseCleanupPolicy_in_ClickhouseTarget_cleanupPolicy:
+      type: string
+      enum:
+      - CLICKHOUSE_CLEANUP_POLICY_DISABLED
+      - CLICKHOUSE_CLEANUP_POLICY_DROP
     EndpointSettings_in_CreateEndpointRequest_settings:
       type: object
       allOf:
@@ -977,10 +1284,18 @@ components:
             $ref: '#/components/schemas/MysqlSource'
           postgresSource:
             $ref: '#/components/schemas/PostgresSource'
+          mongoSource:
+            $ref: '#/components/schemas/MongoSource'
+          clickhouseSource:
+            $ref: '#/components/schemas/ClickhouseSource'
           mysqlTarget:
             $ref: '#/components/schemas/MysqlTarget'
           postgresTarget:
             $ref: '#/components/schemas/PostgresTarget'
+          clickhouseTarget:
+            $ref: '#/components/schemas/ClickhouseTarget'
+          mongoTarget:
+            $ref: '#/components/schemas/MongoTarget'
     TransferType_in_CreateTransferRequest_type:
       description: |2-
          - SNAPSHOT_AND_INCREMENT: Snapshot and increment
@@ -1002,10 +1317,42 @@ components:
             $ref: '#/components/schemas/MysqlSource'
           postgresSource:
             $ref: '#/components/schemas/PostgresSource'
+          mongoSource:
+            $ref: '#/components/schemas/MongoSource'
+          clickhouseSource:
+            $ref: '#/components/schemas/ClickhouseSource'
           mysqlTarget:
             $ref: '#/components/schemas/MysqlTarget'
           postgresTarget:
             $ref: '#/components/schemas/PostgresTarget'
+          clickhouseTarget:
+            $ref: '#/components/schemas/ClickhouseTarget'
+          mongoTarget:
+            $ref: '#/components/schemas/MongoTarget'
+    MongoConnection_in_MongoSource_connection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          connectionOptions:
+            $ref: '#/components/schemas/MongoConnectionOptions'
+    MongoConnection_in_MongoTarget_connection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          connectionOptions:
+            $ref: '#/components/schemas/MongoConnectionOptions'
+    CleanupPolicy_in_MongoTarget_cleanupPolicy:
+      type: string
+      enum:
+      - DISABLED
+      - DROP
+      - TRUNCATE
     ObjectTransferStage_in_MysqlObjectTransferSettings_view:
       description: |-
         Views
@@ -1051,7 +1398,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex Managed Service for MySQL cluster ID
+              Yandex.Cloud Managed MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -1101,7 +1448,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex Managed Service for MySQL cluster ID
+              Yandex.Cloud Managed MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -1134,6 +1481,28 @@ components:
       - DISABLED
       - DROP
       - TRUNCATE
+    TLSMode_in_OnPremiseClickhouse_tlsMode:
+      type: object
+      allOf:
+      - title: tls_mode
+        type: object
+        maxProperties: 1
+        properties:
+          disabled:
+            $ref: '#/components/schemas/Empty'
+          enabled:
+            $ref: '#/components/schemas/TLSConfig'
+    TLSMode_in_OnPremiseMongo_tlsMode:
+      type: object
+      allOf:
+      - title: tls_mode
+        type: object
+        maxProperties: 1
+        properties:
+          disabled:
+            $ref: '#/components/schemas/Empty'
+          enabled:
+            $ref: '#/components/schemas/TLSConfig'
     TLSMode_in_OnPremiseMysql_tlsMode:
       description: |-
         TLS mode
@@ -1324,6 +1693,16 @@ components:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_materializedView:
+      description: |-
+        Materialized views
+
+        CREATE MATERIALIZED VIEW ...
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
     PostgresConnection_in_PostgresSource_connection:
       description: |-
         Connection settings
@@ -1339,7 +1718,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex Managed Service for PostgreSQL cluster ID
+              Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
@@ -1400,6 +1779,8 @@ components:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_policy'
         cast:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_cast'
+        materializedView:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_materializedView'
     PostgresConnection_in_PostgresTarget_connection:
       description: |-
         Connection settings
@@ -1415,7 +1796,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex Managed Service for PostgreSQL cluster ID
+              Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
@@ -1515,10 +1896,18 @@ components:
             $ref: '#/components/schemas/MysqlSource'
           postgresSource:
             $ref: '#/components/schemas/PostgresSource'
+          mongoSource:
+            $ref: '#/components/schemas/MongoSource'
+          clickhouseSource:
+            $ref: '#/components/schemas/ClickhouseSource'
           mysqlTarget:
             $ref: '#/components/schemas/MysqlTarget'
           postgresTarget:
             $ref: '#/components/schemas/PostgresTarget'
+          clickhouseTarget:
+            $ref: '#/components/schemas/ClickhouseTarget'
+          mongoTarget:
+            $ref: '#/components/schemas/MongoTarget'
     FieldMask_in_UpdateEndpointRequest_updateMask:
       description: |-
         Field mask specifying endpoint fields to be updated. Semantics for this field is

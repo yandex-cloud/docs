@@ -9,7 +9,7 @@ Removes targets from the specified target group.
  
 ## HTTP request {#https-request}
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}:removeTargets
+POST https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}:removeTargets
 ```
  
 ## Path parameters {#path_params}

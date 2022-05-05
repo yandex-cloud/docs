@@ -9,7 +9,7 @@ Retrieves the list of desktops resources.
  
 ## HTTP request {#https-request}
 ```
-GET https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{desktopGroupId}/desktops
+GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}/desktops
 ```
  
 ## Path parameters {#path_params}
@@ -32,7 +32,7 @@ orderBy | Sorting the list by [Desktop.name](/docs/cloud-desktop/api-ref/Desktop
 
 ```json 
 {
-  "desktop": [
+  "desktops": [
     {
       "id": "string",
       "folderId": "string",
@@ -65,20 +65,20 @@ orderBy | Sorting the list by [Desktop.name](/docs/cloud-desktop/api-ref/Desktop
  
 Field | Description
 --- | ---
-desktop[] | **object**<br><p>A desktop resource.</p> 
-desktop[].<br>id | **string**<br><p>Desktop ID.</p> 
-desktop[].<br>folderId | **string**<br><p>ID of the folder that the desktop belongs to.</p> 
-desktop[].<br>desktopGroupId | **string**<br><p>ID of the desktop group that the desktop belongs to.</p> 
-desktop[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-desktop[].<br>status | **string**<br><p>Status of the desktop.</p> <ul> <li>CREATING: Desktop is being created.</li> <li>ACTIVE: Desktop is ready to use.</li> <li>DELETING: Desktop is being deleted.</li> </ul> 
-desktop[].<br>name | **string**<br><p>Name of the desktop.</p> 
-desktop[].<br>resources | **object**<br><p>Resources of the desktop.</p> 
-desktop[].<br>resources.<br>memory | **string** (int64)<br><p>The minimum value is 1.</p> 
-desktop[].<br>resources.<br>cores | **string** (int64)<br><p>The minimum value is 1.</p> 
-desktop[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
-desktop[].<br>networkInterfaces[] | **object**<br>
-desktop[].<br>networkInterfaces[].<br>networkId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
-desktop[].<br>networkInterfaces[].<br>subnetId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
-desktop[].<br>users[] | **object**<br>
-desktop[].<br>users[].<br>subjectId | **string**<br><p>Required. Identity of the access binding.</p> 
+desktops[] | **object**<br><p>A desktop resource.</p> 
+desktops[].<br>id | **string**<br><p>Desktop ID.</p> 
+desktops[].<br>folderId | **string**<br><p>ID of the folder that the desktop belongs to.</p> 
+desktops[].<br>desktopGroupId | **string**<br><p>ID of the desktop group that the desktop belongs to.</p> 
+desktops[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+desktops[].<br>status | **string**<br><p>Status of the desktop.</p> <ul> <li>CREATING: Desktop is being created.</li> <li>ACTIVE: Desktop is ready to use.</li> <li>DELETING: Desktop is being deleted.</li> </ul> 
+desktops[].<br>name | **string**<br><p>Name of the desktop.</p> 
+desktops[].<br>resources | **object**<br><p>Resources of the desktop.</p> 
+desktops[].<br>resources.<br>memory | **string** (int64)<br><p>The minimum value is 1.</p> 
+desktops[].<br>resources.<br>cores | **string** (int64)<br><p>The minimum value is 1.</p> 
+desktops[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
+desktops[].<br>networkInterfaces[] | **object**<br>
+desktops[].<br>networkInterfaces[].<br>networkId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
+desktops[].<br>networkInterfaces[].<br>subnetId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
+desktops[].<br>users[] | **object**<br>
+desktops[].<br>users[].<br>subjectId | **string**<br><p>Required. Identity of the access binding.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#query_params">pageSize</a>, use the <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#responses">nextPageToken</a> as the value for the [ListDesktopsDGS Request.page_token] query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#responses">nextPageToken</a> to continue paging through the results.</p> 

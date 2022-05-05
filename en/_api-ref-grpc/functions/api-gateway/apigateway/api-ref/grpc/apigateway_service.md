@@ -46,7 +46,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the API gateway. The name is unique within the folder. 
 description | **string**<br>Description of the API gateway. 
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
+status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li></ul>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain)**<br>List of domains attached to API gateway. 
@@ -84,7 +84,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list API gateways in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListApiGatewayResponse.next_page_token](#ListApiGatewayResponse) returned by a previous list request. 
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](#ApiGateway1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`. </li></ol> 
+filter | **string**<br>A filter expression that filters functions listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [ApiGateway.name](#ApiGateway1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`. </li></ol>Example of a filter: `name=my-apigw`. 
 
 
 ### ListApiGatewayResponse {#ListApiGatewayResponse}
@@ -105,7 +105,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the API gateway. The name is unique within the folder. 
 description | **string**<br>Description of the API gateway. 
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
+status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li></ul>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain1)**<br>List of domains attached to API gateway. 
@@ -145,7 +145,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create an API gateway in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
-name | **string**<br>Name of the API gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the API gateway. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the API gateway. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 spec | **oneof:** `openapi_spec`<br>OpenAPI specification of API gateway.
@@ -194,7 +194,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the API gateway. The name is unique within the folder. 
 description | **string**<br>Description of the API gateway. 
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
+status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li></ul>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain2)**<br>List of domains attached to API gateway. 
@@ -235,7 +235,7 @@ Field | Description
 --- | ---
 api_gateway_id | **string**<br>Required. ID of the API gateway to update. <br>To get a API gateway ID make a [ApiGatewayService.List](#List) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the API gateway should be updated. 
-name | **string**<br>New name for the API gateway. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>New name for the API gateway. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description for the API gateway. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [ApiGatewayService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 spec | **oneof:** `openapi_spec`<br>New OpenAPI specification of API gateway.
@@ -284,7 +284,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the API gateway. The name is unique within the folder. 
 description | **string**<br>Description of the API gateway. 
 labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. 
-status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li><ul/>
+status | enum **Status**<br>Status of the API gateway. <ul><li>`CREATING`: API gateway is being created.</li><li>`ACTIVE`: API gateway is ready for use.</li><li>`DELETING`: API gateway is being deleted.</li><li>`ERROR`: API gateway failed. The only allowed action is delete.</li><li>`UPDATING`: API gateway is being updated.</li></ul>
 domain | **string**<br>Default domain for the API gateway. Generated at creation time. 
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain3)**<br>List of domains attached to API gateway. 
@@ -444,7 +444,7 @@ Returns the OpenAPI specification of specified API gateway.
 Field | Description
 --- | ---
 api_gateway_id | **string**<br>Required. ID of the API gateway to get specification from. 
-format | enum **Format**<br>Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](#CreateApiGatewayRequest). <ul><ul/>
+format | enum **Format**<br>Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](#CreateApiGatewayRequest). 
 
 
 ### GetOpenapiSpecResponse {#GetOpenapiSpecResponse}
@@ -468,7 +468,7 @@ Field | Description
 api_gateway_id | **string**<br>Required. ID of the API gateway to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListOperationsResponse.next_page_token](#ListOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListOperationsResponse.next_page_token](#ListOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation5), [operation.Operation.created_by](#Operation5) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation5), [operation.Operation.created_by](#Operation5) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Examples of a filter: `done=false`, `created_by='John.Doe'`. The maximum string length in characters is 1000.
 
 
 ### ListOperationsResponse {#ListOperationsResponse}
@@ -530,8 +530,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -564,8 +564,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation6}
@@ -613,7 +613,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -629,8 +629,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation7}

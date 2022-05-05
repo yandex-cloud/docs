@@ -9,7 +9,7 @@ update rule description or labels
  
 ## HTTP request {#https-request}
 ```
-PATCH https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}/rules/{ruleId}
+PATCH https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/rules/{ruleId}
 ```
  
 ## Path parameters {#path_params}

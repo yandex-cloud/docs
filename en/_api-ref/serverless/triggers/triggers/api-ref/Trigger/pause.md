@@ -9,7 +9,7 @@ Pauses the specified trigger.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers/{triggerId}:pause
+POST https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}:pause
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Adds a certificate.
  
 ## HTTP request {#https-request}
 ```
-POST https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices/{deviceId}/certificates
+POST https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/certificates
 ```
  
 ## Path parameters {#path_params}

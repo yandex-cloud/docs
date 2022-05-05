@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions/{containerRevisionId}
+GET https://serverless-containers.{{ api-host }}/containers/v1/revisions/{containerRevisionId}
 ```
  
 ## Path parameters {#path_params}
@@ -59,7 +59,13 @@ containerRevisionId | Required.
       "key": "string",
       "environmentVariable": "string"
     }
-  ]
+  ],
+  "connectivity": {
+    "networkId": "string",
+    "subnetIds": [
+      "string"
+    ]
+  }
 }
 ```
 
@@ -92,3 +98,6 @@ secrets[].<br>id | **string**<br>
 secrets[].<br>versionId | **string**<br>
 secrets[].<br>key | **string**<br>
 secrets[].<br>environmentVariable | **string**<br>
+connectivity | **object**<br>
+connectivity.<br>networkId | **string**<br>
+connectivity.<br>subnetIds[] | **string**<br>

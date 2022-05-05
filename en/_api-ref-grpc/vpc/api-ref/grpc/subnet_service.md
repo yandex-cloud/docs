@@ -46,7 +46,7 @@ description | **string**<br>Optional description of the subnet. 0-256 characters
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
 dhcp_options | **[DhcpOptions](#DhcpOptions)**<br> 
@@ -74,7 +74,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list subnets in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSubnetsResponse.next_page_token](#ListSubnetsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubnetsResponse.next_page_token](#ListSubnetsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Subnet.name](#Subnet1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Subnet.name](#Subnet1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListSubnetsResponse {#ListSubnetsResponse}
@@ -97,7 +97,7 @@ description | **string**<br>Optional description of the subnet. 0-256 characters
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
 dhcp_options | **[DhcpOptions](#DhcpOptions1)**<br> 
@@ -127,12 +127,12 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a subnet in. To get folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the subnet. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels, `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 network_id | **string**<br>Required. ID of the network to create subnet in. The maximum string length in characters is 50.
 zone_id | **string**<br>Required. ID of the availability zone where the subnet resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
-v4_cidr_blocks[] | **string**<br>Required. <ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>Required. CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 route_table_id | **string**<br>IPv6 not available yet. repeated string v6_cidr_blocks = 8; ID of route table the subnet is linked to. The maximum string length in characters is 50.
 dhcp_options | **[DhcpOptions](#DhcpOptions2)**<br> 
 
@@ -181,7 +181,7 @@ description | **string**<br>Optional description of the subnet. 0-256 characters
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
 dhcp_options | **[DhcpOptions](#DhcpOptions3)**<br> 
@@ -212,7 +212,7 @@ Field | Description
 --- | ---
 subnet_id | **string**<br>Required. ID of the Subnet resource to update. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Subnet resource are going to be updated. 
-name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the subnet. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the subnet. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 route_table_id | **string**<br>ID of route table the subnet is linked to. The maximum string length in characters is 50.
@@ -263,7 +263,7 @@ description | **string**<br>Optional description of the subnet. 0-256 characters
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
 dhcp_options | **[DhcpOptions](#DhcpOptions5)**<br> 
@@ -293,7 +293,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 subnet_id | **string**<br>Required. ID of the Subnet resource that is being updated. The maximum string length in characters is 50.
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that should be added to this subnet. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 
 
 ### Operation {#Operation2}
@@ -331,7 +331,7 @@ description | **string**<br>Optional description of the subnet. 0-256 characters
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
 dhcp_options | **[DhcpOptions](#DhcpOptions6)**<br> 
@@ -399,7 +399,7 @@ description | **string**<br>Optional description of the subnet. 0-256 characters
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
 dhcp_options | **[DhcpOptions](#DhcpOptions7)**<br> 
@@ -546,7 +546,7 @@ description | **string**<br>Optional description of the subnet. 0-256 characters
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 network_id | **string**<br>ID of the network the subnet belongs to. 
 zone_id | **string**<br>ID of the availability zone where the subnet resides. 
-v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
 dhcp_options | **[DhcpOptions](#DhcpOptions8)**<br> 
@@ -590,7 +590,7 @@ next_page_token | **string**<br>
 Field | Description
 --- | ---
 address | **string**<br> 
-ip_version | enum **IpVersion**<br> <ul><ul/>
+ip_version | enum **IpVersion**<br> 
 references[] | **[reference.Reference](./#reference)**<br> 
 
 

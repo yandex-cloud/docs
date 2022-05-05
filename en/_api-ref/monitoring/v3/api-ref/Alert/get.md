@@ -9,7 +9,7 @@ To get the list of available Alert resources, make a [list](/docs/monitoring/api
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts/{alertId}
+GET https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}
 ```
  
 ## Path parameters {#path_params}

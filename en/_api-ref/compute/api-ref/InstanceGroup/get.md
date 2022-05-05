@@ -9,7 +9,7 @@ To get the list of available InstanceGroup resources, make a [list](/docs/comput
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}
+GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}
 ```
  
 ## Path parameters {#path_params}

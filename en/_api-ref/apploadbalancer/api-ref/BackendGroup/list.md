@@ -9,7 +9,7 @@ Lists backend groups in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups
+GET https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups
 ```
  
 ## Query parameters {#query_params}

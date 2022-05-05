@@ -9,7 +9,7 @@ To get the list of available Kubernetes cluster, make a [list](/docs/managed-kub
  
 ## HTTP request {#https-request}
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{clusterId}
+GET https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

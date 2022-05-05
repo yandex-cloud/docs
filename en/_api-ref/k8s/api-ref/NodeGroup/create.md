@@ -9,7 +9,7 @@ Creates a node group in the specified Kubernetes cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/nodeGroups
+POST https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups
 ```
  
 ## Body parameters {#body_params}

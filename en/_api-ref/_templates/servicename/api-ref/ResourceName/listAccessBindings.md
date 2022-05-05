@@ -9,7 +9,7 @@ Lists access bindings for the specified resource name.
  
 ## HTTP request {#https-request}
 ```
-GET https://servicename.api.cloud.yandex.net/servicename/v1/resourceNames/{resourceId}:listAccessBindings
+GET https://servicename.{{ api-host }}/servicename/v1/resourceNames/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Creates a budget for the specified billing account.
  
 ## HTTP request {#https-request}
 ```
-POST https://billing.api.cloud.yandex.net/billing/v1/budgets
+POST https://billing.{{ api-host }}/billing/v1/budgets
 ```
  
 ## Body parameters {#body_params}

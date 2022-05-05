@@ -9,7 +9,7 @@ Note that currently Yandex Object Storage API does not support cancelling operat
  
 ## HTTP request {#https-request}
 ```
-GET https://operation.api.cloud.yandex.net/operations/{operationId}:cancel
+GET https://operation.{{ api-host }}/operations/{operationId}:cancel
 ```
  
 ## Path parameters {#path_params}

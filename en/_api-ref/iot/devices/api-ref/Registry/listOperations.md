@@ -9,7 +9,7 @@ Lists operations for the specified registry.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}/operations
+GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/operations
 ```
  
 ## Path parameters {#path_params}

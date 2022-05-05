@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-PATCH https://datatransfer.api.cloud.yandex.net/v1/transfer/{transferId}
+PATCH https://datatransfer.{{ api-host }}/v1/transfer/{transferId}
 ```
  
 ## Path parameters {#path_params}

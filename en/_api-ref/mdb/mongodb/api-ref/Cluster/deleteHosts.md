@@ -9,7 +9,7 @@ Deletes the specified hosts for a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/hosts:batchDelete
+POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/hosts:batchDelete
 ```
  
 ## Path parameters {#path_params}

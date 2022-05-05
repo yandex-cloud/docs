@@ -9,7 +9,7 @@ Returns metric data from Monitoring.
  
 ## HTTP request {#https-request}
 ```
-POST https://monitoring.api.cloud.yandex.net/monitoring/v3/data/read
+POST https://monitoring.{{ api-host }}/monitoring/v3/data/read
 ```
  
 ## Body parameters {#body_params}

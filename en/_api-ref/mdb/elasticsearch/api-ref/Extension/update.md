@@ -9,15 +9,15 @@ Updates the specified extension.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
+PATCH https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the cluster.  The maximum string length in characters is 50.
-extensionId | Required. Required. ID of the extension to delete.
+clusterId | Required. ID of the cluster.  The maximum string length in characters is 50.
+extensionId | Required. ID of the extension to update.
  
 ## Body parameters {#body_params}
  
@@ -30,7 +30,7 @@ extensionId | Required. Required. ID of the extension to delete.
  
 Field | Description
 --- | ---
-active | **boolean** (boolean)<br>
+active | **boolean** (boolean)<br><p>The flag shows whether to make the extension active.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

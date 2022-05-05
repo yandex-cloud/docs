@@ -32,8 +32,8 @@ selector | **oneof:** `page_token` or `criteria`<br>Read selector.
 Field | Description
 --- | ---
 log_group_id | **string**<br>Required. ID of the log group to return. <br>To get a log group ID make a [LogGroupService.List](./log_group_service#List) request. The maximum string length in characters is 64.
-resource_types[] | **string**<br>List of resource types to limit log entries to. <br>Empty list disables filter. Each value must match the regular expression ` |[a-zA-Z][-a-zA-Z0-9_.]{0,63} `. The maximum number of elements is 100.
-resource_ids[] | **string**<br>List of resource IDs to limit log entries to. <br>Empty list disables filter. Each value must match the regular expression ` |[a-zA-Z0-9][-a-zA-Z0-9_.]{0,63} `. The maximum number of elements is 100.
+resource_types[] | **string**<br>List of resource types to limit log entries to. <br>Empty list disables filter. Each value must match the regular expression ` \|[a-zA-Z][-a-zA-Z0-9_.]{0,63} `. The maximum number of elements is 100.
+resource_ids[] | **string**<br>List of resource IDs to limit log entries to. <br>Empty list disables filter. Each value must match the regular expression ` \|[a-zA-Z0-9][-a-zA-Z0-9_.]{0,63} `. The maximum number of elements is 100.
 since | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Lower bound of log entries timestamps. 
 until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Upper bound of log entries timestamps. 
 levels[] | **[LogLevel.Level](#LogLevel)**<br>List of log levels to limit log entries to. <br>Empty list disables filter. The maximum number of elements is 10.

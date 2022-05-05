@@ -36,7 +36,7 @@ Field | Description
 --- | ---
 name | **string**<br> 
 cluster_id | **string**<br> 
-type | enum **FormatSchemaType**<br> <ul><ul/>
+type | enum **FormatSchemaType**<br> 
 uri | **string**<br> 
 
 
@@ -69,7 +69,7 @@ Field | Description
 --- | ---
 name | **string**<br> 
 cluster_id | **string**<br> 
-type | enum **FormatSchemaType**<br> <ul><ul/>
+type | enum **FormatSchemaType**<br> 
 uri | **string**<br> 
 
 
@@ -89,7 +89,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required.  The maximum string length in characters is 50.
 format_schema_name | **string**<br>Required.  The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-type | enum **FormatSchemaType**<br>Required.  <ul><ul/>
+type | enum **FormatSchemaType**<br>Required.  
 uri | **string**<br>Required.  
 
 
@@ -123,7 +123,7 @@ Field | Description
 --- | ---
 name | **string**<br> 
 cluster_id | **string**<br> 
-type | enum **FormatSchemaType**<br> <ul><ul/>
+type | enum **FormatSchemaType**<br> 
 uri | **string**<br> 
 
 
@@ -177,7 +177,7 @@ Field | Description
 --- | ---
 name | **string**<br> 
 cluster_id | **string**<br> 
-type | enum **FormatSchemaType**<br> <ul><ul/>
+type | enum **FormatSchemaType**<br> 
 uri | **string**<br> 
 
 

@@ -9,7 +9,7 @@ Sets access bindings for the proxy.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies/{resourceId}:setAccessBindings
+POST https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

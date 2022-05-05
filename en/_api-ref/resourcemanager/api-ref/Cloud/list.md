@@ -9,7 +9,7 @@ Retrieves the list of Cloud resources.
  
 ## HTTP request {#https-request}
 ```
-GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
 ```
  
 ## Query parameters {#query_params}
@@ -19,7 +19,7 @@ Parameter | Description
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/resource-manager/api-ref/Cloud/list#query_params), the service returns a [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
 pageToken | Page token. Set [pageToken](/docs/resource-manager/api-ref/Cloud/list#query_params) to the [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses) returned by a previous list request to get the next page of results.  The maximum string length in characters is 1000.
 filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [Cloud.name](/docs/resource-manager/api-ref/Cloud#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.  The maximum string length in characters is 1000.
-organizationId | ID of the organization to list clouds in. To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.  The maximum string length in characters is 50.
+organizationId | ID of the organization to list clouds in. To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

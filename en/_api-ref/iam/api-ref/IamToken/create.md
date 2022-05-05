@@ -9,7 +9,7 @@ Creates an IAM token for the specified identity.
  
 ## HTTP request {#https-request}
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/tokens
+POST https://iam.{{ api-host }}/iam/v1/tokens
 ```
  
 ## Body parameters {#body_params}

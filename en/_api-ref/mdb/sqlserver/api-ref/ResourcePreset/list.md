@@ -9,7 +9,7 @@ Retrieves the list of available resource presets.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/resourcePresets
+GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/resourcePresets
 ```
  
 ## Query parameters {#query_params}

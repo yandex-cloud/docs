@@ -36,7 +36,7 @@ Field | Description
 --- | ---
 id | **string**<br>Required. ID of the certificate. The maximum string length in characters is 50.
 federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. The maximum string length in characters is 50.
-name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the certificate. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 data | **string**<br>Required. Certificate data in PEM format. The maximum string length in characters is 32000.
@@ -55,7 +55,7 @@ Field | Description
 federation_id | **string**<br>Required. ID of the federation to list certificates in. To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization-manager/api-ref/grpc/federation_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Certificate.name](#Certificate1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Certificate.name](#Certificate1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListCertificatesResponse {#ListCertificatesResponse}
@@ -72,7 +72,7 @@ Field | Description
 --- | ---
 id | **string**<br>Required. ID of the certificate. The maximum string length in characters is 50.
 federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. The maximum string length in characters is 50.
-name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the certificate. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 data | **string**<br>Required. Certificate data in PEM format. The maximum string length in characters is 32000.
@@ -127,7 +127,7 @@ Field | Description
 --- | ---
 id | **string**<br>Required. ID of the certificate. The maximum string length in characters is 50.
 federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. The maximum string length in characters is 50.
-name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the certificate. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 data | **string**<br>Required. Certificate data in PEM format. The maximum string length in characters is 32000.
@@ -149,7 +149,7 @@ Field | Description
 --- | ---
 certificate_id | **string**<br>ID of the certificate to update. To get the certificate ID, make a [CertificateService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the certificate are going to be updated. 
-name | **string**<br>Name of the certificate. The name must be unique within the federation. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the certificate. The name must be unique within the federation. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 data | **string**<br>Certificate data in PEM format. The maximum string length in characters is 32000.
 
@@ -183,7 +183,7 @@ Field | Description
 --- | ---
 id | **string**<br>Required. ID of the certificate. The maximum string length in characters is 50.
 federation_id | **string**<br>Required. ID of the federation that the certificate belongs to. The maximum string length in characters is 50.
-name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the certificate. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 256.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 data | **string**<br>Required. Certificate data in PEM format. The maximum string length in characters is 32000.

@@ -9,7 +9,7 @@ Lists operations for the specified target group.
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}/operations
+GET https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
+GET https://serverless-functions.{{ api-host }}/functions/v1/versions
 ```
  
 ## Query parameters {#query_params}

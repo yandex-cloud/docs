@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST https://stt.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
+POST https://stt.{{ api-host }}/speech/stt/v2/longRunningRecognize
 ```
  
 ## Body parameters {#body_params}

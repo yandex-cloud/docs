@@ -9,7 +9,7 @@ Retrieves the list of ScanResults for specified Image.
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scans
+GET https://container-registry.{{ api-host }}/container-registry/v1/scans
 ```
  
 ## Query parameters {#query_params}

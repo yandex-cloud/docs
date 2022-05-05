@@ -9,7 +9,7 @@ Returns the HTTPS configuration for the specified bucket.
  
 ## HTTP request {#https-request}
 ```
-GET https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}:getHttpsConfig
+GET https://storage.{{ api-host }}/storage/v1/buckets/{name}:getHttpsConfig
 ```
  
 ## Path parameters {#path_params}

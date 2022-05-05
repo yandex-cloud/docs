@@ -9,7 +9,7 @@ Retrieves a list of hosts for the specified SQL Server cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/hosts
+GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/hosts
 ```
  
 ## Path parameters {#path_params}

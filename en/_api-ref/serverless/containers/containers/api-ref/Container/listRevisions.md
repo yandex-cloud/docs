@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions
+GET https://serverless-containers.{{ api-host }}/containers/v1/revisions
 ```
  
 ## Query parameters {#query_params}
@@ -65,7 +65,13 @@ filter | The maximum string length in characters is 1000.
           "key": "string",
           "environmentVariable": "string"
         }
-      ]
+      ],
+      "connectivity": {
+        "networkId": "string",
+        "subnetIds": [
+          "string"
+        ]
+      }
     }
   ],
   "nextPageToken": "string"
@@ -102,4 +108,7 @@ revisions[].<br>secrets[].<br>id | **string**<br>
 revisions[].<br>secrets[].<br>versionId | **string**<br>
 revisions[].<br>secrets[].<br>key | **string**<br>
 revisions[].<br>secrets[].<br>environmentVariable | **string**<br>
+revisions[].<br>connectivity | **object**<br>
+revisions[].<br>connectivity.<br>networkId | **string**<br>
+revisions[].<br>connectivity.<br>subnetIds[] | **string**<br>
 nextPageToken | **string**<br>

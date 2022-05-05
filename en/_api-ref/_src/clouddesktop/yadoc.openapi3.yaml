@@ -882,7 +882,7 @@ components:
     ListDesktopGroupDesktopsResponse:
       type: object
       properties:
-        desktop:
+        desktops:
           description: List of desktops.
           type: array
           items:

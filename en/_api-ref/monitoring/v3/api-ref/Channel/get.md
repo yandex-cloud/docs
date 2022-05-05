@@ -9,7 +9,7 @@ To get the list of available Channel resources, make a [list](/docs/monitoring/a
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/channels/{channelId}
+GET https://monitoring.{{ api-host }}/monitoring/v3/channels/{channelId}
 ```
  
 ## Path parameters {#path_params}

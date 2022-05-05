@@ -9,7 +9,7 @@ Deletes the specified network.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
+DELETE https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
 ```
  
 ## Path parameters {#path_params}

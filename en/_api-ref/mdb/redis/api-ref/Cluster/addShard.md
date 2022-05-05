@@ -9,7 +9,7 @@ Creates a new shard.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/shards
+POST https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}/shards
 ```
  
 ## Path parameters {#path_params}

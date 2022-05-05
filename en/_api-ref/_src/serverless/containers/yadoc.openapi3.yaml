@@ -408,6 +408,15 @@ components:
           type: array
           items:
             type: string
+    Connectivity:
+      type: object
+      properties:
+        networkId:
+          type: string
+        subnetIds:
+          type: array
+          items:
+            type: string
     Container:
       type: object
       properties:
@@ -501,6 +510,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Secret'
+        connectivity:
+          $ref: '#/components/schemas/Connectivity_in_DeployContainerRevisionRequest_connectivity'
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -702,6 +713,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Secret'
+        connectivity:
+          $ref: '#/components/schemas/Connectivity_in_Revision_connectivity'
     RevisionStatus:
       type: string
       enum:
@@ -941,6 +954,15 @@ components:
             type: string
         workingDir:
           type: string
+    Connectivity_in_DeployContainerRevisionRequest_connectivity:
+      type: object
+      properties:
+        networkId:
+          type: string
+        subnetIds:
+          type: array
+          items:
+            type: string
     Command_in_Image_command:
       type: object
       properties:
@@ -1010,6 +1032,15 @@ components:
       - CREATING
       - ACTIVE
       - OBSOLETE
+    Connectivity_in_Revision_connectivity:
+      type: object
+      properties:
+        networkId:
+          type: string
+        subnetIds:
+          type: array
+          items:
+            type: string
     FieldMask_in_UpdateContainerRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

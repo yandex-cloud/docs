@@ -32,7 +32,7 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the zone. 
 region_id | **string**<br>ID of the region. 
-status | enum **Status**<br>Status of the zone. <ul><li>`UP`: Zone is available. You can access the resources allocated in this zone.</li><li>`DOWN`: Zone is not available.</li><ul/>
+status | enum **Status**<br>Status of the zone. <ul><li>`UP`: Zone is available. You can access the resources allocated in this zone.</li><li>`DOWN`: Zone is not available.</li></ul>
 
 
 ## List {#List}
@@ -63,6 +63,6 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the zone. 
 region_id | **string**<br>ID of the region. 
-status | enum **Status**<br>Status of the zone. <ul><li>`UP`: Zone is available. You can access the resources allocated in this zone.</li><li>`DOWN`: Zone is not available.</li><ul/>
+status | enum **Status**<br>Status of the zone. <ul><li>`UP`: Zone is available. You can access the resources allocated in this zone.</li><li>`DOWN`: Zone is not available.</li></ul>
 
 

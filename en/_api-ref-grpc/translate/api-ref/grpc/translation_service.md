@@ -26,7 +26,7 @@ Field | Description
 --- | ---
 source_language_code | **string**<br>The text language to translate from. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``). <br>Required for translating with glossary. The maximum string length in characters is 3.
 target_language_code | **string**<br>Required. The target language to translate the text. Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). The maximum string length in characters is 3.
-format | enum **Format**<br>Format of the text. <ul><li>`PLAIN_TEXT`: Text without markup. Default value.</li><li>`HTML`: Text in the HTML format.</li><ul/>
+format | enum **Format**<br>Format of the text. <ul><li>`PLAIN_TEXT`: Text without markup. Default value.</li><li>`HTML`: Text in the HTML format.</li></ul>
 texts[] | **string**<br>Array of the strings to translate. The maximum total length of all strings is 10000 characters. The number of elements must be greater than 0.
 folder_id | **string**<br>ID of the folder to which you have access. Required for authorization with a user account (see `yandex.cloud.iam.v1.UserAccount` resource). Don't specify this field if you make the request on behalf of a service account. The maximum string length in characters is 50.
 model | **string**<br>Do not specify this field, custom models are not supported yet. The maximum string length in characters is 50.

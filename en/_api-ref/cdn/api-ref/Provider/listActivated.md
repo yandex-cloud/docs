@@ -9,7 +9,7 @@ List activated providers for specified client.
  
 ## HTTP request {#https-request}
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/providers
+GET https://cdn.{{ api-host }}/cdn/v1/providers
 ```
  
 ## Query parameters {#query_params}

@@ -46,7 +46,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li></ul>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 data_stream | **string**<br>Data stream name 
 
@@ -86,7 +86,7 @@ Field | Description
 folder_id | **string**<br>Required. Folder ID of the log groups to return. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 64.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListLogGroupsResponse.next_page_token](#ListLogGroupsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListLogGroupsResponse.next_page_token](#ListLogGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [LogGroup.name](#LogGroup1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters log groups listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [LogGroup.name](#LogGroup1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-log-group`. The maximum string length in characters is 1000.
 
 
 ### ListLogGroupsResponse {#ListLogGroupsResponse}
@@ -108,7 +108,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li></ul>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 data_stream | **string**<br>Data stream name 
 
@@ -169,7 +169,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li></ul>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 data_stream | **string**<br>Data stream name 
 
@@ -231,7 +231,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li></ul>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 data_stream | **string**<br>Data stream name 
 
@@ -318,7 +318,7 @@ Field | Description
 log_group_id | **string**<br>Required. ID of the log group to list operations for. <br>To get a log group ID make a [LogGroupService.List](#List) request. The maximum string length in characters is 64.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListOperationsResponse.next_page_token](#ListOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListOperationsResponse.next_page_token](#ListOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.description](#Operation3), [operation.Operation.created_at](#Operation3), [operation.Operation.modified_at](#Operation3), [operation.Operation.created_by](#Operation3), [operation.Operation.done](#Operation3) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [operation.Operation.description](#Operation3), [operation.Operation.created_at](#Operation3), [operation.Operation.modified_at](#Operation3), [operation.Operation.created_by](#Operation3), [operation.Operation.done](#Operation3) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Examples of a filter: `done=false`, `created_by='John.Doe'`. The maximum string length in characters is 1000.
 
 
 ### ListOperationsResponse {#ListOperationsResponse}
@@ -380,8 +380,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -414,8 +414,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation4}
@@ -463,7 +463,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -479,8 +479,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation5}

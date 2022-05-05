@@ -47,7 +47,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 url | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 
 
 ## List {#List}
@@ -85,7 +85,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 url | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 
 
 ## Create {#Create}
@@ -103,7 +103,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required.  
-name | **string**<br> Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br> Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -142,7 +142,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 url | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 
 
 ## Update {#Update}
@@ -161,7 +161,7 @@ Field | Description
 --- | ---
 container_id | **string**<br>Required.  
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-name | **string**<br> Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br> Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -200,7 +200,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 url | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 
 
 ## Delete {#Delete}
@@ -265,6 +265,7 @@ service_account_id | **string**<br>
 image_spec | **[ImageSpec](#ImageSpec)**<br>Required.  
 concurrency | **int64**<br> 
 secrets[] | **[Secret](#Secret)**<br> 
+connectivity | **[Connectivity](#Connectivity)**<br> 
 
 
 ### Resources {#Resources}
@@ -312,6 +313,14 @@ reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br> 
 
 
+### Connectivity {#Connectivity}
+
+Field | Description
+--- | ---
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+
+
 ### Operation {#Operation3}
 
 Field | Description
@@ -348,8 +357,9 @@ resources | **[Resources](#Resources1)**<br>
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 concurrency | **int64**<br> 
 service_account_id | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 secrets[] | **[Secret](#Secret1)**<br> 
+connectivity | **[Connectivity](#Connectivity1)**<br> 
 
 
 ### Image {#Image}
@@ -398,6 +408,14 @@ reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br> 
 
 
+### Connectivity {#Connectivity1}
+
+Field | Description
+--- | ---
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+
+
 ## GetRevision {#GetRevision}
 
 
@@ -424,8 +442,9 @@ resources | **[Resources](#Resources2)**<br>
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 concurrency | **int64**<br> 
 service_account_id | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 secrets[] | **[Secret](#Secret2)**<br> 
+connectivity | **[Connectivity](#Connectivity2)**<br> 
 
 
 ### Image {#Image1}
@@ -474,6 +493,14 @@ reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br> 
 
 
+### Connectivity {#Connectivity2}
+
+Field | Description
+--- | ---
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
+
+
 ## ListRevisions {#ListRevisions}
 
 
@@ -513,8 +540,9 @@ resources | **[Resources](#Resources3)**<br>
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br> 
 concurrency | **int64**<br> 
 service_account_id | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 secrets[] | **[Secret](#Secret3)**<br> 
+connectivity | **[Connectivity](#Connectivity3)**<br> 
 
 
 ### Image {#Image2}
@@ -561,6 +589,14 @@ version_id | **string**<br>
 key | **string**<br> 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br> 
+
+
+### Connectivity {#Connectivity3}
+
+Field | Description
+--- | ---
+network_id | **string**<br> 
+subnet_ids[] | **string**<br> 
 
 
 ## ListOperations {#ListOperations}
@@ -638,8 +674,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -672,8 +708,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation5}
@@ -721,7 +757,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -737,8 +773,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation6}

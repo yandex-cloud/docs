@@ -9,7 +9,7 @@ Retrieves the list of Instance resources in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/instances
+GET https://compute.{{ api-host }}/compute/v1/instances
 ```
  
 ## Query parameters {#query_params}

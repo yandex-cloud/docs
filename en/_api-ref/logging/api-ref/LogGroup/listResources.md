@@ -9,7 +9,7 @@ Retrieves the resources (type and IDs) in the specified log group.
  
 ## HTTP request {#https-request}
 ```
-GET https://logging.api.cloud.yandex.net/logging/v1/logGroups/{logGroupId}:listResources
+GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}:listResources
 ```
  
 ## Path parameters {#path_params}

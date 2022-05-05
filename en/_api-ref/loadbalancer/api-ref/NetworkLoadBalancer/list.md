@@ -9,7 +9,7 @@ Retrieves the list of NetworkLoadBalancer resources in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers
+GET https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
 ```
  
 ## Query parameters {#query_params}

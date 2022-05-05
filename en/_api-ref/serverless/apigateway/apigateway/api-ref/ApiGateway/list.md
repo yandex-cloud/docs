@@ -9,7 +9,7 @@ Retrieves the list of API gateways in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways
+GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways
 ```
  
 ## Query parameters {#query_params}

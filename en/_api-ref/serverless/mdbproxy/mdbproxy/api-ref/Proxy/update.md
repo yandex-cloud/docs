@@ -9,7 +9,7 @@ Updates the specified proxy.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies/{proxyId}
+PATCH https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{proxyId}
 ```
  
 ## Path parameters {#path_params}

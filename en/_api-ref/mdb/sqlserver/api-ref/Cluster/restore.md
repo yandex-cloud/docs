@@ -9,7 +9,7 @@ Creates a new SQL Server cluster using the specified backup.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters:restore
+POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters:restore
 ```
  
 ## Body parameters {#body_params}

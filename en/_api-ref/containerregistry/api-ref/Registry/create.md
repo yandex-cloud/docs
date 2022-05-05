@@ -9,7 +9,7 @@ Creates a registry in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://container-registry.api.cloud.yandex.net/container-registry/v1/registries
+POST https://container-registry.{{ api-host }}/container-registry/v1/registries
 ```
  
 ## Body parameters {#body_params}

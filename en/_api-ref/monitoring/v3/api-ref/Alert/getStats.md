@@ -9,7 +9,7 @@ Folder stats.
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts:getStats
+GET https://monitoring.{{ api-host }}/monitoring/v3/alerts:getStats
 ```
  
 ## Query parameters {#query_params}

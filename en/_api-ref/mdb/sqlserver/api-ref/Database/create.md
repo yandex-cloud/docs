@@ -9,7 +9,7 @@ Creates a new SQL Server database in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}/databases
+POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/databases
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Updates the specified target group.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}
+PATCH https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}
 ```
  
 ## Path parameters {#path_params}

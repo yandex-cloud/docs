@@ -9,7 +9,7 @@ Creates a resource name in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://servicename.api.cloud.yandex.net/servicename/v1/resourceNames
+POST https://servicename.{{ api-host }}/servicename/v1/resourceNames
 ```
  
 ## Body parameters {#body_params}

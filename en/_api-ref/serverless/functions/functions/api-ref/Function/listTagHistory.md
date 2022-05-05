@@ -9,7 +9,7 @@ Returns the log of tags assigned to versions of the specified function.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}:tagHistory
+GET https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}:tagHistory
 ```
  
 ## Path parameters {#path_params}

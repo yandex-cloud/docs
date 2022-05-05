@@ -9,7 +9,7 @@ Updates the specified instance network interface.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}/updateNetworkInterface
+PATCH https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/updateNetworkInterface
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Creates a new Elasticsearch cluster in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters
+POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters
 ```
  
 ## Body parameters {#body_params}
@@ -138,8 +138,8 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br>
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 extensionSpecs[] | **object**<br>
 extensionSpecs[].<br>name | **string**<br><p>Required. Name of the extension.</p> <p>The maximum string length in characters is 50.</p> 
-extensionSpecs[].<br>uri | **string**<br><p>URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
-extensionSpecs[].<br>disabled | **boolean** (boolean)<br>
+extensionSpecs[].<br>uri | **string**<br><p>URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
+extensionSpecs[].<br>disabled | **boolean** (boolean)<br><p>The flag shows whether to create the extension in disabled state.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

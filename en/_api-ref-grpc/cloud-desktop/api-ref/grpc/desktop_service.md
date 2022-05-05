@@ -39,7 +39,7 @@ id | **string**<br>Desktop ID.
 folder_id | **string**<br>ID of the folder that the desktop belongs to. 
 desktop_group_id | **string**<br>ID of the desktop group that the desktop belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li></ul>
 name | **string**<br>Name of the desktop. 
 resources | **[Resources](#Resources)**<br>Resources of the desktop. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br> 
@@ -112,7 +112,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to create a DesktopGroup in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDesktopsResponse.next_page_token](#ListDesktopsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDesktopsResponse.next_page_token](#ListDesktopsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Desktop.name](#Desktop1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Desktop.name](#Desktop1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br>Sorting the list by [Desktop.name](#Desktop1), [Desktop.created_at](#Desktop1) and [Desktop.status](#Desktop1) fields. The default sorting order is ascending. The maximum string length in characters is 100.
 
 
@@ -132,7 +132,7 @@ id | **string**<br>Desktop ID.
 folder_id | **string**<br>ID of the folder that the desktop belongs to. 
 desktop_group_id | **string**<br>ID of the desktop group that the desktop belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li></ul>
 name | **string**<br>Name of the desktop. 
 resources | **[Resources](#Resources1)**<br>Resources of the desktop. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface1)**<br> 
@@ -176,7 +176,7 @@ Field | Description
 desktop_id | **string**<br>Required. ID of the desktop. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDesktopOperationsResponse.next_page_token](#ListDesktopOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDesktopOperationsResponse.next_page_token](#ListDesktopOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Desktop.name](#Desktop2) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Desktop.name](#Desktop2) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListDesktopOperationsResponse {#ListDesktopOperationsResponse}
@@ -259,7 +259,7 @@ id | **string**<br>Desktop ID.
 folder_id | **string**<br>ID of the folder that the desktop belongs to. 
 desktop_group_id | **string**<br>ID of the desktop group that the desktop belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li></ul>
 name | **string**<br>Name of the desktop. 
 resources | **[Resources](#Resources2)**<br>Resources of the desktop. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface2)**<br> 

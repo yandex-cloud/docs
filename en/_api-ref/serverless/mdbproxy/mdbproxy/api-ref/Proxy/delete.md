@@ -9,7 +9,7 @@ Deletes the specified proxy.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies/{proxyId}
+DELETE https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{proxyId}
 ```
  
 ## Path parameters {#path_params}

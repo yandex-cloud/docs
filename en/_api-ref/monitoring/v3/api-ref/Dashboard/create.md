@@ -9,7 +9,7 @@ Creates a new dashboard in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://monitoring.api.cloud.yandex.net/monitoring/v3/dashboards
+POST https://monitoring.{{ api-host }}/monitoring/v3/dashboards
 ```
  
 ## Body parameters {#body_params}

@@ -9,7 +9,7 @@ Writes image product's usage. Authentication is by user's service account.
  
 ## HTTP request {#https-request}
 ```
-POST https://marketplace.api.cloud.yandex.net/marketplace/v1/metering/imageProductUsage/write
+POST https://marketplace.{{ api-host }}/marketplace/v1/metering/imageProductUsage/write
 ```
  
 ## Body parameters {#body_params}

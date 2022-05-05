@@ -9,7 +9,7 @@ Returns the specified YandexPassportUserAccount resource.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin
+GET https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin
 ```
  
 ## Query parameters {#query_params}

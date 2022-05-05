@@ -9,7 +9,7 @@ Deletes the specified subcluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
+DELETE https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
 ```
  
 ## Path parameters {#path_params}

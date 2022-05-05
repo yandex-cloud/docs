@@ -9,7 +9,7 @@ Retrieves the list of devices in the specified registry.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices
+GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices
 ```
  
 ## Query parameters {#query_params}

@@ -35,7 +35,7 @@ Returns the specified device. <br>To get the list of available devices, make a [
 Field | Description
 --- | ---
 device_id | **string**<br>Required. ID of the device to return. <br>To get a device ID make a [DeviceService.List](#List) request. The maximum string length in characters is 50.
-device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li><ul/>
+device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li></ul>
 
 
 ### Device {#Device}
@@ -48,7 +48,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
-status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li></ul>
 monitoring_data | **[DeviceMonitoringData](#DeviceMonitoringData)**<br>Device monitoring data, returns if FULL view specified. 
 
 
@@ -75,7 +75,7 @@ Field | Description
 --- | ---
 registry_id | **string**<br>Required. ID of the registry to get device. <br>To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/registry_service#List) request. The maximum string length in characters is 50.
 device_name | **string**<br>Required. Name of the device to return. <br>To get a device name make a [DeviceService.List](#List) request. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li><ul/>
+device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li></ul>
 
 
 ### Device {#Device1}
@@ -88,7 +88,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
-status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li></ul>
 monitoring_data | **[DeviceMonitoringData](#DeviceMonitoringData1)**<br>Device monitoring data, returns if FULL view specified. 
 
 
@@ -118,7 +118,7 @@ id | **oneof:** `registry_id` or `folder_id`<br>
 &nbsp;&nbsp;folder_id | **string**<br>ID of the folder to list devices in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDevicesResponse.next_page_token](#ListDevicesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDevicesResponse.next_page_token](#ListDevicesResponse) returned by a previous list request. The maximum string length in characters is 100.
-device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li><ul/>
+device_view | enum **DeviceView**<br>Specifies which parts of the device resource should be returned in the response. <ul><li>`BASIC`: Server responses without monitoring data. The default value.</li><li>`FULL`: Server responses with monitoring data.</li></ul>
 
 
 ### ListDevicesResponse {#ListDevicesResponse}
@@ -139,7 +139,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
-status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li></ul>
 monitoring_data | **[DeviceMonitoringData](#DeviceMonitoringData2)**<br>Device monitoring data, returns if FULL view specified. 
 
 
@@ -216,7 +216,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
-status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li></ul>
 monitoring_data | **[DeviceMonitoringData](#DeviceMonitoringData3)**<br>Device monitoring data, returns if FULL view specified. 
 
 
@@ -285,7 +285,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the device. The name is unique within the registry. 
 description | **string**<br>Description of the device. 0-256 characters long. 
 topic_aliases | **map<string,string>**<br>Alias of a device topic. <br>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. 
-status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the device. <ul><li>`CREATING`: Device is being created.</li><li>`ACTIVE`: Device is ready to use.</li><li>`DELETING`: Device is being deleted.</li></ul>
 monitoring_data | **[DeviceMonitoringData](#DeviceMonitoringData4)**<br>Device monitoring data, returns if FULL view specified. 
 
 

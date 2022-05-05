@@ -9,7 +9,7 @@ Lists operations for the specified node group.
  
 ## HTTP request {#https-request}
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/nodeGroups/{nodeGroupId}/operations
+GET https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups/{nodeGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

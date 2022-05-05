@@ -9,7 +9,7 @@ Lists operations for the specified host group.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}/operations
+GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

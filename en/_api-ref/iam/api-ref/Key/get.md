@@ -9,7 +9,7 @@ To get the list of available Key resources, make a [list](/docs/iam/api-ref/Key/
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/keys/{keyId}
+GET https://iam.{{ api-host }}/iam/v1/keys/{keyId}
 ```
  
 ## Path parameters {#path_params}

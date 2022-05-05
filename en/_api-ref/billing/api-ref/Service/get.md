@@ -9,7 +9,7 @@ Returns the specified service.
  
 ## HTTP request {#https-request}
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/services/{id}
+GET https://billing.{{ api-host }}/billing/v1/services/{id}
 ```
  
 ## Path parameters {#path_params}

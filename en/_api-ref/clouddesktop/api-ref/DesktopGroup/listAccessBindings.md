@@ -9,7 +9,7 @@ Returns a list of the access bindings for the specified desktop group.
  
 ## HTTP request {#https-request}
 ```
-GET https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{resourceId}:listAccessBindings
+GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

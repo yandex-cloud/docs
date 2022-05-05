@@ -9,7 +9,7 @@ Creates a channel.
  
 ## HTTP request {#https-request}
 ```
-POST https://monitoring.api.cloud.yandex.net/monitoring/v3/channels
+POST https://monitoring.{{ api-host }}/monitoring/v3/channels
 ```
  
 ## Body parameters {#body_params}

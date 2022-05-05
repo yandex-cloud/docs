@@ -9,7 +9,7 @@ Deletes the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}
+DELETE https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}

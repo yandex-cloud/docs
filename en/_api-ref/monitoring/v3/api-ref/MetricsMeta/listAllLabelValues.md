@@ -9,7 +9,7 @@ Retries the list of values for a given label key.
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/metrics/labelValues
+GET https://monitoring.{{ api-host }}/monitoring/v3/metrics/labelValues
 ```
  
 ## Query parameters {#query_params}

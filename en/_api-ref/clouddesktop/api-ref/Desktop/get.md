@@ -9,7 +9,7 @@ To get the list of available desktops, make a [list](/docs/cloud-desktop/api-ref
  
 ## HTTP request {#https-request}
 ```
-GET https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}
+GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 ```
  
 ## Path parameters {#path_params}

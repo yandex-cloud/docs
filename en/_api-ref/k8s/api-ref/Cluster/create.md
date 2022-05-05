@@ -9,7 +9,7 @@ Creates a Kubernetes cluster in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters
+POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
 ```
  
 ## Body parameters {#body_params}

@@ -9,7 +9,7 @@ Deletes the specified instance group.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}
+DELETE https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}
 ```
  
 ## Path parameters {#path_params}

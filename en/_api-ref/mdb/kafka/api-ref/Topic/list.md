@@ -9,7 +9,7 @@ Retrieves the list of Kafka topics in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/topics
+GET https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/topics
 ```
  
 ## Path parameters {#path_params}

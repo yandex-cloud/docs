@@ -9,7 +9,7 @@ Starts the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}:start
+POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

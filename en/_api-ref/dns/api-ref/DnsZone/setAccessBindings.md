@@ -9,7 +9,7 @@ Sets access bindings for the specified DNS zone.
  
 ## HTTP request {#https-request}
 ```
-POST https://dns.api.cloud.yandex.net/dns/v1/zones/{resourceId}:setAccessBindings
+POST https://dns.{{ api-host }}/dns/v1/zones/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

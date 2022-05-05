@@ -9,7 +9,7 @@ List operations for the specified address.
  
 ## HTTP request {#https-request}
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/addresses/{addressId}/operations
+GET https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}/operations
 ```
  
 ## Path parameters {#path_params}

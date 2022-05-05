@@ -9,7 +9,7 @@ Deletes the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}
+DELETE https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

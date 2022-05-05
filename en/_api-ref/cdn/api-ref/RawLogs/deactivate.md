@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST https://cdn.api.cloud.yandex.net/cdn/v1/rawLogs/{resourceId}
+POST https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
 ```
  
 ## Path parameters {#path_params}

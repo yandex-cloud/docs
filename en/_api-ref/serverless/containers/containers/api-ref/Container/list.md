@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-containers.api.cloud.yandex.net/containers/v1/containers
+GET https://serverless-containers.{{ api-host }}/containers/v1/containers
 ```
  
 ## Query parameters {#query_params}

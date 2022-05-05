@@ -9,7 +9,7 @@ Creates a new database in a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/databases
+POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/databases
 ```
  
 ## Path parameters {#path_params}

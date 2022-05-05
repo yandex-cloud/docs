@@ -9,7 +9,7 @@ Deletes the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates/{certificateId}
+DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}

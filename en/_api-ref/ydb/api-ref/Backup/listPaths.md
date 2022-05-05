@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/backups/{backupId}/paths
+GET https://ydb.{{ api-host }}/ydb/v1/backups/{backupId}/paths
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Returns the specified placement group.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
+GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
 ```
  
 ## Path parameters {#path_params}

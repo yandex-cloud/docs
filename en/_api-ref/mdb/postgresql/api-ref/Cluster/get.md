@@ -9,7 +9,7 @@ To get the list of available PostgreSQL Cluster resources, make a [list](/docs/m
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}
+GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

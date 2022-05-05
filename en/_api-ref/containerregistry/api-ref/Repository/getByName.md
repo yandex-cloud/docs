@@ -9,7 +9,7 @@ To get the list of available Repository resources, make a [list](/docs/container
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories/{repositoryName}:byName
+GET https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryName}:byName
 ```
  
 ## Path parameters {#path_params}

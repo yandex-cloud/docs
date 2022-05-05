@@ -10,7 +10,7 @@ to the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
+GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters
 ```
  
 ## Query parameters {#query_params}

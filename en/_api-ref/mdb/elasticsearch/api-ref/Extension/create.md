@@ -9,14 +9,14 @@ Creates new extension version.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/extensions
+POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the cluster.  The maximum string length in characters is 50.
+clusterId | Required. ID of the cluster.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -32,8 +32,8 @@ clusterId | Required. Required. ID of the cluster.  The maximum string length in
 Field | Description
 --- | ---
 name | **string**<br><p>Required. Name of the extension.</p> <p>The maximum string length in characters is 50.</p> 
-uri | **string**<br><p>Required. URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
-disabled | **boolean** (boolean)<br>
+uri | **string**<br><p>Required. URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
+disabled | **boolean** (boolean)<br><p>The flag that disables the extension.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

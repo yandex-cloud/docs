@@ -9,7 +9,7 @@ Retrieves logs for the specified ClickHouse cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}:logs
+GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:logs
 ```
  
 ## Path parameters {#path_params}

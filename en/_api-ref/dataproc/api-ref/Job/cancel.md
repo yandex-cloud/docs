@@ -9,7 +9,7 @@ Cancels the specified Dataproc job.
  
 ## HTTP request {#https-request}
 ```
-POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/jobs/{jobId}:cancel
+POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId}:cancel
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Updates access bindings for the specified API gateway.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{resourceId}:updateAccessBindings
+PATCH https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

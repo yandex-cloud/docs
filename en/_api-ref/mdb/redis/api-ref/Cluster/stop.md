@@ -9,7 +9,7 @@ Stop the specified Redis cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:stop
+POST https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}:stop
 ```
  
 ## Path parameters {#path_params}

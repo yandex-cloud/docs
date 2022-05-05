@@ -9,7 +9,7 @@ To get the list of available certificates, make a [list](/docs/iam/api-ref/Certi
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/saml/certificates/{certificateId}
+GET https://iam.{{ api-host }}/iam/v1/saml/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}

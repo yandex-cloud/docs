@@ -9,7 +9,7 @@ Create iam token for service account.
  
 ## HTTP request {#https-request}
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/tokens:createForServiceAccount
+POST https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
 ```
  
 ## Body parameters {#body_params}

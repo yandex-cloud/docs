@@ -9,7 +9,7 @@ Revokes a permission from the specified ClickHouse user.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}:revokePermission
+POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}:revokePermission
 ```
  
 ## Path parameters {#path_params}

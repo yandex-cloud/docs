@@ -9,7 +9,7 @@ Creates a proxy in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies
+POST https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies
 ```
  
 ## Body parameters {#body_params}

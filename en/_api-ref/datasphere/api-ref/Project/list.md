@@ -9,7 +9,7 @@ Lists projects for the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://datasphere.api.cloud.yandex.net/datasphere/v1/projects
+GET https://datasphere.{{ api-host }}/datasphere/v1/projects
 ```
  
 ## Query parameters {#query_params}

@@ -9,7 +9,7 @@ Retrieves the list of registry certificates for the specified registry.
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}/certificates
+GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/certificates
 ```
  
 ## Path parameters {#path_params}

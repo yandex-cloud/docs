@@ -9,7 +9,7 @@ Deletes the specified resource name.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://servicename.api.cloud.yandex.net/servicename/v1/resourceNames/{resourceNameId}
+DELETE https://servicename.{{ api-host }}/servicename/v1/resourceNames/{resourceNameId}
 ```
  
 ## Path parameters {#path_params}

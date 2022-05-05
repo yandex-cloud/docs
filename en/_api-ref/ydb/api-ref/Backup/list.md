@@ -9,7 +9,7 @@ Retrieves a list of backups.
  
 ## HTTP request {#https-request}
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/backups
+GET https://ydb.{{ api-host }}/ydb/v1/backups
 ```
  
 ## Query parameters {#query_params}

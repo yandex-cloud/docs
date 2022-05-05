@@ -9,7 +9,7 @@ Modifies the specified database.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://ydb.api.cloud.yandex.net/ydb/v1/databases/{databaseId}
+PATCH https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}
 ```
  
 ## Path parameters {#path_params}

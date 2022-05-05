@@ -9,7 +9,7 @@ Lists existing access bindings for the specified DNS zone.
  
 ## HTTP request {#https-request}
 ```
-GET https://dns.api.cloud.yandex.net/dns/v1/zones/{resourceId}:listAccessBindings
+GET https://dns.{{ api-host }}/dns/v1/zones/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

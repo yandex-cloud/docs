@@ -3327,9 +3327,7 @@ components:
         resources:
           $ref: '#/components/schemas/Resources_in_ClusterConfigZookeeper_resources'
     ClusterEnvironment:
-      description: |-
-        Deployment environment.
-
+      description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -6738,8 +6736,6 @@ components:
       description: |-
         Deployment environment of the ClickHouse cluster.
 
-        Deployment environment.
-
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -7374,8 +7370,6 @@ components:
         Required.
         Deployment environment of the ClickHouse cluster.
 
-        Deployment environment.
-
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -7575,8 +7569,6 @@ components:
       description: |-
         Required.
         Deployment environment of the new ClickHouse cluster.
-
-        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.

@@ -9,7 +9,7 @@ Returns the list of available resource presets.
  
 ## HTTP request {#https-request}
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/resourcePresets
+GET https://ydb.{{ api-host }}/ydb/v1/resourcePresets
 ```
  
 ## Query parameters {#query_params}

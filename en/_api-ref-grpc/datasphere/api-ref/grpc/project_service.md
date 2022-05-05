@@ -87,7 +87,7 @@ Field | Description
 service_account_id | **string**<br>ID of the service account, on whose behalf all operations with clusters will be performed. 
 subnet_id | **string**<br>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported. 
 data_proc_cluster_id | **string**<br>ID of the DataProc cluster. 
-commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li><ul/>
+commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li></ul>
 security_group_ids[] | **string**<br>Network interfaces security groups. 
 
 
@@ -164,7 +164,7 @@ Field | Description
 service_account_id | **string**<br>ID of the service account, on whose behalf all operations with clusters will be performed. 
 subnet_id | **string**<br>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported. 
 data_proc_cluster_id | **string**<br>ID of the DataProc cluster. 
-commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li><ul/>
+commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li></ul>
 security_group_ids[] | **string**<br>Network interfaces security groups. 
 
 
@@ -297,7 +297,7 @@ Field | Description
 service_account_id | **string**<br>ID of the service account, on whose behalf all operations with clusters will be performed. 
 subnet_id | **string**<br>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported. 
 data_proc_cluster_id | **string**<br>ID of the DataProc cluster. 
-commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li><ul/>
+commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li></ul>
 security_group_ids[] | **string**<br>Network interfaces security groups. 
 
 
@@ -352,7 +352,7 @@ Field | Description
 service_account_id | **string**<br>ID of the service account, on whose behalf all operations with clusters will be performed. 
 subnet_id | **string**<br>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported. 
 data_proc_cluster_id | **string**<br>ID of the DataProc cluster. 
-commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li><ul/>
+commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li></ul>
 security_group_ids[] | **string**<br>Network interfaces security groups. 
 
 

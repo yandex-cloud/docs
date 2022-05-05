@@ -63,7 +63,7 @@ Field | Description
 id | **string**<br>Output only. ID of the ScanResult. 
 image_id | **string**<br>Output only. ID of the Image that the ScanResult belongs to. 
 scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. 
-status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`RUNNING`: Image scan is in progress.</li><li>`READY`: Image has been scanned and result is ready.</li><li>`ERROR`: Image scan is failed.</li><ul/>
+status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`RUNNING`: Image scan is in progress.</li><li>`READY`: Image has been scanned and result is ready.</li><li>`ERROR`: Image scan is failed.</li></ul>
 vulnerabilities | **[VulnerabilityStats](#VulnerabilityStats)**<br>Output only. Summary information about vulnerabilities found. 
 
 
@@ -99,7 +99,7 @@ Field | Description
 id | **string**<br>Output only. ID of the ScanResult. 
 image_id | **string**<br>Output only. ID of the Image that the ScanResult belongs to. 
 scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. 
-status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`RUNNING`: Image scan is in progress.</li><li>`READY`: Image has been scanned and result is ready.</li><li>`ERROR`: Image scan is failed.</li><ul/>
+status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`RUNNING`: Image scan is in progress.</li><li>`READY`: Image has been scanned and result is ready.</li><li>`ERROR`: Image scan is failed.</li></ul>
 vulnerabilities | **[VulnerabilityStats](#VulnerabilityStats1)**<br>Output only. Summary information about vulnerabilities found. 
 
 
@@ -135,7 +135,7 @@ Field | Description
 id | **string**<br>Output only. ID of the ScanResult. 
 image_id | **string**<br>Output only. ID of the Image that the ScanResult belongs to. 
 scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. 
-status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`RUNNING`: Image scan is in progress.</li><li>`READY`: Image has been scanned and result is ready.</li><li>`ERROR`: Image scan is failed.</li><ul/>
+status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`RUNNING`: Image scan is in progress.</li><li>`READY`: Image has been scanned and result is ready.</li><li>`ERROR`: Image scan is failed.</li></ul>
 vulnerabilities | **[VulnerabilityStats](#VulnerabilityStats2)**<br>Output only. Summary information about vulnerabilities found. 
 
 
@@ -166,8 +166,8 @@ id | **oneof:** `image_id` or `repository_id`<br>ID of the Image or Repository t
 &nbsp;&nbsp;repository_id | **string**<br>ID of the Image or Repository to list ScanResults for. <br>To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/grpc/image_service#List) request. To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/grpc/repository_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [ScanResult.status](#ScanResult3) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`).</li></ol> The maximum string length in characters is 1000.
-order_by | **string**<br><ol><li>The field name. Currently you can use filtering only on [ScanResult.status](#ScanResult3) field. </li><li>Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first).</li></ol> The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [ScanResult.status](#ScanResult3) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`).</li></ol> The maximum string length in characters is 1000.
+order_by | **string**<br>An order expression that orders resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [ScanResult.status](#ScanResult3) field. </li><li>Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first).</li></ol> The maximum string length in characters is 100.
 
 
 ### ListScanResultsResponse {#ListScanResultsResponse}
@@ -185,7 +185,7 @@ Field | Description
 id | **string**<br>Output only. ID of the ScanResult. 
 image_id | **string**<br>Output only. ID of the Image that the ScanResult belongs to. 
 scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. 
-status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`RUNNING`: Image scan is in progress.</li><li>`READY`: Image has been scanned and result is ready.</li><li>`ERROR`: Image scan is failed.</li><ul/>
+status | enum **Status**<br>Output only. The status of the ScanResult. <ul><li>`RUNNING`: Image scan is in progress.</li><li>`READY`: Image has been scanned and result is ready.</li><li>`ERROR`: Image scan is failed.</li></ul>
 vulnerabilities | **[VulnerabilityStats](#VulnerabilityStats3)**<br>Output only. Summary information about vulnerabilities found. 
 
 
@@ -214,8 +214,8 @@ Field | Description
 scan_result_id | **string**<br>Required. ID of the ScanResult to get list of vulnerabilities for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Vulnerability.severity](#Vulnerability) and [PackageVulnerability.name](#PackageVulnerability) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`).</li></ol> The maximum string length in characters is 1000.
-order_by | **string**<br><ol><li>The field name. Currently you can use filtering only on [Vulnerability.severity](#Vulnerability) and [PackageVulnerability.name](#PackageVulnerability) fields. </li><li>Order selector. Currently you can use ordering only on `Vulnerability.severity` field (recent first).</li></ol> The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Vulnerability.severity](#Vulnerability) and [PackageVulnerability.name](#PackageVulnerability) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`).</li></ol> The maximum string length in characters is 1000.
+order_by | **string**<br>An order expression that orders resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Vulnerability.severity](#Vulnerability) and [PackageVulnerability.name](#PackageVulnerability) fields. </li><li>Order selector. Currently you can use ordering only on `Vulnerability.severity` field (recent first).</li></ol> The maximum string length in characters is 100.
 
 
 ### ListVulnerabilitiesResponse {#ListVulnerabilitiesResponse}
@@ -230,7 +230,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-severity | enum **Severity**<br>Output only. Severity of the Vulnerability. <ul><li>`CRITICAL`: Critical severity is a world-burning problem, exploitable for nearly all users. Includes remote root privilege escalations, or massive data loss.</li><li>`HIGH`: High severity is a real problem, exploitable for many users in a default installation. Includes serious remote denial of services, local root privilege escalations, or data loss.</li><li>`MEDIUM`: Medium severity is a real security problem, and is exploitable for many users. Includes network daemon denial of service attacks, cross-site scripting, and gaining user privileges. Updates should be made soon for this priority of issue.</li><li>`LOW`: Low severity is a security problem, but is hard to exploit due to environment, requires a user-assisted attack, a small install base, or does very little damage. These tend to be included in security updates only when higher priority issues require an update, or if many low priority issues have built up.</li><li>`NEGLIGIBLE`: Negligible severity is technically a security problem, but is only theoretical in nature, requires a very special situation, has almost no install base, or does no real damage. These tend not to get backport from upstream, and will likely not be included in security updates unless there is an easy fix and some other issue causes an update.</li><li>`UNDEFINED`: Unknown severity is either a security problem that has not been assigned to a priority yet or a priority that our system did not recognize.</li><ul/>
+severity | enum **Severity**<br>Output only. Severity of the Vulnerability. <ul><li>`CRITICAL`: Critical severity is a world-burning problem, exploitable for nearly all users. Includes remote root privilege escalations, or massive data loss.</li><li>`HIGH`: High severity is a real problem, exploitable for many users in a default installation. Includes serious remote denial of services, local root privilege escalations, or data loss.</li><li>`MEDIUM`: Medium severity is a real security problem, and is exploitable for many users. Includes network daemon denial of service attacks, cross-site scripting, and gaining user privileges. Updates should be made soon for this priority of issue.</li><li>`LOW`: Low severity is a security problem, but is hard to exploit due to environment, requires a user-assisted attack, a small install base, or does very little damage. These tend to be included in security updates only when higher priority issues require an update, or if many low priority issues have built up.</li><li>`NEGLIGIBLE`: Negligible severity is technically a security problem, but is only theoretical in nature, requires a very special situation, has almost no install base, or does no real damage. These tend not to get backport from upstream, and will likely not be included in security updates unless there is an easy fix and some other issue causes an update.</li><li>`UNDEFINED`: Unknown severity is either a security problem that has not been assigned to a priority yet or a priority that our system did not recognize.</li></ul>
 vulnerability | **oneof:** `package`<br>Details of vulnerability depending on type. Only `package` vulnerability is supported at the moment.
 &nbsp;&nbsp;package | **[PackageVulnerability](#PackageVulnerability)**<br>Details of vulnerability depending on type. Only `package` vulnerability is supported at the moment. 
 

@@ -9,7 +9,7 @@ Retrieves the list of certificates in the specified federation.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/saml/certificates
+GET https://iam.{{ api-host }}/iam/v1/saml/certificates
 ```
  
 ## Query parameters {#query_params}

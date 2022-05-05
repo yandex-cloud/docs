@@ -9,7 +9,7 @@ Retrieves the list of clusters in a folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters
+GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters
 ```
  
 ## Query parameters {#query_params}

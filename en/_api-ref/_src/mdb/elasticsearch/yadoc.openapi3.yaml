@@ -1104,7 +1104,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the cluster.
+          ID of the cluster.
 
           The maximum string length in characters is 50.
         required: true
@@ -1114,7 +1114,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the extension to return.
+          ID of the extension to return.
         required: true
         schema:
           type: string
@@ -1136,7 +1136,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the cluster.
+          ID of the cluster.
 
           The maximum string length in characters is 50.
         required: true
@@ -1146,7 +1146,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the extension to delete.
+          ID of the extension to delete.
         required: true
         schema:
           type: string
@@ -1171,7 +1171,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the cluster.
+          ID of the cluster.
 
           The maximum string length in characters is 50.
         required: true
@@ -1181,7 +1181,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the extension to delete.
+          ID of the extension to update.
         required: true
         schema:
           type: string
@@ -1214,7 +1214,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the cluster to list extensions in.
+          ID of the cluster to list extensions in.
 
           The maximum string length in characters is 50.
         required: true
@@ -1223,10 +1223,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page that should be returned. If the number of available
-          results is larger than `page_size`, the service returns a `next_page_token` that can be used
-          to get the next page of results in subsequent ListBackups requests.
-          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Extension/list#query_params), the API returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Extension/list#responses) that can be used to get the next page of results in subsequent [list](/docs/managed-elasticsearch/api-ref/Extension/list) requests.
 
           Acceptable values are 0 to 1000, inclusive.
         schema:
@@ -1235,8 +1234,9 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
-          request to get the next page of results.
+          Page token that can be used to iterate through multiple pages of results.
+
+          To get the next page of results, set [pageToken](/docs/managed-elasticsearch/api-ref/Extension/list#query_params) to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Extension/list#responses) returned by the previous [list](/docs/managed-elasticsearch/api-ref/Extension/list) request.
 
           The maximum string length in characters is 100.
         schema:
@@ -1259,7 +1259,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the cluster.
+          ID of the cluster.
 
           The maximum string length in characters is 50.
         required: true
@@ -1959,14 +1959,14 @@ components:
         clusterId:
           description: |-
             Required.
-            Required. ID of the cluster.
+            ID of the cluster.
 
             The maximum string length in characters is 50.
           type: string
         extensionId:
           description: |-
             Required.
-            Required. ID of the extension.
+            ID of the extension.
           type: string
     CreateExtensionRequest:
       type: object
@@ -1981,10 +1981,10 @@ components:
         uri:
           description: |-
             Required.
-            URI of the zip arhive to create the new extension from.
-            Currently only supports links that are stored in Yandex Object Storage.
+            URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.
           type: string
         disabled:
+          description: The flag that disables the extension.
           type: boolean
           format: boolean
     CreateUserMetadata:
@@ -2048,14 +2048,14 @@ components:
         clusterId:
           description: |-
             Required.
-            Required. ID of the cluster.
+            ID of the cluster.
 
             The maximum string length in characters is 50.
           type: string
         extensionId:
           description: |-
             Required.
-            Required. ID of the extension to delete.
+            ID of the extension to delete.
           type: string
     DeleteUserMetadata:
       type: object
@@ -2185,17 +2185,17 @@ components:
           description: Name of the extension.
           type: string
         id:
-          description: Extension unique ID
+          description: Unique ID of the extension.
           type: string
         clusterId:
           description: ID of the Elasticsearch cluster the extension belongs to.
           type: string
         version:
-          description: Extension version
+          description: Version of the extension.
           type: string
           format: int64
         active:
-          description: Flag is extension active now
+          description: The flag shows whether the extension is active.
           type: boolean
           format: boolean
     ExtensionSpec:
@@ -2209,11 +2209,12 @@ components:
             The maximum string length in characters is 50.
           type: string
         uri:
-          description: |-
-            URI of the zip arhive to create the new extension from.
-            Currently only supports links that are stored in Yandex Object Storage.
+          description: URI of the zip archive to create the new extension from. Currently
+            only supports links that are stored in Yandex Object Storage.
           type: string
         disabled:
+          description: The flag shows whether to create the extension in disabled
+            state.
           type: boolean
           format: boolean
     FieldMask:
@@ -2431,11 +2432,11 @@ components:
             $ref: '#/components/schemas/Extension'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for ListBackups requests,
-            if the number of results is larger than `page_size` specified in the request.
-            To get the next page, specify the value of `next_page_token` as a value for
-            the `page_token` parameter in the next ListBackups request. Subsequent ListBackups
-            requests will have their own `next_page_token` to continue paging through the results.
+            The token that can be used to get the next page of results.
+
+            If the number of results is larger than [pageSize](/docs/managed-elasticsearch/api-ref/Extension/list#query_params), use the [nextPageToken](/docs/managed-elasticsearch/api-ref/Extension/list#responses) as the value for the [pageToken](/docs/managed-elasticsearch/api-ref/Extension/list#query_params) in the subsequent [list](/docs/managed-elasticsearch/api-ref/Extension/list) request to iterate through multiple pages of results.
+
+            Each of the subsequent [list](/docs/managed-elasticsearch/api-ref/Extension/list) requests should use the [nextPageToken](/docs/managed-elasticsearch/api-ref/Extension/list#responses) value returned in the previous request to continue paging through the results.
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -2936,19 +2937,20 @@ components:
         clusterId:
           description: |-
             Required.
-            Required. ID of the cluster.
+            ID of the cluster.
 
             The maximum string length in characters is 50.
           type: string
         extensionId:
           description: |-
             Required.
-            Required. ID of the extension.
+            ID of the extension.
           type: string
     UpdateExtensionRequest:
       type: object
       properties:
         active:
+          description: The flag shows whether to make the extension active.
           type: boolean
           format: boolean
     UpdateUserMetadata:

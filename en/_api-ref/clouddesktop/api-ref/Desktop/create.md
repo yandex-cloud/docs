@@ -9,7 +9,7 @@ Creates desktop in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktops
+POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
 ```
  
 ## Body parameters {#body_params}

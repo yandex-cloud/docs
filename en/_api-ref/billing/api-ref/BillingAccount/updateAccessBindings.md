@@ -9,7 +9,7 @@ Updates access bindings for the specified billing account.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://billing.api.cloud.yandex.net/billing/v1/billingAccounts/{resourceId}:updateAccessBindings
+PATCH https://billing.{{ api-host }}/billing/v1/billingAccounts/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

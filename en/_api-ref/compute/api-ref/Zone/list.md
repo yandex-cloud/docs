@@ -9,7 +9,7 @@ Retrieves the list of availability zones.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/zones
+GET https://compute.{{ api-host }}/compute/v1/zones
 ```
  
 ## Query parameters {#query_params}

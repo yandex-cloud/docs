@@ -9,7 +9,7 @@ Deletes the specified trigger.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers/{triggerId}
+DELETE https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}
 ```
  
 ## Path parameters {#path_params}

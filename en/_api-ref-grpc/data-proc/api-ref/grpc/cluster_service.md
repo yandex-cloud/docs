@@ -46,8 +46,8 @@ description | **string**<br>Description of the cluster. The string length in cha
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
 monitoring[] | **[Monitoring](#Monitoring)**<br>Monitoring systems relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the cluster. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Object is in unknown state (we have no data).</li><li>`ALIVE`: Object is alive and well (for example, all hosts of the cluster are alive).</li><li>`DEAD`: Object is inoperable (it cannot perform any of its essential functions).</li><li>`DEGRADED`: Object is partially alive (it can perform some of its essential functions).</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 zone_id | **string**<br>ID of the availability zone where the cluster resides. 
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
@@ -79,7 +79,7 @@ hadoop | **[HadoopConfig](#HadoopConfig)**<br>Data Proc specific configuration o
 
 Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 initialization_actions[] | **[InitializationAction](#InitializationAction)**<br>Set of init-actions 
@@ -107,7 +107,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters clusters listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-cluster`. The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -130,8 +130,8 @@ description | **string**<br>Description of the cluster. The string length in cha
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
 monitoring[] | **[Monitoring](#Monitoring1)**<br>Monitoring systems relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the cluster. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Object is in unknown state (we have no data).</li><li>`ALIVE`: Object is alive and well (for example, all hosts of the cluster are alive).</li><li>`DEAD`: Object is inoperable (it cannot perform any of its essential functions).</li><li>`DEGRADED`: Object is partially alive (it can perform some of its essential functions).</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 zone_id | **string**<br>ID of the availability zone where the cluster resides. 
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
@@ -163,7 +163,7 @@ hadoop | **[HadoopConfig](#HadoopConfig1)**<br>Data Proc specific configuration 
 
 Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 initialization_actions[] | **[InitializationAction](#InitializationAction1)**<br>Set of init-actions 
@@ -193,7 +193,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a cluster in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the cluster. The name must be unique within the folder. The name can't be changed after the Data Proc cluster is created. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the cluster. The name must be unique within the folder. The name can't be changed after the Data Proc cluster is created. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 config_spec | **[CreateClusterConfigSpec](#CreateClusterConfigSpec)**<br>Required. Configuration and resources for hosts that should be created with the cluster. 
@@ -220,7 +220,7 @@ subclusters_spec[] | **[CreateSubclusterConfigSpec](#CreateSubclusterConfigSpec)
 
 Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 initialization_actions[] | **[InitializationAction](#InitializationAction2)**<br>Set of init-actions 
@@ -239,8 +239,8 @@ timeout | **int64**<br>Execution timeout
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the subcluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
-role | enum **Role**<br>Required. Role of the subcluster in the Data Proc cluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+name | **string**<br>Name of the subcluster. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+role | enum **Role**<br>Required. Role of the subcluster in the Data Proc cluster. <ul><li>`MASTERNODE`: The subcluster fulfills the master role. <br>Master can run the following services, depending on the requested components: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: The subcluster is a DATANODE in a Data Proc cluster. <br>DATANODE can run the following services, depending on the requested components: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster. <br>COMPUTENODE can run the following services, depending on the requested components: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li></ul>
 resources | **[Resources](#Resources)**<br>Required. Resource configuration for hosts in the subcluster. 
 subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. The maximum string length in characters is 50.
 hosts_count | **int64**<br>Required. Number of hosts in the subcluster. The minimum value is 1.
@@ -253,7 +253,7 @@ autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig)**<br>Configuratio
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -305,8 +305,8 @@ description | **string**<br>Description of the cluster. The string length in cha
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
 monitoring[] | **[Monitoring](#Monitoring2)**<br>Monitoring systems relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the cluster. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Object is in unknown state (we have no data).</li><li>`ALIVE`: Object is alive and well (for example, all hosts of the cluster are alive).</li><li>`DEAD`: Object is inoperable (it cannot perform any of its essential functions).</li><li>`DEGRADED`: Object is partially alive (it can perform some of its essential functions).</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 zone_id | **string**<br>ID of the availability zone where the cluster resides. 
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
@@ -338,7 +338,7 @@ hadoop | **[HadoopConfig](#HadoopConfig3)**<br>Data Proc specific configuration 
 
 Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 initialization_actions[] | **[InitializationAction](#InitializationAction3)**<br>Set of init-actions 
@@ -372,7 +372,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 description | **string**<br>New description for the cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>A new set of cluster labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 config_spec | **[UpdateClusterConfigSpec](#UpdateClusterConfigSpec)**<br>Configuration and resources for hosts that should be created with the Data Proc cluster. 
-name | **string**<br>New name for the Data Proc cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>New name for the Data Proc cluster. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 service_account_id | **string**<br>ID of the new service account to be used by the Data Proc manager agent. 
 bucket | **string**<br>Name of the new Object Storage bucket to use for Data Proc jobs. 
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
@@ -395,7 +395,7 @@ hadoop | **[HadoopConfig](#HadoopConfig4)**<br>Hadoop specific options
 Field | Description
 --- | ---
 id | **string**<br>ID of the subcluster to update. <br>To get the subcluster ID make a [SubclusterService.List](./subcluster_service#List) request. 
-name | **string**<br>Name of the subcluster. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the subcluster. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 resources | **[Resources](#Resources1)**<br>Resource configuration for each host in the subcluster. 
 hosts_count | **int64**<br>Number of hosts in the subcluster. The minimum value is 1.
 autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig1)**<br>Configuration for instance group based subclusters 
@@ -406,7 +406,7 @@ autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig1)**<br>Configurati
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). 
-disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive.</li></ul> 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
 
 
@@ -427,7 +427,7 @@ decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes dur
 
 Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 initialization_actions[] | **[InitializationAction](#InitializationAction4)**<br>Set of init-actions 
@@ -477,8 +477,8 @@ description | **string**<br>Description of the cluster. The string length in cha
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
 monitoring[] | **[Monitoring](#Monitoring3)**<br>Monitoring systems relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the cluster. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Object is in unknown state (we have no data).</li><li>`ALIVE`: Object is alive and well (for example, all hosts of the cluster are alive).</li><li>`DEAD`: Object is inoperable (it cannot perform any of its essential functions).</li><li>`DEGRADED`: Object is partially alive (it can perform some of its essential functions).</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 zone_id | **string**<br>ID of the availability zone where the cluster resides. 
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
@@ -510,7 +510,7 @@ hadoop | **[HadoopConfig](#HadoopConfig5)**<br>Data Proc specific configuration 
 
 Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 initialization_actions[] | **[InitializationAction](#InitializationAction5)**<br>Set of init-actions 
@@ -618,8 +618,8 @@ description | **string**<br>Description of the cluster. The string length in cha
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
 monitoring[] | **[Monitoring](#Monitoring4)**<br>Monitoring systems relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the cluster. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Object is in unknown state (we have no data).</li><li>`ALIVE`: Object is alive and well (for example, all hosts of the cluster are alive).</li><li>`DEAD`: Object is inoperable (it cannot perform any of its essential functions).</li><li>`DEGRADED`: Object is partially alive (it can perform some of its essential functions).</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 zone_id | **string**<br>ID of the availability zone where the cluster resides. 
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
@@ -651,7 +651,7 @@ hadoop | **[HadoopConfig](#HadoopConfig6)**<br>Data Proc specific configuration 
 
 Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 initialization_actions[] | **[InitializationAction](#InitializationAction6)**<br>Set of init-actions 
@@ -719,8 +719,8 @@ description | **string**<br>Description of the cluster. The string length in cha
 labels | **map<string,string>**<br>Cluster labels as `key:value` pairs. No more than 64 per resource.
 monitoring[] | **[Monitoring](#Monitoring5)**<br>Monitoring systems relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the cluster. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Object is in unknown state (we have no data).</li><li>`ALIVE`: Object is alive and well (for example, all hosts of the cluster are alive).</li><li>`DEAD`: Object is inoperable (it cannot perform any of its essential functions).</li><li>`DEGRADED`: Object is partially alive (it can perform some of its essential functions).</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 zone_id | **string**<br>ID of the availability zone where the cluster resides. 
 service_account_id | **string**<br>ID of service account for the Data Proc manager agent. 
 bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that are run in the cluster. 
@@ -752,7 +752,7 @@ hadoop | **[HadoopConfig](#HadoopConfig7)**<br>Data Proc specific configuration 
 
 Field | Description
 --- | ---
-services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). <ul><ul/>
+services[] | enum **[Service](./cluster_service#undefined)**<br>Set of services used in the cluster (if empty, the default set is used). 
 properties | **map<string,string>**<br>Properties set for all hosts in `*-site.xml` configurations. The key should indicate the service and the property. <br>For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property in the file `/etc/hadoop/conf/hdfs-site.xml`. 
 ssh_public_keys[] | **string**<br>List of public SSH keys to access to cluster hosts. 
 initialization_actions[] | **[InitializationAction](#InitializationAction7)**<br>Set of init-actions 
@@ -819,7 +819,7 @@ Field | Description
 cluster_id | **string**<br>ID of the cluster to list hosts for. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster6) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters hosts listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster6) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-host` The maximum string length in characters is 1000.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}
@@ -836,9 +836,9 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the Data Proc host. The host name is assigned by Data Proc at creation time and cannot be changed. The name is generated to be unique across all existing Data Proc hosts in Yandex Cloud, as it defines the FQDN of the host. 
 subcluster_id | **string**<br>ID of the Data Proc subcluster that the host belongs to. 
-health | enum **Health**<br>Host status code. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Object is in unknown state (we have no data).</li><li>`ALIVE`: Object is alive and well (for example, all hosts of the cluster are alive).</li><li>`DEAD`: Object is inoperable (it cannot perform any of its essential functions).</li><li>`DEGRADED`: Object is partially alive (it can perform some of its essential functions).</li></ul>
 compute_instance_id | **string**<br>ID of the Compute virtual machine that is used as the Data Proc host. 
-role | enum **Role**<br>Role of the host in the cluster. <ul><li>`MASTERNODE`: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li><ul/>
+role | enum **Role**<br>Role of the host in the cluster. <ul><li>`MASTERNODE`: The subcluster fulfills the master role. <br>Master can run the following services, depending on the requested components: <ul><li>HDFS: Namenode, Secondary Namenode </li><li>YARN: ResourceManager, Timeline Server </li><li>HBase Master </li><li>Hive: Server, Metastore, HCatalog </li><li>Spark History Server </li><li>Zeppelin </li><li>ZooKeeper</li></ul></li><li>`DATANODE`: The subcluster is a DATANODE in a Data Proc cluster. <br>DATANODE can run the following services, depending on the requested components: <ul><li>HDFS DataNode </li><li>YARN NodeManager </li><li>HBase RegionServer </li><li>Spark libraries</li></ul></li><li>`COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster. <br>COMPUTENODE can run the following services, depending on the requested components: <ul><li>YARN NodeManager </li><li>Spark libraries</li></ul></li></ul>
 
 
 ## ListUILinks {#ListUILinks}

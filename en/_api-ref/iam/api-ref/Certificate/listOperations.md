@@ -9,7 +9,7 @@ Lists operations for the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/saml/certificates/{certificateId}/operations
+GET https://iam.{{ api-host }}/iam/v1/saml/certificates/{certificateId}/operations
 ```
  
 ## Path parameters {#path_params}

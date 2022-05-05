@@ -9,7 +9,7 @@ Returns the statuses of all targets of the specified backend group in all their 
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}/targetStates/{backendGroupId}/{targetGroupId}
+GET https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}/targetStates/{backendGroupId}/{targetGroupId}
 ```
  
 ## Path parameters {#path_params}

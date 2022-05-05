@@ -9,7 +9,7 @@ Returns outputs of the specified cell.
  
 ## HTTP request {#https-request}
 ```
-GET https://datasphere.api.cloud.yandex.net/datasphere/v1/projects/{projectId}:cellOutputs
+GET https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:cellOutputs
 ```
  
 ## Path parameters {#path_params}

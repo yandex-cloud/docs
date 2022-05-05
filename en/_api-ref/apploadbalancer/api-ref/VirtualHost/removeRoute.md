@@ -9,7 +9,7 @@ Deletes the specified route from the specified virtual host.
  
 ## HTTP request {#https-request}
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:removeRoute
+POST https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:removeRoute
 ```
  
 ## Path parameters {#path_params}

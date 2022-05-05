@@ -9,7 +9,7 @@ Retrieves the list of operations for the specified access key.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}/operations
+GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}/operations
 ```
  
 ## Path parameters {#path_params}

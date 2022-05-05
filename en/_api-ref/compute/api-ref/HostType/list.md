@@ -9,7 +9,7 @@ List avaliable host types.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/hostTypes
+GET https://compute.{{ api-host }}/compute/v1/hostTypes
 ```
  
 ## Query parameters {#query_params}

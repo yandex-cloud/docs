@@ -9,7 +9,7 @@ Updates access bindings of the specified desktop group.
  
 ## HTTP request {#https-request}
 ```
-POST https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{resourceId}:updateAccessBindings
+POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

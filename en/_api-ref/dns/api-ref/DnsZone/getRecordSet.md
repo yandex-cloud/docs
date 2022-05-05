@@ -9,7 +9,7 @@ Returns the specified record set.
  
 ## HTTP request {#https-request}
 ```
-GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:getRecordSet
+GET https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:getRecordSet
 ```
  
 ## Path parameters {#path_params}

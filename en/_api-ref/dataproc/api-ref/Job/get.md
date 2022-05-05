@@ -9,7 +9,7 @@ Returns the specified job.
  
 ## HTTP request {#https-request}
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/jobs/{jobId}
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ To get the list of all available secrets, make a [list](/docs/lockbox/api-ref/Se
  
 ## HTTP request {#https-request}
 ```
-GET https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/payload
+GET https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/{secretId}/payload
 ```
  
 ## Path parameters {#path_params}

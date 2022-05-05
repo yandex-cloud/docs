@@ -9,7 +9,7 @@ To get the list of available filesystems, make a [list](/docs/compute/api-ref/Fi
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/filesystems/{filesystemId}
+GET https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
 ```
  
 ## Path parameters {#path_params}

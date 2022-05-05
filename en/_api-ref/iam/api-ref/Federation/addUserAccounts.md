@@ -9,7 +9,7 @@ Adds users to the specified federation.
  
 ## HTTP request {#https-request}
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}:addUserAccounts
+POST https://iam.{{ api-host }}/iam/v1/saml/federations/{federationId}:addUserAccounts
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Lists existing access bindings for the specified proxy.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies/{resourceId}:listAccessBindings
+GET https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

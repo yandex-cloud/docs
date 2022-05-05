@@ -41,7 +41,7 @@ folder_id | **string**<br>
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><li>`MP3`: transcription only</li><ul/>
+audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><li>`MP3`: transcription only</li></ul>
 sample_rate_hertz | **int64**<br>8000, 16000, 48000 only for pcm 
 language_code | **string**<br>code in BCP-47 
 profanity_filter | **bool**<br> 
@@ -139,7 +139,7 @@ folder_id | **string**<br>
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><li>`MP3`: transcription only</li><ul/>
+audio_encoding | enum **AudioEncoding**<br> <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><li>`MP3`: transcription only</li></ul>
 sample_rate_hertz | **int64**<br>8000, 16000, 48000 only for pcm 
 language_code | **string**<br>code in BCP-47 
 profanity_filter | **bool**<br> 

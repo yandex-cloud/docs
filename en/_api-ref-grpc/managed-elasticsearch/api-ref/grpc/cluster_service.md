@@ -52,12 +52,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -125,7 +125,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -150,7 +150,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list Elasticsearch clusters in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name to filter by. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`. </li></ol><br>Example of a filter: `name NOT IN 'test,beta'`. The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -171,12 +171,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -244,7 +244,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -357,7 +357,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -366,8 +366,8 @@ hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclu
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the extension. The maximum string length in characters is 50.
-uri | **string**<br>URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
-disabled | **bool**<br> 
+uri | **string**<br>URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
+disabled | **bool**<br>The flag shows whether to create the extension in disabled state. 
 
 
 ### Operation {#Operation}
@@ -403,12 +403,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -476,7 +476,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -566,7 +566,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -603,12 +603,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -676,7 +676,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -781,12 +781,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -854,7 +854,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -916,12 +916,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -989,7 +989,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -1051,12 +1051,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1124,7 +1124,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -1186,12 +1186,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1259,7 +1259,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -1389,8 +1389,8 @@ shard_name | **string**<br>The shard name to create on the host. The maximum str
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the extension. The maximum string length in characters is 50.
-uri | **string**<br>URI of the zip arhive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
-disabled | **bool**<br> 
+uri | **string**<br>URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
+disabled | **bool**<br>The flag shows whether to create the extension in disabled state. 
 
 
 ### Operation {#Operation7}
@@ -1427,12 +1427,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1500,7 +1500,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 
@@ -1529,8 +1529,8 @@ to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-b
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
 always_next_page_token | **bool**<br>The flag that defines behavior of providing the next page token. <br>If this flag is set to `true`, this API method will always return [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse), even if current page is empty. 
-filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`. </li></ol> The maximum string length in characters is 1000.
-service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><ul/>
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`. </li></ol><br>Example of a filter: `message.hostname='node1.db.cloud.yandex.net'` The maximum string length in characters is 1000.
+service_type | enum **ServiceType**<br>Type of the service to request logs about. 
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
@@ -1564,8 +1564,8 @@ column_filter[] | **string**<br>Columns from logs table to get in the response. 
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. <br>If this field is not set, all existing logs will be sent and then the new ones asthey appear. In essence it has `tail -f` semantics. 
 record_token | **string**<br>Record token. <br>Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord) returned by a previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from next log record. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
-service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><ul/>
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name to filter by. Currently filtering can be applied to the `hostname` field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol><br>Example of a filter: `message.hostname='node1.db.cloud.yandex.net'` The maximum string length in characters is 1000.
+service_type | enum **ServiceType**<br>Type of the service to request logs about. 
 
 
 ### StreamLogRecord {#StreamLogRecord}
@@ -1653,9 +1653,9 @@ Field | Description
 name | **string**<br>Name of the host. 
 cluster_id | **string**<br>ID of the Elasticsearch cluster. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
-type | enum **Type**<br>Host type. <ul><li>`DATA_NODE`: the host is an Elasticsearch data node.</li><li>`MASTER_NODE`: the host is an Elasticsearch master node.</li><ul/>
+type | enum **Type**<br>Host type. <ul><li>`DATA_NODE`: the host is an Elasticsearch data node.</li><li>`MASTER_NODE`: the host is an Elasticsearch master node.</li></ul>
 resources | **[Resources](#Resources)**<br> 
-health | enum **Health**<br>Aggregated host health data. <ul><li>`UNKNOWN`: health of the host is unknown.</li><li>`ALIVE`: the host is performing all its functions normally.</li><li>`DEAD`: the host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: the host is degraded and can perform only some of its essential functions.</li><ul/>
+health | enum **Health**<br>Aggregated host health data. <ul><li>`UNKNOWN`: health of the host is unknown.</li><li>`ALIVE`: the host is performing all its functions normally.</li><li>`DEAD`: the host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: the host is degraded and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet the host resides in. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the host. <br>If the value is `true`, then this host is available on the Internet via it's public IP address. 
@@ -1674,8 +1674,8 @@ disk_type_id | **string**<br>Type of the storage environment for the host. All a
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Type of the service provided by the host. <ul><li>`ELASTICSEARCH`: the Elasticsearch service.</li><ul/>
-health | enum **Health**<br>Service health data. <ul><li>`UNKNOWN`: health of the service is unknown.</li><li>`ALIVE`: the service is working normally.</li><li>`DEAD`: the service is dead or unresponsive.</li><ul/>
+type | enum **Type**<br>Type of the service provided by the host. <ul><li>`ELASTICSEARCH`: the Elasticsearch service.</li></ul>
+health | enum **Health**<br>Service health data. <ul><li>`UNKNOWN`: health of the service is unknown.</li><li>`ALIVE`: the service is working normally.</li><li>`DEAD`: the service is dead or unresponsive.</li></ul>
 
 
 ## AddHosts {#AddHosts}
@@ -1788,7 +1788,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Required. ID of the Elasticsearch cluster to maintenance reschedule. The maximum string length in characters is 50.
-reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. <ul><ul/>
+reschedule_type | enum **RescheduleType**<br>Required. Required. The type of reschedule request. 
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled. 
 
 
@@ -1826,12 +1826,12 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Elasticsearch cluster. The name must be unique within the folder. 1-63 characters long. 
 description | **string**<br>Description of the Elasticsearch cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. A maximum of 64 labels per resource is allowed. 
-environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Elasticsearch cluster. <ul><li>`PRODUCTION`: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring9)**<br>Description of monitoring systems relevant to the Elasticsearch cluster. 
 config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the Elasticsearch cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host1) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host1) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host1) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host1) of at least one of the hosts in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: state of the cluster is unknown ([Host.health](#Host1) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: cluster is alive and well ([Host.health](#Host1) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: cluster is inoperable ([Host.health](#Host1) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: cluster is in degraded state ([Host.health](#Host1) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li></ul>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -1899,7 +1899,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br> <ul><ul/>
+day | enum **WeekDay**<br> 
 hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
 
 

@@ -42,7 +42,7 @@ folder_id | **string**<br>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
 storage_config | **[StorageConfig](#StorageConfig)**<br> 
@@ -178,8 +178,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule)**<br>provide schedule. if 
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule}
@@ -248,7 +248,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter)**<br>alert paratemers t
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -336,7 +336,7 @@ folder_id | **string**<br>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
 storage_config | **[StorageConfig](#StorageConfig2)**<br> 
@@ -472,8 +472,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule1)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule1}
@@ -542,7 +542,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter1)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -747,8 +747,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule2)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule2}
@@ -817,7 +817,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter2)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -906,7 +906,7 @@ folder_id | **string**<br>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
 storage_config | **[StorageConfig](#StorageConfig6)**<br> 
@@ -1042,8 +1042,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule3)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule3}
@@ -1112,7 +1112,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter3)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -1319,8 +1319,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule4)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule4}
@@ -1389,7 +1389,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter4)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -1478,7 +1478,7 @@ folder_id | **string**<br>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
 storage_config | **[StorageConfig](#StorageConfig10)**<br> 
@@ -1614,8 +1614,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule5)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule5}
@@ -1684,7 +1684,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter5)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -1790,7 +1790,7 @@ folder_id | **string**<br>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
 storage_config | **[StorageConfig](#StorageConfig12)**<br> 
@@ -1926,8 +1926,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule6)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule6}
@@ -1996,7 +1996,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter6)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -2102,7 +2102,7 @@ folder_id | **string**<br>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
 storage_config | **[StorageConfig](#StorageConfig14)**<br> 
@@ -2238,8 +2238,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule7)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule7}
@@ -2308,7 +2308,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter7)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -2458,7 +2458,7 @@ folder_id | **string**<br>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
 storage_config | **[StorageConfig](#StorageConfig16)**<br> 
@@ -2594,8 +2594,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule8)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule8}
@@ -2664,7 +2664,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter8)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 
@@ -2748,8 +2748,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule9)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule9}
@@ -2826,7 +2826,7 @@ folder_id | **string**<br>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 name | **string**<br> 
 description | **string**<br> 
-status | enum **Status**<br> <ul><ul/>
+status | enum **Status**<br> 
 endpoint | **string**<br> 
 resource_preset_id | **string**<br> 
 storage_config | **[StorageConfig](#StorageConfig18)**<br> 
@@ -2962,8 +2962,8 @@ backup_schedule | **[BackupSchedule](#BackupSchedule10)**<br>provide schedule. i
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
-storage_class | enum **StorageClass**<br> <ul><ul/>
+type | enum **[Type](./storage_type#undefined)**<br> 
+storage_class | enum **StorageClass**<br> 
 
 
 ### BackupSchedule {#BackupSchedule10}
@@ -3032,7 +3032,7 @@ alert_thresholds[] | **[AlertParameter](#AlertParameter9)**<br>alert paratemers 
 Field | Description
 --- | ---
 notification_channel_id | **string**<br> 
-notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> 
 repeate_notify_delay_ms | **int64**<br> 
 
 

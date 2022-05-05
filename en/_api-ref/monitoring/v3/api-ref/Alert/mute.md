@@ -9,7 +9,7 @@ Mute the specified alert.
  
 ## HTTP request {#https-request}
 ```
-POST https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts/{alertId}:mute
+POST https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}:mute
 ```
  
 ## Path parameters {#path_params}

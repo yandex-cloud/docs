@@ -9,7 +9,7 @@ Stops the specified Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}:stop
+POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}:stop
 ```
  
 ## Path parameters {#path_params}

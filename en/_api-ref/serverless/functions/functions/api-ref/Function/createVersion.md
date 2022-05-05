@@ -9,7 +9,7 @@ Creates a version for the specified function.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
+POST https://serverless-functions.{{ api-host }}/functions/v1/versions
 ```
  
 ## Body parameters {#body_params}

@@ -9,7 +9,7 @@ Lists operations for the specified trigger.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers/{triggerId}/operations
+GET https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}/operations
 ```
  
 ## Path parameters {#path_params}

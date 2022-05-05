@@ -9,7 +9,7 @@ List organization active members.
  
 ## HTTP request {#https-request}
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{organizationId}/users
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/users
 ```
  
 ## Path parameters {#path_params}

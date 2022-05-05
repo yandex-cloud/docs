@@ -9,7 +9,7 @@ Retrieves the list of Address resources in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/addresses
+GET https://vpc.{{ api-host }}/vpc/v1/addresses
 ```
  
 ## Query parameters {#query_params}

@@ -9,7 +9,7 @@ Retrieves the list of desktop resources.
  
 ## HTTP request {#https-request}
 ```
-GET https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktops
+GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
 ```
  
 ## Query parameters {#query_params}

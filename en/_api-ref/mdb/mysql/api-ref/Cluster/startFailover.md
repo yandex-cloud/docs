@@ -9,7 +9,7 @@ Starts a manual failover for a cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:startFailover
+POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}:startFailover
 ```
  
 ## Path parameters {#path_params}

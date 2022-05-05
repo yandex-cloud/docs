@@ -9,7 +9,7 @@ Deletes the specified PostgreSQL database.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
+DELETE https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}
