@@ -37,8 +37,8 @@
 
 * С помощью Terraform
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. Если у вас еще нет {{ TF }}, {% if audience != "internal" %}[установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его{% endif %}.
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и {% if audience != "internal" %}[укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}укажите значения параметров{% endif %}.
     1. Скачайте в ту же рабочую директорию файл конфигурации для подходящего типа кластера:
 
         * [redis-cluster-non-sharded-and-vm.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/redis-as-php-session-storage/redis-cluster-non-sharded-and-vm-for-php.tf) — для нешардированного кластера.
@@ -56,7 +56,7 @@
 
         * Пароль для доступа к кластеру {{ mrd-name }}.
         * Идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) LAMP/LEMP. Например, `fd832gltdaeepe0m2hi8` для LAMP.
-        * Логин и путь к файлу [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
+        * Логин и путь к файлу {% if audience != "internal" %}[открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}открытого ключа{% endif %}, которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
     1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -226,8 +226,8 @@
     Если созданные ресурсы вам больше не нужны, удалите их:
 
     * [Удалите кластер {{ mrd-full-name }}](../../managed-redis/operations/cluster-delete.md).
-    * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-    * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    * {% if audience != "internal" %}[Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите виртуальную машину{% endif %}.
+    * Если вы зарезервировали публичные статические IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
 
 * С помощью Terraform
 
