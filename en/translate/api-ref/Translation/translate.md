@@ -10,7 +10,7 @@ Translates the text to the specified language.
  
 ## HTTP request {#https-request}
 ```
-POST https://translate.api.cloud.yandex.net/translate/v2/translate
+POST https://translate.{{ api-host }}/translate/v2/translate
 ```
  
 ## Body parameters {#body_params}

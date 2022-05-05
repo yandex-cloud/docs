@@ -11,7 +11,7 @@ use the origin group via a [purge](/docs/cdn/api-ref/Cache/purge) request.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://cdn.api.cloud.yandex.net/cdn/v1/originGroups
+PATCH https://cdn.{{ api-host }}/cdn/v1/originGroups
 ```
  
 ## Body parameters {#body_params}

@@ -3,7 +3,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/_includes/exa
 ---
 # Приложение на Node.js
 
-На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-nodejs-sdk/tree/master/examples/basic-example-v1), доступного в составе [Node.js SDK](https://github.com/yandex-cloud/ydb-nodejs-sdk) {{ ydb-short-name }}.
+На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-nodejs-sdk/tree/master/examples/basic-example-v1), доступного в составе [Node.js SDK](https://github.com/ydb-platform/ydb-nodejs-sdk) {{ ydb-short-name }}.
 
 {% include [init.md](steps/01_init.md) %}
 

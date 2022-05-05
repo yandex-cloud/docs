@@ -10,7 +10,7 @@ Creates a network load balancer in the specified folder using the data specified
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers
+POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
 ```
  
 ## Body parameters {#body_params}

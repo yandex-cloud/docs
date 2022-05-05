@@ -10,7 +10,7 @@ Lists existing access bindings for the specified API gateway.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{resourceId}:listAccessBindings
+GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

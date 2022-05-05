@@ -10,7 +10,7 @@ Lists operations for the specified disk.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}/operations
+GET https://compute.{{ api-host }}/compute/v1/disks/{diskId}/operations
 ```
  
 ## Path parameters {#path_params}

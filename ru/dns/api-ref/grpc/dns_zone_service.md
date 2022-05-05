@@ -77,7 +77,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list DNS zones in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZonesResponse.next_page_token](#ListDnsZonesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZonesResponse.next_page_token](#ListDnsZonesResponse) returned by a previous list request. The maximum string length in characters is 1000.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters DNS zones listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-dns-zone`. The maximum string length in characters is 1000.
 
 
 ### ListDnsZonesResponse {#ListDnsZonesResponse}
@@ -129,10 +129,10 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create DNS zones in. <br>To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the DNS zone. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the DNS zone. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the DNS zone. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-zone | **string**<br>Required. DNS zone suffix. The maximum string length in characters is 255. Value must match the regular expression ` [.]|[a-z0-9][-a-z0-9.]*\\. `.
+zone | **string**<br>Required. DNS zone suffix. The maximum string length in characters is 255. Value must match the regular expression ` [.]\|[a-z0-9][-a-z0-9.]*\\. `.
 private_visibility | **[PrivateVisibility](#PrivateVisibility2)**<br>Privately visible zone settings. At least one of two visibility fields must be set. 
 public_visibility | **[PublicVisibility](#PublicVisibility2)**<br>Publicly visible zone settings. At least one of two visibility fields must be set. 
 
@@ -213,9 +213,9 @@ Field | Description
 --- | ---
 dns_zone_id | **string**<br>ID of the DNS zone to update. <br>To get the DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask specifying which fields of the DNS zone resource are going to be updated. 
-name | **string**<br>New name for the DNS zone. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>New name for the DNS zone. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description of the DNS zone. The maximum string length in characters is 256.
-labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [DnsZoneService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+labels | **map<string,string>**<br>DNS zone labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [DnsZoneService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 private_visibility | **[PrivateVisibility](#PrivateVisibility4)**<br>Change network IDs for private visibility. 
 public_visibility | **[PublicVisibility](#PublicVisibility4)**<br>Public visibility configuration. 
 
@@ -358,7 +358,7 @@ Field | Description
 dns_zone_id | **string**<br>ID of the DNS zone to list record sets in. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.next_page_token](#ListDnsZoneRecordSetsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZoneRecordSetsResponse.next_page_token](#ListDnsZoneRecordSetsResponse) returned by a previous list request. The maximum string length in characters is 1000.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [RecordSet.name](#RecordSet1) and [RecordSet.type](#RecordSet1) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters record sets listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [RecordSet.name](#RecordSet1) and [RecordSet.type](#RecordSet1) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-record-set`. The maximum string length in characters is 1000.
 
 
 ### ListDnsZoneRecordSetsResponse {#ListDnsZoneRecordSetsResponse}
@@ -381,7 +381,7 @@ data[] | **string**<br>Data of the record set. The number of elements must be in
 
 ## UpdateRecordSets {#UpdateRecordSets}
 
-<ol><li>Deleted record is not found. </li><li>Found record with matched type and name but different TTL or value. </li><li>Attempted to add record with existing name and type. </li></ol>
+Method with strict control for changing zone state. Returns error when: <ol><li>Deleted record is not found. </li><li>Found record with matched type and name but different TTL or value. </li><li>Attempted to add record with existing name and type. </li></ol>Deletions happen first. If a record with the same name and type exists in both lists, then the existing record will be deleted, and a new one added.
 
 **rpc UpdateRecordSets ([UpdateRecordSetsRequest](#UpdateRecordSetsRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -491,7 +491,7 @@ Field | Description
 dns_zone_id | **string**<br>ID of the DNS zone to list operations for. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZoneOperationsResponse.next_page_token](#ListDnsZoneOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZoneOperationsResponse.next_page_token](#ListDnsZoneOperationsResponse) returned by a previous list request. The maximum string length in characters is 1000.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters DNS zones listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-dns-zone`. The maximum string length in characters is 1000.
 
 
 ### ListDnsZoneOperationsResponse {#ListDnsZoneOperationsResponse}
@@ -553,8 +553,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -587,8 +587,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation6}
@@ -636,7 +636,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -652,8 +652,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation7}

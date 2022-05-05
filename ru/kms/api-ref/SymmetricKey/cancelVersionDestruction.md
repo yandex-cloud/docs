@@ -10,7 +10,7 @@ Cancels previously scheduled version destruction, if the version hasn't been des
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:cancelVersionDestruction
+POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:cancelVersionDestruction
 ```
  
 ## Path parameters {#path_params}

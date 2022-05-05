@@ -10,7 +10,7 @@ Retrieves a list of hosts for a cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts
+GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/hosts
 ```
  
 ## Path parameters {#path_params}

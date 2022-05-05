@@ -11,7 +11,7 @@ Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
  
 ## HTTP request {#https-request}
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/cname/{folderId}
+GET https://cdn.{{ api-host }}/cdn/v1/cname/{folderId}
 ```
  
 ## Path parameters {#path_params}

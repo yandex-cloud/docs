@@ -10,7 +10,7 @@ Start the specified Redis cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:start
+POST https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

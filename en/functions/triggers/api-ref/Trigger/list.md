@@ -10,7 +10,7 @@ Retrieves the list of triggers in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers
+GET https://serverless-triggers.{{ api-host }}/triggers/v1/triggers
 ```
  
 ## Query parameters {#query_params}

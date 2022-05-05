@@ -10,7 +10,7 @@ Updates the specified federation.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}
+PATCH https://iam.{{ api-host }}/iam/v1/saml/federations/{federationId}
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Retrieves the list of federations in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/saml/federations
+GET https://iam.{{ api-host }}/iam/v1/saml/federations
 ```
  
 ## Query parameters {#query_params}

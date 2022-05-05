@@ -10,7 +10,7 @@ Starts the specified Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}:start
+POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

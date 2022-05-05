@@ -10,7 +10,7 @@ Retrieves the list of TargetGroup resources in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups
+GET https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups
 ```
  
 ## Query parameters {#query_params}

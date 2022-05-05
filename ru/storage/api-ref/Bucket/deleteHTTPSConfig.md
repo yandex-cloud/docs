@@ -10,7 +10,7 @@ Deletes the HTTPS configuration for the specified bucket.
  
 ## HTTP request {#https-request}
 ```
-POST https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}:deleteHttpsConfig
+POST https://storage.{{ api-host }}/storage/v1/buckets/{name}:deleteHttpsConfig
 ```
  
 ## Path parameters {#path_params}

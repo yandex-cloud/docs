@@ -10,7 +10,7 @@ Updates access bindings for the specified log group.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://logging.api.cloud.yandex.net/logging/v1/logGroups/{resourceId}:updateAccessBindings
+PATCH https://logging.{{ api-host }}/logging/v1/logGroups/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

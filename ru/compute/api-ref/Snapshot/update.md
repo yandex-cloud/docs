@@ -10,7 +10,7 @@ Values of omitted parameters are not changed.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://compute.api.cloud.yandex.net/compute/v1/snapshots/{snapshotId}
+PATCH https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
 ```
  
 ## Path parameters {#path_params}

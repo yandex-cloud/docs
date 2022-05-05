@@ -34,12 +34,12 @@ The database name in the target cluster must be the same as the source database 
 1. [Create a source endpoint](../../data-transfer/operations/source-endpoint.md#create-endpoint) with the following parameters:
     * **Database type**: `MongoDB`.
     * **Endpoint parameters** → **Connection settings**: `Custom installation`.
-Specify the parameters for connecting to the source cluster.
+        Specify the parameters for connecting to the source cluster.
 
 1. [Create a target endpoint](../../data-transfer/operations/target-endpoint.md#create-endpoint) with the following parameters:
     * **Database type**: `MongoDB`.
     * **Endpoint parameters** → **Connection settings**: `MDB cluster`.
-Specify the ID of the target cluster.
+        Specify the ID of the target cluster.
 
 1. [Create a transfer](../../data-transfer/operations/transfer.md#create-transfer) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
 

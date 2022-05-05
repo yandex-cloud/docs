@@ -10,7 +10,7 @@ Updates the specified DNS zone.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}
+PATCH https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
 ```
  
 ## Path parameters {#path_params}

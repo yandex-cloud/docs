@@ -10,7 +10,7 @@ Updates the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://iam.api.cloud.yandex.net/iam/v1/saml/certificates/{certificateId}
+PATCH https://iam.{{ api-host }}/iam/v1/saml/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}

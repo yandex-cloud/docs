@@ -10,7 +10,7 @@ Deletes the specified target group.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}
+DELETE https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}
 ```
  
 ## Path parameters {#path_params}

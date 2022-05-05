@@ -10,7 +10,7 @@ This request does not allow to add `defaultHandler`. Make an [updateListener](/d
  
 ## HTTP request {#https-request}
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:addSniMatch
+POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:addSniMatch
 ```
  
 ## Path parameters {#path_params}

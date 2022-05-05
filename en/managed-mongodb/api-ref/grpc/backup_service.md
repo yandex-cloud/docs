@@ -39,7 +39,7 @@ source_cluster_id | **string**<br>ID of the MongoDB cluster that the backup was 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 source_shard_names[] | **string**<br>Shard names used as a source for backup. 
 size | **int64**<br>Size of backup in bytes 
-type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li><ul/>
+type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
 
 
 ## List {#List}
@@ -76,7 +76,7 @@ source_cluster_id | **string**<br>ID of the MongoDB cluster that the backup was 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
 source_shard_names[] | **string**<br>Shard names used as a source for backup. 
 size | **int64**<br>Size of backup in bytes 
-type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li><ul/>
+type | enum **BackupType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
 
 
 ## Delete {#Delete}

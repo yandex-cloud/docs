@@ -10,7 +10,7 @@ Attaches a target group to the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup
+POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:attachTargetGroup
 ```
  
 ## Path parameters {#path_params}

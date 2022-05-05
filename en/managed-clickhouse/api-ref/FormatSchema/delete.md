@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/mdb/clickhouse/api-ref/FormatSchema/delete.md
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
+DELETE https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
 ```
  
 ## Path parameters {#path_params}

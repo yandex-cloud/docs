@@ -10,7 +10,7 @@ Moves a cluster to a folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:move
+POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}:move
 ```
  
 ## Path parameters {#path_params}

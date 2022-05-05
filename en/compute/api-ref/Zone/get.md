@@ -10,7 +10,7 @@ To get the list of availability zones, make a [list](/docs/compute/api-ref/Zone/
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/zones/{zoneId}
+GET https://compute.{{ api-host }}/compute/v1/zones/{zoneId}
 ```
  
 ## Path parameters {#path_params}

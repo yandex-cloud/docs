@@ -10,7 +10,7 @@ To get the list of available RouteTable resources, make a [list](/docs/vpc/api-r
  
 ## HTTP request {#https-request}
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/routeTables/{routeTableId}
+GET https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
 ```
  
 ## Path parameters {#path_params}

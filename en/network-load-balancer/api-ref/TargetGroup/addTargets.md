@@ -10,7 +10,7 @@ Adds targets to the target group.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups/{targetGroupId}:addTargets
+POST https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGroupId}:addTargets
 ```
  
 ## Path parameters {#path_params}

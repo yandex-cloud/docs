@@ -10,7 +10,7 @@ Updates the specified federation.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}
+PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}
 ```
  
 ## Path parameters {#path_params}

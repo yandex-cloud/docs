@@ -7,10 +7,10 @@
 
 Снижение производительности кластера {{ mmg-name }} чаще всего происходит по одной из следующих причин:
 
-- [высокая утилизация CPU и дискового I/O](#cpu-io-deficit),
-- [неэффективное выполнение запросов в {{ MG }}](#inefficient-queries),
-- [блокировки](#locks),
-- [недостаток дискового пространства](#disk-deficit).
+* [высокая утилизация CPU и дискового I/O](#cpu-io-deficit),
+* [неэффективное выполнение запросов в {{ MG }}](#inefficient-queries),
+* [блокировки](#locks),
+* [недостаток дискового пространства](#disk-deficit).
 
 Ниже приводятся советы по диагностике и решению этих проблем.
 
@@ -30,17 +30,17 @@
 
 Обратите внимание на следующие операции:
 
-- Запросы, не использующие индексы (`planSummary: COLLSCAN`). Такие запросы могут увеличивать как потребление I/O (чтений с диска будет больше), так и CPU (данные сжаты по умолчанию, для них требуется декомпрессия). Если необходимый индекс есть, но БД его не использует, можно форсировать использование индекса с помощью [hint](https://docs.mongodb.com/manual/reference/operator/meta/hint/index.html).
-- Запросы с большими значениями параметра `docsExamined` (количества просканированных документов). Это может означать, что текущие индексы неэффективны или требуются дополнительные.
+* Запросы, не использующие индексы (`planSummary: COLLSCAN`). Такие запросы могут увеличивать как потребление I/O (чтений с диска будет больше), так и CPU (данные сжаты по умолчанию, для них требуется декомпрессия). Если необходимый индекс есть, но БД его не использует, можно форсировать использование индекса с помощью [hint](https://docs.mongodb.com/manual/reference/operator/meta/hint/index.html).
+* Запросы с большими значениями параметра `docsExamined` (количества просканированных документов). Это может означать, что текущие индексы неэффективны или требуются дополнительные.
 
 В момент падения производительности проблему можно диагностировать в реальном времени с помощью [списка текущих запросов](../operations/tools.md#list-running-queries):
-  - Долгие операции, например, исполняющиеся более секунды:
+  * Долгие операции, например, исполняющиеся более секунды:
 
     ```javascript
     db.currentOp({"active": true, "secs_running": {"$gt": 1}})
     ```
 
-  - Операции по созданию индексов:
+  * Операции по созданию индексов:
 
     ```javascript
     db.currentOp({ $or: [{ op: "command", "query.createIndexes": { $exists: true } }, { op: "none", ns: /\.system\.indexes\b/ }] })
@@ -56,18 +56,18 @@
 
 Чтобы выявить проблемные запросы в {{ MG }}:
 
-- Изучите [логи](../operations/tools.md#explore-logs). Особое внимание обратите на:
-   - Для операций чтения — на поле `responseLength` (в логах отображается как `reslen`).
-   - Для операций записи — на количество затронутых документов.
+* Изучите [логи](../operations/tools.md#explore-logs). Особое внимание обратите на:
+   * Для операций чтения — на поле `responseLength` (в логах отображается как `reslen`).
+   * Для операций записи — на количество затронутых документов.
        В логах кластера они выводятся в полях `nModified`, `keysInserted`, `keysDeleted`. На странице [мониторинга кластера](../operations/monitoring.md#cluster) изучите графики **Documents affected on primary**, **Documents affected on secondaries**, **Documents affected per host**.
-- Изучите данные [профилировщика](../operations/tools.md#explore-profiler). Выведите долго выполняемые запросы (регулируется [настройкой СУБД `slowOpThreshold`](../concepts/settings-list.md#setting-slow-op-threshold)).
+* Изучите данные [профилировщика](../operations/tools.md#explore-profiler). Выведите долго выполняемые запросы (регулируется [настройкой СУБД `slowOpThreshold`](../concepts/settings-list.md#setting-slow-op-threshold)).
 
 ## Устранение проблем с неэффективными запросами {#optimize}
 
 Каждый отдельный запрос можно проанализировать с точки зрения его плана (query plan). Подробнее об этом можно прочитать в документации {{ MG }}:
 
-- [Руководство по анализу запросов](https://docs.mongodb.com/manual/tutorial/analyze-query-plan/).
-- [Справка по функции `db.collection.explain`](https://docs.mongodb.com/manual/reference/method/db.collection.explain/#db.collection.explain).
+* [Руководство по анализу запросов](https://docs.mongodb.com/manual/tutorial/analyze-query-plan/).
+* [Справка по функции `db.collection.explain`](https://docs.mongodb.com/manual/reference/method/db.collection.explain/#db.collection.explain).
 
 Изучите графики на странице [мониторинга кластера](../operations/monitoring.md#cluster):
 
@@ -93,29 +93,29 @@
 
 {{ MG }} не предоставляет подробной информации по блокировкам. В частности, есть только косвенные способы узнать, чем заблокирован конкретный запрос:
 
-- Большие или растущие значения `db.serverStatus().metrics.operation.writeConflicts` могут говорить о высоком write contention на каких-то документах.
+* Большие или растущие значения `db.serverStatus().metrics.operation.writeConflicts` могут говорить о высоком write contention на каких-то документах.
 
-- Большие или растущие значения на графике **Write conflicts per hosts** на странице [мониторинга кластера](../operations/monitoring.md#cluster).
+* Большие или растущие значения на графике **Write conflicts per hosts** на странице [мониторинга кластера](../operations/monitoring.md#cluster).
 
-- В момент падения производительности внимательно изучите [список текущих запросов](../operations/tools.md#list-running-queries):
-  - Найдите операции, которые удерживают эксклюзивные блокировки, например:
+* В момент падения производительности внимательно изучите [список текущих запросов](../operations/tools.md#list-running-queries):
+  * Найдите операции, которые удерживают эксклюзивные блокировки, например:
 
     ```javascript
     db.currentOp({'$or': [{'locks.Global': 'W'}, {'locks.Database': 'W'}, {'locks.Collection': 'W'} ]}).inprog
     ```
 
-  - Найдите операции, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
+  * Найдите операции, ожидающие блокировок (в поле `timeAcquiringMicros` будет видно время ожидания):
 
     ```javascript
     db.currentOp({'waitingForLock': true}).inprog
     db.currentOp({'waitingForLock': true, 'secs_running' : { '$gt' : 1 }}).inprog
     ```
 
-- В [логах](../operations/tools.md#explore-logs) и [профилировщике](../operations/tools.md#explore-profiler) обратите внимание на следующее:
-  - операции, долго ожидавшие получения блокировок, будут иметь большие значения `timeAcquiringMicros`;
-  - операции, которые конкурировали за одни и те же документы, будут иметь большие значения `writeConflicts`.
+* В [логах](../operations/tools.md#explore-logs) и [профилировщике](../operations/tools.md#explore-profiler) обратите внимание на следующее:
+  * операции, долго ожидавшие получения блокировок, будут иметь большие значения `timeAcquiringMicros`;
+  * операции, которые конкурировали за одни и те же документы, будут иметь большие значения `writeConflicts`.
 
-Обратитесь к официальной документации {{ MG }} за информацией о том, какие блокировки выполняют стандартные [клиентские](https://docs.mongodb.com/manual/faq/concurrency/#what-locks-are-taken-by-some-common-client-operations ) и [административные](https://docs.mongodb.com/manual/faq/concurrency/#which-administrative-commands-lock-the-database) команды.
+Обратитесь к официальной документации {{ MG }} за информацией о том, какие блокировки выполняют стандартные [клиентские](https://docs.mongodb.com/manual/faq/concurrency/#what-locks-are-taken-by-some-common-client-operations-) и [административные](https://docs.mongodb.com/manual/faq/concurrency/#which-administrative-commands-lock-a-database-) команды.
 
 ## Устранение проблем с блокировками {#solve-locks}
 

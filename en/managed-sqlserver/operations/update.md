@@ -254,7 +254,6 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mms-name }}**.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the row of the cluster that you want to move.
   1. Click **Move**.

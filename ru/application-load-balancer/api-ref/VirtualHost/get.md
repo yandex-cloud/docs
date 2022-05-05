@@ -10,7 +10,7 @@ To get the list of all virtual hosts of an HTTP router, make a [list](/docs/appl
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
+GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
 ```
  
 ## Path parameters {#path_params}

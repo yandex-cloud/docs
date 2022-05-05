@@ -11,7 +11,7 @@ This method starts an operation that can be cancelled by another operation.
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups:yaml
+POST https://compute.{{ api-host }}/compute/v1/instanceGroups:yaml
 ```
  
 ## Body parameters {#body_params}

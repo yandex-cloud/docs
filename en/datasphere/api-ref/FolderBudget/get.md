@@ -10,7 +10,7 @@ Returns the specified folder budget.
  
 ## HTTP request {#https-request}
 ```
-GET https://datasphere.api.cloud.yandex.net/datasphere/v1/folders/{folderId}:budget
+GET https://datasphere.{{ api-host }}/datasphere/v1/folders/{folderId}:budget
 ```
  
 ## Path parameters {#path_params}

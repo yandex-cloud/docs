@@ -10,7 +10,7 @@ Deletes the specified application load balancer.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}
+DELETE https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}
 ```
  
 ## Path parameters {#path_params}

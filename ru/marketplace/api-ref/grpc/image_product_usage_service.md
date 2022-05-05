@@ -58,6 +58,6 @@ uuid | **string**<br>Unique identifier of the usage record (UUID format).
 Field | Description
 --- | ---
 uuid | **string**<br>Unique identifier of the usage record (UUID format). 
-reason | enum **Reason**<br>The reason of rejection. <ul><ul/>
+reason | enum **Reason**<br>The reason of rejection. 
 
 

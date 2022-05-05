@@ -59,7 +59,7 @@
 ## Управление уязвимостями {#vulnerability-management}
 
 - **Автоматизированное сканирование уязвимостей**: используйте бесплатные сетевые сканеры, например nmap, OpenVAS, OWASP ZAP, или агенты на хостах, например Wazuh, Tripwire.
-- **Внешние сканирования безопасности**: проводите сканирования в соответствии с [правилами](../../overview/compliance/pentest.md).
+- **Внешние сканирования безопасности**: проводите сканирования в соответствии с [правилами](../compliance/pentest.md).
 - **Обновления ПО, ОС**: самостоятельно устанавливайте обновления, используйте автоматизированные инструменты обновлений.
 - **Web Application Firewall**: установите WAF из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace?categories=security) или воспользуйтесь Managed WAF — для получения доступа обратитесь к своему менеджеру.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: PT Application Firewall на базе {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)

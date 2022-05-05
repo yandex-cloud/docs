@@ -43,7 +43,7 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
-status | enum **Status**<br>Current status of the placement group <ul><ul/>
+status | enum **Status**<br>Current status of the placement group 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
 &nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy)**<br>Distribute instances over distinct failure domains. 
 
@@ -87,7 +87,7 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
-status | enum **Status**<br>Current status of the placement group <ul><ul/>
+status | enum **Status**<br>Current status of the placement group 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
 &nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy1)**<br>Distribute instances over distinct failure domains. 
 
@@ -111,7 +111,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a placement group in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the placement group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the placement group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the placement group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 zone_id | **string**<br>Required. ID of the availability zone where the placement group resides. To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
@@ -157,7 +157,7 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
-status | enum **Status**<br>Current status of the placement group <ul><ul/>
+status | enum **Status**<br>Current status of the placement group 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
 &nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy3)**<br>Distribute instances over distinct failure domains. 
 
@@ -182,7 +182,7 @@ Field | Description
 --- | ---
 disk_placement_group_id | **string**<br>Required. ID of the placement group to update. To get the placement group ID, use an [DiskPlacementGroupService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the DiskPlacementGroup resource are going to be updated. 
-name | **string**<br>Name of the placement group. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the placement group. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the placement group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>The existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 
@@ -221,7 +221,7 @@ name | **string**<br>Name of the placement group. The name is unique within the 
 description | **string**<br>Description of the placement group. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. 
 zone_id | **string**<br>ID of the availability zone where the placement group resides. 
-status | enum **Status**<br>Current status of the placement group <ul><ul/>
+status | enum **Status**<br>Current status of the placement group 
 placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy.
 &nbsp;&nbsp;spread_placement_strategy | **[DiskSpreadPlacementStrategy](#DiskSpreadPlacementStrategy4)**<br>Distribute instances over distinct failure domains. 
 
@@ -308,7 +308,7 @@ zone_id | **string**<br>ID of the availability zone where the disk resides.
 size | **int64**<br>Size of the disk, specified in bytes. 
 block_size | **int64**<br>Block size of the disk, specified in bytes. 
 product_ids[] | **string**<br>License IDs that indicate which licenses are attached to this resource. License IDs are used to calculate additional charges for the use of the virtual machine. <br>The correct license ID is generated by Yandex Cloud. IDs are inherited by new resources created from this resource. <br>If you know the license IDs, specify them when you create the image. For example, if you create a disk image using a third-party utility and load it into Yandex Object Storage, the license IDs will be lost. You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/compute/api-ref/grpc/image_service#Create) request. 
-status | enum **Status**<br>Current status of the disk. <ul><li>`CREATING`: Disk is being created.</li><li>`READY`: Disk is ready to use.</li><li>`ERROR`: Disk encountered a problem and cannot operate.</li><li>`DELETING`: Disk is being deleted.</li><ul/>
+status | enum **Status**<br>Current status of the disk. <ul><li>`CREATING`: Disk is being created.</li><li>`READY`: Disk is ready to use.</li><li>`ERROR`: Disk encountered a problem and cannot operate.</li><li>`DELETING`: Disk is being deleted.</li></ul>
 source | **oneof:** `source_image_id` or `source_snapshot_id`<br>
 &nbsp;&nbsp;source_image_id | **string**<br>ID of the image that was used for disk creation. 
 &nbsp;&nbsp;source_snapshot_id | **string**<br>ID of the snapshot that was used for disk creation. 

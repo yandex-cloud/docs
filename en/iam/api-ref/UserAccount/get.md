@@ -10,7 +10,7 @@ Returns the specified UserAccount resource.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/userAccounts/{userAccountId}
+GET https://iam.{{ api-host }}/iam/v1/userAccounts/{userAccountId}
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Creates a cluster in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
+POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
 ```
  
 ## Body parameters {#body_params}

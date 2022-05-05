@@ -10,7 +10,7 @@ Detects the language of the text.
  
 ## HTTP request {#https-request}
 ```
-POST https://translate.api.cloud.yandex.net/translate/v2/detect
+POST https://translate.{{ api-host }}/translate/v2/detect
 ```
  
 ## Body parameters {#body_params}

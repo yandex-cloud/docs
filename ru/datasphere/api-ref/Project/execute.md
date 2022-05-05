@@ -10,7 +10,7 @@ Executes code in the specified cell or notebook.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v1/projects/{projectId}:execute
+POST https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:execute
 ```
  
 ## Path parameters {#path_params}

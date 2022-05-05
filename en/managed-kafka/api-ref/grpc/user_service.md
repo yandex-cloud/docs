@@ -47,7 +47,7 @@ permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to t
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ## List {#List}
@@ -87,7 +87,7 @@ permissions[] | **[Permission](#Permission1)**<br>Set of permissions granted to 
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ## Create {#Create}
@@ -122,7 +122,7 @@ permissions[] | **[Permission](#Permission2)**<br>Set of permissions granted to 
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ### Operation {#Operation}
@@ -163,7 +163,7 @@ permissions[] | **[Permission](#Permission3)**<br>Set of permissions granted to 
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ## Update {#Update}
@@ -192,7 +192,7 @@ permissions[] | **[Permission](#Permission4)**<br>New set of permissions for the
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ### Operation {#Operation1}
@@ -233,7 +233,7 @@ permissions[] | **[Permission](#Permission5)**<br>Set of permissions granted to 
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ## Delete {#Delete}
@@ -302,7 +302,7 @@ permission | **[Permission](#Permission6)**<br>Required. Permission that should 
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ### Operation {#Operation3}
@@ -343,7 +343,7 @@ permissions[] | **[Permission](#Permission7)**<br>Set of permissions granted to 
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ## RevokePermission {#RevokePermission}
@@ -370,7 +370,7 @@ permission | **[Permission](#Permission8)**<br>Required. Permission that should 
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 
 ### Operation {#Operation4}
@@ -411,6 +411,6 @@ permissions[] | **[Permission](#Permission9)**<br>Set of permissions granted to 
 Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
-role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li><ul/>
+role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
 
 

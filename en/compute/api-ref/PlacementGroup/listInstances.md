@@ -10,7 +10,7 @@ Lists instances for the specified placement group.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placementGroupId}/instances
+GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}/instances
 ```
  
 ## Path parameters {#path_params}

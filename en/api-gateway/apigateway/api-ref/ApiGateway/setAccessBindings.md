@@ -10,7 +10,7 @@ Sets access bindings for the specified API gateway.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{resourceId}:setAccessBindings
+POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

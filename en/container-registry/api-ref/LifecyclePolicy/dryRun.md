@@ -10,7 +10,7 @@ Creates a request of a dry run of the lifecycle policy.
  
 ## HTTP request {#https-request}
 ```
-POST https://container-registry.api.cloud.yandex.net/container-registry/v1/dryRunLifecyclePolicy/{lifecyclePolicyId}
+POST https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecyclePolicy/{lifecyclePolicyId}
 ```
  
 ## Path parameters {#path_params}

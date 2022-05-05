@@ -10,7 +10,7 @@ Retrieves information about a resource preset.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/resourcePresets/{resourcePresetId}
+GET https://mdb.{{ api-host }}/managed-mysql/v1/resourcePresets/{resourcePresetId}
 ```
  
 ## Path parameters {#path_params}

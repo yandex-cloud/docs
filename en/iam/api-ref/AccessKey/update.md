@@ -10,7 +10,7 @@ Updates the specified access key.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+PATCH https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
 ```
  
 ## Path parameters {#path_params}

@@ -59,7 +59,7 @@
 ## Managing vulnerabilities {#vulnerability-management}
 
 - **Automated vulnerability scanning**: Use free network scanners, such as nmap, OpenVAS, and OWASP ZAP, or host-based solutions, such as Wazuh and Tripwire.
-- **External security scans**: Perform scans according to the [rules](../../overview/compliance/pentest.md).
+- **External security scans**: Perform scans according to the [rules](../compliance/pentest.md).
 - **Software and OS updates**: Install updates manually and use automated update tools.
 - **Web Application Firewall**: Install WAF from [Yandex Cloud Marketplace](https://cloud.yandex.com/marketplace?categories=security) or use Managed WAF — contact your manager to get access. 
   ![](../../_assets/overview/solution-library-icon.svg)[Solution: PT Application Firewall built on Yandex Cloud](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)

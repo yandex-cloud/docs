@@ -10,7 +10,7 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/delete.md
  
 ## HTTP request {#https-request}
 ```
-DELETE https://datatransfer.api.cloud.yandex.net/v1/endpoint/{endpointId}
+DELETE https://datatransfer.{{ api-host }}/v1/endpoint/{endpointId}
 ```
  
 ## Path parameters {#path_params}

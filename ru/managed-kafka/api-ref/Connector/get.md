@@ -10,7 +10,7 @@ To get the list of available Apache Kafka Connector resources, make a [list](/do
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/connectors/{connectorName}
+GET https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors/{connectorName}
 ```
  
 ## Path parameters {#path_params}

@@ -37,7 +37,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the the model. 
 cluster_id | **string**<br>ID of the ClickHouse cluster that the model belongs to. 
-type | enum **MlModelType**<br>Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li><ul/>
+type | enum **MlModelType**<br>Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li></ul>
 uri | **string**<br>Model file URL. You can only use models stored in Yandex Object Storage. 
 
 
@@ -70,7 +70,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the the model. 
 cluster_id | **string**<br>ID of the ClickHouse cluster that the model belongs to. 
-type | enum **MlModelType**<br>Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li><ul/>
+type | enum **MlModelType**<br>Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li></ul>
 uri | **string**<br>Model file URL. You can only use models stored in Yandex Object Storage. 
 
 
@@ -90,7 +90,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to create a model in. <br>To get a cluster ID make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 ml_model_name | **string**<br>Required. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-type | enum **MlModelType**<br>Required. Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li><ul/>
+type | enum **MlModelType**<br>Required. Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li></ul>
 uri | **string**<br>Required. Model file URL. You can only use models stored in Yandex Object Storage. 
 
 
@@ -124,7 +124,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the the model. 
 cluster_id | **string**<br>ID of the ClickHouse cluster that the model belongs to. 
-type | enum **MlModelType**<br>Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li><ul/>
+type | enum **MlModelType**<br>Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li></ul>
 uri | **string**<br>Model file URL. You can only use models stored in Yandex Object Storage. 
 
 
@@ -178,7 +178,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the the model. 
 cluster_id | **string**<br>ID of the ClickHouse cluster that the model belongs to. 
-type | enum **MlModelType**<br>Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li><ul/>
+type | enum **MlModelType**<br>Type of the model. <ul><li>`ML_MODEL_TYPE_CATBOOST`: CatBoost model.</li></ul>
 uri | **string**<br>Model file URL. You can only use models stored in Yandex Object Storage. 
 
 

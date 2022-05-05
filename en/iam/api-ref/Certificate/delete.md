@@ -10,7 +10,7 @@ Deletes the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iam.api.cloud.yandex.net/iam/v1/saml/certificates/{certificateId}
+DELETE https://iam.{{ api-host }}/iam/v1/saml/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}

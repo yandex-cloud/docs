@@ -45,8 +45,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Kubernetes cluster. 
 description | **string**<br>Description of the Kubernetes cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li><ul/>
-health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
+status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li></ul>
+health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li></ul>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master)**<br>Properties of the master for the Kubernetes cluster. 
 ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
@@ -54,7 +54,7 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li></ul>
 network_policy | **[NetworkPolicy](#NetworkPolicy)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
@@ -181,7 +181,7 @@ service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes ser
 
 Field | Description
 --- | ---
-provider | enum **Provider**<br> <ul><ul/>
+provider | enum **Provider**<br> 
 
 
 ### KMSProvider {#KMSProvider}
@@ -195,7 +195,7 @@ key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID
 
 Field | Description
 --- | ---
-routing_mode | enum **RoutingMode**<br> <ul><ul/>
+routing_mode | enum **RoutingMode**<br> 
 
 
 ## List {#List}
@@ -211,7 +211,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -232,8 +232,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Kubernetes cluster. 
 description | **string**<br>Description of the Kubernetes cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li><ul/>
-health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
+status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li></ul>
+health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li></ul>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master1)**<br>Properties of the master for the Kubernetes cluster. 
 ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy1)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
@@ -241,7 +241,7 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li></ul>
 network_policy | **[NetworkPolicy](#NetworkPolicy1)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider1)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
@@ -368,7 +368,7 @@ service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes ser
 
 Field | Description
 --- | ---
-provider | enum **Provider**<br> <ul><ul/>
+provider | enum **Provider**<br> 
 
 
 ### KMSProvider {#KMSProvider1}
@@ -382,7 +382,7 @@ key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID
 
 Field | Description
 --- | ---
-routing_mode | enum **RoutingMode**<br> <ul><ul/>
+routing_mode | enum **RoutingMode**<br> 
 
 
 ## Create {#Create}
@@ -400,7 +400,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
-name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 network_id | **string**<br>Required. ID of the network. 
@@ -410,7 +410,7 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. 
 service_account_id | **string**<br>Required. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have `edit` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides. 
 node_service_account_id | **string**<br>Required. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br>Release channel for the master. <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+release_channel | enum **ReleaseChannel**<br>Release channel for the master. <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li></ul>
 network_policy | **[NetworkPolicy](#NetworkPolicy2)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider2)**<br>KMS provider configuration. 
 network_implementation | **oneof:** `cilium`<br>
@@ -538,7 +538,7 @@ service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes ser
 
 Field | Description
 --- | ---
-provider | enum **Provider**<br> <ul><ul/>
+provider | enum **Provider**<br> 
 
 
 ### KMSProvider {#KMSProvider2}
@@ -552,7 +552,7 @@ key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID
 
 Field | Description
 --- | ---
-routing_mode | enum **RoutingMode**<br> <ul><ul/>
+routing_mode | enum **RoutingMode**<br> 
 
 
 ### Operation {#Operation}
@@ -588,8 +588,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Kubernetes cluster. 
 description | **string**<br>Description of the Kubernetes cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li><ul/>
-health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
+status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li></ul>
+health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li></ul>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master2)**<br>Properties of the master for the Kubernetes cluster. 
 ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy3)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
@@ -597,7 +597,7 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li></ul>
 network_policy | **[NetworkPolicy](#NetworkPolicy3)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider3)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
@@ -724,7 +724,7 @@ service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes ser
 
 Field | Description
 --- | ---
-provider | enum **Provider**<br> <ul><ul/>
+provider | enum **Provider**<br> 
 
 
 ### KMSProvider {#KMSProvider3}
@@ -738,7 +738,7 @@ key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID
 
 Field | Description
 --- | ---
-routing_mode | enum **RoutingMode**<br> <ul><ul/>
+routing_mode | enum **RoutingMode**<br> 
 
 
 ## Update {#Update}
@@ -757,7 +757,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Kubernetes cluster to update. To get the Kubernetes cluster ID use a [ClusterService.List](#List) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the Kubernetes cluster. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
@@ -837,7 +837,7 @@ duration | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 
 Field | Description
 --- | ---
-provider | enum **Provider**<br> <ul><ul/>
+provider | enum **Provider**<br> 
 
 
 ### IPAllocationPolicy {#IPAllocationPolicy4}
@@ -884,8 +884,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Kubernetes cluster. 
 description | **string**<br>Description of the Kubernetes cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li><ul/>
-health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
+status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li></ul>
+health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li></ul>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master3)**<br>Properties of the master for the Kubernetes cluster. 
 ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy5)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
@@ -893,7 +893,7 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li></ul>
 network_policy | **[NetworkPolicy](#NetworkPolicy5)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider4)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
@@ -1020,7 +1020,7 @@ service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes ser
 
 Field | Description
 --- | ---
-provider | enum **Provider**<br> <ul><ul/>
+provider | enum **Provider**<br> 
 
 
 ### KMSProvider {#KMSProvider4}
@@ -1034,7 +1034,7 @@ key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID
 
 Field | Description
 --- | ---
-routing_mode | enum **RoutingMode**<br> <ul><ul/>
+routing_mode | enum **RoutingMode**<br> 
 
 
 ## Delete {#Delete}
@@ -1127,8 +1127,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Kubernetes cluster. 
 description | **string**<br>Description of the Kubernetes cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li><ul/>
-health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
+status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li></ul>
+health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li></ul>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master4)**<br>Properties of the master for the Kubernetes cluster. 
 ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy6)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
@@ -1136,7 +1136,7 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li></ul>
 network_policy | **[NetworkPolicy](#NetworkPolicy6)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider5)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
@@ -1263,7 +1263,7 @@ service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes ser
 
 Field | Description
 --- | ---
-provider | enum **Provider**<br> <ul><ul/>
+provider | enum **Provider**<br> 
 
 
 ### KMSProvider {#KMSProvider5}
@@ -1277,7 +1277,7 @@ key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID
 
 Field | Description
 --- | ---
-routing_mode | enum **RoutingMode**<br> <ul><ul/>
+routing_mode | enum **RoutingMode**<br> 
 
 
 ## Start {#Start}
@@ -1330,8 +1330,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Kubernetes cluster. 
 description | **string**<br>Description of the Kubernetes cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li><ul/>
-health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
+status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.</li><li>`RUNNING`: Kubernetes cluster is running.</li><li>`RECONCILING`: Kubernetes cluster is being reconciled.</li><li>`STOPPING`: Kubernetes cluster is being stopped.</li><li>`STOPPED`: Kubernetes cluster stopped.</li><li>`DELETING`: Kubernetes cluster is being deleted.</li><li>`STARTING`: Kubernetes cluster is being started.</li></ul>
+health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li></ul>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master5)**<br>Properties of the master for the Kubernetes cluster. 
 ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy7)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
@@ -1339,7 +1339,7 @@ internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
-release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li><ul/>
+release_channel | enum **ReleaseChannel**<br>When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions. Channels differ in the set of available versions, the management of auto-updates, and the updates received. You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel. For more details see [documentation](https://cloud.yandex.com/docs/managed-kubernetes/concepts/release-channels-and-updates). <ul><li>`RAPID`: Minor updates with new functions and improvements are often added. You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.</li><li>`REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.</li><li>`STABLE`: Only updates related to bug fixes or security improvements are added.</li></ul>
 network_policy | **[NetworkPolicy](#NetworkPolicy7)**<br> 
 kms_provider | **[KMSProvider](#KMSProvider6)**<br>KMS provider configuration. 
 log_group_id | **string**<br>Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. 
@@ -1466,7 +1466,7 @@ service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes ser
 
 Field | Description
 --- | ---
-provider | enum **Provider**<br> <ul><ul/>
+provider | enum **Provider**<br> 
 
 
 ### KMSProvider {#KMSProvider6}
@@ -1480,7 +1480,7 @@ key_id | **string**<br>KMS key ID for secrets encryption. To obtain a KMS key ID
 
 Field | Description
 --- | ---
-routing_mode | enum **RoutingMode**<br> <ul><ul/>
+routing_mode | enum **RoutingMode**<br> 
 
 
 ## ListNodeGroups {#ListNodeGroups}
@@ -1517,7 +1517,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the node group. The name is unique within the folder. 
 description | **string**<br>Description of the node group. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li><ul/>
+status | enum **Status**<br>Status of the node group. <ul><li>`PROVISIONING`: Node group is waiting for resources to be allocated.</li><li>`RUNNING`: Node group is running.</li><li>`RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.</li><li>`STOPPING`: Node group is being stopped.</li><li>`STOPPED`: Node group stopped.</li><li>`DELETING`: Node group is being deleted.</li><li>`STARTING`: Node group is being started.</li></ul>
 node_template | **[NodeTemplate](#NodeTemplate)**<br>Node template that specifies parameters of the compute instances for the node group. 
 scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy). 
 allocation_policy | **[NodeGroupAllocationPolicy](#NodeGroupAllocationPolicy)**<br>Allocation policy by which resources for node group are allocated to zones and regions. 
@@ -1551,14 +1551,14 @@ container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSetti
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ContainerRuntimeSettings {#ContainerRuntimeSettings}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Required.  <ul><ul/>
+type | enum **Type**<br>Required.  
 
 
 ### ResourcesSpec {#ResourcesSpec}
@@ -1575,7 +1575,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` \|network-ssd\|network-hdd\|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -1590,7 +1590,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>One-to-one NAT 
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### SchedulingPolicy {#SchedulingPolicy}
@@ -1621,7 +1621,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>One-to-one NAT
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy}
@@ -1742,7 +1742,7 @@ Field | Description
 --- | ---
 key | **string**<br>The taint key to be applied to a node. 
 value | **string**<br>The taint value corresponding to the taint key. 
-effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li><ul/>
+effect | enum **Effect**<br>The effect of the taint on pods that do not tolerate the taint. <ul><li>`NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li><li>`PREFER_NO_SCHEDULE`: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li><li>`NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint.</li></ul>
 
 
 ## ListOperations {#ListOperations}
@@ -1812,7 +1812,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li><ul/>
+status | enum **Status**<br>Computed node status. <ul><li>`PROVISIONING`: Node instance is not yet created (e.g. in progress).</li><li>`NOT_CONNECTED`: Node instance is created but not registered (e.g. is still initializing).</li><li>`NOT_READY`: Node has connected but is not ready for workload (see conditions for details).</li><li>`READY`: Node has connected and ready for workload.</li><li>`MISSING`: Node is still registered but its instance is deleted (this is our bug).</li></ul>
 spec | **[Spec](#Spec)**<br>Node specificaion. 
 cloud_status | **[CloudStatus](#CloudStatus)**<br>Cloud instance status. Not available in `MISSING` status. 
 kubernetes_status | **[KubernetesStatus](#KubernetesStatus)**<br>Kubernetes node status. Not available in `PROVISIONING` and `NOT_CONNECTED` states. 

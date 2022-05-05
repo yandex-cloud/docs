@@ -10,7 +10,7 @@ Lists access bindings for the specified registry.
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/registries/{resourceId}:listAccessBindings
+GET https://container-registry.{{ api-host }}/container-registry/v1/registries/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

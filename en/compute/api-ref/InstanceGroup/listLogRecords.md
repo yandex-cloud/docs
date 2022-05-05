@@ -10,7 +10,7 @@ Lists logs for the specified instance group.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:logs
+GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:logs
 ```
  
 ## Path parameters {#path_params}

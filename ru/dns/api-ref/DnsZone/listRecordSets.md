@@ -10,7 +10,7 @@ Retrieves the list of record sets in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:listRecordSets
+GET https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:listRecordSets
 ```
  
 ## Path parameters {#path_params}

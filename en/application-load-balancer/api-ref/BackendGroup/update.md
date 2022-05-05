@@ -10,7 +10,7 @@ Updates the specified backend group.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}
+PATCH https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}
 ```
  
 ## Path parameters {#path_params}

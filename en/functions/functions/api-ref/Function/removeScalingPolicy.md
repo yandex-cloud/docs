@@ -10,7 +10,7 @@ Remove scaling policy for specified function and tag
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}:removeScalingPolicy
+POST https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}:removeScalingPolicy
 ```
  
 ## Path parameters {#path_params}

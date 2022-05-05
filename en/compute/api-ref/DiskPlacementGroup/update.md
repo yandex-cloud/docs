@@ -10,7 +10,7 @@ Updates the specified placement group.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://compute.api.cloud.yandex.net/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
+PATCH https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
 ```
  
 ## Path parameters {#path_params}

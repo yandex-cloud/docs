@@ -10,7 +10,7 @@ Lists access bindings for the specified service account.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{resourceId}:listAccessBindings
+GET https://iam.{{ api-host }}/iam/v1/serviceAccounts/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

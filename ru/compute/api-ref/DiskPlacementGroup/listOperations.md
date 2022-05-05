@@ -10,7 +10,7 @@ Lists operations for the specified placement group.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/diskPlacementGroups/{diskPlacementGroupId}/operations
+GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

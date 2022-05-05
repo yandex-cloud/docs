@@ -10,7 +10,7 @@ Updates the specified PostgreSQL database.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
+PATCH https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
 ```
  
 ## Path parameters {#path_params}

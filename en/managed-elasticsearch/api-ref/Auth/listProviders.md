@@ -10,7 +10,7 @@ Retrieves the list of registered auth providers for Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
+GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers
 ```
  
 ## Path parameters {#path_params}

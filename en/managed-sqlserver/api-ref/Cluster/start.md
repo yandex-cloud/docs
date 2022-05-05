@@ -10,7 +10,7 @@ Starts the specified SQL Server cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters/{clusterId}:start
+POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

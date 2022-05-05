@@ -10,7 +10,7 @@ To get the list of available Image resources, make a [list](/docs/compute/api-re
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}
+GET https://compute.{{ api-host }}/compute/v1/images/{imageId}
 ```
  
 ## Path parameters {#path_params}

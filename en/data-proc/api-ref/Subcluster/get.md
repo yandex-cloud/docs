@@ -10,7 +10,7 @@ To get the list of all available subclusters, make a [list](/docs/data-proc/api-
  
 ## HTTP request {#https-request}
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
 ```
  
 ## Path parameters {#path_params}

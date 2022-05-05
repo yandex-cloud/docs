@@ -10,7 +10,7 @@ Deletes the specified federation.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}
+DELETE https://iam.{{ api-host }}/iam/v1/saml/federations/{federationId}
 ```
  
 ## Path parameters {#path_params}

@@ -36,7 +36,7 @@ id | **string**<br>ID of the budget.
 name | **string**<br>Name of the budget. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 billing_account_id | **string**<br>ID of the billing account that the budget belongs to. 
-status | enum **BudgetStatus**<br>Status of the budget. <ul><li>`CREATING`: The budget is being created.</li><li>`ACTIVE`: The budget is active.</li><li>`FINISHED`: The budget is finished.</li><ul/>
+status | enum **BudgetStatus**<br>Status of the budget. <ul><li>`CREATING`: The budget is being created.</li><li>`ACTIVE`: The budget is active.</li><li>`FINISHED`: The budget is finished.</li></ul>
 budget_spec | **oneof:** `cost_budget`, `expense_budget` or `balance_budget`<br>Specification of the budget.
 &nbsp;&nbsp;cost_budget | **[CostBudgetSpec](#CostBudgetSpec)**<br>Cost budget specification. 
 &nbsp;&nbsp;expense_budget | **[ExpenseBudgetSpec](#ExpenseBudgetSpec)**<br>Expense budget specification. 
@@ -52,7 +52,7 @@ notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule)**<br>List of the [ThresholdRule](#ThresholdRule). Rules define intermediate cost thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li><ul/>
+&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
@@ -61,8 +61,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -91,7 +91,7 @@ notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule1)**<br>List of the [ThresholdRule](#ThresholdRule1). Rules define intermediate expense thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter1)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li><ul/>
+&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
@@ -100,8 +100,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -136,8 +136,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -172,7 +172,7 @@ id | **string**<br>ID of the budget.
 name | **string**<br>Name of the budget. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 billing_account_id | **string**<br>ID of the billing account that the budget belongs to. 
-status | enum **BudgetStatus**<br>Status of the budget. <ul><li>`CREATING`: The budget is being created.</li><li>`ACTIVE`: The budget is active.</li><li>`FINISHED`: The budget is finished.</li><ul/>
+status | enum **BudgetStatus**<br>Status of the budget. <ul><li>`CREATING`: The budget is being created.</li><li>`ACTIVE`: The budget is active.</li><li>`FINISHED`: The budget is finished.</li></ul>
 budget_spec | **oneof:** `cost_budget`, `expense_budget` or `balance_budget`<br>Specification of the budget.
 &nbsp;&nbsp;cost_budget | **[CostBudgetSpec](#CostBudgetSpec1)**<br>Cost budget specification. 
 &nbsp;&nbsp;expense_budget | **[ExpenseBudgetSpec](#ExpenseBudgetSpec1)**<br>Expense budget specification. 
@@ -188,7 +188,7 @@ notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule3)**<br>List of the [ThresholdRule](#ThresholdRule3). Rules define intermediate cost thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter2)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li><ul/>
+&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
@@ -197,8 +197,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -227,7 +227,7 @@ notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule4)**<br>List of the [ThresholdRule](#ThresholdRule4). Rules define intermediate expense thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter3)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li><ul/>
+&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
@@ -236,8 +236,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -272,8 +272,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -308,7 +308,7 @@ notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule6)**<br>List of the [ThresholdRule](#ThresholdRule6). Rules define intermediate cost thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter4)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li><ul/>
+&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
@@ -317,8 +317,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -347,7 +347,7 @@ notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule7)**<br>List of the [ThresholdRule](#ThresholdRule7). Rules define intermediate expense thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter5)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li><ul/>
+&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
@@ -356,8 +356,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -392,8 +392,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -428,7 +428,7 @@ id | **string**<br>ID of the budget.
 name | **string**<br>Name of the budget. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 billing_account_id | **string**<br>ID of the billing account that the budget belongs to. 
-status | enum **BudgetStatus**<br>Status of the budget. <ul><li>`CREATING`: The budget is being created.</li><li>`ACTIVE`: The budget is active.</li><li>`FINISHED`: The budget is finished.</li><ul/>
+status | enum **BudgetStatus**<br>Status of the budget. <ul><li>`CREATING`: The budget is being created.</li><li>`ACTIVE`: The budget is active.</li><li>`FINISHED`: The budget is finished.</li></ul>
 budget_spec | **oneof:** `cost_budget`, `expense_budget` or `balance_budget`<br>Specification of the budget.
 &nbsp;&nbsp;cost_budget | **[CostBudgetSpec](#CostBudgetSpec3)**<br>Cost budget specification. 
 &nbsp;&nbsp;expense_budget | **[ExpenseBudgetSpec](#ExpenseBudgetSpec3)**<br>Expense budget specification. 
@@ -444,7 +444,7 @@ notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule9)**<br>List of the [ThresholdRule](#ThresholdRule9). Rules define intermediate cost thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter6)**<br>Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li><ul/>
+&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
@@ -453,8 +453,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -483,7 +483,7 @@ notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.
 threshold_rules[] | **[ThresholdRule](#ThresholdRule10)**<br>List of the [ThresholdRule](#ThresholdRule10). Rules define intermediate expense thresholds of the budget. 
 filter | **[ConsumptionFilter](#ConsumptionFilter7)**<br>Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. 
 start_type | **oneof:** `reset_period` or `start_date`<br>Start type of the budget.
-&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li><ul/>
+&nbsp;&nbsp;reset_period | enum **ResetPeriodType**<br>Periodic start type that resets budget after specified period is finished. First time budget is calculated in the current period, i.e. current month, quarter or year. <ul><li>`MONTHLY`: Reset budget every month.</li><li>`QUARTER`: Reset budget every quarter.</li><li>`ANNUALLY`: Reset budget every year.</li></ul>
 &nbsp;&nbsp;start_date | **string**<br>Custom start date of the budget. Must be the first day of a month and must be formatted like YYYY-MM-DD. 
 end_date | **string**<br>End date of the budget. Must be the last day of a month and must be formatted like YYYY-MM-DD. 
 
@@ -492,8 +492,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 
@@ -528,8 +528,8 @@ end_date | **string**<br>End date of the budget. Must be the last day of a month
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li><ul/>
-amount | **string**<br><ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
+type | enum **ThresholdType**<br>Type of the rule. <ul><li>`PERCENT`: Percent.</li><li>`AMOUNT`: The same as budget amount.</li></ul>
+amount | **string**<br>Amount of the rule. <ul><li>Must be less than 100 if type is PERCENT. </li><li>Must be less than budget's amount if type is AMOUNT.</li></ul> 
 notification_user_account_ids[] | **string**<br>IDs of the `yandex.cloud.iam.v1.UserAccount`. Specified users will be be notified if the threshold exceeds. 
 
 

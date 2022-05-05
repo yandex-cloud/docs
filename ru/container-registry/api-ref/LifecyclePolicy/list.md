@@ -10,7 +10,7 @@ Retrieves the list of lifecycle policies in the specified repository.
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/lifecyclePolicies
+GET https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies
 ```
  
 ## Query parameters {#query_params}

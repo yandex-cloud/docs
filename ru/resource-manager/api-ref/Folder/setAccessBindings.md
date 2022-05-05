@@ -10,7 +10,7 @@ Sets access bindings for the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{resourceId}:setAccessBindings
+POST https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

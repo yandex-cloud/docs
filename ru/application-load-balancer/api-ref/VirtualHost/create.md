@@ -10,7 +10,7 @@ Creates a virtual host in the specified HTTP router.
  
 ## HTTP request {#https-request}
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts
+POST https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts
 ```
  
 ## Path parameters {#path_params}

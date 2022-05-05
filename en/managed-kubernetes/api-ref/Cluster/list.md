@@ -10,7 +10,7 @@ Retrieves the list of Kubernetes cluster in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters
+GET https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
 ```
  
 ## Query parameters {#query_params}

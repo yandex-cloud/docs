@@ -10,7 +10,7 @@ Create a backup for the specified ElasticSearch cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}:backup
+POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}:backup
 ```
  
 ## Path parameters {#path_params}

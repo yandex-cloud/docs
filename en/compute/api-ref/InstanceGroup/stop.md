@@ -10,7 +10,7 @@ Stops the specified instance group.
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:stop
+POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:stop
 ```
  
 ## Path parameters {#path_params}

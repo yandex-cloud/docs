@@ -10,7 +10,7 @@ Deletes the specified repository.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories/{repositoryId}
+DELETE https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryId}
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Updates the specified secret.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}
+PATCH https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}
 ```
  
 ## Path parameters {#path_params}

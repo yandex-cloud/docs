@@ -10,7 +10,7 @@ Deletes the specified API gateway.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}
+DELETE https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}
 ```
  
 ## Path parameters {#path_params}

@@ -10,7 +10,7 @@ Creates an API gateway in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways
+POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways
 ```
  
 ## Body parameters {#body_params}

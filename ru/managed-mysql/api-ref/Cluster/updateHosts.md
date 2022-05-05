@@ -10,7 +10,7 @@ Updates the specified hosts.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/hosts:batchUpdate
+POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/hosts:batchUpdate
 ```
  
 ## Path parameters {#path_params}

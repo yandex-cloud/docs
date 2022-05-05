@@ -65,10 +65,8 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Storage in Yandex Managed Service for MongoDB
         href: concepts/storage.md
-      - name: Disk space in Managed Service for MongoDB
-        href: concepts/disk-space.md
       - name: Backups
         href: concepts/backup.md
       - name: Replication

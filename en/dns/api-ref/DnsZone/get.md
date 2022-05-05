@@ -10,7 +10,7 @@ To get the list of all available DNS zones, make a [list](/docs/dns/api-ref/DnsZ
  
 ## HTTP request {#https-request}
 ```
-GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}
+GET https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
 ```
  
 ## Path parameters {#path_params}

@@ -68,7 +68,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list target groups in. To get the folder ID, use a [TargetGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListTargetGroupsResponse.next_page_token](#ListTargetGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListTargetGroupsResponse.next_page_token](#ListTargetGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only filter by the [TargetGroup.name](#TargetGroup1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can only filter by the [TargetGroup.name](#TargetGroup1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListTargetGroupsResponse {#ListTargetGroupsResponse}
@@ -116,7 +116,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to list target groups in. To get the folder ID, use a [TargetGroupService.List](#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 region_id | **string**<br>ID of the availability zone where the target group resides. The maximum string length in characters is 50.
@@ -192,7 +192,7 @@ Field | Description
 --- | ---
 target_group_id | **string**<br>Required. ID of the TargetGroup resource to update. To get the target group ID, use a [TargetGroupService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the TargetGroup resource are going to be updated. 
-name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the target group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 targets[] | **[Target](#Target4)**<br>A new list of targets for this target group. 

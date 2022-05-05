@@ -11,7 +11,7 @@ To get the list of all available API gateways, make a [list](/docs/functions/api
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}
+GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}
 ```
  
 ## Path parameters {#path_params}

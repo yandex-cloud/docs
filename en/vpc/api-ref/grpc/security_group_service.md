@@ -45,7 +45,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
-status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
+status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule)**<br> 
 default_for_network | **bool**<br> 
 
@@ -57,7 +57,7 @@ Field | Description
 id | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | enum **Direction**<br>Required.  <ul><ul/>
+direction | enum **Direction**<br>Required.  
 ports | **[PortRange](#PortRange)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
@@ -118,7 +118,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
-status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
+status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule1)**<br> 
 default_for_network | **bool**<br> 
 
@@ -130,7 +130,7 @@ Field | Description
 id | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | enum **Direction**<br>Required.  <ul><ul/>
+direction | enum **Direction**<br>Required.  
 ports | **[PortRange](#PortRange1)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
@@ -245,7 +245,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
-status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
+status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule2)**<br> 
 default_for_network | **bool**<br> 
 
@@ -257,7 +257,7 @@ Field | Description
 id | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | enum **Direction**<br>Required.  <ul><ul/>
+direction | enum **Direction**<br>Required.  
 ports | **[PortRange](#PortRange3)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
@@ -373,7 +373,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
-status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
+status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule3)**<br> 
 default_for_network | **bool**<br> 
 
@@ -385,7 +385,7 @@ Field | Description
 id | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | enum **Direction**<br>Required.  <ul><ul/>
+direction | enum **Direction**<br>Required.  
 ports | **[PortRange](#PortRange5)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
@@ -498,7 +498,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
-status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
+status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule4)**<br> 
 default_for_network | **bool**<br> 
 
@@ -510,7 +510,7 @@ Field | Description
 id | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | enum **Direction**<br>Required.  <ul><ul/>
+direction | enum **Direction**<br>Required.  
 ports | **[PortRange](#PortRange7)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
@@ -588,7 +588,7 @@ Field | Description
 id | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | enum **Direction**<br>Required.  <ul><ul/>
+direction | enum **Direction**<br>Required.  
 ports | **[PortRange](#PortRange8)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 
@@ -706,7 +706,7 @@ name | **string**<br>
 description | **string**<br> 
 labels | **map<string,string>**<br> 
 network_id | **string**<br> 
-status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
+status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li></ul>
 rules[] | **[SecurityGroupRule](#SecurityGroupRule6)**<br> 
 default_for_network | **bool**<br> 
 
@@ -718,7 +718,7 @@ Field | Description
 id | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-direction | enum **Direction**<br>Required.  <ul><ul/>
+direction | enum **Direction**<br>Required.  
 ports | **[PortRange](#PortRange9)**<br> 
 protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
 protocol_number | **int64**<br> 

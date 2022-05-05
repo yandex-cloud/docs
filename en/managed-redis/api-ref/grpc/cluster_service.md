@@ -60,19 +60,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring}
@@ -104,7 +104,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access}
@@ -131,7 +131,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -156,7 +156,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list Redis clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters clusters listed in the response. The expression must specify: <ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -177,19 +177,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring1}
@@ -221,7 +221,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access1}
@@ -248,7 +248,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -309,7 +309,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access2}
@@ -327,7 +327,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). 
 shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100. 
-assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 
 
 ### Operation {#Operation}
@@ -363,19 +363,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring2}
@@ -407,7 +407,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access3}
@@ -434,7 +434,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -492,7 +492,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access4}
@@ -519,7 +519,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -556,19 +556,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring3}
@@ -600,7 +600,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access5}
@@ -627,7 +627,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -729,19 +729,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring4}
@@ -773,7 +773,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access6}
@@ -800,7 +800,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -862,19 +862,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring5}
@@ -906,7 +906,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access7}
@@ -933,7 +933,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -998,19 +998,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring6}
@@ -1042,7 +1042,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access8}
@@ -1069,7 +1069,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1131,19 +1131,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring7)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring7}
@@ -1175,7 +1175,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access9}
@@ -1202,7 +1202,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1262,7 +1262,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access10}
@@ -1280,7 +1280,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). 
 shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100. 
-assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 
 
 ### Operation {#Operation7}
@@ -1317,19 +1317,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring8)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring8}
@@ -1361,7 +1361,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access11}
@@ -1388,7 +1388,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1415,7 +1415,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Redis cluster to reschedule the maintenance operation for. The maximum string length in characters is 50.
-reschedule_type | enum **RescheduleType**<br>Required. The type of reschedule request. <ul><li>`IMMEDIATE`: Start the maintenance operation immediately.</li><li>`NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.</li><li>`SPECIFIC_TIME`: Start the maintenance operation at the specific time.</li><ul/>
+reschedule_type | enum **RescheduleType**<br>Required. The type of reschedule request. <ul><li>`IMMEDIATE`: Start the maintenance operation immediately.</li><li>`NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.</li><li>`SPECIFIC_TIME`: Start the maintenance operation at the specific time.</li></ul>
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if `reschedule_type.IMMEDIATE` reschedule type is chosen. 
 
 
@@ -1453,19 +1453,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring9)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring9}
@@ -1497,7 +1497,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access12}
@@ -1524,7 +1524,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1588,19 +1588,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring10)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring10}
@@ -1632,7 +1632,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access13}
@@ -1659,7 +1659,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1683,7 +1683,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Redis cluster to request logs for. To get the Redis cluster ID use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, entire log records are returned. 
-service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Logs of Redis activity.</li><ul/>
+service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Logs of Redis activity.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
@@ -1718,11 +1718,11 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Required. ID of the Redis cluster. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to get in the response. 
-service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Logs of Redis activity.</li><ul/>
+service_type | enum **ServiceType**<br> <ul><li>`REDIS`: Logs of Redis activity.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord) field </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord) field </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Examples of a filter `message.hostname='node1.db.cloud.yandex.net'`. The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
@@ -1847,8 +1847,8 @@ cluster_id | **string**<br>ID of the Redis cluster. The ID is assigned by MDB at
 zone_id | **string**<br>ID of the availability zone where the Redis host resides. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 resources | **[Resources](#Resources14)**<br>Resources allocated to the Redis host. 
-role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master Redis server in the cluster.</li><li>`REPLICA`: Host is a replica (standby) Redis server in the cluster.</li><ul/>
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li><ul/>
+role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master Redis server in the cluster.</li><li>`REPLICA`: Host is a replica (standby) Redis server in the cluster.</li></ul>
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
 shard_name | **string**<br> 
 replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100. 
@@ -1861,15 +1861,15 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Service {#Service}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Type of the service provided by the host. <ul><li>`REDIS`: The host is a Redis server.</li><li>`ARBITER`: The host provides a Sentinel-only service (a quorum node).</li><li>`REDIS_CLUSTER`: The host is a Redis Cluster node.</li><ul/>
-health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li><ul/>
+type | enum **Type**<br>Type of the service provided by the host. <ul><li>`REDIS`: The host is a Redis server.</li><li>`ARBITER`: The host provides a Sentinel-only service (a quorum node).</li><li>`REDIS_CLUSTER`: The host is a Redis Cluster node.</li></ul>
+health | enum **Health**<br>Status code of server availability. <ul><li>`HEALTH_UNKNOWN`: Health of the server is unknown.</li><li>`ALIVE`: The server is working normally.</li><li>`DEAD`: The server is dead or unresponsive.</li></ul>
 
 
 ## AddHosts {#AddHosts}
@@ -1898,7 +1898,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). 
 shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100. 
-assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 
 
 ### Operation {#Operation11}
@@ -2099,7 +2099,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). 
 shard_name | **string**<br>ID of the Redis shard the host belongs to. To get the shard ID use a [ClusterService.ListShards](#ListShards) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>A replica with a low priority number is considered better for promotion. A replica with priority of 0 will never be selected by Redis Sentinel for promotion. Works only for non-sharded clusters. Default value is 100. 
-assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>Possible values: <ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 
 
 ### Operation {#Operation14}
@@ -2226,19 +2226,19 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the Redis cluster. The name is unique within the folder. 3-63 characters long. 
 description | **string**<br>Description of the Redis cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Redis cluster as `key:value` pairs. Maximum 64 per cluster. 
-environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Redis cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring11)**<br>Description of monitoring systems relevant to the Redis cluster. 
 config | **[ClusterConfig](#ClusterConfig11)**<br>Configuration of the Redis cluster. 
 network_id | **string**<br> 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li><ul/>
-status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)</li><li>`ALIVE`: Cluster is alive and well (all hosts are alive)</li><li>`DEAD`: Cluster is inoperable (it cannot perform any of its essential functions)</li><li>`DEGRADED`: Cluster is partially alive (it can perform some of its essential functions)</li></ul>
+status | enum **Status**<br>Cluster status. <ul><li>`STATUS_UNKNOWN`: Cluster status is unknown</li><li>`CREATING`: Cluster is being created</li><li>`RUNNING`: Cluster is running</li><li>`ERROR`: Cluster failed</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 sharded | **bool**<br>Redis cluster mode on/off. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-persistence_mode | enum **PersistenceMode**<br>Persistence mode <ul><ul/>
+persistence_mode | enum **PersistenceMode**<br>Persistence mode 
 
 
 ### Monitoring {#Monitoring11}
@@ -2270,7 +2270,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
-disk_type_id | **string**<br><ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+disk_type_id | **string**<br>Type of the storage environment for the host. Possible values: <ul><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
 
 ### Access {#Access14}
@@ -2297,7 +2297,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 

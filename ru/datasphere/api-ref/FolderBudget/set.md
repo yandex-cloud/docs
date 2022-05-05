@@ -10,7 +10,7 @@ Sets the unit balance and the limits of the specified folder budget.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v1/folders/{folderId}:budget
+POST https://datasphere.{{ api-host }}/datasphere/v1/folders/{folderId}:budget
 ```
  
 ## Path parameters {#path_params}

@@ -46,7 +46,7 @@ model | **string**<br>reserved for future, do not use
 audio_format | **[AudioFormatOptions](#AudioFormatOptions)**<br>config for input audio 
 text_normalization | **[TextNormalizationOptions](#TextNormalizationOptions)**<br>text normalization options 
 language_restriction | **[LanguageRestrictionOptions](#LanguageRestrictionOptions)**<br>possible languages in audio 
-audio_processing_type | enum **AudioProcessingType**<br>how to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME <ul><ul/>
+audio_processing_type | enum **AudioProcessingType**<br>how to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME 
 
 
 ### AudioFormatOptions {#AudioFormatOptions}
@@ -62,7 +62,7 @@ AudioFormat | **oneof:** `raw_audio` or `container_audio`<br>
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br>type of audio encoding <ul><ul/>
+audio_encoding | enum **AudioEncoding**<br>type of audio encoding 
 sample_rate_hertz | **int64**<br>PCM sample rate 
 audio_channel_count | **int64**<br>PCM channel count. Currently only single channel audio is supported in real-time recognition 
 
@@ -71,14 +71,14 @@ audio_channel_count | **int64**<br>PCM channel count. Currently only single chan
 
 Field | Description
 --- | ---
-container_audio_type | enum **ContainerAudioType**<br>type of audio container <ul><ul/>
+container_audio_type | enum **ContainerAudioType**<br>type of audio container 
 
 
 ### TextNormalizationOptions {#TextNormalizationOptions}
 
 Field | Description
 --- | ---
-text_normalization | enum **TextNormalization**<br>Normalization <ul><li>`TEXT_NORMALIZATION_ENABLED`: Enable normalization</li><li>`TEXT_NORMALIZATION_DISABLED`: Disable normalization</li><ul/>
+text_normalization | enum **TextNormalization**<br>Normalization <ul><li>`TEXT_NORMALIZATION_ENABLED`: Enable normalization</li><li>`TEXT_NORMALIZATION_DISABLED`: Disable normalization</li></ul>
 profanity_filter | **bool**<br>Filter profanity (default: false) 
 literature_text | **bool**<br>Rewrite text in literature style (default: false) 
 
@@ -87,7 +87,7 @@ literature_text | **bool**<br>Rewrite text in literature style (default: false)
 
 Field | Description
 --- | ---
-restriction_type | enum **LanguageRestrictionType**<br> <ul><ul/>
+restriction_type | enum **LanguageRestrictionType**<br> 
 language_code[] | **string**<br> 
 
 
@@ -104,7 +104,7 @@ Classifier | **oneof:** `default_classifier` or `external_classifier`<br>type of
 
 Field | Description
 --- | ---
-type | enum **EouSensitivity**<br>EOU sensitivity.  Currently two levels, faster with more error and more conservative (our default) <ul><ul/>
+type | enum **EouSensitivity**<br>EOU sensitivity.  Currently two levels, faster with more error and more conservative (our default) 
 max_pause_between_words_hint_ms | **int64**<br>hint for max pause between words. Our EoU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc) 
 
 
@@ -241,7 +241,7 @@ end_time_ms | **int64**<br>estimation of word end time in ms
 
 Field | Description
 --- | ---
-code_type | enum **CodeType**<br>code type <ul><ul/>
+code_type | enum **CodeType**<br>code type 
 message | **string**<br>human readable message 
 
 

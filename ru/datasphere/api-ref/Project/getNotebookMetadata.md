@@ -10,7 +10,7 @@ Returns metadata of the specified notebook.
  
 ## HTTP request {#https-request}
 ```
-GET https://datasphere.api.cloud.yandex.net/datasphere/v1/projects/{projectId}:notebookMetadata
+GET https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:notebookMetadata
 ```
  
 ## Path parameters {#path_params}

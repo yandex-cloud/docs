@@ -10,7 +10,7 @@ Updates the specified log group.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://logging.api.cloud.yandex.net/logging/v1/logGroups/{logGroupId}
+PATCH https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}
 ```
  
 ## Path parameters {#path_params}

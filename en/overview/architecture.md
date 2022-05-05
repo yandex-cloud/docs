@@ -6,7 +6,7 @@ This approach ensures easy scalability of the platform: at minimal cost, you can
 
 The {{ yandex-cloud }} architecture looks as follows:
 
-![Architecture](../../_assets/overview/architecture.png "Architecture")
+![Architecture](../_assets/overview/architecture.png "Architecture")
 
 The Storage Layer is at the core of {{ yandex-cloud }}. This enables storage of data and system information for all {{ yandex-cloud }} services. The Storage Layer uses the Yandex native DBMS {{ ydb-full-name }} ({{ ydb-short-name }}): it provides for the secure and efficient storage of data, accommodates heavy data loads, and horizontal scaling as {{ yandex-cloud }} grows. The dedicated replication mechanism of {{ ydb-short-name }} covers all the hardware storage capacities used by {{ yandex-cloud }}.
 

@@ -10,7 +10,7 @@ Deletes the specified node group.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mks.api.cloud.yandex.net/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
+DELETE https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
 ```
  
 ## Path parameters {#path_params}

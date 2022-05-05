@@ -10,7 +10,7 @@ Lists operations for the specified log group.
  
 ## HTTP request {#https-request}
 ```
-GET https://logging.api.cloud.yandex.net/logging/v1/logGroups/{logGroupId}/operations
+GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

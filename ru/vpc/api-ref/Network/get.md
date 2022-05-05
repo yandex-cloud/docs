@@ -10,7 +10,7 @@ Get the list of available Network resources by making a [list](/docs/vpc/api-ref
  
 ## HTTP request {#https-request}
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}
+GET https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
 ```
  
 ## Path parameters {#path_params}

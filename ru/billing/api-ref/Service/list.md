@@ -10,7 +10,7 @@ Retrieves the list of services.
  
 ## HTTP request {#https-request}
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/services
+GET https://billing.{{ api-host }}/billing/v1/services
 ```
  
 ## Query parameters {#query_params}

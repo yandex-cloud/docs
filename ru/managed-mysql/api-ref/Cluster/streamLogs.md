@@ -10,7 +10,7 @@ This method is similar to [listLogs](/docs/managed-mysql/api-ref/Cluster/listLog
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:stream_logs
+GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}:stream_logs
 ```
  
 ## Path parameters {#path_params}

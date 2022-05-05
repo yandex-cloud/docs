@@ -10,7 +10,7 @@ Creates a lifecycle policy in the specified repository.
  
 ## HTTP request {#https-request}
 ```
-POST https://container-registry.api.cloud.yandex.net/container-registry/v1/lifecyclePolicies
+POST https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies
 ```
  
 ## Body parameters {#body_params}

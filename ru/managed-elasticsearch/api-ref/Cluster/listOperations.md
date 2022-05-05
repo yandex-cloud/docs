@@ -10,7 +10,7 @@ Retrieves the list of operations for the specified Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/operations
+GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/operations
 ```
  
 ## Path parameters {#path_params}

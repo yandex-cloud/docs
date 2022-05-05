@@ -44,7 +44,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status. <ul><ul/>
+status | enum **Status**<br>Trigger status. 
 
 
 ### Rule {#Rule}
@@ -103,7 +103,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
@@ -116,7 +116,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 
 Field | Description
 --- | ---
-event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
@@ -163,7 +163,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list triggers in. <br>To get a folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListTriggersResponse.next_page_token](#ListTriggersResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListTriggersResponse.next_page_token](#ListTriggersResponse) returned by a previous list request. 
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Trigger.name](#Trigger1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> 
+filter | **string**<br>A filter expression that filters triggers listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [Trigger.name](#Trigger1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-trigger`. 
 
 
 ### ListTriggersResponse {#ListTriggersResponse}
@@ -185,7 +185,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule1)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status. <ul><ul/>
+status | enum **Status**<br>Trigger status. 
 
 
 ### Rule {#Rule1}
@@ -244,7 +244,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
@@ -257,7 +257,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 
 Field | Description
 --- | ---
-event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
@@ -306,7 +306,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a trigger in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
-name | **string**<br>Name of the trigger. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the trigger. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the trigger. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 rule | **[Trigger.Rule](#Trigger2)**<br>Required. Trigger type. 
@@ -346,7 +346,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule2)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status. <ul><ul/>
+status | enum **Status**<br>Trigger status. 
 
 
 ### Rule {#Rule2}
@@ -405,7 +405,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
@@ -418,7 +418,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 
 Field | Description
 --- | ---
-event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
@@ -468,7 +468,7 @@ Field | Description
 --- | ---
 trigger_id | **string**<br>Required. ID of the trigger to update. <br>To get a trigger ID make a [TriggerService.List](#List) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the trigger should be updated. 
-name | **string**<br>New name for the trigger. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>New name for the trigger. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New description of the trigger. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [TriggerService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -507,7 +507,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule3)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status. <ul><ul/>
+status | enum **Status**<br>Trigger status. 
 
 
 ### Rule {#Rule3}
@@ -566,7 +566,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
@@ -579,7 +579,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 
 Field | Description
 --- | ---
-event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
@@ -704,7 +704,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule4)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status. <ul><ul/>
+status | enum **Status**<br>Trigger status. 
 
 
 ### Rule {#Rule4}
@@ -763,7 +763,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
@@ -776,7 +776,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 
 Field | Description
 --- | ---
-event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
@@ -861,7 +861,7 @@ name | **string**<br>Name of the trigger. The string length in characters must b
 description | **string**<br>Description of the trigger. The string length in characters must be 0-256.
 labels | **map<string,string>**<br>Trigger labels as `key:value` pairs. 
 rule | **[Rule](#Rule5)**<br>Required. Rule for trigger activation (always consistent with the trigger type). 
-status | enum **Status**<br>Trigger status. <ul><ul/>
+status | enum **Status**<br>Trigger status. 
 
 
 ### Rule {#Rule5}
@@ -920,7 +920,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ObjectStorageEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
@@ -933,7 +933,7 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 
 Field | Description
 --- | ---
-event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
+event_type[] | enum **ContainerRegistryEventType**<br>Type (name) of events, at least one value is required. The number of elements must be greater than 0.
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
@@ -980,7 +980,7 @@ Field | Description
 trigger_id | **string**<br>Required. ID of the trigger to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListTriggerOperationsResponse.next_page_token](#ListTriggerOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListTriggerOperationsResponse.next_page_token](#ListTriggerOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Trigger.name](#Trigger6) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [Trigger.name](#Trigger6) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name=my-function`. The maximum string length in characters is 1000.
 
 
 ### ListTriggerOperationsResponse {#ListTriggerOperationsResponse}
