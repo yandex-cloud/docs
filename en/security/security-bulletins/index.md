@@ -2,7 +2,7 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
-{% include [29.04.2022 — Redis](../../_includes/overview/security-bulletins/cve-2022-24735-24736.md) %}
+{% include [29.04.2022 — Redis](../../_includes/security/security-bulletins/cve-2022-24735-24736.md) %}
 
 {%  include [06.04.2022 — GitLab Critical Security Release](../../_includes/security/security-bulletins/cve-2022-1162-gitlab.md) %}
 
