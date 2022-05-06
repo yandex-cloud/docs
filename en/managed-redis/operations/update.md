@@ -2,24 +2,29 @@
 
 After creating a cluster, you can:
 
-* [{#T}](#change-name-and-description).
+- [{#T}](#change-name-and-description).
 
-* [{#T}](#change-resource-preset).
+- [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size).
+- [{#T}](#change-disk-size).
 
-* [Configure](#change-redis-config) {{ RD }} servers according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see the [{#T}](../concepts/settings-list.md) section and the [API reference](../api-ref/Cluster/update.md).
+- [Configure](#change-redis-config) {{ RD }} servers according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see the [{#T}](../concepts/settings-list.md) section and the [API reference](../api-ref/Cluster/update.md).
 
-* [{#T}](#change-additional-settings).
+- [{#T}](#change-additional-settings).
 
-* [{#T}](#change-sg-set).
+- [{#T}](#change-sg-set).
+
+{% note info %}
+
+For information about how to update the {{ RD }} cluster version, see [{#T}](cluster-version-update.md).
+
+{% endnote %}
 
 ## Change the cluster name and description {#change-name-and-description}
 
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mrd-name }}**.
   1. Select the cluster and click **Edit cluster** at the top of the page.
   1. Under **Basic parameters**, enter a new name and description for the cluster.
@@ -35,14 +40,14 @@ After creating a cluster, you can:
 
   1. View a description of the CLI's update cluster command:
 
-     ```
-     $ {{ yc-mdb-rd }} cluster update --help
+     ```bash
+     {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Specify a new name and description in the cluster update command:
 
-     ```
-     $ {{ yc-mdb-rd }} cluster update <cluster name> \
+     ```bash
+     {{ yc-mdb-rd }} cluster update <cluster name or ID> \
           --cluster-name <new cluster name> \
           --description <new cluster description>
      ```
@@ -92,7 +97,6 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mrd-name }}**.
   1. Select the cluster and click **Edit cluster** at the top of the page.
   1. Under **Host class**, specify:
@@ -112,8 +116,8 @@ After creating a cluster, you can:
 
   1. View a description of the CLI's update cluster command:
 
-     ```
-     $ {{ yc-mdb-rd }} cluster update --help
+     ```bash
+     {{ yc-mdb-rd }} cluster update --help
      ```
 
   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
@@ -121,10 +125,10 @@ After creating a cluster, you can:
      {% if audience != "internal" %}
 
      ```bash
-     $ {{ yc-mdb-rd }} resource-preset list
+     {{ yc-mdb-rd }} resource-preset list
      ```
 
-     ```text     
+     ```text
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
      +-------------+--------------------------------+----------+
@@ -142,16 +146,16 @@ After creating a cluster, you can:
      {% else %}
 
      ```bash
-     $ {{ yc-mdb-rd }} resource-preset list
+     {{ yc-mdb-rd }} resource-preset list
      ```
 
      {% endif %}
 
   1. Specify the class in the update cluster command:
 
-     ```
-     $ {{ yc-mdb-rd }} cluster update <cluster name>
-          --resource-preset <class ID>
+     ```bash
+     {{ yc-mdb-rd }} cluster update <cluster name or ID> \
+         --resource-preset <host class ID>
      ```
 
      {{ mrd-short-name }} will run the update host class command for the cluster.
@@ -192,15 +196,11 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increasing storage size {#change-disk-size}
-
-{% include [storage type check](../../_includes/mdb/mrd/note-change-disk-size.md) %}
+## Increase the size of {{ RD }} host disks {#change-disk-size}
 
 {% list tabs %}
 
 - Management console
-
-  To increase the storage size for a cluster:
   1. Go to the folder page and select **{{ mrd-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **Storage size**, specify the required value.
@@ -212,28 +212,32 @@ After creating a cluster, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To increase the size of {{ RD }} host storage:
+  To increase the size of {{ RD }} host disks:
 
   1. View a description of the CLI's update cluster command:
 
-     ```bash
-     {{ yc-mdb-rd }} cluster update --help
+     ```
+     $ {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **SSD storage capacity** line.
+  1. Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
 
-  1. Specify the storage size in the update cluster command. It must be at least as large as the current `disk_size` value in the cluster properties.
+  1. Specify the disk size in GB in the update cluster command. The new size must be bigger than the previous one.
 
-     ```bash
-     {{ yc-mdb-rd }} cluster update <cluster name or ID> \
-          --disk-size <storage size in GB>
      ```
+     $ {{ yc-mdb-rd }} cluster update <cluster name>
+          --disk-size <disk size in GB>
+     ```
+
+     {% note info %}
+
+     The maximum disk size depends on the [host class](../concepts/instance-types.md).
+
+     {% endnote %}
 
      If all the criteria are met, {{ mrd-short-name }} starts increasing the size of the {{ RD }} host disks.
 
 - {{ TF }}
-
-  To increase the storage size for a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -263,9 +267,9 @@ After creating a cluster, you can:
 
 - API
 
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **SSD storage capacity** line.
+  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.resources.diskSize` parameter.
 
-  To increase the storage size for your cluster, use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.resources.diskSize` parameter.
+  Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
 
 {% endlist %}
 
@@ -278,7 +282,6 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - Management console
 
   To modify the DBMS settings for a cluster:
-
   1. Go to the folder page and select **{{ mrd-name }}**.
   1. Select the cluster and click **Edit cluster** at the top of the page.
   1. Under **DBMS settings**, click **Settings**.
@@ -302,7 +305,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
             password         = "<password>"
             timeout          = <time in seconds before disabling inactive clients>
             maxmemory_policy = "<memory management policy when there is not enough memory>"
-            version          = "<Redis version: 5.0 or 6.0>"
+            ...
           }
         }
         ```
@@ -330,7 +333,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - Management console
 
   1. Go to the folder page and select **{{ mrd-name }}**.
+
   1. Select the cluster and click **Edit cluster** in the top panel.
+
   1. Change additional cluster settings:
 
      {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
@@ -354,7 +359,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
     1. Run the command with a list of settings to update:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <cluster name> \
+        {{ yc-mdb-rd }} cluster update <cluster name or ID> \
             --backup-window-start <backup start time> \
             --maintenance-window type=<weekly or anytime> \
             --deletion-protection=<protect cluster from deletion: true or false>
@@ -377,7 +382,6 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 {% list tabs %}
 
 - Management console
-
     1. Go to the folder page and select **{{ mrd-name }}**.
     1. Select the cluster and click **Edit cluster** in the top panel.
     1. Under **Network settings**, select security groups for cluster network traffic.
@@ -399,7 +403,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
     1. Specify the security groups in the update cluster command:
 
         ```bash
-        {{ yc-mdb-rd }} cluster update <cluster name> \
+        {{ yc-mdb-rd }} cluster update <cluster name or ID> \
            --security-group-ids <list of security groups>
         ```
 
@@ -431,15 +435,15 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - API
 
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-
-    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    * The list of groups in the `securityGroupIds` parameter.
-    * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    - The list of groups in the `securityGroupIds` parameter.
+    - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](./connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+

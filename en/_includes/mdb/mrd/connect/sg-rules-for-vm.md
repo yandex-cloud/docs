@@ -1,4 +1,12 @@
+{% if audience != "internal" %}
+
 [Set up the security group](../../../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+
+{% else %}
+
+Configure the security group assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+
+{% endif %}
 
 Example of rules for a VM:
 
@@ -17,4 +25,3 @@ Example of rules for a VM:
     * Destination: `0.0.0.0/0`.
 
     This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
-
