@@ -91,5 +91,9 @@ docs-viewer:
     service-url: https://yc.yandex-team.ru/
   search-by-toc: true
 
+  auto-release-to: # Авторелизы
+    testing: true
+    prod: true
+
 apply-presets: true
 varsPreset: 'internal'
