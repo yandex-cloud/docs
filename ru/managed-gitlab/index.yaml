@@ -22,6 +22,7 @@ links:
   - title: Концепции
     description: Узнайте про концепции и общее устройство сервиса
     href: concepts/
+    when: state != "public-preview"
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
