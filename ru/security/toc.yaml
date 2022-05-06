@@ -1,10 +1,16 @@
 title: Безопасность в Yandex Cloud
 href: index.yaml
 items:
+  - name: Ключевые принципы безопасности
+    href: principles.md
   - name: Разделение ответственности за обеспечение безопасности
     href: respons.md
   - name: Соответствие требованиям
     href: conform.md
+  - name: Меры безопасности на стороне Yandex Cloud
+    href: standarts.md
+  - name: Средства защиты, доступные пользователям облачных сервисов
+    href: user-side.md
   - name: Рекомендации по защите облачной инфраструктуры
     items:
       - name: Чеклист
@@ -29,12 +35,6 @@ items:
     items: 
       - name: Удаление паспортного аккаунта из организации
         href: operations/account-deletion.md
-  - name: Меры безопасности на стороне Yandex Cloud
-    href: standarts.md
-  - name: Средства защиты, доступные пользователям облачных сервисов
-    href: user-side.md
-  - name: Ключевые принципы безопасности
-    href: principles.md
   - name: Правила проведения внешних сканирований безопасности
     href: compliance/pentest.md
   - name: Бюллетени безопасности
