@@ -8,7 +8,7 @@ In this scenario, you will analyze user behavior in a mobile app based on AppMet
 
 Customer journey is a sequence of user actions. User behavior analysis helps you find out how people use your product: which pages they visit, which functions they use, and where they run into problems. This information makes it easier for you to find the right solutions to develop your product.
 
-As a data source, you'll use sampled and anonymized data from the [Auto.ru](https://auto.ru) mobile app, exported from AppMetrica.
+As a data source, you'll use sampled and anonymized data from the [auto.ru](https://auto.ru) mobile app, exported from AppMetrica.
 
 {% cut "Data architecture scheme" %}
 
@@ -28,31 +28,31 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection)
 
-    1. [Connect {{ CH }}](#ch-connection)
-    1. [Connect {{ ml-platform-short-name }}](#datasphere-connection)
-    1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere)
+   1. [Connect {{ CH }}](#ch-connection)
+   1. [Connect {{ ml-platform-short-name }}](#datasphere-connection)
+   1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere)
 
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch)
 
-    1. [{{ ml-platform-short-name }}. Upload the test app data via Yandex Disk](#uploading-data-counter-from-disk)
-    1. [Upload data from AppMetrica](#uploading-data-from-appmetrica)
-    1. [{{ CH }}. Get the cluster address](#getting-ch-cluster-host)
-    1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch)
+   1. [{{ ml-platform-short-name }}. Download the test app data from Yandex Disk](#uploading-data-counter-from-disk)
+   1. [Export the data from AppMetrica](#uploading-data-from-appmetrica)
+   1. [{{ CH }}. Get the cluster's IP address](#getting-ch-cluster-host)
+   1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch)
 
-1. [{{ ml-platform-short-name }}. Compare products by breadth and frequency of coverage ](#compare-by-coverage-frequency)
+1. [{{ ml-platform-short-name }}. You will compare products by breadth and frequency of coverage](#compare-by-coverage-frequency)
 1. [Connect {{ datalens-short-name }} and create charts](#datalens-connection-chart-creation)
 
-    1. [Connect to {{ datalens-short-name }}](#datalens-connection)
-    1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch)
-    1. [Create a dataset based on the connection](#creating-dataset-based-on-connection)
-    1. [Create a scatter chart](#creating-scatter-chart)
-    1. [Create a table chart](#creating-table-chart)
+   1. [Connect to {{ datalens-short-name }}](#datalens-connection)
+   1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch)
+   1. [Create a dataset based on the connection](#creating-dataset-based-on-connection)
+   1. [Create a chart: scatter chart](#creating-scatter-chart)
+   1. [Create a chart: table](#creating-table-chart)
 
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard)
-1. [Customer journey. Create an SQL chart and a Sankey chart](#customer-journey)
+1. [Customer journey. Create an QL chart and a Sankey chart](#customer-journey)
 
-    1. [Create an SQL chart in {{ datalens-short-name }}](#creating-sql-chart)
-    1. [Create a Sankey chart in {{ ml-platform-short-name }}](#creating-sankey-chart)
+   1. [Create an QL chart in {{ datalens-short-name }}](#creating-sql-chart)
+   1. [Create a Sankey diagram in {{ ml-platform-short-name }}](#creating-sankey-chart)
 
 ## Before you start {#before-you-begin}
 
@@ -66,23 +66,23 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 1. Click **Create cluster**.
 1. Specify the settings for a {{ CH }} cluster.
 
-   1. **Basic parameters**, enter `appmetrica_analysis` as the cluster name.
-   1. **Host class**: Select **burstable** as the virtual machine type and **b2.medium** as the host type.
+   1. **Basic parameters** — Enter `appmetrica_analysis` as the cluster name.
+   1. **Host class** — Select **burstable** as the virtual machine type and **b2.medium** as the host type.
 
       ![image](../../../_assets/datalens/solution-13/01-cluster-ch-settings.png)
 
-   1. **Size of storage**: Leave the value at 10 GB.
-   1. **Database**: Enter `autoru_appmetrica` database name, as well as its username and password. Make sure to memorize the credentials.
+   1. **Storage size** — Leave the value at 10 GB.
+   1. **Database** — Enter `autoru_appmetrica` database name, as well as its username and password. Make sure to memorize the credentials.
 
       ![image](../../../_assets/datalens/solution-13/02-ch-settings-storage.png)
 
-   1. **Hosts**: Click the ![pencil]( ../../../_assets/pencil.svg). Enable **Public access** and click **Save**.
-   1. **Advanced settings**: Enable 4 options:
+   1. **Hosts** — Click the ![pencil](../../../_assets/pencil.svg) icon. Enable **Public access** and click **Save**.
+   1. **Advanced settings** — Enable 4 options:
 
-      * {{ datalens-short-name }} access
+      * Access from {{ datalens-short-name }}
       * Access from the management console
       * Access from Yandex Metrica and AppMetrica
-      * Serverless access
+      * Access from Serverless
 
    1. After configuring all the settings, click **Create cluster**.
 
@@ -91,7 +91,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 1. Go to the [management console]({{ link-console-main }}).
 1. Select **{{ ml-platform-name }}** from the list on the left.
 1. Click **Create project**.
-1. Enter `appmetrica-analysis` as the project name, and click **Create**.
+1. Enter `appmetrica_analysis` as the project name, and click **Create**.
 1. Open the project. To do this, in the line with the project name, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) → **Open**.
 
 ### 1.3. Clone the repository to {{ ml-platform-short-name }} {#clone-repo-to-datasphere}
@@ -104,15 +104,15 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
 ## 2. Retrieve and upload data to {{ CH }} {#get-download-data-in-ch}
 
-If you don't have the AppMetrica app, or it doesn't contain enough data, or you want to definitely go through all the steps in the instructions and get the result, proceed to [2.1](#uploading-data-counter-from-disk) (skip [2.2](#uploading-data-from-appmetrica)).
+If you don't have a Yandex Metrica tag, it doesn't have enough data, or if you want to make sure and complete all the steps in the instructions and get a result, go to step [2.1](#uploading-data-counter-from-disk) (skip step [2.2](#uploading-data-from-appmetrica)).
 
-If you have the AppMetrica app and access to it, go to [2.2](#uploading-data-from-appmetrica): this step is recommended for experienced users who might need to edit scripts (skip [2.1](#uploading-data-counter-from-disk)).
+If you have the AppMetrica app and access to it, go to step [2.2](#uploading-data-from-appmetrica) — this is recommended for experienced users who might need to edit scripts (skip step [2.1](#uploading-data-counter-from-disk)).
 
 ### 2.1. {{ ml-platform-short-name }}. Download the test app data from Yandex Disk {#uploading-data-counter-from-disk}
 
 {% note info %}
 
-Skip this section if you are using your own app data.
+Skip this step if you are using your own app data.
 
 {% endnote %}
 
@@ -127,9 +127,10 @@ Skip this section if you are using your own app data.
 
 To set up the connection and export the data from your app, use the instructions [Export data to {{ yandex-cloud }}](https://appmetrica.yandex.com/docs/cloud/index.html).
 
+
 ### 2.3. {{ CH }}. Get the cluster's IP address {#getting-ch-cluster-host}
 
-1. Go to the {{ CH }} `appmetrica_analysis` cluster that you created in [1.1](#ch-connection). Wait for the cluster status to be **Alive**. Then open the cluster by clicking on it.
+1. Go to the {{ CH }} `appmetrica_analysis` cluster that you created in step [1.1](#ch-connection). Wait for the cluster status to be **Alive**. Then open the cluster by clicking on it.
 
    ![image](../../../_assets/datalens/solution-13/04-alive-cluster.png)
 
@@ -138,12 +139,12 @@ To set up the connection and export the data from your app, use the instructions
 
 ### 2.4. {{ ml-platform-short-name }}. Upload the data to {{ CH }} {#uploading-data-counter-to-ch}
 
-1. Open the **yandex_appmetrika_cloud_case** folder → ** notebook. 2. upload_data_to_{{ CH }}.ipynb**.
+1. Open the **yandex_appmetrika_cloud_case** folder →  notebook **2. upload_data_to_{{ CH }}.ipynb**.
 1. Paste data in the variables:
 
-   * Host name from [2.3](#uploading-data-counter-to-ch) — in the **CH_HOST_NAME** variable.
-   * Username from [1.1](#ch-connection) — in the **CH_USER** variable.
-   * Database name from [1.1](#ch-connection) — in the **CH_DB_NAME** variable.
+   * Host name from step [2.3](#uploading-data-counter-to-ch) — In the **CH_HOST_NAME** variable.
+   * Username from step [1.1](#ch-connection) — In the **CH_USER** variable.
+   * Database name from step [1.1](#ch-connection) — In the **CH_DB_NAME** variable.
 
      ![image](../../../_assets/datalens/solution-13/05-ch-parameters.png)
 
@@ -159,9 +160,9 @@ To set up the connection and export the data from your app, use the instructions
 1. Open the **yandex_appmetrika_cloud_case** folder → **Case_1.ipynb** notebook.
 1. Paste data in the variables:
 
-   * Host name from [2.3](#uploading-data-counter-to-ch) — in the **CH_HOST_NAME** variable.
-   * Username from [1.1](#ch-connection) — in the **CH_USER** variable.
-   * Database name from [1.1](#ch-connection) — in the **CH_DB_NAME** variable.
+   * Host name from step [2.3](#uploading-data-counter-to-ch) — In the **CH_HOST_NAME** variable.
+   * Username from step [1.1](#ch-connection) — In the **CH_USER** variable.
+   * Database name from step [1.1](#ch-connection) — In the **CH_DB_NAME** variable.
 
 1. Complete all the steps (the cells with the code) in the notebook.
 1. View the intermediate results.
@@ -178,15 +179,15 @@ To set up the connection and export the data from your app, use the instructions
 
 ### 4.2. Create a connection to {{ CH }} in {{ datalens-short-name }} {#creation-datalens-connection-to-ch}
 
-1. Click **Create connection**.
+1. Click **Create connection**.
 1. Select a **{{ CH }}** connection.
 1. Fill in the connection settings.
 
    1. Enter the name `AppMetrica_workshop`.
    1. Select a {{ CH }} host from the **Hostname** drop-down list.
-   1. Select the username and enter the password from [1.1](#ch-connection).
+   1. Select the username and enter the password from step [1.1](#ch-connection).
    1. Click **Check connection**.
-   1. Enable **Allow subselects in datasets and queries from charts**.
+   1. Enable **Allow subqueries in datasets and queries from charts**.
 
       ![image](../../../_assets/datalens/solution-13/08-ch-connection.png)
 
@@ -252,7 +253,7 @@ To set up the connection and export the data from your app, use the instructions
 1. Add a chart to your dashboard.
 
    1. In the upper-right corner, click **Add** → **Chart**.
-   1. From the **Chart** drop-down list, select **Table by car brands**. The **Title** field will be populated automatically.
+   1. From the **Chart** drop-down list, select **Table by car brands**. The **Name** field will be populated automatically.
    1. Click **Add**.
 
       ![image](../../../_assets/datalens/solution-13/12-chart-settings.png)
@@ -273,65 +274,65 @@ To set up the connection and export the data from your app, use the instructions
 
 Try to change **event name** in the selector to another value to see how the dashboard changes.
 
-## 6. Customer journey. Create an SQL chart and a Sankey chart {#customer-journey}
+## 6. Customer journey. Create an QL chart and a Sankey chart {#customer-journey}
 
-### 6.1. Create an SQL chart in {{ datalens-short-name }} {#creating-sql-chart}
+### 6.1. Create an QL chart in {{ datalens-short-name }} {#creating-sql-chart}
 
-Use SQL charts to research event sequences and experiment in {{ datalens-short-name }}.
+Use QL charts to research event sequences and experiment in {{ datalens-short-name }}.
 
-1. Open the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
-1. Select the `AppMetrica_workshop` connection that you created in [4.2](#creation-datalens-connection-to-ch).
-1. At the top right, click **Create SQL-chart**.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}) and select **Connections** in the menu on the left.
+1. Select the `AppMetrica_workshop` connection that you created in step [4.2](#creation-datalens-connection-to-ch).
+1. At the top right, click **Create QL chart**.
 1. Enter the query:
 
-     ```sql
-     SELECT uniqExact(t.appmetrica_device_id) as counts, events_seq, 
-     
-     if(events_seq like '%Звонок%', 'Call', 
-     if(events_seq like '%Сообщение%', 'Message', 'Contact failed')) as contact
-     
-     FROM (
-     
-     SELECT
-         appmetrica_device_id,
-         num_steps,
-         arrayStringConcat(filt_events, ' -> ') as events_seq
-     FROM
-         (SELECT
-             appmetrica_device_id,
-             groupArray(event_name) as events,
-             count(event_name) as cnt_events,
-             groupArray(datetime) as times,
-             arrayEnumerate(events) as indexes,
-             arrayDifference(arrayMap(x -> toUInt64(x), times)) as times_diffs,
-             arrayFilter(e, i -> (i = 1) or (events[i - 1] != events[i]) or (times_diffs[i] >= 1800),
-                         events, indexes) as filt_events,
-             length(filt_events) as num_steps
-         FROM 
-             (SELECT
-                 appmetrica_device_id,
-                 datetime,
-                 event_name
-             FROM autoru_appmetrica.raw_appmetrica_auto_data
-             ORDER BY appmetrica_device_id,
-                 datetime)
-         GROUP BY appmetrica_device_id
-         HAVING cnt_events <= 30)) as t
-     
-     where  t.num_steps<10
-     
-     GROUP BY t.events_seq
-     HAVING counts>10
-     ORDER BY counts desc
-     ```
+   ```sql
+   SELECT uniqExact(t.appmetrica_device_id) as counts, events_seq, 
 
-1. Click **Run**.
+   if(events_seq like '%Call%', 'Call', 
+   if(events_seq like '%Message%', 'Message', 'Contact failed')) as contact
+
+   FROM (
+
+   SELECT
+       appmetrica_device_id,
+       num_steps,
+       arrayStringConcat(filt_events, ' -> ') as events_seq
+   FROM
+       (SELECT
+           appmetrica_device_id,
+           groupArray(event_name) as events,
+           count(event_name) as cnt_events,
+           groupArray(datetime) as times,
+           arrayEnumerate(events) as indexes,
+           arrayDifference(arrayMap(x -> toUInt64(x), times)) as times_diffs,
+           arrayFilter(e, i -> (i = 1) or (events[i - 1] != events[i]) or (times_diffs[i] >= 1800),
+                       events, indexes) as filt_events,
+           length(filt_events) as num_steps
+       FROM 
+           (SELECT
+               appmetrica_device_id,
+               datetime,
+               event_name
+           FROM autoru_appmetrica.raw_appmetrica_auto_data
+           ORDER BY appmetrica_device_id,
+               datetime)
+       GROUP BY appmetrica_device_id
+       HAVING cnt_events <= 30)) as t
+
+   where  t.num_steps<10
+
+   GROUP BY t.events_seq
+   HAVING counts>10
+   ORDER BY counts desc
+   ```
+
+1. Click **Start**.
 1. Select the **Bar chart** type.
 
    ![image](../../../_assets/datalens/solution-13/14-bar-chart.png)
 
 1. In the upper-right corner, click **Save**, then enter the chart name `Event chains`.
-1. Add the SQL chart to your dashboard.
+1. Add the QL chart to your dashboard.
 
    1. In the menu on the left, click **Dashboards**.
    1. Select the **auto.ru app** dashboard from the list.
@@ -342,7 +343,7 @@ Use SQL charts to research event sequences and experiment in {{ datalens-short-n
 
       ![image](../../../_assets/datalens/solution-13/15-sql-chart.png)
 
-### 6.2. Create a Sankey chart in {{ ml-platform-short-name }} {#creating-sankey-chart}
+### 6.2. Create a Sankey diagram in {{ ml-platform-short-name }} {#creating-sankey-chart}
 
 1. Go to the [management console]({{ link-console-main }}).
 1. Select **{{ ml-platform-name }}** from the list on the left.
@@ -351,4 +352,3 @@ Use SQL charts to research event sequences and experiment in {{ datalens-short-n
 1. You will get an interactive Sankey diagram that shows user behavior scenarios. You can move the chart blocks and save the result as an image.
 
    ![image](../../../_assets/datalens/solution-13/16-sankey-chart.png)
-

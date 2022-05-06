@@ -5,6 +5,7 @@
 * [{#T}](update.md)
 * [{#T}](connect/index.md)
 * [{#T}](cluster-stop.md)
+* [{#T}](cluster-version-update.md)
 * [{#T}](hosts.md)
 * [{#T}](shards.md)
 * [{#T}](cluster-backups.md)

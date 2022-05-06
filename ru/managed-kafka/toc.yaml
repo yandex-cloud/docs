@@ -51,8 +51,8 @@ items:
             href: tutorials/managed-schema-registry.md
           - name: Работа с реестром схем формата данных Confluent
             href: tutorials/confluent-schema-registry.md
-      - name: Миграция с помощью MirrorMaker 2.0
-        href: tutorials/mirrormaker-unmanaged-topics.md
+      - name: Миграция данных в Managed Service for Apache Kafka®
+        href: tutorials/kafka-connectors.md
       - name: Поставка данных с помощью Debezium
         href: tutorials/kafka-cdc.md
   - name: Концепции

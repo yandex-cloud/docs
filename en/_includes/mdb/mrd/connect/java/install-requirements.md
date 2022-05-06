@@ -21,7 +21,7 @@
     <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
+
       <modelVersion>4.0.0</modelVersion>
       <groupId>com.example</groupId>
       <artifactId>app</artifactId>
@@ -35,7 +35,7 @@
         <dependency>
           <groupId>redis.clients</groupId>
           <artifactId>jedis</artifactId>
-          <version>3.3.0</version>
+          <version>3.7.0</version>
         </dependency>
         <dependency>
           <groupId>org.slf4j</groupId>
@@ -98,3 +98,18 @@
 
     * [jedis](https://mvnrepository.com/artifact/redis.clients/jedis)
     * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
+
+1. To connect using SSL:
+
+    1. [Get an SSL certificate](../../../../../managed-redis/operations/connect/index.md#get-ssl-cert).
+    1. Create secure storage for certificates:
+
+        ```bash
+        keytool \
+            -importcert \
+            -alias YARootCrt \
+            -file ~/.redis/YandexInternalRootCA.crt \
+            -keystore ~/.redis/YATrustStore \
+            -storepass <secure certificate storage password> \
+            --noprompt && chmod 0655 ~/.redis/YATrustStore
+        ```

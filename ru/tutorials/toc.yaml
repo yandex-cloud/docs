@@ -117,16 +117,20 @@ items:
           Синхронизация данных из {{ MY }} с помощью {{ data-transfer-full-name
           }}
         href: dataplatform/sync-mysql.md
-      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
-        href: dataplatform/dp-mch-data-exchange.md
-      - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
-        href: dataplatform/confluent-schema-registry.md
-      - name: Поставка данных с помощью Debezium
-        href: dataplatform/kafka-cdc.md
-      - name: Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop
-        href: dataplatform/sqoop.md
       - name: Миграция базы данных из {{ mmy-full-name }} в {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: Настройка управляемой базы данных в кластере {{ CH }} для Graphite
+        href: dataplatform/clickhouse-for-graphite.md
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: dataplatform/dp-mch-data-exchange.md
+      - name: Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop
+        href: dataplatform/sqoop.md
+      - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
+        href: dataplatform/confluent-schema-registry.md
+      - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
+        href: dataplatform/kafka-cdc.md
+      - name: Миграция данных в {{ mkf-full-name }}
+        href: dataplatform/kafka-connector.md
       - name: Перенос коллекций из {{ MG }} в {{ mmg-full-name }}
         href: dataplatform/mongodb-migration.md
       - name: Миграция базы данных в {{ mms-full-name }}
@@ -141,8 +145,6 @@ items:
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
-      - name: Настройка управляемой базы данных в кластере {{ CH }} для Graphite
-        href: dataplatform/clickhouse-for-graphite.md
   - name: Windows в Yandex Cloud
     items:
       - name: Все руководства

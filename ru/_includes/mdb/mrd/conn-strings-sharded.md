@@ -70,7 +70,7 @@ GET foo
     		DB:          0,
     		ReadOnly:    false,
     		DialTimeout: 5 * time.Second,
-    		Password:    "{{ пароль }}",
+    		Password:    "<пароль>",
     	}
     	client := redis.NewUniversalClient(&options)
 
