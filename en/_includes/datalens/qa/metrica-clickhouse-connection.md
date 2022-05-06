@@ -4,3 +4,4 @@
 
 You can use scripts to set up export of the metric to your database and connect to this database using {{ datalens-short-name }}.
 
+{% include [datalens-metrica-note](../../../_includes/datalens/datalens-metrica-note.md) %}
