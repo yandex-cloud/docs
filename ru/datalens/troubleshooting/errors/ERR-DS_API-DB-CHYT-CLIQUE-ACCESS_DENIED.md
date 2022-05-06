@@ -1,6 +1,6 @@
 # Access to clique <название клики> for user <логин пользователя> was denied
 
-`ERR.DS_API.DB.CHYT.CLIQUE_ACCESS_DENIED`
+`ERR.DS_API.DB.CHYT.CLIQUE.ACCESS_DENIED`
 
 У пользователя, логин которого указан в сообщении об ошибке, нет доступа к клике, указанной в этом сообщении.
 

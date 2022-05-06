@@ -12,7 +12,10 @@
 [ERR.DS_API.DB.AUTHENTICATION_FAILED](ERR-DS_API-DB-AUTHENTICATION_FAILED.md) | Database authentication failed |
 [ERR.DS_API.DB.CANNOT_PARSE.DATETIME](ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md) | Cannot parse datetime |
 [ERR.DS_API.DB.CANNOT_PARSE.NUMBER](ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md) | Cannot parse number |
-{% if audience == "internal" %}[ERR.DS_API.DB.CHYT.CLIQUE_ACCESS_DENIED](ERR-DS_API-DB-CHYT-CLIQUE_ACCESS_DENIED.md) | Access to clique <название клики> for user <логин пользователя> was denied |{% endif %}
+{% if audience == "internal" %}[ERR.DS_API.DB.CHYT.CLIQUE.ACCESS_DENIED](ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md) | Access to clique <название клики> for user <логин пользователя> was denied |{% endif %}
+{% if audience == "internal" %}[ERR.DS_API.DB.CHYT.CLIQUE.INVALID_SPECIFICATION](ERR-DS_API-DB-CHYT-CLIQUE-INVALID_SPECIFICATION.md) | Invalid clique specification. Probably, clique does not exists |{% endif %}
+{% if audience == "internal" %}[ERR.DS_API.DB.CHYT.CLIQUE.NOT_RUNNING](ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md) | Clique <название клики> is not running |{% endif %}
+{% if audience == "internal" %}[ERR.DS_API.DB.CHYT.CLIQUE.SUSPENDED](ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md) | Clique <название клики> is suspended |{% endif %}
 {% if audience == "internal" %}[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.MORE_THAN_ONE_TABLE](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md) | Cannot join a concatenation of tables with another table |{% endif %}
 {% if audience == "internal" %}[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_A_KEY_COLUMN](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md) | Column used in join expression is not a key column |{% endif %}
 {% if audience == "internal" %}[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_KEY_PREFIX_COLUMN](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md) | Joined columns should form prefix of joined table key columns |{% endif %}

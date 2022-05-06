@@ -507,7 +507,7 @@ items:
       - name: Access to clique <название клики> for user <логин пользователя> was denied
         when: audience == "internal"
         hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE_ACCESS_DENIED.md
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md
       - name: Access to table was denied
         when: audience == "internal"
         hidden: true
@@ -522,6 +522,14 @@ items:
       - name: Cannot parse number
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+      - name: Clique <название клики> is not running
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md
+      - name: Clique <название клики> is suspended
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md
       - name: Column used in join expression is not a key column
         when: audience == "internal"
         hidden: true
@@ -563,6 +571,10 @@ items:
       - name: Inconsistent aggregation among operands
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Invalid clique specification. Probably, clique does not exists
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-INVALID_SPECIFICATION.md
       - name: Invalid top-level LOD dimension found in expression
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-LOD-INVALID_TOPLEVEL_DIMENSIONS.md
