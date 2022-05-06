@@ -19,6 +19,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
     Connections to {{ RD }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
 
     To connect to a cluster:
+
     1. Create a new DB connection:
         1. In the **Database** menu, select **New connection**.
         1. Select the **{{ RD }}** database from the list.
@@ -30,7 +31,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
         1. On the **SSH** tab:
             1. Enable the **Use SSL tunnel** setting.
             1. Specify the SSH tunnel parameters:
-                * **Host/IP**: Public IP address of the [VM to connect to](#connect).
+                * **Host/IP**: Public IP address of the [VM to connect to](./index.md#connect).
                 * **Username**: Username for connecting to the VM.
                 * **Authentication method**: `Public key`.
                 * **Secret key**: Path to the file with the private key used for connecting to the VM.
@@ -41,7 +42,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
                 1. Enable the **Set of certificates** setting.
                 1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
     1. Click **Test Connection ...** to test the DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-    1. Click **Done** to save the database connection settings.
+    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
 

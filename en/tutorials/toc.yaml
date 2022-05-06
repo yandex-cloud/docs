@@ -69,6 +69,8 @@ items:
         href: testing/iot-emulation.md
       - name: gRPC service load testing
         href: testing/loadtesting-grpc.md
+      - name: Using Phantom to run a fixed-load HTTPS test
+        href: testing/loadtesting-https-phantom.md
   - name: Performing infrastructure management
     items:
       - name: All tutorials

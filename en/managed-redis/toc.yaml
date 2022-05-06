@@ -15,7 +15,7 @@ items:
         href: operations/update.md
       - name: Connecting to a database
         items:
-          - name: Overview of database connection methods
+          - name: Preparing for connecting
             href: operations/connect/index.md
           - name: Connecting to a non-sharded cluster
             href: operations/connect/non-sharded.md
@@ -23,6 +23,8 @@ items:
             href: operations/connect/sharded.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
+      - name: Updating a Redis version
+        href: operations/cluster-version-update.md
       - name: Managing hosts in a cluster
         href: operations/hosts.md
       - name: Managing shards
@@ -35,7 +37,7 @@ items:
         href: operations/monitoring.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-  - name: Practical guidelines
+  - name: Use cases
     items:
       - name: Storing PHP sessions in Managed Service for Redis
         href: tutorials/redis-as-php-sessions-storage.md
@@ -57,9 +59,9 @@ items:
         href: concepts/replication.md
       - name: Supported clients
         href: concepts/supported-clients.md
-      - name: Managing memory in Yandex Managed Service for Redis
+      - name: Memory management in Managed Service for Redis
         href: concepts/memory-management.md
-      - name: Supported commands in Yandex Managed Service for Redis
+      - name: Limitations of Managed Service for Redis
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md

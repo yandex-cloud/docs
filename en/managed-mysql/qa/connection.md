@@ -6,7 +6,7 @@ View the connection examples in the [documentation](../operations/connect.md#con
 
 {{ MY }} hosts with public access only support connections with an [SSL certificate](../operations/connect.md#get-ssl-cert).
 
-There are also [{#T}](../concepts/network.md#special-fqdns) that point to the **Current master** and the cluster's **Least lagging replica**.
+There are also [{#T}](../operations/connect.md#special-fqdns) that point to the **Current master** and the cluster's **Least lagging replica**.
 
 #### Cannot connect from the internet {#from-internet}
 
@@ -19,7 +19,7 @@ Check whether there is public access to the host. To do this, in the [management
 
 Additional information:
 * If public access is only configured for certain hosts in your cluster, automatic master change may make the master unavailable over the internet.
-* If you are using [{#T}](../concepts/network.md#special-fqdns), check the host list to see that the current master or replica has public access.
+* If you are using [{#T}](../operations/connect.md#special-fqdns), check the host list to see that the current master or replica has public access.
 * If you are using [{#T}](../concepts/network.md#security-groups), please check their [settings](../operations/connect.md#configure-security-groups).
 
 #### Cannot connect from {{ yandex-cloud }} {#from-yc}
@@ -33,7 +33,7 @@ To do this, in the management console:
 
 Additional information:
 * If you are connecting to a host with public access, a connection can only be established with an [SSL certificate](../operations/connect.md#get-ssl-cert).
-* If you are using [{#T}](../concepts/network.md#special-fqdns), make sure the current master or replica is available for public access.
+* If you are using [{#T}](../operations/connect.md#special-fqdns), make sure the current master or replica is available for public access.
 * If you are using [{#T}](../concepts/network.md#security-groups), please check their [settings](../operations/connect.md#configure-security-groups).
 
 #### Cannot connect to a multi-host cluster {#to-multi-host-cluster}
@@ -46,7 +46,7 @@ Check whether there is public access to the host. To do this, in the [management
 1. Look at the value in the desired host's **Public access** column.
 
 Additional information:
-* If you are using [{#T}](../concepts/network.md#special-fqdns), check the host list to see that the current master or replica have public access.
+* If you are using [{#T}](../operations/connect.md#special-fqdns), check the host list to see that the current master or replica have public access.
 * If you cannot connect to a host after it is added, make sure that the cluster [security group](../concepts/network.md#security-groups) has the correct settings for the subnet in which the host is located.
 
 #### Connection limit exceeded {#connection-limit}
