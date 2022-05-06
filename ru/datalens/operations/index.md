@@ -3,7 +3,8 @@
 ## Создание подключения {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
-- [{#T}](connection/create-csv.md)
+{% if audience != "internal" %} - [{#T}](connection/create-csv.md) {% endif %}
+{% if audience == "internal" %} - [{#T}](connection/create-file.md) {% endif %}
 - [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
@@ -17,6 +18,7 @@
 - [{#T}](connection/create-appmetrica.md)
 {% if audience != "internal" %} - [{#T}](connection/create-cloud-billing.md) {% endif %}
 {% if audience != "internal" %} - [{#T}](connection/manage-access.md) {% endif %}
+{% if audience == "internal" %} - [{#T}](connection/create-csv.md) {% endif %}
 
 ## Работа с датасетом {#working-with-datasets}
 

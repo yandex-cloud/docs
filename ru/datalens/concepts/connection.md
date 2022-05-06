@@ -9,7 +9,8 @@ _Подключение_ содержит информацию о парамет
 - **ClickHouse**
 - **PostgreSQL**
 - **MySQL**
-- **CSV-файл**
+{% if audience != "internal" %} - **CSV-файл** {% endif %}
+{% if audience == "internal" %} - **File** {% endif %}
 - **Google Sheets**
 - **MS SQL Server**
 - **Oracle Database**
@@ -19,6 +20,7 @@ _Подключение_ содержит информацию о парамет
 - **Metrica** (в режиме прямого доступа)
 - **AppMetrica** (в режиме прямого доступа)
 - **Yandex Cloud Billing**
+{% if audience == "internal" %} - **CSV-файл** {% endif %}
 
 {% if audience == "internal" %}
 
@@ -44,7 +46,8 @@ _Подключение_ содержит информацию о парамет
 #### См. также {#see-also}
 
 - [{#T}](../operations/connection/create-clickhouse.md)
-- [{#T}](../operations/connection/create-csv.md)
+{% if audience == "internal" %} - [{#T}](../operations/connection/create-file.md) {% endif %}
+{% if audience != "internal" %} - [{#T}](../operations/connection/create-csv.md) {% endif %}
 - [{#T}](../operations/connection/create-google-sheets.md)
 - [{#T}](../operations/connection/create-mysql.md)
 - [{#T}](../operations/connection/create-postgresql.md)
@@ -56,3 +59,4 @@ _Подключение_ содержит информацию о парамет
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
 {% if audience != "internal" %} - [{#T}](../operations/connection/create-cloud-billing.md) {% endif %}
+{% if audience == "internal" %} - [{#T}](../operations/connection/create-csv.md) {% endif %}

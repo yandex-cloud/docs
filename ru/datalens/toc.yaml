@@ -114,6 +114,10 @@ items:
             href: operations/connection/create-clickhouse.md
           - name: Создание подключения к файлу CSV
             href: operations/connection/create-csv.md
+            when: audience == "external"
+          - name: Создание подключения к файлу
+            href: operations/connection/create-file.md
+            when: audience == "internal"
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
           - name: Создание подключения к MySQL
@@ -150,6 +154,9 @@ items:
           - name: Управление доступом к подключению
             when: audience == "external"
             href: operations/connection/manage-access.md
+          - name: Создание подключения к файлу CSV
+            href: operations/connection/create-csv.md
+            when: audience == "internal"
       - name: Работа с датасетами
         items:
           - name: Создание датасета
