@@ -86,7 +86,7 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md) %}
 
-{% include [data-transfer-privateadmin](../../../_includes/roles-data-transfer-privateadmin.md) %}
+<!-- {% include [data-transfer-privateadmin](../../../_includes/roles-data-transfer-privateadmin.md) %} -->
 
 {% include [data-transfer-admin](../../../_includes/roles-data-transfer-admin.md) %}
 
