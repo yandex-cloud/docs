@@ -1,6 +1,12 @@
 # Создание пространства имен в кластере {{ k8s }}
 
-Чтобы создать [пространство имен](../../concepts/index.md#namespace.md) в кластере {{ managed-k8s-name }}:
+{% note info %}
+
+Создание [пространства имен](../../concepts/index.md#namespace) в кластере {{ k8s }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
+
+{% endnote %}
+
+Чтобы создать пространство имен в кластере {{ managed-k8s-name }}:
 
 {% list tabs %}
 
