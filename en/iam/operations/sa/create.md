@@ -8,29 +8,31 @@ Create a [service account](../../concepts/users/service-accounts.md) to manage r
 
 - Management console
 
-  {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
+   {% include [create-sa-via-console](../../../_includes/iam/create-sa-via-console.md) %}
 
 - CLI
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the command for creating a service account:
+   1. See the description of the command for creating a service account:
 
-      ```
-      $ yc iam service-account create --help
+      ```bash
+      yc iam service-account create --help
       ```
 
-  2. Create a service account named `my-robot`:
+   1. Create a service account named `my-robot`:
 
+      ```bash
+      yc iam service-account create --name my-robot
       ```
-      $ yc iam service-account create --name my-robot
-      ```
+
+      Name format requirements:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
 - API
 
-  To create a service account, use the [create](../../api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource.
+   To create a service account, use the [create](../../api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource.
 
 {% endlist %}
 
@@ -44,30 +46,29 @@ Create a service account with the following name and description:
 
 - CLI
 
-  ```bash
-  $ yc iam service-account create --name my-robot \
-      --description "this is my favorite service account"
-  ```
+   ```bash
+   yc iam service-account create --name my-robot \
+     --description "this is my favorite service account"
+   ```
 
 - API
 
-  ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{
-          "folderId": "b1gvmob95yysaplct532",
-          "name": "my-robot",
-          "description": "this is my favorite service account"
-      }' \
-      https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
-  ```
+   ```bash
+   curl -X POST \
+       -H 'Content-Type: application/json' \
+       -H "Authorization: Bearer <IAM-TOKEN>" \
+       -d '{
+           "folderId": "b1gvmob95yysaplct532",
+           "name": "my-robot",
+           "description": "this is my favorite service account"
+       }' \
+       https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
+   ```
 
 {% endlist %}
 
 #### What's next {#what-is-next}
 
-- [{#T}](assign-role-for-sa.md)
-- [{#T}](create-access-key.md)
-- [{#T}](set-access-bindings.md)
-
+* [{#T}](assign-role-for-sa.md)
+* [{#T}](create-access-key.md)
+* [{#T}](set-access-bindings.md)
