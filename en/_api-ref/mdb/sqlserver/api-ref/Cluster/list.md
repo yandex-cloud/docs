@@ -120,7 +120,8 @@ filter | A filter expression that filters resources listed in the response. The 
       "sqlcollation": "string",
       "hostGroupIds": [
         "string"
-      ]
+      ],
+      "serviceAccountId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -201,4 +202,5 @@ clusters[].<br>securityGroupIds[] | **string**<br><p>User security groups</p>
 clusters[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 clusters[].<br>sqlcollation | **string**<br><p>SQL Server Collation</p> 
 clusters[].<br>hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
+clusters[].<br>serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
 nextPageToken | **string**<br><p>Token that allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-sqlserver/api-ref/Cluster/list#query_params">pageSize</a>, use the ``next_page_token`` as the value for the <a href="/docs/managed-sqlserver/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own ``next_page_token`` to continue paging through the results.</p> 

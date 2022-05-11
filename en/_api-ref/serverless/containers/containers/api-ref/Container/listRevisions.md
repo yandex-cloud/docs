@@ -71,6 +71,9 @@ filter | The maximum string length in characters is 1000.
         "subnetIds": [
           "string"
         ]
+      },
+      "provisionPolicy": {
+        "minInstances": "string"
       }
     }
   ],
@@ -111,4 +114,6 @@ revisions[].<br>secrets[].<br>environmentVariable | **string**<br>
 revisions[].<br>connectivity | **object**<br>
 revisions[].<br>connectivity.<br>networkId | **string**<br>
 revisions[].<br>connectivity.<br>subnetIds[] | **string**<br>
+revisions[].<br>provisionPolicy | **object**<br>
+revisions[].<br>provisionPolicy.<br>minInstances | **string** (int64)<br>
 nextPageToken | **string**<br>

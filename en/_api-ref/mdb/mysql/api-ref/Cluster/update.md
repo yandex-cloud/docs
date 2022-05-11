@@ -122,7 +122,9 @@ clusterId | Required. ID of the cluster to update.  To get this ID, make a [list
       "innodbFtMinTokenSize": "integer",
       "innodbFtMaxTokenSize": "integer",
       "lowerCaseTableNames": "integer",
-      "showCompatibility_56": true
+      "showCompatibility_56": true,
+      "maxSpRecursionDepth": "integer",
+      "innodbCompressionLevel": "integer"
     },
     "mysqlConfig_8_0": {
       "innodbBufferPoolSize": "integer",
@@ -196,7 +198,9 @@ clusterId | Required. ID of the cluster to update.  To get this ID, make a [list
       "innodbOnlineAlterLogMaxSize": "integer",
       "innodbFtMinTokenSize": "integer",
       "innodbFtMaxTokenSize": "integer",
-      "lowerCaseTableNames": "integer"
+      "lowerCaseTableNames": "integer",
+      "maxSpRecursionDepth": "integer",
+      "innodbCompressionLevel": "integer"
     },
     // end of the list of possible fields`configSpec`
 
@@ -314,6 +318,8 @@ configSpec.<br>mysqlConfig_5_7.<br>innodbFtMinTokenSize | **integer** (int64)<br
 configSpec.<br>mysqlConfig_5_7.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>showCompatibility_56 | **boolean** (boolean)<br><p>Manages MySQL 5.6 compatibility</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0 | **object**<br>Configuration for a MySQL 8.0 cluster. <br>`configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br><br><p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -383,6 +389,8 @@ configSpec.<br>mysqlConfig_8_0.<br>innodbOnlineAlterLogMaxSize | **integer** (in
 configSpec.<br>mysqlConfig_8_0.<br>innodbFtMinTokenSize | **integer** (int64)<br><p>Minimum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
 name | **string**<br><p>New name of the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 maintenanceWindow | **object**<br><p>Configuration of a maintenance window in an MySQL cluster.</p> <p>Configuration of a maintenance window in a MySQL cluster.</p> 
 maintenanceWindow.<br>anytime | **object**<br>Maintenance operation can be scheduled anytime. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>

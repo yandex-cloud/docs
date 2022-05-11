@@ -378,7 +378,9 @@ pageToken | Opaque value identifying the endpoints page to be fetched. Should be
               "columnName": "string",
               "mapping": [
                 {
-                  "columnValue": {},
+                  "columnValue": {
+                    "stringValue": "string"
+                  },
                   "shardName": "string"
                 }
               ]
@@ -632,6 +634,7 @@ endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping | *
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>columnName | **string**<br>
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[] | **object**<br>
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue | **object**<br>
+endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue.<br>stringValue | **string**<br>
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>shardName | **string**<br>
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`endpoints[].settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
 endpoints[].<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`endpoints[].settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 

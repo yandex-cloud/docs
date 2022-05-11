@@ -3992,6 +3992,14 @@ components:
           description: Ammount of memory available for instances.
           type: string
           format: int64
+        disks:
+          description: Number of local disks available for instances
+          type: string
+          format: int64
+        diskSize:
+          description: Size of each local disk
+          type: string
+          format: int64
     Image:
       description: An Image resource.
       type: object

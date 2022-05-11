@@ -37,6 +37,8 @@ items:
         href: api-ref/Cluster/restore.md
       - name: start
         href: api-ref/Cluster/start.md
+      - name: startFailover
+        href: api-ref/Cluster/startFailover.md
       - name: stop
         href: api-ref/Cluster/stop.md
       - name: update
@@ -49,8 +51,12 @@ items:
         href: api-ref/Database/create.md
       - name: delete
         href: api-ref/Database/delete.md
+      - name: exportBackup
+        href: api-ref/Database/exportBackup.md
       - name: get
         href: api-ref/Database/get.md
+      - name: importBackup
+        href: api-ref/Database/importBackup.md
       - name: list
         href: api-ref/Database/list.md
       - name: restore

@@ -22,6 +22,8 @@ Method | Description
 --- | ---
 [create](create.md) | Creates a new SQL Server database in the specified cluster.
 [delete](delete.md) | Deletes the specified SQL Server database.
+[exportBackup](exportBackup.md) | Exports database backup to external backup
 [get](get.md) | Returns the specified SQL Server database.
+[importBackup](importBackup.md) | Imports a new SQL Server database from external backup
 [list](list.md) | Retrieves the list of SQL Server databases in the specified cluster.
 [restore](restore.md) | Creates a new SQL Server database in the specified cluster from a backup

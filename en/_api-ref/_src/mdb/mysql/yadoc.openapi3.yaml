@@ -1599,6 +1599,11 @@ components:
           description: This option prevents unintended deletion of the cluster.
           type: boolean
           format: boolean
+        hostGroupIds:
+          description: Host groups hosting VMs of the cluster.
+          type: array
+          items:
+            type: string
     ClusterConfig:
       type: object
       allOf:
@@ -1819,6 +1824,11 @@ components:
           description: This option prevents unintended deletion of the cluster.
           type: boolean
           format: boolean
+        hostGroupIds:
+          description: Host groups hosting VMs of the cluster.
+          type: array
+          items:
+            type: string
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -2879,6 +2889,24 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
           type: boolean
           format: boolean
+        maxSpRecursionDepth:
+          description: |-
+            The number of times that any given stored procedure may be called recursively.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+            Acceptable values are 0 to 255, inclusive.
+          type: integer
+          format: int64
+        innodbCompressionLevel:
+          description: |-
+            The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
+            Acceptable values are 0 to 9, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
@@ -3496,6 +3524,24 @@ components:
             Acceptable values are 0 to 1, inclusive.
           type: integer
           format: int64
+        maxSpRecursionDepth:
+          description: |-
+            The number of times that any given stored procedure may be called recursively.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+            Acceptable values are 0 to 255, inclusive.
+          type: integer
+          format: int64
+        innodbCompressionLevel:
+          description: |-
+            The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
+            Acceptable values are 0 to 9, inclusive.
+          type: integer
+          format: int64
     MysqlConfig8_0AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
@@ -3885,6 +3931,15 @@ components:
           type: string
         securityGroupIds:
           description: List of security group IDs to apply to the new cluster.
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
+        hostGroupIds:
+          description: Host groups hosting VMs of the cluster.
           type: array
           items:
             type: string
@@ -5210,6 +5265,24 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
           type: boolean
           format: boolean
+        maxSpRecursionDepth:
+          description: |-
+            The number of times that any given stored procedure may be called recursively.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+            Acceptable values are 0 to 255, inclusive.
+          type: integer
+          format: int64
+        innodbCompressionLevel:
+          description: |-
+            The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
+            Acceptable values are 0 to 9, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -5755,6 +5828,24 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
           type: boolean
           format: boolean
+        maxSpRecursionDepth:
+          description: |-
+            The number of times that any given stored procedure may be called recursively.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+            Acceptable values are 0 to 255, inclusive.
+          type: integer
+          format: int64
+        innodbCompressionLevel:
+          description: |-
+            The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
+            Acceptable values are 0 to 9, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -6300,6 +6391,24 @@ components:
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
           type: boolean
           format: boolean
+        maxSpRecursionDepth:
+          description: |-
+            The number of times that any given stored procedure may be called recursively.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+            Acceptable values are 0 to 255, inclusive.
+          type: integer
+          format: int64
+        innodbCompressionLevel:
+          description: |-
+            The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
+            Acceptable values are 0 to 9, inclusive.
+          type: integer
+          format: int64
     MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
       description: |-
         Effective settings for a MySQL 8.0 cluster (a combination of settings defined
@@ -6844,6 +6953,24 @@ components:
             See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
 
             Acceptable values are 0 to 1, inclusive.
+          type: integer
+          format: int64
+        maxSpRecursionDepth:
+          description: |-
+            The number of times that any given stored procedure may be called recursively.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+            Acceptable values are 0 to 255, inclusive.
+          type: integer
+          format: int64
+        innodbCompressionLevel:
+          description: |-
+            The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
+            Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
     MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
@@ -7391,6 +7518,24 @@ components:
             Acceptable values are 0 to 1, inclusive.
           type: integer
           format: int64
+        maxSpRecursionDepth:
+          description: |-
+            The number of times that any given stored procedure may be called recursively.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+            Acceptable values are 0 to 255, inclusive.
+          type: integer
+          format: int64
+        innodbCompressionLevel:
+          description: |-
+            The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
+            Acceptable values are 0 to 9, inclusive.
+          type: integer
+          format: int64
     MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
       description: |-
         Default configuration for a MySQL 8.0 cluster.
@@ -7934,6 +8079,24 @@ components:
             See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
 
             Acceptable values are 0 to 1, inclusive.
+          type: integer
+          format: int64
+        maxSpRecursionDepth:
+          description: |-
+            The number of times that any given stored procedure may be called recursively.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+            Acceptable values are 0 to 255, inclusive.
+          type: integer
+          format: int64
+        innodbCompressionLevel:
+          description: |-
+            The level of zlib compression to use for InnoDB compressed tables and indexes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
+
+            Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:

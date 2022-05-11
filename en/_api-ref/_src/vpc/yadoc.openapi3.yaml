@@ -283,6 +283,262 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/MoveAddressMetadata'
       x-y-operation-response: '[Address](/docs/vpc/api-ref/Address#representation)'
+  /vpc/v1/gateways/{gatewayId}:
+    get:
+      tags:
+      - Gateway
+      summary: Returns the specified Gateway resource.
+      description: To get the list of all available Gateway resources, make a [list](/docs/vpc/api-ref/Gateway/list)
+        request.
+      operationId: GatewayGet
+      parameters:
+      - name: gatewayId
+        in: path
+        description: |-
+          Required.
+          ID of the Gateway resource to return.
+
+          To get Gateway resource ID make a [list](/docs/vpc/api-ref/Gateway/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gateway'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Gateway
+      summary: Deletes the specified gateway.
+      operationId: GatewayDelete
+      parameters:
+      - name: gatewayId
+        in: path
+        description: |-
+          Required.
+          ID of the gateway to delete.
+
+          To get a gateway ID make a [list](/docs/vpc/api-ref/Gateway/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteGatewayMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Gateway
+      summary: Updates the specified gateway.
+      operationId: GatewayUpdate
+      parameters:
+      - name: gatewayId
+        in: path
+        description: |-
+          Required.
+          ID of the gateway to update.
+
+          To get the gateway ID make a [list](/docs/vpc/api-ref/Gateway/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGatewayRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateGatewayMetadata'
+      x-y-operation-response: '[Gateway](/docs/vpc/api-ref/Gateway#representation)'
+  /vpc/v1/gateways:
+    get:
+      tags:
+      - Gateway
+      summary: Retrieves the list of Gateway resources in the specified folder.
+      operationId: GatewayList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list gateways in.
+
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/vpc/api-ref/Gateway/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/vpc/api-ref/Gateway/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters Gateway listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Gateway.name](/docs/vpc/api-ref/Gateway#representation) field.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `name=my-gateway`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGatewaysResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Gateway
+      summary: Creates a gateway in the specified folder.
+      operationId: GatewayCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGatewayRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateGatewayMetadata'
+      x-y-operation-response: '[Gateway](/docs/vpc/api-ref/Gateway#representation)'
+  /vpc/v1/gateways/{gatewayId}/operations:
+    get:
+      tags:
+      - Gateway
+      summary: List operations for the specified gateway.
+      operationId: GatewayListOperations
+      parameters:
+      - name: gatewayId
+        in: path
+        description: |-
+          Required.
+          ID of the gateway to list operations for.
+
+          To get a gateway ID make a [list](/docs/vpc/api-ref/Gateway/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/vpc/api-ref/Gateway/listOperations#query_params), the service returns a [nextPageToken](/docs/vpc/api-ref/Gateway/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/Gateway/listOperations#query_params) to the
+          [nextPageToken](/docs/vpc/api-ref/Gateway/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGatewayOperationsResponse'
+      x-y-navtitle: listOperations
+  /vpc/v1/gateways/{gatewayId}:move:
+    post:
+      tags:
+      - Gateway
+      summary: Move a gateway to another folder
+      operationId: GatewayMove
+      parameters:
+      - name: gatewayId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveGatewayRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: move
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/MoveGatewayMetadata'
+      x-y-operation-response: '[Gateway](/docs/vpc/api-ref/Gateway#representation)'
   /vpc/v1/networks/{networkId}:
     get:
       tags:
@@ -1652,6 +1908,57 @@ components:
         properties:
           externalIpv4AddressSpec:
             $ref: '#/components/schemas/ExternalIpv4AddressSpec'
+    CreateGatewayMetadata:
+      type: object
+      properties:
+        gatewayId:
+          description: ID of the gateway that is being created.
+          type: string
+    CreateGatewayRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          folderId:
+            description: |-
+              Required.
+              ID of the folder to create a gateway in.
+
+              To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+              The maximum string length in characters is 50.
+            type: string
+          name:
+            description: |-
+              Name of the gateway.
+              The name must be unique within the folder.
+
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              Description of the gateway.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Gateway labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+      - title: gateway
+        type: object
+        maxProperties: 1
+        properties:
+          sharedEgressGatewaySpec:
+            $ref: '#/components/schemas/SharedEgressGatewaySpec'
     CreateNetworkMetadata:
       type: object
       properties:
@@ -1856,6 +2163,12 @@ components:
         addressId:
           description: ID of the address that is being deleted.
           type: string
+    DeleteGatewayMetadata:
+      type: object
+      properties:
+        gatewayId:
+          description: ID of the gateway that is being deleted.
+          type: string
     DeleteNetworkMetadata:
       type: object
       properties:
@@ -1929,6 +2242,44 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    Gateway:
+      description: A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gateway).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the gateway. Generated at creation time.
+            type: string
+          folderId:
+            description: ID of the folder that the gateway belongs to.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          name:
+            description: |-
+              Name of the gateway.
+              The name is unique within the folder.
+            type: string
+          description:
+            description: Description of the gateway.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs.
+            type: object
+            additionalProperties:
+              type: string
+      - title: gateway
+        type: object
+        maxProperties: 1
+        properties:
+          sharedEgressGateway:
+            $ref: '#/components/schemas/SharedEgressGateway'
     ListAddressOperationsResponse:
       type: object
       properties:
@@ -1958,6 +2309,38 @@ components:
             Token for getting the next page of the list. If the number of results is greater than
             the specified [pageSize](/docs/vpc/api-ref/Address/list#query_params), use `next_page_token` as the value
             for the [pageToken](/docs/vpc/api-ref/Address/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListGatewayOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified gateway.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/vpc/api-ref/Gateway/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/vpc/api-ref/Gateway/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListGatewaysResponse:
+      type: object
+      properties:
+        gateways:
+          description: List of gateways.
+          type: array
+          items:
+            $ref: '#/components/schemas/Gateway'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/vpc/api-ref/Gateway/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/vpc/api-ref/Gateway/list#query_params) parameter in the next list request.
 
             Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
@@ -2144,6 +2527,19 @@ components:
         addressId:
           type: string
     MoveAddressRequest:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    MoveGatewayMetadata:
+      type: object
+      properties:
+        gatewayId:
+          type: string
+    MoveGatewayRequest:
       type: object
       properties:
         destinationFolderId:
@@ -2501,6 +2897,13 @@ components:
       - ACTIVE
       - UPDATING
       - DELETING
+    SharedEgressGateway:
+      description: Shared Egress Gateway configuration
+      type: object
+      properties: {}
+    SharedEgressGatewaySpec:
+      type: object
+      properties: {}
     StaticRoute:
       description: A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
       type: object
@@ -2629,6 +3032,58 @@ components:
           description: Specifies if address is reserved or not.
           type: boolean
           format: boolean
+    UpdateGatewayMetadata:
+      type: object
+      properties:
+        gatewayId:
+          description: ID of the Gateway that is being updated.
+          type: string
+    UpdateGatewayRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          updateMask:
+            $ref: '#/components/schemas/FieldMask'
+            description: Field mask that specifies which attributes of the Gateway
+              should be updated.
+          name:
+            description: |-
+              New name for the gateway.
+              The name must be unique within the folder.
+
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            type: string
+          description:
+            description: |-
+              New description of the gateway.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Gateway labels as `key:value` pairs.
+
+              Existing set of labels is completely replaced by the provided set, so if you just want
+              to add or remove a label:
+              1. Get the current set of labels with a [get](/docs/vpc/api-ref/Gateway/get) request.
+              2. Add or remove a label in this set.
+              3. Send the new set in this field.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+      - title: gateway
+        type: object
+        maxProperties: 1
+        properties:
+          sharedEgressGatewaySpec:
+            $ref: '#/components/schemas/SharedEgressGatewaySpec'
     UpdateNetworkMetadata:
       type: object
       properties:
@@ -3006,6 +3461,7 @@ components:
 tags:
 - name: Address
   description: A set of methods for managing Address resources.
+- name: Gateway
 - name: Network
   description: A set of methods for managing Network resources.
 - name: RouteTable

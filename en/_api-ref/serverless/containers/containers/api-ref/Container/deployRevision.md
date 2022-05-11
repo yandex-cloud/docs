@@ -54,6 +54,9 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
     "subnetIds": [
       "string"
     ]
+  },
+  "provisionPolicy": {
+    "minInstances": "string"
   }
 }
 ```
@@ -86,6 +89,8 @@ secrets[].<br>environmentVariable | **string**<br>
 connectivity | **object**<br>
 connectivity.<br>networkId | **string**<br>
 connectivity.<br>subnetIds[] | **string**<br>
+provisionPolicy | **object**<br>
+provisionPolicy.<br>minInstances | **string** (int64)<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

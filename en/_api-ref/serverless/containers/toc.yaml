@@ -23,6 +23,8 @@ items:
         href: containers/api-ref/Container/listOperations.md
       - name: listRevisions
         href: containers/api-ref/Container/listRevisions.md
+      - name: rollback
+        href: containers/api-ref/Container/rollback.md
       - name: setAccessBindings
         href: containers/api-ref/Container/setAccessBindings.md
       - name: update

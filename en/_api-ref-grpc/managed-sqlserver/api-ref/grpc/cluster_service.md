@@ -18,6 +18,7 @@ A set of methods for managing SQL Server clusters.
 | [Move](#Move) | Moves the specified SQL Server cluster to the specified folder. |
 | [Backup](#Backup) | Creates a backup for the specified SQL Server cluster. |
 | [Restore](#Restore) | Creates a new SQL Server cluster using the specified backup. |
+| [StartFailover](#StartFailover) | Starts a manual failover for a cluster. |
 | [ListLogs](#ListLogs) | Retrieves logs for the specified SQL Server cluster. |
 | [ListOperations](#ListOperations) | Retrieves the list of operations for the specified SQL Server cluster. |
 | [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified SQL Server cluster. |
@@ -58,6 +59,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring}
@@ -143,6 +145,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring1}
@@ -212,6 +215,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>name of SQL Collation that cluster will be created with The maximum string length in characters is 100.
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -320,6 +324,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring2}
@@ -383,6 +388,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources f
 name | **string**<br>New name for the SQL Server cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -458,6 +464,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring3}
@@ -599,6 +606,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring4}
@@ -700,6 +708,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring5}
@@ -804,6 +813,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring6}
@@ -905,6 +915,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring7}
@@ -973,6 +984,7 @@ folder_id | **string**<br>ID of the folder to create the SQL Server cluster in. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1058,6 +1070,7 @@ security_group_ids[] | **string**<br>User security groups
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 
 
 ### Monitoring {#Monitoring8}
@@ -1092,6 +1105,109 @@ disk_type_id | **string**<br>Type of the storage environment for the host. <br>P
 
 
 ### Access {#Access11}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow access for DataLens 
+web_sql | **bool**<br>Allow access for Web SQL. 
+
+
+## StartFailover {#StartFailover}
+
+Starts a manual failover for a cluster.
+
+**rpc StartFailover ([StartClusterFailoverRequest](#StartClusterFailoverRequest)) returns ([operation.Operation](#Operation8))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster9)<br>
+
+### StartClusterFailoverRequest {#StartClusterFailoverRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of sqlserver cluster. The maximum string length in characters is 50.
+host_name | **string**<br>Host name to switch master role to. <br>To get this name, make a [ClusterService.ListHosts](#ListHosts) request. The maximum string length in characters is 253.
+
+
+### Operation {#Operation8}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterFailoverMetadata](#StartClusterFailoverMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster9)>**<br>if operation finished successfully. 
+
+
+### StartClusterFailoverMetadata {#StartClusterFailoverMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the sqlserver cluster being failovered. 
+
+
+### Cluster {#Cluster9}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the SQL Server cluster. This ID is assigned by Managed Service for SQL Server at creation time. 
+folder_id | **string**<br>ID of the folder the SQL Server cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br>Name of the SQL Server cluster. <br>The name must be unique within the folder, comply with RFC 1035 and be 1-63 characters long. 
+description | **string**<br>Description of the SQL Server cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the SQL Server cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
+monitoring[] | **[Monitoring](#Monitoring9)**<br>Description of monitoring systems relevant to the SQL Server cluster. 
+config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the SQL Server cluster. 
+network_id | **string**<br>ID of the network the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) of all hosts in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) of all hosts in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) of all hosts in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is in degraded state ([Host.health](#Host) of at least one of the hosts in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
+security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+
+
+### Monitoring {#Monitoring9}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the SQL Server cluster. 
+
+
+### ClusterConfig {#ClusterConfig9}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the SQL Server. 
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+&nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+resources | **[Resources](#Resources12)**<br>Resources allocated to SQL Server hosts. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone 
+access | **[Access](#Access12)**<br>Access policy to DB 
+
+
+### Resources {#Resources12}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br>Type of the storage environment for the host. <br>Possible values: <ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### Access {#Access12}
 
 Field | Description
 --- | ---
@@ -1155,11 +1271,11 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation8)**<br>List of operations for the specified SQL Server cluster. 
+operations[] | **[operation.Operation](#Operation9)**<br>List of operations for the specified SQL Server cluster. 
 next_page_token | **string**<br>Token that allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation8}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---
@@ -1240,7 +1356,7 @@ Field | Description
 name | **string**<br>Name of the SQL Server host. The host name is assigned by Managed Service for SQL Server at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing database hosts in Yandex Cloud, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the SQL Server host. The ID is assigned by Managed Service for SQL Server at creation time. 
 zone_id | **string**<br>ID of the availability zone where the SQL Server host resides. 
-resources | **[Resources](#Resources12)**<br>Resources allocated to the host. 
+resources | **[Resources](#Resources13)**<br>Resources allocated to the host. 
 role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host in the cluster is unknown.</li><li>`MASTER`: Host is the master SQL Server instance in the cluster.</li><li>`REPLICA`: Host is a replica SQL Server instance in the cluster.</li></ul>
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is degraded, and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>Services provided by the host. 
@@ -1248,7 +1364,7 @@ subnet_id | **string**<br>ID of the subnet that the host belongs to.
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 
 
-### Resources {#Resources12}
+### Resources {#Resources13}
 
 Field | Description
 --- | ---

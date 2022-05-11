@@ -22,6 +22,7 @@ Synthesizing text into speech.
 
 Field | Description
 --- | ---
+model | **string**<br>The name of the model. Specifies basic synthesis functionality. Currently should be empty. Do not use it 
 Utterance | **oneof:** `text` or `text_template`<br>Text to synthesis, one of text synthesis markups.
 &nbsp;&nbsp;text | **string**<br>Raw text (e.g. "Hello, Alice"). 
 &nbsp;&nbsp;text_template | **[TextTemplate](#TextTemplate)**<br>Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`. 

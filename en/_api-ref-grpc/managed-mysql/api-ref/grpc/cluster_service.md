@@ -64,6 +64,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring}
@@ -189,6 +190,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring1}
@@ -296,6 +298,7 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of hosts in the cluste
 network_id | **string**<br>ID of the network to create the cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>List of security group IDs to apply to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -431,6 +434,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring2}
@@ -642,6 +646,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring3}
@@ -823,6 +828,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring4}
@@ -964,6 +970,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring5}
@@ -1108,6 +1115,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring6}
@@ -1249,6 +1257,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring7}
@@ -1355,6 +1364,8 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of hosts in the new cl
 network_id | **string**<br>ID of the network to create the new cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the new cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>List of security group IDs to apply to the new cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1454,6 +1465,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring8}
@@ -1598,6 +1610,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenanc
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring9}
@@ -1740,6 +1753,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenanc
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring10}

@@ -136,6 +136,9 @@ components:
             Required.
             Text in the target language.
           type: string
+        exact:
+          type: boolean
+          format: boolean
     Language:
       type: object
       properties:

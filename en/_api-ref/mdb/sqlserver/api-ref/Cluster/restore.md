@@ -73,7 +73,8 @@ POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters:restore
   "deletionProtection": true,
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "serviceAccountId": "string"
 }
 ```
 
@@ -121,6 +122,7 @@ folderId | **string**<br><p>ID of the folder to create the SQL Server cluster in
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

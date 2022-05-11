@@ -23,6 +23,7 @@ Returns chain and private key of the specified certificate.
 Field | Description
 --- | ---
 certificate_id | **string**<br>ID of the certificate to download content. 
+version_id | **string**<br>Optional ID of the version. 
 
 
 ### GetCertificateContentResponse {#GetCertificateContentResponse}

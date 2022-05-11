@@ -18,6 +18,12 @@ Parameter | Description
 --- | ---
 certificateId | ID of the certificate to download content.
  
+## Query parameters {#query_params}
+ 
+Parameter | Description
+--- | ---
+versionId | Optional ID of the version.
+ 
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 

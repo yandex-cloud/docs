@@ -137,7 +137,7 @@ paths:
           1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field.
           2. An `=` operator.
           3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-          Example of a filter: `name=my-function`.
+          Example of a filter: `name="my-function"`.
         schema:
           type: string
       responses:
@@ -284,10 +284,10 @@ paths:
           A filter expression that filters resources listed in the response.
 
           The expression must specify:
-          1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field.
+          1. The field name. Currently filtering can only be applied to the `status` and `runtime` fields.
           2. An `=` operator.
           3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-          Example of a filter: `name=my-function`.
+          Example of a filter: `status="ACTIVE"`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -442,10 +442,10 @@ paths:
           A filter expression that filters resources listed in the response.
 
           The expression must specify:
-          1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field.
-          2. An `=` operator.
+          1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from] and [FunctionTagHistoryRecord.effective_to] fields.
+          2. An `=` or `>` or `<` operator.
           3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-          For example, `name=my-function`.
+          For example, `effective_to>2021-01-01T12:00:00Z`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -555,7 +555,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than pageSize,
+          results is larger than [page_size],
           the service returns a nextPageToken
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
@@ -567,7 +567,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set pageToken
+          Page token. Set [page_token]
           to the nextPageToken
           returned by a previous list request to get the next page of results.
 
@@ -1041,9 +1041,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than pageSize, use
+            is larger than [ListAccessBindingsRequest.page_size], use
             the nextPageToken as the value
-            for the pageToken query parameter
+            for the [ListAccessBindingsRequest.page_token] query parameter
             in the next list request. Each subsequent list request will have its own
             nextPageToken to continue paging through the results.
           type: string

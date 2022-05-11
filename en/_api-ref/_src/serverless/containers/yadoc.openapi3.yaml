@@ -153,6 +153,35 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeployContainerRevisionMetadata'
       x-y-operation-response: '`Revision`'
+  /containers/v1/containers/{containerId}:rollback:
+    post:
+      tags:
+      - Container
+      operationId: ContainerRollback
+      parameters:
+      - name: containerId
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RollbackContainerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rollback
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RollbackContainerMetadata'
+      x-y-operation-response: '[Container](/docs/serverless/containers/api-ref/Container#representation)'
   /containers/v1/revisions/{containerRevisionId}:
     get:
       tags:
@@ -270,7 +299,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than pageSize,
+          results is larger than [page_size],
           the service returns a nextPageToken
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
@@ -282,7 +311,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set pageToken
+          Page token. Set [page_token]
           to the nextPageToken
           returned by a previous list request to get the next page of results.
 
@@ -512,6 +541,8 @@ components:
             $ref: '#/components/schemas/Secret'
         connectivity:
           $ref: '#/components/schemas/Connectivity_in_DeployContainerRevisionRequest_connectivity'
+        provisionPolicy:
+          $ref: '#/components/schemas/ProvisionPolicy_in_DeployContainerRevisionRequest_provisionPolicy'
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -577,9 +608,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than pageSize, use
+            is larger than [ListAccessBindingsRequest.page_size], use
             the nextPageToken as the value
-            for the pageToken query parameter
+            for the [ListAccessBindingsRequest.page_token] query parameter
             in the next list request. Each subsequent list request will have its own
             nextPageToken to continue paging through the results.
           type: string
@@ -667,6 +698,12 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    ProvisionPolicy:
+      type: object
+      properties:
+        minInstances:
+          type: string
+          format: int64
     Resources:
       type: object
       properties:
@@ -715,12 +752,27 @@ components:
             $ref: '#/components/schemas/Secret'
         connectivity:
           $ref: '#/components/schemas/Connectivity_in_Revision_connectivity'
+        provisionPolicy:
+          $ref: '#/components/schemas/ProvisionPolicy_in_Revision_provisionPolicy'
     RevisionStatus:
       type: string
       enum:
       - CREATING
       - ACTIVE
       - OBSOLETE
+    RollbackContainerMetadata:
+      type: object
+      properties:
+        containerId:
+          type: string
+        revisionId:
+          type: string
+    RollbackContainerRequest:
+      type: object
+      properties:
+        revisionId:
+          description: Required.
+          type: string
     Secret:
       type: object
       allOf:
@@ -963,6 +1015,12 @@ components:
           type: array
           items:
             type: string
+    ProvisionPolicy_in_DeployContainerRevisionRequest_provisionPolicy:
+      type: object
+      properties:
+        minInstances:
+          type: string
+          format: int64
     Command_in_Image_command:
       type: object
       properties:
@@ -1041,6 +1099,12 @@ components:
           type: array
           items:
             type: string
+    ProvisionPolicy_in_Revision_provisionPolicy:
+      type: object
+      properties:
+        minInstances:
+          type: string
+          format: int64
     FieldMask_in_UpdateContainerRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

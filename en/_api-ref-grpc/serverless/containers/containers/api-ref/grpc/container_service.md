@@ -14,6 +14,7 @@ editable: false
 | [Update](#Update) |  |
 | [Delete](#Delete) |  |
 | [DeployRevision](#DeployRevision) |  |
+| [Rollback](#Rollback) |  |
 | [GetRevision](#GetRevision) |  |
 | [ListRevisions](#ListRevisions) |  |
 | [ListOperations](#ListOperations) |  |
@@ -266,6 +267,7 @@ image_spec | **[ImageSpec](#ImageSpec)**<br>Required.
 concurrency | **int64**<br> 
 secrets[] | **[Secret](#Secret)**<br> 
 connectivity | **[Connectivity](#Connectivity)**<br> 
+provision_policy | **[ProvisionPolicy](#ProvisionPolicy)**<br> 
 
 
 ### Resources {#Resources}
@@ -321,6 +323,13 @@ network_id | **string**<br>
 subnet_ids[] | **string**<br> 
 
 
+### ProvisionPolicy {#ProvisionPolicy}
+
+Field | Description
+--- | ---
+min_instances | **int64**<br> 
+
+
 ### Operation {#Operation3}
 
 Field | Description
@@ -360,6 +369,7 @@ service_account_id | **string**<br>
 status | enum **Status**<br> 
 secrets[] | **[Secret](#Secret1)**<br> 
 connectivity | **[Connectivity](#Connectivity1)**<br> 
+provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br> 
 
 
 ### Image {#Image}
@@ -416,6 +426,69 @@ network_id | **string**<br>
 subnet_ids[] | **string**<br> 
 
 
+### ProvisionPolicy {#ProvisionPolicy1}
+
+Field | Description
+--- | ---
+min_instances | **int64**<br> 
+
+
+## Rollback {#Rollback}
+
+
+
+**rpc Rollback ([RollbackContainerRequest](#RollbackContainerRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RollbackContainerMetadata](#RollbackContainerMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Container](#Container4)<br>
+
+### RollbackContainerRequest {#RollbackContainerRequest}
+
+Field | Description
+--- | ---
+container_id | **string**<br>Required.  
+revision_id | **string**<br>Required.  
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RollbackContainerMetadata](#RollbackContainerMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Container](#Container4)>**<br>if operation finished successfully. 
+
+
+### RollbackContainerMetadata {#RollbackContainerMetadata}
+
+Field | Description
+--- | ---
+container_id | **string**<br> 
+revision_id | **string**<br> 
+
+
+### Container {#Container4}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br> 
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+url | **string**<br> 
+status | enum **Status**<br> 
+
+
 ## GetRevision {#GetRevision}
 
 
@@ -445,6 +518,7 @@ service_account_id | **string**<br>
 status | enum **Status**<br> 
 secrets[] | **[Secret](#Secret2)**<br> 
 connectivity | **[Connectivity](#Connectivity2)**<br> 
+provision_policy | **[ProvisionPolicy](#ProvisionPolicy2)**<br> 
 
 
 ### Image {#Image1}
@@ -501,6 +575,13 @@ network_id | **string**<br>
 subnet_ids[] | **string**<br> 
 
 
+### ProvisionPolicy {#ProvisionPolicy2}
+
+Field | Description
+--- | ---
+min_instances | **int64**<br> 
+
+
 ## ListRevisions {#ListRevisions}
 
 
@@ -543,6 +624,7 @@ service_account_id | **string**<br>
 status | enum **Status**<br> 
 secrets[] | **[Secret](#Secret3)**<br> 
 connectivity | **[Connectivity](#Connectivity3)**<br> 
+provision_policy | **[ProvisionPolicy](#ProvisionPolicy3)**<br> 
 
 
 ### Image {#Image2}
@@ -599,6 +681,13 @@ network_id | **string**<br>
 subnet_ids[] | **string**<br> 
 
 
+### ProvisionPolicy {#ProvisionPolicy3}
+
+Field | Description
+--- | ---
+min_instances | **int64**<br> 
+
+
 ## ListOperations {#ListOperations}
 
 
@@ -619,11 +708,11 @@ filter | **string**<br> The maximum string length in characters is 1000.
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation4)**<br> 
+operations[] | **[operation.Operation](#Operation5)**<br> 
 next_page_token | **string**<br> 
 
 
-### Operation {#Operation4}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -682,7 +771,7 @@ type | **string**<br>Required. Type of the subject. <br>It can contain one of th
 
 
 
-**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation5))**
+**rpc SetAccessBindings ([SetAccessBindingsRequest](#SetAccessBindingsRequest)) returns ([operation.Operation](#Operation6))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetAccessBindingsMetadata](#SetAccessBindingsMetadata)<br>
@@ -712,7 +801,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation5}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -739,7 +828,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 
 
-**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation6))**
+**rpc UpdateAccessBindings ([UpdateAccessBindingsRequest](#UpdateAccessBindingsRequest)) returns ([operation.Operation](#Operation7))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAccessBindingsMetadata](#UpdateAccessBindingsMetadata)<br>
@@ -777,7 +866,7 @@ id | **string**<br>Required. ID of the subject. <br>It can contain one of the fo
 type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
-### Operation {#Operation6}
+### Operation {#Operation7}
 
 Field | Description
 --- | ---

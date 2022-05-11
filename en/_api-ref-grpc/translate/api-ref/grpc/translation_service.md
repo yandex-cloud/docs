@@ -55,6 +55,7 @@ Field | Description
 --- | ---
 source_text | **string**<br>Required. Text in the source language. 
 translated_text | **string**<br>Required. Text in the target language. 
+exact | **bool**<br> 
 
 
 ### TranslateResponse {#TranslateResponse}

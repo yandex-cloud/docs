@@ -65,6 +65,9 @@ containerRevisionId | Required.
     "subnetIds": [
       "string"
     ]
+  },
+  "provisionPolicy": {
+    "minInstances": "string"
   }
 }
 ```
@@ -101,3 +104,5 @@ secrets[].<br>environmentVariable | **string**<br>
 connectivity | **object**<br>
 connectivity.<br>networkId | **string**<br>
 connectivity.<br>subnetIds[] | **string**<br>
+provisionPolicy | **object**<br>
+provisionPolicy.<br>minInstances | **string** (int64)<br>
