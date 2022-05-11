@@ -47,14 +47,14 @@ Example of cost calculation:
 Cost calculation:
 
 > 72 × 2 = 144 units per calculation
-> 144 × 0.000009 = $0.001296
+> 144 × 0.0000096 = $0.001296
 >
-> Total: $0.001296
+> Total: $0.0013824
 
 Where:
 * 72 — number of units per configuration g1.1.
 * 2 — rounded up 1,400 MS.
-* $0.000009 — cost of 1 unit.
+* $0.0000096 — cost of 1 unit.
 
 {% endif %}
 
