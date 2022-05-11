@@ -6,9 +6,9 @@ In addition to [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-na
 
 - Management console
 
-    1. In the management console, select the appropriate folder.
+    1. In the [management console]({{ link-console-main }}), select the appropriate folder.
 
-    1. Select **Object Storage**.
+    1. Select **{{ objstorage-name }}**.
 
     1. To edit the ACL, click ![image](../../../_assets/horizontal-ellipsis.svg) to the right of the bucket name and select **Bucket ACL**.
 

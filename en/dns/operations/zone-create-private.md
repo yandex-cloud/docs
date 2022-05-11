@@ -6,125 +6,131 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
 
 - Management console
 
-  1. Open the **{{ dns-name }}** section in the folder where you want to create a DNS zone.
-  1. Click **Create zone**.
-  1. Specify the zone settings:
-     1. **Zone** name.
-     1. **Zone**: Domain zone. The zone name must end with a dot.
-     1. **Type**: Internal.
-     1. Specify the networks whose resources will be included in the created zone.
-  1. Click **Create**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a DNS zone.
+   1. Select **{{ dns-name }}**.
+   1. Click **Create zone**.
+   1. Specify the zone settings:
+      1. **Zone**: Domain zone. The zone name must end with a dot.
+      1. **Type**: Internal.
+      1. Specify the networks whose resources will be included in the zone being created.
+      1. Zone **name**.
+   1. Click **Create**.
 
 - CLI
 
-  {% include [include](../../_includes/cli-install.md) %}
+   {% include [include](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a new DNS zone:
+   To create a new DNS zone:
 
-  1. View a description of the CLI create zone command:
+   1. View a description of the CLI create zone command:
 
-     ```
-     yc dns zone create --help
-     ```
+      ```
+      yc dns zone create --help
+      ```
 
-  1. Create a new internal DNS zone in the default folder:
+   1. Create a new internal DNS zone in the default folder:
 
-     ```
-     yc dns zone create --name test-zone \
-     --zone staging. \
-     --private-visibility network-ids=<network IDs for the zone>
-     ```
+      ```
+      yc dns zone create --name test-zone \
+      --zone staging. \
+      --private-visibility network-ids=<network IDs for the zone>
+      ```
 
-     Command output:
+      Command output:
 
-     ```
-     id: aet29qhara5jeg45tbjg
-     folder_id: aoerb349v3h4bupphtaf
-     created_at: "2021-02-21T09:21:03.935Z"
-     name: test-zone
-     zone: staging.
-     private_visibility:
-       network_ids:
-       - <network ID>
-     ```
+      ```
+      id: aet29qhara5jeg45tbjg
+      folder_id: aoerb349v3h4bupphtaf
+      created_at: "2021-02-21T09:21:03.935Z"
+      name: test-zone
+      zone: staging.
+      private_visibility:
+        network_ids:
+        - <network ID>
+      ```
+
 
 - Terraform
 
-  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of resources that you want to create:
 
-     DNS zone parameters:
-     * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
-     * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
-     * `name`: Zone name. It must be unique within the folder. Optional.
-     * `description`: Zone description. Optional.
-     * `labels`: A set of DNS zone labels. Optional.
-     * `public`: Zone visibility (public or internal). Optional.
-     * `private_networks`: For an internal zone, specify the {{ vpc-name }} resources that have access to domain names within this zone. Optional.
+      DNS zone parameters:
 
-     DNS record parameters:
-     * `zone_id`: ID of the zone where the record set will be located. Required parameter.
-     * `name`: Domain name. Required parameter.
-     * `type`: DNS record type. Required parameter.
-     * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
-     * `data`: Record value. Optional.
+      * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
+      * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
+      * `name`: Zone name. It must be unique within the folder. Optional.
+      * `description`: Zone description. Optional.
+      * `labels`: A set of DNS zone labels. Optional.
+      * `public`: Zone visibility (public or internal). Optional.
+      * `private_networks`: For an internal zone, specify the {{ vpc-name }} resources that have access to domain names within this zone. Optional.
 
-     ```hcl
-     resource "yandex_vpc_network" "foo" {}
-     
-     resource "yandex_dns_zone" "zone1" {
-       name        = "my-private-zone"
-       description = "Test private zone"
-     
-       labels = {
-         label1 = "test-private"
-       }
-     
-       public           = false
-       private_networks = [yandex_vpc_network.foo.id]
-     }
-     
-     resource "yandex_dns_recordset" "rs1" {
-       zone_id = yandex_dns_zone.zone1.id
-       name    = "srv.example.com."
-       type    = "A"
-       ttl     = 200
-       data    = ["10.1.0.1"]
-     }
-     ```
 
-     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      DNS record parameters:
 
-  1. Run the check using the command:
+      * `zone_id`: ID of the zone where the record set will be located. Required parameter.
+      * `name`: Domain name. Required parameter.
+      * `type`: DNS record type. Required parameter.
+      * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
+      * `data`: Record value. Optional.
 
-     ```
-     terraform plan
-     ```
 
-     The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, Terraform points them out.
+      ```hcl
+      resource "yandex_vpc_network" "foo" {}
 
-       {% note alert %}
+      resource "yandex_dns_zone" "zone1" {
+        name        = "my-private-zone"
+        description = "Test private zone"
 
-       You're charged for all resources created using Terraform. Check the plan carefully.
+        labels = {
+          label1 = "test-private"
+        }
 
-       {% endnote %}
+        public           = false
+        private_networks = [yandex_vpc_network.foo.id]
+      }
 
-  1. To create resources, run the command:
+      resource "yandex_dns_recordset" "rs1" {
+        zone_id = yandex_dns_zone.zone1.id
+        name    = "srv.example.com."
+        type    = "A"
+        ttl     = 200
+        data    = ["10.1.0.1"]
+      }
+      ```
 
-     ```
-     terraform apply
-     ```
 
-  1. Confirm the resource creation: type `yes` in the terminal and press Enter.
 
-     Terraform creates all the required resources. You can check if the resources have been created in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command:
+      For more information about resources you can create with Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
-     ```
-     yc dns zone get <DNS zone name>
-     ```
+
+   1. Run the check using the command:
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, Terraform points them out.
+
+      {% note alert %}
+
+      You're charged for all resources created using Terraform. Check the plan carefully.
+
+      {% endnote %}
+
+   1. To create resources, run the command:
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the resource creation: type `yes` in the terminal and press Enter.
+
+      Terraform creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```
+      yc dns zone get <DNS zone name>
+      ```
 
 {% endlist %}
-

@@ -1,6 +1,6 @@
 # Creating static access keys
 
-Instructions for how to create [static access keys](../../concepts/authorization/access-key.md) for [service accounts](../../concepts/users/service-accounts.md).
+These are instructions for how to create [static access keys](../../concepts/authorization/access-key.md) for a [service account](../../concepts/users/service-accounts.md).
 
 If you don't have a service account yet, [create one](../sa/create.md) and [assign it roles](../sa/assign-role-for-sa.md).
 
@@ -10,19 +10,12 @@ To create a static access key:
 
 - Management console
 
-  1. Go to the folder that the service account belongs to.
-
-  1. Go to the **Service accounts** tab.
-
-  1. Choose a service account and click the line with its name.
-
-  1. Click **Create new key** in the top panel.
-
-  1. Click **Create static access key**.
-
-  1. Enter a description of the key so that you can easily find it in the management console.
-
-  1. Save the ID and private key.
+   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+   1. Go to the **Service accounts** tab.
+   1. Choose a service account and click the line with its name.
+   1. Click **Create new key** in the top panel.
+   1. Specify the key description and click **Create**.
+   1. Save the ID and private key.
 
       {% note alert %}
 
@@ -32,18 +25,25 @@ To create a static access key:
 
 - CLI
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. See the description of the create static access key command:
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. See the description of the create static access key command:
+
+      ```bash
+      yc iam access-key create --help
+      ```
+
+   1. Select a service account (for example, `my-robot`):
+
+      ```bash
+      yc iam service-account list
+      ```
+
+      Result:
 
       ```
-      $ yc iam access-key create --help
-      ```
-
-  1. Select a service account (for example, `my-robot`):
-
-      ```
-      $ yc iam service-account list
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -52,11 +52,15 @@ To create a static access key:
       +----------------------+------------------+-------------------------------+
       ```
 
-  1. Create an access key for the `my-robot` service account:
+   1. Create an access key for the `my-robot` service account:
+
+      ```bash
+      yc iam access-key create --service-account-name my-robot
+      ```
+
+      Result:
 
       ```
-      $ yc iam access-key create --service-account-name my-robot
-
       access_key:
         id: aje6t3vsbj8lp9r4vk2u
         service_account_id: ajepg0mjt06siuj65usm
@@ -65,11 +69,11 @@ To create a static access key:
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hxtzMP1
       ```
 
-  1. Save the ID `key_id` and private key `secret`. You will not be able to get the key value again.
+   1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
 
 - API
 
-  To create an access key, use the [create](../../api-ref/AccessKey/create.md) method for the [AccessKey](../../api-ref/AccessKey/index.md) resource.
+   To create an access key, use the [create](../../api-ref/AccessKey/create.md) method for the [AccessKey](../../api-ref/AccessKey/index.md) resource.
 
 {% endlist %}
 
@@ -83,28 +87,27 @@ Add a description when creating an access key.
 
 - CLI
 
-  ```
-  $ yc iam access-key create --service-account-name my-robot \
-      --description "this key is for my bucket"
-  ```
+   ```bash
+   yc iam access-key create --service-account-name my-robot \
+     --description "this key is for my bucket"
+   ```
 
 - API
 
-  ```bash
-  $ curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{
-          "serviceAccountId": "aje6o61dvog2h6g9a33s",
-          "description": "this key is for my bucket"
-      }' \
-      https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
-  ```
+   ```bash
+   curl -X POST \
+     -H 'Content-Type: application/json' \
+     -H "Authorization: Bearer <IAM-TOKEN>" \
+     -d '{
+         "serviceAccountId": "aje6o61dvog2h6g9a33s",
+         "description": "this key is for my bucket"
+     }' \
+     https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
+   ```
 
 {% endlist %}
 
 #### What's next {#what-is-next}
 
-- [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
-- [{#T}](assign-role-for-sa.md)
-
+* [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
+* [{#T}](assign-role-for-sa.md)

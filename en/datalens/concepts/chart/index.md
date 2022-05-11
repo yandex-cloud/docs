@@ -78,7 +78,7 @@ QL chart features:
 * They enable the parameterization of any part of a SQL query.
 * They support a limited set of [visualizations types](types.md).
 * They have [public access](#public-access) restrictions.
-* They do not support data [materialization](../dataset/settings.md#materializaton) or [publication](../datalens-public.md).
+* They do not support data [materialization](../dataset/settings.md#materializaton).
 * They do not use [RLS](../../security/row-level-security.md) or [calculated fields](../calculations/index.md).
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}

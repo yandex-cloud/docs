@@ -46,16 +46,15 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
 
   1. Configure hosts with the _Data node_ role by opening the **Data node** tab:
-     1. Under **Host class**, select the platform, host type, and host class.
+     1. Under **Host class**, select the platform, host type and host class.
 
         The host class defines the technical characteristics of virtual machines that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
      1. Under **Storage**:
-        * Select one of the following [storage types](../concepts/storage.md):
-           * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
-           * Or faster local SSD storage (`local-ssd`).
 
-          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+        * Select the [type of storage](../concepts/storage.md).
+
+            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
         * Select the size of storage to be used for data.
 
@@ -128,26 +127,26 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
         ```bash
         {{ yc-mdb-es }} cluster create \
-           --name <cluster name> \
-           --environment <prestable or production> \
-           --network-name <network name> \
-           --host zone-id=<availability zone>,subnet-id=<subnet ID>,assign-public-ip=<public access>,type=<host type: datanode or masternode> \
-           --datanode-resource-preset <host class with DataNode role> \
-           --datanode-disk-size <storage size in gigabytes for hosts with the DataNode role> \
-           --datanode-disk-type <storage type for hosts with the DataNode role> \
-           --masternode-resource-preset <host class with the MasterNode role> \
-           --masternode-disk-size <storage size in gigabytes for hosts with the MasterNode role> \
-           --masternode-disk-type <storage type for hosts with the MasterNode role> \
-           --security-group-ids <list of security group IDs> \
-           --version <version {{ ES }}> \
-           --edition <{{ ES }} edition: basic, gold, or platinum> \
-           --admin-password <admin user password> \
-           --deletion-protection=<protect cluster from deletion: true or false>
+          --name <cluster name> \
+          --environment <prestable or production> \
+          --network-name <network name> \
+          --host zone-id=<availability zone>,subnet-id=<subnet ID>,assign-public-ip=<public access>,type=<host type: datanode or masternode> \
+          --datanode-resource-preset <host class with DataNode role> \
+          --datanode-disk-size <storage size in gigabytes for hosts with the DataNode role> \
+          --datanode-disk-type <storage type for hosts with the DataNode role> \
+          --masternode-resource-preset <host class with the MasterNode role> \
+          --masternode-disk-size <storage size in gigabytes for hosts with the MasterNode role> \
+          --masternode-disk-type <storage type for hosts with the MasterNode role> \
+          --security-group-ids <list of security group IDs> \
+          --version <version {{ ES }}> \
+          --edition <{{ ES }} edition: basic, gold, or platinum> \
+          --admin-password <admin user password> \
+          --deletion-protection=<protect cluster from deletion: true or false>
         ```
 
         The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
-        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
 - Terraform
 
@@ -159,10 +158,12 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
     To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
+
         * Database cluster: Description of the cluster and its hosts.
 
-                * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
-        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
+        * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+        * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
         Example configuration file structure:
 
@@ -286,30 +287,29 @@ If you specified security group IDs when creating a cluster, you may also need t
     * With a single publicly available host acting as a `{{ host-class }}`-class _Data node_ in subnet `{{ subnet-id }}` in availability zone `{{ zone-id }}`.
     * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
     * With password `esadminpwd` and username `admin`.
-    * With accidental cluster deletion protection.
+    * With protection against accidental cluster deletion.
 
     Run the command:
 
     ```bash
     {{ yc-mdb-es }} cluster create \
-       --name my-es-clstr \
-       --environment production \
-       --network-name default \
-       --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
-       --datanode-resource-preset {{ host-class }} \
-       --datanode-disk-type={{ disk-type-example }} \
-       --datanode-disk-size=20 \
-       --admin-password=esadminpwd \
-       --security-group-ids enpp2s8l3irhk5eromd7 \
-       --version 7.10 \
-       --edition platinum \
-       --deletion-protection=true
+      --name my-es-clstr \
+      --environment production \
+      --network-name default \
+      --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
+      --datanode-resource-preset {{ host-class }} \
+      --datanode-disk-type={{ disk-type-example }} \
+      --datanode-disk-size=20 \
+      --admin-password=esadminpwd \
+      --security-group-ids enpp2s8l3irhk5eromd7 \
+      --version 7.10 \
+      --edition platinum \
+      --deletion-protection=true
     ```
 
 - Terraform
 
     Let's say we need to create a {{ ES }} cluster with the following characteristics:
-
     * Name: `my-es-clstr`.
     * Version `7.13`.
     * With the `Basic` edition.

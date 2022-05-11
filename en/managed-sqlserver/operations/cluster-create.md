@@ -12,7 +12,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 The number of hosts that can be created together with a {{ MS }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
 * With **local SSD** or **non-replicated SSD** storage, you can create a cluster with three or more hosts (a minimum of three hosts is required for fault tolerance).
-* With **HDD network** or **SSD network** storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
+* With **network HDD** or **network SSD** storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
 
 After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
@@ -26,10 +26,10 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
   1. Go to the folder page and select **{{ mms-name }}**.
   1. Click **Create cluster**.
-  1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      - `PRODUCTION`: For stable versions of your apps.
+      - `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
   1. Select the DBMS version. Currently, we support `2016 ServicePack 2` of the following editions:
      * Standard Edition.
      * Enterprise Edition.
@@ -40,25 +40,26 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   1. Under **Storage size**:
 
       
-      * Select one of the following [storage types](../concepts/storage.md):
-         * Either the more flexible storage with network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
-         * Or the faster local SSD (`local-ssd`) storage.
+      * Choose the [type of storage](../concepts/storage.md).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
-
+          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+      
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+
   1. Under **Database**, specify the database attributes:
 
       * Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
       * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
       * User password (from 8 to 128 characters).
 
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
   1. Under **Hosts**, select the parameters for the database hosts created with the cluster. You can add either one, three, or more hosts. By default, each host is created in a separate subnet. To select a specific subnet for the host, click ![image](../../_assets/pencil.svg) in the row of the host and select the desired availability zone and subnet.
 
      {% note warning %}
 
      * If you select **Standard Edition**, you can create a cluster from only one host. This cluster does not provide any fault tolerance. For more information, see [{#T}](../concepts/index.md).
-     * At the moment, you can create an **Enterprise Edition** cluster with either one or three hosts. If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+     * At the moment, you can create an **Enterprise Edition** cluster with either one or three hosts. Please note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
      {% endnote %}
 
@@ -79,11 +80,11 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
     1. In the configuration file, describe the parameters of resources that you want to create:
 
-        * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+        * Database cluster: Description of the cluster and its hosts.
 
-        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
+        * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
-        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
+        * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
         Example configuration file structure:
 
@@ -95,40 +96,40 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
           version             = "<{{ MS }} version>"
           security_groups_id  = ["<list of security group IDs>"]
           deletion_protection = <protect cluster from deletion: true or false>
-        
+
           resources {
             resource_preset_id = "<host class>"
             disk_type_id       = "<storage type>"
             disk_size          = <storage size in GB>
           }
-        
+
           host {
             zone      = "<availability zone>"
             subnet_id = "<subnet ID>"
           }
-        
+
           database = {
             name = "<database name>"
           }
-        
+
           user {
             name     = "<username>"
             password = "<password>"
-        
+
             permission {
               database_name = "<database name>"
               roles         = ["<list of roles>"]
             }
           }
-        
+
           backup_window_start {
             hours   = <backup starting hour>
             minutes = <backup starting minute>
           }
         }
-        
+
         resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-        
+
         resource "yandex_vpc_subnet" "<subnet name>" {
           name           = "<subnet name>"
           zone           = "<availability zone>"
@@ -139,7 +140,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-       For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-mms }}).
+        For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-mms }}).
 
     1. Make sure the settings are correct.
 
@@ -153,8 +154,8 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
 - API
 
-  Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
-  * The ID of the folder where the cluster should be placed in the `folderId` parameter.
+  Use the API [create](../api-ref/Cluster/create.md) method and pass the following information in the request:
+  * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
   * The cluster name, in the `name` parameter.
   * Cluster configuration, in the `configSpec` parameter.
   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
@@ -168,6 +169,12 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
 {% endlist %}
 
+{% note warning %}
+
+If you specified security group IDs when creating a cluster, you may need to additionally [configure security groups](./connect.md#configuring-security-groups) to connect to it.
+
+{% endnote %}
+
 ## Examples {#examples}
 
 ### Creating a single-host cluster
@@ -177,15 +184,16 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 - Terraform
 
     Let's say we need to create a {{ MS }} cluster and a network for it with the following characteristics:
+
     * Using `mssql-1` as the name.
     * In the `PRODUCTION` environment.
     * Using the {{ MS }} `2016 ServicePack 2` version and the `Standard Edition`.
     * In the cloud with the ID `{{ tf-cloud-id }}`.
     * In the folder with the ID `{{ tf-folder-id }}`.
-    * In the new `mynet` network.
+    * Network: `mynet`.
     * In a new security group called `ms-sql-sg` supporting cluster connections from the internet via port `{{ port-mms }}`.
     * With a single host of the `s2.small` class in a new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-    * With 32 GB of SSD network storage.
+    * With 32 GB of fast network storage.
     * With a database called `db1`.
     * With a user with `user1` as the login and `user1user1` as the password. This user will own the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
     * With protection against accidental cluster deletion.
@@ -200,14 +208,14 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         }
       }
     }
-    
+
     provider "yandex" {
-      token     = "<OAuth or static key of service account>"
+      token = "<OAuth or static key of service account>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
       zone      = "{{ zone-id }}"
     }
-    
+
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
       name                = "mssql-1"
       environment         = "PRODUCTION"
@@ -215,23 +223,23 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       network_id          = yandex_vpc_network.mynet.id
       security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
       deletion_protection = true
-    
+
       resources {
         resource_preset_id = "s2.small"
         disk_type_id       = "network-ssd"
         disk_size          = 32
       }
-    
+
       host {
         zone             = "{{ zone-id }}"
         subnet_id        = yandex_vpc_subnet.mysubnet.id
         assign_public_ip = true
       }
-    
+
       database {
         name = "db1"
       }
-    
+
       user {
         name     = "user1"
         password = "user1user1"
@@ -241,20 +249,20 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         }
       }
     }
-    
+
     resource "yandex_vpc_network" "mynet" { name = "mynet" }
-    
+
     resource "yandex_vpc_subnet" "mysubnet" {
       name           = "mysubnet"
       zone           = "{{ zone-id }}"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
-    
+
     resource "yandex_vpc_security_group" "ms-sql-sg" {
       name       = "ms-sql-sg"
       network_id = yandex_vpc_network.mynet.id
-    
+
       ingress {
         description    = "Public access to SQL Server"
         port           = {{ port-mms }}

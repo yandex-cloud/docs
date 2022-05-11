@@ -1,6 +1,6 @@
 # Uploading Terraform states to Object Storage
 
-These instructions describe the steps to upload a Terraform state to [{{ objstorage-full-name }}](../../../storage).
+The instructions describe the steps to load a Terraform state to [{{ objstorage-full-name }}](../../../storage/).
 
 A Terraform state describes the current deployed infrastructure and is stored in files with the `.tfstate` extension. The state file is created after the infrastructure is deployed and can be immediately uploaded to {{ objstorage-name }}. The uploaded state file is updated as the infrastructure you created changes.
 
@@ -18,9 +18,11 @@ To configure Terraform state storage in {{ objstorage-name }} and use it to crea
 1. [Configure the backend](#set-up-backend).
 1. [Deploy the configuration](#deploy).
 1. [Check the saved state](#set-up-backend).
-1. [Retrieve the backend state](#retrieve-state).
+1. [Retrieve the state from the backend](#retrieve-state).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need these resources, [delete them](#clear-out).
+
+Terraform and its providers are distributed under the [Mozilla Public License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Before you start {#before-you-begin}
 
@@ -34,7 +36,7 @@ To deploy an infrastructure using Terraform, sign in to {{ yandex-cloud }} and c
 
 {% note alert %}
 
-You're charged for all resources created using Terraform. Please, make sure to check the configurations you are creating now.
+All resources created using Terraform are chargeable. Please, make sure to check the configurations you are creating now.
 
 {% endnote %}
 
@@ -42,13 +44,13 @@ In this scenario, you create three VMs with public IP addresses, a virtual netwo
 
 The cost of supporting this infrastructure includes:
 
-* A fee for data storage (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md#prices-storage)).
+* Data storage fees (see [prices {{ objstorage-full-name }}](../../../storage/pricing.md#prices-storage)).
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
-* A fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 ## Install Terraform {#install-terraform}
 
-{% include [terraform-install](../terraform-install.md) %}
+{% include [terraform-install](../../tutorials/terraform-install.md) %}
 
 ## Create a Terraform configuration file {#configure-terraform}
 
@@ -57,12 +59,12 @@ The cost of supporting this infrastructure includes:
 
 ## Configure a provider {#configure-provider}
 
-{% include [terraform-configure-provider](../terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../tutorials/terraform-configure-provider.md) %}
 
 ## Create a service account and static access key {#create-service-account}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role for the folder specified in the provider settings.
-1. [Get a static access key](../../../iam/operations/sa/create-access-key.md). Save the key ID and secret key: you need them in the next steps.
+1. [Get a static access key](../../../iam/operations/sa/create-access-key.md). Save the key ID and secret key: you will need them in the next steps.
 
 ## Create a bucket {#create-service-account}
 
@@ -70,7 +72,7 @@ The cost of supporting this infrastructure includes:
 
 ## Configure the backend {#set-up-backend}
 
-To save a Terraform state in {{ objstorage-name }}, specify the provider and backend settings:
+To save the Terraform state in {{ objstorage-name }}, specify settings for the provider and backend:
 
 ```hcl
 terraform {
@@ -84,8 +86,8 @@ terraform {
     endpoint   = "storage.yandexcloud.net"
     bucket     = "<bucket name>"
     region     = "ru-central1"
-    key        = "<path to the state file in the bucket>/<state file name>.tfstate"
-    access_key = "<static key identifier>"
+    key        = "<path to state file in the bucket>/<state file name>.tfstate"
+    access_key = "<static key ID>"
     secret_key = "<secret key>"
 
     skip_region_validation      = true
@@ -94,20 +96,20 @@ terraform {
 }
 
 provider "yandex" {
-  token     = "<OAuth or static key of service account>"
+  token     = "<OAuth or static key of the service account>"
   cloud_id  = "<cloud ID>"
   folder_id = "<folder ID>"
   zone      = "<default availability zone>"
 }
 ```
 
-To read more about the state storage backend, see the [Terraform website](https://www.terraform.io/docs/backends/types/s3.html).
+To read more about the state storage backend, see the [Terraform site](https://www.terraform.io/docs/backends/types/s3.html).
 
 ## Deploy the configuration {#deploy}
 
-In this example, two VMs are created: `terraform1` and `terraform2`. They are connected to the subnet `subnet-1` in the availability zone `ru-central1-a`. The subnet belongs to the `network-1` cloud network.
+In this example, two VMs are created: `terraform1` and `terraform2`. They will be connected to `subnet-1` in the `ru-central1-a` availability zone. The subnet be in the `network-1` cloud network.
 
-The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of RAM for `terraform1` and 2 cores and 4 GB of RAM for `terraform2`. The machines automatically gets public IP addresses and private IP addresses from the range `192.168.10.0/24` in `subnet-1`. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
+The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of RAM for `terraform1` and 2 cores and 4 GB of RAM for `terraform2`. The machines will automatically get public IP addresses and private IP addresses from the range `192.168.10.0/24` in `subnet-1`. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
 
 1. Save the following configuration to `example.tf`:
 
@@ -124,7 +126,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
        bucket     = "<bucket name>"
        region     = "ru-central1"
        key        = "<path to the state file in the bucket>/<state file name>.tfstate"
-       access_key = "<static key identifier>"
+       access_key = "<static key ID>"
        secret_key = "<secret key>"
 
        skip_region_validation      = true
@@ -133,7 +135,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
    }
 
    provider "yandex" {
-     token     = "<OAuth or static key of service account>"
+     token     = "<OAuth static key of the service account>"
      cloud_id  = "<cloud ID>"
      folder_id = "<folder ID>"
      zone      = "ru-central1-a"
@@ -219,15 +221,14 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
    }
    ```
 
-1. Check the configuration using the command `terraform plan`.
-
-1. Expand the configuration using the command `terraform apply`.
+1. Check the configuration using the `terraform plan` command.
+1. Expand the configuration using the `terraform apply` command.
 
 ## Check the saved state {#set-up-backend}
 
 Make sure that the state file is uploaded to {{ objstorage-name }}:
 
-1. Open the [management console]({{ link-console-main }}) and select the folder with the bucket created.
+1. Open the [management console] ({{ link-console-main }}) and select the folder with the bucket created.
 1. Select **{{ objstorage-name }}**.
 1. From the bucket list, select the bucket you saved the Terraform state to.
 1. Make sure that the state file is in the bucket.
@@ -239,7 +240,6 @@ You can request the Terraform state saved in {{ objstorage-name }} from another 
 Create another configuration and use the saved state to create another VM in one of the existing subnets:
 
 1. Create the `remote-state` directory.
-
 1. Go to the created directory and create the configuration file `remote-state.tf`:
 
    ```hcl
@@ -252,7 +252,7 @@ Create another configuration and use the saved state to create another VM in one
    }
 
    provider "yandex" {
-     token     = "<OAuth or static key of service account>"
+     token     = "<OAuth or static key of the service account>"
      cloud_id  = "cloud-id"
      folder_id = "folder-id"
      zone      = "ru-central1-a"
@@ -265,7 +265,7 @@ Create another configuration and use the saved state to create another VM in one
        bucket     = "<bucket name>"
        region     = "ru-central1"
        key        = "<path to the state file in the bucket>/<state file name>.tfstate"
-       access_key = "<static key identifier>"
+       access_key = "<static key ID>"
        secret_key = "<secret key>"
 
        skip_region_validation      = true
@@ -299,14 +299,10 @@ Create another configuration and use the saved state to create another VM in one
    ```
 
 1. Run the command `terraform init`.
-
 1. Run the command `terraform plan`. The terminal displays the plan for creating the VM.
-
 1. Run the command `terraform apply`.
-
 1. Go to the management console and make sure you can see the virtual machine `vm-3` in the {{ compute-name }} section.
 
-## Delete the created resources {#clear-out}
+## Delete the resources you created {#clear-out}
 
 To destroy the resources you created, run the command `terraform destroy`: start with the second configuration, and then proceed to the first.
-
