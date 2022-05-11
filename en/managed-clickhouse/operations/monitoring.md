@@ -31,7 +31,7 @@ If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used,
 
 {% list tabs %}
 
-* ClickHouse
+- ClickHouse
 
   * **Active locks per host**: The number of active locks per host.
   * **Average insert query time per host**: The average time it takes to execute insert queries on each host.
@@ -74,10 +74,10 @@ If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used,
   * **Queries per host**: The total number of queries per second on each host.
   * **Waiting locks per host**: The number of pending locks on each host.
 
-* Zookeeper
+- Zookeeper
 
   * **Average latency per ZooKeeper host**: The average time it takes each ZooKeeper host to respond.
-  * **Average transaction time per ClickHouse host**: The average time it takes  each ClickHouse host to execute a transaction. Indicates the time spent by ClickHouse to access ZooKeeper.
+  * **Average transaction time per ClickHouse host**: The average time it takes each ClickHouse host to execute a transaction. Indicates the time spent by ClickHouse to access ZooKeeper.
   * **Connections per ZooKeeper host**: The number of connections on each ZooKeeper host.
   * **CPU cores usage**: The number processor cores used.
   * **CPU cores usage per host**: The number of processor cores used on each host.
@@ -124,6 +124,41 @@ This page displays charts showing the load on an individual host in the cluster:
 * **Memory**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
 * **Network Bytes**: The speed of data exchange over the network (bytes per second).
 * **Network Packets**: The number of packets exchanged over the network per second.
+
+## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+
+To set up [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+
+1. In the Management console, select the folder with the cluster you wish to configure alerts for.
+1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
+1. Under **Service dashboards**, select:
+    * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
+    * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
+1. On the desired metrics chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+1. If there is more than one parameter on a chart, create a data query to generate the metric. {% if audience == "external" %}For more information about the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
+1. Set the `Alarm` and `Warning` threshold values for the alert.
+1. Click **Create alert**.
+
+To have other cluster health indicators monitored automatically:
+
+{% if audience == "external" %}
+1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
+{% else %}
+1. Create an alert.
+{% endif %}
+1. Add a status metric.
+1. Using parameters, set the alert threshold values.
+
+Recommended threshold values:
+
+| Metric | Parameter | `Alarm` | `Warning` |
+| ---------------------------------------------- | :--------------------------------------------------: | :----------------------------: | :----------------------------: |
+| Maximum number of data chunks in a partition | `ch_system_async_metrics_MaxPartCountForPartition` | `250` | `150` |
+| Number of failed queries | `ch_system_events_FailedQuery_rate` | 20% of the total number of queries | 10% of the total number of queries |
+| Storage space used | `disk.used_bytes` | 95% of storage size | 80% of storage size |
+| Number of healthy hosts | `is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
+
+To determine the threshold values for the `ch_system_events_FailedQuery_rate` metric, use the `Total queries` value [for the cluster](#monitoring-cluster).
 
 ## Cluster state and status {#cluster-health-and-status}
 

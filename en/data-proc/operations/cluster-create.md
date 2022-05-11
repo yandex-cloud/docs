@@ -89,8 +89,8 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
      * The number of hosts.
      * [The host class](../concepts/instance-types.md), which dictates the platform and computing resources available to the host.
-     * Storage size and type.
-     * A subnet.
+     * Size and type of [storage](../../compute/concepts/filesystem.md).
+     * The subnet of the network where the cluster is located.
 
        NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. To learn more, see [{#T}](#setup-network).
 

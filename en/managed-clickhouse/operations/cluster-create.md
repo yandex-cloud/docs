@@ -2,11 +2,11 @@
 
 {{ CH }} clusters are one or more database hosts that replication can be configured between.
 
-The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
+The number of hosts to add to a cluster when it is created depends on the selected [storage type](../concepts/storage.md):
 
 * When using **local SSD storage** (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
 * When using network storage:
-    * If you select **HDD network** (`network-hdd`) or **SSD network** (`network-ssd`) storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
+    * If you select **network HDD** (`network-hdd`) or **network SSD** (`network-ssd`) storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
     * If you select **non-replicated SSD** storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
 
 The selected [replication mechanism](../concepts/replication.md) also affects the number of hosts in a multi-host cluster:
@@ -21,7 +21,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
     {% if audience != "internal" %}
 
-    These hosts are taken into account when calculating the [resource quotas]({{ link-console-quotas }}) being used in the cloud and when [calculating the cost](../pricing.md#prices-zookeeper) of the cluster.
+    These hosts are taken into account when calculating the used up [resource quotas]({{ link-console-quotas }}) in the cloud and in [calculating the cost](../pricing.md#prices-zookeeper) of the cluster.
 
     {% else %}
 
@@ -55,20 +55,17 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% if audience != "internal" %}
 
-      * Select one of the following [storage types](../concepts/storage.md):
-          * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
-          * Or faster local SSD storage (`local-ssd`).
+      * Select the [type of storage](../concepts/storage.md).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       {% endif %}
-
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
 
       * DB name.
-      * Username.
+      * User name.
       * User password. At least 8 characters.
 
   1. To [manage users via SQL](cluster-users.md#sql-user-management), enable the **User management via SQL** setting and specify the password of the `admin` user.
@@ -77,7 +74,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
      {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
 
@@ -109,7 +106,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
   {% endif %}
 
-  1. View a description of the CLI's create cluster command:
+  1. View a description of the CLI create cluster command:
 
       ```bash
       {{ yc-mdb-ch }} cluster create --help
@@ -183,6 +180,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
              --enable-sql-database-management=true \
              --admin-password <admin user password>
           ```
+
       {% if audience != "internal" %}
       1. To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
       {% endif %}
@@ -223,7 +221,6 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
     1. Create a configuration file with a description of your [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
 
        The cluster is hosted on a cloud network. If you already have a suitable network, you don't need to describe it again.
-       
        Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you don't need to describe them again.
 
        Example structure of a configuration file that describes a cloud network with a single subnet:
@@ -299,7 +296,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         }
         ```
 
-       For more information about resources that you can create using Terraform, see the [provider's documentation]({{ tf-provider-mch }}).
+       For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
     1. Check the {{ TF }} configuration files for errors:
 
@@ -313,7 +310,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - API
 
-  To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
+  Use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
   * The ID of the folder where the cluster should be placed in the `folderId` parameter.
   * The cluster name in the `name` parameter.
   * The environment of the cluster, in the `environment` parameter.
@@ -325,7 +322,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
   If necessary, enable user and database management via SQL:
   * `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).
   * `configSpec.sqlDatabaseManagement`: Set `true` to enable [database management via SQL](databases.md#sql-database-management). User management via SQL needs to be enabled.
-  * `configSpec.adminPassword`: Set the password for the `admin` user whose account is used for management.
+  * `configSpec.adminPassword` : Set the password for the `admin` user whose account is used for management.
 
   {% if audience != "internal" %}
   To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
@@ -342,12 +339,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
   * If `embeddedKeeper` is undefined or `false`, replication and query distribution will be managed using {{ ZK }}.
 
     {% if audience != "internal" %}
-    If a cluster's [cloud network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md) and {{ ZK }} host settings are undefined, one such host will be added to each subnet automatically.
+    If a cluster's [cloud network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md) and the {{ ZK }} host settings are undefined, one such host will be added to each subnet automatically.
 
-    If only some availability zones in the cluster's network have subnets, explicitly specify the {{ ZK }} host settings.
+    If only certain availability zones in a cluster's network have subnets, specify the {{ ZK }} host settings explicitly.
     {% endif %}
-
-  To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 {% endlist %}
 
@@ -390,7 +385,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * In the security group `{{ security-group }}`.
   * With one `{{host-class}}` class ClickHouse host in the `{{zone-id}}` availability zone.
   * With {{ CK }}.
-  * With 20 GB of local SSD storage (`local-ssd`).
+  * With 20 GB of local SSD storage (`local-ssd`).
   * With one user, `user1`, with the password `user1user1`.
   * With one database, `db1`.
   * With accidental cluster deletion protection.
@@ -447,7 +442,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * In the cloud with the ID `{{ tf-cloud-id }}`.
   * In the folder with the ID `{{ tf-folder-id }}`.
   * In a new cloud network named `cluster-net`.
-  * In a new [default security group](connect.md#configuring-security-groups) `cluster-sg` (on the `cluster-net` network) allowing connections to any cluster host from any network (including the Internet) on ports `8443` and `9440`.
+  * In a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (on the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
   * With one `{{ host-class }}` class host on a new subnet called `cluster-subnet-ru-central1-c`.
 
     Subnet parameters:
@@ -492,7 +487,6 @@ If you specified security group IDs when creating a cluster, you may also need t
   * In the cloud with the ID `{{ tf-cloud-id }}`.
   * In the folder with the ID `{{ tf-folder-id }}`.
   * In a new cloud network named `cluster-net`.
-
   * With three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to provide [replication](../concepts/replication.md)).
 
     One host of each type will be added to the new subnets:
@@ -503,8 +497,8 @@ If you specified security group IDs when creating a cluster, you may also need t
     These subnets will belong to the `cluster-net` network.
 
   * In a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (on the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-  * With 32 GB of SSD network storage (`network-ssd`) per {{ CH }} host of the cluster.
-  * With 10 GB of SSD network storage  (`network-ssd`) per {{ ZK }} host of the cluster.
+  * With 32 GB of SSD network storage (`network-ssd`) for each {{ CH }} host in the cluster.
+  * With 10 GB of SSD network storage (`network-ssd`) for each {{ ZK }} host in the cluster.
   * With a database named `db1`.
   * With the username `user1` and password `user1user1`.
 

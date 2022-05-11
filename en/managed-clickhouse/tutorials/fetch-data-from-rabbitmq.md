@@ -90,8 +90,6 @@ Using the above-mentioned data format, create in the {{ mch-name }} cluster a ta
 
 This table will be automatically filled with messages read from the `cars` queue at the `exchange` of {{ RMQ }}. When reading the data, {{ mch-name }} uses the [provided authentication credentials](#configure-mch-for-rmq).
 
-To learn more about creating a table on the {{ RMQ }} engine, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/).
-
 ## Send the test data to the {{ RMQ }} queue {#send-sample-data-to-rmq}
 
 1. Create a `sample.json` file with the following test data:
@@ -143,7 +141,7 @@ To learn more about creating a table on the {{ RMQ }} engine, see the [{{ CH }} 
         --exchange=exchange
     ```
 
-## Check that the test data is present in the {{ mch-name }} cluster table{#fetch-sample-data}
+## Check that the test data is present in the {{ mch-name }} cluster table {#fetch-sample-data}
 
 Create a `MATERIALIZED VIEW` and use it to access data. When a materialized view is added to a table on the {{ RMQ }} engine, it starts collecting data in the background. This lets you continuously receive messages from {{ RMQ }} and convert them to the required format using `SELECT`.
 
