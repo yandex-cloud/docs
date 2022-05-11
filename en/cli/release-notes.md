@@ -1,43 +1,133 @@
 # YC CLI Releases
 
-## Version 0.88.0 (16.02.22) {#latest-release}
-
-### Changes to the CLI {#cli}
-
-#### {{ data-transfer-name }}
-
-* Added the `list` command for `endpoint` and `transfer`:
-  * `yc datatransfer endpoint list`
-  * `yc datatransfer transfer list`
-* Added commands for updating `endpoint` and `transfer`:
-  * `yc datatransfer endpoint update postgres-source`
-  * `yc datatransfer endpoint update postgres-target`
-  * `yc datatransfer endpoint update mysql-source`
-  * `yc datatransfer endpoint update mysql-target`
-  * `yc datatransfer transfer update`
+## Version 0.90.0 (13.04.22) {#latest-release}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{ cdn-name }} {#cdn}
+#### {{ dataproc-name }} {#dataproc}
+
+* Added the `--initialization-action` flag to the `yc dataproc cluster create` command to specify a cluster initialization script.
+
+#### {{ compute-name }} {#compute}
+
+* Added the `--attach-local-disk` flag to the `yc compute instance create` command to create an instance with a local disk attached to it.
+
+#### {{ alb-name }} {#alb}
+
+* Added the `--enable-proxy-protocol` flag to the `yc alb backend-group add-stream-backend` and `yc alb backend-group update-stream-backend` commands to enable a proxy protocol for the backend.
+
+#### {{ dns-name }} {#dns}
+
+* Added the `--clear-network-ids` flag to the `yc dns zone update` command to delete a list of virtual networks that show internal DNS zone records.
+
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* Added the `--folder-id` flag to the `yc managed-clickhouse cluster restore` command to specify the folder to create a restored cluster in.
+
+* Added the following flags to the `yc managed-clickhouse cluster update` command:
+   * `--datatransfer-access` to enable cluster access from {{ data-transfer-name }}.
+   * `--yandexquery-access` to enable cluster access from {{ yq-full-name }}.
+
+**{{ mkf-name }}**
+
+* Added the `--datatransfer-access` flag to the `yc managed-kafka cluster [ create | update ]` commands to enable cluster access from {{ data-transfer-name }}.
+
+**{{ mmg-name }}**
+
+* Added the `--datatransfer-access` flag to the `yc managed-mongodb cluster [ create | restore | update ]` commands to enable cluster access from {{ data-transfer-name }}.
+
+**{{ mmy-name }}**
+
+* Added the `--datatransfer-access` flag to the `yc managed-mysql cluster [ create | restore | update ]` commands to enable cluster access from {{ data-transfer-name }}.
+
+* Added the `--performance-diagnostics` flag to the `yc managed-mysql cluster update` command to allow managing the settings of the performance diagnostics service.
+
+**{{ mpg-name }}**
+
+* Added the `--datatransfer-access` flag to the `yc managed-postgresql cluster [ create | restore | update ]` commands to enable cluster access from {{ data-transfer-name }}.
+
+## Previous releases {#previous-releases}
+
+### Version 0.89.0 (23.03.22) {#version0.89.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }} {#compute}
+
+* Added the `yc compute filesystem resize` command to resize the file system storage.
+* Added the `--preemptible` flag to the `yc compute instance update` command to enable you to make regular VMs preemptible and vice versa.
+
+##### {{ sf-name }} {#functions}
+
+* The `yc serverless function logs` and `yc serverless function version logs` commands now return logs from {{ cloud-logging-name }}. Added the following parameters to the commands:
+
+   * `--levels` to search for records with the specified logging level.
+   * `--filter` to filter records.
+
+   {% if audience != "internal" %}For more information about possible values of new parameters, see [{#T}](../logging/concepts/filter.md). {% endif %}
+
+##### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+* Added the `--persistence-mode` parameter for selecting the persistence level of a {{ RD }} cluster to the following commands:
+
+   * `yc managed-redis cluster create`;
+   * `yc managed-redis cluster restore`;
+   * `yc managed-redis cluster update`.
+
+   The latter command is also added the `--force` flag that is mandatory when disabling cluster persistence .
+
+**{{ mch-name }}**
+
+* Added the `yc managed-clickhouse hosts update` command to edit {{ CH }} cluster hosts. The command has the `--assign-public-ip` parameter to manage public access to a host: `true` means the host is reachable by a public IP address and `false` means public access is disabled.
+* Added the `--datatransfer-access` and `--yandexquery-access` flags to the `yc managed-clickhouse cluster create` command to manage cluster host access from {{ data-transfer-name }} and {{ yq-full-name }}, respectively.
+* The `--backup-id` parameter of the `yc managed-clickhouse cluster restore` command now accepts a list of values to restore a sharded cluster.
+
+**{{ mmy-name }}**
+
+* Added the `PRIORITY` column to the output of the `yc managed-mysql hosts list` command.
+* Added the `--priority` parameter to the `yc managed-mysql hosts update` command to change a host's priority when switching a master.
+
+### Version 0.88.0 (16.02.22) {#version0.88.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ data-transfer-name }}
+
+* Added the `list` command for `endpoint` and `transfer`:
+
+   * `yc datatransfer endpoint list`;
+   * `yc datatransfer transfer list`;
+
+* Added commands for updating `endpoint` and `transfer`:
+
+   * `yc datatransfer endpoint update postgres-source`;
+   * `yc datatransfer endpoint update postgres-target`;
+   * `yc datatransfer endpoint update mysql-source`;
+   * `yc datatransfer endpoint update mysql-target`;
+   * `yc datatransfer transfer update`;
+
+##### {{ cdn-name }} {#cdn}
 
 * Added the ability to purge a resource cache: `yc cdn cache purge --all`.
 * Fixed resource creation when the source is a bucket or balancer.
 
-#### {{ api-gw-name }} {#api-gw}
+##### {{ api-gw-name }} {#api-gw}
 
-* For the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands, added the `--network-id` and `--network-name` flags to specify the API gateway network as well as the `--subnet-id` and `--subnet-name` flags for a detailed subnet list.
+* Added the `--network-id` and `--network-name` flags to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands to specify the API gateway network, and the `--subnet-id` and `--subnet-name` flags to get a detailed list of subnets.
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
-* Added the `yc compute disk move` and `yc compute instance move` to move disks and instances between folders.
+* Added the `yc compute disk move` and `yc compute instance move` to move disks and instances between folders
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mms-name }}**
 
 * For the `yc managed-sqlserver update` and `yc managed-sqlserver start` commands, added the `confirm-payment` flag to confirm the acceptance of license fees.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.87.0 (18.01.22) {#version0.87.0}
 
