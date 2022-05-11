@@ -12,10 +12,10 @@ Lifetime of an [IAM token](../../../iam/concepts/authorization/iam-token.md) can
 
   1. [Authenticate with the CLI as a federated user](../../../cli/operations/authentication/federated-user.md).
 
-  2. Get an IAM token:
+  1. Get an IAM token:
 
-      ```
-      $ yc iam create-token
+      ```bash
+      yc iam create-token
       ```
 
 {% endlist %}

@@ -6,32 +6,30 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 
 - Management console
 
-  1. Open the **{{ dns-name }}** section in the folder to delete a DNS zone from.
-  1. Click ![image](../../_assets/options.svg) in the row of the zone you want to delete.
-  1. In the menu that opens, click **Delete**.
-  1. In the window that opens, click **Delete**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete a DNS zone.
+   1. Select **{{ dns-name }}**.
+   1. Click ![image](../../_assets/options.svg) in the row next to the zone to delete it.
+   1. In the menu that opens, click **Delete**.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
-  {% include [include](../../_includes/cli-install.md) %}
+   {% include [include](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI delete zone command:
+   1. View a description of the CLI delete zone command:
 
       ```
       yc dns zone delete --help
       ```
-
-  1. Get a list of all DNS zones in the default folder:
+   1. Get a list of all DNS zones in the default folder:
 
       ```
       yc dns zone list
       ```
-
-  1. Select the `ID` or `NAME` of the zone.
-
-  1. Delete the zone from the default folder:
+   1. Select the `ID` or `NAME` of the zone.
+   1. Delete the zone from the default folder:
 
       ```
       yc dns zone delete <zone name or ID>
@@ -39,66 +37,62 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 
 - Terraform
 
-  Read more about Terraform in the [documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  To delete a DNS zone created using Terraform:
+   To delete a DNS zone created using Terraform:
 
-  1. Open the Terraform configuration file and delete the fragment with the DNS zone description.
+   1. Open the Terraform configuration file and delete the fragment with the DNS zone description.
 
-     {% cut "Example of DNS record definition in Terraform configuration" %}
+      {% cut "Example DNS zone description in the Terraform configuration" %}
 
-     ```hcl
-     resource "yandex_vpc_network" "foo" {}
-     
-     resource "yandex_dns_zone" "zone1" {
-       name        = "my-public-zone"
-       description = "Test public zone"
-     
-       labels = {
-         label1 = "test-public"
-       }
-     
-       zone    = "test.example-public2.com."
-     }
-     ```
+      ```hcl
+      resource "yandex_vpc_network" "foo" {}
 
-     {% endcut %}
+      resource "yandex_dns_zone" "zone1" {
+        name        = "my-public-zone"
+        description = "Test public zone"
 
-  1. In the command line, go to the directory with the Terraform configuration file.
+        labels = {
+          label1 = "test-public"
+        }
 
-  1. Check the configuration using the command:
+        zone    = "test.example-public2.com."
+      }
+      ```
 
-     ```
-     terraform validate
-     ```
+      {% endcut %}
 
-     If the configuration is correct, the following message is returned:
+   1. In the command line, go to the directory with the Terraform configuration file.
 
-     ```
-     Success! The configuration is valid.
-     ```
+   1. Check the configuration using the command:
+      ```
+      terraform validate
+      ```
 
-  1. Run the command:
+      If the configuration is correct, the following message is returned:
 
-     ```
-     terraform plan
-     ```
+      ```
+      Success! The configuration is valid.
+      ```
 
-     The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+   1. Run the command:
+      ```
+      terraform plan
+      ```
 
-  1. Apply the configuration changes:
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
 
-     ```
-     terraform apply
-     ```
+   1. Apply the configuration changes:
+      ```
+      terraform apply
+      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press Enter.
+   1. Confirm the changes: type `yes` into the terminal and press Enter.
 
-     You can check if the DNS zone has been deleted in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command:
+      You can make sure the DNS zone has been deleted in the [management console]({{ link-console-main }}) or via the [CLI](../../cli/quickstart.md) command below:
 
-     ```
-     yc dns zone list
-     ```
+      ```
+      yc dns zone list
+      ```
 
 {% endlist %}
-

@@ -6,9 +6,9 @@
 
 - Management console
 
-  1. In the management console, go to the bucket you want to configure CORS for.
+  1. In the [management console]({{ link-console-main }}), go to the bucket you want to configure CORS for.
   1. In the left pane, select **CORS**.
-  1. Click **Configure CORS**.
+  1. Click **Configure**.
   1. A page opens where you can add, delete, and edit configuration rules. For a detailed description of the configuration fields, see [{#T}](../../s3/api-ref/cors/xml-config.md).
 
 - AWS CLI

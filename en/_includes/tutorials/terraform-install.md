@@ -1,3 +1,11 @@
+### From a {{ yandex-cloud }} mirror {#from-yc-mirror}
+
+You can download a Terraform distribution for your platform from a [{{ yandex-cloud }} mirror](https://hashicorp-releases.website.yandexcloud.net/terraform/). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
+
+```
+export PATH=$PATH:/path/to/terraform
+```
+
 ### From the Hashicorp website {#from-hashicorp-site}
 
 {% list tabs %}
@@ -30,10 +38,3 @@
 
 {% endlist %}
 
-### From a {{ yandex-cloud }} mirror {#from-yc-mirror}
-
-You can download a Terraform distribution for your platform from a [{{ yandex-cloud }} mirror](https://hashicorp-releases.website.yandexcloud.net/terraform/). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
-
-```
-export PATH=$PATH:/path/to/terraform
-```

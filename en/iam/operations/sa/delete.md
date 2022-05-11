@@ -1,8 +1,8 @@
-# Deleting service accounts
+# Deleting a service account
 
 {% note warning %}
 
-Deleting a [service account](../../concepts/users/service-accounts.md) is an operation that cannot be undone. You can't restore a deleted service account; you can only [re-create](create.md) it.
+Deleting a [service account](../../concepts/users/service-accounts.md) is permanent. You can't restore a deleted service account; you can only [re-create it](create.md).
 
 {% endnote %}
 
@@ -10,22 +10,29 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is an ope
 
 - Management console
 
-  {% include [delete-sa-via-console](../../../_includes/iam/delete-sa-via-console.md) %}
+   {% include [delete-sa-via-console](../../../_includes/iam/delete-sa-via-console.md) %}
 
 - CLI
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. See the description of the delete service account command:
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. See the description of the delete service account command:
+
+      ```bash
+      yc iam service-account delete --help
+      ```
+
+   1. Select a service account (for example, `my-robot`):
+
+      ```bash
+      yc iam service-account list
+      ```
+
+      Result:
 
       ```
-      $ yc iam service-account delete --help
-      ```
-
-  2. Select a service account (for example, `my-robot`):
-
-      ```
-      $ yc iam service-account list
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -34,15 +41,14 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is an ope
       +----------------------+------------------+-------------------------------+
       ```
 
-  3. Delete the service account:
+   1. Delete the service account:
 
-      ```
+      ```bash
       yc iam service-account delete my-robot
       ```
 
 - API
 
-  To delete a service account, use the [delete](../../api-ref/ServiceAccount/delete.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource.
+   To delete a service account, use the [delete](../../api-ref/ServiceAccount/delete.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource.
 
 {% endlist %}
-

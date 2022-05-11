@@ -1,2 +1,3 @@
-Select the user to assign the role to, click ![image](../../_assets/options.svg), and choose **Configure roles**.
-
+1. Select a user to assign a role to.
+1. Click ![image](../../_assets/options.svg).
+1. Select **Configure access**.

@@ -7,11 +7,12 @@ By default, buckets are created with restricted [access](../../concepts/bucket.m
 {% list tabs %}
 
 - Management console
-  1. In the management console, select the appropriate folder.
-  1. Select **Object Storage**.
-  1. Click the name of the desired bucket.
-  1. Go to the **Settings** tab.
-  1. Select the type of access for bucket operations.
+
+   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. Select **{{ objstorage-name }}**.
+   1. Click the name of the desired bucket.
+   1. Go to the **Settings** tab.
+   1. Select the type of access for bucket operations.
+   1. Click **Save**.
 
 {% endlist %}
-

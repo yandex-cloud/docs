@@ -29,10 +29,9 @@ For more information about a {{ mmy-name }} cluster structure, see [{#T}](../con
   1. Under **Storage size**:
       * Select one of the following [storage types](../concepts/storage.md):
 
-        * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
-        * Or faster local SSD storage (`local-ssd`).
+      * Select the [type of storage](../concepts/storage.md).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -80,8 +79,7 @@ For more information about a {{ mmy-name }} cluster structure, see [{#T}](../con
      
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-
-  1. View a description of the CLI's create cluster command:
+  1. View a description of the CLI create cluster command:
 
       ```
       $ {{ yc-mdb-my }} cluster create --help
@@ -120,7 +118,11 @@ For more information about a {{ mmy-name }} cluster structure, see [{#T}](../con
 
   1. In the configuration file, describe the parameters of resources that you want to create:
 
-     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+     * Database cluster: Description of the cluster and its hosts.
+
+     * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+     * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
      Example configuration file structure:
 
@@ -132,14 +134,14 @@ For more information about a {{ mmy-name }} cluster structure, see [{#T}](../con
          }
        }
      }
-     
+
      provider "yandex" {
        token     = "<OAuth or static key of service account>"
        cloud_id  = "<cloud ID>"
        folder_id = "<folder ID>"
        zone      = "<availability zone>"
      }
-     
+
      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
        name                = "<cluster name>"
        environment         = "<environment, PRESTABLE or PRODUCTION>"
@@ -147,17 +149,17 @@ For more information about a {{ mmy-name }} cluster structure, see [{#T}](../con
        version             = "<MySQL version: 5.7 or 8.0>"
        security_group_ids  = [ "<list of security groups>" ]
        deletion_protection = <protect cluster from deletion: true or false>
-     
+
        resources {
          resource_preset_id = "<host class>"
          disk_type_id       = "<storage type>"
          disk_size          = "<storage size in GB>"
        }
-     
+
        database {
          name = "<DB name>"
        }
-     
+
        user {
          name     = "<username>"
          password = "<user password>"
@@ -166,15 +168,15 @@ For more information about a {{ mmy-name }} cluster structure, see [{#T}](../con
            roles         = ["ALL"]
          }
        }
-     
+
        host {
          zone      = "<availability zone>"
          subnet_id = "<subnet ID>"
        }
      }
-     
+
      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-     
+
      resource "yandex_vpc_subnet" "<subnet name>" {
        name           = "<subnet name>"
        zone           = "<availability zone>"
@@ -296,14 +298,14 @@ If you specified security group IDs when creating a cluster, you may also need t
       }
     }
   }
-  
+
   provider "yandex" {
     token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
-  
+
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
     name                = "my-mysql"
     environment         = "PRESTABLE"
@@ -311,17 +313,17 @@ If you specified security group IDs when creating a cluster, you may also need t
     version             = "8.0"
     security_group_ids  = [ yandex_vpc_security_group.mysql-sg.id ]
     deletion_protection = true
-  
+
     resources {
       resource_preset_id = "{{ host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 20
     }
-  
+
     database {
       name = "db1"
     }
-  
+
     user {
       name     = "user1"
       password = "user1user1"
@@ -330,21 +332,21 @@ If you specified security group IDs when creating a cluster, you may also need t
         roles         = ["ALL"]
       }
     }
-  
+
     host {
       zone      = "{{ zone-id }}"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
-  
+
   resource "yandex_vpc_network" "mynet" {
     name = "mynet"
   }
-  
+
   resource "yandex_vpc_security_group" "mysql-sg" {
     name       = "mysql-sg"
     network_id = yandex_vpc_network.mynet.id
-  
+
     ingress {
       description    = "MySQL"
       port           = {{ port-mmy }}
@@ -352,7 +354,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       v4_cidr_blocks = [ "0.0.0.0/0" ]
     }
   }
-  
+
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"

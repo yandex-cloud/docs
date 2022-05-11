@@ -1,8 +1,8 @@
 {% list tabs %}
 
 - Management console
-  1. In the management console, select the folder where you want to create a [bucket](../../storage/concepts/bucket.md) name.
-  1. Select **Object Storage**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md) name.
+  1. Select **{{ objstorage-name }}**.
   1. Click **Create bucket**.
   1. On the bucket creation page:
       1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming).

@@ -8,16 +8,13 @@ If, for example, you provide the users of your service the ability to upload obj
 
 - Management console
 
-  1. In the management console, select the appropriate folder.
-
-  1. Select **Object Storage**.
-
-  1. Click the name of the desired bucket.
-
-  1. Go to the **Settings** tab.
-
-  1. Set the **Max size** field value.
+   1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+   1. Select **{{ objstorage-name }}**.
+   1. Click the name of the desired bucket.
+   1. Go to the **Settings** tab.
+   1. Set the value of **Max size**.
 
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
+   1. Click **Save**.
 
 {% endlist %}
