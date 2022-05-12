@@ -512,6 +512,7 @@ default:
   dt-type-copy-repl: Copy and replicate
   dt-type-copy: Copy
   dt-type-repl: Replicate
+  dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
   # Up-to-date Kubernetes API documentation
   k8s-api-link: https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/

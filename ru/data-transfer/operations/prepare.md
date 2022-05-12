@@ -6,11 +6,11 @@
 
 {% list tabs %}
 
-* {{ mkf-name }}
+* Managed Service for Apache Kafka®
 
     [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топик-источник.
 
-* {{ KF }}
+* Apache Kafka®
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -48,7 +48,7 @@
 
 {% list tabs %}
 
-- {{ GP }}
+- Greenplum®
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 

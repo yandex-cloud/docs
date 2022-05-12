@@ -11,8 +11,13 @@
     [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
 
 * Apache Kafka®
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Set up the source cluster so that you can connect to it from the internet.
+
     1. [Configure access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the desired topic for the account.
+
     1. (Optional) To use username and password authorization, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
@@ -26,8 +31,13 @@
     1. [Create a user](../../managed-clickhouse/operations/cluster-users.md) with access to the source database.
 
 * {{ CH }}
-    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
-    1. Set up the source cluster so that you can connect to it from the internet.
+
+    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
+	
+	1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    1. Set up the source cluster so that you can connect to it from the internet.    
+
     1. Create a user with access to the source database.
 
 {% endlist %}
@@ -43,6 +53,8 @@
 * {{ MG }}
 
     1. Estimate the total number of databases for transfer and the total {{ MG }} workload. If the workload on the database exceeds 10000 writes per second, create several endpoints and transfers. For more information, see [Preparing a {{ MG }} source](../../data-transfer/operations/source-endpoint.md#settings-mongodb).
+	
+	1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}    
 
     1. Make sure that the major version of {{ MG }} on the target is `4.0` or higher.
 
@@ -135,9 +147,11 @@
 
         {% endnote %}
 
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see [Source endpoint parameters {{ MY }}](source-endpoint.md#settings-mysql).
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see [{{ MY }} source endpoint parameters](source-endpoint.md#settings-mysql).
 
 - {{ MY }}
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Make sure the source uses the MyISAM or InnoDB low-level storage subsystem. If you use other subsystems, the transfer may fail.
 
@@ -163,11 +177,11 @@
 
         {% note info %}
 
-        If the creation of a primary key returns the error <q>`Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again`</q>, increase the value of the [inno_db_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) parameter in the DBMS settings.
+        If the creation of a primary key returns an error saying <q>`Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again`</q>, increase the value of the [inno_db_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) parameter in the DBMS settings.
 
         {% endnote %}
 
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }} transfer types). For more information, see [{{ MY }} source endpoint parameters](source-endpoint.md#settings-mysql).
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types). For more information, see [{{ MY }} source endpoint parameters](source-endpoint.md#settings-mysql).
 
 {% endlist %}
 
@@ -183,7 +197,7 @@
 
         1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types [Assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
 
-        1. [Connect to](../../managed-postgresql/operations/connect.md) to migrate on behalf of the database owner and [set up the privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
+        1. [Connect to the database](../../managed-postgresql/operations/connect.md) to migrate on behalf of the database owner and [set up the privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
             * `SELECT` for all the database tables to be transferred.
             * `SELECT` for all the database sequences to be transferred.
             * `USAGE` for the schemas of these tables and sequences.
@@ -196,7 +210,9 @@
 
 * {{ PG }}
 
-    1. Configure the user that the transfer will connect to the source as:
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    1. Configure the user the transfer will connect to the source under:
 
         * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
 
@@ -225,6 +241,24 @@
 
     1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see [{{ PG }} source endpoint parameters](source-endpoint.md#settings-postgresql).
 
+    1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots block](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) to the source configuration:
+
+       ```yaml
+       ignore_slots:
+         - database: <name of database that the transfer is configured for>
+           name: <replication slot name>
+           plugin: wal2json
+           type: logical
+       ```
+
+       The database and the replication slot names must match the values specified in the [source endpoint settings](../../data-transfer/operations/source-endpoint.md#settings-postgresql). By default, the `replication slot name` is the same as the `transfer ID`.
+
+       Otherwise, the start of the replication phase will fail:
+
+       ```
+       Warn(Termination): unable to create new pg source: Replication slotID <replication slot name> does not exist.
+       ```
+
 {% endlist %}
 
 ### {{ yds-full-name }} source {#source-yds}
@@ -232,12 +266,13 @@
 {% if audience == "external" %}
 
 1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
+
+1. (Optional) [Create a data processing function](../../functions/operations/function/function-create.md).
 {% else %}
 
 1. Create a data stream.
-{% endif %}
 
-1. (Optional) [Create a data processing function](../../functions/operations/function/function-create.md).
+1. (Optional) Create a processing function. {% endif %}
 
     {% cut "Example of a data processing function" %}
 
@@ -350,6 +385,8 @@
 
 - {{ CH }}
 
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Create a target database. Its name must be the same as the source database name. If you need to transfer multiple databases, create a separate transfer for each of them.
 
     1. Create a user with access to the target database.
@@ -366,7 +403,9 @@
     1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) with the same name as the source database name.
     1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the role [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) for the created database.
 
-* Custom installation
+* custom installation
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Make sure that the {{ MG }} version on the target is not lower than that on the source.
 
@@ -455,6 +494,8 @@
 
 * {{ MY }}
 
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Make sure that the major version of {{ MY }} on the target is not lower than that on the source.
 
     1. Make sure the target uses the MyISAM or InnoDB low-level storage subsystem.
@@ -472,8 +513,17 @@
 
 ### {{ objstorage-name }} target {#target-storage}
 
-1. [Create a bucket](../../storage/operations/buckets/create.md)  in the desired configuration.
-1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role.
+{% if audience != "internal" %}
+
+   1. [Create a bucket](../../storage/operations/buckets/create.md) in the desired configuration.
+   1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role.
+
+{% else %}
+
+   1. Create a bucket in the desired configuration.
+   1. Create a service account with the `storage.uploader` role.
+
+{% endif %}
 
 ### {{ PG }} target {#target-pg}
 
@@ -501,6 +551,8 @@
         Once started, the transfer will connect to the target on behalf of this user.
 
 * {{ PG }}
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Make sure that the major version of {{ PG }} on the target is not lower than that on the source.
 
