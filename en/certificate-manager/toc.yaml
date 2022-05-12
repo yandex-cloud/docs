@@ -111,6 +111,8 @@ items:
                 href: api-ref/Certificate/listAccessBindings.md
               - name: listOperations
                 href: api-ref/Certificate/listOperations.md
+              - name: listVersions
+                href: api-ref/Certificate/listVersions.md
               - name: requestNew
                 href: api-ref/Certificate/requestNew.md
               - name: setAccessBindings

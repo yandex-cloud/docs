@@ -100,7 +100,8 @@ A set of methods for managing SQL Server clusters.
   "sqlcollation": "string",
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "serviceAccountId": "string"
 }
 ```
  
@@ -176,6 +177,7 @@ securityGroupIds[] | **string**<br><p>User security groups</p>
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 sqlcollation | **string**<br><p>SQL Server Collation</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
 
 ## Methods {#methods}
 Method | Description
@@ -192,5 +194,6 @@ Method | Description
 [move](move.md) | Moves the specified SQL Server cluster to the specified folder.
 [restore](restore.md) | Creates a new SQL Server cluster using the specified backup.
 [start](start.md) | Starts the specified SQL Server cluster.
+[startFailover](startFailover.md) | Starts a manual failover for a cluster.
 [stop](stop.md) | Stops the specified SQL Server cluster.
 [update](update.md) | Modifies the specified SQL Server cluster.

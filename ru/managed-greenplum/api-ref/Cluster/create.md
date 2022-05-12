@@ -101,7 +101,9 @@ POST https://mdb.{{ api-host }}/managed-greenplum/v1/clusters
       "gpWorkfileLimitPerQuery": "integer",
       "gpWorkfileLimitFilesPerQuery": "integer",
       "maxPreparedTransactions": "integer",
-      "gpWorkfileCompression": true
+      "gpWorkfileCompression": true,
+      "maxStatementMem": "integer",
+      "logStatement": "string"
     },
     // end of the list of possible fields`configSpec`
 
@@ -176,6 +178,8 @@ configSpec.<br>greenplumConfig_6_19.<br>gpWorkfileLimitPerQuery | **integer** (i
 configSpec.<br>greenplumConfig_6_19.<br>gpWorkfileLimitFilesPerQuery | **integer** (int64)<br><p>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000</p> 
 configSpec.<br>greenplumConfig_6_19.<br>maxPreparedTransactions | **integer** (int64)<br><p>Sets the maximum number of transactions that can be in the &quot;prepared&quot; state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html</p> 
 configSpec.<br>greenplumConfig_6_19.<br>gpWorkfileCompression | **boolean** (boolean)<br><p>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression</p> 
+configSpec.<br>greenplumConfig_6_19.<br>maxStatementMem | **integer** (int64)<br><p>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB)</p> 
+configSpec.<br>greenplumConfig_6_19.<br>logStatement | **string**<br><p>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

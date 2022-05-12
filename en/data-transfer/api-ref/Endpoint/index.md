@@ -354,7 +354,9 @@ sourcePath: en/_api-ref/datatransfer/api-ref/Endpoint/index.md
           "columnName": "string",
           "mapping": [
             {
-              "columnValue": {},
+              "columnValue": {
+                "stringValue": "string"
+              },
               "shardName": "string"
             }
           ]
@@ -603,6 +605,7 @@ settings.<br>clickhouseTarget.<br>sharding.<br>customMapping | **object** <br>`s
 settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>columnName | **string**<br>
 settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[] | **object**<br>
 settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue | **object**<br>
+settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue.<br>stringValue | **string**<br>
 settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>shardName | **string**<br>
 settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
 settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 

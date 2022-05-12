@@ -385,7 +385,9 @@ pageToken | Opaque value identifying the transfers page to be fetched. Should be
                 "columnName": "string",
                 "mapping": [
                   {
-                    "columnValue": {},
+                    "columnValue": {
+                      "stringValue": "string"
+                    },
                     "shardName": "string"
                   }
                 ]
@@ -786,7 +788,9 @@ pageToken | Opaque value identifying the transfers page to be fetched. Should be
                 "columnName": "string",
                 "mapping": [
                   {
-                    "columnValue": {},
+                    "columnValue": {
+                      "stringValue": "string"
+                    },
                     "shardName": "string"
                   }
                 ]
@@ -1050,6 +1054,7 @@ transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>custom
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>columnName | **string**<br>
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[] | **object**<br>
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue | **object**<br>
+transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue.<br>stringValue | **string**<br>
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>shardName | **string**<br>
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`transfers[].source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>source.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`transfers[].source.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
@@ -1267,6 +1272,7 @@ transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>custom
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>columnName | **string**<br>
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[] | **object**<br>
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue | **object**<br>
+transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>columnValue.<br>stringValue | **string**<br>
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>customMapping.<br>mapping[].<br>shardName | **string**<br>
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId | **object** <br>`transfers[].target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 
 transfers[].<br>target.<br>settings.<br>clickhouseTarget.<br>sharding.<br>transferId.<br>transferId | **object** <br>`transfers[].target.settings.clickhouseTarget.sharding` includes only one of the fields `columnValueHash`, `customMapping`, `transferId`<br><br><p>Empty JSON object ``{}``.</p> 

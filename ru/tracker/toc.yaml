@@ -289,6 +289,8 @@ items:
         items:
           - name: Обзор
             href: user/ticket-template.md
+          - name: Создать шаблон в {{ forms-full-name }} (бета)
+            href: user/forms-template.md
           - name: Создать шаблон
             href: user/create-template.md
           - name: Изменить шаблон

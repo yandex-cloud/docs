@@ -67,6 +67,8 @@ items:
         href: concepts/settings-list.md
   - name: Practical guidelines
     items:
+      - name: All use cases
+        href: tutorials/index.md
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: Migrating databases to {{ mmy-name }}

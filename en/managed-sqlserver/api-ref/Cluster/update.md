@@ -66,7 +66,8 @@ clusterId | Required. ID of the SQL Server cluster to update.  To get the SQL Se
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "serviceAccountId": "string"
 }
 ```
 
@@ -105,6 +106,7 @@ configSpec.<br>sqlserverConfig_2016Sp2Ent.<br>optimizeForAdHocWorkloads | **bool
 name | **string**<br><p>New name for the SQL Server cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

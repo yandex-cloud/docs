@@ -529,7 +529,7 @@ In a failover {{ PG }} cluster with multiple hosts, you can switch the master ro
 Specifics of switching master hosts in {{ mpg-name }}
 
 1. You can't switch the master host to a replica that the source of the replication thread is explicitly given for.
-1. If you don't specify the replica host name explicitly, the master host will switch to a synchronous replica.
+1. If you don't specify the replica host name explicitly, the master host will switch to one of the quorum replicas.
 
 For more information, see [{#T}](../concepts/replication.md).
 
@@ -542,8 +542,8 @@ To switch the master:
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you want and select the **Hosts** tab.
   1. Click **![image](../../_assets/pencil.svg) Switching the master**.
-  1. To switch the master to a synchronous replica, leave the **Choose master host automatically** option enabled.
-  1. To switch the master to another replica, disable the **Choose master host automatically** option and then select the desired replica from the drop-down list.
+  1. To switch the master to one of the quorum replicas, leave the **Choose master host automatically** option enabled.
+  1. To switch the master to a specific replica, disable the **Choose master host automatically** option and then select the desired replica from the drop-down list.
   1. Click **Switch**.
 
 - CLI

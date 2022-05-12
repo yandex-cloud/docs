@@ -9,6 +9,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 Service | Description
 --- | ---
 [AddressService](./address_service.md) | A set of methods for managing Address resources.
+[GatewayService](./gateway_service.md) | 
 [NetworkService](./network_service.md) | A set of methods for managing Network resources.
 [RouteTableService](./route_table_service.md) | A set of methods for managing RouteTable resources.
 [SecurityGroupService](./security_group_service.md) | 

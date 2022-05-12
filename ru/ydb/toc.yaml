@@ -583,6 +583,10 @@ items:
                 href: reference/ydb-sdk/recipes/debug/jaeger.md
           - name: Установить размер пула сессий
             href: reference/ydb-sdk/recipes/session_pool_limit/index.md
+          - name: Вставка данных
+            href: reference/ydb-sdk/recipes/upsert/index.md
+          - name: Пакетная вставка данных
+            href: reference/ydb-sdk/recipes/bulk_upsert/index.md
   - name: Управление кластером
     items:
       - name: Обзор

@@ -11,6 +11,7 @@ A set of methods for managing certificates.
 | --- | --- |
 | [Get](#Get) | Returns the specified certificate. |
 | [List](#List) | Returns the list of certificates in the specified folder. |
+| [ListVersions](#ListVersions) |  |
 | [Create](#Create) | Creates a certificate in the specified folder. |
 | [Update](#Update) | Updates the specified certificate. |
 | [Delete](#Delete) | Deletes the specified certificate. |
@@ -170,6 +171,38 @@ Field | Description
 --- | ---
 url | **string**<br>Location of the HTTP file. 
 content | **string**<br>Content of the HTTP file. 
+
+
+## ListVersions {#ListVersions}
+
+
+
+**rpc ListVersions ([ListVersionsRequest](#ListVersionsRequest)) returns ([ListVersionsResponse](#ListVersionsResponse))**
+
+### ListVersionsRequest {#ListVersionsRequest}
+
+Field | Description
+--- | ---
+certificate_id | **string**<br>Required. ID of the certificate to list versions for. The maximum string length in characters is 50.
+page_size | **int64**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListVersionsResponse {#ListVersionsResponse}
+
+Field | Description
+--- | ---
+versions[] | **[Version](#Version)**<br>List of versions for the specified certificate. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListCertificatesRequest.page_size](#ListCertificatesRequest), use the `next_page_token` as the value for the [ListCertificatesRequest.page_token](#ListCertificatesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### Version {#Version}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the version. 
+certificate_id | **string**<br>ID of the certificate that the version belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 
 
 ## Create {#Create}
