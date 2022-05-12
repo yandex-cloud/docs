@@ -678,18 +678,10 @@
             sh.enableSharding("<имя базы-приемника>")
             ```
 
-        1. Создайте индекс для каждой шардируемой коллекции:
-
-            ```javascript
-            db.<имя коллекции>.createIndex(<свойства индекса>)
-            ```
-
-            Описание функции `createIndex()` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex).
-
         1. Задайте шардирование для каждой коллекции с учетом ее пространства имен:
 
             ```javascript
-            sh.shardCollection("<имя базы-приемника>.<имя коллекции>", {"<индекс>": "<тип индекса>"});
+            sh.shardCollection("<имя базы-приемника>.<имя коллекции>", { <имя поля>: <1|"hashed">, ... });
             ```
 
             Описание функции `shardCollection()` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
