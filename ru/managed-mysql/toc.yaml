@@ -62,6 +62,8 @@ items:
         href: concepts/backup.md
       - name: Репликация
         href: concepts/replication.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Права пользователей
         href: concepts/user-rights.md
       - name: Настройки MySQL

@@ -92,6 +92,8 @@ items:
         href: concepts/pooling.md
       - name: Репликация
         href: concepts/replication.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Настройки PostgreSQL

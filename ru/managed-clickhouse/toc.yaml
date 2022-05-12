@@ -104,6 +104,8 @@ items:
         href: concepts/dictionaries.md
       - name: Шардирование
         href: concepts/sharding.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Политика работы с версиями ClickHouse

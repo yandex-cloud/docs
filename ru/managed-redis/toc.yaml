@@ -68,6 +68,8 @@ items:
         href: concepts/limits.md
       - name: Типы хранилища
         href: concepts/storage.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Настройки Redis
         href: concepts/settings-list.md
   - name: Управление доступом

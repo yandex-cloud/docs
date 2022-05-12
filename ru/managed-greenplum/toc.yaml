@@ -39,6 +39,8 @@ items:
         href: concepts/sharding.md
       - name: Типы хранения данных
         href: concepts/tables.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
   - name: Управление доступом
     href: security/index.md
   - name: Ресурсы и квоты
