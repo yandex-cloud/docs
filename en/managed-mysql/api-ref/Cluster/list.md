@@ -141,7 +141,9 @@ filter | A filter expression that selects clusters listed in the response.  The 
             "innodbFtMinTokenSize": "integer",
             "innodbFtMaxTokenSize": "integer",
             "lowerCaseTableNames": "integer",
-            "showCompatibility_56": true
+            "showCompatibility_56": true,
+            "maxSpRecursionDepth": "integer",
+            "innodbCompressionLevel": "integer"
           },
           "userConfig": {
             "innodbBufferPoolSize": "integer",
@@ -215,7 +217,9 @@ filter | A filter expression that selects clusters listed in the response.  The 
             "innodbFtMinTokenSize": "integer",
             "innodbFtMaxTokenSize": "integer",
             "lowerCaseTableNames": "integer",
-            "showCompatibility_56": true
+            "showCompatibility_56": true,
+            "maxSpRecursionDepth": "integer",
+            "innodbCompressionLevel": "integer"
           },
           "defaultConfig": {
             "innodbBufferPoolSize": "integer",
@@ -289,7 +293,9 @@ filter | A filter expression that selects clusters listed in the response.  The 
             "innodbFtMinTokenSize": "integer",
             "innodbFtMaxTokenSize": "integer",
             "lowerCaseTableNames": "integer",
-            "showCompatibility_56": true
+            "showCompatibility_56": true,
+            "maxSpRecursionDepth": "integer",
+            "innodbCompressionLevel": "integer"
           }
         },
         "mysqlConfig_8_0": {
@@ -365,7 +371,9 @@ filter | A filter expression that selects clusters listed in the response.  The 
             "innodbOnlineAlterLogMaxSize": "integer",
             "innodbFtMinTokenSize": "integer",
             "innodbFtMaxTokenSize": "integer",
-            "lowerCaseTableNames": "integer"
+            "lowerCaseTableNames": "integer",
+            "maxSpRecursionDepth": "integer",
+            "innodbCompressionLevel": "integer"
           },
           "userConfig": {
             "innodbBufferPoolSize": "integer",
@@ -439,7 +447,9 @@ filter | A filter expression that selects clusters listed in the response.  The 
             "innodbOnlineAlterLogMaxSize": "integer",
             "innodbFtMinTokenSize": "integer",
             "innodbFtMaxTokenSize": "integer",
-            "lowerCaseTableNames": "integer"
+            "lowerCaseTableNames": "integer",
+            "maxSpRecursionDepth": "integer",
+            "innodbCompressionLevel": "integer"
           },
           "defaultConfig": {
             "innodbBufferPoolSize": "integer",
@@ -513,7 +523,9 @@ filter | A filter expression that selects clusters listed in the response.  The 
             "innodbOnlineAlterLogMaxSize": "integer",
             "innodbFtMinTokenSize": "integer",
             "innodbFtMaxTokenSize": "integer",
-            "lowerCaseTableNames": "integer"
+            "lowerCaseTableNames": "integer",
+            "maxSpRecursionDepth": "integer",
+            "innodbCompressionLevel": "integer"
           }
         },
         // end of the list of possible fields`clusters[].config`
@@ -540,7 +552,10 @@ filter | A filter expression that selects clusters listed in the response.  The 
       "securityGroupIds": [
         "string"
       ],
-      "deletionProtection": true
+      "deletionProtection": true,
+      "hostGroupIds": [
+        "string"
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -651,6 +666,8 @@ clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>innodbFtMinTok
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>showCompatibility_56 | **boolean** (boolean)<br><p>Manages MySQL 5.6 compatibility</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig | **object**<br><p>User-defined settings for a MySQL 5.7 cluster.</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -720,6 +737,8 @@ clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>innodbFtMinTokenSiz
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>showCompatibility_56 | **boolean** (boolean)<br><p>Manages MySQL 5.6 compatibility</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig | **object**<br><p>Default configuration for a MySQL 5.7 cluster.</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -789,6 +808,8 @@ clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>innodbFtMinToken
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>showCompatibility_56 | **boolean** (boolean)<br><p>Manages MySQL 5.6 compatibility</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0 | **object**<br>Configuration of a MySQL 8.0 server. <br>`clusters[].config` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br><br>
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig | **object**<br><p>Effective settings for a MySQL 8.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
@@ -859,6 +880,8 @@ clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>innodbOnlineAl
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>innodbFtMinTokenSize | **integer** (int64)<br><p>Minimum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig | **object**<br><p>User-defined settings for a MySQL 8.0 cluster.</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -928,6 +951,8 @@ clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>innodbOnlineAlterLo
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>innodbFtMinTokenSize | **integer** (int64)<br><p>Minimum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig | **object**<br><p>Default configuration for a MySQL 8.0 cluster.</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -997,6 +1022,8 @@ clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>innodbOnlineAlte
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>innodbFtMinTokenSize | **integer** (int64)<br><p>Minimum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 16, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>innodbFtMaxTokenSize | **integer** (int64)<br><p>Maximum length of words that are stored in an InnoDB FULLTEXT index</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 10 to 84, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 clusters[].<br>health | **string**<br><p>Aggregated health of the cluster.</p> <ul> <li>HEALTH_UNKNOWN: Health of the cluster is unknown (``health`` for every host in the cluster is ``UNKNOWN``).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ``ALIVE``).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is ``DEAD``).</li> <li>DEGRADED: Cluster is degraded (``health`` for at least one host in the cluster is not ``ALIVE``).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster is stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
@@ -1010,4 +1037,5 @@ clusters[].<br>plannedOperation.<br>info | **string**<br><p>Information about th
 clusters[].<br>plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>Time until which this maintenance operation is delayed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 clusters[].<br>securityGroupIds[] | **string**<br><p>Effective list of security group IDs applied to the cluster.</p> 
 clusters[].<br>deletionProtection | **boolean** (boolean)<br><p>This option prevents unintended deletion of the cluster.</p> 
+clusters[].<br>hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 nextPageToken | **string**<br><p>The token that can be used to get the next page of results.</p> <p>If the number of results is larger than <a href="/docs/managed-mysql/api-ref/Cluster/list#query_params">pageSize</a>, use the <a href="/docs/managed-mysql/api-ref/Cluster/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mysql/api-ref/Cluster/list#query_params">pageToken</a> in the subsequent <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> request to iterate through multiple pages of results.</p> <p>Each of the subsequent <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> requests should use the <a href="/docs/managed-mysql/api-ref/Cluster/list#responses">nextPageToken</a> value returned by the previous request to continue paging through the results.</p> 

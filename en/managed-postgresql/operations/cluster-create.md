@@ -1,6 +1,6 @@
 # Creating {{ PG }} clusters
 
-{{ PG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, then duplicates changes synchronously in the primary replica and asynchronously in all the others.
+{{ PG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to disk both on the master host and on a certain number of replicas sufficient to [establish a quorum](../concepts/replication.md).
 
 {% note info %}
 

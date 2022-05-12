@@ -116,7 +116,8 @@ clusterId | Required. ID of the SQL Server cluster to return.  To get the cluste
   "sqlcollation": "string",
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "serviceAccountId": "string"
 }
 ```
 An SQL Server cluster.
@@ -194,3 +195,4 @@ securityGroupIds[] | **string**<br><p>User security groups</p>
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 sqlcollation | **string**<br><p>SQL Server Collation</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 

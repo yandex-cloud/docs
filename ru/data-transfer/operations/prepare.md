@@ -6,11 +6,11 @@
 
 {% list tabs %}
 
-* {{ mkf-name }}
+* Managed Service for Apache Kafka®
 
     [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топик-источник.
 
-* {{ KF }}
+* Apache Kafka®
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -48,7 +48,7 @@
 
 {% list tabs %}
 
-- {{ GP }}
+- Greenplum®
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -673,18 +673,10 @@
             sh.enableSharding("<имя базы-приемника>")
             ```
 
-        1. Создайте индекс для каждой шардируемой коллекции:
-
-            ```javascript
-            db.<имя коллекции>.createIndex(<свойства индекса>)
-            ```
-
-            Описание функции `createIndex()` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex).
-
         1. Задайте шардирование для каждой коллекции с учетом ее пространства имен:
 
             ```javascript
-            sh.shardCollection("<имя базы-приемника>.<имя коллекции>", {"<индекс>": "<тип индекса>"});
+            sh.shardCollection("<имя базы-приемника>.<имя коллекции>", { <имя поля>: <1|"hashed">, ... });
             ```
 
             Описание функции `shardCollection()` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).

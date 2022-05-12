@@ -29,7 +29,9 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/c
     {
       "id": "string",
       "cores": "string",
-      "memory": "string"
+      "memory": "string",
+      "disks": "string",
+      "diskSize": "string"
     }
   ],
   "nextPageToken": "string"
@@ -43,4 +45,6 @@ hostTypes[] | **object**<br><p>Represents host resources. Note: Platform can use
 hostTypes[].<br>id | **string**<br><p>Unique type identifier.</p> 
 hostTypes[].<br>cores | **string** (int64)<br><p>Total number of cores available for instances.</p> 
 hostTypes[].<br>memory | **string** (int64)<br><p>Ammount of memory available for instances.</p> 
+hostTypes[].<br>disks | **string** (int64)<br><p>Number of local disks available for instances</p> 
+hostTypes[].<br>diskSize | **string** (int64)<br><p>Size of each local disk</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/HostType/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/HostType/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

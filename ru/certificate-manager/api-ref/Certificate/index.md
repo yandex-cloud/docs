@@ -96,6 +96,7 @@ Method | Description
 [list](list.md) | Returns the list of certificates in the specified folder.
 [listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified certificate.
 [listOperations](listOperations.md) | Lists operations for the specified certificate.
+[listVersions](listVersions.md) | 
 [requestNew](requestNew.md) | Request a certificate in the specified folder.
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the certificate.
 [update](update.md) | Updates the specified certificate.

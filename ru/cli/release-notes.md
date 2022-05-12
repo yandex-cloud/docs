@@ -1,26 +1,94 @@
 # Релизы YC CLI
 
-## Версия 0.90.0 (13.04.22) {#latest-release}
+## Версия 0.91.0 (12.05.22) {#latest-release}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ dataproc-name }} {#dataproc}
-
-* В команду `yc dataproc cluster create` добавлен флаг `--initialization-action` для указания скрипта инициализации для кластера.
-
-#### {{ compute-name }} {#compute}
-
-* В команду `yc compute instance create` добавлен флаг `--attach-local-disk` для создания инстанса с подключенным к нему локальным диском.
-
 #### {{ alb-name }} {#alb}
 
-* В команды `yc alb backend-group add-stream-backend` и `yc alb backend-group update-stream-backend` добавлен флаг `--enable-proxy-protocol` для включения proxy-протокол для бэкэнда.
+* В командах `yc alb lb add-location` и `yc alb lb target-states` исправлена ошибка при обработке параметра `--name`. Теперь параметр позволяет корректно искать балансировщик по имени.
+
+#### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* Добавлена группа команд `yc cloud-desktop group`, которые позволяют управлять группами рабочих столов.
+* Добавлена группа команд `yc cloud-desktop desktop`, которые позволяют управлять рабочими столами.
+
+#### {{ sf-name }} {#functions}
+
+* В команды `yc serverless function logs` и `yc serverless function version logs` добавлен параметр `--max-response-size`, который ограничивает размер получаемых логов.
+
+#### {{ cloud-logging-name }} {#cloud-logging}
+
+* В команду `yc logging read` добавлен параметр `--max-response-size`, который ограничивает размер получаемых логов.
 
 #### {{ dns-name }} {#dns}
 
-* В команду `yc dns zone update` добавлен флаг `--clear-network-ids` для удаления списка виртуальных сетей, из которых видны записи внутренней DNS-зоны.
+* Добавлена команда `yc dns bind-file migrate-to-terraform`, которая формирует из файла BIND спецификацию для {{ TF }} и печатает ее в стандартный вывод.
+
+#### {{ serverless-containers-name }} {#serverless-containers}
+
+* Добавлена команда `yc serverless containers rollback`, которая откатывает контейнер к указанной ревизии.
+
+#### {{ ydb-name }} {#ydb}
+
+* В группу команд `yc ydb database` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для баз данных.
+* В группу команд `yc ydb backup` добавлены команды  `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для бекапов баз данных.
 
 #### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mes-name }}**
+
+* Добавлены группа команд `yc managed-elasticsearch extension`, которые позволяют управлять пользовательскими расширениями для кластеров.
+
+**{{ mmy-name }}**
+
+* В команду `yc managed-mysql cluster create` добавлен параметр `--host-group-ids`, который задает список хостов для размещения кластера на выделенных серверах.
+* В команду `yc managed-mysql cluster restore` добавлены:
+  
+  * Параметр `--host-group-ids`, который задает список хостов для размещения кластера на выделенных серверах.
+  * Флаг `--deletion-protection`, позволяющий восстанавливать кластер сразу с включенной защитой от удаления.
+
+**{{ mpg-name }}**
+
+* В команду `yc managed-postgresql cluster create` добавлен параметр `--host-group-ids`, который задает список хостов для размещения кластера на выделенных серверах.
+* В команду `yc managed-postgresql cluster restore` добавлены:
+
+  * Параметр `--host-group-ids`, который задает список хостов для размещения кластера на выделенных серверах.
+  * Флаг `--deletion-protection`, позволяющий восстанавливать кластер сразу с включенной защитой от удаления.
+
+**{{ mms-name }}**
+
+* В команды `yc managed-sqlserver create` и `yc managed-sqlserver update` добавлен параметр `--service-account-id` для назначения сервисного аккаунта хостам кластера {{ MS }}.
+* Добавлены команды `yc managed-sqlserver database backup-export` и `yc managed-sqlserver database backup-import` для экспорта и импорта бэкапов баз данных в пользовательское хранилище.
+* Добавлена команда `yc managed-sqlserver cluster start-failover` для ручного запуска смены мастера в кластере.
+
+**{{ mkf-name }}**
+
+* В команду `yc managed-kafka cluster update` добавлен флаг `--assign-public-ip` для управления публичным доступом к брокерам.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.90.0 (13.04.22)
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ dataproc-name }} {#dataproc}
+
+* В команду `yc dataproc cluster create` добавлен флаг `--initialization-action` для указания скрипта инициализации для кластера.
+
+##### {{ compute-name }} {#compute}
+
+* В команду `yc compute instance create` добавлен флаг `--attach-local-disk` для создания инстанса с подключенным к нему локальным диском.
+
+##### {{ alb-name }} {#alb}
+
+* В команды `yc alb backend-group add-stream-backend` и `yc alb backend-group update-stream-backend` добавлен флаг `--enable-proxy-protocol` для включения proxy-протокол для бэкэнда.
+
+##### {{ dns-name }} {#dns}
+
+* В команду `yc dns zone update` добавлен флаг `--clear-network-ids` для удаления списка виртуальных сетей, из которых видны записи внутренней DNS-зоны.
+
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
 
@@ -47,8 +115,6 @@
 **{{ mpg-name }}**
 
 * В команды `yc managed-postgresql cluster [ create | restore | update ]` добавлен флаг `--datatransfer-access` для разрешения доступа к кластеру из сервиса {{ data-transfer-name }}.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.89.0 (23.03.22) {#version0.89.0}
 

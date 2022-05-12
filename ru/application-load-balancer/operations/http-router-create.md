@@ -114,4 +114,80 @@
        append: ru-RU
      ```
 
+- Terraform
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры HTTP-роутера и виртуального хоста:
+
+     ```hcl
+     resource "yandex_alb_http_router" "tf-router" {
+       name   = "<имя HTTP-роутера>"
+       labels = {
+         tf-label    = "tf-label-value"
+         empty-label = ""
+       }
+     }
+	 
+     resource "yandex_alb_virtual_host" "my-virtual-host" {
+       name           = "<имя виртуального хоста>"
+       http_router_id = "${yandex_alb_http_router.tf-router.id}"
+       route {
+         name = "<имя маршрута>"
+         http_route {
+           http_route_action {
+             backend_group_id = "<идентификатор группы бэкендов>"
+             timeout          = "3s"
+           }
+         }
+       }
+     }	 
+     ```
+
+     Где:
+	 * `yandex_alb_virtual_host` — описание HTTP-роутера:
+       * `name` — имя HTTP-роутера. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+       * `labels` — [метки](https://cloud.yandex.ru/docs/overview/concepts/services#labels) для HTTP-роутера. Укажите пару ключ-значение.
+	 * `yandex_alb_virtual_host` — описание виртуального хоста:
+       * `name` — имя виртуального хоста. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+       * `http_router_id` — идентификатор HTTP-роутера.
+       * `route` — описание маршрута HTTP-роутера. Укажите имя маршрута, идентификатор группы бэкендов и время для обработки запроса (по умолчанию 60 секунд).
+
+     Более подробную информацию о параметрах ресурсов в Terraform см. в документации провайдера ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) и [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+     1. Выполните проверку с помощью команды:
+
+        ```
+        terraform plan
+        ```
+
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+
+  1. Разверните облачные ресурсы.
+
+     1. Если в конфигурации нет ошибок, выполните команду:
+
+        ```
+        terraform apply
+        ```
+
+     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
+
+        ```
+        yc alb http-router get <идентификатор http-роутера>
+        ```
+
 {% endlist %}

@@ -140,9 +140,7 @@
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
        organization_id = "<ID организации>"
-     
        role = "editor"
-     
        members = [
         "federatedUser:<ID пользователя>",
        ]

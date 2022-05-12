@@ -4,10 +4,7 @@ description:
     Yandex Managed Service for Greenplum<sup>®</sup> enables you to deploy and
     maintain Greenplum clusters<sup>®</sup> under the Yandex.Cloud
     infrastructure.
-  - >-
-    The Yandex Cloud infrastructure  <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">
-    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+  - "The Yandex Cloud infrastructure is <a href=\"https://cloud.yandex.com/docs/overview/security/conform\">protected</a> in compliance with the following standards: <ul> <li>Russian Federal Law on Personal Data (No. 152-FZ).</li> <li>Payment Card Industry Data Security Standard (PCI\_DSS).</li> <li>General Data Protection Regulation (GDPR).</li> <li>ISO 27001.</li> <li>ISO 27017.</li> <li>ISO 27018.</li> <li>ISO 27018.</li> <li>GOST 57580.1-2017.</li> </ul>"
   - >-
     <em>Greenplum<sup>®</sup> and Greenplum Database<sup>®</sup> are registered
     trademarks or trademarks of VMware, Inc in the United States and/or other
@@ -18,6 +15,9 @@ links:
   - title: Getting started
     description: Create your first cluster
     href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
   - title: Concepts
     description: Learn about basic concepts and how the service works
     href: concepts/
@@ -25,8 +25,11 @@ links:
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and organizational limitations of the service
     href: concepts/limits
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

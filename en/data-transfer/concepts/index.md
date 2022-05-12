@@ -45,15 +45,16 @@ For more information about the differences between transfer types, see [{#T}](./
 
 Different DBMS systems can act as a source and as a target. Possible source and target combinations:
 
-| Source \ Target | {{ PG }} | {{ MY }} | {{ MG }} | {{ ydb-name }} | {{ CH }} | {{ objstorage-name }} |
-| :-------------------: | :-----------------------------: | :-----------------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: | :---------------------: |
-| {{ PG }} | Copy, replicate | - | - | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | Copy^1^ |
-| {{ MY }} | - | Copy, replicate | - | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | Copy^1^ |
-| {{ MG }} | - | - | Copy^1^, replicate^1^ | - | - | Copy^1^ |
-| Oracle | Copy^1^, replicate^1^ | - | - | - | Copy^1^, replicate^1^ | - |
-| {{ CH }} | - | - | - | - | Copy^1^ | - |
-| {{ yds-full-name }} | - | - | - | Replicate^1^ | Copy^1^, replicate^1^ | Replicate^1^ |
-| {{ KF }} | - | - | - | Replicate^1^ | Replicate^1^ | Replicate^1^ |
+| Source \ Target     | {{ KF }}     | {{ PG }}              | {{ MY }}        | {{ MG }}              | {{ ydb-name }}        | {{ CH }}              | {{ objstorage-name }} | {{ yds-full-name }} |
+|:-------------------:|:------------:|:---------------------:|:---------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|:-------------------:|
+| {{ PG }}            | Replicate^1^ | Copy, replicate       | -               | -                     | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | Copy^1^               | Replicate^1^        |
+| {{ MY }}            | Replicate^1^ | -                     | Copy, replicate | -                     | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | Copy^1^               | Replicate^1^        |
+| {{ MY }}            | -            | -                     | Copy, replicate | -                     | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | Copy^1^               | -                   |
+| {{ MG }}            | -            | -                     | -               | Copy^1^, replicate^1^ | -                     | -                     | Copy^1^               | -                   |
+| Oracle              | -            | Copy^1^, replicate^1^ | -               | -                     | -                     | Copy^1^, replicate^1^ | -                     | -                   |
+| {{ CH }}            | -            | -                     | -               | -                     | -                     | Copy^1^               | -                     | -                   |
+| {{ yds-full-name }} | -            | -                     | -               | -                     | Replicate^1^          | Copy^1^, replicate^1^ | Replicate^1^          | -                   |
+| {{ KF }}            | -            | -                     | -               | -                     | Replicate^1^          | Replicate^1^          | Replicate^1^          | -                   |
 
 ^1^ This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
 

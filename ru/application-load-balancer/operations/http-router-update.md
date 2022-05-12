@@ -55,6 +55,80 @@
      created_at: "2021-02-11T21:31:01.676592016Z"
      ```
 
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием HTTP-роутера:
+
+     ```hcl
+     ...
+     resource "yandex_alb_http_router" "tf-router" {
+       name   = "my-http-router"
+       labels = {
+         tf-label    = "tf-label-value"
+         empty-label = ""
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
+
+  1. Чтобы добавить, изменить или удалить виртуальные хосты HTTP-роутера, используйте ресурс `yandex_alb_virtual_host` с указанием на роутер в поле `http_router_id`:
+
+     ```hcl
+     resource "yandex_alb_virtual_host" "my-virtual-host" {
+       name           = "my-virtual-host"
+       http_router_id = "${yandex_alb_http_router.tf-router.id}"
+       route {
+         name = "my-route"
+         http_route {
+           http_route_action {
+             backend_group_id = "${yandex_alb_backend_group.backend-group.id}"
+             timeout          = "3s"
+           }
+         }
+       }
+     }
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение HTTP-роутера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc alb http-router get <идентификатор http-роутера>
+     ```
+
 {% endlist %}
 
 ## Добавить маршрут в виртуальный хост {#add-virtual-host}
@@ -247,5 +321,65 @@
       - name: test-route-insafter
       ...
       ```
+
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием виртуального хоста, добавив блок `route`:
+
+     ```hcl
+     resource "yandex_alb_virtual_host" "my-virtual-host" {
+       name           = "my-virtual-host"
+       http_router_id = "${yandex_alb_http_router.tf-router.id}"
+       route {
+         name = "my-route"
+         http_route {
+           http_route_action {
+             backend_group_id = "${yandex_alb_backend_group.backend-group.id}"
+             timeout          = "3s"
+           }
+         }
+       }
+     }
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+
+     Порядок маршрутов важен в описании виртуального хоста. Более подробную информацию см. в [концепции](../../application-load-balancer/concepts/http-router.md#virtual-host).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение виртуального хоста можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc alb virtual-host get <идентификатор виртуального хоста>
+     ```
 
 {% endlist %}

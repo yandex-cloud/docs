@@ -34,6 +34,8 @@ Field | Description
 id | **string**<br>Unique type identifier. 
 cores | **int64**<br>Total number of cores available for instances. 
 memory | **int64**<br>Ammount of memory available for instances. 
+disks | **int64**<br>Number of local disks available for instances 
+disk_size | **int64**<br>Size of each local disk 
 
 
 ## List {#List}
@@ -65,5 +67,7 @@ Field | Description
 id | **string**<br>Unique type identifier. 
 cores | **int64**<br>Total number of cores available for instances. 
 memory | **int64**<br>Ammount of memory available for instances. 
+disks | **int64**<br>Number of local disks available for instances 
+disk_size | **int64**<br>Size of each local disk 
 
 

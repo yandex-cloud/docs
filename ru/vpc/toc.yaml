@@ -126,6 +126,24 @@ items:
                 href: api-ref/Address/move.md
               - name: update
                 href: api-ref/Address/update.md
+          - name: Gateway
+            items:
+              - name: Overview
+                href: api-ref/Gateway/index.md
+              - name: create
+                href: api-ref/Gateway/create.md
+              - name: delete
+                href: api-ref/Gateway/delete.md
+              - name: get
+                href: api-ref/Gateway/get.md
+              - name: list
+                href: api-ref/Gateway/list.md
+              - name: listOperations
+                href: api-ref/Gateway/listOperations.md
+              - name: move
+                href: api-ref/Gateway/move.md
+              - name: update
+                href: api-ref/Gateway/update.md
           - name: Network
             items:
               - name: Overview
@@ -224,6 +242,8 @@ items:
             href: api-ref/grpc/index.md
           - name: AddressService
             href: api-ref/grpc/address_service.md
+          - name: GatewayService
+            href: api-ref/grpc/gateway_service.md
           - name: NetworkService
             href: api-ref/grpc/network_service.md
           - name: RouteTableService

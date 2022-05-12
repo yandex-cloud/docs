@@ -40,6 +40,7 @@ until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buf
 levels[] | **[LogLevel.Level](#LogLevel)**<br>List of log levels to limit log entries to. <br>Empty list disables filter. The maximum number of elements is 10.
 filter | **string**<br>Filter expression. For details about filtering, see [documentation](/docs/logging/concepts/filter). The maximum string length in characters is 1000.
 page_size | **int64**<br>The maximum number of results per page to return. Acceptable values are 1 to 1000, inclusive.
+max_response_size | **int64**<br>Limits response to maximum size in bytes. Prevents gRPC resource exhaustion. <br>Default value for max response size is 3.5 MiB Acceptable values are 0 to 10485760, inclusive.
 
 
 ### ReadResponse {#ReadResponse}

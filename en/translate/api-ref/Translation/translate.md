@@ -30,7 +30,8 @@ POST https://translate.{{ api-host }}/translate/v2/translate
       "glossaryPairs": [
         {
           "sourceText": "string",
-          "translatedText": "string"
+          "translatedText": "string",
+          "exact": true
         }
       ]
     }
@@ -53,6 +54,7 @@ glossaryConfig.<br>glossaryData | **object**<br>Pass glossary data in the reques
 glossaryConfig.<br>glossaryData.<br>glossaryPairs[] | **object**<br><p>Required. Array of text pairs.</p> <p>The maximum total length of all source texts is 10000 characters. The maximum total length of all translated texts is 10000 characters.</p> <p>The number of elements must be in the range 1-50.</p> 
 glossaryConfig.<br>glossaryData.<br>glossaryPairs[].<br>sourceText | **string**<br><p>Required. Text in the source language.</p> 
 glossaryConfig.<br>glossaryData.<br>glossaryPairs[].<br>translatedText | **string**<br><p>Required. Text in the target language.</p> 
+glossaryConfig.<br>glossaryData.<br>glossaryPairs[].<br>exact | **boolean** (boolean)<br>
 speller | **boolean** (boolean)<br><p>use speller</p> 
  
 ## Response {#responses}
