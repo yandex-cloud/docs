@@ -31,7 +31,7 @@
       * Включите настройку [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
   1. Создайте в кластере-источнике учетную запись `admin-source` с правом управления топиками через Admin API.
   1. Подготовьте ВМ с MirrorMaker:
-      1. [Создайте новую ВМ Linux](../../compute/operations/vm-create/create-linux-vm.md) в той же сети, к которой подключен кластер-приемник.
+      1. {% if audience != "internal" %}[Создайте новую ВМ Linux](../../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте новую ВМ Linux{% endif %} в той же сети, к которой подключен кластер-приемник.
       1. Установите JDK:
 
          ```bash
@@ -79,7 +79,7 @@
 
 ### Настройте конфигурацию MirrorMaker {#configure-mirrormaker}
 
-1. [Подключитесь к ВМ с MirrorMaker по SSH](../../compute/operations/vm-connect/ssh.md).
+1. {% if audience != "internal" %}[Подключитесь к ВМ с MirrorMaker по SSH](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь к ВМ с MirrorMaker по SSH{% endif %}.
 1. Скачайте [SSL-сертификат](../../managed-kafka/operations/connect#get-ssl-cert) для подключения к кластеру {{ mkf-name }}.
 1. Выберите пароль для хранилища сертификатов, создайте хранилище и добавьте в него SSL-сертификат для подключения к кластеру:
 
