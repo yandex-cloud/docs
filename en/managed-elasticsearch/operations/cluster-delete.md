@@ -13,37 +13,40 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
 
 ## Before deleting a cluster {#before-you-delete}
 
-[Disable deletion protection](cluster-update.md#change-additional-settings) for the cluster if it is enabled.
+* [Disable deletion protection](cluster-update.md#change-additional-settings) for the cluster if it is enabled.
+* [Save the cluster ID](cluster-list.md#list-clusters).
+
+   {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 ## Deleting the cluster {#delete}
 
 {% list tabs %}
 
 - Management console
-  1. In the management console, select the folder you want to delete a cluster from.
-  1. Select **{{ mes-name }}**.
-  1. Click ![image](../../_assets/options.svg) for the cluster and select **Delete cluster**.
-  1. Confirm cluster deletion and click **Delete**.
+
+   1. In the management console, select the folder you want to delete a cluster from.
+   1. Select the service **{{ mes-name }}**.
+   1. Click the ![image](../../_assets/options.svg) icon for the desired cluster and select **Delete cluster**.
+   1. Confirm cluster deletion and click **Delete**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To delete a cluster, run the command:
+   To delete a cluster, run the command:
 
-    ```bash
-    {{ yc-mdb-es }} cluster delete <cluster name or ID>
-    ```
+   ```bash
+   {{ yc-mdb-es }} cluster delete <cluster name or ID>
+   ```
 
-    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  Use the API `backup` method and pass the ID of the cluster to be deleted in the `clusterId` call parameter.
+   Use the `delete` API method and pass the ID of the cluster to be deleted in the `clusterId` call parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
-

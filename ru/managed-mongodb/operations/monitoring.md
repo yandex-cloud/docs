@@ -49,9 +49,9 @@
 * **Network usage per host, top 5 hosts** — 5 хостов с наибольшей суммарной сетевой нагрузкой (килобайт/с).
 * **Open cursors total** — количество открытых в кластере курсоров.
 * **Oplog window** — временной диапазон, за который хранятся данные репликации в коллекции oplog каждого хоста.
-* **Page faults per host** — количество [отказов страниц]({% if lang=="ru" %}https://ru.wikipedia.org/wiki/Отказ_страницы{% endif %}{% if land =="en" %}https://en.wikipedia.org/wiki/Page_fault{% endif %}) на каждом хосте.
+* **Page faults per host** — количество [отказов страниц]({% if lang=="ru" %}https://ru.wikipedia.org/wiki/Отказ_страницы{% endif %}{% if lang =="en" %}https://en.wikipedia.org/wiki/Page_fault{% endif %}) на каждом хосте.
 * **Queries on secondaries** — среднее количество запросов каждого типа, выполненных на вторичных репликах.
-* **Queryes on primary** — среднее количество выполненных на первичных репликах запросов каждого типа.
+* **Queries on primary** — среднее количество выполненных на первичных репликах запросов каждого типа.
 * **Read operations count, top 5 collections** — 5 коллекций с наибольшим количеством времени, затраченным на выполнение операций чтения.
 * **Readers/writers active queue per host, top 5** — суммарный размер пяти наибольших очередей для каждого хоста:
     * с запросами на чтение;

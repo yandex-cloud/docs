@@ -151,7 +151,7 @@ default:
   dsvm-short-name: DSVM
   speechkit-short-name: SpeechKit
   translate-short-name: Translate
-  marketplace-short-name:  Marketplace
+  marketplace-short-name: Marketplace
   network-load-balancer-short-name: Network Load Balancer
   message-queue-short-name: Message Queue
   cloud-logs-short-name: Cloud Logs
@@ -247,6 +247,7 @@ default:
   disk-type-example: network-ssd
   mch-hs-version: 21.7
   mch-ck-version: 22.3 # Minimal version ClickHouse for ClickHouse Keeper
+  mch-hs-move-factor: 20%
   mmg-backup-retention: 7
   mpg-backup-retention: 7
   mmg-backup-retention-min: 7
