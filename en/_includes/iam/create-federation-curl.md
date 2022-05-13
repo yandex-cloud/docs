@@ -1,6 +1,6 @@
-Create a federation using the [create](../../organization/api-ref/grpc/federation_service.md#Create) method:
+Create a federation using the [create](../../organization/api-ref/Federation/create.md) method:
 
-```
+```bash
 $ curl -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <IAM token>" \

@@ -26,6 +26,10 @@ sourcePath: en/_api-ref/datalens/function-ref/AGO.md
      )
   ```
 
+  More info:
+  - [BEFORE FILTER BY](time-series-functions.md#syntax-before-filter-by)
+  - [IGNORE DIMENSIONS](time-series-functions.md#syntax-ignore-dimensions)
+
 {% endlist %}
 
 #### Description {#description}

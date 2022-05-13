@@ -26,6 +26,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/STDEVP.md
         )
   ```
 
+  Подробнее:
+  - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
+  - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
+
 {% endlist %}
 
 #### Описание {#description}

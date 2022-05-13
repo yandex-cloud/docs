@@ -57,6 +57,8 @@ items:
         href: concepts/limits.md
       - name: Storage types
         href: concepts/storage.md
+      - name: Backups
+        href: concepts/backup.md
       - name: Sharding and replication
         href: concepts/scalability-and-resilience.md
       - name: Elasticsearch plugins

@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ dataproc-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -12,17 +13,22 @@ The total cost of using {{ dataproc-name }} includes:
 * The cost of using the computing resources of {{ compute-full-name }} VMs to deploy hosts.
 * Markup on using the computing resources of the {{ dataproc-name }} managed service.
 * The cost of using the {{ compute-name }} network drives.
+* Using {{ cloud-logging-full-name }} to receive and store logs.
 * The amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### Use of computing resources {#rules-compute}
+### Using computing resources {#rules-compute}
 
-Cost is charged under the {{ compute-name }} service for each hour of running the host virtual machine based on the [pricing for {{ compute-name }} computing resources](../compute/pricing.md#prices), including markup for using the {{ dataproc-name }} managed service.
+Charges are made as part of the {{ compute-name }} service per hour of host virtual machine time based on the [{{ compute-full-name }} computing resource pricing policy](../compute/pricing.md#prices) with a surcharge for using managed {{ dataproc-name }}.
 
 ### Disk space usage {#rules-storage}
 
-The amount of storage requested for each cluster hosts is charged under the {{ compute-name }} service according to the [disk space pricing policy](../compute/pricing.md#prices-storage).
+The amount of storage requested for each cluster host is charged under {{ compute-name }} based on [disk space pricing](../compute/pricing.md#prices-storage).
+
+### Using {{ cloud-logging-full-name }} {#rules-logs}
+
+Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [pricing rules](../logging/pricing.md).
 
 
 ## Pricing {#prices}
@@ -36,11 +42,11 @@ The amount of storage requested for each cluster hosts is charged under the {{ c
 
 {% note info %}
 
-You can use GPUs on {{ dataproc-name }} hosts by submitting a request to [tech support](https://console.cloud.yandex.com/support).
+To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technical support]({{ link-console-support }}).
 
 {% endnote %}
 
-### Egress {#prices-traffic}
+### Outgoing traffic {#prices-traffic}
 
 
 

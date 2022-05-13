@@ -9,6 +9,8 @@
 
 По умолчанию отображается диаграмма с накоплением.
 
+Подробное описание секций чарта см. в разделах [{#T}](../../concepts/chart/types.md#horizontal-bar-chart) и [{#T}](../../concepts/chart/types.md#normalized-horizontal-bar-chart).
+
 ## Создание линейчатой диаграммы c группировкой {#grouped-bar-chart}
 
 Чтобы отобразить диаграмму с группировкой по оси Y:

@@ -92,12 +92,12 @@
 
 {% list tabs %}
 
-* {{ mmg-name }}
+- {{ mmg-name }}
 
     1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10 000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
     1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
 
-* {{ MG }}
+- {{ MG }}
 
     1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ MG }}. Если нагрузка на базы выше 10 000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
 
@@ -235,7 +235,7 @@
 
         {% endnote %}
 
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ MY }}](./endpoint/source/mysql.md#additional-settings).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }})_. Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ MY }}](./endpoint/source/mysql.md#additional-settings).
 
 {% endlist %}
 
@@ -243,7 +243,7 @@
 
 {% list tabs %}
 
-* {{ mpg-name }}
+- {{ mpg-name }}
 
     1. Настройте пользователя, от имени которого трансфер подключится к источнику:
 
@@ -264,7 +264,7 @@
 
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в [описании дополнительных настроек эндпоинта для источника {{ PG }}](./endpoint/source/postgresql.md#additional-settings).
 
-* {{ PG }}
+- {{ PG }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -569,7 +569,7 @@
 
 {% list tabs %}
 
-* {{ mmg-name }}
+- {{ mmg-name }}
 
     1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) с тем же именем, что и на источнике.
     1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
@@ -586,7 +586,7 @@
 
         Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/).
 
-* {{ MG }}
+- {{ MG }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -706,7 +706,7 @@
 
 {% list tabs %}
 
-* {{ mmy-name }}
+- {{ mmy-name }}
 
     1. Убедитесь, что мажорная версия {{ MY }} на приемнике не ниже версии на источнике.
 
@@ -716,7 +716,7 @@
 
         1. [Назначьте пользователю роль](../../managed-mysql/operations/grant.md#grant-role) `ALL_PRIVILEGES` для базы-приемника.
 
-* {{ MY }}
+- {{ MY }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -745,7 +745,7 @@
 
 {% list tabs %}
 
-* {{ mpg-name }}
+- {{ mpg-name }}
 
     1. Убедитесь, что мажорная версия {{ PG }} на приемнике не ниже версии на источнике.
 
@@ -767,7 +767,7 @@
 
         После старта трансфер подключится к приемнику от имени этого пользователя.
 
-* {{ PG }}
+- {{ PG }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 

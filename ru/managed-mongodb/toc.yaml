@@ -77,6 +77,8 @@ items:
         href: concepts/sharding.md
       - name: Пользователи и роли
         href: concepts/users-and-roles.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Настройки MongoDB

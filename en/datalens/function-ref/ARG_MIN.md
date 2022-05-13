@@ -26,6 +26,10 @@ sourcePath: en/_api-ref/datalens/function-ref/ARG_MIN.md
          )
   ```
 
+  More info:
+  - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
+  - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
+
 {% endlist %}
 
 #### Description {#description}

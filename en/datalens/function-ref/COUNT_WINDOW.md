@@ -19,6 +19,9 @@ _Function `COUNT` is also found in the following categories: [Aggregate function
        )
   ```
 
+  More info:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+
 - Extended
 
   ```
@@ -27,6 +30,10 @@ _Function `COUNT` is also found in the following categories: [Aggregate function
          [ BEFORE FILTER BY ... ]
        )
   ```
+
+  More info:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+  - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 
