@@ -6,7 +6,7 @@ sourcePath: en/_api-ref/organizationmanager/api-ref/Certificate/get.md
 # Method get
 Returns the specified certificate.
  
-To get the list of available certificates, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.
+To get the list of available certificates, make a [list](/docs/organization/api-ref/Certificate/list) request.
  
 ## HTTP request {#https-request}
 ```
@@ -17,7 +17,7 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/cer
  
 Parameter | Description
 --- | ---
-certificateId | ID of the certificate to return. To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
+certificateId | ID of the certificate to return. To get the certificate ID, make a [list](/docs/organization/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

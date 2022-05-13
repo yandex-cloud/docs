@@ -27,6 +27,11 @@ sourcePath: en/_api-ref/datalens/function-ref/MMIN.md
       )
   ```
 
+  More info:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+  - [ORDER BY](window-functions.md#syntax-order-by)
+  - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
+
 {% endlist %}
 
 #### Description {#description}

@@ -19,6 +19,9 @@ _Функция `SUM_IF` также доступна в следующих ка�
         )
   ```
 
+  Подробнее:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+
 - Расширенный
 
   ```
@@ -27,6 +30,10 @@ _Функция `SUM_IF` также доступна в следующих ка�
           [ BEFORE FILTER BY ... ]
         )
   ```
+
+  Подробнее:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+  - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 

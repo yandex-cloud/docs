@@ -67,6 +67,8 @@ items:
         href: concepts/dictionaries.md
       - name: Политика управления версиями Elasticsearch
         href: concepts/update-policy.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

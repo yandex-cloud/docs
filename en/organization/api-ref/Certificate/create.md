@@ -27,7 +27,7 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/ce
  
 Field | Description
 --- | ---
-federationId | **string**<br><p>ID of the federation to add new certificate. To get the federation ID make a <a href="/docs/organization-manager/api-ref/Federation/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+federationId | **string**<br><p>ID of the federation to add new certificate. To get the federation ID make a <a href="/docs/organization/api-ref/Federation/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the certificate. The name must be unique within the federation.</p> <p>Value must match the regular expression ``[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Description of the certificate.</p> <p>The maximum string length in characters is 256.</p> 
 data | **string**<br><p>Certificate data in PEM format.</p> <p>The maximum string length in characters is 32000.</p> 

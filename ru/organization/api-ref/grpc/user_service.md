@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organization-manager/api-ref/grpc/user_service.md
+sourcePath: en/_api-ref-grpc/organization/api-ref/grpc/user_service.md
 ---
 
 # UserService

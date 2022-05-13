@@ -77,6 +77,8 @@ items:
         href: concepts/storage.md
       - name: Коннекторы
         href: concepts/connectors.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Настройки Apache Kafka®
         href: concepts/settings-list.md
   - name: Управление доступом

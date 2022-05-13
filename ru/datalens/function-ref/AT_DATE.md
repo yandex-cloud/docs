@@ -26,6 +26,10 @@ sourcePath: ru/_api-ref/datalens/function-ref/AT_DATE.md
          )
   ```
 
+  Подробнее:
+  - [BEFORE FILTER BY](time-series-functions.md#syntax-before-filter-by)
+  - [IGNORE DIMENSIONS](time-series-functions.md#syntax-ignore-dimensions)
+
 {% endlist %}
 
 #### Описание {#description}

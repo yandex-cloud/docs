@@ -85,6 +85,8 @@ items:
         href: concepts/decommission.md
       - name: Сеть в Data Proc
         href: concepts/network.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Свойства компонентов

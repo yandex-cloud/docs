@@ -32,12 +32,6 @@ You can change the {{ CH }} version used by the cluster to any of the [supported
 
 ## Before switching versions {#before-update}
 
-{% note warning %}
-
-If the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features), the minimum version you can change the cluster to is {{ mch-hs-version }}.
-
-{% endnote %}
-
 Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
 1. See the {{ CH }} [changelog](https://{{ ch-domain }}/docs/en/whats-new/changelog/) to check which updates might affect your apps.

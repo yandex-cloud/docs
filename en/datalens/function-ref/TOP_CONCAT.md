@@ -26,6 +26,10 @@ sourcePath: en/_api-ref/datalens/function-ref/TOP_CONCAT.md
             )
   ```
 
+  More info:
+  - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
+  - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
+
 {% endlist %}
 
 #### Description {#description}

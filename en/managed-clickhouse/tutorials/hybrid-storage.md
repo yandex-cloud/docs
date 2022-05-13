@@ -4,9 +4,9 @@ Hybrid storage lets you store frequently used data in the {{ mch-name }} cluster
 
 To use hybrid storage:
 1. [Create a table](#create-table).
-1. [Fill the table with data](#fill-table-with-data).
-1. [Check the placement of table data in the cluster](#check-table-tiering).
-1. [Run the test query](#submit-test-query).
+1. [Populate the table with data](#fill-table-with-data).
+1. [Check the placement of data in a cluster](#check-table-tiering).
+1. [Run a test query](#submit-test-query).
 
 ## Before you start {#before-you-begin}
 
@@ -17,7 +17,7 @@ To use hybrid storage:
 
    To demonstrate how hybrid storage works, Yandex.Metrica anonymized hit data (`hits_v1`) is used. This [dataset](https://{{ ch-domain }}/docs/en/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17, 2014 to March 23, 2014.
 
-   The `tutorial.hits_v1` table will be [configured when you create](#create-table) it so that all the  <q>fresh</q> data in the table starting from March 21, 2014 is in network storage, and older data (from March 17, 2014 to March 20, 2014) is in object storage.
+   The `tutorial.hits_v1` table will be configured [when you create](#create-table) it so that all the <q>fresh data</q> in the table starting from March 21, 2014 is in network storage, and older data (from March 17, 2014 to March 20, 2014) is in object storage.
 
 ## Create a table {#create-table}
 
@@ -37,6 +37,12 @@ SETTINGS index_granularity = 8192
 ```
 
 {% include [mch-hybrid-storage-tutorial-sample-query-full](../../_includes/mdb/mch-hs-tutorial-sample-query-full.md) %}
+
+{% note info %}
+
+This table uses the `default` [storage policy](../concepts/storage.md#storage-policies).
+
+{% endnote %}
 
 {#ttl}
 
@@ -71,7 +77,7 @@ To learn more about configuring TTL, see the [documentation for {{ CH }}](https:
    clickhouse-client --host <{{ CH }} host FQDN> --secure --user <username> --database tutorial --port 9440 --password <user password> --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" --max_insert_block_size=100000 < hits_v1.tsv
    ```
 
-   The host FQDN can be obtained [with a list of hosts in the cluster](../operations/hosts.md#list-hosts).
+   You can obtain the host FQDN with a [list of hosts in the cluster](../operations/hosts.md#list-hosts).
 
 1. Wait for the operation to complete because the insertion of data may take some time.
 

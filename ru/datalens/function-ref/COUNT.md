@@ -26,6 +26,10 @@ _Функция `COUNT` также доступна в следующих кат
        )
   ```
 
+  Подробнее:
+  - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
+  - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
+
 {% endlist %}
 
 #### Описание {#description}

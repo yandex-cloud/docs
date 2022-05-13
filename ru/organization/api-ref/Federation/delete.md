@@ -17,7 +17,7 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
  
 Parameter | Description
 --- | ---
-federationId | ID of the federation to delete. To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.  The maximum string length in characters is 50.
+federationId | ID of the federation to delete. To get the federation ID, make a [list](/docs/organization/api-ref/Federation/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/organization-manager/api-ref/grpc/operation_service.md
+sourcePath: en/_api-ref-grpc/organization/api-ref/grpc/operation_service.md
 ---
 
 # OperationService
