@@ -16,7 +16,7 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
  
 Parameter | Description
 --- | ---
-certificateId | ID of the certificate to delete. To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
+certificateId | ID of the certificate to delete. To get the certificate ID, make a [list](/docs/organization/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

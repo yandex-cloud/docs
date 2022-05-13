@@ -116,7 +116,7 @@ paths:
         in: query
         description: |-
           ID of the organization to list clouds in.
-          To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.
+          To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -744,7 +744,7 @@ components:
           description: |-
             Required.
             ID of the organization to create a cloud in.
-            To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.
+            To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.
 
             The maximum string length in characters is 50.
           type: string

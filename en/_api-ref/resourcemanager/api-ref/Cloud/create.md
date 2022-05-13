@@ -26,7 +26,7 @@ POST https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
  
 Field | Description
 --- | ---
-organizationId | **string**<br><p>Required. ID of the organization to create a cloud in. To get the organization ID, use a <a href="/docs/organization-manager/api-ref/Organization/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+organizationId | **string**<br><p>Required. ID of the organization to create a cloud in. To get the organization ID, use a <a href="/docs/organization/api-ref/Organization/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Required. Name of the cloud.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>Description of the cloud.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 

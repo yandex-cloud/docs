@@ -5,7 +5,7 @@ editable: false
 # Method get
 Returns the specified federation.
  
-To get the list of available federations, make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+To get the list of available federations, make a [list](/docs/organization/api-ref/Federation/list) request.
  
 ## HTTP request {#https-request}
 ```
@@ -16,7 +16,7 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fed
  
 Parameter | Description
 --- | ---
-federationId | ID of the federation to return. To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.  The maximum string length in characters is 50.
+federationId | ID of the federation to return. To get the federation ID, make a [list](/docs/organization/api-ref/Federation/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
