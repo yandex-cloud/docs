@@ -519,6 +519,10 @@ items:
         when: audience == "internal"
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md
+      - name: Authentication failed
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-AUTH_FAILED.md
       - name: Cannot join a concatenation of tables with another table
         when: audience == "internal"
         hidden: true
