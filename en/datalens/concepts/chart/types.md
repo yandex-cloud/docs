@@ -235,10 +235,10 @@ Displays geographical points on the map.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
-| Points (Geopoints) | Measure with the `Geopoint` type. |
+| Points (Geopoints) | Dimension with the `Geopoint` type. |
 | Points size | Measure. Sets a point size depending on the measure value. |
 | Colors | Dimension or measure. Affects the intensity of point fill. |
-| Signatures | Measure. Displayed as text on a point. When used, point size control is blocked. |
+| Signatures | Measure. Displayed as text on a point. When used, the point size slot has no effect. |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Chart filters | Dimension or measure. Used as a filter for the entire chart. |
@@ -249,7 +249,7 @@ Displays lines consisting of sequentially connected points on a map.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
-| Polylines (Geopoints) | Measure with the `Geopoint` type. |
+| Polylines (Geopoints) | Dimension with the `Geopoint` type. |
 | Measures | Measure. The value displayed when you hover over a point. |
 | Grouping | Dimension. Defines a group of points forming a polyline. |
 | Colors | Dimension or measure. Affects the intensity of line segment fill. A segment is filled in from the originating point. |
@@ -263,7 +263,7 @@ Displays shaded areas on the map.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
-| Polygons (Geopolygons) | Measure with the `Geopolygon` type. |
+| Polygons (Geopolygons) | Dimension with the `Geopolygon` type. |
 | Colors | Dimension or measure. Affects the color of points. |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
@@ -275,7 +275,7 @@ Displays geographical points on the map with different shading intensity.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
-| Heatmap (Geopoints) | Measure with the `Geopoint` type. |
+| Heatmap (Geopoints) | Dimension with the `Geopoint` type. |
 | Colors | Dimension or measure. Affects the intensity of point fill. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Chart filters | Dimension or measure. Used as a filter for the entire chart. |
