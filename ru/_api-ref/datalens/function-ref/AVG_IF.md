@@ -25,6 +25,10 @@ _Функция `AVG_IF` также доступна в следующих ка�
         )
   ```
 
+  Подробнее:
+  - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
+  - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
+
 {% endlist %}
 
 #### Описание {#description}

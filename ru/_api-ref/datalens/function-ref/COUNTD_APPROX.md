@@ -25,6 +25,10 @@ editable: false
                )
   ```
 
+  Подробнее:
+  - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
+  - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
+
 {% endlist %}
 
 #### Описание {#description}
