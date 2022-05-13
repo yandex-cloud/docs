@@ -19,6 +19,8 @@
 1. В ChartEditor на вкладке [Urls](../architecture.md#urls) укажите идентификатор подключения, созданного в {{ datalens-short-name }}, и напишите SQL-запрос для получения данных из подключения. Например:
 
    ```js
+   const {buildSource} = require('libs/sql/v1');
+
    module.exports = {
      sql: buildSource({
          // указываем нужный id подключения
