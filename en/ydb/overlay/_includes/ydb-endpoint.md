@@ -8,4 +8,4 @@
 
     The endpoint default port is `2135`, so you don't have to specify `:2135` in your query.
 1. See the full database path in the **Database** line.
-    Sample parameter value: `/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj`.
+Sample parameter value: `/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj`.

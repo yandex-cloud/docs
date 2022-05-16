@@ -107,4 +107,3 @@ All prices are shown with VAT. Prices are given for a 30-day month. For shorter 
 
 {% endif %}
 
-

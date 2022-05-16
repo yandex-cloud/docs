@@ -20,7 +20,7 @@ The request contains data in JSON format.
 | Parameter | Description |
 | ----- | ----- |
 | `ResourceArn` | A {{ ydb-name }} resource with displayed tags.<br/>**Type**: String<br/>**Length**: 1 - 1283 characters<br/>**Required**: Yes |
-| `NextToken` | Used to get the next result  page.<br/>If the method didn't return all the results for the previous query, copy the `NextToken` value from the response and substitute it in this parameter.<br/><br/>**Type**: String<br/>**Required**: No |
+| `NextToken` | Used to get the next result page.<br/>If the method didn't return all the results for the previous query, copy the `NextToken` value from the response and substitute it in this parameter.<br/><br/>**Type**: String<br/>**Required**: No |
 
 ## Response
 

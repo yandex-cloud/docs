@@ -23,7 +23,7 @@ To select data from the `series` table by the `series_id` key:
         --endpoint $endpoint
     ```
 
-    Output:
+   Output:
 
     ```text
     {

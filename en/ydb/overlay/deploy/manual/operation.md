@@ -82,7 +82,7 @@ If SelfHeal is disabled or fails to move vdisks, you'll have to run this operati
 3. Move the disk
 
     ```bash
-    kikimr admin bs config invoke --proto 'Command { UpdateDriveStatus { HostKey: { Fqdn: "<Host>" IcPort: <IC Port>} Path: "<Path to the storage volume part label>" PDiskId: <PDisk ID> Status: BROKEN  } }'
+    kikimr admin bs config invoke --proto 'Command { UpdateDriveStatus { HostKey: { Fqdn: "<Host>" IcPort: <IC Port>} Path: "<Path to the storage volume part label>" PDiskId: <PDisk ID> Status: BROKEN } }'
     ```
 
 ## Enable the disk back after reassignment {#return_a_device_to_work}
@@ -96,7 +96,7 @@ If SelfHeal is disabled or fails to move vdisks, you'll have to run this operati
 3. Re-enable the disk
 
     ```bash
-    kikimr admin bs config invoke --proto 'Command { UpdateDriveStatus { HostKey: { Fqdn: "<Host>" IcPort: <IC Port>} Path: "<Path to the device part label>" PDiskId: <PDisk ID> Status: ACTIVE } }'
+    kikimr admin bs config invoke --proto 'Command { UpdateDriveStatus { HostKey: { Fqdn: "<Host>" IcPort: <IC Port>} Path: "<Path to the storage volume part label>" PDiskId: <PDisk ID> Status: ACTIVE } }'
     ```
 
 ## Stopping/restarting a YDB process on a node {#restart_process}

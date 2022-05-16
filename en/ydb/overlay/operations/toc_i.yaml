@@ -6,9 +6,11 @@ items:
 - name: Using a query plan and AST
   href: get-query-plan.md
 - name: Managing databases
-  href: create_manage_database.md # !!!!!!!!!!!!
+  href: create_manage_database.md
+  hidden: true
 - name: Managing tables
   href: schema.md
+  hidden: true
 - name: Reading and writing data
   href: crud.md
 - name: Working with secondary indexes
