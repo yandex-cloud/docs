@@ -8,8 +8,8 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/url.md
 
 * ```Url::Normalize(String) -> String?```
 
-Normalizes the URL in a robot-friendly way: converts the hostname into lowercase, strips out certain fragments, etc.
-The normalization result depends only on the URL itself. The normalization **DOES NOT** include operations depending on the external data: transformation based on duplicates, mirrors, etc.
+Normalizes the URL in a robot-friendly way: converts the hostname into lowercase, strips out certain fragments, and so on.
+The normalization result only depends on the URL itself. The normalization **DOES NOT** include operations depending on the external data: transformation based on duplicates, mirrors, etc.
 
 Returned value:
 
@@ -171,5 +171,45 @@ SELECT Url::CutWWW("www.yandex.ru");           -- "yandex.ru"
 
 ```sql
 SELECT Url::PunycodeToHostName("xn--d1acpjx3f.xn--p1ai"); -- "яндекс.рф"
+```
+
+## ...Query... {#query}
+
+[Query](https://docs.python.org/3/library/urllib.parse.html) transformations.
+
+**List of functions**
+
+```sql
+Url::QueryStringToList(String{Flag:AutoMap}, [
+  KeepBlankValues:Bool?,  -- Empty values in percent-encoded queries are interpreted as empty strings, defaults to false.
+  Strict:Bool?,           -- If false, parsing errors are ignored and incorrect fields are skipped, defaults to true.
+  MaxFields:Uint32?,      -- The maximum number of fields. If exceeded, an exception is thrown. Defaults to Max<Uint32>.
+  Separator:String?       -- A key-value pair separator, defaults to '&'.
+]) -> List<Tuple<String, String>>
+Url::QueryStringToDict(String{Flag:AutoMap}, [
+  KeepBlankValues:Bool?,  -- Empty values in percent-encoded queries are interpreted as empty strings, defaults to false.
+  Strict:Bool?,           -- If false, parsing errors are ignored and incorrect fields are skipped, defaults to true.
+  MaxFields:Uint32?,      -- The maximum number of fields. If exceeded, an exception is thrown. Defaults to Max<Uint32>.
+  Separator:String?       -- A key-value pair separator, defaults to '&'.
+]) -> Dict<String, List<String>>
+Url::BuildQueryString(Dict<String, List<String?>>{Flag:AutoMap}, [
+  Separator:String?       -- A key-value pair separator, defaults to '&'.
+]) -> String
+Url::BuildQueryString(Dict<String, String?>{Flag:AutoMap}, [
+  Separator:String?       -- A key-value pair separator, defaults to '&'.
+]) -> String
+Url::BuildQueryString(List<Tuple<String, String?>>{Flag:AutoMap}, [
+  Separator:String?       -- A key-value pair separator, defaults to '&'.
+]) -> String
+```
+
+**Examples**
+
+```sql
+SELECT Url::QueryStringToList("a=1&b=2&a=3");                       -- [("a", "1"), ("b", "2"), ("a", "3")]
+SELECT Url::QueryStringToDict("a=1&b=2&a=3");                       -- {"b" : ["2"], "a" : ["1", "3"]}
+SELECT Url::BuildQueryString([("a", "1"), ("a", "3"), ("b", "2")]); -- "a=1&a=3&b=2"
+SELECT Url::BuildQueryString({"a" : "1", "b" : "2"});               -- "b=2&a=1"
+SELECT Url::BuildQueryString({"a" : ["1", "3"], "b" : ["2", "4"]}); -- "b=2&b=4&a=1&a=3"
 ```
 

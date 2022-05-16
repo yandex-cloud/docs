@@ -6,9 +6,9 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/in
 
 Checking whether a value is inside of a set of values. It's logically equivalent to a chain of equality comparisons using `OR` but implemented more efficiently.
 
-{% note warning "Warning" %}
+{% note warning %}
 
-Unlike a similar keyword in Python, in YQL `IN ` **DOES NOT** searches for a substring inside a string. To search for a substring, use the function [String::Contains](../../../udf/list/string.md) or [LIKE / REGEXP](#like) mentioned above.
+Unlike a similar keyword in Python, in YQL `IN ` **DOES NOT** searches for a substring inside a string. To search for a substring, use the function [String::Contains](../../../udf/list/string.md) or [LIKE/REGEXP](#like) mentioned above.
 
 {% endnote %}
 
@@ -21,22 +21,22 @@ The `COMPACT` hint must be used with care. Since the hash table is built in-memo
 
 **Examples**
 
-``` yql
+```yql
 SELECT column IN (1, 2, 3)
 FROM my_table;
 ```
 
-``` yql
+```yql
 SELECT * FROM my_table
 WHERE string_column IN ("a", "b", "c");
 ```
 
-``` yql
+```yql
 $foo = AsList(1, 2, 3);
 SELECT 1 IN $foo;
 ```
 
-``` yql
+```yql
 $values = (SELECT column + 1 FROM table);
 SELECT * FROM my_table WHERE
     -- filtering by an in-memory hash table for one_table
@@ -44,3 +44,4 @@ SELECT * FROM my_table WHERE
     -- followed by LEFT ONLY JOIN with other_table
     column2 NOT IN (SELECT other_column FROM other_table);
 ```
+

@@ -7,6 +7,7 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/group_by/gener
 Group the `SELECT` results by the values of the specified columns or expressions. `GROUP BY` is often combined with [aggregate functions](../../../builtins/aggregation.md) (`COUNT`, `MAX`, `MIN`, `SUM`, `AVG`) to perform calculations in each group.
 
 **Syntax**
+
 ```sql
 SELECT                             -- In SELECT, you can use:
     column1,                       -- key columns specified in GROUP BY
@@ -66,3 +67,4 @@ GROUP BY
 Specifying a name for a column or expression in `GROUP BY .. AS foo` it is an extension on top of YQL. Such a name becomes visible in `WHERE` despite the fact that filtering by `WHERE` is executed [before](../../select.md#selectexec) the grouping. For example, if the `T` table includes two columns, `foo` and `bar`, then the query `SELECT foo FROM T WHERE foo > 0 GROUP BY bar AS foo` would actually filter data by the `bar` column from the source table.
 
 {% endnote %}
+

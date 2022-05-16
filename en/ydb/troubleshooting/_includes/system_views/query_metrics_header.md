@@ -11,7 +11,7 @@ Table structure:
 
 | **Field** | **Type** | **Key** | **Value** |
 | --- | --- | --- | --- |
-| IntervalEnd | Timestamp | 0 | Closing time of a minute or hour interval |
+| IntervalEnd | Timestamp | 0 | Closing time of a minute interval |
 | Rank | Uint32 | 1 | Query rank per interval (by the SumCPUTime field) |
 | QueryText | Utf8 |  | Query text |
 | Count | Uint64 |  | Number of query runs |
@@ -36,6 +36,9 @@ Table structure:
 | SumDeleteRows | Uint64 |  | Total number of rows deleted |
 | MinDeleteRows | Uint64 |  | Minimum number of rows deleted |
 | MaxDeleteRows | Uint64 |  | Maximum number of rows deleted |
+| SumRequestUnits | Uint64 |  | Total number of [RequestUnits](../../../concepts/serverless_and_dedicated.md#serverless-options) used |
+| MinRequestUnits | Uint64 |  | Minimum number of [RequestUnits](../../../concepts/serverless_and_dedicated.md#serverless-options) used |
+| MaxRequestUnits | Uint64 |  | Maximum number of [RequestUnits](../../../concepts/serverless_and_dedicated.md#serverless-options) used |
 
 Restrictions:
 
@@ -43,3 +46,4 @@ Restrictions:
 * The table contains the history for the last 6 hours.
 * Within the interval, information is provided for no more than 256 different queries.
 * Statistics may be incomplete if the database is under heavy load.
+

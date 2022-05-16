@@ -1,10 +1,9 @@
 ---
 sourcePath: en/ydb/ydb-docs-core/en/core/best_practices/_includes/batch_upload.md
 ---
-# Uploading large data volumes
+# Uploading data to {{ ydb-short-name }}
 
-This section provides recommendations on how to efficiently upload large amounts of data to {{ ydb-short-name }}.
-
+This section provides recommendations on how to efficiently upload data to {{ ydb-short-name }}.
 
 There are anti-patterns and non-optimal settings for uploading data. They don't guarantee acceptable data uploading performance.
 To accelerate data uploads, consider the following recommendations:
@@ -19,12 +18,15 @@ To accelerate data uploads, consider the following recommendations:
 * Within each transaction, insert rows from the primary key-sorted set to minimize the number of shards that the transaction affects.
   In {{ ydb-short-name }}, transactions that span multiple shards have higher overhead compared to transactions that involve exactly one shard. Moreover, this overhead increases with the growing number of table shards involved in the transaction.
   We recommend selecting rows to be inserted in a particular transaction so that they're located in a small number of shards, ideally, in one.
+* If you need to push data to multiple tables, we recommend pushing data to a single table within a single query.
+* If you need to push data to a table with a synchronous secondary index, we recommend that you first push data to a table and, when done, build a secondary index.
 * You should avoid writing data sequentially in ascending or descending order of the primary key.
   Writing data to a table with a monotonically increasing key causes all new data to be written to the end of the table, since all tables in YDB are sorted by ascending primary key. As YDB splits table data into shards based on key ranges, inserts are always processed by the same server that is responsible for the "last" shard. Concentrating the load on a single server results in slow data uploading and inefficient use of a distributed system.
+* Some use cases require writing the initial data (often large amounts) to a table before enabling OLTP workloads. In this case, transactionality at the level of individual queries is not required and you can use ```BulkUpsert``` calls in the API and SDK. Since no transactionality is used, this approach has much lower overhead as compared to YQL queries. In case of a successful response to the query, the ```BulkUpsert``` method guarantees that all data added within this query is committed.
 
 {% note warning %}
 
-When you create a table in the current version, you can only configure the sharding model (or Partitioning Policy) from the SDK for [Java](https://github.com/yandex-cloud/ydb-java-sdk) and [Python](https://github.com/yandex-cloud/ydb-python-sdk).
+The ```BulkUpsert``` method isn't supported on tables with secondary indexes.
 
 {% endnote %}
 
@@ -35,3 +37,4 @@ We recommend the following algorithm for efficiently uploading data to {{ ydb-sh
   3. Partition the resulting data set by the number of shards in the table. Each part will contain a set of consecutive rows.
   4. Upload the resulting parts to the table shards concurrently.
   5. Make a ```COMMIT``` after every 100,000 rows or 1 MB of data.
+

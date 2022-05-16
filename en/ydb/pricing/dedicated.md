@@ -69,4 +69,3 @@ All prices are shown with VAT. Prices are given for a 30-day month. For shorter 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
 
-

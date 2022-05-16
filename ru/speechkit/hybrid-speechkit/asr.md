@@ -33,12 +33,12 @@
 
 1. Дождитесь загрузки сервиса
    ```bash
-   docker logs cpu-models-tts-server_1
+   docker logs stt-server
    ```
    
    ```
-   cpu-models-tts-server_1  | Server listening on 0.0.0.0:50053
-   cpu-models-tts-server_1  | Waiting for join...
+   stt-server  | Server listening on 0.0.0.0:50053
+   stt-server  | Waiting for join...
    ```
 
 Сервис распознавания речи будет доступен на TCP-порте **8080**.

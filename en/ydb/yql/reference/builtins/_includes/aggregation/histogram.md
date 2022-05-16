@@ -51,7 +51,7 @@ SELECT
 FROM my_table;
 ```
 
-LinearHistogram, LogarithmicHistogram and LogHistogram {#linearhistogram}
+## LinearHistogram, LogarithmicHistogram, and LogHistogram {#linearhistogram}
 
 Plotting a histogram based on an explicitly specified fixed bucket scale.
 

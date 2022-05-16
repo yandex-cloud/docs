@@ -47,3 +47,91 @@ Deleting an index:
 ALTER TABLE `series` DROP INDEX `title_index`;
 ```
 
+## Renaming a table {#rename}
+
+```sql
+ALTER TABLE old_table_name RENAME TO new_table_name;
+```
+
+If a table with a new name exists, an error is returned. The possibility of transactional table substitution under load is supported by ad-hoc CLI and SDK methods.
+
+If a YQL query contains multiple `ALTER TABLE ... RENAME TO ...` commands, each of them will be executed in autocommit mode as a separate transaction. From the external process viewpoint, the tables will be renamed sequentially one by one. To rename multiple tables within a single transaction, use ad-hoc methods available in the CLI and SDK.
+
+Renaming can be used to move a table from one directory inside the database to another, for example:
+
+```sql
+ALTER TABLE `table1` RENAME TO `/backup/table1`;
+```
+
+## Changing column groups {#column-family}
+
+```ADD FAMILY```: Creates a new group of columns in the table. The code below creates the ```family_small``` column group in the ```series_with_families``` table.
+
+```sql
+ALTER TABLE series_with_families ADD FAMILY family_small (
+    DATA = "ssd",
+    COMPRESSION = "off"
+);
+```
+
+Using the ```ALTER COLUMN``` command, you can change a column group for the specified column. The code below for the ```release_date``` column in the ```series_with_families``` table changes the column group to ```family_small```.
+
+```sql
+ALTER TABLE series_with_families ALTER COLUMN release_date SET FAMILY family_small;
+```
+
+The two previous commands from listings 8 and 9 can be combined into one ```ALTER TABLE``` call. The code below creates the ```family_small``` column group and sets it for the ```release_date``` column in the ```series_with_families``` table.
+
+```sql
+ALTER TABLE series_with_families
+	ADD FAMILY family_small (
+    	DATA = "ssd",
+    	COMPRESSION = "off"
+	),
+	ALTER COLUMN release_date SET FAMILY family_small;
+```
+
+Using the ```ALTER FAMILY``` command, you can change the parameters of the column group. The code below changes the storage type to ```hdd``` for the ```default``` column group in the ```series_with_families``` table:
+
+```sql
+ALTER TABLE series_with_families ALTER FAMILY default SET DATA "hdd";
+```
+
+You can specify any column family parameters from the [`CREATE TABLE`](create_table#column-family) command.
+
+## Changing additional table parameters {#additional-alter}
+
+Most of the table parameters in YDB described on the [table description]({{ concept_table }}) page can be changed with the ```ALTER``` command.
+
+In general, the command to change any table parameter looks like this:
+
+```sql
+ALTER TABLE table_name SET (key = value);
+```
+
+```key``` is a parameter name and ```value``` is its new value.
+
+For example, this command disables automatic partitioning of the table:
+
+```sql
+ALTER TABLE series SET (AUTO_PARTITIONING_BY_SIZE = DISABLED);
+```
+
+## Resetting additional table parameters {#additional-reset}
+
+Some table parameters in YDB listed on the [table description]({{ concept_table }}) page can be reset with the ```ALTER``` command.
+
+The command to reset the table parameter looks like this:
+
+```sql
+ALTER TABLE table_name RESET (key);
+```
+
+```key```: Name of the parameter.
+
+For example, this command resets (deletes) TTL settings for the table:
+
+```sql
+ALTER TABLE series RESET (TTL);
+```
+

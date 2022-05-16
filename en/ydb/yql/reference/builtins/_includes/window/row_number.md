@@ -7,9 +7,11 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/window/row_n
 Row number within a [partition](../../../syntax/window.md#partition). No arguments.
 
 **Examples**
-``` yql
+
+```yql
 SELECT
     ROW_NUMBER() OVER w AS row_num
 FROM my_table
 WINDOW w AS (ORDER BY key);
 ```
+

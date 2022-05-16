@@ -24,3 +24,4 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/index.md
 * [INTO RESULT](into_result.md)
 * [PRAGMA](pragma.md)
 * [DECLARE](declare.md)
+

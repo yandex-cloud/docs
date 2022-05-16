@@ -7,7 +7,8 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/to_fro
 Conversion of [primitive data types](../../../types/primitive.md) to a string with their binary representation and back. Numbers are represented in the [little endian](https://en.wikipedia.org/wiki/Endianness#Little-endian) format.
 
 **Examples**
-``` yql
+
+```yql
 SELECT
     ToBytes(123), -- "\u0001\u0000\u0000\u0000"
     FromBytes(
@@ -15,3 +16,4 @@ SELECT
         Uint64
     ); -- 1234567890ul
 ```
+

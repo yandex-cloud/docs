@@ -1,9 +1,6 @@
 ---
-sourcePath: en/ydb/overlay/reference/ydb-sdk/index.md
+sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/index.md
 ---
-{% include [intro.md](_includes/index/intro.md) %}
+{% include [index.md](_includes/index.md) %}
 
-When working with {{ yandex-cloud }}, please refer to [Installing and configuring SDK](yc_setup.md).
-
-{% include [examples.md](_includes/index/examples.md) %}
 

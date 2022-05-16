@@ -4,7 +4,7 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/ch
 ---
 ## Matching a string by pattern {#check-match}
 
-`REGEXP` and `RLIKE` are aliases used to call [Hyperscan::Grep](../../../udf/list/hyperscan.md#grep). `MATCH`: same for [Hyperscan::Match](../../../udf/list/hyperscan.md#match).
+`REGEXP` and `RLIKE` are aliases used to call [Hyperscan::Grep](../../../udf/list/hyperscan.md#grep). `MATCH`: Same for [Hyperscan::Match](../../../udf/list/hyperscan.md#match).
 
 `LIKE` works as follows:
 
@@ -20,7 +20,8 @@ All other characters are literals that represent themselves.
 The most popular way to use the `LIKE` and `REGEXP` keywords is to filter a table using the statements with the `WHERE` clause. However, there are no restrictions on using templates in this context: you can use them in most of contexts involving strings, for example, with concatenation by using `||`.
 
 **Examples**
-``` yql
+
+```yql
 SELECT * FROM my_table
 WHERE string_column REGEXP '\\d+';
 -- the second slash is required because
@@ -28,7 +29,7 @@ WHERE string_column REGEXP '\\d+';
 -- can accept C-escaped strings
 ```
 
-``` yql
+```yql
 SELECT
     string_column LIKE '___!_!_!_!!!!!!' ESCAPE '!'
     -- searches for a string of exactly 9 characters:
@@ -38,10 +39,11 @@ SELECT
 FROM my_table;
 ```
 
-``` yql
+```yql
 SELECT * FROM my_table
 WHERE key LIKE 'foo%bar';
 -- would probably only physically scan the keys
 -- starting with "foo", and then, among them,
 -- will leave only those that end in "bar"
 ```
+

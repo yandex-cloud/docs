@@ -1,7 +1,7 @@
 ---
 sourcePath: en/ydb/ydb-docs-core/en/core/deploy/orchestrated/operate.md
 ---
-# Using {{ ydb-name }} in {{ k8s }}
+# Using {{ ydb-short-name }} in {{ k8s }}
 
 ## Monitoring
 

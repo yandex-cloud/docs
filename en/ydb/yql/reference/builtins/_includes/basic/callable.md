@@ -12,7 +12,8 @@ Arguments:
 2. Lambda function.
 
 **Examples:**
-``` yql
+
+```yql
 $lambda = ($x) -> {
     RETURN CAST($x as String)
 };
@@ -24,3 +25,4 @@ $callables = AsTuple(
 
 SELECT $callables.0(10), $callables.1(true);
 ```
+

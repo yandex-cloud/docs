@@ -13,7 +13,8 @@ Serializing a type  to a human-readable string. This helps at debugging and will
 Building a type from a string with description. [Documentation for its format](../../types/type_string.md).
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(ParseType("List<Int32>"));  -- List<int32>
 ```
 
@@ -22,10 +23,12 @@ SELECT FormatType(ParseType("List<Int32>"));  -- List<int32>
 Getting the type of value passed to the argument.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(TypeOf("foo"));  -- String
 ```
-``` yql
+
+```yql
 SELECT FormatType(TypeOf(AsTuple(1, 1u))); -- Tuple<Int32,Uint32>
 ```
 
@@ -36,7 +39,8 @@ Returns an instance of the specified type that can only be used to get the type 
 If this instance remains in the computation graph by the end of optimization, the operation fails.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(TypeOf(
     InstanceOf(ParseType("Int32")) +
     InstanceOf(ParseType("Double"))
@@ -48,7 +52,8 @@ SELECT FormatType(TypeOf(
 Returns a type for [primitive data types](../../types/primitive.md) based on type name.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(DataType("Bool")); -- Bool
 SELECT FormatType(DataType("Decimal","5","1")); -- Decimal(5,1)
 ```
@@ -58,7 +63,8 @@ SELECT FormatType(DataType("Decimal","5","1")); -- Decimal(5,1)
 Adds the option to assign `NULL` to the passed type.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(OptionalType(DataType("Bool"))); -- Bool?
 ```
 
@@ -67,7 +73,8 @@ SELECT FormatType(OptionalType(DataType("Bool"))); -- Bool?
 Builds a list type or stream type based on the passed element type.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(ListType(DataType("Bool"))); -- List<Bool>
 ```
 
@@ -76,7 +83,8 @@ SELECT FormatType(ListType(DataType("Bool"))); -- List<Bool>
 Builds a dictionary type based on the passed key types (first argument) and value types (second argument).
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(DictType(
     DataType("String"),
     DataType("Double")
@@ -88,7 +96,8 @@ SELECT FormatType(DictType(
 Builds the tuple type from the passed element types.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(TupleType(
     DataType("String"),
     DataType("Double"),
@@ -101,7 +110,8 @@ SELECT FormatType(TupleType(
 Builds the structure type based on the passed element types. The standard syntax of named arguments is used to specify the element names.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(StructType(
     DataType("Bool") AS MyBool,
     ListType(DataType("String")) AS StringList
@@ -113,7 +123,8 @@ SELECT FormatType(StructType(
 Returns the type of a variant based on the underlying type (structure or tuple).
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(VariantType(
   ParseType("Struct<foo:Int32,bar:Double>")
 )); -- Variant<'bar':Double,'foo':Int32>
@@ -124,7 +135,8 @@ SELECT FormatType(VariantType(
 Returns the type of the [resource](../../types/special.md) based on the passed string label.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(ResourceType("Foo")); -- Resource<'Foo'>
 ```
 
@@ -137,7 +149,8 @@ Constructs the type of the called value using the following arguments:
 3. All the next arguments of CallableType are treated as types of arguments of the callable value, but with a shift for two required arguments (for example, the third argument of the CallableType describes the type of the first argument in the callable value).
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(CallableType(
   1, -- optional args count
   DataType("Double"), -- result type
@@ -146,32 +159,36 @@ SELECT FormatType(CallableType(
 )); -- Callable<(String,[Int64?])->Double>
 ```
 
-## GenericType, UnitType and VoidType {#generictype}
+## GenericType, UnitType, and VoidType {#generictype}
 
 Return the same-name [special data types](../../types/special.md). They have no arguments because they are not parameterized.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(VoidType()); -- Void
 ```
 
 ## OptionalItemType, ListItemType and StreamItemType {#optionalitemtype}
 
-Do the action reverse to [OptionalType](#optionaltype), [ListType](#listtype), and [StreamType](#streamtype): return the element type based on its container type.
+Perform the action reverse to [OptionalType](#optionaltype), [ListType](#listtype), and [StreamType](#streamtype): return the item type based on its container type.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(ListItemType(
   ParseType("List<Int32>")
 )); -- Int32
 ```
+
 
 ## DictKeyType and DictPayloadType {#dictkeytype}
 
 Returns the type of the key or value based on the dictionary type.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(DictKeyType(
   ParseType("Dict<Int32,String>")
 )); -- Int32
@@ -182,7 +199,8 @@ SELECT FormatType(DictKeyType(
 Returns the tuple's element type based on the tuple type and the element index (index starts from zero).
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(TupleElementType(
   ParseType("Tuple<Int32,Double>"), "1"
 )); -- Double
@@ -193,7 +211,8 @@ SELECT FormatType(TupleElementType(
 Returns the type of the structure element based on the structure type and element name.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(StructMemberType(
   ParseType("Struct<foo:Int32,bar:Double>"), "foo"
 )); -- Int32
@@ -204,7 +223,8 @@ SELECT FormatType(StructMemberType(
 `CallableResultType` returns the result type based on the type of the called value. `CallableArgumentType` returns the argument type based on the called value type and its index (index starts from zero).
 
 **Examples**
-``` yql
+
+```yql
 $callable_type = ParseType("(String,Bool)->Double");
 
 SELECT FormatType(CallableResultType(
@@ -217,10 +237,11 @@ FormatType(CallableArgumentType(
 
 ## VariantUnderlyingType {#variantunderlyingtype}
 
-Does an action reverse to [VariantType](#varianttype): it returns the underlying type based on the variant type.
+Performs an action reverse to [VariantType](#varianttype): it returns the underlying type based on the variant type.
 
 **Examples**
-``` yql
+
+```yql
 SELECT FormatType(VariantUnderlyingType(
   ParseType("Variant<foo:Int32,bar:Double>")
 )), -- Struct<'bar':Double,'foo':Int32>
@@ -228,4 +249,6 @@ FormatType(VariantUnderlyingType(
   ParseType("Variant<Int32,Double>")
 )); -- Tuple<Int32,Double>
 ```
+
+
 

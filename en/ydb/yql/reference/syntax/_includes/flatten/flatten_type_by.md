@@ -45,3 +45,4 @@ SELECT * FROM (
         AsList("x", "y", "z") AS b
 ) FLATTEN LIST BY (String::SplitToList(a, ";") as a, b);
 ```
+

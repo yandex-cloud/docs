@@ -20,7 +20,7 @@ SELECT ...    FROM table_1
   -- The right-hand selection are entries in table_n
 -- JOIN can include the following steps
 ...
-WHERE  ...
+WHERE ...
 ```
 
 At each JOIN step, rules are used to establish correspondences between rows in the left-hand and right-hand data selections, creating a new selection that includes every combination of rows that meet the JOIN conditions.
@@ -42,7 +42,7 @@ Since columns in YQL are identified by their names, and you can't have two colum
 * `CROSS`: A full cartesian product of two tables without specifying key columns and no explicit `ON/USING`.
 * `EXCLUSION`: Both sides minus the intersection.
 
-![](../_assets/join-YQL-06.png)
+![image](../_assets/join-YQL-06.png)
 
 {% note info %}
 

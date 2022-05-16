@@ -11,11 +11,12 @@ Construct an empty list. The only argument specifies a string describing the dat
 [Documentation for the type definition format](../../types/type_string.md).
 
 **Examples**
-``` yql
+
+```yql
 SELECT ListCreate(Tuple<String,Double?>);
 ```
 
-``` yql
+```yql
 SELECT ListCreate(OptionalType(DataType("String")));
 ```
 
@@ -24,7 +25,8 @@ SELECT ListCreate(OptionalType(DataType("String")));
 Construct a list based on one or more arguments. The argument types must be compatible in the case of `AsList` and strictly match in the case of `AsListStrict`.
 
 **Examples**
-``` yql
+
+```yql
 SELECT AsList(1, 2, 3, 4, 5);
 ```
 
@@ -33,6 +35,7 @@ SELECT AsList(1, 2, 3, 4, 5);
 The count of items in the list.
 
 **Examples**
+
 ## ListHasItems
 
 Check that the list contains at least one item.
@@ -41,9 +44,10 @@ Check that the list contains at least one item.
 
 ## ListCollect {#listcollect}
 
-Convert a lazy list (which can be built by such functions as [ListFilter](#listfilter), [ListMap](#listmap), and [ListFlatMap](#listflatmap)) to an eager list. In contrast to a lazy list, where each new pass re-calculates the list contents, in an eager list the content is built at once by consuming more memory.
+Convert a lazy list (it can be built by such functions as [ListFilter](#listfilter), [ListMap](#listmap), [ListFlatMap](#listflatmap)) to an eager list. In contrast to a lazy list, where each new pass re-calculates the list contents, in an eager list the content is built at once by consuming more memory.
 
 **Examples**
+
 ## ListSort, ListSortAsc and ListSortDesc {#listsort}
 
 Sort the list. By default, the ascending sorting order is applied (`ListSort` is an alias for `ListSortAsc`).
@@ -51,11 +55,12 @@ Sort the list. By default, the ascending sorting order is applied (`ListSort` is
 Arguments:
 
 1. List.
-2. An optional expression to get the sort key from a list element (the element itself by default).
+2. An optional expression to get the sort key from a list element (it's the element itself by default).
 
 **Examples**
 
-``` yql
+
+```yql
 $list = AsList(
     AsTuple("x", 3),
     AsTuple("xx", 1),
@@ -76,7 +81,7 @@ The example used a [lambda function](../../syntax/expressions.md#lambda).
 ## ListExtend and ListExtendStrict {#listextend}
 
 Sequentially join lists (concatenation of lists). The arguments can be lists, optional lists, and `NULL`.
-The types of list elements must be compatible in the case of `ListExtend` and strictly match in the case of `ListExtendStrict`.
+The types of list items must be compatible in the case of `ListExtend` and strictly match in the case of `ListExtendStrict`.
 If at least one of the lists is optional, then the result is also optional.
 If at least one argument is `NULL`, then the result type is `NULL`.
 
@@ -92,9 +97,9 @@ If at least one of the lists is optional, then the result is also optional.
 
 ## ListZip and ListZipAll {#listzip}
 
-Based on the input lists, build a list of pairs containing the list elements with matching indexes (`List<Tuplefirst_list_element_type,second_list_element_type>`).
+Based on the input lists, build a list of pairs containing the list items with matching indexes (`List<Tuplefirst_list_element_type,second_list_element_type>`).
 
-The length of the returned list is determined by the shortest list for ListZip and the longest list for ListZipAll. 
+The length of the returned list is determined by the shortest list for ListZip and the longest list for ListZipAll.
 When the shorter list is exhausted, a `NULL` value of a relevant [optional type](../../types/optional.md) is paired with the elements of the longer list.
 
 **Examples**
@@ -133,7 +138,7 @@ Searches the list for an element with the specified value and returns its index 
 
 **Examples**
 
-## ListMap, ListFlatMap and ListFilter {#listmap}
+## ListMap, ListFilter, and ListFlatMap {#listmap}
 
 Apply the function specified as the second argument to each list element. The functions differ in their returned result:
 
@@ -152,7 +157,7 @@ Arguments:
 1. Source list.
 2. Functions for processing list elements, such as:
     * [Lambda function](../../syntax/expressions.md#lambda).
-    * `Module::Function` - C++ UDF.
+    * `Module::Function` - C++ UDF;
 
 ## ListNotNull {#listnotnull}
 
@@ -161,19 +166,21 @@ Applies transformation to the source list, skipping empty optional items and str
 If the source list is optional, then the output list is also optional.
 
 **Examples**
-``` yql
+
+```yql
 SELECT ListNotNull([1,2]),   -- [1,2]
     ListNotNull([3,null,4]); -- [3,4]
 ```
 
 ## ListFlatten {#listflatten}
 
-Expands the list of lists into a flat list, preserving the order of items. As the top-level list item, you can use an optional list that is interpreted as an empty list in the case of `NULL`.
+Expands the list of lists into a flat list, preserving the order of items. As the top-level list item you can use an optional list that is interpreted as an empty list in the case of `NULL`.
 
 If the source list is optional, then the output list is also optional.
 
 **Examples**
-``` yql
+
+```yql
 SELECT ListFlatten([[1,2],[3,4]]),   -- [1,2,3,4]
     ListFlatten([null,[3,4],[5,6]]); -- [3,4,5,6]
 ```
@@ -186,7 +193,7 @@ Returns a copy of the list containing only distinct elements.
 
 ## ListAny and ListAll {#listany}
 
-Returns `true` for a list of Boolean values if:
+Returns `true` for a list of Boolean values, if:
 
 * `ListAny`: At least one element is `true`.
 * `ListAll`: All elements are `true`.
@@ -215,7 +222,7 @@ Apply the appropriate aggregate function to all elements of the numeric list.
 
 ## ListFromRange {#listfromrange}
 
-Generate a sequence of numbers with the specified step. It's similar to `xrange` in Python 2, but additionally supports floating points.
+Generate a sequence of numbers with the specified step. It's similar to `xrange` in Python 2, but additionally supports floats.
 
 Arguments:
 
@@ -227,13 +234,14 @@ Specifics:
 
 * The end is not included, i.e. `ListFromRange(1,3) == AsList(1,2)`.
 * The type for the resulting elements is selected as the broadest from the argument types. For example, `ListFromRange(1, 2, 0.5)` results in a `Double` list.
-* The list is "lazy", but if used improperly, it can still consume lots of RAM.
+* The list is "lazy", but if it's used incorrectly, it can still consume a lot of RAM.
 * If the step is positive and the end is less than or equal to the start, the result list is empty.
 * If the step is negative and the end is greater than or equal to the start, the result list is empty.
 * If the step is neither positive nor negative (0 or NaN), the result list is empty.
 
 **Examples**
-``` yql
+
+```yql
 SELECT
     ListFromRange(-2, 2), -- [-2, -1, 0, 1]
     ListFromRange(2, 1, -0.5); -- [2.0, 1.5]
@@ -249,7 +257,8 @@ Required arguments:
 2. Number of copies.
 
 **Examples**
-``` yql
+
+```yql
 SELECT ListReplicate(true, 3); -- [true, true, true]
 ```
 
@@ -270,8 +279,8 @@ For a list of structures, it returns a list of contained fields having the speci
 
 `ListTakeWhile` returns a list from the beginning while the predicate is true, then the list ends.
 
-`ListSkipWhile` skips the list segment from the beginning while the predicate is true, then returns the rest of the list disregarding the predicate.
-`ListTakeWhileInclusive` returns a list from the beginning while the predicate is true. Then the list ends, but it also includes the element that triggered the stopping predicate.
+`ListSkipWhile` skips the list segment from the beginning while the predicate is true, then returns the rest of the list ignoring the predicate.
+`ListTakeWhileInclusive` returns a list from the beginning while the predicate is true. Then the list ends, but it also includes the item on which the stopping predicate triggered.
 `ListSkipWhileInclusive` skips a list segment from the beginning while the predicate is true, then returns the rest of the list disregarding the predicate, but excluding the element that matched the predicate and starting with the next element after it.
 
 Required arguments:
@@ -282,7 +291,8 @@ Required arguments:
 If the input list is optional, then the result is also optional.
 
 **Examples**
-``` yql
+
+```yql
 $data = AsList(1, 2, 5, 1, 2, 7);
 
 SELECT
@@ -304,27 +314,30 @@ Arguments:
 2. [Aggregation factory](../basic.md#aggregationfactory).
 
 **Examples**
-``` yql
+
+```yql
 SELECT ListAggregate(AsList(1, 2, 3), AggregationFactory("Sum")); -- 6
 ```
 
 ## ToDict and ToMultiDict {#todict}
 
-Convert a list of tuples containing key-value pairs to a dictionary. If there are conflicting keys in the input list, `ToDict` leaves the first value and `ToMultiDict` builds a list of all the values.
+Convert a list of tuples containing key-value pairs to a dictionary. In case of conflicting keys in the input list, `ToDict` leaves the first value and `ToMultiDict` builds a list of all the values.
 
 It means that:
 
-* `ToDict` converts `List<TupleK, V>` to `Dict<K, V>`
-* `ToMultiDict` converts `List<TupleK, V>` to `Dict<K, ListV>`
+* `ToDict` converts `List<TupleK, V="">` to `Dict<K, V="">`
+* `ToMultiDict` converts `List<TupleK, V>` to `Dict<K, List<V>>`
 
 Optional lists are also supported, resulting in an optional dictionary.
 
 **Examples**
 
 ## ToSet {#toset}
-Converts a list to a dictionary where the keys are unique elements of this list, and values are omitted and have the type `Void`. For the `List<T>` list, the result type is `Dict<T, Void>`.
+
+Converts a list to a dictionary where the keys are unique elements of this list, and values are omitted and have the type `Void`. For the `List<T>` list, the result type is `Dict<T, Void="">`.
 An optional list is also supported, resulting in an optional dictionary.
 
 Inverse function: get a list of keys for the [DictKeys](../dict.md#dictkeys) dictionary.
 
 **Examples**
+

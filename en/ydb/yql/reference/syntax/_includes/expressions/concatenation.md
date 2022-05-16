@@ -12,6 +12,7 @@ Don't confuse this operator with a logical "or": in SQL, it's denoted by the `OR
 
 **Examples**
 
-``` sql
+```sql
 SELECT "fo" || "o";
 ```
+

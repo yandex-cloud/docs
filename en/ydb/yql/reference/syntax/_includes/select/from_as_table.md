@@ -10,7 +10,7 @@ Accessing named expressions as tables using the `AS_TABLE` function.
 
 **Example**
 
-``` yql
+```yql
 $data = AsList(
     AsStruct(1u AS Key, "v1" AS Value),
     AsStruct(2u AS Key, "v2" AS Value),
@@ -18,3 +18,4 @@ $data = AsList(
 
 SELECT Key, Value FROM AS_TABLE($data);
 ```
+

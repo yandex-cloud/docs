@@ -353,7 +353,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) meaning.
 
       {% endnote %}
 

@@ -6,14 +6,14 @@ sourcePath: en/ydb/overlay/operations/crud.md
 Queries can be sent to YDB in the following ways:
 
 * From the [management console](#web-sql).
-* from an application written in [YDB SDK](../reference/ydb-sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), or  [Go](https://github.com/yandex-cloud/ydb-go-sdk).
+* from an application written in [YDB SDK](../reference/ydb-sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), or [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 * Using the [API compatible with Amazon DynamoDB](../docapi/api-ref/index.md) (for document tables).
 
 In this section, we are going to use the management console to execute queries.
 
 ## Prerequisites {#prerequisite}
 
-To run queries, you'll need to create a [database](create_manage_database.md) and [table](schema.md) in it.
+To run queries, you'll need to create a [database](../db/cloud_console/create_manage_database.md) and a [table](../db/cloud_console/schema.md) in it.
 
 ## SQL queries in the management console {#web-sql}
 

@@ -12,7 +12,7 @@ This feature lets you ignore conflicts in paths to temporary tables between para
 
 **Examples:**
 
-``` yql
+```yql
 INSERT INTO @my_temp_table
 SELECT * FROM my_input_table ORDER BY value;
 
@@ -25,7 +25,7 @@ SELECT * FROM @my_temp_table WHERE value = "456";
 
 Temporary table names can use [named expressions](../../expressions.md#named-nodes):
 
-``` yql
+```yql
 $tmp_name = "my_temp_table";
 
 INSERT INTO @$tmp_name
@@ -35,3 +35,4 @@ COMMIT;
 
 SELECT * FROM @$tmp_name;
 ```
+

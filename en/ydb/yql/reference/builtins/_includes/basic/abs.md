@@ -7,6 +7,8 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/abs.md
 The absolute value of the number.
 
 **Examples**
-``` yql
+
+```yql
 SELECT Abs(-123); -- 123
 ```
+
