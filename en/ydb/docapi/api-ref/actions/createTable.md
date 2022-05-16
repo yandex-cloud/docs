@@ -78,7 +78,7 @@ The response is returned in JSON format.
          "BillingMode": "string",
          "LastUpdateToPayPerRequestDateTime": number
       },
-      "CreationDateTime": number,      
+      "CreationDateTime": number,
       "GlobalTableVersion": "string",
       "ItemCount": number,
       "KeySchema": [ 
@@ -88,10 +88,10 @@ The response is returned in JSON format.
          }
       ],
       "LatestStreamArn": "string",
-      "LatestStreamLabel": "string",     
+      "LatestStreamLabel": "string",
       "Replicas": [ 
          {             
-            "KMSMainKeyId": "string",            
+            "KMSMainKeyId": "string",
             "RegionName": "string",
             "ReplicaStatus": "string",
             "ReplicaStatusDescription": "string",

@@ -12,7 +12,7 @@ Keywords are case-insensitive and written in capital letters for clarity only.
 {% endnote %}
 
 ```sql
- CREATE TABLE series        -- series is the table name.
+CREATE TABLE series         -- series is the table name.
 (                           -- Must be unique within the folder.
     series_id Uint64,
     title Utf8,
@@ -48,3 +48,4 @@ CREATE TABLE episodes
 
 COMMIT;
 ```
+

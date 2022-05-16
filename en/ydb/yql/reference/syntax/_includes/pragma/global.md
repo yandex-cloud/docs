@@ -4,7 +4,7 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.
 ---
 ## Global {#pragmas}
 
-### AutoCommit
+### AutoCommit {#autocommit}
 
 | Value type | Default |
 | --- | --- |
@@ -12,7 +12,7 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.
 
 Automatically run [COMMIT](../../select.md#commit) after every statement.
 
-### TablePathPrefix
+### TablePathPrefix {#table-path-prefix}
 
 | Value type | Default |
 | --- | --- |
@@ -25,13 +25,14 @@ SELECT * FROM test;`
 
 The prefix is not added if the table name is an absolute path (starts with /).
 
-### Warning
+### Warning {#warning}
 
 | Value type | Default |
 | --- | --- |
 | 1. Action<br>2. Warning code or "*" | — |
 
 Action:
+
 * `disable`: Disable.
 * `error`: Treat as an error.
 * `default`: Revert to the default behavior.
@@ -43,9 +44,10 @@ Example:
 `PRAGMA Warning("disable", "1101");`
 `PRAGMA Warning("default", "4503");`
 
-In this case, all the warnings are treated as errors, except for the warning 1101(that will be disabled) and 4503(that will be processed by default, that is, remain a warning). Since warnings may be added in new YQL releases, use `PRAGMA Warning("error", "*");` with caution (at least cover such queries with autotests).
+In this case, all the warnings are treated as errors, except for the warning `1101` (that will be disabled) and `4503` (that will be processed by default, that is, remain a warning). Since warnings may be added in new YQL releases, use `PRAGMA Warning("error", "*");` with caution (at least cover such queries with autotests).
 
-List of codes for warnings and errors: https://a.yandex-team.ru/arc/trunk/arcadia/yql/core/issue/protos/issue_id.proto
+{% include [issue_protos.md](issue_protos.md) %}
+
 
 
 ### SimpleColumns {#simplecolumns}
@@ -56,9 +58,9 @@ List of codes for warnings and errors: https://a.yandex-team.ru/arc/trunk/arcadi
 | --- | --- |
 | Flag | true |
 
-When you use  `SELECT foo.* FROM ... AS foo`, remove the  `foo.` prefix from the names of the result columns.
+When you use `SELECT foo.* FROM ... AS foo`, remove the `foo.` prefix from the names of the result columns.
 
-It can be also  used with [JOIN](../../join.md), but in this case it may fail in the case of a name conflict (that can be resolved by using [WITHOUT](../../select.md#without) and renaming columns). For JOIN in SimpleColumns mode, an implicit Coalesce is made for key columns: the query `SELECT * FROM T1 AS a JOIN T2 AS b USING(key)` in the SimpleColumns mode works same as `SELECT a.key ?? b.key AS key, ... FROM T1 AS a JOIN T2 AS b USING(key)`
+It can be also used with a [JOIN](../../join.md), but in this case it may fail in the case of a name conflict (that can be resolved by using [WITHOUT](../../select.md#without) and renaming columns). For JOIN in SimpleColumns mode, an implicit Coalesce is made for key columns: the query `SELECT * FROM T1 AS a JOIN T2 AS b USING(key)` in the SimpleColumns mode works same as `SELECT a.key ?? b.key AS key, ... FROM T1 AS a JOIN T2 AS b USING(key)`
 
 ### CoalesceJoinKeysOnQualifiedAll
 
@@ -71,6 +73,7 @@ It can be also  used with [JOIN](../../join.md), but in this case it may fail in
 Controls implicit Coalesce for the key `JOIN` columns in the SimpleColumns mode. If the flag is set, the Coalesce is made for key columns if there is at least one expression in the format `foo.*` or `*` in SELECT: for example, `SELECT a.* FROM T1 AS a JOIN T2 AS b USING(key)`. If the flag is not set, then Coalesce for JOIN keys is made only if there is an asterisk '*' after `SELECT`
 
 ### StrictJoinKeyTypes
+
 `StrictJoinKeyTypes` / `DisableStrictJoinKeyTypes`
 
 | Value type | Default |
@@ -103,7 +106,8 @@ For more information about the `IN` behavior when operands include `NULL`s, see 
 | Flag | false |
 
 Aligns the RANK/DENSE_RANK behavior with the standard if there are optional types in the window sort keys or in the argument of such window functions. It means that:
-* The result type is always Uint64 rather than Uint64?.
+
+* The result type is always Uint64 rather than Uint64?;
 * NULLs in keys are treated as equal to each other (the current implementation returns NULL).
 You can explicitly select the old behavior by using the `DisableAnsiRankForNullableKeys` pragma. If no pragma is set, then a warning is issued and the old version works.
 
@@ -114,6 +118,7 @@ You can explicitly select the old behavior by using the `DisableAnsiRankForNulla
 | Flag | false |
 
 Aligns the UNION ALL behavior with the standard if there is `ORDER BY/LIMIT/DISCARD/INSERT INTO` in the combined subqueries. It means that:
+
 * `ORDER BY/LIMIT/INSERT INTO` are allowed only after the last subquery.
 * `DISCARD` is allowed only before the first subquery.
 * The specified operators apply to the `UNION ALL` result (unlike the current behavior when they apply only to the subquery).
@@ -122,14 +127,15 @@ Aligns the UNION ALL behavior with the standard if there is `ORDER BY/LIMIT/DISC
 You can explicitly select the old behavior by using the `DisableAnsiOrderByLimitInUnionAll` pragma. If no pragma is set, then a warning is issued and the old version works.
 
 ### OrderedColumns {#orderedcolumns}
+
 `OrderedColumns`/`DisableOrderedColumns`
 
 Output the [column order](../../select.md#orderedcolumns) in SELECT/JOIN/UNION ALL and preserve it when writing the results. The order of columns is undefined by default.
 
 ### PositionalUnionAll {#positionalunionall}
 
-Enable the standard column-by-column execution for [UNION ALL](../../select.md#unionall). This automatically enables 
- [ordered columns](#orderedcolumns).
+Enable the standard column-by-column execution for [UNION ALL](../../select.md#unionall). This automatically enables
+[ordered columns](#orderedcolumns).
 
 ### RegexUseRe2
 
@@ -183,3 +189,4 @@ Increasing the limit on the number of dimensions in [GROUP BY](../../group_by.md
 Increasing the limit on the number of dimensions in [GROUP BY](../../group_by.md#rollup-cube-group-sets).
 
 Use this option with care, because the computational complexity of the query grows exponentially with the number of dimensions.
+

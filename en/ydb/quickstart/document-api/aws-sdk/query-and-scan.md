@@ -986,7 +986,7 @@ To find a series with the partition key 3 and the title starting with a T in the
           }
         }
       
-        puts "Searching in table '#{table_name}' for series with id = '#{series_id}' and title starting with T"
+        puts "Searching in table '#{table_name}' for series with id = '#{series_id}' and title starting with T"              
       
         query_for_items_from_table(dynamodb_client, query_condition)
       end
@@ -1399,7 +1399,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) meaning.
+      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 
@@ -1483,7 +1483,7 @@ To extract data using `scan` from the `Series` table:
 
       {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) meaning.
+      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
       {% endnote %}
 

@@ -55,12 +55,13 @@ ORDER BY city, number LIMIT $limit;
 
 {% note warning "NULL value in key column" %}
 
-In YDB, all columns, including key ones, may have a NULL value. Despite this, using NULL as key column values is highly discouraged, since the SQL standard doesn't allow NULL to be compared. As a result, concise SQL statements with simple comparison operators won't work correctly. Instead, you'll have to use cumbersome statements with IS NULL/IS NOT NULL expressions.
+In {{ ydb-short-name }}, all columns, including key ones, may have a NULL value. Despite this, using NULL as key column values is highly discouraged, since the SQL standard doesn't allow NULL to be compared. As a result, concise SQL statements with simple comparison operators won't work correctly. Instead, you'll have to use cumbersome statements with IS NULL/IS NOT NULL expressions.
 
 {% endnote %}
 
 ## Examples of paginated output implementation
 
 * [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/pagination)
-* [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/pagination)
+* [Python](https://github.com/ydb-platform/ydb-python-sdk/tree/main/examples/pagination)
+* [Go](https://github.com/ydb-platform/ydb-go-examples/tree/master/pagination)
 

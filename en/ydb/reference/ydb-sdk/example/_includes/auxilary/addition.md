@@ -6,3 +6,4 @@ sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/example/_includes/aux
 The article is being updated.
 
 {% endnote %}
+

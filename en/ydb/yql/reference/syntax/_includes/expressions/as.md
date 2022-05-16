@@ -12,16 +12,17 @@ Can be used in the following scenarios:
 
 **Examples:**
 
-``` yql
+```yql
 SELECT key AS k FROM my_table;
 ```
 
-``` yql
+```yql
 SELECT t.key FROM my_table AS t;
 ```
 
-``` yql
+```yql
 SELECT
     MyFunction(key, 123 AS my_optional_arg)
 FROM my_table;
 ```
+

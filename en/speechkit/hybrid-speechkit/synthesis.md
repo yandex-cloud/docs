@@ -39,8 +39,8 @@ For the recommended hardware configuration, see [{#T}](system-requirements.md).
 1. Wait until the service loads
 
    ```bash
-   $ docker logs stt-server-cpu_1
-   stt-server-cpu_1            | INFO: 2021-09-22 15:36:02.765 +0000 server_base.cpp:144 Load finished. Ready to server requests on 0.0.0.0:17001
+   docker logs tts-server
+   tts-server              | INFO: 2021-09-22 15:36:02.765 +0000 server_base.cpp:144 Load finished. Ready to server requests on 0.0.0.0:17001
    ```
 
 The speech synthesis service will be available on TCP port **9080**.

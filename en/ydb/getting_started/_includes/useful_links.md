@@ -3,5 +3,8 @@ sourcePath: en/ydb/ydb-docs-core/en/core/getting_started/_includes/useful_links.
 ---
 # Useful links
 
-* [Yandex.Cloud management console](https://console.cloud.yandex.com)
+
+* [{{ yandex-cloud }} management console](https://console.cloud.yandex.com)
+
 * [GitHub account ydb-platform](https://github.com/ydb-platform)
+

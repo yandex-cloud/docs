@@ -31,3 +31,4 @@ LIMIT 3               -- LIMIT N after ORDER BY means
 
 COMMIT;
 ```
+

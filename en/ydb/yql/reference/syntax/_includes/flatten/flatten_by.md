@@ -11,17 +11,17 @@ Converts rows in the source table using vertical unpacking of [containers](../..
 For example:
 
 * Source table:
-  |[a, b, c]|1|
-  | --- | --- |
-  |[d]|2|
-  |[]|3|
+|[a, b, c]|1|
+| --- | --- |
+|[d]|2|
+|[]|3|
 
 * The table resulting from `FLATTEN BY` on the left column:
-  |a|1|
-  | --- | --- |
-  |b|1|
-  |c|1|
-  |d|2|
+|a|1|
+| --- | --- |
+|b|1|
+|c|1|
+|d|2|
 
 
 {{ backend_name }} tables don't support container types, so the FLATTEN BY function can only be applied to table-type variables created within a YQL query.
@@ -64,6 +64,7 @@ This conversion can be convenient in the following cases:
 
 `FLATTEN BY` interprets [optional data types](../../../types/optional.md) as lists of length 0 or 1. The table rows with `NULL` are skipped, and the column type changes to a similar non-optional type.
 
-`FLATTEN BY` makes only one conversion at a time, so use `FLATTEN LIST BY` or `FLATTEN OPTIONAL BY` on optional containers, for example,`Optional<List<String>>`. 
+`FLATTEN BY` makes only one conversion at a time, so use, `FLATTEN LIST BY` or `FLATTEN OPTIONAL BY` on optional containers, for example,`Optional<List<String>>`.
 
 {% endnote %}
+

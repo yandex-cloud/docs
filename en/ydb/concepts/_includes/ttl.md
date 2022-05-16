@@ -17,20 +17,20 @@ An item with the `NULL` value in the TTL column is never deleted.
 
 The timestamp for deleting a table item is determined by the formula:
 
-```
+```text
 expiration_time = valueof(ttl_column) + expire_after_seconds
 ```
 
 {% note info %}
 
-TTL doesn't guarantee that the item will be deleted exactly at `expiration_time`, it might happen later. If it's important to exclude logically obsolete but not yet physically deleted items from the selection, use request-level filtering.
+TTL doesn't guarantee that the item will be deleted exactly at `expiration_time`, it might happen later. If it's important to exclude logically obsolete but not yet physically deleted items from the selection, use query-level filtering.
 
 {% endnote %}
 
 Data is deleted by the *Background Removal Operation* (*BRO*), consisting of two stages:
 
 1. Checking the values in the TTL column.
-2. Deleting expired data.
+1. Deleting expired data.
 
 *The BRO* has the following properties:
 
@@ -46,17 +46,17 @@ Data is deleted by the *Background Removal Operation* (*BRO*), consisting of two
 ## Limitations {#restrictions}
 
 * The TTL column must be of one of the following types:
-  - `Date`
-  - `Datetime`
-  - `Timestamp`
-  - `Uint32`
-  - `Uint64`
-  - `DyNumber`
-* The value of the TTL column of the numeric type (`Uint32`, `Uint64`, or `DyNumber`) is interpreted as a value from the [Unix era](https://en.wikipedia.org/wiki/Unix_time) set in:
-  - Seconds
-  - Milliseconds
-  - Microseconds
-  - Nanoseconds
+  * `Date`
+  * `Datetime`
+  * `Timestamp`
+  * `Uint32`
+  * `Uint64`
+  * `DyNumber`
+* The value in the TTL column with a numeric type (`Uint32`, `Uint64`, `DyNumber`) is interpreted as a [Unix-time](https://ru.wikipedia.org/wiki/Unix-время ) value specified in:
+  * Seconds
+  * Milliseconds
+  * Microseconds
+  * Nanoseconds
 * You can't specify multiple TTL columns.
 * You can't delete the TTL column. However, if this is required, you should first [disable TTL](#disable) for the table.
 
@@ -64,9 +64,9 @@ Data is deleted by the *Background Removal Operation* (*BRO*), consisting of two
 
 Currently, you can manage TTL settings using:
 
-* [YQL](../../yql/reference/index.md)
-* [Console client {{ ydb-short-name }}](../../quickstart/yql-api/ydb-cli.md).
-* {{ ydb-short-name }}   Python [SDK](../../reference/ydb-sdk/index.md)
+* [YQL](../../yql/reference/index.md).
+* [{{ ydb-short-name }} console client](../../reference/ydb-cli/index.md).
+* {{ ydb-short-name }}   Python [SDK](../../reference/ydb-sdk/index.md).
 
 {% note info %}
 
@@ -187,3 +187,4 @@ The current TTL settings can be obtained from the table description:
   ```
 
 {% endlist %}
+

@@ -5,6 +5,7 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/json.md
 # Functions for JSON
 
 **JSON** is a lightweight [data-interchange format](https://www.json.org). In YQL, it's represented by the `Json` type. Unlike relational tables, JSON can store data with no schema defined. Here is an example of a valid JSON object:
+
 ```json
 [
     {
@@ -17,6 +18,7 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/json.md
     }
 ]
 ```
+
 Despite the fact that the `age` field in the first object is of the `Number` type (`"age": 21`) and in the second object its type is `String` (`"age": "twenty years old"`), this is a fully valid JSON object.
 
 To work with JSON, YQL implements a subset of the [SQL support for JavaScript Object Notation (JSON)](https://www.iso.org/standard/67367.html) standard, which is part of the common ANSI SQL standard.
@@ -26,6 +28,7 @@ To work with JSON, YQL implements a subset of the [SQL support for JavaScript Ob
 Values inside JSON objects are accessed using a query language called JsonPath. All functions for JSON accept a JsonPath query as an argument.
 
 Let's look at an example. Suppose we have a JSON object like:
+
 ```json
 {
     "comments": [
@@ -42,6 +45,7 @@ Let's look at an example. Suppose we have a JSON object like:
 ```
 
 Then, to get the text of the second comment, we can write the following JsonPath query:
+
 ```
 $.comments[1].text
 ```
@@ -56,38 +60,38 @@ In this query:
 
 ### Quick reference
 
-| Operation                               | Example                                           |
+| Operation | Example |
 | --------------------------------------- | ------------------------------------------------- |
-| Retrieving a JSON object key            | `$.key`                                           |
-| Retrieving all JSON object keys         | `$.*`                                             |
-| Accessing an array element              | `$[25]`                                           |
-| Retrieving an array subsegment          | `$[2 to 5]`                                       |
-| Accessing the last array element        | `$[last]`                                         |
-| Accessing all array elements            | `$[*]`                                            |
-| Unary operations                        | `- 1`                                             |
-| Binary operations                       | `(12 * 3) % 4 + 8`                                |
-| Accessing a variable                    | `$variable`                                       |
-| Logical operations                      | `(1 > 2) || (3 <= 4) && ("string" == "another")`  |
-| Matching a regular expression           | `$.name like_regex "^[A-Za-z]+$"`                 |
-| Checking the string prefix              | `$.name starts with "Bobbie"`                     |
-| Checking if a path exists               | `exists ($.profile.name)`                         |
-| Checking a Boolean expression for null  | `($.age > 20) is unknown`                         |
-| Filtering values                        | `$.friends ? (@.age >= 18 && @.gender == "male")` |
-| Getting the value type                  | `$.name.type()`                                   |
-| Getting the array size                  | `$.friends.size()`                                |
-| Converting a string to a number         | `$.number.double()`                               |
-| Rounding up a number                    | `$.number.ceiling()`                              |
-| Rounding down a number                  | `$.number.floor()`                                |
-| Returning the absolute value            | `$.number.abs()`                                  |
-| Getting key-value pairs from an object  | `$.profile.keyvalue()`                            |
+| Retrieving a JSON object key | `$.key` |
+| Retrieving all JSON object keys | `$.*` |
+| Accessing an array element | `$[25]` |
+| Retrieving an array subsegment | `$[2 to 5]` |
+| Accessing the last array element | `$[last]` |
+| Accessing all array elements | `$[*]` |
+| Unary operations | `- 1` |
+| Binary operations | `(12 * 3) % 4 + 8` |
+| Accessing a variable | `$variable` |
+| Logical operations | `(1 > 2) || (3 <= 4) && ("string" == "another")` |
+| Matching a regular expression | `$.name like_regex "^[A-Za-z]+$"` |
+| Checking the string prefix | `$.name starts with "Bobbie"` |
+| Checking if a path exists | `exists ($.profile.name)` |
+| Checking a Boolean expression for null | `($.age > 20) is unknown` |
+| Filtering values | `$.friends ? (@.age >= 18 && @.gender == "male")` |
+| Getting the value type | `$.name.type()` |
+| Getting the array size | `$.friends.size()` |
+| Converting a string to a number | `$.number.double()` |
+| Rounding up a number | `$.number.ceiling()` |
+| Rounding down a number | `$.number.floor()` |
+| Returning the absolute value | `$.number.abs()` |
+| Getting key-value pairs from an object | `$.profile.keyvalue()` |
 
 ### Data model
 
 The result of executing all JsonPath expressions is a sequence of JSON values. For example:
 
-* The result of executing the `"Bobbie"` expression is a sequence with the only element `"Bobbie"`. Its length is 1.
-* The result of executing the `$` expression (that takes the entire JSON object) in JSON `[1, 2, 3]` is `[1, 2, 3]`. A sequence of 1 element of the array `[1, 2, 3]`
-* The result of executing the `$[*]` expression (retrieving all array elements) in JSON `[1, 2, 3]` is `1, 2, 3`. A sequence of three elements:`1`, `2`, and `3`
+- The result of executing the `"Bobbie"` expression is a sequence with the only element `"Bobbie"`. Its length is 1.
+- The result of executing the `$` expression (that takes the entire JSON object) in JSON `[1, 2, 3]` is `[1, 2, 3]`. A sequence of 1 element of the array `[1, 2, 3]`
+- The result of executing the `$[*]` expression (retrieving all array elements) in JSON `[1, 2, 3]` is `1, 2, 3`. A sequence of three items:`1`, `2`, and `3`
 
 If the input sequence consists of multiple values, some operations are performed for each element (for example, accessing a JSON object key). However, other operations require a sequence of one element as input (for example, binary arithmetic operations).
 
@@ -104,6 +108,7 @@ The behavior for each mode is described in the corresponding sections with JsonP
 When accessing a JSON object key in `lax` mode, arrays are automatically unpacked.
 
 **Example:**
+
 ```json
 [
     {
@@ -126,6 +131,7 @@ Unpacking is only 1 level deep. In the event of nested arrays, only the outermos
 When accessing an array element in `lax` mode, JSON values are automatically wrapped in an array.
 
 **Example:**
+
 ```json
 {
     "name": "Avasarala"
@@ -144,12 +150,12 @@ Some errors are converted to an empty result when a query is executed in `lax` m
 
 Values of some types can be specified in a JsonPath query using literals:
 
-| Type               | Example          |
+| Type | Example |
 | ------------------ | ---------------- |
-| Numbers            | `42`, `-1.23e-5` |
-| Boolean values     | `false`, `true`  |
-| Null               | `Null`           |
-| Stings             | `"Belt"`         |
+| Numbers | `42`, `-1.23e-5` |
+| Boolean values | `false`, `true` |
+| Null | `Null` |
+| Stings | `"Belt"` |
 
 ### Accessing JSON object keys
 
@@ -169,6 +175,7 @@ For each value from the input sequence:
 The expression execution result is the concatenation of the results for each value from the input sequence.
 
 **Example:**
+
 ```json
 {
     "name": "Amos",
@@ -183,11 +190,11 @@ The expression execution result is the concatenation of the results for each val
 }
 ```
 
-|                  | `lax`            | `strict` |
+|  | `lax` | `strict` |
 | ---------------- | ---------------- | -------- |
-| `$.name`         | `"Amos"`         | `"Amos"` |
-| `$.surname`      | Empty result     | Error    |
-| `$.friends.name` | `"Jim", "Alex"`  | Error    |
+| `$.name` | `"Amos"` | `"Amos"` |
+| `$.surname` | Empty result | Error |
+| `$.friends.name` | `"Jim", "Alex"` | Error |
 
 ### Accessing all JSON object keys
 
@@ -201,6 +208,7 @@ For each value from the input sequence:
 The expression execution result is the concatenation of the results for each value from the input sequence.
 
 **Example:**
+
 ```json
 {
     "profile": {
@@ -218,10 +226,10 @@ The expression execution result is the concatenation of the results for each val
 }
 ```
 
-|               | `lax`           | `strict`      |
+|  | `lax` | `strict` |
 | ------------- | --------------- | ------------- |
-| `$.profile.*` | `123, "Amos"`   | `123, "Amos"` |
-| `$.friends.*` | `"Jim", "Alex"` | Error         |
+| `$.profile.*` | `123, "Amos"` | `123, "Amos"` |
+| `$.friends.*` | `"Jim", "Alex"` | Error |
 
 ### Accessing an array element
 
@@ -238,6 +246,7 @@ For each value from the input sequence:
 7. All elements by the specified indexes are added to the result. Segments include **both ends**.
 
 **Examples**:
+
 ```json
 [
     {
@@ -259,13 +268,13 @@ For each value from the input sequence:
 ]
 ```
 
-|                               | `lax`                           | `strict`                        |
+|  | `lax` | `strict` |
 | ----------------------------- | ------------------------------- | ------------------------------- |
-| `$[0].name`                   | `"Camina"`                      | `"Camina"`                      |
-| `$[1, 2 to 3].name`           | `"Josephus", "Bobbie", "Julie"` | `"Josephus", "Bobbie", "Julie"` |
-| `$[last - 2].name`            | `"Josephus"`                    | `"Josephus"`                    |
-| `$[2, last + 200 to 50].name` | `"Bobbie"`                      | Error                           |
-| `$[50].name`                  | Empty result                    | Error                           |
+| `$[0].name` | `"Camina"` | `"Camina"` |
+| `$[1, 2 to 3].name` | `"Josephus", "Bobbie", "Julie"` | `"Josephus", "Bobbie", "Julie"` |
+| `$[last - 2].name` | `"Josephus"` | `"Josephus"` |
+| `$[2, last + 200 to 50].name` | `"Bobbie"` | Error |
+| `$[50].name` | Empty result | Error |
 
 ### Accessing all array elements
 
@@ -277,6 +286,7 @@ For each value from the input sequence:
 2. All elements of the current array are added to the result.
 
 **Examples:**
+
 ```json
 [
     {
@@ -290,10 +300,10 @@ For each value from the input sequence:
 ]
 ```
 
-|                     | `lax`                     | `strict`                |
+|  | `lax` | `strict` |
 | ------------------- | ------------------------- | ----------------------- |
-| `$[*].title`        | `"Medina", "Rocinante"`   | `"Medina", "Rocinante"` |
-| `lax $[0][*].class` | `"Station"`               | Error                   |
+| `$[*].title` | `"Medina", "Rocinante"` | `"Medina", "Rocinante"` |
+| `lax $[0][*].class` | `"Station"` | Error |
 
 Let's analyze the last example step by step:
 
@@ -317,6 +327,7 @@ JsonPath supports unary `+` and `-`.
 A unary operation applies to all values from the input sequence. If a unary operation's input is a value that isn't a number, a query fails in both modes.
 
 **Example:**
+
 ```json
 [1, 2, 3, 4]
 ```
@@ -362,31 +373,31 @@ All logical operations return a Boolean value.
 
 Truth table:
 
-| `x`     | `!x`    |
+| `x` | `!x` |
 | ------- | ------- |
-| `true`  | `false` |
-| `false` | `true`  |
-| `Null`  | `Null`  |
+| `true` | `false` |
+| `false` | `true` |
+| `Null` | `Null` |
 
 **Logical AND, `&&`**
 
 In the truth table, the first column is the left argument, the first row is the right argument, and each cell is the result of using the Logical AND both with the left and right arguments:
 
-| `&&`    | `true`  | `false` | `Null`  |
+| `&&` | `true` | `false` | `Null` |
 | ------- | ------- | ------- | ------- |
-| `true`  | `true`  | `false` | `Null`  |
+| `true` | `true` | `false` | `Null` |
 | `false` | `false` | `false` | `false` |
-| `Null`  | `Null`  | `false` | `Null`  |
+| `Null` | `Null` | `false` | `Null` |
 
 **Logical OR, `||`**
 
 In the truth table, the first column is the left argument, the first row is the right argument, and each cell is the result of using the logical OR with both the left and right arguments:
 
-| `||`    | `true`  | `false` | `Null`  |
+| `||` | `true` | `false` | `Null` |
 | ------- | ------- | ------- | ------- |
-| `true`  | `true`  | `true`  | `true`  |
-| `false` | `true`  | `false` | `Null`  |
-| `Null`  | `true`  | `Null`  | `Null`  |
+| `true` | `true` | `true` | `true` |
+| `false` | `true` | `false` | `Null` |
+| `Null` | `true` | `Null` | `Null` |
 
 **Examples:**
 
@@ -461,7 +472,8 @@ Let's take the same query in a different execution mode: `strict $.left < $.righ
 
 ### Predicates
 
-JsonPath supports predicates which are expressions that return a Boolean value and check a certain condition. You can use them, for example, in filters.
+JsonPath supports predicates which are expressions that return a Boolean value and check a certain condition. You can use them, for example, in filters.
+
 #### `like_regex`
 
 The `like_regex` predicate lets you check if a string matches a regular expression. The syntax of regular expressions is the same as in [Hyperscan UDF](../../udf/list/hyperscan.md) and [REGEXP](../../syntax/expressions.md#regexp).
@@ -561,7 +573,7 @@ Where `<expression>` is the JsonPath expression to be checked. Parentheses aroun
 
 **Execution**
 
-1. The passed JsonPath expression is executed
+1. The passed JsonPath expression is executed.
 2. If an error occurs, the predicate returns `null`
 3. If an empty sequence is obtained as a result of the execution, the predicate returns `false`
 4. Otherwise, the predicate returns `true`
@@ -693,14 +705,14 @@ The `type` method returns a string with the type of the passed value.
 
 For each element of the input sequence, the method adds this string to the output sequence according to the table below:
 
-| Value type         | String with type         |
+| Value type | String with type |
 | ------------------ | ------------------------ |
-| Null               | `"null"`                 |
-| Boolean value      | `"boolean"`              |
-| Number             | `"number"`               |
-| String             | `"string"`               |
-| Array              | `"array"`                |
-| Objects            | `"object"`               |
+| Null | `"null"` |
+| Boolean value | `"boolean"` |
+| Number | `"number"` |
+| String | `"string"` |
+| Array | `"array"` |
+| Object | `"object"` |
 
 **Examples**
 
@@ -806,7 +818,7 @@ All elements in the input sequence must be objects.
 For each element of the input sequence:
 
 1. Each key-value pair in the element is analyzed.
-2. For each key-value pair, an object is generated with the keys `name` and `value`.
+2. For each key-value pair, an object is generated with the keys `name` and `value`
 3. `name` stores a string with the name of the key from the pair.
 4. `value` stores the value from the pair.
 5. All objects for this element are added to the output sequence.
@@ -847,6 +859,7 @@ Functions using JsonPath can pass values into a query. They are called variables
 **Example:**
 
 Let the `planet` variable be equal to
+
 ```json
 {
     "name": "Mars",
@@ -871,6 +884,7 @@ All functions for JSON accept:
 Lets you pass values to a JsonPath query as variables.
 
 **Syntax:**
+
 ```yql
 PASSING
     <expression 1> AS <variable name 1>,
@@ -889,6 +903,7 @@ You can set a `<variable name>` in several ways:
 - In quotes, for example, `"variable"`
 
 **Example:**
+
 ```yql
 JSON_VALUE(
     $json,
@@ -904,6 +919,7 @@ JSON_VALUE(
 The `JSON_EXISTS` function checks if a JSON value meets the specified JsonPath.
 
 **Syntax:**
+
 ```yql
 JSON_EXISTS(
     <JSON expression>,
@@ -921,10 +937,10 @@ JSON_EXISTS(
 
 1. If `<JSON expression>` is `NULL` or an empty `Json?`, it returns an empty `Bool?`
 2. If an error occurs during JsonPath execution, the returned value depends on the `ON ERROR` section:
-    - `TRUE`: Return `True`.
-    - `FALSE`: Return `False`.
-    - `UNKNOWN`: Return an empty `Bool?`.
-    - `ERROR`: Abort the entire query.
+    - `TRUE`: Return `True`
+    - `FALSE`: Return `False`
+    - `UNKNOWN`: Return an empty `Bool?`
+    - `ERROR`: Abort the entire query
 3. If the result of JsonPath execution is one or more values, the return value is `True`.
 4. Otherwise, `False` is returned.
 
@@ -944,10 +960,10 @@ $json = CAST(@@{
 SELECT
     JSON_EXISTS($json, "$.title"), -- True
     JSON_EXISTS($json, "$.crew[*]"), -- True
-    JSON_EXISTS($json, "$.nonexistent"); -- False, as JsonPath returns an empty result
+    JSON_EXISTS($json, "$.nonexistent"); -- False, as JsonPath returns an empty result.
 
 SELECT
-    -- JsonPath error, False is returned because the default section used is FALSE ON ERROR
+    -- JsonPath error, False is returned because the default section used is FALSE ON ERROR.
     JSON_EXISTS($json, "strict $.nonexistent");
 
 SELECT
@@ -960,7 +976,8 @@ SELECT
 The `JSON_VALUE` function retrieves a scalar value from JSON (anything that isn't an array or object).
 
 **Syntax:**
-``` yql
+
+```yql
 JSON_VALUE(
     <JSON expression>,
     <JsonPath query>,
@@ -975,7 +992,7 @@ JSON_VALUE(
 
 **Default values:**
 
-1. If the `ON EMPTY` section isn't specified, the section used  is `NULL ON EMPTY`
+1. If the `ON EMPTY` section isn't specified, the section used is `NULL ON EMPTY`
 2. If the `ON ERROR` section isn't specified, the section used is `NULL ON ERROR`
 3. If the `RETURNING` section isn't specified, then for `<type>`, the type used is `Utf8`
 
@@ -996,6 +1013,7 @@ JSON_VALUE(
 5. Return the result
 
 Correlation between JSON and YQL types:
+
 - JSON Number: Numeric types, `Date`, `DateTime`, and `Timestamp`
 - JSON Bool: `Bool`
 - JSON String: `Utf8` and `String`
@@ -1009,7 +1027,8 @@ Errors executing `JSON_VALUE` are as follows:
 `The RETURNING` section supports such types as numbers, `Date`, `DateTime`, `Timestamp`, `Utf8`, `String`, and `Bool`.
 
 **Examples:**
-``` yql
+
+```yql
 $json = CAST(@@{
     "friends": [
         {
@@ -1048,7 +1067,6 @@ SELECT
         DEFAULT -1 ON EMPTY
         DEFAULT 20 ON ERROR
     );
-
 ```
 
 ## JSON_QUERY
@@ -1056,7 +1074,8 @@ SELECT
 The `JSON_QUERY` function lets you retrieve arrays and objects from JSON.
 
 **Syntax:**
-``` yql
+
+```yql
 JSON_QUERY(
     <JSON expression>,
     <JsonPath query>,
@@ -1071,10 +1090,10 @@ JSON_QUERY(
 
 **Default values:**
 
-1. If the `ON EMPTY` section isn't specified, the section used  is `NULL ON EMPTY`
+1. If the `ON EMPTY` section isn't specified, the section used is `NULL ON EMPTY`
 2. If the `ON ERROR` section isn't specified, the section used is `NULL ON ERROR`
-3. If the `WRAPPER` section isn't specified, the section used  is `WITHOUT WRAPPER`
-4. If the `WITH WRAPPER` section is specified but `CONDITIONAL` or `UNCONDITIONAL` is omitted, then the section used  is `UNCONDITIONAL`
+3. If the `WRAPPER` section isn't specified, the section used is `WITHOUT WRAPPER`
+4. If the `WITH WRAPPER` section is specified but `CONDITIONAL` or `UNCONDITIONAL` is omitted, then the section used is `UNCONDITIONAL`
 
 **Behavior:**
 
@@ -1107,7 +1126,8 @@ Errors running a `JSON_QUERY`:
 - The result of JsonPath execution is a number of values (even after using the `WRAPPER` section) or a scalar value.
 
 **Examples:**
-``` yql
+
+```yql
 $json = CAST(@@{
     "friends": [
         {
@@ -1131,3 +1151,4 @@ SELECT
     JSON_QUERY($json, "$.friends[0]" WITH CONDITIONAL WRAPPER), -- {"name": "James Holden", "age": 35}
     JSON_QUERY($json, "$.friends.name" WITH CONDITIONAL WRAPPER); -- ["James Holden", "Naomi Nagata"]
 ```
+

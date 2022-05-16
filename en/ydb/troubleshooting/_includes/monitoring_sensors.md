@@ -20,7 +20,7 @@ sourcePath: en/ydb/overlay/troubleshooting/_includes/monitoring_sensors.md
 | `api.grpc.request.inflight_count`<br/>`IGAUGE`, pieces | The number of requests that a database is simultaneously handling in a certain period of time.<br/>Labels:<br/>- _api_service_: The name of the gRPC API service, such as `table`.<br/>- _method_: The name of a gRPC API service method, such as `ExecuteDataQuery`. |
 | `api.grpc.request.inflight_bytes`<br/>`IGAUGE`, bytes | The size of requests that a database is simultaneously handling in a certain period of time.<br/>Labels:<br/>- _api_service_: The name of the gRPC API service, such as `table`.<br/>- _method_: The name of a gRPC API service method, such as `ExecuteDataQuery`. |
 | `api.grpc.response.bytes`<br/>`RATE`, bytes | The size of responses sent by the database in a certain period of time.<br/>Labels:<br/>- _api_service_: The name of the gRPC API service, such as `table`.<br/>- _method_: The name of a gRPC API service method, such as `ExecuteDataQuery`. |
-| `api.grpc.response.count`<br/>`RATE`, pieces | The number of responses sent by the database in a certain period of time.<br/>Labels:<br/>- _api_service_: The name of the gRPC API service, such as `table`.<br/>- _method_: The name of a gRPC API service method, such as `ExecuteDataQuery`.<br/>- _status_: The  query execution status. To learn more about statuses, see [Error handling](../../reference/ydb-sdk/error_handling.md). |
+| `api.grpc.response.count`<br/>`RATE`, pieces | The number of responses sent by the database in a certain period of time.<br/>Labels:<br/>- _api_service_: The name of the gRPC API service, such as `table`.<br/>- _method_: The name of a gRPC API service method, such as `ExecuteDataQuery`.<br/>- _status_ is the request execution status. See a more detailed description of statuses under [Error Handling](../../reference/ydb-sdk/error_handling.md). |
 | `api.grpc.response.dropped_count`<br/>`RATE`, pieces | The number of responses dropped at the transport (gRPC) layer due to an error.<br/>Labels:<br/>- _api_service_: The name of the gRPC API service, such as `table`.<br/>- _method_: The name of a gRPC API service method, such as `ExecuteDataQuery`. |
 | `api.grpc.response.issues`<br/>`RATE`, pieces | The number of errors of a certain type, which occurred when executing queries during a certain period of time.<br/>Labels:<br/>- _issue_type_: The type of error, the only value is `optimistic_locks_invalidation`. For more information about locks invalidation, see [Transactions and queries to {{ ydb-short-name }}](../../concepts/transactions.md). |
 
@@ -28,7 +28,7 @@ sourcePath: en/ydb/overlay/troubleshooting/_includes/monitoring_sensors.md
 
 | Metric name<br/>Type, units of measurement | Description<br/>Labels |
 | ----- | ----- |
-| `table.session.active_count`<br/>`IGAUGE` | The number of sessions started by clients and running at a given time. |
+| `table.session.active_count`<br/>`IGAUGE`, pieces | The number of sessions started by clients and running at a given time. |
 | `table.session.closed_by_idle_count`<br/>`RATE`, pieces | The number of sessions closed by the DB server in a certain period of time due to exceeding the lifetime allowed for an idle session. |
 
 ### Transaction processing metrics {#transactions}

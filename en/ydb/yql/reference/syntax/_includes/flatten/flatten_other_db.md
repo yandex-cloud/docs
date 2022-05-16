@@ -4,8 +4,9 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/_includes/flatten/flatte
 ---
 ### Analogs of FLATTEN BY in other DBMS {#flatten-other-dmb}
 
-* PostgreSQL: `unnest`.
-* Hive: `LATERAL VIEW`.
-* MongoDB: `unwind`.
-* Google BigQuery: `FLATTEN`.
-* ClickHouse: `ARRAY JOIN / arrayJoin`.
+* PostgreSQL: `unnest`
+* Hive: `LATERAL VIEW`
+* MongoDB: `unwind`
+* Google BigQuery: `FLATTEN`
+* ClickHouse: `ARRAY JOIN / arrayJoin`
+

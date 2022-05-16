@@ -17,6 +17,7 @@ Using the {{ ydb-short-name }} CLI global command parameters, you can specify th
 | `--use-metadata-credentials` | Use the IAM token obtained from a [metadata service](https://cloud.yandex.com/docs/compute/operations/vm-connect/auth-inside-vm) when working from a VM in {{ yandex-cloud }}.<br/>How to find it:<ol><li>This option.</li><li>The profile specified in the `--profile` option.</li><li>Environment variable `USE_METADATA_CREDENTIALS`. To use the metadata service, set the variable value to `1`.</li><li>Active profile.</li></ol> |
 | `--sa-key-file` `PATH` | Use for authentication the [authorized access key]( https://cloud.yandex.com/docs/iam/concepts/authorization/key) of the service account and specify the path of the file with the key.<br/>How to find the path:<ol><li>This option.</li><li>The profile specified in the `--profile` option.</li><li>Environment variable `SA_KEY_FILE`.</li><li>Active profile.</li></ol> |
 | `--iam-endpoint` `STR` | IAM service endpoint. The default value is `"iam.api.cloud.yandex.net"`. |
-| `--profile` `Name` | The name of the profile to execute the command. |
+| `--profile` `NAME` | The name of the profile to execute the command. |
 | `--license` | Show the license. |
 | `--credits` | Show licenses of third-party products. |
+

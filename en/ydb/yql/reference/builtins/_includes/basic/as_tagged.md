@@ -4,7 +4,7 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/as_tag
 ---
 ## AsTagged, Untag {#as-tagged}
 
-Wraps the value in the [Tagged data type](../../../types/special.md) with the specified tag, preserving the physical data type. `Untag`: the reverse operation.
+Wraps the value in the [Tagged data type](../../../types/special.md) with the specified tag, preserving the physical data type. `Untag`: The reverse operation.
 
 Required arguments:
 
@@ -17,3 +17,4 @@ Examples of use cases:
 
 * Returns to the client's web interface the media files from BASE64-encoded strings.
 * Additional refinements at the level of returned columns types.
+

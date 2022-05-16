@@ -33,3 +33,4 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/expressions.md
 {% include [x](_includes/expressions/lambda.md) %}
 
 {% include [x](_includes/expressions/items-access.md) %}
+

@@ -9,7 +9,8 @@ sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/option
 The reverse operation is [Unwrap](#unwrap).
 
 **Examples**
-``` yql
+
+```yql
 SELECT
   Just("my_string"); --  String?
 ```
@@ -26,7 +27,8 @@ Arguments:
 Reverse operation is [Just](#just).
 
 **Examples**
-``` yql
+
+```yql
 $value = Just("value");
 
 SELECT Unwrap($value, "Unexpected NULL for $value");
@@ -35,9 +37,11 @@ SELECT Unwrap($value, "Unexpected NULL for $value");
 `Nothing()`: Create an empty value for the specified [Optional](../../../types/optional.md) data type.
 
 **Examples**
-``` yql
+
+```yql
 SELECT
   Nothing(String?); -- an empty (NULL) value with the String? type
 ```
 
 [Learn more about ParseType and other functions for data types](../../types.md).
+

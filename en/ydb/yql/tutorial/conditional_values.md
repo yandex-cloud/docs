@@ -37,8 +37,8 @@ WHERE series_id IN (1,2)        -- IN defines the set of values in the WHERE cla
                                 -- IN or NOT IN may lead to undesirable outcomes.
 AND season_id = 1
 GROUP BY
-    CASE                        -- CASE evaluates a list of conditions
-                                -- and returns one of multiple possible resulting
+    CASE                        -- CASE evaluates a list of conditions and
+                                -- returns one of multiple possible resulting
                                 -- expressions. CASE can be used in any
                                 -- statement or with any clause
                                 -- that supports a given statement. For example, you can use CASE in
@@ -46,7 +46,7 @@ GROUP BY
                                 -- and in clauses such as IN, WHERE, and ORDER BY.
         WHEN series_id = 1
         THEN "IT Crowd"
-        ELSE "Other serial"
+        ELSE "Other series"
     END AS series_title         -- GROUP BY can be performed on
                                 -- an arbitrary expression.
                                 -- The result is available in a SELECT
@@ -55,3 +55,4 @@ GROUP BY
 
 COMMIT;
 ```
+

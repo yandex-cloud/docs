@@ -15,7 +15,7 @@ When using this syntax to access containers within table columns, be sure to spe
 
 **Examples**
 
-``` yql
+```yql
 SELECT
   t.struct.member,
   t.tuple.7,
@@ -24,7 +24,8 @@ SELECT
 FROM my_table AS t;
 ```
 
-``` yql
+```yql
 SELECT
   Sample::ReturnsStruct().member;
 ```
+
