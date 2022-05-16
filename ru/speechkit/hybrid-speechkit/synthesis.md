@@ -37,9 +37,10 @@
    ```
 
 1. Дождитесь загрузки сервиса
+
    ```bash
-   $ docker logs stt-server-cpu_1
-   stt-server-cpu_1            | INFO: 2021-09-22 15:36:02.765 +0000 server_base.cpp:144 Load finished. Ready to server requests on 0.0.0.0:17001
+   docker logs tts-server
+   tts-server            | INFO: 2021-09-22 15:36:02.765 +0000 server_base.cpp:144 Load finished. Ready to server requests on 0.0.0.0:17001
    ```
 
 Сервис синтеза речи будет доступен на TCP-порте **9080**.

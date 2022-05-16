@@ -35,12 +35,12 @@ For the recommended hardware configuration, see [{#T}](system-requirements.md).
 1. Wait until the service loads
 
    ```bash
-   docker logs cpu-models-tts-server_1
+   stt-server
    ```
 
    ```
-   cpu-models-tts-server_1  | Server listening on 0.0.0.0:50053
-   cpu-models-tts-server_1  | Waiting for join...
+   stt-server  | Server listening on 0.0.0.0:50053
+   stt-server  | Waiting for join...
    ```
 
 The speech recognition service will be available on TCP port **8080**.
