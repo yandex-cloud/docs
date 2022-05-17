@@ -1,1 +1,1 @@
-{% include [nat-instance](../../_includes/tutorials/routing/nat-instance.md) %}
+{% include [nat-instance](../../_tutorials/routing/nat-instance.md) %}

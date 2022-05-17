@@ -209,7 +209,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 - Terraform
 
   {% if audience != "internal" %}
-  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   {% endif %}
 
   To create a cluster:

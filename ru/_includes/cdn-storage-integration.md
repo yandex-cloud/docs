@@ -35,7 +35,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-you-begin](./tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 В качестве примера будет использоваться каталог с именем `example-folder`.
 

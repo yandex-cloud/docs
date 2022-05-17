@@ -54,7 +54,7 @@ To create an autoscalable node group:
 
 - {{ TF }}
 
-  1. {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
      If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

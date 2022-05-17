@@ -132,7 +132,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 {% if audience != "internal" %}
 
   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

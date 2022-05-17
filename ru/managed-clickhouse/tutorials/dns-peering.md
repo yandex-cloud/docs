@@ -1,12 +1,12 @@
 # Настройка {{ dns-full-name }} для доступа к кластеру {{ mch-name }} из других облачных сетей
 
-{% include [mdb-peering-intro](../../_includes/tutorials/dataplatform/mdb-dns-peering/intro.md) %}
+{% include [mdb-peering-intro](../../_tutorials/dataplatform/mdb-dns-peering/intro.md) %}
 
 ## Перед началом работы {#before-you-begin}
 
 ### Назначьте роли {#assign-roles}
 
-{% include [mdb-peering-check-roles](../../_includes/tutorials/dataplatform/mdb-dns-peering/check-roles.md) %}
+{% include [mdb-peering-check-roles](../../_tutorials/dataplatform/mdb-dns-peering/check-roles.md) %}
 
 ### Создайте кластер {#create-cluster}
 
@@ -16,11 +16,11 @@
 
 ### Создайте прочие ресурсы {#create-other-resources}
 
-{% include [mdb-peering-create-resources](../../_includes/tutorials/dataplatform/mdb-dns-peering/create-resources.md) %}
+{% include [mdb-peering-create-resources](../../_tutorials/dataplatform/mdb-dns-peering/create-resources.md) %}
 
 ### Настройте маршрутизацию между облачными сетями {#configure-routing}
 
-{% include [mdb-peering-configure-routing](../../_includes/tutorials/dataplatform/mdb-dns-peering/configure-routing.md) %}
+{% include [mdb-peering-configure-routing](../../_tutorials/dataplatform/mdb-dns-peering/configure-routing.md) %}
 
 ### Проверьте доступность кластера (необязательный шаг) {#check-cluster-availability-without-dns}
 
@@ -34,19 +34,19 @@
 
 {% endif %}
 
-    {% include [mdb-peering-vm-user](../../_includes/tutorials/dataplatform/mdb-dns-peering/vm-user-warning.md) %}
+    {% include [mdb-peering-vm-user](../../_tutorials/dataplatform/mdb-dns-peering/vm-user-warning.md) %}
 
 1. Попытайтесь [подключиться к кластеру](../operations/connect.md):
 
-    {% include [mdb-peering-check-availability-1](../../_includes/tutorials/dataplatform/mdb-dns-peering/check-availability-1.md) %}
+    {% include [mdb-peering-check-availability-1](../../_tutorials/dataplatform/mdb-dns-peering/check-availability-1.md) %}
 
 ## Создайте зону в {{ dns-full-name }} {#create-peering-zone}
 
-{% include [mdb-peering-create-zone](../../_includes/tutorials/dataplatform/mdb-dns-peering/create-zone.md) %}
+{% include [mdb-peering-create-zone](../../_tutorials/dataplatform/mdb-dns-peering/create-zone.md) %}
 
 ## Обеспечьте миграцию DNS-записей в зону {#do-actions-for-migration}
 
-{% include [mdb-peering-migrate-to-zone](../../_includes/tutorials/dataplatform/mdb-dns-peering/migrate-to-zone.md) %}
+{% include [mdb-peering-migrate-to-zone](../../_tutorials/dataplatform/mdb-dns-peering/migrate-to-zone.md) %}
 
 ## Проверьте доступность кластера {#check-cluster-availability}
 
@@ -60,12 +60,12 @@
 
 {% endif %}
 
-    {% include [mdb-peering-vm-user](../../_includes/tutorials/dataplatform/mdb-dns-peering/vm-user-warning.md) %}
+    {% include [mdb-peering-vm-user](../../_tutorials/dataplatform/mdb-dns-peering/vm-user-warning.md) %}
 
 1. Попытайтесь [подключиться к кластеру](../operations/connect.md):
 
-    {% include [mdb-peering-check-availability-2](../../_includes/tutorials/dataplatform/mdb-dns-peering/check-availability-2.md) %}
+    {% include [mdb-peering-check-availability-2](../../_tutorials/dataplatform/mdb-dns-peering/check-availability-2.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% include [mdb-peering-destroy-resources](../../_includes/tutorials/dataplatform/mdb-dns-peering/destroy-resources.md) %}
+{% include [mdb-peering-destroy-resources](../../_tutorials/dataplatform/mdb-dns-peering/destroy-resources.md) %}

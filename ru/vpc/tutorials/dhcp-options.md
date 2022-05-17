@@ -27,7 +27,7 @@
 
 Перед тем, как разворачивать инфраструктуру, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-{% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать отдельный каталог для сценария. См. подробнее об [облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 

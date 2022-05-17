@@ -15,7 +15,7 @@
 
 Перед использованием {{ objstorage-name }} нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-{% include [prepare-register-billing](../../_includes/tutorials/includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_tutorials/includes/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака]({{ link-console-cloud }}) и выберите или создайте каталог, в котором вы хотите создать бакет. {% if audience != "internal" %}[Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md){% else %}Подробнее об иерархии ресурсов {{ yandex-cloud }}{% endif %}.
 

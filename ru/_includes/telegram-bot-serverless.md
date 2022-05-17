@@ -26,7 +26,7 @@ description: "В этом сценарии вы узнаете, как с пом
 
 1. Перед тем как создавать Telegram-бота, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-    {% include [prepare-register-billing](tutorials/_common/prepare-register-billing.md) %}
+    {% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
 1. [Скачайте](https://storage.yandexcloud.net/doc-files/telegrambot.zip) архив с файлами, необходимыми для создания бота.
 1. Если у вас еще нет каталога, [создайте](../resource-manager/operations/folder/create.md) его.
 1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему роли `editor` и `serverless.functions.invoker` на ваш каталог. 

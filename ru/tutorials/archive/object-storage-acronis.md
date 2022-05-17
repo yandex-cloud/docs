@@ -1,1 +1,1 @@
-{% include [object-storage-acronis](../../_includes/tutorials/archive/object-storage-acronis.md) %}
+{% include [object-storage-acronis](../../_tutorials/archive/object-storage-acronis.md) %}

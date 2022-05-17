@@ -1,1 +1,1 @@
-{% include [rds.md](../../_includes/tutorials/rds.md) %}
+{% include [rds.md](../../_tutorials/rds.md) %}

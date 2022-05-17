@@ -164,7 +164,7 @@ keywords:
 
 - Terraform
 
-    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
     {% if audience != "internal" %}
     

@@ -10,4 +10,4 @@ keywords:
   - hosting joomla
 ---
 
-{% include [joomla-postgresql](../../_includes/tutorials/web/joomla-postgresql.md) %}
+{% include [joomla-postgresql](../../_tutorials/web/joomla-postgresql.md) %}

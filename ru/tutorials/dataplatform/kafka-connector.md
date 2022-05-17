@@ -1,3 +1,3 @@
 # Миграция данных в {{ mkf-full-name }}
 
-{% include [_includes/tutorials/mkf-data-migration](../../_includes/tutorials/mkf-data-migration.md) %}
+{% include [_tutorials/mkf-data-migration](../../_tutorials/mkf-data-migration.md) %}

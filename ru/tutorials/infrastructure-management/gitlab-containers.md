@@ -1,1 +1,1 @@
-{% include [gitlab-containers](../../_includes/tutorials/infrastructure-management/gitlab-containers.md) %}
+{% include [gitlab-containers](../../_tutorials/infrastructure-management/gitlab-containers.md) %}
