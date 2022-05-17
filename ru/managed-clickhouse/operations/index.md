@@ -1,6 +1,13 @@
 # Пошаговые инструкции для {{ mch-name }}
 
 - [{#T}](cluster-list.md)
+
+{% if audience == "internal" %}
+
+- [{#T}](quotas-control.md)
+
+{% endif %}
+
 - [{#T}](cluster-create.md)
 
 {% if content != "noshow" %}

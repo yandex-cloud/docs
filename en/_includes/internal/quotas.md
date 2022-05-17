@@ -12,7 +12,7 @@ To see your cloud's quotas:
 
 You can also find information about quotas and their use, depending on the hierarchy of ABC projects, in [Dispenser](https://dispenser.yandex-team.com/db/projects/yandex).
 
-{% note important %}
+{% note info %}
 
 Quotas and their usage details are displayed in the management console for a specific ABC service, excluding child services. Whereas quotas displayed in Dispenser factor in child services by default.
 

@@ -9,6 +9,9 @@ items:
         href: operations/index.md
       - name: Информация об имеющихся кластерах
         href: operations/cluster-list.md
+      - name: Управление квотами
+        href: operations/quotas-control.md
+        when: audience == "internal"
       - name: Создание кластера
         href: operations/cluster-create.md
       - name: Подключение к базе данных
@@ -114,6 +117,9 @@ items:
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
+  - name: Ресурсы и квоты
+    href: quotas.md
+    when: audience == "internal"
   - name: Правила тарификации
     items:
       - name: Действующие правила

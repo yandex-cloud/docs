@@ -26,11 +26,11 @@ To change the access settings for a template:
 
     {% if audience == "internal" %}
 
- {% note tip %}
+    {% note tip %}
 
- To add all Yandex employees, select the `Yandex` group.
+    To add all Yandex employees, select the `Yandex` group.
 
- {% endnote %}
+    {% endnote %}
 
     {% endif %}
     - **Roles**: Settings for users who have specific roles for the template:
