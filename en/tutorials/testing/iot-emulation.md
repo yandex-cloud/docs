@@ -1,1 +1,1 @@
-{% include [iot-emulation](../../_includes/tutorials/testing/iot-emulation.md) %}
+{% include [iot-emulation](../../_tutorials/testing/iot-emulation.md) %}

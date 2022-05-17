@@ -1,1 +1,1 @@
-{% include [datalens](../../_includes/tutorials/iot/datalens.md) %}
+{% include [datalens](../../_tutorials/iot/datalens.md) %}

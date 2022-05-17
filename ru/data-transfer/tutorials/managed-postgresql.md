@@ -25,7 +25,7 @@
 
 ## Перенос данных {#data-transfer}
 
-{% include notitle [MPG moving data with Data Transfer](../../_includes/tutorials/datatransfer/managed-postgresql.md) %}
+{% include notitle [MPG moving data with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
 
 ## Смотри также {#see-also}
 

@@ -46,7 +46,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
 - Terraform
 
-   {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

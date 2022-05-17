@@ -1,1 +1,1 @@
-{% include [lamp-lemp](../../_includes/tutorials/web/lamp-lemp.md) %}
+{% include [lamp-lemp](../../_tutorials/web/lamp-lemp.md) %}

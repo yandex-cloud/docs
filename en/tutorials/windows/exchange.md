@@ -1,1 +1,1 @@
-{% include [exchange](../../_includes/tutorials/windows/exchange.md) %}
+{% include [exchange](../../_tutorials/windows/exchange.md) %}

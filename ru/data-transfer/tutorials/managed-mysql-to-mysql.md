@@ -22,7 +22,7 @@
 
 ## Перенос данных {#data-transfer}
 
-{% include notitle [MySQL migration with Data Trasnfer](../../_includes/tutorials/datatransfer/managed-mysql-to-mysql.md) %}
+{% include notitle [MySQL migration with Data Trasnfer](../../_tutorials/datatransfer/managed-mysql-to-mysql.md) %}
 
 ## Смотрите также {#see-also}
 

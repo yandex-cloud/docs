@@ -1,3 +1,3 @@
 # Интеграция {{ dns-name }} и корпоративного сервиса DNS
 
-{% include [dns-integration](../../_includes/tutorials/dns-integration.md) %}
+{% include [dns-integration](../../_tutorials/dns-integration.md) %}

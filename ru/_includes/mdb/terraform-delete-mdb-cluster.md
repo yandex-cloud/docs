@@ -1,4 +1,4 @@
-{% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
 
 Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

@@ -1,1 +1,1 @@
-{% include [bitrix-shop](../../_includes/tutorials/internet-store/bitrix-shop.md) %}
+{% include [bitrix-shop](../../_tutorials/internet-store/bitrix-shop.md) %}

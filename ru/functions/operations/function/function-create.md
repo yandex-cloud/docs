@@ -43,7 +43,7 @@
 
 - Terraform
 
-   {% include [terraform-definition](../../../_includes/tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
