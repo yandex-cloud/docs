@@ -81,6 +81,7 @@ default:
   #Другое
   release-date: 1 марта
   example-account: login@yandex.ru
+  yfm: Yandex Flavored Markdown
 
 #external:
 

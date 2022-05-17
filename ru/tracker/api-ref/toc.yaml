@@ -3,6 +3,8 @@ items:
   href: about-api.md
 - name: Доступ к API
   href: concepts/access.md
+- name: Общий формат запросов
+  href: common-format.md
 - name: Задачи
   items:  
     - name: Получить параметры задачи
