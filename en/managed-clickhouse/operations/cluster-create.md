@@ -171,7 +171,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - Terraform
 
-    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
   To create a cluster:
 

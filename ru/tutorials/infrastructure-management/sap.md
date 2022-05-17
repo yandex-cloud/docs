@@ -1,3 +1,3 @@
 # Создание SAP-программы в {{ yandex-cloud }}
 
-{% include [sap.md](../../_includes/tutorials/sap.md) %}
+{% include [sap.md](../../_tutorials/sap.md) %}

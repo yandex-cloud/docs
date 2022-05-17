@@ -42,7 +42,7 @@ Make sure you specify the encryption key when creating a cluster, as you can't a
 
 - {{ TF }}
 
-  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

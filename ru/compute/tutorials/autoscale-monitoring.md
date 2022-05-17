@@ -18,7 +18,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-{% include [before-you-begin](../../_includes/tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 В качестве примера в сценарии будет использоваться каталог с именем `example-folder`.
 

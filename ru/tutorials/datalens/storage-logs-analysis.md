@@ -1,1 +1,1 @@
-{% include [storage-logs-analysis](../../_includes/tutorials/datalens/storage-logs-analysis.md) %}
+{% include [storage-logs-analysis](../../_tutorials/datalens/storage-logs-analysis.md) %}

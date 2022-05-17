@@ -1,1 +1,1 @@
-{% include [wordpress-transfer](../../_includes/tutorials/web/wordpress-transfer.md) %}
+{% include [wordpress-transfer](../../_tutorials/web/wordpress-transfer.md) %}

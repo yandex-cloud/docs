@@ -1,1 +1,1 @@
-{% include [clickhouse-for-graphite](../../_includes/tutorials/clickhouse-for-graphite.md) %}
+{% include [clickhouse-for-graphite](../../_tutorials/clickhouse-for-graphite.md) %}

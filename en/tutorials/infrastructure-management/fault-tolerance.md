@@ -1,1 +1,1 @@
-{% include [fault-tolerance](../../_includes/tutorials/infrastructure-management/fault-tolerance.md) %}
+{% include [fault-tolerance](../../_tutorials/infrastructure-management/fault-tolerance.md) %}

@@ -29,7 +29,7 @@
 
 1. Зарегистрируйтесь в {{ yandex-cloud }} и создайте платежный аккаунт:
 
-   {% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
+   {% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
 
 1. На [странице облака]({{ link-console-cloud }}) выберите каталог, в котором будет работать ваш CDN-ресурс, или [создайте каталог](../../resource-manager/operations/folder/create.md). Все действия нужно выполнять в этом каталоге.
 

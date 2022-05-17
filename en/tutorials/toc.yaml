@@ -25,6 +25,8 @@ items:
         href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
+      - name: Integrating an L7 load balancer with the CDN and Object Storage
+        href: web/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: web/blue-green-canary-deployment.md
   - name: Online stores

@@ -18,7 +18,7 @@
 
 ## Перенос данных {#data-transfer}
 
-{% include notitle [MySQL migration with Data Transfer](../../_includes/tutorials/datatransfer/managed-mysql.md) %}
+{% include notitle [MySQL migration with Data Transfer](../../_tutorials/datatransfer/managed-mysql.md) %}
 
 ## Смотри также {#see-also}
 

@@ -1,1 +1,1 @@
-{% include [sync-mysql](../../_includes/tutorials/dataplatform/sync-mysql.md) %}
+{% include [sync-mysql](../../_tutorials/dataplatform/sync-mysql.md) %}

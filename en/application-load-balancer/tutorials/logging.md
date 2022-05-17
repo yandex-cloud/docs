@@ -30,7 +30,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 Before deploying the load balancer and setting up logging for it, register in {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../../_includes/tutorials/includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_tutorials/includes/prepare-register-billing.md) %}
 
 If you have an active billing account, you can go to the [cloud page](https://console.cloud.yandex.com/cloud) to create or select a folder to run your resources in. Make sure that you do all the actions under the use case in this folder.
 

@@ -30,7 +30,7 @@
 
 Перед тем, как разворачивать балансировщик и настраивать запись его логов, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-{% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будут работать ваши ресурсы, на [странице облака](https://console.cloud.yandex.ru/cloud). Все действия сценария нужно производить в этом каталоге.
 

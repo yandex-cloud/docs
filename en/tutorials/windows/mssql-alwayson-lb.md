@@ -1,1 +1,1 @@
-{% include [mssql-alwayson-lb](../../_includes/tutorials/windows/mssql-alwayson-lb.md) %}
+{% include [mssql-alwayson-lb](../../_tutorials/windows/mssql-alwayson-lb.md) %}

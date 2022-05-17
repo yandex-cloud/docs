@@ -15,7 +15,7 @@ If you no longer need to encrypt new objects in the bucket, [disable encryption]
 
 Before using {{ objstorage-name }}, sign up for {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../../_includes/tutorials/includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_tutorials/includes/prepare-register-billing.md) %}
 
 If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [Yandex.Cloud homepage]({{ link-console-cloud }}) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
 

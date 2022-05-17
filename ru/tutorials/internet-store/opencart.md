@@ -1,1 +1,1 @@
-{% include [opencart](../../_includes/tutorials/internet-store/opencart.md) %}
+{% include [opencart](../../_tutorials/internet-store/opencart.md) %}

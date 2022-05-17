@@ -1,1 +1,1 @@
-{% include [serverless](../../_includes/tutorials/serverless/serverless-url-shortener.md) %}
+{% include [serverless](../../_tutorials/serverless/serverless-url-shortener.md) %}

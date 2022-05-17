@@ -41,7 +41,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
 - Terraform
 
-   {% include [terraform-definition](../../../_includes/tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

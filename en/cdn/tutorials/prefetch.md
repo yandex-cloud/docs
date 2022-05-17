@@ -29,7 +29,7 @@ Before creating a CDN resource:
 
 1. Sign up for {{ yandex-cloud }} and create a billing account:
 
-   {% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
+   {% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
 
 1. On the [cloud page]({{ link-console-cloud }}), select the folder where your CDN resource will run, or [create a folder](../../resource-manager/operations/folder/create.md). Make sure that you perform all the actions under the use case in this folder.
 

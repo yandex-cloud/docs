@@ -27,7 +27,7 @@ If you no longer need the infrastructure, [delete](#clear-out) the created resou
 
 Before deploying your infrastructure, register in {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
 
 If you have an active billing account, you can create or select a separate folder to run the scenario. Learn more about [clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 

@@ -25,7 +25,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 Before deploying virtual hosting, sign up for {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
 
 If you have an active billing account, you can go to the [cloud page](https://console.cloud.yandex.com/cloud) to create or select a folder to run your load balancer. Make sure that you do all the actions under the use case in this folder.
 
@@ -260,7 +260,7 @@ To check that your web servers are running properly, upload to the VMs two diffe
 
 To upload a file to a VM:
 
-{% include [upload-files](../../_includes/tutorials/includes/upload-web-site-files.md) %}
+{% include [upload-files](../../_tutorials/includes/upload-web-site-files.md) %}
 
 Repeat these steps for the files you want to upload to each VM in the `vhosting-ig-a` and `vhosting-ig-b` groups.
 

@@ -1,1 +1,1 @@
-{% include [wordpress](../../_includes/tutorials/web/wordpress.md) %}
+{% include [wordpress](../../_tutorials/web/wordpress.md) %}

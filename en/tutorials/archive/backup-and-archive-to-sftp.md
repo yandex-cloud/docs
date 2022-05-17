@@ -1,1 +1,1 @@
-{% include [backup-and-archive-to-sftp](../../_includes/tutorials/archive/backup-and-archive-to-sftp.md) %}
+{% include [backup-and-archive-to-sftp](../../_tutorials/archive/backup-and-archive-to-sftp.md) %}

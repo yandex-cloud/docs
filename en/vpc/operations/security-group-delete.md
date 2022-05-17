@@ -52,7 +52,7 @@ To delete a security group:
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
   Read more about Terraform in the [documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

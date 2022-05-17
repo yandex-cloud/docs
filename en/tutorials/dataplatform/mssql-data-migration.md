@@ -1,1 +1,1 @@
-{% include [mssql-data-migration](../../_includes/tutorials/dataplatform/mssql-data-migration.md) %}
+{% include [mssql-data-migration](../../_tutorials/dataplatform/mssql-data-migration.md) %}

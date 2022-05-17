@@ -1,1 +1,1 @@
-{% include [storage-logs-analysis](../../_includes/tutorials/storage-logs-analysis.md) %}
+{% include [storage-logs-analysis](../../_tutorials/storage-logs-analysis.md) %}

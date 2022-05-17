@@ -1,1 +1,1 @@
-{% include [rds.md](../../_includes/tutorials/mssql-alwayson-lb.md) %}
+{% include [rds.md](../../_tutorials/mssql-alwayson-lb.md) %}

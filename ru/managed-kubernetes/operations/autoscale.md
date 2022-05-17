@@ -54,7 +54,7 @@
 
 - {{ TF }}
 
-  1. {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
      Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

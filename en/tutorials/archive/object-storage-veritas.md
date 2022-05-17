@@ -1,1 +1,1 @@
-{% include [object-storage-veritas](../../_includes/tutorials/archive/object-storage-veritas.md) %}
+{% include [object-storage-veritas](../../_tutorials/archive/object-storage-veritas.md) %}

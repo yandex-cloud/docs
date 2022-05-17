@@ -1,1 +1,1 @@
-{% include [kafka-cdc](../../_includes/tutorials/dataplatform/kafka-cdc.md) %}
+{% include [kafka-cdc](../../_tutorials/dataplatform/kafka-cdc.md) %}

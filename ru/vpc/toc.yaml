@@ -88,6 +88,10 @@ items:
         href: concepts/limits.md
   - name: DDoS Protection
     href: ddos-protection/index.md
+  - name: Рекомендации
+    items:
+      - name: Использование публичных IP-адресов
+        href: best-practices/public-ip-recommendations.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

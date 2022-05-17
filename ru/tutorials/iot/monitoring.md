@@ -1,1 +1,1 @@
-{% include [monitoring](../../_includes/tutorials/iot/monitoring.md) %}
+{% include [monitoring](../../_tutorials/iot/monitoring.md) %}
