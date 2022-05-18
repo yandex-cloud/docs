@@ -1,9 +1,10 @@
 # Equivalents for Google Cloud Platform
 
 | Google Cloud Platform | {{ yandex-cloud }} |
-| ---- | ---- |
+|----|----|
 | API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
 | Application Gateway | [{{ alb-full-name }}](../../application-load-balancer/) |
+| Cloud CDN | [{{ cdn-full-name }}](../../cdn/) |
 | Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/) |
 | Cloud DNS | [{{ dns-full-name }}](../../dns/) |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |
@@ -12,6 +13,7 @@
 | Cloud Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Cloud Load Balancing, App Engine, Cloud Run | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
+| Cloud Logging | [{{ cloud-logging-full-name }}](../../logging/) |
 | Cloud Memorystore | [{{ mrd-full-name }}](../../managed-redis/) |
 | Cloud Pub/Sub | [{{ message-queue-full-name }}](../../message-queue/) |
 | Cloud Run | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
@@ -28,7 +30,7 @@
 | Elastic Cloud (Elasticsearch managed service) | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | External HTTP(S) Load Balancing | [{{ alb-full-name }}](../../application-load-balancer/) |
 | GCP: MongoDB Atlas | [{{ mmg-full-name }}](../../managed-mongodb/) |
-| Google Cloud Armor | [Yandex DDoS Protection](../../vpc/ddos-protection/) |
+| Google Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Google Data Studio | [{{ datalens-full-name }}](../../datalens/) |
 | Google Stackdriver | [{{ monitoring-full-name }}](../../monitoring/) |
 | Identity and Access Management, Cloud Identity | [{{ iam-full-name }}](../../iam/) |
@@ -36,6 +38,7 @@
 | Managed Instance Groups | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
 | Pub/Sub | [{{ yds-full-name }}](../../data-streams/) |
 | Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
+| Secret Manager | [{{ lockbox-name }}](../../lockbox/) |
 | SQL Server on Google Cloud | [{{ mms-full-name }}](../../managed-sqlserver/) |
 | Translation API | [{{ translate-full-name }}](../../translate/) |
 | Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
