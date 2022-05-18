@@ -25,13 +25,9 @@ You can change the payer's contact information (for example, mailing address or 
 1. Click **Edit data in Yandex Balance**. <br/>This redirects you to [Yandex Balance](https://balance.yandex.ru/).
 1. Follow the instructions in Yandex Balance [Help](https://yandex.ru/support/balance/operations/change-data.html).
 
-## Changing details other than TIN {#change-details}
+## Changing details {#change-details}
 
 [Write a request](../qa/common.md) to {{ yandex-cloud }} support. In the request, specify the details to modify and the number of the [contract](../concepts/contract.md) and attach a copy of the certificate verifying these changes (signed and stamped with the company's seal).
-
-## Changing a business or TIN  {#change-legal-entity}
-
-[Get and activate](../quickstart/index.md#get_promocode) a new promo code and then [create](../quickstart/index.md#create_billing_account) a new billing account.
 
 ##### See also
 
