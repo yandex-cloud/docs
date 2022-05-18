@@ -85,10 +85,7 @@ The `build` directory will appear in the project folder. Zip its contents into a
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
   1. In the list of services, select **{{ sf-name }}**.
   1. Click **Create function**.
-  1. Enter a name and description for the function. Naming requirements:
-
-      {% include [name-format](../_includes/name-format.md) %}
-
+  1. Enter a name and description for the function.
   1. Click **Create**.
   1. Under **Editor**, select the **Node.js** runtime environment and click **Continue**.
   1. Under **Method**, select **ZIP archive**, then specify your archive.
