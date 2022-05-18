@@ -2110,6 +2110,18 @@ components:
 
             See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: string
+        reindexRemoteWhitelist:
+          description: |-
+            Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property.
+            It can be set to a comma delimited list of allowed remote host and port combinations.
+            Scheme is ignored, only the host and port are used.
+          type: string
+        reindexSslCaPath:
+          description: |-
+            List of paths to PEM encoded certificate files that should be trusted.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#reindex-ssl)
+          type: string
     ElasticsearchConfigSet7:
       description: Elasticsearch 7.x data node configuration.
       type: object
@@ -3288,6 +3300,18 @@ components:
 
             See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: string
+        reindexRemoteWhitelist:
+          description: |-
+            Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property.
+            It can be set to a comma delimited list of allowed remote host and port combinations.
+            Scheme is ignored, only the host and port are used.
+          type: string
+        reindexSslCaPath:
+          description: |-
+            List of paths to PEM encoded certificate files that should be trusted.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#reindex-ssl)
+          type: string
     ElasticsearchConfig7_in_ElasticsearchConfigSet7_userConfig:
       description: |-
         User-defined settings for an Elasticsearch cluster.
@@ -3322,6 +3346,18 @@ components:
 
             See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
           type: string
+        reindexRemoteWhitelist:
+          description: |-
+            Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property.
+            It can be set to a comma delimited list of allowed remote host and port combinations.
+            Scheme is ignored, only the host and port are used.
+          type: string
+        reindexSslCaPath:
+          description: |-
+            List of paths to PEM encoded certificate files that should be trusted.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#reindex-ssl)
+          type: string
     ElasticsearchConfig7_in_ElasticsearchConfigSet7_defaultConfig:
       description: |-
         Default settings for an Elasticsearch cluster.
@@ -3355,6 +3391,18 @@ components:
             Default value: unbounded.
 
             See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
+          type: string
+        reindexRemoteWhitelist:
+          description: |-
+            Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property.
+            It can be set to a comma delimited list of allowed remote host and port combinations.
+            Scheme is ignored, only the host and port are used.
+          type: string
+        reindexSslCaPath:
+          description: |-
+            List of paths to PEM encoded certificate files that should be trusted.
+
+            See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#reindex-ssl)
           type: string
     Resources_in_ElasticsearchMasterNode_resources:
       description: |-

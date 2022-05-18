@@ -38,7 +38,8 @@ connectorName | Required. Required. Name of the connector to update. To get the 
           "saslUsername": "string",
           "saslPassword": "string",
           "saslMechanism": "string",
-          "securityProtocol": "string"
+          "securityProtocol": "string",
+          "sslTruststoreCertificates": "string"
         },
         // end of the list of possible fields`connectorSpec.connectorConfigMirrormaker.sourceCluster`
 
@@ -53,7 +54,8 @@ connectorName | Required. Required. Name of the connector to update. To get the 
           "saslUsername": "string",
           "saslPassword": "string",
           "saslMechanism": "string",
-          "securityProtocol": "string"
+          "securityProtocol": "string",
+          "sslTruststoreCertificates": "string"
         },
         // end of the list of possible fields`connectorSpec.connectorConfigMirrormaker.targetCluster`
 
@@ -82,6 +84,7 @@ connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalClust
 connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslPassword | **string**<br><p>Sasl password which we use to connect to cluster.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>Sasl mechanism, which we should use to connect to cluster.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol, which we should use to connect to cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>sslTruststoreCertificates | **string**<br><p>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster | **object**<br><p>Target cluster configuration.</p> <p>Specification of ClusterConnection - connection to clusters, that are source or target of MirrorMaker clusters.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>alias | **string**<br><p>Alias of ClusterConnection. For example: 'source', 'target', ...</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>thisCluster | **object**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. <br>`connectorSpec.connectorConfigMirrormaker.targetCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br><p>Specification of cluster_connection type 'this_cluster'. This means that we already have all credentials, so this spec is empty.</p> 
@@ -91,6 +94,7 @@ connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalClust
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslPassword | **string**<br><p>Sasl password which we use to connect to cluster.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>Sasl mechanism, which we should use to connect to cluster.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol, which we should use to connect to cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>sslTruststoreCertificates | **string**<br><p>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ','</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 
  

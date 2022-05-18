@@ -32,7 +32,9 @@ POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters:restore
         },
         "elasticsearchConfig_7": {
           "maxClauseCount": "integer",
-          "fielddataCacheSize": "string"
+          "fielddataCacheSize": "string",
+          "reindexRemoteWhitelist": "string",
+          "reindexSslCaPath": "string"
         }
       },
       "masterNode": {
@@ -94,6 +96,8 @@ configSpec.<br>elasticsearchSpec.<br>dataNode.<br>resources.<br>diskTypeId | **s
 configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7 | **object**<br><p>Elasticsearch 7.x supported configuration options are listed here.</p> <p>Detailed description for each set of options is available in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch documentation</a>.</p> <p>Any options that are not listed here are not supported.</p> 
 configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7.<br>maxClauseCount | **integer** (int64)<br><p>The maximum number of clauses a boolean query can contain.</p> <p>The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory. It affects not only Elasticsearch's ``bool`` query, but many other queries that are implicitly converted to ``bool`` query by Elastcsearch.</p> <p>Default value: ``1024``.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html">Elasticsearch documentation</a>.</p> 
 configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7.<br>fielddataCacheSize | **string**<br><p>The maximum percentage or absolute value (10%, 512mb) of heap space that is allocated to field data cache.</p> <p>All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values. Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.</p> <p>Default value: unbounded.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html">Elasticsearch documentation</a>.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7.<br>reindexRemoteWhitelist | **string**<br><p>Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property. It can be set to a comma delimited list of allowed remote host and port combinations. Scheme is ignored, only the host and port are used.</p> 
+configSpec.<br>elasticsearchSpec.<br>dataNode.<br>elasticsearchConfig_7.<br>reindexSslCaPath | **string**<br><p>List of paths to PEM encoded certificate files that should be trusted.</p> <p>See in-depth description in <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#reindex-ssl">Elasticsearch documentation</a></p> 
 configSpec.<br>elasticsearchSpec.<br>masterNode | **object**<br><p>Configuration and resource allocation for Elasticsearch master nodes.</p> 
 configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources | **object**<br><p>Resources allocated to Elasticsearch master nodes.</p> <p>Computational resources.</p> 
 configSpec.<br>elasticsearchSpec.<br>masterNode.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-elasticsearch/concepts/instance-types">documentation</a>.</p> 
