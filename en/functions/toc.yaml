@@ -315,6 +315,8 @@ items:
         href: tutorials/connect-to-ydb-nodejs.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
+      - name: Building Yandex Cloud Functions using TypeScript
+        href: tutorials/nodejs-typescript.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
