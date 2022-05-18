@@ -15,6 +15,7 @@ items:
       - name: Подключение к базе данных
         href: operations/connect.md
       - name: Остановка и запуск кластера
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: SQL-запросы в консоли управления
         href: operations/web-sql-query.md
@@ -84,6 +85,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: audience != "internal"
     items:
       - name: Действующие правила
         href: pricing.md
