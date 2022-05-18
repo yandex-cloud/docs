@@ -1,1 +1,1 @@
-{% include [serverless-url-shortener](../../_tutorials/serverless/log-ingestion.md) %}
+{% include [log-ingestion](../../_tutorials/serverless/log-ingestion.md) %}
