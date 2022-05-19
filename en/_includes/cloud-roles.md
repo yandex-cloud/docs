@@ -4,9 +4,16 @@
 
 ### {{ roles-cloud-owner }} {#owner}
 
-The`{{ roles-cloud-owner }}` is assigned for the cloud and makes the user the [owner of the cloud](../resource-manager/concepts/resources-hierarchy.md#owner). The owner can perform any operation with the cloud and its resources.
+{% include [roles-cloud-owner](roles-cloud-owner.md) %}
 
-Only the cloud owner can assign users the `{{ roles-cloud-owner }}` role.
+### resource-manager.admin {#admin}
 
-A cloud must have at least one owner. The sole owner of a cloud may not give up this role.
+{% include [roles-resource-manager-admin](roles-resource-manager-admin.md) %}
 
+### resource-manager.editor {#editor}
+
+{% include [roles-resource-manager-editor](roles-resource-manager-editor.md) %}
+
+### resource-manager.viewer {#viewer}
+
+{% include [roles-resource-manager-viewer](roles-resource-manager-viewer.md) %}

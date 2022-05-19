@@ -25,6 +25,8 @@ items:
         href: operations/s3-access.md
       - name: Управление хостами Elasticsearch
         href: operations/cluster-hosts.md
+      - name: Управление плагинами Elasticsearch
+        href: operations/cluster-plugins.md
       - name: Управление расширениями Elasticsearch
         href: operations/cluster-extensions.md
       - name: Управление пользователями Elasticsearch

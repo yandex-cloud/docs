@@ -14,8 +14,7 @@ Syntax:
 |----|----|
 |`--backend-group-id`|<b>`string`</b><br/>Backend group id.|
 |`--backend-group-name`|<b>`string`</b><br/>Backend group name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--name`|<b>`string`</b><br/>A name of the Stream backend within backend group to delete.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete. --name string|
 
 #### Global Flags
 

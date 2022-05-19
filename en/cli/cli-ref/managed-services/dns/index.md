@@ -30,6 +30,8 @@ Syntax:
 	- [yc dns zone set-access-bindings](zone/set-access-bindings.md) — Set access bindings to the specified dns zone and delete all existing access bindings if there are any.
 	- [yc dns zone add-access-binding](zone/add-access-binding.md) — Add access binding to the specified dns zone
 	- [yc dns zone remove-access-binding](zone/remove-access-binding.md) — Remove access binding from the specified dns zone
+- [yc dns bind-file](bind-file/index.md) — Manage bind file
+	- [yc dns bind-file migrate-to-terraform](bind-file/migrate-to-terraform.md) — Writes terraform specification to stdout
 
 #### Global Flags
 

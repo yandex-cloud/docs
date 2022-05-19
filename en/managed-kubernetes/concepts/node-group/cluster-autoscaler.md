@@ -20,7 +20,7 @@ You can resize an autoscaling group using [{{ k8s }} Cluster Autoscaler](https:/
 
 {% note info %}
 
-When calculating the current limits and quotas, {{ managed-k8s-name }} uses the specified maximum node group size as the actual size, regardless of the current group size.
+When calculating the current limits and [quotas]({{ link-console-quotas }}), {{ managed-k8s-name }} uses the specified maximum node group size as the actual size, regardless of the current group size.
 
 {% endnote %}
 

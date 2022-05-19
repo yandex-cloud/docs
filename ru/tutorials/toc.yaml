@@ -219,6 +219,8 @@ items:
     items:
       - name: Сокращатель ссылок
         href: serverless/serverless-url-shortener.md
+      - name: Ввод данных в системы хранения
+        href: serverless/data-ingestion.md
       - name: Хранение журналов работы приложения
         href: serverless/log-ingestion.md
 base: ru/tutorials

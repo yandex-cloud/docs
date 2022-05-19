@@ -1,0 +1,1 @@
+[`resource-manager.viewer`](../../../../iam/concepts/access-control/roles.md#yrm-roles) grants permission to view cloud or folder information as well as view the list of access rights granted to a cloud or a folder. It is assigned for an organization, a cloud, or a folder.

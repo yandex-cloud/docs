@@ -22,6 +22,7 @@ Syntax:
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for hosts that should be created for the MySQL cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  replication-source Name of the host to be used as the replication source for cascaded replication.  backup-priority Priority of the host as a backup source.  priority Host master promotion priority.  |
 |`--datalens-access`| Allow access for DataLens|
 |`--websql-access`| Allow access for Web SQL|
+|`--datatransfer-access`| Allow access for DataTransfer|
 |`--mysql-version`|<b>`string`</b><br/> Version of MYSQL used in the cluster. Values: 8.0, 5.7|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
@@ -29,6 +30,8 @@ Syntax:
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the MySQL cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--host-group-ids`|<b>`value[,value]`</b><br/> A list of host groups to place VMs of cluster on.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

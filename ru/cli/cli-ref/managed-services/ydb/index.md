@@ -25,6 +25,10 @@ Syntax:
 	- [yc ydb database delete](database/delete.md) — Delete the specified YDB database.
 	- [yc ydb database add-labels](database/add-labels.md) — Add labels to specified YDB database.
 	- [yc ydb database remove-labels](database/remove-labels.md) — Remove labels from specified YDB database.
+	- [yc ydb database list-access-bindings](database/list-access-bindings.md) — List access bindings for the specified YDB database.
+	- [yc ydb database set-access-bindings](database/set-access-bindings.md) — Set access bindings for the specified YDB database and delete all existing access bindings if there were any.
+	- [yc ydb database add-access-binding](database/add-access-binding.md) — Add access binding for the specified YDB database.
+	- [yc ydb database remove-access-binding](database/remove-access-binding.md) — Remove access binding for the specified YDB database.
 - [yc ydb storage-type](storage-type/index.md) — View YDB storage types.
 	- [yc ydb storage-type get](storage-type/get.md) — Get information about the specified YDB storage type preset.
 	- [yc ydb storage-type list](storage-type/list.md) — List YDB storage types.
@@ -35,6 +39,10 @@ Syntax:
 	- [yc ydb backup get](backup/get.md) — Get information about the specified YDB backup.
 	- [yc ydb backup list](backup/list.md) — List YDB backups in a folder.
 	- [yc ydb backup delete](backup/delete.md) — Delete the specified YDB backups.
+	- [yc ydb backup list-access-bindings](backup/list-access-bindings.md) — List access bindings for the specified YDB backup.
+	- [yc ydb backup set-access-bindings](backup/set-access-bindings.md) — Set access bindings for the specified YDB backup and delete all existing access bindings if there were any.
+	- [yc ydb backup add-access-binding](backup/add-access-binding.md) — Add access binding for the specified YDB backup.
+	- [yc ydb backup remove-access-binding](backup/remove-access-binding.md) — Remove access binding for the specified YDB backup.
 
 #### Global Flags
 

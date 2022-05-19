@@ -2,13 +2,11 @@
 
 You can [create](#create) a revision, get [information](#get) about it or a [list of container revisions](#list), and [add environment variables](#revision-env).
 
-{% note info %}
-
-To ensure the integrity of version links, you can't update or delete container revisions. When creating a new container revision, the previous one becomes obsolete and unavailable for invocations.
-
-{% endnote %}
+{% include [manage-revision-note](../../_includes/serverless-containers/manage-revision-note.md) %}
 
 To manage container revisions, you need the name or unique ID of the container that this revision belongs to. To get them, [get a list of containers](./list.md).
+
+{% include [create-revision-note](../../_includes/serverless-containers/create-revision-note.md) %}
 
 ## Creating a revision {#create}
 

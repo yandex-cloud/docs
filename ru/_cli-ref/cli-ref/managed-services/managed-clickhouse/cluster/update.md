@@ -33,6 +33,8 @@ Syntax:
 |`--websql-access`| Allow access for Web SQL|
 |`--metrika-access`| Allow access for Yandex Metrika|
 |`--serverless-access`| Allow access for Serverless|
+|`--datatransfer-access`| Allow access for DataTransfer|
+|`--yandexquery-access`| Allow access for Yandex Query|
 |`--cloud-storage`| Whether to use Yandex Object Storage for storing ClickHouse data.|
 |`--enable-sql-database-management`| Whether database management through SQL commands is enabled.|
 |`--enable-sql-user-management`| Whether user management through SQL commands is enabled.|

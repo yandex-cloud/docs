@@ -6,7 +6,7 @@ You can invoke a container:
 * Using a [{{ sf-full-name }} trigger](#trigger).
 * Using the [{{ api-gw-full-name }} extension](#extension).
 
-When invoking a container, your application accepts HTTP requests to the port passed in the `PORT` environment variable. The port on which the application serves HTTP requests is set in the container revision settings.
+{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
 ## HTTPS {#https}
 

@@ -19,7 +19,7 @@ When [creating a node group](../operations/node-group/node-group-create.md), sel
 
 {% note info %}
 
-When calculating the current limits and quotas, {{ managed-k8s-name }} uses the specified maximum node group size as the actual size, regardless of the current group size.
+When calculating the current limits and [quotas]({{ link-console-quotas }}), {{ managed-k8s-name }} uses the specified maximum node group size as the actual size, regardless of the current group size.
 
 {% endnote %}
 

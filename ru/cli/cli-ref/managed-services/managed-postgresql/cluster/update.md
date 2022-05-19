@@ -35,6 +35,7 @@ Syntax:
 |`--datalens-access`| Allow access for DataLens|
 |`--websql-access`| Allow access for Web SQL|
 |`--serverless-access`| Allow access for Serverless|
+|`--datatransfer-access`| Allow access for DataTransfer|
 |`--maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Maintenance window settings  Possible property names:  type Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.  hour Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.  day Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'  |
 |`--performance-diagnostics`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Performance diagnostics settings  Possible property names:  enabled Enable or disable performance diagnostics  sessions-sampling-interval pg_stat_activity sampling interval  statements-sampling-interval pg_stat_statements sampling interval|
 

@@ -1,4 +1,4 @@
-# Hierarchy of Yandex Cloud resources
+# {{ yandex-cloud }} resource hierarchy
 
 When you get access to Yandex Cloud, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
 
@@ -14,15 +14,15 @@ Resource access rights are inherited within the cloud. Rights to access the clou
 
 Some types of resources are not created in folders, so they have a separate logic for verifying access rights. For example, when a user manages access keys for a service account, the rights to access this service account are verified.
 
-## Clouds as a {{ yandex-cloud }} resource {#cloud}
+## Cloud as a {{ yandex-cloud }} resource {#cloud}
 
-_A cloud_ is an isolated space where folders are created.
+A _cloud_ is an isolated space where folders are created.
 
 When a resource is created within the cloud, no one except the cloud members and owners may access the resource.
 
 ### Cloud owner {#owner}
 
-When a cloud is created, an owner is assigned to it. The cloud owner is the user assigned the `{{ roles-cloud-owner }}` role for this cloud.
+When a cloud is created, the owner is assigned to it. The cloud owner is the user assigned the `{{ roles-cloud-owner }}` role for this cloud.
 
 The owner can perform any operation with the cloud and its resources.
 
@@ -34,7 +34,7 @@ A cloud must have at least one owner. The sole owner of a cloud may not give up 
 
 The cloud member is a user assigned the `{{ roles-cloud-member }}` role for this cloud.
 
-The user needs the cloud member role to perform operations with cloud resources, except for resources that allow [public access](#public-access).
+A user with a Yandex account requires the cloud member role to manipulate perform operations in a cloud not owned by the organization. The exception is resources with [public access](#public-access).
 
 > For example, if a cloud member is assigned the `{{ roles-editor }}` role for a folder inside the cloud, such user can create resources in that folder. If the cloud member role is revoked for a user, the user can no longer perform any operations.
 
@@ -48,7 +48,7 @@ The `{{ roles-cloud-member }}` role isn't necessary for cloud owners and service
 
 ### Public access to the cloud {#public-access}
 
-You can make your cloud (and any of its resources) public [by assigning a role to the system group](../../iam/operations/roles/grant.md#access-to-all). Then to access a resource, you don't have to be a cloud member. You just need to know the resource ID. Learn more about [system groups](../../iam/concepts/access-control/system-group.md).
+You can make your cloud (and any of its resources) public by [assigning a role to the system group](../../iam/operations/roles/grant.md#access-to-all). Then to access a resource, you don't have to be a cloud member. You just need to know the resource ID. Learn more about [system groups](../../iam/concepts/access-control/system-group.md).
 
 ## Folders as a {{ yandex-cloud }} resource {#folder}
 
@@ -59,6 +59,7 @@ Just like folders in your file system, folders in {{ yandex-cloud }} make resour
 You can manage access rights for all resources in the folder at once. Let's say your company has employees working with virtual machines only. You can create a folder containing virtual machines only and grant employees access to this folder.
 
 You can view the contents of the folder in the management console. To find out which folder hosts a given resource, use the API or CLI `Get` method for this resource (the `get` command in the CLI).
+
 
 ## Inheritance of access rights {#access-rights-inheritance}
 

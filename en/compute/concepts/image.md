@@ -49,4 +49,4 @@ Fast deployment is achieved by using multiple layers for storing data in storage
 
 Standard images from the Marketplace are already optimized for deployment. To optimize your image, select the **Optimize for deployment** option when uploading the image.
 
-By default, optimized images have a zero quota. To increase the quota, contact [support](../../support/overview.md).
+By default, optimized images have a zero quota. To increase the [quota]({{ link-console-quotas }}), contact [support](../../support/overview.md).

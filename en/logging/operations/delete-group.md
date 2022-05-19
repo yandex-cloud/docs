@@ -12,7 +12,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete a [log group](../concepts/log-group.md).
    1. Select **{{ cloud-logging-name }}**.
-   1. In the log group's line, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+   1. In your log group's line, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI
@@ -44,6 +44,63 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
 - API
 
-   You can delete a custom log group using the [delete](../api-ref/LogGroup/delete.md) API method.
+   You can [delete](../api-ref/LogGroup/delete.md) a custom log group using the delete API method.
+
+- Terraform
+
+   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To delete a log group created with Terraform:
+
+   1. Open the Terraform configuration file and delete the section with the log group description.
+
+      {% cut "Example log group description in Terraform configuration" %}
+
+      ```hcl
+      ...
+      resource "yandex_logging_group" "group1" {
+        name      = "test-logging-group"
+        folder_id = "${data.yandex_resourcemanager_folder.test_folder.id}"
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. In the command line, go to the directory with the Terraform configuration file.
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```
+      yc logging group list
+      ```
 
 {% endlist %}

@@ -18,6 +18,7 @@ Aliases:
 - [yc managed-sqlserver cluster list](list.md) — List SQLServer clusters
 - [yc managed-sqlserver cluster create](create.md) — Create SQLServer cluster
 - [yc managed-sqlserver cluster restore](restore.md) — Restore SQLServer cluster
+- [yc managed-sqlserver cluster start-failover](start-failover.md) — Start manual failover for the specified SQLServer cluster
 - [yc managed-sqlserver cluster update](update.md) — Update the specified SQLServer cluster
 - [yc managed-sqlserver cluster update-config](update-config.md) — Update the specified SQLServer cluster config
 - [yc managed-sqlserver cluster add-labels](add-labels.md) — Add labels to SQLServer cluster

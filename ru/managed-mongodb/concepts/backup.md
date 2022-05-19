@@ -60,9 +60,7 @@ keywords:
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
-
-    Подробнее см. в разделе [Правила тарификации для {{ mmg-name }}](../pricing.md#rules-storage).
-
+        Подробнее см. в разделе [Правила тарификации для {{ mmg-name }}](../pricing.md#rules-storage).
 ## Проверка резервной копии {#verify}
 
 ### Проверка целостности резервной копии {#integrity}

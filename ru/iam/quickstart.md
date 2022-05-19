@@ -19,8 +19,8 @@
 Чтобы предоставить доступ к ресурсам облака пользователю с аккаунтом на Яндексе:
 
 1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
-1. [Выберите облако](../resource-manager/operations/cloud/switch-cloud.md).
-1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl)  (кнопка **Права доступа** на панели слева).
+1. [Выберите](../resource-manager/operations/cloud/switch-cloud.md) облако.
+1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
 1. Нажмите значок ![image](../_assets/options.svg) в правом верхнем углу страницы.
 1. Нажмите **Добавить пользователя**.
 1. Введите электронную почту пользователя в Яндексе.
@@ -40,8 +40,8 @@
 
     1. Назначьте пользователю роль в облаке:
 
-        1. [Выберите облако](../resource-manager/operations/cloud/switch-cloud.md).
-        1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl) (кнопка **Права доступа** на панели слева).
+        1. [Выберите](../resource-manager/operations/cloud/switch-cloud.md) облако.
+        1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
         1. Выберите пользователя в списке и нажмите значок ![image](../_assets/options.svg) напротив имени пользователя.
         1. Нажмите кнопку **Изменить роли**.
         1. В окне **Настройка прав доступа** облака нажмите кнопку **Добавить роль**.
@@ -80,8 +80,8 @@
 
     * Чтобы отозвать роль в облаке:
 
-        1. [Выберите облако](../resource-manager/operations/cloud/switch-cloud.md).
-        1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl) (кнопка **Права доступа** на панели слева).
+        1. [Выберите](../resource-manager/operations/cloud/switch-cloud.md) облако.
+        1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
         1. Выберите пользователя в списке и нажмите значок ![image](../_assets/options.svg) напротив имени пользователя.
         1. Если вы хотите отозвать все роли пользователя в облаке:
             1. Нажмите кнопку **Отозвать роли**.

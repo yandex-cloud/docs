@@ -11,11 +11,17 @@ yandex.cloud.audit.<service name>.<event name>
 Below are events for services:
 
 * [{{ at-name }}](#audit-trails)
+* [{{ certificate-manager-name }}](#certificate-manager)
 * [{{ cloud-logging-name }}](#cloud-logging-name)
 * [{{ compute-name }}](#compute)
 * [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
+* [{{ mch-short-name }}](#managed-service-for-clickhouse)
+* [{{ mmg-short-name }}](#managed-service-for-mongodb)
+* [{{ mmy-short-name }}](#managed-service-for-mysql)
+* [{{ mpg-short-name }}](#managed-service-for-postgresql)
+* [{{ mrd-short-name }}](#managed-service-for-redis)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
 * [{{ resmgr-name }}](#resmgr)
@@ -27,19 +33,31 @@ Below are events for services:
 Service name: `audittrails`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateTrail` | Creating a trail |
 | `DeleteTrail` | Deleting a trail |
 | `SetTrailAccessBindings` | Setting access bindings for a trail |
 | `UpdateTrail` | Editing a trail |
 | `UpdateTrailAccessBindings` | Updating access bindings for a trail |
 
+## {{ certificate-manager-name }} {#certificate-manager}
+
+Service name: `certificatemanager`.
+
+| Event name | Description |
+--- | ---
+| `CreateCertificate` | Create a certificate |
+| `UpdateCertificate` | Edit a certificate |
+| `DeleteCertificate` | Delete a certificate |
+| `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
+| `SetCertificateAccessBindings` | Setting access bindings for a certificate |
+
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
 Service name: `logging`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateLogGroup` | Creating a log group |
 | `UpdateLogGroup` | Editing a log group |
 | `DeleteLogGroup` | Deleting a log group |
@@ -51,7 +69,7 @@ Service name: `logging`.
 Service name: `compute`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
 | `AttachInstanceDisk` | Attaching a disk to a VM instance |
 | `AttachInstanceFilesystem` | Connecting a file system to a VM |
@@ -79,7 +97,7 @@ Service name: `compute`.
 | `UpdateInstanceNetworkInterface` | Updating VM network settings |
 | `UpdateSnapshot` | Updating a disk snapshot |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
-| `instancegroup.DeleteInstanceGroup` | Deleting an instance group |
+| `instancegroup.DeleteInstanceGroup` | Deleting an instance group. |
 | `instancegroup.DeleteInstanceGroupInstances` | Deleting an instance from a group |
 | `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
 | `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
@@ -95,10 +113,10 @@ Service name: `compute`.
 Service name: `iam`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddFederatedUserAccounts` | Adding a user to a federation |
 | `CreateAccessKey` | Creating an access key |
-| `CreateApiKey` | Creating an API key |
+| `CreateApiKey` | Creating API keys |
 | `CreateCertificate` | Adding a certificate for a federation |
 | `CreateFederation` | Creating a federation |
 | `CreateIamCookieForSubject` | Federated user login ^*^ |
@@ -125,7 +143,7 @@ Service name: `iam`.
 Service name: `kms`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CancelDeleteSymmetricKey` | Canceling a previously scheduled key destruction |
 | `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of a symmetric key version |
 | `CreateSymmetricKey` | Creating a symmetric key |
@@ -142,7 +160,7 @@ Service name: `kms`.
 Service Name: `lockbox`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddVersion` | Adding a version of a secret |
 | `ActivateSecret` | Activating a secret |
 | `CancelVersionDestruction` | Canceling a previously scheduled destruction of a secret version |
@@ -156,14 +174,155 @@ Service Name: `lockbox`.
 | `UpdateSecretAccessBindings` | Updating access bindings for a secret |
 
 \* By default, this event is not included in the audit log. To have this event added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
-"Please include data plane Lockbox events in audit trail `<trail id>`".
+"Please include data plane Lockbox events in audit trail `<trail ID>`."
+
+## {{ mch-short-name }} {#managed-service-for-clickhouse}
+
+Service name: `mdb.clickhouse`.
+
+| Event name | Description |
+--- | ---
+| `AddClusterHosts` | Adding new hosts to a cluster |
+| `AddClusterShard` | Adding a shard to a cluster |
+| `AddClusterZookeeper` | Adding a ZooKeeper subcluster to a cluster |
+| `BackupCluster` | Creating backups |
+| `CreateCluster` | Creating clusters |
+| `CreateClusterExternalDictionary` | Creating an external dictionary |
+| `CreateDatabase` | Creating a database |
+| `CreateFormatSchema` | Creating a data format schema |
+| `CreateMlModel` | Creating a machine learning model |
+| `CreateShardGroup` | Creating a shard group |
+| `CreateUser` | Creating a database user |
+| `DeleteCluster` | Deleting clusters |
+| `DeleteClusterExternalDictionary` | Editing an external dictionary |
+| `DeleteClusterHosts` | Deleting hosts from a cluster |
+| `DeleteClusterShard` | Deleting a shard from a cluster |
+| `DeleteDatabase` | Deleting a database |
+| `DeleteFormatSchema` | Deleting a data format schema |
+| `DeleteMlModel` | Deleting a machine learning model |
+| `DeleteShardGroup` | Deleting a shard group |
+| `DeleteUser` | Deleting a database user |
+| `GrantUserPermission` | Assigning privileges to a database user |
+| `MoveCluster` | Moving a cluster |
+| `RestoreCluster` | Creating a new cluster from a backup |
+| `RevokeUserPermission` | Revoking a database user's privileges |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
+| `UpdateCluster` | Updating clusters |
+| `UpdateClusterExternalDictionary` | Deleting an external dictionary |
+| `UpdateClusterShard` | Editing a cluster shard |
+| `UpdateFormatSchema` | Editing a data schema format |
+| `UpdateMlModel` | Editing a machine learning model |
+| `UpdateShardGroup` | Editing a shard group |
+| `UpdateUser` | Editing a database user |
+
+## {{ mmg-short-name }} {#managed-service-for-mongodb}
+
+Service name: `mdb.mongodb`.
+
+| Event name | Description |
+--- | ---
+| `AddClusterHosts` | Adding new hosts to a cluster |
+| `AddClusterShard` | Adding a shard to a cluster |
+| `BackupCluster` | Creating backups |
+| `CreateCluster` | Creating clusters |
+| `CreateDatabase` | Creating a database |
+| `CreateUser` | Creating a database user |
+| `DeleteCluster` | Deleting clusters |
+| `DeleteClusterHosts` | Deleting hosts from a cluster |
+| `DeleteClusterShard` | Deleting a shard from a cluster |
+| `DeleteDatabase` | Deleting a database |
+| `DeleteUser` | Deleting a database user |
+| `EnableClusterSharding` | Enabling sharding for a cluster |
+| `GrantUserPermission` | Assigning privileges to a database user |
+| `MoveCluster` | Moving a cluster |
+| `RestoreCluster` | Creating a new cluster from a backup |
+| `RevokeUserPermission` | Revoking a database user's privileges |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
+| `UpdateCluster` | Updating clusters |
+| `UpdateUser` | Editing a database user |
+
+## {{ mmy-short-name }} {#managed-service-for-mysql}
+
+Service name: `mdb.mysql`.
+
+| Event name | Description |
+--- | ---
+| `AddClusterHosts` | Adding new hosts to a cluster |
+| `BackupCluster` | Creating backups |
+| `CreateCluster` | Creating clusters |
+| `CreateDatabase` | Creating a database |
+| `CreateUser` | Creating a database user |
+| `DeleteCluster` | Deleting clusters |
+| `DeleteClusterHosts` | Deleting hosts from a cluster |
+| `DeleteDatabase` | Deleting a database |
+| `DeleteUser` | Deleting a database user |
+| `GrantUserPermission` | Assigning privileges to a database user |
+| `MoveCluster` | Moving a cluster |
+| `RescheduleMaintenance` | Rescheduling scheduled maintenance |
+| `RestoreCluster` | Creating a new cluster from a backup |
+| `RevokeUserPermission` | Revoking a database user's privileges |
+| `StartCluster` | Start cluster |
+| `StartClusterFailover` | Launching master switching for a cluster |
+| `StopCluster` | Stop cluster |
+| `UpdateCluster` | Updating clusters |
+| `UpdateClusterHosts` | Editing hosts in a cluster |
+| `UpdateUser` | Editing a database user |
+
+## {{ mpg-short-name }} {#managed-service-for-postgresql}
+
+Service name: `mdb.postgresql`.
+
+| Event name | Description |
+--- | ---
+| `AddClusterHosts` | Adding new hosts to a cluster |
+| `BackupCluster` | Creating backups |
+| `CreateCluster` | Creating clusters |
+| `CreateDatabase` | Creating a database |
+| `CreateUser` | Creating a database user |
+| `DeleteCluster` | Deleting clusters |
+| `DeleteClusterHosts` | Deleting hosts from a cluster |
+| `DeleteDatabase` | Deleting a database |
+| `DeleteUser` | Deleting a database user |
+| `GrantUserPermission` | Assigning privileges to a database user |
+| `MoveCluster` | Moving a cluster |
+| `RestoreCluster` | Creating a new cluster from a backup |
+| `RevokeUserPermission` | Revoking a database user's privileges |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
+| `UpdateCluster` | Updating clusters |
+| `UpdateClusterHosts` | Editing hosts in a cluster |
+| `UpdateDatabase` | Updating a database |
+| `UpdateUser` | Editing a database user |
+
+## {{ mrd-short-name }} {#managed-service-for-redis}
+
+Service name: `mdb.redis`.
+
+| Event name | Description |
+--- | ---
+| `AddClusterHosts` | Adding new hosts to a cluster |
+| `AddClusterShard` | Adding a shard to a cluster |
+| `BackupCluster` | Creating backups |
+| `CreateCluster` | Creating clusters |
+| `DeleteCluster` | Deleting clusters |
+| `DeleteClusterHosts` | Deleting hosts from a cluster |
+| `DeleteClusterShard` | Deleting a shard from a cluster |
+| `MoveCluster` | Moving a cluster |
+| `RebalanceCluster` | Rebalancing a cluster |
+| `RestoreCluster` | Creating a new cluster from a backup |
+| `StartCluster` | Start cluster |
+| `StartClusterFailover` | Launching master switching for a cluster |
+| `StopCluster` | Stop cluster |
+| `UpdateCluster` | Updating clusters |
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Service name: `loadbalancer`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `AddNetworkLoadBalancerListener` | Adding listener to network load balancer |
 | `AddTargetGroupTargets` | Adding a VM to a target group |
 | `AttachNetworkLoadBalancerTargetGroup` | Connecting a target group to a network load balancer |
@@ -181,10 +340,10 @@ Service name: `loadbalancer`.
 
 ## {{ objstorage-name }} {#objstorage}
 
-Service name: `storage`.
+Service name — `storage`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `BucketAclUpdate` | Updating the ACL for a bucket |
 | `BucketCorsUpdate` | Updating the CORS configuration for a bucket |
 | `BucketCreate` | Creating a bucket |
@@ -199,14 +358,14 @@ Service name: `storage`.
 | `ObjectUpdate` | Updating an object in a bucket ^*^ |
 
 \* The audit log does not include the above events by default. To have these events added to the audit log, please contact [technical support]({{ link-console-support }}). Message template:
-"Please enable the recording of data plane object storage events in audit trail `<trail id>`".
+"Please enable the recording of data plane object storage events in audit trail `<trail id>`."
 
 ## {{ resmgr-name }} {#resmgr}
 
 Service name: `resourcemanager`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateCloud` | Creating a cloud |
 | `CreateFolder` | Creating a folder |
 | `DeleteCloud` | Deleting a cloud |
@@ -223,7 +382,7 @@ Service name: `resourcemanager`.
 Service name: `network`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `CreateAddress` | Creating a cloud resource address |
 | `CreateNetwork` | Creating a cloud network |
 | `CreateRouteTable` | Creating a routing table |
@@ -250,9 +409,9 @@ Service name: `network`.
 Service name: `ydb`.
 
 | Event name | Description |
-| --- | --- |
+--- | ---
 | `BackupDatabase` | Creating a database backup |
-| `CreateDatabase` | Creating databases |
+| `CreateDatabase` | Creating a database |
 | `DeleteBackup` | Deleting a database backup |
 | `DeleteDatabase` | Deleting a database |
 | `RestoreBackup` | Restoring a database from a backup |

@@ -64,6 +64,7 @@ Aliases:
 	- [yc serverless container list](container/list.md) — List containers
 	- [yc serverless container create](container/create.md) — Create a container
 	- [yc serverless container update](container/update.md) — Update the specified container
+	- [yc serverless container rollback](container/rollback.md) — Rollback the specified container to the specified revision
 	- [yc serverless container add-labels](container/add-labels.md) — Add labels to specified container
 	- [yc serverless container remove-labels](container/remove-labels.md) — Remove labels from specified container
 	- [yc serverless container delete](container/delete.md) — Delete the specified container

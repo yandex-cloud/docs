@@ -51,4 +51,63 @@
 
    You can edit a log group's record retention period using the API [update](../api-ref/LogGroup/update.md) method.
 
+- Terraform
+
+   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To edit the record retention time in a log group created with Terraform:
+
+   1. Open the Terraform configuration file and edit the value of the `retention_period` parameter in the log group description:
+
+      ```hcl
+      ...
+      resource "yandex_logging_group" "group1" {
+        name      = "test-logging-group"
+        folder_id = "<folder ID>"
+        retention_period = "5h"
+      }
+      ...
+      ```
+
+      Where:
+      * `name`: Name of the log group. Optional.
+      * `folder_id`: ID of the folder. Optional. By default, the value specified in the provider settings is used.
+      * `retention_period`: Record retention period in the log group. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
+
+      For more detailed information about the parameters of the `yandex_logging_group` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/logging_group).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify that the log group has been updated in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+      ```
+      yc logging group get <log group name>
+      ```
+
 {% endlist %}

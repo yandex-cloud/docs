@@ -29,6 +29,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the SQLServer cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/> A list of host groups to place VMs of cluster on.|
+|`--service-account-id`|<b>`string`</b><br/> Service account id to assign to cluster hosts.|
 |`--confirm-payment`| Confirm immediate payment for cluster creation/modification/restoring|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 

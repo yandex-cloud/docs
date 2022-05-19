@@ -21,11 +21,19 @@ Syntax:
 	- [yc datatransfer endpoint create postgres-target](create/postgres-target.md) — Create PostgreSQL target
 	- [yc datatransfer endpoint create mysql-source](create/mysql-source.md) — Create MySQL source
 	- [yc datatransfer endpoint create mysql-target](create/mysql-target.md) — Create MySQL target
+	- [yc datatransfer endpoint create mongo-source](create/mongo-source.md) — Create MongoDB source
+	- [yc datatransfer endpoint create mongo-target](create/mongo-target.md) — Create MongoDB target
+	- [yc datatransfer endpoint create clickhouse-source](create/clickhouse-source.md) — Create Clickhouse source
+	- [yc datatransfer endpoint create clickhouse-target](create/clickhouse-target.md) — Create Clickhouse target
 - [yc datatransfer endpoint update](update/index.md) — Update endpoint
 	- [yc datatransfer endpoint update postgres-source](update/postgres-source.md) — Update PostgreSQL source
 	- [yc datatransfer endpoint update postgres-target](update/postgres-target.md) — Update PostgreSQL target
 	- [yc datatransfer endpoint update mysql-source](update/mysql-source.md) — Update MySQL source
 	- [yc datatransfer endpoint update mysql-target](update/mysql-target.md) — Update MySQL target
+	- [yc datatransfer endpoint update mongo-source](update/mongo-source.md) — Update MongoDB source
+	- [yc datatransfer endpoint update mongo-target](update/mongo-target.md) — Update MongoDB target
+	- [yc datatransfer endpoint update clickhouse-source](update/clickhouse-source.md) — Update Clickhouse source
+	- [yc datatransfer endpoint update clickhouse-target](update/clickhouse-target.md) — Update Clickhouse target
 
 #### Global Flags
 

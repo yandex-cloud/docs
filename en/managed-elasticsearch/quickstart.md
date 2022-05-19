@@ -1,7 +1,6 @@
 # Getting started with {{ mes-name }}
 
 To get started with the service:
-
 1. [{#T}](#cluster-create).
 1. [{#T}](#configuring-security-groups).
 1. [{#T}](#connect).
@@ -11,14 +10,13 @@ To get started with the service:
 ## Before you start {#before-you-begin}
 
 1. Log in the [management console]({{ link-console-main }}) or sign up if you aren't registered yet.
-
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
-    - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
-    - To connect to a cluster from the internet, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node) when creating a cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
+   * To connect to a cluster from the internet, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node) when creating a cluster.
 
 {% note info %}
 
@@ -29,11 +27,8 @@ This instruction assumes that you're connecting to the cluster from the internet
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a cluster.
-
 1. Select **{{ mes-name }}**.
-
 1. Click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-
 1. Set the cluster parameters.
 
    To access the Kibana web interface, request public access:
@@ -46,8 +41,7 @@ This instruction assumes that you're connecting to the cluster from the internet
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
 1. Click **Create cluster**.
-
-1. Wait until the cluster is ready: its status on the {{ mes-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mes-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Configure security groups {#configuring-security-groups}
 
@@ -58,19 +52,18 @@ This instruction assumes that you're connecting to the cluster from the internet
 It is assumed that all the steps below are performed on Linux.
 
 To connect to a cluster:
-
 1. Install an SSL certificate:
 
-   ```
+   ```bash
    $ mkdir -p ~/.elasticsearch
-   $ wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
+   $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
    $ chmod 0600 ~/.elasticsearch/root.crt
    ```
 
 1. Connect to the cluster using [cURL](https://curl.haxx.se/):
 
-   ```
-   $ curl \
+   ```bash
+   curl \
      --user <username>:<password> \
      --cacert ~/.elasticsearch/root.crt \
      -X GET 'https://<FQDN of the publicly available {{ ES }} host with the Data node role>:9200'
@@ -98,17 +91,14 @@ To connect to a cluster:
    1. Install the [SSL certificate](https://storage.yandexcloud.net/cloud-certs/CA.pem) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. In the browser, go to `https://<FQDN of the publicly available {{ ES }} host with the Data node role>`.
    1. Enter the username and password that you set when [creating a cluster](#cluster-create).
-
 1. Upload one or more test datasets to {{ ES }} using Kibana:
    1. On the Kibana welcome screen, click **Try our sample data**.
    1. Add data from one or more datasets by clicking **Add data** for the selected dataset.
-
 1. Explore the data with Kibana and {{ ES }} by clicking **View data** for a dataset.
 
 To learn more about Kibana, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/kibana/current/connect-to-elasticsearch.html).
 
 ## What's next {#whats-next}
 
-- Read about [service concepts](concepts/index.md).
-- Learn more about [creating clusters](operations/cluster-create.md) and [connecting to clusters](operations/cluster-connect.md).
-
+* Read about [service concepts](concepts/index.md).
+* Learn more about [creating clusters](operations/cluster-create.md) and [connecting to clusters](operations/cluster-connect.md).

@@ -22,11 +22,11 @@
 
 Список настроек, зависящих от класса хостов:
 
-- [Autovacuum max workers](#setting-autovacuum-max-workers);
-- [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay);
-- [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit);
-- [Conn limit](#setting-conn-limit);
-- [Max connections](#setting-max-connections);
+- [Autovacuum max workers](#setting-autovacuum-max-workers).
+- [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay).
+- [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit).
+- [Conn limit](#setting-conn-limit).
+- [Max connections](#setting-max-connections).
 - [Shared buffers](#setting-shared-buffers).
 
 Список настроек, зависящих от размера хранилища:

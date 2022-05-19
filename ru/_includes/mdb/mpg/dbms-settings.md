@@ -815,6 +815,11 @@
   200 × <количество vCPU на одном хосте>
   ```
 
+  Для хостов с гарантированной долей vCPU ниже 100% (`burstable`) используются фиксированные максимальные значения:
+
+  - `b1.nano`, `b1.micro`, `b2.nano`, `b2.micro` — `100`.
+  - `b1.medium`, `b2.medium` — `200`.
+
   По умолчанию установлено максимальное значение.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).

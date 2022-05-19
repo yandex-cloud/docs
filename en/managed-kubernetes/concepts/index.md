@@ -155,7 +155,7 @@ By default, a service is only available within a specific {{ k8s }} cluster, but
 
 ## Namespace {#namespace}
 
-_A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resources and distributes quotas to them. This is useful for isolating resources of different teams and projects in a single {{ k8s }} cluster.
+_A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resources and distributes [quotas]({{ link-console-quotas }}) to them. This is useful for isolating resources of different teams and projects in a single {{ k8s }} cluster.
 
 ## Service accounts {#service-accounts}
 

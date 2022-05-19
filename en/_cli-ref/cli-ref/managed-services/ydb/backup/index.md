@@ -13,6 +13,10 @@ Syntax:
 - [yc ydb backup get](get.md) — Get information about the specified YDB backup.
 - [yc ydb backup list](list.md) — List YDB backups in a folder.
 - [yc ydb backup delete](delete.md) — Delete the specified YDB backups.
+- [yc ydb backup list-access-bindings](list-access-bindings.md) — List access bindings for the specified YDB backup.
+- [yc ydb backup set-access-bindings](set-access-bindings.md) — Set access bindings for the specified YDB backup and delete all existing access bindings if there were any.
+- [yc ydb backup add-access-binding](add-access-binding.md) — Add access binding for the specified YDB backup.
+- [yc ydb backup remove-access-binding](remove-access-binding.md) — Remove access binding for the specified YDB backup.
 
 #### Global Flags
 
