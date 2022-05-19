@@ -21,20 +21,11 @@ Content-Type: multipart/form-data
 {% cut "Заголовки" %}
 
 - **Host**
-    {% if audience == "external" %}
     Адрес узла, предоставляющего API:
 
     ```
     {{ host }}
     ```
-
-    {% else %}
-
-    ```
-    https://st-api.yandex-team.ru/
-    ```
-
-    {% endif %}
 
 - **Authorization**
 
