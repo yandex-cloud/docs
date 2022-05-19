@@ -1,0 +1,1 @@
+[`resource-manager.editor`](../../../../iam/concepts/access-control/roles.md#yrm-roles) grants permission to create, edit, or delete clouds or folders. It is assigned for an organization, a cloud, or a folder.
