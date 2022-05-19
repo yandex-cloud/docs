@@ -5,10 +5,9 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 # Графические ускорители GPU и vGPU
 
-{{ compute-short-name }} предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт. GPU обрабатывают некоторые типы данных эффективнее, чем vCPU, и могут использоваться для сложных вычислений.
+{{ compute-name }} предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт. GPU обрабатывают некоторые типы данных эффективнее, чем vCPU, и могут использоваться для сложных вычислений.
 
-В {{ compute-short-name }} доступны следующие графические карты:
-
+В {{ compute-name }} доступны следующие графические карты:
 * [NVIDIA® Tesla® V100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/v100/){% endif %} с 32 ГБ памяти HBM2 (High Bandwidth Memory).
 * [NVIDIA® Ampere® A100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/a100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/a100/){% endif %} с 80 ГБ памяти HBM2.
 * [NVIDIA® Tesla® T4]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-t4/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/tesla-t4/){% endif %} с 16 ГБ памяти GDDR6.
@@ -19,15 +18,15 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 {% endnote %}
 
-По умолчанию в облаке установлена нулевая [квота](../concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU и vGPU. Чтобы изменить квоту, обратитесь в [техническую поддержку]({{ link-console-support }}).
+По умолчанию в облаке установлена нулевая [квота](../concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU и vGPU. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
 
-Виртуальные машины с GPU и vGPU нельзя создавать в зоне доступности `ru-central1-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md). 
+ВМ с GPU и vGPU нельзя создавать в зоне доступности `ru-central1-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 ## Графические ускорители (GPU) {#gpu}
 
 Графические ускорители подходят для задач машинного обучения (Machine Learning, ML), искусственного интеллекта (Artificial Intelligence, AI) и обработки трехмерной графики (3D Rendering).
 
-Контролировать GPU и RAM можно непосредственно с виртуальной машины.
+Контролировать GPU и RAM можно непосредственно с ВМ.
 
 ### NVIDIA® Tesla® V100 {#tesla-v100}
 
@@ -44,38 +43,37 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
 ### Конфигурации виртуальных машин {#config}
 
 Доступные конфигурации вычислительных ресурсов:
-
 * Платформа {{ v100-broadwell }} (`gpu-standard-v1`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
-  --- |  ---  |  ---  | ---
-  1   |  32   |  8    | 96
-  2   |  64   |  16   | 192
-  4   |  128  |  32   | 384
+  --- | --- | --- | ---
+  1 | 32 | 8 | 96
+  2 | 64 | 16 | 192
+  4 | 128 | 32 | 384
 
 * Платформа {{ v100-cascade-lake }} (`gpu-standard-v2`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
-  --- |  ---  |  ---  | ---
-  1   |  32   |  8    | 48
-  2   |  64   |  16   | 96
-  4   |  128  |  32   | 192
-  8   |  256  |  64   | 384
+  --- | --- | --- | ---
+  1 | 32 | 8 | 48
+  2 | 64 | 16 | 96
+  4 | 128 | 32 | 192
+  8 | 256 | 64 | 384
 
 * Платформа {{ a100-epyc }} (`gpu-standard-v3`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
-  1   | 80  | 28  | 119
-  2   | 160 | 56  | 238
-  4   | 320 | 112 | 476
-  8   | 640 | 224 | 952
+  1 | 80 | 28 | 119
+  2 | 160 | 56 | 238
+  4 | 320 | 112 | 476
+  8 | 640 | 224 | 952
 
 * Платформа {{ t4-ice-lake }} (`standard-v3-t4`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
-  1   | 16  | 32  | 128
+  1 | 16 | 32 | 128
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
 
@@ -87,21 +85,23 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
 
 ## Виртуальные графические ускорители (vGPU) {#vgpu}
 
-{{ compute-short-name }} предоставляет возможность виртуализации графических ускорителей (GPU). Виртуализация машин с GPU основана на технологии [NVIDIA® vGPU]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/virtualization/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/virtual-solutions/){% endif %}.
+{{ compute-name }} предоставляет возможность виртуализации графических ускорителей (GPU). Виртуализация машин с GPU основана на технологии [NVIDIA® vGPU]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/virtualization/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/virtual-solutions/){% endif %}.
 
 Технология NVIDIA® vGPU позволяет использовать карты с GPU как для решения графических, так и для вычислительных задач на vGPU. Для этого вам понадобятся соответствующие [лицензии](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 
 Чтобы воспользоваться технологией vGPU, необходимы:
 * ВМ на [платформе](vm-platforms.md) `vgpu-standard-v1` с одним из образов:
-  * [Ubuntu 18.04 LTS vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %};
+  * [Ubuntu 18.04 LTS vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}.
   * [Windows Server 2019 Datacenter vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}.
 * Лицензия [NVIDIA® RTX vWS]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/design-visualization/virtual-workstation/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/design-visualization/virtual-workstation/){% endif %} для использования технологии [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 * Сервер лицензий [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 
 Для работы с лицензией вы можете:
 * Использовать свой текущий сервер лицензий.
+
   Текущий сервер лицензий должен быть доступен по сети из ВМ с vGPU.
 * Создать ВМ с сервером лицензий NVIDIA® vGPU Software License Server в {{ yandex-cloud }}.
+
   Как установить и настроить сервер лицензий читайте в [документации NVIDIA](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html#installing-nvidia-grid-license-server).
 
 ### Конфигурации виртуальных машин с vGPU {#config-vgpu}

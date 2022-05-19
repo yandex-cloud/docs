@@ -155,16 +155,18 @@ data:
 
 ## Пространство имен {#namespace}
 
-_Пространство имен_ — абстракция, которая логически изолирует ресурсы кластера {{ k8s }} и распределяет квоты на них. Это полезно для разделения ресурсов разных команд и проектов в одном кластере {{ k8s }}.
+_Пространство имен_ — абстракция, которая логически изолирует ресурсы кластера {{ k8s }} и распределяет [квоты]({{ link-console-quotas }}) на них. Это полезно для разделения ресурсов разных команд и проектов в одном кластере {{ k8s }}.
 
 ### Сервисные аккаунты {#service-accounts}
 
-В кластерах {{ managed-k8s-full-name }} используется два типа сервисных аккаунтов:
+В кластерах {{ managed-k8s-name }} используется два типа сервисных аккаунтов:
 * **Облачные сервисные аккаунты**
+
   Эти аккаунты существуют на уровне отдельного каталога в облаке и могут использоваться как {{ managed-k8s-name }}, так и другими сервисами.
 
   Подробнее см. в разделе [{#T}](../security/index.md) и [{#T}](../../iam/concepts/users/service-accounts.md).
 * **Сервисные аккаунты {{ k8s }}**
+
   Эти аккаунты существуют и действуют только на уровне отдельного кластера {{ managed-k8s-name }}. Они применяются {{ k8s }} для:
   * Аутентификации запросов к API кластера от приложений, развернутых в кластере.
   * Настройки прав доступа для этих приложений.
@@ -191,7 +193,7 @@ _Метки узлов_, `node_labels` — механизм группировк
 
 Не путайте [облачные метки группы узлов](../../overview/concepts/services.md#labels) (`labels`) и [{{ k8s }}-метки узлов]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/labels/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){% endif %} (`node_labels`), которыми управляет {{ managed-k8s-name }}.
 
-Мы рекомендуем управлять всеми метками узлов через [API {{ managed-k8s-full-name }}](../api-ref/NodeGroup/index.md), поскольку во время [обновления/изменения групп узлов](../operations/node-group/node-group-update.md), по умолчанию, часть узлов пересоздается с другим именем, а часть старых удаляется. Поэтому метки, добавленные через [{{ k8s }} API]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/kubernetes-api){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/kubernetes-api){% endif %} могут быть потеряны. И наоборот, удаление через {{ k8s }} API меток, созданных через API {{ managed-k8s-name }}, не имеет эффекта, — они будут восстановлены.
+Мы рекомендуем управлять всеми метками узлов через [API {{ managed-k8s-name }}](../api-ref/NodeGroup/index.md), поскольку во время [обновления/изменения групп узлов](../operations/node-group/node-group-update.md), по умолчанию, часть узлов пересоздается с другим именем, а часть старых удаляется. Поэтому метки, добавленные через [{{ k8s }} API]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/kubernetes-api){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/kubernetes-api){% endif %} могут быть потеряны. И наоборот, удаление через {{ k8s }} API меток, созданных через API {{ managed-k8s-name }}, не имеет эффекта, — они будут восстановлены.
 
 {% endnote %}
 

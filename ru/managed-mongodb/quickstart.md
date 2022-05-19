@@ -1,13 +1,12 @@
-# Как начать работать с {{ mmg-short-name }}
+# Как начать работать с {{ mmg-name }}
 
 Чтобы начать работу с сервисом:
-
 1. [Создайте кластер](#cluster-create).
 1. [Подключитесь к БД](#connect).
 
 {% if audience == "internal" %}
 
-Для внутреннего сервиса MDB развернут [веб-интерфейс]({{ console-link }}), где кластер БД можно накликать. Подробнее про квоты и соответствие ABC-сервисов облакам и каталогам читайте в разделе [{#T}](../mdb/access.md).
+Для внутреннего сервиса MDB развернут [веб-интерфейс]({{ console-link }}), где кластер БД можно накликать. Подробнее про [квоты]({{ link-console-quotas }}) и соответствие ABC-сервисов облакам и каталогам читайте в разделе [{#T}](../mdb/access.md).
 
 ## Доступ к кластерам БД {#access}
 
@@ -19,11 +18,11 @@
 
 Если вы планируете использовать CLI, установите и настройте его согласно [инструкции](../cli/quickstart.md).
 
-   Если все сделано правильно, должен заработать запрос списка кластеров:
+Если все сделано правильно, должен заработать запрос списка кластеров:
 
-   ```bash
-   {{ yc-mdb-mg }} cluster list
-   ```
+```bash
+{{ yc-mdb-mg }} cluster list
+```
 
 {% else %}
 
@@ -32,11 +31,11 @@
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. Если у вас еще нет каталога, создайте его:
 
-    {% include [create-folder](../_includes/create-folder.md) %}
+   {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
-   - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же облачной сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
-   - Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
+   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же облачной сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
+   * Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
    {% note info %}
 
@@ -44,8 +43,8 @@
 
    {% endnote %}
 
-1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-1. Установите MongoDB Shell:
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
+1. Установите {{ MG }} Shell:
 
    ```bash
    cd ~/ && \
@@ -66,82 +65,81 @@
 ## Подключитесь к БД {#connect}
 
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
-
 1. Получите SSL-сертификат:
 
-    {% if audience != "internal" %}
+   {% if audience != "internal" %}
 
-    1. Создайте каталог:
+   1. Создайте каталог:
 
-        ```bash
-        $ mkdir ~/.mongodb
-        ```
+      ```bash
+      mkdir ~/.mongodb
+      ```
 
-    1. Получите сертификат:
+   1. Получите сертификат:
 
-        ```bash
-        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt
-        ```
+      ```bash
+      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt
+      ```
 
-    1. Настройте права доступа к сертификату:
+   1. Настройте права доступа к сертификату:
 
-        ```bash
-        $ chmod 0600 ~/.mongodb/root.crt
-        ```
+      ```bash
+      chmod 0600 ~/.mongodb/root.crt
+      ```
 
-    {% else %}
+   {% else %}
 
-    1. Создайте каталог:
+   1. Создайте каталог:
 
-        ```bash
-        $ mkdir ~/.mongodb
-        ```
+      ```bash
+      mkdir ~/.mongodb
+      ```
 
-    1. Получите сертификат:
+   1. Получите сертификат:
 
-        ```bash
-        $ wget "{{ pem-path }}" -O ~/.mongodb/root.crt
-        ```
+      ```bash
+      wget "{{ pem-path }}" -O ~/.mongodb/root.crt
+      ```
 
-    1. Настройте права доступа к сертификату:
+   1. Настройте права доступа к сертификату:
 
-        ```bash
-        $ chmod 0600 ~/.mongodb/root.crt
-        ```
+      ```bash
+      chmod 0600 ~/.mongodb/root.crt
+      ```
 
-    {% endif %}
+   {% endif %}
 
 1. Подключитесь к кластеру с помощью {{ MG }} CLI:
 
-    {% if audience != "internal" %}
+   {% if audience != "internal" %}
 
-    ```bash
-    $ mongo --norc \
-            --ssl \
-            --sslCAFile ~/.mongodb/root.crt \
-            --host 'rs01/<адрес хоста 1>:27018,<адрес хоста 2>:27018,<адрес хоста N>:27018' \
-            -u <имя пользователя> \
-            -p <пароль пользователя> \
-            <имя БД>
-    ```
+   ```bash
+   mongo --norc \
+     --ssl \
+     --sslCAFile ~/.mongodb/root.crt \
+     --host 'rs01/<адрес хоста 1>:27018,<адрес хоста 2>:27018,<адрес хоста N>:27018' \
+     -u <имя пользователя> \
+     -p <пароль пользователя> \
+     <имя БД>
+   ```
 
-    {% else %}
+   {% else %}
 
-    ```bash
-    $ mongo --norc \
-            --ssl \
-            --sslCAFile ~/.mongodb/root.crt \
-            --ipv6 \
-            --host 'rs01/<адрес хоста 1>:27018,<адрес хоста 2>:27018,<адрес хоста N>:27018' \
-            -u <имя пользователя> \
-            -p <пароль пользователя> \
-            <имя БД>
-    ```
+   ```bash
+   mongo --norc \
+     --ssl \
+     --sslCAFile ~/.mongodb/root.crt \
+     --ipv6 \
+     --host 'rs01/<адрес хоста 1>:27018,<адрес хоста 2>:27018,<адрес хоста N>:27018' \
+     -u <имя пользователя> \
+     -p <пароль пользователя> \
+     <имя БД>
+   ```
 
-    {% endif %}
+   {% endif %}
 
 ## Что дальше {#whats-next}
 
-- Изучите [концепции сервиса](concepts/index.md).
-- Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect.md).
-- Ознакомьтесь с [вопросами и ответами](qa/general.md).
+* Изучите [концепции сервиса](concepts/index.md).
+* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect.md).
+* Ознакомьтесь с [вопросами и ответами](qa/general.md).
