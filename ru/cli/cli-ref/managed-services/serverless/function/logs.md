@@ -24,6 +24,7 @@ Syntax:
 |`-f`,`--follow`|Output logs as they arrive|
 |`--levels`|<b>`value[,value]`</b><br/>Show logs with these levels (comma-separated)|
 |`--filter`|<b>`string`</b><br/>Use this filter|
+|`--max-response-size`|<b>`byteSize`</b><br/>Specifies the maximum response size in bytes. You can also use M and T suffixes to specify MiB or TiB respectively. Default is 3.5 MiB.|
 
 #### Global Flags
 

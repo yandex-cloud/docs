@@ -26,6 +26,7 @@ Syntax:
 |`--datalens-access`| Allow access for DataLens|
 |`--websql-access`| Allow access for Web SQL|
 |`--serverless-access`| Allow access for Serverless|
+|`--datatransfer-access`| Allow access for DataTransfer|
 |`--postgresql-version`|<b>`string`</b><br/> Version of PostgreSQL used in the cluster. Values: 14, 13, 12, 11, 10, 10_1c|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
@@ -35,6 +36,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the PostgreSQL cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--host-group-ids`|<b>`value[,value]`</b><br/> A list of host groups to place VMs of cluster on.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

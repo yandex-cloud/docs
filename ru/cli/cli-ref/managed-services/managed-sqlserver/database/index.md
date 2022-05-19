@@ -21,6 +21,8 @@ Aliases:
 - [yc managed-sqlserver database list](list.md) — List SQLServer databases
 - [yc managed-sqlserver database create](create.md) — Create SQLServer database
 - [yc managed-sqlserver database restore](restore.md) — Restore SQLServer database
+- [yc managed-sqlserver database backup-export](backup-export.md) — Export SQLServer database backup to Object Storage
+- [yc managed-sqlserver database backup-import](backup-import.md) — Import SQLServer database from external backup in Object Storage
 - [yc managed-sqlserver database delete](delete.md) — Delete the specified SQLServer database
 
 #### Global Flags

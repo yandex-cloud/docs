@@ -101,11 +101,9 @@ editable: false
 
 - Выделенные хосты
 
-  Стоимость начисляется из двух компонентов:
-  * [цены за использование хранилища {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host);
-  * стоимости хранения резервных копий сверх свободного места в хранилище кластера:
+  Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../../compute/pricing.md#prices) и цены {{ mgp-name }} на него. Все цены указаны за 1 ГБ в месяц.
 
-     {% include notitle [rub-storage-dedicated.md](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}
+  {% include notitle [rub-storage-dedicated.md](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}
 
 {% endlist %}
 

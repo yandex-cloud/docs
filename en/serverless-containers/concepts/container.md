@@ -10,9 +10,13 @@ Learn more about [invoking a container](./invoke.md).
 
 ## Container revision {#revision}
 
-A container revision is created from a Docker image hosted in {{ container-registry-full-name }}. The revision contains all the information needed to run the container. To update a container revision or change its settings, you need to [create a new revision of the container](../operations/manage-revision.md#create).
+A container revision is created from a Docker image hosted in {{ container-registry-full-name }}. The revision contains all the information needed to run the container.
 
-If a Docker image isn't public, in the revision settings, you need to specify a service account with permission to pull the image.
+{% include [manage-revision-note](../../_includes/serverless-containers/manage-revision-note.md) %}
+
+{% include [create-revision-note](../../_includes/serverless-containers/create-revision-note.md) %}
+
+{% include [revision-service-account-note](../../_includes/serverless-containers/revision-service-account-note.md) %}
 
 ## Scaling a container {#scale}
 

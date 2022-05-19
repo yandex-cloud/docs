@@ -38,6 +38,12 @@ Aliases:
 - [yc managed-elasticsearch backup](backup/index.md) — Manage Elasticsearch backups.
 	- [yc managed-elasticsearch backup get](backup/get.md) — Get information about a Elasticsearch backup.
 	- [yc managed-elasticsearch backup list](backup/list.md) — List Elasticsearch backups available in a folder.
+- [yc managed-elasticsearch extension](extension/index.md) — Manage Elasticsearch extensions.
+	- [yc managed-elasticsearch extension get](extension/get.md) — Get information about a Elasticsearch extension.
+	- [yc managed-elasticsearch extension list](extension/list.md) — List Elasticsearch extension created for the cluster.
+	- [yc managed-elasticsearch extension create](extension/create.md) — Create new extension to the cluster.
+	- [yc managed-elasticsearch extension delete](extension/delete.md) — Remove specified extension from the cluster.
+	- [yc managed-elasticsearch extension update](extension/update.md) — Update specified extension from the cluster.
 - [yc managed-elasticsearch resource-preset](resource-preset/index.md) — Learn about ElasticSearch resource presets.
 	- [yc managed-elasticsearch resource-preset get](resource-preset/get.md) — Get information about a ElasticSearch resource preset.
 	- [yc managed-elasticsearch resource-preset list](resource-preset/list.md) — List available resource presets for Managed Service for ElasticSearch.

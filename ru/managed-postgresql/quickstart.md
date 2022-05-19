@@ -1,9 +1,8 @@
-# Как начать работать с {{ mpg-short-name }}
+# Как начать работать с {{ mpg-name }}
 
 Чтобы начать работу с сервисом:
-
-- [Создайте кластер БД](#cluster-create).
-- [Подключитесь к БД](#connect).
+* [Создайте кластер БД](#cluster-create).
+* [Подключитесь к БД](#connect).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -11,11 +10,11 @@
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. Если у вас еще нет каталога, создайте его:
 
-    {% include [create-folder](../_includes/create-folder.md) %}
+   {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
-   - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же облачной сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).  
-   - Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
+   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же облачной сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md)).
+   * Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
    {% note info %}
 
@@ -23,8 +22,8 @@
 
    {% endnote %}
 
-1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-1. Установите необходимые зависимости и клиент PostgreSQL:
+1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
+1. Установите необходимые зависимости и клиент {{ PG }}:
 
    ```bash
    sudo apt update && sudo apt install -y postgresql-client
@@ -36,45 +35,44 @@
 1. Выберите сервис **{{ mpg-name }}**.
 1. Нажмите кнопку **Создать кластер**.
 1. Задайте параметры кластера и нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
-1. Когда кластер будет готов к работе, его статус на панели {{ mpg-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+1. Когда кластер будет готов к работе, его статус на панели {{ mpg-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
 ## Подключитесь к БД {#connect}
 
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
-
 1. Для подключения к серверу БД получите SSL-сертификат:
 
-    
-    1. Создайте каталог:
+   
+   1. Создайте каталог:
 
-        ```bash
-        $ mkdir ~/.postgresql
-        ```
+      ```bash
+      mkdir ~/.postgresql
+      ```
 
-    1. Получите сертификат:
+   1. Получите сертификат:
 
-        ```bash
-        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
-        ```
+      ```bash
+      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
+      ```
 
-    1. Настройте права доступа к сертификату:
+   1. Настройте права доступа к сертификату:
 
-        ```bash
-        $ chmod 0600 ~/.postgresql/root.crt
-        ```
+      ```bash
+      chmod 0600 ~/.postgresql/root.crt
+      ```
 
 1. Используйте для подключения команду `psql`:
 
-    ```bash
-    $ psql "host=<адрес хоста> \
-          port=6432 \
-          sslmode=verify-full \
-          dbname=<имя базы данных> \
-          user=<имя пользователя базы данных>"
-    ```
+   ```bash
+   psql "host=<адрес хоста> \
+     port=6432 \
+     sslmode=verify-full \
+     dbname=<имя базы данных> \
+     user=<имя пользователя базы данных>"
+   ```
 
 ## Что дальше {#whats-next}
 
-- Изучите [концепции сервиса](./concepts/index.md).
-- Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к БД](./operations/connect.md).
-- Ознакомьтесь с [вопросами и ответами](./qa/general.md).
+* Изучите [концепции сервиса](concepts/index.md).
+* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect.md).
+* Ознакомьтесь с [вопросами и ответами](qa/general.md).

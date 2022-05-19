@@ -19,7 +19,7 @@ Syntax:
 |`--backend-group-name`|<b>`string`</b><br/> Backend group name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--name`|<b>`string`</b><br/> A name of the Stream backend to add.|
-|`--weight`|<b>`int`</b><br/> Weight of the HTTP backend.|
+|`--weight`|<b>`int`</b><br/> Weight of the Stream backend.|
 |`--port`|<b>`int`</b><br/> Port of the Stream backend.|
 |`--target-group-id`|<b>`value[,value]`</b><br/> Target groups for the backend, --target-group-id id1 --target-group-id=id2|
 |`--target-group-name`|<b>`value[,value]`</b><br/> Target groups for the backend, --target-group-name name1 --target-group-name=name2|
@@ -31,7 +31,8 @@ Syntax:
 |`--tls-trusted-ca-from-file`|<b>`string`</b><br/> Path to file with trusted CA for the backend|
 |`--http-healthcheck`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of HTTP health checks for backend.  Possible property names:  port Port of the health check.  healthy-threshold Healthy threshold of the health check.  unhealthy-threshold Unhealthy threshold of the health check.  timeout Timeout of the health check.  interval Interval of the health check.  host Host header to use for HTTP health check.  path Request path to use for HTTP health check.  use-http2 Enables HTTP2 protocol for HTTP health check.  |
 |`--grpc-healthcheck`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of gRPC health checks for backend.  Possible property names:  port Port of the health check.  healthy-threshold Healthy threshold of the health check.  unhealthy-threshold Unhealthy threshold of the health check.  timeout Timeout of the health check.  interval Interval of the health check.  service-name Service name of the gRPC health check.  |
-|`--stream-healthcheck`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of stream (TCP) health checks for backend.  Possible property names:  port Port of the health check.  healthy-threshold Healthy threshold of the health check.  unhealthy-threshold Unhealthy threshold of the health check.  timeout Timeout of the health check.  interval Interval of the health check.  send-text Text to send for stream (TCP) health check.  receive-text Text to receive for stream (TCP) health check.|
+|`--stream-healthcheck`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of stream (TCP) health checks for backend.  Possible property names:  port Port of the health check.  healthy-threshold Healthy threshold of the health check.  unhealthy-threshold Unhealthy threshold of the health check.  timeout Timeout of the health check.  interval Interval of the health check.  send-text Text to send for stream (TCP) health check.  receive-text Text to receive for stream (TCP) health check.  |
+|`--enable-proxy-protocol`| Enables Proxy protocol for the Stream backend.|
 
 #### Global Flags
 

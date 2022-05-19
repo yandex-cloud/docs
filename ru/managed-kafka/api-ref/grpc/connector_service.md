@@ -214,6 +214,7 @@ sasl_username | **string**<br>Sasl username which we use to connect to cluster.
 sasl_password | **string**<br>Sasl password which we use to connect to cluster. 
 sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
 security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+ssl_truststore_certificates | **string**<br>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol. 
 
 
 ### Operation {#Operation}
@@ -351,6 +352,7 @@ sasl_username | **string**<br>Sasl username which we use to connect to cluster.
 sasl_password | **string**<br>Sasl password which we use to connect to cluster. 
 sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
 security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+ssl_truststore_certificates | **string**<br>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol. 
 
 
 ### Operation {#Operation1}

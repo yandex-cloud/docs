@@ -6,14 +6,13 @@ description: "Access management in a service that allows you to structure {{ yan
 # Access management in {{ resmgr-name }}
 
 In this section, you'll learn:
-
-* [What resources you can assign the](#resources) role to.
-* [What roles exist in the service](#roles-list).
-* [What roles are required](#required-roles) for particular actions.
+* [Which resources you can assign roles to](#resources).
+* [Which roles exist in the service](#roles-list).
+* [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to. {#resources}
+## What resources you can assign roles to {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -26,12 +25,16 @@ The diagram shows which roles are available in the service and how they inherit 
 Active roles in the service:
 
 * Service roles:
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+   * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+   * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+   * {% include [resource-manager.admin](../../_includes/iam/roles/short-descriptions/resource-manager.admin.md) %}
+   * {% include [resource-manager.editor](../../_includes/iam/roles/short-descriptions/resource-manager.editor.md) %}
+   * {% include [resource-manager.viewer](../../_includes/iam/roles/short-descriptions/resource-manager.viewer.md) %}
+
 * Primitive roles:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
+   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
+   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
 ## What roles do I need {#required-roles}
 

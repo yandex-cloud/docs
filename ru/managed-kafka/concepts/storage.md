@@ -3,7 +3,7 @@
 
 {{ mkf-name }} позволяет использовать сетевые и локальные диски для организации хранилища кластеров баз данных. Сетевые диски реализованы на базе сетевых блоков — виртуальных дисков в инфраструктуре {{ yandex-cloud }}. Локальные диски физически размещаются в [серверах-брокерах](brokers.md).
 
-{% include [storage-type-nrd](../../_includes/mdb//mkf/storage-type.md) %}
+{% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
 ## Особенности хранилища на локальных SSD-дисках {#local-storage-features}
 
@@ -15,11 +15,11 @@
 
 ## Минимальный размер хранилища {#minimal-storage-size}
 
-Для работы каждого [топика](./topics.md#topics) необходимо место в хранилище хостов-брокеров. Размер этого места зависит от фактора репликации и количества [разделов](./topics.md#partitions). Если свободного места в хранилище меньше, создать новый топик невозможно.
+Для работы каждого [топика](topics.md#topics) необходимо место в хранилище хостов-брокеров. Размер этого места зависит от фактора репликации и количества [разделов](topics.md#partitions). Если свободного места в хранилище меньше, создать новый топик невозможно.
 
 {% note tip %}
 
-Объем хранилища всегда можно [увеличить](../operations/cluster-update.md#change-disk-size) в рамках действующих квот.
+Объем хранилища всегда можно [увеличить](../operations/cluster-update.md#change-disk-size) в рамках действующих [квот]({{ link-console-quotas }}).
 
 {% endnote %}
 
@@ -32,9 +32,8 @@
 ## Максимальный размер сегмента логов {#maximum-log-segment-size}
 
 Для каждой реплики раздела топика необходимо как минимум два сегмента логов. Максимальный размер такого сегмента может быть определен:
-
-- [на уровне топика](../operations/cluster-topics.md#update-topic) — настройкой [Segment bytes](settings-list.md#settings-topic-segment-bytes);
-- глобально [на уровне кластера](../operations/cluster-update.md#change-kafka-settings) — настройкой [Log segment bytes](settings-list.md#settings-log-segment-bytes).
+* [на уровне топика](../operations/cluster-topics.md#update-topic) — настройкой [Segment bytes](settings-list.md#settings-topic-segment-bytes);
+* глобально [на уровне кластера](../operations/cluster-update.md#change-kafka-settings) — настройкой [Log segment bytes](settings-list.md#settings-log-segment-bytes).
 
 Таким образом, минимальный размер хранилища для всех топиков составляет: `2 × максимальный размер сегмента логов × количество разделов в кластере × фактор репликации`. Если разделы кластера распределены равномерно, получившуюся сумму можно поделить на количество брокеров, чтобы определить требуемый размер хранилища для одного брокера.
 

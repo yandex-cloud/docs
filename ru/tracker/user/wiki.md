@@ -28,4 +28,4 @@
 
 Пример | Результат
 ----- | -----
-``` {{tasks url="https://st.yandex-team.ru/filters/<фильтр>}} ``` | ![](../../_assets/tracker/magic-tickets-list.png)
+``` {{tasks url="{{ link-tracker }}filters/<фильтр>}} ``` | ![](../../_assets/tracker/magic-tickets-list.png)

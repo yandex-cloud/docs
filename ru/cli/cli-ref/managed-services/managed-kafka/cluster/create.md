@@ -21,6 +21,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of Kafka cluster labels as key-value pairs.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
 |`--network-name`|<b>`string`</b><br/> Network name.|
+|`--datatransfer-access`| Allow access for DataTransfer|
 |`--version`|<b>`string`</b><br/> Version of the Kafka server software.|
 |`--zone-ids`|<b>`value[,value]`</b><br/> List of availability zones.|
 |`--brokers-count`|<b>`int`</b><br/> Count of brokers in each availability zone.|
@@ -30,7 +31,7 @@ Syntax:
 |`--zookeeper-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
 |`--zookeeper-disk-size`|<b>`byteSize`</b><br/> Storage volume available to a ZooKeeper host.|
 |`--zookeeper-disk-type`|<b>`string`</b><br/> Storage type of a ZooKeeper host.|
-|`--assign-public-ip`| Whether a Kafka host should get a public IP address on creation.|
+|`--assign-public-ip`| Whether a Kafka brokers should get a public IP address.|
 |`--unmanaged-topics`| Whether a Kafka cluster allows to manage topics via AdminAPI.|
 |`--schema-registry`| Enables managed Schema Registry sevice.|
 |`--subnet-ids`|<b>`value[,value]`</b><br/> Optional list of subnets to place nodes of the cluster in. If not specified nodes will be placed in arbitrary subnets of the given network within given availability zones.|

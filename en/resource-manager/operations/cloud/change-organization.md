@@ -1,18 +1,30 @@
 # Changing an organization for a cloud
 
+{% note info %}
+
+In the [management console]({{ link-console-main }}), you can select the interface of navigating resources and services. To switch to another navigation mode: in the account information section, click ![image](../../../_assets/settings.svg), then select ![image](../../../_assets/experiments.svg) **Experiments** and enable **New navigation**.
+
+{% endnote %}
+
 To change the organization assigned to the cloud:
 
 {% list tabs %}
 
-- Management console
+- Old navigation
 
-  1. Open the [management console](https://console.cloud.yandex.com).
-  1. Find the cloud in the **Available clouds** list and point to it with the mouse. The ![***](../../../_assets/options.svg) icon appears next to the cloud. Click on it.
+   1. In the [management console]({{ link-console-main }}) click ![***](../../../_assets/options.svg) next to the appropriate cloud and select **Change organization**.
 
       ![image](../../../_assets/iam/cloud-actions.png)
 
-  1. Click **Change organization**.
-  1. Select a new organization from the list and click **Change**.
+   1. Select a new organization from the list and click **Change**. This automatically creates a request to [technical support]({{ link-console-support }}).
+
+- New navigation
+
+   1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
+   1. In the upper-right corner, click ![***](../../../_assets/options.svg)and select **Change organization**.
+
+      ![image](../../../_assets/iam/change-organization-n-n.png)
+
+   1. Select a new organization from the list and click **Change**.
 
 {% endlist %}
-

@@ -17,7 +17,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Endpoint name|
 |`--description`|<b>`string`</b><br/>Endpoint description|
-|`--cluster-id`|<b>`string`</b><br/>Yandex Managed Service for PostgreSQL cluster ID|
+|`--cluster-id`|<b>`string`</b><br/>Yandex Managed PostgreSQL cluster ID|
 |`--host`|<b>`value[,value]`</b><br/>PostgreSQL server host name or IP address|
 |`--port`|<b>`int`</b><br/>PostgreSQL server port|
 |`--ca-certificate`|<b>`string`</b><br/>Path to the CA certificate of the PostgreSQL server. Implies enabled TLS|

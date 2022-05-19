@@ -62,7 +62,7 @@ The "empty" space on the disk then becomes truly empty and you can create a disk
 
 #### How are snapshot quotas counted {#how-shapshot-qoutas-taken}
 
-Snapshots are counted in the quotas based on the size of the parent disks. For example, if a snapshot was created from a 250 GB disk, the quota for the size of snapshots allows for 250 GB, even if the actual size of the snapshot is 20 GB. This is done so that both developers and customers can realistically understand possible loads on the disk snapshot service.
+Snapshots are counted in the [quotas]({{ link-console-quotas }}) based on the size of the parent disks. For example, if a snapshot was created from a 250 GB disk, the quota for the size of snapshots allows for 250 GB, even if the actual size of the snapshot is 20 GB. This is done so that both developers and customers can realistically understand possible loads on the disk snapshot service.
 
 This approach of counting the quota doesn't affect the pricing: snapshots are charged according to their real size.
 

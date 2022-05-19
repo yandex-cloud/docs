@@ -36,7 +36,7 @@ It consists of a [body](#message-body) and additional system properties.
 
 ### Message body {#message-body}
 
-The body of a message is a set of bytes. {{ yds-full-name }} does not interpret the message body in any way.
+The body of a message is a set of bytes. {{ yds-name }} does not interpret the message body in any way.
 
 ### Message sequence number {#sequence-number}
 
@@ -52,5 +52,4 @@ Consumers are applications that get data from {{ yds-name }} and process it. All
 
 ## Consumer groups {#extended-consumers}
 
-In some cases, a quota model that is common for all consumers is too restrictive, so each consumer is provided a guaranteed read speed. Consumers with a guaranteed read speed are called _consumer groups_.
-
+In some cases, a [quota]]({{ link-console-quotas }}) model that is common for all consumers is too restrictive, so each consumer is provided a guaranteed read speed. Consumers with a guaranteed read speed are called _consumer groups_.

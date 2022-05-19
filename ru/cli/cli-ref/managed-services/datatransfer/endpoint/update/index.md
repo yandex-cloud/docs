@@ -17,6 +17,10 @@ Syntax:
 - [yc datatransfer endpoint update postgres-target](postgres-target.md) — Update PostgreSQL target
 - [yc datatransfer endpoint update mysql-source](mysql-source.md) — Update MySQL source
 - [yc datatransfer endpoint update mysql-target](mysql-target.md) — Update MySQL target
+- [yc datatransfer endpoint update mongo-source](mongo-source.md) — Update MongoDB source
+- [yc datatransfer endpoint update mongo-target](mongo-target.md) — Update MongoDB target
+- [yc datatransfer endpoint update clickhouse-source](clickhouse-source.md) — Update Clickhouse source
+- [yc datatransfer endpoint update clickhouse-target](clickhouse-target.md) — Update Clickhouse target
 
 #### Global Flags
 

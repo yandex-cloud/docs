@@ -20,6 +20,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Kafka cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--datatransfer-access`| Allow access for DataTransfer|
 |`--version`|<b>`string`</b><br/> Version of the Kafka server software.|
 |`--zone-ids`|<b>`value[,value]`</b><br/> List of availability zones.|
 |`--brokers-count`|<b>`int`</b><br/> Count of brokers in each availability zone.|
@@ -27,6 +28,7 @@ Syntax:
 |`--disk-size`|<b>`byteSize`</b><br/> Storage volume available to a Kafka host.|
 |`--zookeeper-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
 |`--zookeeper-disk-size`|<b>`byteSize`</b><br/> Storage volume available to a ZooKeeper host.|
+|`--assign-public-ip`| Whether a Kafka brokers should get a public IP address.|
 |`--unmanaged-topics`| Whether a Kafka cluster allows to manage topics via AdminAPI.|
 |`--schema-registry`| Enables managed Schema Registry sevice.|
 |`--compression-type`|<b>`string`</b><br/> Allows to set Kafka cluster configuration property "compression.type". Possible values are: gzip, snappy, lz4, zstd, producer, uncompressed.|
