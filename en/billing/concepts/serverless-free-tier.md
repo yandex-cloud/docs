@@ -5,7 +5,6 @@ Special rates are applicable to services within the serverless computing ecosyst
 {% if audience != "internal" %}
 
 Free tier applies to the following services:
-
 * [{{ api-gw-full-name }}](#api-gw)
 * [{{ sf-full-name }}](#sf)
 * [{{ ydb-full-name }}](#ydb)
@@ -14,6 +13,7 @@ Free tier applies to the following services:
 * [{{ iot-full-name }}](#iot)
 * [{{ vpc-full-name }}](#vpc)
 * [{{ yds-full-name }}](#yds)
+* [{{ serverless-containers-full-name }}](#serverless-containers)
 
 ## {{ api-gw-full-name }} {#api-gw}
 
@@ -79,5 +79,12 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
-{% endif %}
+## {{ serverless-containers-full-name }} {#serverless-containers}
 
+{% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-serverless-containers.md) %}
+
+After you spend the free amount of services, you will be charged at the applicable [rate](../../serverless-containers/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+{% endif %}

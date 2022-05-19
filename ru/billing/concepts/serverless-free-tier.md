@@ -13,6 +13,7 @@ Free tier распространяется на сервисы:
 * [{{ iot-full-name }}](#iot)
 * [{{ vpc-full-name }}](#vpc)
 * [{{ yds-full-name }}](#yds)
+* [{{ serverless-containers-full-name }}](#serverless-containers)
 
 ## {{ api-gw-full-name }} {#api-gw}
 
