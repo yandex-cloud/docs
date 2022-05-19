@@ -27,8 +27,8 @@
 
 1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
 1. Войдите в [консоль управления]({{ link-console-main }}).
-1. [Выберите облако](../../../resource-manager/operations/cloud/switch-cloud.md).
-1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl)  (кнопка **Права доступа** на панели слева).
+1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
+1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
 1. Нажмите значок ![image](../../../_assets/options.svg) в правом верхнем углу страницы.
 1. Нажмите **Добавить пользователя**.
 1. Введите электронную почту пользователя в Яндексе.
