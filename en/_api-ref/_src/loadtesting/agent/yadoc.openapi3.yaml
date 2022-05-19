@@ -6,6 +6,11 @@ info:
 paths: {}
 components:
   schemas:
+    Agent:
+      type: object
+      properties:
+        id:
+          type: string
     AmmoType:
       description: |-
         Ammo type for generators: phantom.ammo_type,
@@ -76,6 +81,11 @@ components:
         code:
           type: string
           format: int64
+    ExternalAgentRegisterMetadata:
+      type: object
+      properties:
+        agentId:
+          type: string
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

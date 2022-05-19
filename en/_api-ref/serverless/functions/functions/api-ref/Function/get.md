@@ -9,7 +9,7 @@ To get the list of all available functions, make a [list](/docs/functions/functi
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}
+GET https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}
 ```
  
 ## Path parameters {#path_params}

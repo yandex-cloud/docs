@@ -9,7 +9,7 @@ Retrieves a list of Greenplum® clusters that belong to the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters
+GET https://mdb.{{ api-host }}/managed-greenplum/v1/clusters
 ```
  
 ## Query parameters {#query_params}
@@ -159,7 +159,9 @@ filter | A filter expression that filters resources listed in the response. The 
             "gpWorkfileLimitPerQuery": "integer",
             "gpWorkfileLimitFilesPerQuery": "integer",
             "maxPreparedTransactions": "integer",
-            "gpWorkfileCompression": true
+            "gpWorkfileCompression": true,
+            "maxStatementMem": "integer",
+            "logStatement": "string"
           },
           "userConfig": {
             "maxConnections": "integer",
@@ -168,7 +170,9 @@ filter | A filter expression that filters resources listed in the response. The 
             "gpWorkfileLimitPerQuery": "integer",
             "gpWorkfileLimitFilesPerQuery": "integer",
             "maxPreparedTransactions": "integer",
-            "gpWorkfileCompression": true
+            "gpWorkfileCompression": true,
+            "maxStatementMem": "integer",
+            "logStatement": "string"
           },
           "defaultConfig": {
             "maxConnections": "integer",
@@ -177,7 +181,9 @@ filter | A filter expression that filters resources listed in the response. The 
             "gpWorkfileLimitPerQuery": "integer",
             "gpWorkfileLimitFilesPerQuery": "integer",
             "maxPreparedTransactions": "integer",
-            "gpWorkfileCompression": true
+            "gpWorkfileCompression": true,
+            "maxStatementMem": "integer",
+            "logStatement": "string"
           }
         },
         // end of the list of possible fields`clusters[].clusterConfig`
@@ -213,7 +219,7 @@ clusters[].<br>config.<br>subnetId | **string**<br><p>ID of the subnet the clust
 clusters[].<br>config.<br>assignPublicIp | **boolean** (boolean)<br><p>Whether or not the cluster has a public IP address.</p> <p>After the cluster has been created, this setting cannot be changed.</p> 
 clusters[].<br>description | **string**<br><p>Description of the Greenplum® cluster. 0-256 characters long.</p> 
 clusters[].<br>labels | **object**<br><p>Custom labels for the Greenplum® cluster as ``key:value`` pairs. Maximum 64 labels per resource.</p> 
-clusters[].<br>environment | **string**<br><p>Deployment environment of the Greenplum® cluster.</p> <p>Deployment environment.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
+clusters[].<br>environment | **string**<br><p>Deployment environment of the Greenplum® cluster.</p> <ul> <li>PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li> </ul> 
 clusters[].<br>monitoring[] | **object**<br><p>Monitoring system metadata.</p> 
 clusters[].<br>monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
@@ -232,7 +238,7 @@ clusters[].<br>masterHostCount | **string** (int64)<br><p>Number of hosts in the
 clusters[].<br>segmentHostCount | **string** (int64)<br><p>Number of hosts in the segment subcluster.</p> 
 clusters[].<br>segmentInHost | **string** (int64)<br><p>Number of segments per host.</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the cloud network that the cluster belongs to.</p> 
-clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <p>Aggregated health of the cluster.</p> <ul> <li>HEALTH_UNKNOWN: Health of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is working normally (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> <li>UNBALANCED: Cluster is working below capacity (``health`` for at least one host in the cluster is UNBALANCED).</li> </ul> 
+clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: Health of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is working normally (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> <li>UNBALANCED: Cluster is working below capacity (``health`` for at least one host in the cluster is UNBALANCED).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster has encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster has stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 clusters[].<br>maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> <p>A Greenplum® cluster maintenance window. Should be defined by either one of the two options.</p> 
 clusters[].<br>maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <br>`clusters[].maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br><p>An any-time maintenance window.</p> 
@@ -294,6 +300,8 @@ clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>effectiveConfig.<br
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>effectiveConfig.<br>gpWorkfileLimitFilesPerQuery | **integer** (int64)<br><p>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>effectiveConfig.<br>maxPreparedTransactions | **integer** (int64)<br><p>Sets the maximum number of transactions that can be in the &quot;prepared&quot; state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>effectiveConfig.<br>gpWorkfileCompression | **boolean** (boolean)<br><p>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression</p> 
+clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>effectiveConfig.<br>maxStatementMem | **integer** (int64)<br><p>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB)</p> 
+clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>effectiveConfig.<br>logStatement | **string**<br><p>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig | **object**<br><p>User-defined settings for a Greenplum.</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html</p> 
@@ -302,6 +310,8 @@ clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig.<br>gpWo
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig.<br>gpWorkfileLimitFilesPerQuery | **integer** (int64)<br><p>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig.<br>maxPreparedTransactions | **integer** (int64)<br><p>Sets the maximum number of transactions that can be in the &quot;prepared&quot; state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig.<br>gpWorkfileCompression | **boolean** (boolean)<br><p>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression</p> 
+clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig.<br>maxStatementMem | **integer** (int64)<br><p>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB)</p> 
+clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>userConfig.<br>logStatement | **string**<br><p>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig | **object**<br><p>Default configuration for a Greenplum.</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html</p> 
@@ -310,4 +320,6 @@ clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig.<br>g
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig.<br>gpWorkfileLimitFilesPerQuery | **integer** (int64)<br><p>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig.<br>maxPreparedTransactions | **integer** (int64)<br><p>Sets the maximum number of transactions that can be in the &quot;prepared&quot; state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html</p> 
 clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig.<br>gpWorkfileCompression | **boolean** (boolean)<br><p>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression</p> 
+clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig.<br>maxStatementMem | **integer** (int64)<br><p>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB)</p> 
+clusters[].<br>clusterConfig.<br>greenplumConfigSet_6_19.<br>defaultConfig.<br>logStatement | **string**<br><p>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-greenplum/api-ref/Cluster/list#query_params">pageSize</a>, use the <a href="/docs/managed-greenplum/api-ref/Cluster/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-greenplum/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-greenplum/api-ref/Cluster/list#responses">nextPageToken</a> to continue paging through the results.</p> 

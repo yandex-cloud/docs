@@ -9,7 +9,7 @@ Updates the specified registry.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}
+PATCH https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}
 ```
  
 ## Path parameters {#path_params}

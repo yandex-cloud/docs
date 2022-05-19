@@ -12,7 +12,7 @@ See also:
 
 ## Setting up a runtime environment {#create-environment}
 
-1. [Create a service account](../../../iam/operations/sa/create.md) with the [role of](../../../iam/concepts/access-control/roles.md) `storage.editor` assigned.
+1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md).
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/index.md#sa).
 
 ## Set up {{ CSI }} {#configure-csi}
@@ -88,7 +88,7 @@ For [dynamic `PersistentVolumeClaim`](../../concepts/volume.md#dynamic-provision
 
     {% note info %}
 
-    This setting can be useful if the cloud enforces strict quotas on the number of {{ objstorage-name }} buckets.
+    This setting can be useful if the cloud enforces strict [quotas]({{ link-console-quotas }}) on the number of {{ objstorage-name }} buckets.
 
     {% endnote %}
 
@@ -107,6 +107,10 @@ For a [static `PersistentVolumeClaim`](../../concepts/volume.md#static-provision
   Deleting this type of `PersistentVolume` will not automatically delete its associated bucket.
 
   {% endnote %}
+
+* To update [GeeseFS](../../../storage/tools/geesefs.md) options for working with a bucket, specify them in the `spec.csi.volumeAttributes.options` parameter when creating a `PersistentVolume`. For example, in the `--uid` option, you can specify the ID of the user being the owner of all files in storage. To get a list of GeeseFS options, run the `geesefs -h` command or find it in the [GitHub repository](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
+
+  The GeeseFS options specified in the `parameters.options` parameter of `StorageClass` for static `PersistentVolumeClaims` are ignored. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
 [Example of creating](#create-static-pvc) a static `PersistentVolumeClaim`.
 
@@ -212,7 +216,7 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
    1. [Configure {{ CSI }}](#configure-csi).
    1. Create a file named `pvc-static.yaml`containing a description of your static `PersistentVolumeClaim`:
 
-      {% cut "pvc-static.yaml" %}
+      {% cut "pvс-static.yaml" %}
 
       ```yaml
       ---
@@ -267,7 +271,10 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
           volumeAttributes:
             capacity: 10Gi
             mounter: geesefs
+            options: "--memory-limit 1000 --dir-mode 0777 --file-mode 0666 --uid 1001"
       ```
+
+      In this example, GeeseFS settings for working with a bucket are changed as compared to `StorageClass`. The `--uid` option is added to them. It specifies the ID of the user being the owner of all files in storage: `1001`. For more information about setting up GeeseFS for a static `PersistentVolumeClaim`, see [above](#spvc-csi-usage).
 
       {% endcut %}
 

@@ -25,6 +25,10 @@ _Function `MIN` is also found in the following categories: [Window functions](MI
      )
   ```
 
+  More info:
+  - [FIXED, INCLUDE, EXCLUDE](aggregation-functions.md#syntax-lod)
+  - [BEFORE FILTER BY](aggregation-functions.md#syntax-before-filter-by)
+
 {% endlist %}
 
 #### Description {#description}

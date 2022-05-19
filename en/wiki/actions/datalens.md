@@ -2,7 +2,7 @@
 
 [{{ datalens-full-name }}](https://datalens.yandex-team.ru/) is a visualization and analytics service where you can create complex charts and dashboards using data from a variety of sources.
 
-To learn more the service and its features, read the [{{ datalens-full-name }} documentation](../../datalens/overview.md).
+To learn more the service and its features, read the [{{ datalens-full-name }} documentation](../../datalens/concepts/index.md).
 
 To add a diagram to a Wiki page, copy the embed code from the dashboard:
 

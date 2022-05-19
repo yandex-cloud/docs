@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/{resourceId}:setAccessBindings
+POST https://serverless-containers.{{ api-host }}/containers/v1/containers/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

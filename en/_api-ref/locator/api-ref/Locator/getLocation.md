@@ -10,7 +10,7 @@ cell towers and WiFi access points that the mobile client can detect.
  
 ## HTTP request {#https-request}
 ```
-POST https://locator.api.cloud.yandex.net/locator/v1/getLocation
+POST https://locator.{{ api-host }}/locator/v1/getLocation
 ```
  
 ## Body parameters {#body_params}

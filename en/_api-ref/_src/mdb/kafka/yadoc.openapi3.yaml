@@ -2100,6 +2100,11 @@ components:
             we should use to connect
             to cluster.
           type: string
+        sslTruststoreCertificates:
+          description: |-
+            CA in PEM format to connect to external cluster.
+            Lines of certificate separated by '\n' symbol.
+          type: string
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

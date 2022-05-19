@@ -9,7 +9,7 @@ To get the list of available Subnet resources, make a [list](/docs/vpc/api-ref/S
  
 ## HTTP request {#https-request}
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}
+GET https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
 ```
  
 ## Path parameters {#path_params}

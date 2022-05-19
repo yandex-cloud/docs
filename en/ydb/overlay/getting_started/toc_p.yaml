@@ -1,0 +1,6 @@
+items:
+  - name: Overview
+    href: index.md
+  - include: { mode: link, path: toc_i.yaml }
+  - name: Amazon DynamoDB-compatible Document API
+    include: { mode: link, path: ../quickstart/document-api/toc_i.yaml }

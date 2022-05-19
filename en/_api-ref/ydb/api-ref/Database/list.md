@@ -9,7 +9,7 @@ Retrieves a list of databases.
  
 ## HTTP request {#https-request}
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/databases
+GET https://ydb.{{ api-host }}/ydb/v1/databases
 ```
  
 ## Query parameters {#query_params}

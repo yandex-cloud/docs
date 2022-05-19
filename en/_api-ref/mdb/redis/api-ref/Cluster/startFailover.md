@@ -9,7 +9,7 @@ Start a manual failover on the specified Redis cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:startFailover
+POST https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}:startFailover
 ```
  
 ## Path parameters {#path_params}

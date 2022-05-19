@@ -10,7 +10,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
  
 ## HTTP request {#https-request}
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/routeTables
+POST https://vpc.{{ api-host }}/vpc/v1/routeTables
 ```
  
 ## Body parameters {#body_params}

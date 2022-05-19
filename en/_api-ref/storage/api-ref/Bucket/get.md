@@ -9,7 +9,7 @@ To get the list of all available buckets, make a [list](/docs/storage/api-ref/Bu
  
 ## HTTP request {#https-request}
 ```
-GET https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}
+GET https://storage.{{ api-host }}/storage/v1/buckets/{name}
 ```
  
 ## Path parameters {#path_params}

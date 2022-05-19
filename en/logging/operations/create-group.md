@@ -59,4 +59,64 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    You can create a custom log group using the [create](../api-ref/LogGroup/create.md) API method.
 
+- Terraform
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the parameters of resources that you want to create:
+
+      * `name`: Name of the log group. Optional. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional. By default, the value specified in the provider settings is used.
+
+      * `retention_period`: Record retention period in the log group. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
+
+      ```hcl
+      provider "yandex" {
+        token     = "<OAuth>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "ru-central1-a"
+      }
+
+      resource "yandex_logging_group" "group1" {
+        name      = "<log group name>"
+        folder_id = "<folder ID>"
+        retention_period = "5h"
+      }
+      ```
+
+      For more detailed information about the parameters of the `yandex_logging_group` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/logging_group).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+      ```
+      yc logging group list
+      ```
+
 {% endlist %}

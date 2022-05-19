@@ -17,7 +17,9 @@ You can write your application in any programming language and have it use any i
 
 ## Container response
 
-Your application must accept HTTP requests to the port passed in the `PORT` environment variable. After receiving the request, a container instance must send a response within the timeout specified in the **Timeout** field under the container revision settings. It includes the container instance launch time. Otherwise, the request terminates returning a 504 error.
+{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
+
+After receiving a request, a container instance must send a response within the timeout specified in the **Timeout** field of the container revision settings. It includes the container instance launch time. Otherwise, the request terminates returning a 504 error.
 
 ## Environment variables
 

@@ -6,11 +6,23 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release 25.04.22 {#250422}
+
+Changes to the `general:rc` model:
+
+1. Improved recognition of such words as gasification and regasification.
+1. Added service feedback when processing OGG-OPUS format was added. If a stream isn't valid audio in OPUS format, the service returns `Invalid_Argument`.
+
+## Previous versions {#previous}
+
+### Release 19.04.22 {#190422}
+
+1. Added Turkish language to the multi-language speech recognition model.
+1. [A new API version](v3/api-ref/grpc/) is available for {{ speechkit-full-name }} streaming recognition. The old interface will also be supported, but all new features will only be available in API v3.
+
 ### Release 14.03.22 {#140322}
 
 The [`general:rc` version](#020322) from March 2, 2022 is available under the `general` tag.
-
-## Previous versions {#previous}
 
 ### Release 02.03.22 {#020322}
 
@@ -38,6 +50,7 @@ The current release improved the quality of the Russian-language `general:rc` mo
    * Swedish
    * Danish
    * Polish
+   * Portuguese
    * Italian
    * Spanish
 

@@ -9,7 +9,7 @@ Lists origins of origin group.
  
 ## HTTP request {#https-request}
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/origins
+GET https://cdn.{{ api-host }}/cdn/v1/origins
 ```
  
 ## Query parameters {#query_params}

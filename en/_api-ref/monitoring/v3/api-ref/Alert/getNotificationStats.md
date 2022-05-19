@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts/{alertId}:getNotificationStats
+GET https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}:getNotificationStats
 ```
  
 ## Path parameters {#path_params}

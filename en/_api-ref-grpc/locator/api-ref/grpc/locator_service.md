@@ -34,9 +34,9 @@ uuid | **string**<br>Unique user identifier that can be used for debugging. May 
 Field | Description
 --- | ---
 mobile_country_code | **int64**<br>Required. Mobile Country Code ([MCC](https://en.wikipedia.org/wiki/Mobile_country_code)). Acceptable values are 1 to 999, inclusive.
-mobile_network_code | **int64**<br><ul><li>For GSM and WCDMA networks - [MNC](https://en.wikipedia.org/wiki/Mobile_country_code). </li><li>For CDMA - System ID (SID).</li></ul> Value must be greater than 0.
-cell_id | **int64**<br><ul><li>For GSM - Cell ID ([CID](https://en.wikipedia.org/wiki/Cell_ID). </li><li>For CDMA - Base Station ID (BID). </li><li>For WCDMA - UTRAN Cell ID which is a concatenation of the [Radio Network Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller) ID and Cell ID. Specifying only the Cell ID value in WCDMA networks may return inaccurate results.</li></ul> Value must be greater than 0.
-location_area_code | **int64**<br><ul><li>For GSM and WCDMA - Location Area Code ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)). </li><li>For CDMA - Network ID (NID). </li><li>For LTE - [Tracking Area Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).</li></ul> Value must be greater than 0.
+mobile_network_code | **int64**<br>Required. The cell tower's Mobile Network Code: <br><ul><li>For GSM and WCDMA networks - [MNC](https://en.wikipedia.org/wiki/Mobile_country_code). </li><li>For CDMA - System ID (SID).</li></ul> Value must be greater than 0.
+cell_id | **int64**<br>Required. Unique identifier of the cell: <br><ul><li>For GSM - Cell ID ([CID](https://en.wikipedia.org/wiki/Cell_ID). </li><li>For CDMA - Base Station ID (BID). </li><li>For WCDMA - UTRAN Cell ID which is a concatenation of the [Radio Network Controller](https://en.wikipedia.org/wiki/Radio_Network_Controller) ID and Cell ID. Specifying only the Cell ID value in WCDMA networks may return inaccurate results.</li></ul> Value must be greater than 0.
+location_area_code | **int64**<br>Required. <br><ul><li>For GSM and WCDMA - Location Area Code ([LAC](https://en.wikipedia.org/wiki/Mobility_management#Location_area)). </li><li>For CDMA - Network ID (NID). </li><li>For LTE - [Tracking Area Code](https://en.wikipedia.org/wiki/Mobility_management#Tracking_area).</li></ul> Value must be greater than 0.
 signal_strength | **int64**<br>Required. The current signal strength measured in dBm. Value must be less than 0.
 
 

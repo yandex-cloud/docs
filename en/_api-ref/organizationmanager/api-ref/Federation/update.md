@@ -9,14 +9,14 @@ Updates the specified federation.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}
+PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-federationId | ID of the federation to update. To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.  The maximum string length in characters is 50.
+federationId | ID of the federation to update. To get the federation ID, make a [list](/docs/organization/api-ref/Federation/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

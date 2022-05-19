@@ -9,7 +9,7 @@ Updates the specified Apache Kafka® cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}
+PATCH https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

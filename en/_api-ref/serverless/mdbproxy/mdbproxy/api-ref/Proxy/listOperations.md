@@ -9,7 +9,7 @@ Lists operations for the specified proxy.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies/{proxyId}/operations
+GET https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{proxyId}/operations
 ```
  
 ## Path parameters {#path_params}

@@ -48,7 +48,7 @@
     Please enter your numeric choice: 
     ```
 
-1. Укажите, надо ли активировать создаваемый профиль как профиль по-умолчанию:
+1. Укажите, надо ли активировать создаваемый профиль как профиль по умолчанию:
 
     ```text
     Activate profile "example" to use by default? (current active profile is not set) y/n:

@@ -44,7 +44,7 @@ options | **[ResourceOptions](#ResourceOptions)**<br>Resource settings and optio
 secondary_hostnames[] | **string**<br>List of secondary hostname strings. 
 origin_group_id | **int64**<br>ID of the origin group. 
 origin_group_name | **string**<br>Name of the origin group. 
-origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li><ul/>
+origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate)**<br>SSL certificate options. 
 
 
@@ -54,7 +54,7 @@ Field | Description
 --- | ---
 disable_cache | **[BoolOption](#BoolOption)**<br>Set up a cache status. 
 edge_cache_settings | **[EdgeCacheSettings](#EdgeCacheSettings)**<br>Set up [EdgeCacheSettings](#EdgeCacheSettings). 
-browser_cache_settings | **[Int64Option](#Int64Option)**<br><ol><li></li></ol> 
+browser_cache_settings | **[Int64Option](#Int64Option)**<br>Using [Int64Option](#Int64Option). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. 
 cache_http_headers | **[StringsListOption](#StringsListOption)**<br>List HTTP headers that must be included in responses to clients. 
 query_params_options | **[QueryParamsOptions](#QueryParamsOptions)**<br>Set up [QueryParamsOptions](#QueryParamsOptions). 
 slice | **[BoolOption](#BoolOption)**<br>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. <br>The origin must support HTTP Range requests. <br>By default the option is disabled. 
@@ -117,7 +117,7 @@ value | **map<string,string>**<br>Value of the option.
 
 Field | Description
 --- | ---
-simple_value | **int64**<br><ol><li></li></ol> 
+simple_value | **int64**<br>Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. 
 custom_values | **map<string,int64>**<br>Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. 
 
 
@@ -192,15 +192,15 @@ Field | Description
 --- | ---
 enabled | **bool**<br>True - the option is enabled and its `flag` is applied to the resource. False - the option is disabled and its default value of the `flag` is used for the resource. 
 body | **string**<br>Pattern for rewrite. <br>The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. 
-flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li><ul/>
+flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
 
 
 ### SSLCertificate {#SSLCertificate}
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData)**<br>Certificate data. 
 
 
@@ -256,7 +256,7 @@ options | **[ResourceOptions](#ResourceOptions1)**<br>Resource settings and opti
 secondary_hostnames[] | **string**<br>List of secondary hostname strings. 
 origin_group_id | **int64**<br>ID of the origin group. 
 origin_group_name | **string**<br>Name of the origin group. 
-origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li><ul/>
+origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate1)**<br>SSL certificate options. 
 
 
@@ -266,7 +266,7 @@ Field | Description
 --- | ---
 disable_cache | **[BoolOption](#BoolOption1)**<br>Set up a cache status. 
 edge_cache_settings | **[EdgeCacheSettings](#EdgeCacheSettings1)**<br>Set up [EdgeCacheSettings](#EdgeCacheSettings1). 
-browser_cache_settings | **[Int64Option](#Int64Option1)**<br><ol><li></li></ol> 
+browser_cache_settings | **[Int64Option](#Int64Option1)**<br>Using [Int64Option](#Int64Option1). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. 
 cache_http_headers | **[StringsListOption](#StringsListOption1)**<br>List HTTP headers that must be included in responses to clients. 
 query_params_options | **[QueryParamsOptions](#QueryParamsOptions1)**<br>Set up [QueryParamsOptions](#QueryParamsOptions1). 
 slice | **[BoolOption](#BoolOption1)**<br>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. <br>The origin must support HTTP Range requests. <br>By default the option is disabled. 
@@ -329,7 +329,7 @@ value | **map<string,string>**<br>Value of the option.
 
 Field | Description
 --- | ---
-simple_value | **int64**<br><ol><li></li></ol> 
+simple_value | **int64**<br>Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. 
 custom_values | **map<string,int64>**<br>Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. 
 
 
@@ -404,15 +404,15 @@ Field | Description
 --- | ---
 enabled | **bool**<br>True - the option is enabled and its `flag` is applied to the resource. False - the option is disabled and its default value of the `flag` is used for the resource. 
 body | **string**<br>Pattern for rewrite. <br>The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. 
-flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li><ul/>
+flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
 
 
 ### SSLCertificate {#SSLCertificate1}
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData1)**<br>Certificate data. 
 
 
@@ -449,7 +449,7 @@ folder_id | **string**<br>Required. ID of the to bind with new resource. The max
 cname | **string**<br>Required. CDN endpoint CNAME, must be unique among clients's resources. 
 origin | **[Origin](#Origin)**<br>Required. Specify the origins to be used for CDN resources requests. 
 secondary_hostnames | **[SecondaryHostnames](#SecondaryHostnames)**<br>List of additional CNAMEs. 
-origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li><ul/>
+origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 active | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Flag to create Resource either in active or disabled state. In active state Origins payload could be transmitted from CDN CNAME requests. Default value: true 
 options | **[ResourceOptions](#ResourceOptions2)**<br>Resource settings and options to tune CDN edge behavior. Most is unset. 
 ssl_certificate | **[SSLTargetCertificate](#SSLTargetCertificate)**<br>SSL Certificate options. 
@@ -515,7 +515,7 @@ Field | Description
 --- | ---
 disable_cache | **[BoolOption](#BoolOption2)**<br>Set up a cache status. 
 edge_cache_settings | **[EdgeCacheSettings](#EdgeCacheSettings2)**<br>Set up [EdgeCacheSettings](#EdgeCacheSettings2). 
-browser_cache_settings | **[Int64Option](#Int64Option2)**<br><ol><li></li></ol> 
+browser_cache_settings | **[Int64Option](#Int64Option2)**<br>Using [Int64Option](#Int64Option2). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. 
 cache_http_headers | **[StringsListOption](#StringsListOption2)**<br>List HTTP headers that must be included in responses to clients. 
 query_params_options | **[QueryParamsOptions](#QueryParamsOptions2)**<br>Set up [QueryParamsOptions](#QueryParamsOptions2). 
 slice | **[BoolOption](#BoolOption2)**<br>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. <br>The origin must support HTTP Range requests. <br>By default the option is disabled. 
@@ -578,7 +578,7 @@ value | **map<string,string>**<br>Value of the option.
 
 Field | Description
 --- | ---
-simple_value | **int64**<br><ol><li></li></ol> 
+simple_value | **int64**<br>Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. 
 custom_values | **map<string,int64>**<br>Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. 
 
 
@@ -653,14 +653,14 @@ Field | Description
 --- | ---
 enabled | **bool**<br>True - the option is enabled and its `flag` is applied to the resource. False - the option is disabled and its default value of the `flag` is used for the resource. 
 body | **string**<br>Pattern for rewrite. <br>The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. 
-flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li><ul/>
+flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
 
 
 ### SSLTargetCertificate {#SSLTargetCertificate}
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData2)**<br>Certificate data. 
 
 
@@ -716,7 +716,7 @@ options | **[ResourceOptions](#ResourceOptions3)**<br>Resource settings and opti
 secondary_hostnames[] | **string**<br>List of secondary hostname strings. 
 origin_group_id | **int64**<br>ID of the origin group. 
 origin_group_name | **string**<br>Name of the origin group. 
-origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li><ul/>
+origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate2)**<br>SSL certificate options. 
 
 
@@ -726,7 +726,7 @@ Field | Description
 --- | ---
 disable_cache | **[BoolOption](#BoolOption3)**<br>Set up a cache status. 
 edge_cache_settings | **[EdgeCacheSettings](#EdgeCacheSettings3)**<br>Set up [EdgeCacheSettings](#EdgeCacheSettings3). 
-browser_cache_settings | **[Int64Option](#Int64Option3)**<br><ol><li></li></ol> 
+browser_cache_settings | **[Int64Option](#Int64Option3)**<br>Using [Int64Option](#Int64Option3). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. 
 cache_http_headers | **[StringsListOption](#StringsListOption3)**<br>List HTTP headers that must be included in responses to clients. 
 query_params_options | **[QueryParamsOptions](#QueryParamsOptions3)**<br>Set up [QueryParamsOptions](#QueryParamsOptions3). 
 slice | **[BoolOption](#BoolOption3)**<br>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. <br>The origin must support HTTP Range requests. <br>By default the option is disabled. 
@@ -789,7 +789,7 @@ value | **map<string,string>**<br>Value of the option.
 
 Field | Description
 --- | ---
-simple_value | **int64**<br><ol><li></li></ol> 
+simple_value | **int64**<br>Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. 
 custom_values | **map<string,int64>**<br>Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. 
 
 
@@ -864,15 +864,15 @@ Field | Description
 --- | ---
 enabled | **bool**<br>True - the option is enabled and its `flag` is applied to the resource. False - the option is disabled and its default value of the `flag` is used for the resource. 
 body | **string**<br>Pattern for rewrite. <br>The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. 
-flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li><ul/>
+flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
 
 
 ### SSLCertificate {#SSLCertificate2}
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData3)**<br>Certificate data. 
 
 
@@ -909,7 +909,7 @@ resource_id | **string**<br>Required. ID of updated resource. The maximum string
 origin_group_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>ID of updated origin group. 
 secondary_hostnames | **[SecondaryHostnames](#SecondaryHostnames1)**<br>List of additional CNAMEs. 
 options | **[ResourceOptions](#ResourceOptions4)**<br>Resource settings and options to tune CDN edge behavior. 
-origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li><ul/>
+origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 active | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Flag to create Resource either in active or disabled state. In active state Origins payload could be transmitted from CDN CNAME requests. Default value: true 
 ssl_certificate | **[SSLTargetCertificate](#SSLTargetCertificate1)**<br>SSL Certificate options. 
 
@@ -927,7 +927,7 @@ Field | Description
 --- | ---
 disable_cache | **[BoolOption](#BoolOption4)**<br>Set up a cache status. 
 edge_cache_settings | **[EdgeCacheSettings](#EdgeCacheSettings4)**<br>Set up [EdgeCacheSettings](#EdgeCacheSettings4). 
-browser_cache_settings | **[Int64Option](#Int64Option4)**<br><ol><li></li></ol> 
+browser_cache_settings | **[Int64Option](#Int64Option4)**<br>Using [Int64Option](#Int64Option4). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. 
 cache_http_headers | **[StringsListOption](#StringsListOption4)**<br>List HTTP headers that must be included in responses to clients. 
 query_params_options | **[QueryParamsOptions](#QueryParamsOptions4)**<br>Set up [QueryParamsOptions](#QueryParamsOptions4). 
 slice | **[BoolOption](#BoolOption4)**<br>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. <br>The origin must support HTTP Range requests. <br>By default the option is disabled. 
@@ -990,7 +990,7 @@ value | **map<string,string>**<br>Value of the option.
 
 Field | Description
 --- | ---
-simple_value | **int64**<br><ol><li></li></ol> 
+simple_value | **int64**<br>Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. 
 custom_values | **map<string,int64>**<br>Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. 
 
 
@@ -1065,14 +1065,14 @@ Field | Description
 --- | ---
 enabled | **bool**<br>True - the option is enabled and its `flag` is applied to the resource. False - the option is disabled and its default value of the `flag` is used for the resource. 
 body | **string**<br>Pattern for rewrite. <br>The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. 
-flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li><ul/>
+flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
 
 
 ### SSLTargetCertificate {#SSLTargetCertificate1}
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData4)**<br>Certificate data. 
 
 
@@ -1128,7 +1128,7 @@ options | **[ResourceOptions](#ResourceOptions5)**<br>Resource settings and opti
 secondary_hostnames[] | **string**<br>List of secondary hostname strings. 
 origin_group_id | **int64**<br>ID of the origin group. 
 origin_group_name | **string**<br>Name of the origin group. 
-origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li><ul/>
+origin_protocol | enum **OriginProtocol**<br>Specify the protocol schema to be used in communication with origin. <ul><li>`HTTP`: CDN servers will connect to your origin via HTTP.</li><li>`HTTPS`: CDN servers will connect to your origin via HTTPS.</li><li>`MATCH`: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li></ul>
 ssl_certificate | **[SSLCertificate](#SSLCertificate3)**<br>SSL certificate options. 
 
 
@@ -1138,7 +1138,7 @@ Field | Description
 --- | ---
 disable_cache | **[BoolOption](#BoolOption5)**<br>Set up a cache status. 
 edge_cache_settings | **[EdgeCacheSettings](#EdgeCacheSettings5)**<br>Set up [EdgeCacheSettings](#EdgeCacheSettings5). 
-browser_cache_settings | **[Int64Option](#Int64Option5)**<br><ol><li></li></ol> 
+browser_cache_settings | **[Int64Option](#Int64Option5)**<br>Using [Int64Option](#Int64Option5). Set up a cache period for the end-users browser. Content will be cached due to origin settings. If there are no cache settings on your origin, the content will not be cached. The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308. Other response codes will not be cached. The default value is 4 days. 
 cache_http_headers | **[StringsListOption](#StringsListOption5)**<br>List HTTP headers that must be included in responses to clients. 
 query_params_options | **[QueryParamsOptions](#QueryParamsOptions5)**<br>Set up [QueryParamsOptions](#QueryParamsOptions5). 
 slice | **[BoolOption](#BoolOption5)**<br>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte. <br>The origin must support HTTP Range requests. <br>By default the option is disabled. 
@@ -1201,7 +1201,7 @@ value | **map<string,string>**<br>Value of the option.
 
 Field | Description
 --- | ---
-simple_value | **int64**<br><ol><li></li></ol> 
+simple_value | **int64**<br>Caching time for a response with codes 200, 206, 301, 302. Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching. Use `custom_values` field to specify a custom caching time for a response with specific codes. 
 custom_values | **map<string,int64>**<br>Caching time for a response with specific codes. These settings have a higher priority than the value field. Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes. Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code. 
 
 
@@ -1276,15 +1276,15 @@ Field | Description
 --- | ---
 enabled | **bool**<br>True - the option is enabled and its `flag` is applied to the resource. False - the option is disabled and its default value of the `flag` is used for the resource. 
 body | **string**<br>Pattern for rewrite. <br>The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`. 
-flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li><ul/>
+flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. It is not shown in the field. <ul><li>`LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li><li>`BREAK`: Stops processing of the current set of the Rewrite option.</li><li>`REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li><li>`PERMANENT`: Returns a permanent redirect with the 301 code.</li></ul>
 
 
 ### SSLCertificate {#SSLCertificate3}
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
-status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li></ul>
+status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li></ul>
 data | **[SSLCertificateData](#SSLCertificateData5)**<br>Certificate data. 
 
 

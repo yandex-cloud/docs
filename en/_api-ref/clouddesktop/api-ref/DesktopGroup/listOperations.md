@@ -9,7 +9,7 @@ Returns list of the operations for the specified desktop group.
  
 ## HTTP request {#https-request}
 ```
-GET https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{desktopGroupId}/operations
+GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}/operations
 ```
  
 ## Path parameters {#path_params}

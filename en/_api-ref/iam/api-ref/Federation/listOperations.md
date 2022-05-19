@@ -9,7 +9,7 @@ Lists operations for the specified federation.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}/operations
+GET https://iam.{{ api-host }}/iam/v1/saml/federations/{federationId}/operations
 ```
  
 ## Path parameters {#path_params}

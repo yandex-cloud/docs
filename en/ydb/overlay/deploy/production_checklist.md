@@ -34,4 +34,4 @@ We also won't recommend sharing a block store volume with other processes. This 
 
 ## Introspection tools
 
-To ensure smooth {{ ydb-short-name }} operation, make sure to replace faulty disks and nodes on time. You can monitor your cluster status using the [introspection tools](../monitoring/overview.md).
+To ensure smooth {{ ydb-short-name }} operation, make sure to replace faulty disks and nodes on time. You can monitor your cluster status using the [introspection tools](../maintenance/embedded_monitoring/ydb_monitoring.md).

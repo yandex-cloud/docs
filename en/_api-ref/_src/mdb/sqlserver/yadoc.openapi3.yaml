@@ -407,6 +407,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
+  /mdb/sqlserver/v1/clusters/{clusterId}:startFailover:
+    post:
+      tags:
+      - Cluster
+      summary: Starts a manual failover for a cluster.
+      operationId: ClusterStartFailover
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of sqlserver cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartClusterFailoverRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: startFailover
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartClusterFailoverMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-sqlserver/api-ref/Cluster#representation)'
   /mdb/sqlserver/v1/clusters/{clusterId}:logs:
     get:
       tags:
@@ -852,6 +886,84 @@ paths:
       x-y-navtitle: restore
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestoreDatabaseMetadata'
+      x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
+  /mdb/sqlserver/v1/clusters/{clusterId}/databases:import:
+    post:
+      tags:
+      - Database
+      summary: Imports a new SQL Server database from external backup
+      operationId: DatabaseImportBackup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQL Server cluster to import a database in.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportDatabaseBackupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: importBackup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ImportDatabaseBackupMetadata'
+      x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
+  /mdb/sqlserver/v1/clusters/{clusterId}/databases/{databaseName}:export:
+    post:
+      tags:
+      - Database
+      summary: Exports database backup to external backup
+      operationId: DatabaseExportBackup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the SQL Server cluster to export a database from.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: databaseName
+        in: path
+        description: |-
+          Required.
+          Name of the SQLServer database that is being exported.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportDatabaseBackupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: exportBackup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ExportDatabaseBackupMetadata'
       x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
   /mdb/sqlserver/v1/resourcePresets/{resourcePresetId}:
     get:
@@ -1348,6 +1460,10 @@ components:
           type: array
           items:
             type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
     ClusterConfig:
       type: object
       allOf:
@@ -1547,6 +1663,10 @@ components:
           type: array
           items:
             type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -1626,6 +1746,41 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    ExportDatabaseBackupMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            ID of the SQLServer cluster where a database is being exported.
+          type: string
+        databaseName:
+          description: |-
+            Required.
+            Name of the SQLServer database that is being exported.
+          type: string
+        s3Bucket:
+          description: |-
+            Required.
+            Name of object storage bucket to import backups from.
+          type: string
+        s3Path:
+          description: Path in object storage bucket to import backups from.
+          type: string
+    ExportDatabaseBackupRequest:
+      type: object
+      properties:
+        s3Bucket:
+          description: |-
+            Required.
+            Name of object storage bucket to export backups to
+          type: string
+        s3Path:
+          description: Path in object storage bucket to export backups to.
+          type: string
+        prefix:
+          description: Prefix for .bak files to
+          type: string
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -1746,6 +1901,50 @@ components:
             * true - the host should have a public IP address.
           type: boolean
           format: boolean
+    ImportDatabaseBackupMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            ID of the SQLServer cluster where a database is being imported.
+          type: string
+        databaseName:
+          description: |-
+            Required.
+            Name of the SQLServer database that is being imported.
+          type: string
+        s3Bucket:
+          description: |-
+            Required.
+            Name of object storage bucket to import backups from.
+          type: string
+        s3Path:
+          description: Path in object storage bucket to import backups from.
+          type: string
+    ImportDatabaseBackupRequest:
+      type: object
+      properties:
+        databaseName:
+          description: |-
+            Required.
+            Name of the SQLServer database that is being imported.
+          type: string
+        s3Bucket:
+          description: |-
+            Required.
+            Name of object storage bucket to import backups from.
+          type: string
+        s3Path:
+          description: Path in object storage bucket to import backups from.
+          type: string
+        files:
+          description: |-
+            Required.
+            List of .bak files in bucket containing database backup
+          type: array
+          items:
+            type: string
     ListBackupsResponse:
       type: object
       properties:
@@ -2173,6 +2372,10 @@ components:
           type: array
           items:
             type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
     RestoreDatabaseMetadata:
       type: object
       properties:
@@ -2403,6 +2606,23 @@ components:
       type: string
       enum:
       - SQLSERVER
+    StartClusterFailoverMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the sqlserver cluster being failovered.
+          type: string
+    StartClusterFailoverRequest:
+      type: object
+      properties:
+        hostName:
+          description: |-
+            Host name to switch master role to.
+
+            To get this name, make a [listHosts](/docs/managed-sqlserver/api-ref/Cluster/listHosts) request.
+
+            The maximum string length in characters is 253.
+          type: string
     StartClusterMetadata:
       type: object
       properties:
@@ -2494,6 +2714,10 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
     UpdateUserMetadata:
       type: object
       properties:

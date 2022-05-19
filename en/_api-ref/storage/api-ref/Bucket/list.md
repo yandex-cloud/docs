@@ -10,7 +10,7 @@ The following fields will not be returned for buckets in the list: [Bucket.polic
  
 ## HTTP request {#https-request}
 ```
-GET https://storage.api.cloud.yandex.net/storage/v1/buckets
+GET https://storage.{{ api-host }}/storage/v1/buckets
 ```
  
 ## Query parameters {#query_params}

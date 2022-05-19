@@ -9,7 +9,7 @@ Delete user membership.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{organizationId}/users/{subjectId}
+DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/users/{subjectId}
 ```
  
 ## Path parameters {#path_params}

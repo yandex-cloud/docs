@@ -9,7 +9,7 @@ Creates a federation in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/saml/federations
+POST https://iam.{{ api-host }}/iam/v1/saml/federations
 ```
  
 ## Body parameters {#body_params}

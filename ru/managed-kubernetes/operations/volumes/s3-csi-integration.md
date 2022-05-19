@@ -90,7 +90,7 @@
 
     {% note info %}
 
-    Такая настройка может быть полезна, если в облаке действуют строгие квоты на количество бакетов {{ objstorage-name }}.
+    Такая настройка может быть полезна, если в облаке действуют строгие [квоты]({{ link-console-quotas }}) на количество бакетов {{ objstorage-name }}.
 
     {% endnote %}
 
@@ -220,7 +220,7 @@
    1. [Настройте {{ CSI }}](#configure-csi).
    1. Создайте файл `pvс-static.yaml`, содержащий описание статического `PersistentVolumeClaim`:
 
-      {% cut "pvс-static.yaml" %}
+      {% cut "pvc-static.yaml" %}
 
       ```yaml
       ---

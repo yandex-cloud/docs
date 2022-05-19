@@ -9,7 +9,7 @@ Deletes the specified alert.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts/{alertId}
+DELETE https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}
 ```
  
 ## Path parameters {#path_params}

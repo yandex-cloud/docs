@@ -9,7 +9,7 @@ Start the specified MongoDB cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:start
+POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:start
 ```
  
 ## Path parameters {#path_params}

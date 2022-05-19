@@ -39,8 +39,8 @@ Field | Description
 name | **string**<br>Name of the connector. 
 tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
 properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li><ul/>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li><ul/>
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
@@ -110,8 +110,8 @@ Field | Description
 name | **string**<br>Name of the connector. 
 tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
 properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li><ul/>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li><ul/>
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker1)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
@@ -213,6 +213,7 @@ sasl_username | **string**<br>Sasl username which we use to connect to cluster.
 sasl_password | **string**<br>Sasl password which we use to connect to cluster. 
 sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
 security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+ssl_truststore_certificates | **string**<br>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol. 
 
 
 ### Operation {#Operation}
@@ -246,8 +247,8 @@ Field | Description
 name | **string**<br>Name of the connector. 
 tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
 properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li><ul/>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li><ul/>
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker2)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
@@ -350,6 +351,7 @@ sasl_username | **string**<br>Sasl username which we use to connect to cluster.
 sasl_password | **string**<br>Sasl password which we use to connect to cluster. 
 sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
 security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+ssl_truststore_certificates | **string**<br>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol. 
 
 
 ### Operation {#Operation1}
@@ -383,8 +385,8 @@ Field | Description
 name | **string**<br>Name of the connector. 
 tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
 properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li><ul/>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li><ul/>
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker3)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
@@ -515,8 +517,8 @@ Field | Description
 name | **string**<br>Name of the connector. 
 tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
 properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li><ul/>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li><ul/>
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker4)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
@@ -605,8 +607,8 @@ Field | Description
 name | **string**<br>Name of the connector. 
 tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
 properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li><ul/>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li><ul/>
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
 connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker5)**<br>Additional settings for specific connector. For example, of MirrorMaker. 

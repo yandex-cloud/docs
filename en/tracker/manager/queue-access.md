@@ -111,7 +111,7 @@ To configure access to issues by component:
     - **Groups**: {% if audience == "external" %}Settings for all employees.{% else %}Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
     {% if audience == "internal" %}
-    {% note tip %}
+            {% note tip %}
 
             To add all Yandex employees, select the `Yandex` group.
 

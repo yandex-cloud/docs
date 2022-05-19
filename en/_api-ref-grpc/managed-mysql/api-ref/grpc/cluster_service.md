@@ -54,16 +54,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring}
@@ -95,7 +96,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access}
@@ -133,7 +134,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -158,7 +159,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in the subsequent [ClusterService.List](#List) requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by the previous [ClusterService.List](#List) request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that selects clusters listed in the response. <br>The expression must specify: <ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -179,16 +180,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring1)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring1}
@@ -220,7 +222,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access1}
@@ -258,7 +260,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -296,6 +298,7 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of hosts in the cluste
 network_id | **string**<br>ID of the network to create the cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>List of security group IDs to apply to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -318,7 +321,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access2}
@@ -353,9 +356,9 @@ Field | Description
 name | **string**<br>Required. Name of the user. The maximum string length in characters is 32. Value must match the regular expression ` [a-zA-Z0-9_]* `.
 password | **string**<br>Required. Password of the user. The string length in characters must be 8-128.
 permissions[] | **[Permission](#Permission)**<br>Set of permissions granted to the user to access specific databases. One permission per database. <br>When a permission for a database is set, the user will have access to the database. 
-global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li><ul/>
+global_permissions[] | enum **GlobalPermission**<br>Set of global permissions to grant to the user. <ul><li>`REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.</li><li>`REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server, using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.</li><li>`PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server). <br>The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users. You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.</li></ul>
 connection_limits | **[ConnectionLimits](#ConnectionLimits)**<br>Set of user connection limits. 
-authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li><ul/>
+authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><li>`MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).</li><li>`CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).</li><li>`SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).</li></ul>
 
 
 ### Permission {#Permission}
@@ -363,7 +366,7 @@ authentication_plugin | enum **AuthPlugin**<br>User authentication plugin. <ul><
 Field | Description
 --- | ---
 database_name | **string**<br>Name of the database that the permission grants access to. 
-roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li><ul/>
+roles[] | enum **Privilege**<br>Roles granted to the user within the database. <br>See [the documentation](/docs/managed-mysql/operations/grant) for details. The minimum number of elements is 1.<ul><li>`ALL_PRIVILEGES`: All privileges that can be made available to the user.</li><li>`ALTER`: Altering tables.</li><li>`ALTER_ROUTINE`: Altering stored routines and functions.</li><li>`CREATE`: Creating tables or indexes.</li><li>`CREATE_ROUTINE`: Creating stored routines.</li><li>`CREATE_TEMPORARY_TABLES`: Creating temporary tables.</li><li>`CREATE_VIEW`: Creating views.</li><li>`DELETE`: Deleting tables.</li><li>`DROP`: Removing tables or views.</li><li>`EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.</li><li>`EXECUTE`: Executing stored routines.</li><li>`INDEX`: Creating and removing indexes.</li><li>`INSERT`: Inserting rows into the database.</li><li>`LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.</li><li>`SELECT`: Selecting rows from tables. <br>Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege. <br>See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.</li><li>`SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.</li><li>`TRIGGER`: Creating, removing, executing, or displaying triggers for a table.</li><li>`UPDATE`: Updating rows in the database.</li><li>`REFERENCES`: Creation of a foreign key constraint for the parent table.</li></ul>
 
 
 ### ConnectionLimits {#ConnectionLimits}
@@ -382,7 +385,7 @@ Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet to assign to the host. <br>This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id](./cluster_service#CreateClusterRequest)). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
+assign_public_ip | **bool**<br>Option that enables public IP address for the host so that the host can be accessed from the internet. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP address, or to assign a public IP address to a host without one, recreate the host with the appropriate `assign_public_ip` value set. <br>Possible values: <ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
 backup_priority | **int64**<br>Host backup priority Acceptable values are 0 to 100, inclusive.
 priority | **int64**<br>Host master promotion priority Acceptable values are 0 to 100, inclusive.
@@ -421,16 +424,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring2)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring2}
@@ -462,7 +466,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access3}
@@ -500,7 +504,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -557,7 +561,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access4}
@@ -595,7 +599,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -632,16 +636,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring3)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring3}
@@ -673,7 +678,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access5}
@@ -711,7 +716,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -813,16 +818,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring4)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring4}
@@ -854,7 +860,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access6}
@@ -892,7 +898,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -954,16 +960,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring5)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring5}
@@ -995,7 +1002,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access7}
@@ -1033,7 +1040,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1098,16 +1105,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring6)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring6}
@@ -1139,7 +1147,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access8}
@@ -1177,7 +1185,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1239,16 +1247,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring7)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring7}
@@ -1280,7 +1289,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access9}
@@ -1318,7 +1327,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1355,6 +1364,8 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configuration of hosts in the new cl
 network_id | **string**<br>ID of the network to create the new cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the new cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>List of security group IDs to apply to the new cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1377,7 +1388,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access10}
@@ -1404,7 +1415,7 @@ Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet to assign to the host. <br>This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id](./cluster_service#CreateClusterRequest)). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
+assign_public_ip | **bool**<br>Option that enables public IP address for the host so that the host can be accessed from the internet. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP address, or to assign a public IP address to a host without one, recreate the host with the appropriate `assign_public_ip` value set. <br>Possible values: <ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
 backup_priority | **int64**<br>Host backup priority Acceptable values are 0 to 100, inclusive.
 priority | **int64**<br>Host master promotion priority Acceptable values are 0 to 100, inclusive.
@@ -1444,16 +1455,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring8)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring8}
@@ -1485,7 +1497,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access11}
@@ -1523,7 +1535,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1550,7 +1562,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to reschedule the maintenance operation for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
-reschedule_type | enum **RescheduleType**<br>Required. The type of reschedule request. <ul><li>`IMMEDIATE`: Start the maintenance operation immediately.</li><li>`NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.</li><li>`SPECIFIC_TIME`: Start the maintenance operation at the specific time.</li><ul/>
+reschedule_type | enum **RescheduleType**<br>Required. The type of reschedule request. <ul><li>`IMMEDIATE`: Start the maintenance operation immediately.</li><li>`NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.</li><li>`SPECIFIC_TIME`: Start the maintenance operation at the specific time.</li></ul>
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if `IMMEDIATE` reschedule type is chosen. 
 
 
@@ -1588,16 +1600,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring9)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring9}
@@ -1629,7 +1642,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access12}
@@ -1667,7 +1680,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1730,16 +1743,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the cluster. 
 description | **string**<br>Description of the cluster. 
 labels | **map<string,string>**<br>Custom labels for the cluster as `key:value` pairs. 
-environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the cluster. <ul><li>`PRODUCTION`: Environment for stable versions of your apps. A conservative update policy is in effect: only bug fixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment for testing, including the Managed Service for MySQL itself. This environment gets new features, improvements, and bug fixes in the first place, compared to the production environment. However, not every update ensures backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring10)**<br>Monitoring systems data that is relevant to the cluster. 
 config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the cluster. 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated health of the cluster. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is `UNKNOWN`).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is `ALIVE`).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is `DEAD`).</li><li>`DEGRADED`: Cluster is degraded ([Host.health](#Host) for at least one host in the cluster is not `ALIVE`).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster is stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window settings for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>Effective list of security group IDs applied to the cluster. 
 deletion_protection | **bool**<br>This option prevents unintended deletion of the cluster. 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring10}
@@ -1771,7 +1785,7 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Access {#Access13}
@@ -1809,7 +1823,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance 
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). <ul><ul/>
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
 hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
@@ -1833,7 +1847,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to request logs for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, complete log records are returned. 
-service_type | enum **ServiceType**<br>The log type. <ul><li>`MYSQL_ERROR`: MySQL error log.</li><li>`MYSQL_GENERAL`: MySQL general query log.</li><li>`MYSQL_SLOW_QUERY`: MySQL slow query log.</li><li>`MYSQL_AUDIT`: MySQL audit log.</li><ul/>
+service_type | enum **ServiceType**<br>The log type. <ul><li>`MYSQL_ERROR`: MySQL error log.</li><li>`MYSQL_GENERAL`: MySQL general query log.</li><li>`MYSQL_SLOW_QUERY`: MySQL slow query log.</li><li>`MYSQL_AUDIT`: MySQL audit log.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. The logs in the response will be within `from_time` to `to_time` range. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. The logs in the response will be within `from_time` to `to_time` range. 
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests. Acceptable values are 0 to 1000, inclusive.
@@ -1869,11 +1883,11 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster to stream logs for. <br>To get this ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from the logs table to request. If no columns are specified, complete log records are returned. 
-service_type | enum **ServiceType**<br>The log type. <ul><li>`MYSQL_ERROR`: MySQL error log.</li><li>`MYSQL_GENERAL`: MySQL general query log.</li><li>`MYSQL_SLOW_QUERY`: MySQL slow query log.</li><li>`MYSQL_AUDIT`: MySQL audit log.</li><ul/>
+service_type | enum **ServiceType**<br>The log type. <ul><li>`MYSQL_ERROR`: MySQL error log.</li><li>`MYSQL_GENERAL`: MySQL general query log.</li><li>`MYSQL_SLOW_QUERY`: MySQL slow query log.</li><li>`MYSQL_AUDIT`: MySQL audit log.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing log records beginning from `from_time` will be returned first, and then the new records will be returned as they appear. <br>In essence it has `tail -f` command semantics. 
 record_token | **string**<br>Record token that can be used to control logs streaming. <br>Set `record_token` to the [StreamLogRecord.next_record_token](#StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that selects clusters logs listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'` The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
@@ -1996,8 +2010,8 @@ name | **string**<br>Name of the host. <br>This name is assigned by Yandex Cloud
 cluster_id | **string**<br>ID of the cluster the host belongs to. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
 resources | **[Resources](#Resources14)**<br>Resources allocated to the host. 
-role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host is unknown.</li><li>`MASTER`: Host is the master.</li><li>`REPLICA`: Host is a replica.</li><ul/>
-health | enum **Health**<br>Aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: Host is performing all its functions normally.</li><li>`DEAD`: Host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: Host is degraded, and can perform only some of its essential functions.</li><ul/>
+role | enum **Role**<br>Role of the host in the cluster. <ul><li>`ROLE_UNKNOWN`: Role of the host is unknown.</li><li>`MASTER`: Host is the master.</li><li>`REPLICA`: Host is a replica.</li></ul>
+health | enum **Health**<br>Aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: Host is performing all its functions normally.</li><li>`DEAD`: Host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: Host is degraded, and can perform only some of its essential functions.</li></ul>
 services[] | **[Service](#Service)**<br>List of services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag that shows if public IP address is assigned to the host so that the host can be accessed from the internet. 
@@ -2012,15 +2026,15 @@ Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. <br>All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage (for each cluster host, in bytes). 
-disk_type_id | **string**<br><ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul> 
+disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`network-hdd` - standard network storage </li><li>`network-ssd` - fast network storage </li><li>`network-ssd-nonreplicated` - fast network nonreplicated storage </li><li>`local-ssd` - fast local storage. </li></ul><br>See [the documentation](/docs/managed-mysql/concepts/storage) for details. 
 
 
 ### Service {#Service}
 
 Field | Description
 --- | ---
-type | enum **Type**<br>Type of the service provided by the host. <ul><li>`MYSQL`: The host is a MySQL server.</li><ul/>
-health | enum **Health**<br>Aggregated health of the service. <ul><li>`HEALTH_UNKNOWN`: Health of the service is unknown.</li><li>`ALIVE`: The service is working normally.</li><li>`DEAD`: The service is dead or unresponsive.</li><ul/>
+type | enum **Type**<br>Type of the service provided by the host. <ul><li>`MYSQL`: The host is a MySQL server.</li></ul>
+health | enum **Health**<br>Aggregated health of the service. <ul><li>`HEALTH_UNKNOWN`: Health of the service is unknown.</li><li>`ALIVE`: The service is working normally.</li><li>`DEAD`: The service is dead or unresponsive.</li></ul>
 
 
 ## AddHosts {#AddHosts}
@@ -2047,7 +2061,7 @@ Field | Description
 --- | ---
 zone_id | **string**<br>ID of the availability zone where the host resides. <br>To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet to assign to the host. <br>This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id](./cluster_service#CreateClusterRequest)). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
+assign_public_ip | **bool**<br>Option that enables public IP address for the host so that the host can be accessed from the internet. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP address, or to assign a public IP address to a host without one, recreate the host with the appropriate `assign_public_ip` value set. <br>Possible values: <ul><li>`false` - don't assign a public IP address to the host. </li><li>`true` - assign a public IP address to the host.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). 
 backup_priority | **int64**<br>Host backup priority Acceptable values are 0 to 100, inclusive.
 priority | **int64**<br>Host master promotion priority Acceptable values are 0 to 100, inclusive.

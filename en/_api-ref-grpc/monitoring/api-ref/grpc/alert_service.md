@@ -49,7 +49,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li><ul/>
+status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -71,10 +71,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule)**<br>A list of predicate r
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig}
@@ -82,7 +82,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -120,7 +120,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li><ul/>
+status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -142,10 +142,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule1)**<br>A list of predicate 
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig1}
@@ -153,7 +153,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -172,7 +172,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create alert in. The maximum string length in characters is 50.
-name | **string**<br>Name of the alert. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the alert. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the alert. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
@@ -196,10 +196,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule2)**<br>A list of predicate 
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig2}
@@ -207,7 +207,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -244,7 +244,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li><ul/>
+status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -266,10 +266,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule3)**<br>A list of predicate 
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig3}
@@ -277,7 +277,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -297,7 +297,7 @@ Field | Description
 --- | ---
 alert_id | **string**<br>Required. ID of the alert. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Alert resource are going to be updated. 
-name | **string**<br>Name of the alert. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the alert. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the alert. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
@@ -321,10 +321,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule4)**<br>A list of predicate 
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig4}
@@ -332,7 +332,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -369,7 +369,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li><ul/>
+status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -391,10 +391,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule5)**<br>A list of predicate 
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig5}
@@ -402,7 +402,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -532,10 +532,10 @@ Field | Description
 folder_id | **string**<br>Reference to folder that contains alert. 
 alert_id | **string**<br>Unique identity for alert. 
 alert_version | **int64**<br>Version of alert that will be use to evaluate latest time. Each change of alert reset state. 
-status | enum **[EvaluationStatus](./#EvaluationStatus)**<br>Evaluation status and details. It's status of latest change between statuses, for example from OK to ALARM. <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+status | enum **[EvaluationStatus](./#EvaluationStatus)**<br>Evaluation status and details. It's status of latest change between statuses, for example from OK to ALARM. <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 since | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when evaluation state will changed latest time, for example from OK to ALARM. 
 latest_eval | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>UNIX time when latest alert evaluation occurs. Since - LatestEval = how much time alert in particular state. 
-previous_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br>Evaluation status and details. It's status of previous change between statuses, for example from OK to ALARM. <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+previous_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br>Evaluation status and details. It's status of previous change between statuses, for example from OK to ALARM. <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 
 
 ## GetNotificationState {#GetNotificationState}
@@ -564,7 +564,7 @@ Field | Description
 --- | ---
 folder_id | **string**<br>Reference to folder that contains alert. 
 channel_id | **string**<br>Reference to notification channel. 
-status | enum **[NotificationStatus](./notification_status#undefined)**<br>Latest notification status. <ul><li>`SKIP_REPEAT`: Send notification was skipped because already notified.</li><li>`SKIP_BY_STATUS`: Skip notification because status absent in subscribe list.</li><li>`SUCCESS`: Notification successfully delivered.</li><li>`ERROR`: Not classified kind of error occurs.</li><li>`INVALID_REQUEST`: Target service reject notification because it not valid or notification channel configured. not correctly</li><li>`OBSOLETE`: Notification not valid any more.</li><li>`ABSENT_NOTIFICATION_CHANNEL`: Notification was send to /dev/null because reference notificaiton channel not exists.</li><li>`ERROR_ABLE_TO_RETRY`: Notification should be repeated because target destination not ready yet accept it.</li><li>`RESOURCE_EXHAUSTED`: One of the quote exhausted.</li><li>`PERMISSION_DENIED`: User have no rights to receive notifications.</li><li>`NOT_SUBSCRIBED`: User unsubscribed or missing settings (e.g. no phone specified).</li><ul/>
+status | enum **[NotificationStatus](./notification_status#undefined)**<br>Latest notification status. <ul><li>`SKIP_REPEAT`: Send notification was skipped because already notified.</li><li>`SKIP_BY_STATUS`: Skip notification because status absent in subscribe list.</li><li>`SUCCESS`: Notification successfully delivered.</li><li>`ERROR`: Not classified kind of error occurs.</li><li>`INVALID_REQUEST`: Target service reject notification because it not valid or notification channel configured. not correctly</li><li>`OBSOLETE`: Notification not valid any more.</li><li>`ABSENT_NOTIFICATION_CHANNEL`: Notification was send to /dev/null because reference notificaiton channel not exists.</li><li>`ERROR_ABLE_TO_RETRY`: Notification should be repeated because target destination not ready yet accept it.</li><li>`RESOURCE_EXHAUSTED`: One of the quote exhausted.</li><li>`PERMISSION_DENIED`: User have no rights to receive notifications.</li><li>`NOT_SUBSCRIBED`: User unsubscribed or missing settings (e.g. no phone specified).</li></ul>
 latest_eval | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when notification was triggered latest time. 
 
 
@@ -586,7 +586,7 @@ time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buff
 
 Field | Description
 --- | ---
-evaluation_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+evaluation_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 series[] | **[AlertTimeseries](#AlertTimeseries)**<br> 
 
 
@@ -612,7 +612,7 @@ Field | Description
 --- | ---
 folder_id | **string**<br>Required.  The maximum string length in characters is 50.
 time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
-name | **string**<br>Name of the alert. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the alert. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the alert. The maximum string length in characters is 256.
 status | **[Alert.Status](#Alert4)**<br>Status of current alert. 
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
@@ -636,10 +636,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule6)**<br>A list of predicate 
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig6}
@@ -647,7 +647,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -655,7 +655,7 @@ repeat_period | **[google.protobuf.Duration](https://developers.google.com/proto
 
 Field | Description
 --- | ---
-evaluation_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+evaluation_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 series[] | **[AlertTimeseries](#AlertTimeseries1)**<br> 
 
 
@@ -767,7 +767,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li><ul/>
+status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -789,10 +789,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule7)**<br>A list of predicate 
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig7}
@@ -800,7 +800,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -854,7 +854,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li><ul/>
+status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -876,10 +876,10 @@ predicate_rules[] | **[PredicateRule](#PredicateRule8)**<br>A list of predicate 
 
 Field | Description
 --- | ---
-type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li><ul/>
-comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li><ul/>
+type | enum **ThresholdType**<br>Criteria by which the alert will be checked. <ul><li>`THRESHOLD_TYPE_AT_LEAST_ONE`: At least one.</li><li>`THRESHOLD_TYPE_AT_ALL_TIMES`: At all times.</li><li>`THRESHOLD_TYPE_LAST_NON_NAN`: Last non-NaN value.</li><li>`THRESHOLD_TYPE_AVG`: Average.</li><li>`THRESHOLD_TYPE_MIN`: Minimum.</li><li>`THRESHOLD_TYPE_MAX`: Maximum.</li><li>`THRESHOLD_TYPE_SUM`: Sum.</li><li>`THRESHOLD_TYPE_COUNT`: Count.</li></ul>
+comparison | enum **Comparison**<br>Operation used to compare with threshold value. <ul><li>`COMPARISON_EQ`: Equal the specified value.</li><li>`COMPARISON_NE`: Not equal the specified value.</li><li>`COMPARISON_GT`: Greater than the specified value.</li><li>`COMPARISON_LT`: Less than the specified value.</li><li>`COMPARISON_GTE`: Greater than or equal to the specified value.</li><li>`COMPARISON_LTE`: Less than or equal to the specified value.</li></ul>
 threshold | **double**<br>Threshold value. 
-target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li><ul/>
+target_status | enum **TargetStatus**<br>Target status of the alert if the predicate is true. <ul><li>`TARGET_STATUS_OK`: OK.</li><li>`TARGET_STATUS_WARN`: Warn.</li><li>`TARGET_STATUS_ALARM`: Alarm.</li><li>`TARGET_STATUS_NO_DATA`: No data.</li></ul>
 
 
 ### NotificationConfig {#NotificationConfig8}
@@ -887,7 +887,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li><ul/>
+notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 

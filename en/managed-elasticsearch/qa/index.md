@@ -15,15 +15,23 @@ Maintenance in {{ mes-short-name }} implies:
 * Changes to the host class and storage size.
 * Other {{ mes-short-name }} maintenance activities.
 
+#### Is cluster backup enabled by default? {#default-backup}
+
+Yes, backup is enabled by default. For {{ mes-name }} clusters, a complete backup is performed every hour, and all the indexes are saved. This helps restore a cluster's state from any available backup.
+
+Backups are kept for 7 days.
+
 #### Which version of {{ ES }} does {{ mes-short-name }} use? {#dbms-version}
 
-The {{ ES }} versions maintained by the vendor are available in {{ mes-short-name }}. To learn more, see [{#T}](../concepts/update-policy.md).
+The {{ ES }} versions maintained by the vendor are available in {{ mes-short-name }}. For more information, see [{#T}](../concepts/update-policy.md).
+
 
 #### What happens when a new {{ ES }} version is released? {#new-version}
 
 When new versions include only bug fixes (such versions are called _maintenance releases_), the cluster software is automatically updated after a short testing period.
 
-The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
+The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
+
 
 #### What happens when the {{ ES }} version becomes deprecated? {#dbms-deprecated}
 
@@ -34,4 +42,3 @@ Clusters running a deprecated version of {{ ES }} are updated according to the [
 The owners of the affected clusters receive advanced notice of expected work times and DB availability.
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
-

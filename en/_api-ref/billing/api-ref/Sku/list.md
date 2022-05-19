@@ -9,7 +9,7 @@ Retrieves the list of SKUs.
  
 ## HTTP request {#https-request}
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/skus
+GET https://billing.{{ api-host }}/billing/v1/skus
 ```
  
 ## Query parameters {#query_params}

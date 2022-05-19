@@ -1,6 +1,6 @@
 # Пример анализа потоковых данных
 
-{{yq-full-name}} может выполнять [потоковую обработку](../concepts/stream-processing.md) данных на SQL-подобном языке — [YQL](../yql-docs-core/syntax/index.md).
+{{yq-full-name}} может выполнять [потоковую обработку](../concepts/stream-processing.md) данных на SQL-подобном языке — [YQL]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}.
 
 В данном примере возьмем заранее подготовленный набор данных - генератор данных про поездки Нью-Йоркского такси, и рассчитаем число поездок и их стоимость за временной интервал. 
 

@@ -21,4 +21,4 @@
 | Maximum number of schema operations^*^ per day per serverless database | 1000 |
 | Maximum number of schema operations^*^ per minute per serverless database | 30 |
 
-^*^ Transactions for which there is a quota: creating, updating, and deleting table schemas, getting a table description, getting a list of tables, and creating and deleting directories.
+^*^Transactions for which there is a quota: creating, updating, and deleting table schemas, getting a table description, getting a list of tables, and creating and deleting directories.

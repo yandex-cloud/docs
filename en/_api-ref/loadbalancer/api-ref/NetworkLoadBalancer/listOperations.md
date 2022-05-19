@@ -9,7 +9,7 @@ Lists operations for the specified network load balancer.
  
 ## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations
+GET https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations
 ```
  
 ## Path parameters {#path_params}

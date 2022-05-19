@@ -9,7 +9,7 @@ Retrieves the list of customers associated with the specified reseller.
  
 ## HTTP request {#https-request}
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/customers
+GET https://billing.{{ api-host }}/billing/v1/customers
 ```
  
 ## Query parameters {#query_params}

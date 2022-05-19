@@ -9,7 +9,7 @@ Deletes origin from origin group.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://cdn.api.cloud.yandex.net/cdn/v1/origins/{originId}
+DELETE https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
 ```
  
 ## Path parameters {#path_params}

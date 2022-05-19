@@ -9,7 +9,7 @@ Lists operations for the specified filesystem.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/filesystems/{filesystemId}/operations
+GET https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}/operations
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Deletes the specified Docker image.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://container-registry.api.cloud.yandex.net/container-registry/v1/images/{imageId}
+DELETE https://container-registry.{{ api-host }}/container-registry/v1/images/{imageId}
 ```
  
 ## Path parameters {#path_params}

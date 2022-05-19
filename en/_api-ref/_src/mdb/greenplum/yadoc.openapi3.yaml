@@ -543,6 +543,88 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterLogsResponse'
       x-y-navtitle: listLogs
+  /managed-greenplum/v1/clusters/{clusterId}:stream_logs:
+    get:
+      tags:
+      - Cluster
+      summary: Same as ListLogs but using server-side streaming. Also allows for 'tail
+        -f' semantics.
+      operationId: ClusterStreamLogs
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the Greenplum cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: Columns from logs table to get in the response.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serviceType
+        in: query
+        schema:
+          $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request.
+          If this field is not set, all existing logs will be sent and then the new ones as
+          they appear. In essence it has 'tail -f' semantics.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: recordToken
+        in: query
+        description: |-
+          Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
+          request to start streaming from next log record.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname],
+          [LogRecord.logs.message.error_severity] (for GREENPLUM service), [LogRecord.logs.message.level] (for POOLER service) fields.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
+          Examples of a filter:
+          `message.hostname='node1.db.cloud.yandex.net'`
+          `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamLogRecord'
+      x-y-navtitle: streamLogs
   /managed-greenplum/v1/clusters/{clusterId}/backups:
     get:
       tags:
@@ -837,9 +919,7 @@ components:
           greenplumConfigSet_6_19:
             $ref: '#/components/schemas/GreenplumConfigSet6_19'
     ClusterEnvironment:
-      description: |-
-        Deployment environment.
-
+      description: |2-
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -849,9 +929,7 @@ components:
       - PRODUCTION
       - PRESTABLE
     ClusterHealth:
-      description: |-
-        Aggregated health of the cluster.
-
+      description: |2-
          - HEALTH_UNKNOWN: Health of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
          - ALIVE: Cluster is working normally (`health` for every host in the cluster is ALIVE).
          - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
@@ -1191,6 +1269,18 @@ components:
             https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
           type: boolean
           format: boolean
+        maxStatementMem:
+          description: |-
+            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
+            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
+            (seghost_physical_memory) / (average_number_concurrent_queries)
+            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
+            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
+            Default value is 2097152000 (2000MB)
+          type: integer
+          format: int64
+        logStatement:
+          $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_19_logStatement'
     GreenplumConfigSet6_17:
       type: object
       properties:
@@ -1278,9 +1368,7 @@ components:
           type: boolean
           format: boolean
     HostHealth:
-      description: |-
-        Status code of the aggregated health of the host.
-
+      description: |2-
          - UNKNOWN: Health of the host is unknown.
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable and cannot perform any of its essential functions.
@@ -1295,9 +1383,7 @@ components:
       - UNBALANCED
       default: UNKNOWN
     HostType:
-      description: |-
-        Type of the host.
-
+      description: |2-
          - TYPE_UNSPECIFIED: The type is not specified.
          - MASTER: A Greenplum® master host.
          - REPLICA: A Greenplum® master replica host.
@@ -1378,7 +1464,7 @@ components:
             is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) as the value
             for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) to continue paging through the results.
-            This value is interchangeable with the [StreamLogRecord.next_record_token] from StreamLogs method.
+            This value is interchangeable with the `nextRecordToken` from StreamLogs method.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -1442,6 +1528,13 @@ components:
           type: object
           additionalProperties:
             type: string
+    LogStatement:
+      type: string
+      enum:
+      - NONE
+      - DDL
+      - MOD
+      - ALL
     MaintenanceOperation:
       description: The operation to perform during maintenance.
       type: object
@@ -1731,6 +1824,27 @@ components:
         clusterId:
           description: ID of the Greenplum® cluster being stopped.
           type: string
+    StreamClusterLogsRequestServiceType:
+      description: |2-
+         - SERVICE_TYPE_UNSPECIFIED: Type is not specified.
+         - GREENPLUM: Greenplum® activity logs.
+         - GREENPLUM_POOLER: Greenplum® pooler logs.
+      type: string
+      enum:
+      - GREENPLUM
+      - GREENPLUM_POOLER
+    StreamLogRecord:
+      type: object
+      properties:
+        record:
+          $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
+        nextRecordToken:
+          description: |-
+            This token allows you to continue streaming logs starting from the exact
+            same record. To continue streaming, specify value of `next_record_token`
+            as value for `record_token` parameter in the next StreamLogs request.
+            This value is interchangeable with `next_page_token` from ListLogs method.
+          type: string
     TimeOfDay:
       description: |-
         Represents a time of day. The date and time zone are either not significant
@@ -1893,8 +2007,6 @@ components:
       description: |-
         Deployment environment of the Greenplum® cluster.
 
-        Deployment environment.
-
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -1924,8 +2036,6 @@ components:
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
-
-        Aggregated health of the cluster.
 
          - HEALTH_UNKNOWN: Health of the cluster is unknown (`health` for every host in the cluster is UNKNOWN).
          - ALIVE: Cluster is working normally (`health` for every host in the cluster is ALIVE).
@@ -2101,8 +2211,6 @@ components:
         Required.
         Deployment environment of the Greenplum® cluster.
 
-        Deployment environment.
-
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
          - PRESTABLE: Environment with more aggressive update policy: new versions
@@ -2247,6 +2355,19 @@ components:
           description: Allow access for DataTransfer.
           type: boolean
           format: boolean
+    LogStatement_in_GreenplumConfig6_19_logStatement:
+      description: |-
+        Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
+        MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
+        PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
+        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement
+        Default value is ddl
+      type: string
+      enum:
+      - NONE
+      - DDL
+      - MOD
+      - ALL
     GreenplumConfig6_17_in_GreenplumConfigSet6_17_effectiveConfig:
       description: |-
         Required.
@@ -2453,6 +2574,18 @@ components:
             https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
           type: boolean
           format: boolean
+        maxStatementMem:
+          description: |-
+            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
+            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
+            (seghost_physical_memory) / (average_number_concurrent_queries)
+            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
+            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
+            Default value is 2097152000 (2000MB)
+          type: integer
+          format: int64
+        logStatement:
+          $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_19_logStatement'
     GreenplumConfig6_19_in_GreenplumConfigSet6_19_userConfig:
       description: User-defined settings for a Greenplum.
       type: object
@@ -2503,6 +2636,18 @@ components:
             https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
           type: boolean
           format: boolean
+        maxStatementMem:
+          description: |-
+            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
+            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
+            (seghost_physical_memory) / (average_number_concurrent_queries)
+            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
+            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
+            Default value is 2097152000 (2000MB)
+          type: integer
+          format: int64
+        logStatement:
+          $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_19_logStatement'
     GreenplumConfig6_19_in_GreenplumConfigSet6_19_defaultConfig:
       description: Default configuration for a Greenplum.
       type: object
@@ -2553,6 +2698,18 @@ components:
             https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
           type: boolean
           format: boolean
+        maxStatementMem:
+          description: |-
+            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
+            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
+            (seghost_physical_memory) / (average_number_concurrent_queries)
+            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
+            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
+            Default value is 2097152000 (2000MB)
+          type: integer
+          format: int64
+        logStatement:
+          $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_19_logStatement'
     TimeOfDay_in_GreenplumRestoreConfig_backupWindowStart:
       description: |-
         Time to start the daily backup, in the UTC timezone.
@@ -2606,8 +2763,6 @@ components:
       description: |-
         Type of the host.
 
-        Type of the host.
-
          - TYPE_UNSPECIFIED: The type is not specified.
          - MASTER: A Greenplum® master host.
          - REPLICA: A Greenplum® master replica host.
@@ -2639,8 +2794,6 @@ components:
           type: string
     HostHealth_in_Host_health:
       description: |-
-        Status code of the aggregated health of the host.
-
         Status code of the aggregated health of the host.
 
          - UNKNOWN: Health of the host is unknown.
@@ -2710,8 +2863,6 @@ components:
       description: |-
         Required.
         Deployment environment of the Greenplum® cluster.
-
-        Deployment environment.
 
          - PRODUCTION: Stable environment with a conservative update policy:
         only hotfixes are applied during regular maintenance.
@@ -2853,6 +3004,22 @@ components:
           description: 'Type of the storage used by the host: `network-hdd`, `network-ssd`
             or `local-ssd`.'
           type: string
+    LogRecord_in_StreamLogRecord_record:
+      description: One of the requested log records.
+      type: object
+      properties:
+        timestamp:
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        message:
+          description: Contents of the log record.
+          type: object
+          additionalProperties:
+            type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Greenplum® Cluster resource should be updated.

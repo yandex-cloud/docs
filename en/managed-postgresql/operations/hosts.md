@@ -65,11 +65,15 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 {% list tabs %}
 
 - Management console
+
+  To add a host to the cluster:
+
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
 
   {% if audience != "internal" %}
+
   1. Specify the host parameters:
      - Availability zone.
 
@@ -77,9 +81,9 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      - Priority of the host as a {{ PG }} replica.
 
-       Change the priority value to modify the selection of the [synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica) in the cluster:
-       - The host with the highest priority in the cluster becomes a synchronous replica.
-       - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them.
+       Change the priority to modify the [selection of the master in the cluster](../concepts/replication.md#selecting-the-master):
+       - The host with the highest priority in the cluster becomes the master.
+       - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
        - The lowest priority is `0` (default), the highest is `100`.
 
      - Replication source (if you use [cascading replication](../concepts/replication.md#replication-manual)).
@@ -149,11 +153,11 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      {% endif %}
 
-     You can also specify some additional options in the `--host` parameter to manage public access to a host and replication in the cluster:
+     You can also specify several additional options in the `--host` parameter to manage public access to a host and replication in a cluster:
       - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
-      - Host priority in the `priority` option to [modify the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
-        - The host with the highest priority in the cluster becomes a synchronous replica.
-        - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them.
+      - Host priority in the `priority` option in order to [modify the selection of master](../concepts/replication.md#selecting-the-master):
+        - The host with the highest priority value in the cluster becomes the master.
+        - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
         - The lowest priority is `0` (default), the highest is `100`.
       - External host visibility {{ yandex-cloud }} in the `assign-public-ip` option:
         - `true`: public access enabled.
@@ -178,8 +182,9 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
             name                    = "<host name>"
             zone                    = "<availability zone>"
             subnet_id               = "<subnet ID>"
-            priority                = <priority for selecting a synchronous replica>
-            replication_source_name = "<replication source: the name  attribute of the appropriate host block>"
+            priority                = <priority for selecting a master>
+            replication_source_name = "<replication source: the name attribute of the appropriate host block>"
+            assign_public_ip        = <host public access: true or false>
           }
         }
         ```
@@ -219,9 +224,9 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
   1. Click on the name of the cluster you want and select the **Hosts** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the row next to the desired host and select **Edit**.
   1. Set new settings for the host:
-     1. Set the priority to modify the selection of the [synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica) in the cluster:
-        - The host with the highest priority in the cluster becomes a synchronous replica.
-        - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them.
+     1. Set the priority to modify the [selection of the master in the cluster](../concepts/replication.md#selecting-the-master):
+        - The host with the highest priority in the cluster becomes the master.
+        - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
         - The lowest priority is `0` (default), the highest is `100`.
      1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
      1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
@@ -247,9 +252,9 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
 
   To manage replication in the cluster, change in the `--host` parameter:
   - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
-  - Host priority in the `priority` option to [modify the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
-       - The host with the highest priority in the cluster becomes a synchronous replica.
-       - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them.
+  - Host priority in the `priority` option in order to [modify the selection of master](../concepts/replication.md#selecting-the-master):
+       - The host with the highest priority value in the cluster becomes the master.
+       - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
        - The lowest priority is `0` (default), the highest is `100`.
   - External host visibility {{ yandex-cloud }} in the `assign-public-ip` option.
 
@@ -267,7 +272,7 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
         resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
           ...
           host {
-            priority                = <priority for selecting a synchronous replica>
+            priority                = <priority for selecting a master>
             replication_source_name = "<replication source>"
             assign_public_ip        = <host public access: true or false>
           }

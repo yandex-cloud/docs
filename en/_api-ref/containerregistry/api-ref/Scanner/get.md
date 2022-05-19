@@ -9,7 +9,7 @@ To get the list of ScanResults for specified Image, make a [list](/docs/containe
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scans/{scanResultId}
+GET https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}
 ```
  
 ## Path parameters {#path_params}

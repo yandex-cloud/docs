@@ -18,6 +18,9 @@ _Function `COUNT_IF` is also found in the following categories: [Aggregate funct
           )
   ```
 
+  More info:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+
 - Extended
 
   ```
@@ -26,6 +29,10 @@ _Function `COUNT_IF` is also found in the following categories: [Aggregate funct
             [ BEFORE FILTER BY ... ]
           )
   ```
+
+  More info:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+  - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 

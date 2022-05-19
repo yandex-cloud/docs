@@ -9,14 +9,14 @@ Updates the specified organization.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{organizationId}
+PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-organizationId | Required. ID of the organization to update. To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.  The maximum string length in characters is 50.
+organizationId | Required. ID of the organization to update. To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

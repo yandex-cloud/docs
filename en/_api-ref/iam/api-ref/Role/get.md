@@ -9,7 +9,7 @@ To get the list of available Role resources, make a [list](/docs/iam/api-ref/Rol
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/roles/{roleId}
+GET https://iam.{{ api-host }}/iam/v1/roles/{roleId}
 ```
  
 ## Path parameters {#path_params}

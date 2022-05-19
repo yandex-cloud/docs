@@ -31,6 +31,8 @@ items:
             href: operations/resources/enable-compression.md
           - name: Enabling file segmentation
             href: operations/resources/enable-segmentation.md
+          - name: Enabling origin shielding
+            href: operations/resources/enable-shielding.md
           - name: Disabling a resource
             href: operations/resources/disable-resource.md
           - name: Deleting a resource
@@ -49,6 +51,8 @@ items:
     items:
       - name: Publishing game updates
         href: tutorials/prefetch.md
+      - name: Integrating an L7 load balancer with the CDN and Object Storage
+        href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment
         href: tutorials/blue-green-canary-deployment.md
   - name: Concepts

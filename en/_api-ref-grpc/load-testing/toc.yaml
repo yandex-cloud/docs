@@ -1,0 +1,9 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: AgentInstanceService
+    href: api-ref/grpc/agent_instance_service.md
+  - name: TestService
+    href: api-ref/grpc/test_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

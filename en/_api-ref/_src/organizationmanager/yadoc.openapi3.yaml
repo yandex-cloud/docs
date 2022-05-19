@@ -13,7 +13,7 @@ paths:
       tags:
       - Organization
       summary: Returns the specified Organization resource.
-      description: To get the list of available Organization resources, make a [list](/docs/organization-manager/api-ref/Organization/list)
+      description: To get the list of available Organization resources, make a [list](/docs/organization/api-ref/Organization/list)
         request.
       operationId: OrganizationGet
       parameters:
@@ -22,7 +22,7 @@ paths:
         description: |-
           Required.
           ID of the Organization resource to return.
-          To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.
+          To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -47,7 +47,7 @@ paths:
         description: |-
           Required.
           ID of the organization to update.
-          To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.
+          To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -69,7 +69,7 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateOrganizationMetadata'
-      x-y-operation-response: '[Organization](/docs/organization-manager/api-ref/Organization#representation)'
+      x-y-operation-response: '[Organization](/docs/organization/api-ref/Organization#representation)'
   /organization-manager/v1/organizations:
     get:
       tags:
@@ -81,8 +81,8 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/organization-manager/api-ref/Organization/list#query_params),
-          the service returns a [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses)
+          results is larger than [pageSize](/docs/organization/api-ref/Organization/list#query_params),
+          the service returns a [nextPageToken](/docs/organization/api-ref/Organization/list#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -93,8 +93,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set [pageToken](/docs/organization-manager/api-ref/Organization/list#query_params)
-          to the [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses)
+          Page token. Set [pageToken](/docs/organization/api-ref/Organization/list#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Organization/list#responses)
           returned by a previous list request to get the next page of results.
 
           The maximum string length in characters is 100.
@@ -105,7 +105,7 @@ paths:
         description: |-
           A filter expression that filters resources listed in the response.
           The expression must specify:
-          1. The field name. Currently you can use filtering only on the [Organization.name](/docs/organization-manager/api-ref/Organization#representation) field.
+          1. The field name. Currently you can use filtering only on the [Organization.name](/docs/organization/api-ref/Organization#representation) field.
           2. An `=` operator.
           3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
@@ -141,7 +141,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/organization-manager/api-ref/Organization/listOperations#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses)
+          results is larger than [pageSize](/docs/organization/api-ref/Organization/listOperations#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Organization/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
@@ -152,8 +152,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set [pageToken](/docs/organization-manager/api-ref/Organization/listOperations#query_params)
-          to the [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses)
+          Page token. Set [pageToken](/docs/organization/api-ref/Organization/listOperations#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Organization/listOperations#responses)
           returned by a previous list request to get the next page of results.
 
           The maximum string length in characters is 100.
@@ -191,7 +191,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than pageSize,
+          results is larger than [page_size],
           the service returns a nextPageToken
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
@@ -203,7 +203,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set pageToken
+          Page token. Set [page_token]
           to the nextPageToken
           returned by a previous list request to get the next page of results.
 
@@ -309,7 +309,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/organization-manager/api-ref/User/listMembers#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses)
+          results is larger than [pageSize](/docs/organization/api-ref/User/listMembers#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/User/listMembers#responses)
           that can be used to get the next page of results in subsequent list requests.
           Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
@@ -320,8 +320,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set [pageToken](/docs/organization-manager/api-ref/User/listMembers#query_params)
-          to the [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses)
+          Page token. Set [pageToken](/docs/organization/api-ref/User/listMembers#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/User/listMembers#responses)
           returned by a previous list request to get the next page of results.
 
           The maximum string length in characters is 100.
@@ -477,9 +477,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than pageSize, use
+            is larger than [ListAccessBindingsRequest.page_size], use
             the nextPageToken as the value
-            for the pageToken query parameter
+            for the [ListAccessBindingsRequest.page_token] query parameter
             in the next list request. Each subsequent list request will have its own
             nextPageToken to continue paging through the results.
           type: string
@@ -494,9 +494,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/organization-manager/api-ref/User/listMembers#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) as the value
-            for the [pageToken](/docs/organization-manager/api-ref/User/listMembers#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) to continue paging through the results.
+            is larger than [pageSize](/docs/organization/api-ref/User/listMembers#query_params), use the [nextPageToken](/docs/organization/api-ref/User/listMembers#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/User/listMembers#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization/api-ref/User/listMembers#responses) to continue paging through the results.
           type: string
     ListMembersResponseOrganizationUser:
       type: object
@@ -514,9 +514,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/organization-manager/api-ref/Organization/listOperations#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) as the value
-            for the [pageToken](/docs/organization-manager/api-ref/Organization/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) to continue paging through the results.
+            is larger than [pageSize](/docs/organization/api-ref/Organization/listOperations#query_params), use the [nextPageToken](/docs/organization/api-ref/Organization/listOperations#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Organization/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization/api-ref/Organization/listOperations#responses) to continue paging through the results.
           type: string
     ListOrganizationsResponse:
       type: object
@@ -529,11 +529,11 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/organization-manager/api-ref/Organization/list#query_params), use
-            the [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses) as the value
-            for the [pageToken](/docs/organization-manager/api-ref/Organization/list#query_params) query parameter
+            is larger than [pageSize](/docs/organization/api-ref/Organization/list#query_params), use
+            the [nextPageToken](/docs/organization/api-ref/Organization/list#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Organization/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/organization-manager/api-ref/Organization/list#responses) to continue paging through the results.
+            [nextPageToken](/docs/organization/api-ref/Organization/list#responses) to continue paging through the results.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).

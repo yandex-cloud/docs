@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST https://datatransfer.api.cloud.yandex.net/v1/transfer/{transferId}:activate
+POST https://datatransfer.{{ api-host }}/v1/transfer/{transferId}:activate
 ```
  
 ## Path parameters {#path_params}

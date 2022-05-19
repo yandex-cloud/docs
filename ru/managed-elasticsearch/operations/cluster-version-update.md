@@ -2,6 +2,8 @@
 
 В кластере {{ mes-name }} вы можете [обновить версию](#version-update) и [изменить редакцию](#start-edition-update) {{ ES }}.
 
+Об обновлениях в рамках одной версии и обслуживании хостов см. в разделе [{#T}](../concepts/maintenance.md).
+
 ## Обновление версии {{ ES }} {#version-update}
 
 Вы можете обновить кластер {{ mes-name }} до более новой [версии {{ ES }}](../concepts/update-policy.md#versioning-policy).

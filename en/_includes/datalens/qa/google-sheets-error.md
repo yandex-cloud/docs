@@ -1,15 +1,14 @@
-If there are empty cells in the Google Sheets document, {{ datalens-short-name }} may incorrectly display column headers and lose the first several rows.
+If a Google Sheets spreadsheet contains empty cells, {{ datalens-short-name }} may display column headers incorrectly and fail to display the first several lines.
 
-To correct the situation, enter any appropriate values in the Google Sheets spreadsheet's empty cells, such as `none`, `no`, `unknown`.
+To correct this, you need to fill in the empty cells in the Google Sheets spreadsheet with any appropriate values, such as `unavailable`, `none`, and `unknown`.
 
-To fill in empty cells in a Google Sheets spreadsheet quickly:
+To complete empty cells in a Google Sheets spreadsheet quickly:
 
-1\. Highlight the entire Google Sheets spreadsheet.
-2\. In the spreadsheet menu, select **Data** → **Create a filter**.
-3\. In the first column, click the filter icon in the right-hand corner of the top cell.
-4\. Click **Clear** and select **(Blanks)** as your value.
-5\. In the column's top cell, enter the desired value, such as: `0`, `none`, `no`, or any other.
-6\. Drag the cell down to propagate the value entered to all the empty cells in the column.
-7\. Click the filter icon again and click **Select all**.
-8\. Apply all these steps starting with Step 3 to the spreadsheet's remaining columns.
-
+1. Highlight the entire Google Sheets sheet.
+1. In the spreadsheet menu, select **Data** → **Create a filter**.
+1. In the right-hand corner of the first column's top cell, click the filter icon.
+1. Select **Clear** and then select **(Blanks)**.
+1. In the column's top cell, enter the desired values, such as `0`, `unavailable`, `none`, or any other.
+1. Drag the cell down to fill all the empty cells in the column with the entered value.
+1. Click the filter icon again and click **Select all**.
+1. Repeat all the steps starting with Step 3 for the other columns in the spreadsheet.

@@ -9,7 +9,7 @@ Updates the specified key pair.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://iam.api.cloud.yandex.net/iam/v1/keys/{keyId}
+PATCH https://iam.{{ api-host }}/iam/v1/keys/{keyId}
 ```
  
 ## Path parameters {#path_params}

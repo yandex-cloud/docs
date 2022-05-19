@@ -9,7 +9,7 @@ Returns the log of tags assigned to versions of the specified function.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}:tagHistory
+GET https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}:tagHistory
 ```
  
 ## Path parameters {#path_params}
@@ -25,7 +25,7 @@ Parameter | Description
 tag | Specific tag that history should be limited to.  Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
 pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
 pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. For example, `name=my-function`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from] and [FunctionTagHistoryRecord.effective_to] fields. 2. An `=` or `>` or `<` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. For example, `effective_to>2021-01-01T12:00:00Z`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

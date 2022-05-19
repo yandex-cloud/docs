@@ -194,7 +194,7 @@
         * `--sqlserver-version` — версия {{ MS }}.
         * `--environment` — окружение:
             * `PRODUCTION` — для стабильных версий ваших приложений.
-            * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ MM }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
+            * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ MS }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
         * `--host zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
         * `--user` — параметры пользователя:
@@ -234,7 +234,7 @@
 
 - Terraform
 
-    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
     Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

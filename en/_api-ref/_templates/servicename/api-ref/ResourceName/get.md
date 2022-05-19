@@ -9,7 +9,7 @@ To get the list of all available resource names, make a [list](/docs/service-nam
  
 ## HTTP request {#https-request}
 ```
-GET https://servicename.api.cloud.yandex.net/servicename/v1/resourceNames/{resourceNameId}
+GET https://servicename.{{ api-host }}/servicename/v1/resourceNames/{resourceNameId}
 ```
  
 ## Path parameters {#path_params}

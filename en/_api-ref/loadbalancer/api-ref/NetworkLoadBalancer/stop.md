@@ -10,7 +10,7 @@ Changes load balancer status to `` STOPPED ``.
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop
+POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:stop
 ```
  
 ## Path parameters {#path_params}

@@ -37,7 +37,7 @@
 
 - Terraform
 
-   {% include [terraform-definition](../../../_includes/tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
    For more on Terraform, [review the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 

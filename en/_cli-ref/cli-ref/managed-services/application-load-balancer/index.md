@@ -47,6 +47,9 @@ Aliases:
 	- [yc application-load-balancer backend-group add-http-backend](backend-group/add-http-backend.md) — Add HTTP backend to the backend group
 	- [yc application-load-balancer backend-group update-http-backend](backend-group/update-http-backend.md) — Update HTTP backend to the backend group
 	- [yc application-load-balancer backend-group delete-http-backend](backend-group/delete-http-backend.md) — Delete HTTP backend from the backend group
+	- [yc application-load-balancer backend-group add-grpc-backend](backend-group/add-grpc-backend.md) — Add gRPC backend to the backend group
+	- [yc application-load-balancer backend-group update-grpc-backend](backend-group/update-grpc-backend.md) — Update gRPC backend to the backend group
+	- [yc application-load-balancer backend-group delete-grpc-backend](backend-group/delete-grpc-backend.md) — Delete gRPC backend from the backend group
 	- [yc application-load-balancer backend-group add-stream-backend](backend-group/add-stream-backend.md) — Add Stream backend to the backend group
 	- [yc application-load-balancer backend-group update-stream-backend](backend-group/update-stream-backend.md) — Update Stream backend to the backend group
 	- [yc application-load-balancer backend-group delete-stream-backend](backend-group/delete-stream-backend.md) — Delete Stream backend from the backend group

@@ -9,7 +9,7 @@ To get the list of available Folder resources, make a [list](/docs/resource-mana
  
 ## HTTP request {#https-request}
 ```
-GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{folderId}
+GET https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folderId}
 ```
  
 ## Path parameters {#path_params}

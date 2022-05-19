@@ -6,3 +6,4 @@ default:
   yq-name: Query
   yq-short-name: YQ
   backend_name: YDB
+  feature_join: true

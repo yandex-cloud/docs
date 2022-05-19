@@ -1,13 +1,12 @@
-# Getting started with {{ mch-short-name }}
+# Getting started with {{ mch-name }}
 
 To get started with the service:
-
 * [Create a DB cluster](#cluster-create).
 * [Connect to the DB](#connect).
 
 {% if audience == "internal" %}
 
-For the internal MDB service, the [web interface]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about quotas and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+For the internal MDB service, the [web interface]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
 ## Access to DB clusters {#access}
 
@@ -19,21 +18,20 @@ If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To co
 
 If you plan to use the CLI, install and configure it according to the [instructions](../cli/quickstart.md).
 
-   If you did everything correctly, the list clusters query should now work:
+If you did everything correctly, the list clusters query should now work:
 
-   ```bash
-   {{ yc-mdb-ch }} cluster list
-   ```
+```bash
+{{ yc-mdb-ch }} cluster list
+```
 
 {% else %}
 
 ## Before you start {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
-
 1. If you don't have a folder yet, create one:
 
-    {% include [create-folder](../_includes/create-folder.md) %}
+   {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
    * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine in the same network as the DB cluster.
@@ -46,7 +44,6 @@ If you plan to use the CLI, install and configure it according to the [instructi
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
-
 1. Add the {{ CH }} [DEB repository](https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages):
 
    ```bash
@@ -76,85 +73,85 @@ If you plan to use the CLI, install and configure it according to the [instructi
 1. Select **{{ mch-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. When the cluster is ready, its status on the {{ mch-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. When the cluster is ready, its status on the {{ mch-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
-
 1. To connect to the DB server, get an SSL certificate:
 
-    {% if audience != "internal" %}
+   {% if audience != "internal" %}
 
-    1. Create a folder:
+   1. Create a folder:
 
-        ```bash
-        $ mkdir ~/.clickhouse
-        ```
+      ```bash
+      mkdir ~/.clickhouse
+      ```
 
-    1. Get a certificate:
+   1. Get a certificate:
 
-        ```bash
-        $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse/root.crt
-        ```
+      ```bash
+      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse/root.crt
+      ```
 
-    1. Configure permissions to the certificate:
+   1. Configure permissions to the certificate:
 
-        ```bash
-        $ chmod 0600 ~/.clickhouse/root.crt
-        ```
+      ```bash
+      chmod 0600 ~/.clickhouse/root.crt
+      ```
 
-    {% else %}
+   {% else %}
 
-    1. Create a folder:
+   1. Create a folder:
 
-        ```bash
-        $ mkdir ~/.clickhouse
-        ```
+      ```bash
+      mkdir ~/.clickhouse
+      ```
 
-    1. Get a certificate:
+   1. Get a certificate:
 
-        ```bash
-        $ wget "{{ pem-path }}" -O ~/.clickhouse/root.crt
-        ```
+      ```bash
+      wget "{{ pem-path }}" -O ~/.clickhouse/root.crt
+      ```
 
-    1. Configure permissions to the certificate:
+   1. Configure permissions to the certificate:
 
-        ```bash
-        $ chmod 0600 ~/.clickhouse/root.crt
-        ```
+      ```bash
+      chmod 0600 ~/.clickhouse/root.crt
+      ```
 
-    {% endif %}
+   {% endif %}
 
 1. Use the ClickHouse CLI to connect:
-    1. Specify the path to the SSL certificate in the [configuration file](https://{{ ch-domain }}/docs/en/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
+   1. Specify the path to the SSL certificate in the [configuration file](https://{{ ch-domain }}/docs/en/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
 
-    ```xml
-    <config>
-      <openSSL>
-        <client>
-          <loadDefaultCAFile>true</loadDefaultCAFile>
-          <caConfig>~/.clickhouse/root.crt</caConfig>
-          <cacheSessions>true</cacheSessions>
-          <disableProtocols>sslv2,sslv3</disableProtocols>
-          <preferServerCiphers>true</preferServerCiphers>
-          <invalidCertificateHandler>
-            <name>RejectCertificateHandler</name>
-          </invalidCertificateHandler>
-        </client>
-      </openSSL>
-    </config>
-    ```
-    1. Run the ClickHouse CLI with the following parameters:
+      ```xml
+      <config>
+        <openSSL>
+          <client>
+            <loadDefaultCAFile>true</loadDefaultCAFile>
+            <caConfig>~/.clickhouse/root.crt</caConfig>
+            <cacheSessions>true</cacheSessions>
+            <disableProtocols>sslv2,sslv3</disableProtocols>
+            <preferServerCiphers>true</preferServerCiphers>
+            <invalidCertificateHandler>
+              <name>RejectCertificateHandler</name>
+            </invalidCertificateHandler>
+          </client>
+        </openSSL>
+      </config>
+      ```
 
-    ```bash
-    clickhouse-client --host <host FQDN> \
-                      -s \
-                      --user <DB username> \
-                      --password <DB user password> \
-                      -q "<DB query>" \
-                      --port 9440 
-    ```
+   1. Run the {{ CH }} CLI with the following parameters:
+
+      ```bash
+      clickhouse-client --host <host FQDN> \
+        -s \
+        --user <DB username> \
+        --password <DB user password> \
+        -q "<DB query>" \
+        --port 9440 
+      ```
 
 ## What's next {#whats-next}
 

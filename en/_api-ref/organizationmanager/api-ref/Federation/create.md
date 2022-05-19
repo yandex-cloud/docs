@@ -9,7 +9,7 @@ Creates a federation in the specified organization.
  
 ## HTTP request {#https-request}
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
 ```
  
 ## Body parameters {#body_params}
@@ -35,7 +35,7 @@ POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/s
  
 Field | Description
 --- | ---
-organizationId | **string**<br><p>ID of the organization to create a federation in. To get the organization ID, make a <a href="/docs/organization-manager/api-ref/Organization/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+organizationId | **string**<br><p>ID of the organization to create a federation in. To get the organization ID, make a <a href="/docs/organization/api-ref/Organization/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the federation. The name must be unique within the organization.</p> <p>Value must match the regular expression ``[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Description of the federation.</p> <p>The maximum string length in characters is 256.</p> 
 cookieMaxAge | **string**<br><p>Browser cookie lifetime in seconds. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. The default value is ``8h``.</p> <p>Acceptable values are 600 seconds to 43200 seconds, inclusive.</p> 

@@ -13,7 +13,7 @@ paths:
       tags:
       - Certificate
       summary: Returns the specified certificate.
-      description: To get the list of available certificates, make a [list](/docs/organization-manager/api-ref/Certificate/list)
+      description: To get the list of available certificates, make a [list](/docs/organization/api-ref/Certificate/list)
         request.
       operationId: CertificateGet
       parameters:
@@ -21,7 +21,7 @@ paths:
         in: path
         description: |-
           ID of the certificate to return.
-          To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.
+          To get the certificate ID, make a [list](/docs/organization/api-ref/Certificate/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -45,7 +45,7 @@ paths:
         in: path
         description: |-
           ID of the certificate to delete.
-          To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.
+          To get the certificate ID, make a [list](/docs/organization/api-ref/Certificate/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -72,7 +72,7 @@ paths:
         in: path
         description: |-
           ID of the certificate to update.
-          To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.
+          To get the certificate ID, make a [list](/docs/organization/api-ref/Certificate/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -94,7 +94,7 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateCertificateMetadata'
-      x-y-operation-response: '[Certificate](/docs/organization-manager/api-ref/Certificate#representation)'
+      x-y-operation-response: '[Certificate](/docs/organization/api-ref/Certificate#representation)'
   /organization-manager/v1/saml/certificates:
     get:
       tags:
@@ -107,7 +107,7 @@ paths:
         description: |-
           Required.
           ID of the federation to list certificates in.
-          To get the federation ID make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+          To get the federation ID make a [list](/docs/organization/api-ref/Federation/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -116,7 +116,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/organization-manager/api-ref/Certificate/list#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Certificate/list#responses)
+          results is larger than [pageSize](/docs/organization/api-ref/Certificate/list#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Certificate/list#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -127,8 +127,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Certificate/list#query_params)
-          to the [nextPageToken](/docs/organization-manager/api-ref/Certificate/list#responses)
+          Page token. To get the next page of results, set [pageToken](/docs/organization/api-ref/Certificate/list#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Certificate/list#responses)
           returned by a previous list request.
 
           The maximum string length in characters is 100.
@@ -139,7 +139,7 @@ paths:
         description: |-
           A filter expression that filters resources listed in the response.
           The expression must specify:
-          1. The field name. Currently you can use filtering only on [Certificate.name](/docs/organization-manager/api-ref/Certificate#representation) field.
+          1. The field name. Currently you can use filtering only on [Certificate.name](/docs/organization/api-ref/Certificate#representation) field.
           2. An `=` operator.
           3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
@@ -175,7 +175,7 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateCertificateMetadata'
-      x-y-operation-response: '[Certificate](/docs/organization-manager/api-ref/Certificate#representation)'
+      x-y-operation-response: '[Certificate](/docs/organization/api-ref/Certificate#representation)'
   /organization-manager/v1/saml/certificates/{certificateId}/operations:
     get:
       tags:
@@ -196,7 +196,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/organization-manager/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Certificate/listOperations#responses)
+          results is larger than [pageSize](/docs/organization/api-ref/Certificate/listOperations#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Certificate/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -207,8 +207,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Certificate/listOperations#query_params)
-          to the [nextPageToken](/docs/organization-manager/api-ref/Certificate/listOperations#responses)
+          Page token. To get the next page of results, set [pageToken](/docs/organization/api-ref/Certificate/listOperations#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Certificate/listOperations#responses)
           returned by a previous list request.
 
           The maximum string length in characters is 100.
@@ -227,7 +227,7 @@ paths:
       tags:
       - Federation
       summary: Returns the specified federation.
-      description: To get the list of available federations, make a [list](/docs/organization-manager/api-ref/Federation/list)
+      description: To get the list of available federations, make a [list](/docs/organization/api-ref/Federation/list)
         request.
       operationId: FederationGet
       parameters:
@@ -235,7 +235,7 @@ paths:
         in: path
         description: |-
           ID of the federation to return.
-          To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+          To get the federation ID, make a [list](/docs/organization/api-ref/Federation/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -259,7 +259,7 @@ paths:
         in: path
         description: |-
           ID of the federation to delete.
-          To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+          To get the federation ID, make a [list](/docs/organization/api-ref/Federation/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -286,7 +286,7 @@ paths:
         in: path
         description: |-
           ID of the federation to update.
-          To get the federation ID, make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+          To get the federation ID, make a [list](/docs/organization/api-ref/Federation/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -308,7 +308,7 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateFederationMetadata'
-      x-y-operation-response: '[Federation](/docs/organization-manager/api-ref/Federation#representation)'
+      x-y-operation-response: '[Federation](/docs/organization/api-ref/Federation#representation)'
   /organization-manager/v1/saml/federations:
     get:
       tags:
@@ -321,7 +321,7 @@ paths:
         description: |-
           Required.
           ID of the organization to list federations in.
-          To get the organization ID, make a [list](/docs/organization-manager/api-ref/Organization/list) request.
+          To get the organization ID, make a [list](/docs/organization/api-ref/Organization/list) request.
 
           The maximum string length in characters is 50.
         schema:
@@ -330,8 +330,8 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/organization-manager/api-ref/Federation/list#query_params),
-          the service returns a [nextPageToken](/docs/organization-manager/api-ref/Federation/list#responses)
+          results is larger than [pageSize](/docs/organization/api-ref/Federation/list#query_params),
+          the service returns a [nextPageToken](/docs/organization/api-ref/Federation/list#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100
 
@@ -342,8 +342,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Federation/list#query_params)
-          to the [nextPageToken](/docs/organization-manager/api-ref/Federation/list#responses)
+          Page token. To get the next page of results, set [pageToken](/docs/organization/api-ref/Federation/list#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Federation/list#responses)
           returned by a previous list request.
 
           The maximum string length in characters is 50.
@@ -354,7 +354,7 @@ paths:
         description: |-
           A filter expression that filters resources listed in the response.
           The expression must specify:
-          1. The field name. Currently you can use filtering only on the [Federation.name](/docs/organization-manager/api-ref/Federation#representation) field.
+          1. The field name. Currently you can use filtering only on the [Federation.name](/docs/organization/api-ref/Federation#representation) field.
           2. An `=` operator.
           3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
@@ -390,7 +390,7 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateFederationMetadata'
-      x-y-operation-response: '[Federation](/docs/organization-manager/api-ref/Federation#representation)'
+      x-y-operation-response: '[Federation](/docs/organization/api-ref/Federation#representation)'
   /organization-manager/v1/saml/federations/{federationId}:addUserAccounts:
     post:
       tags:
@@ -445,7 +445,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/organization-manager/api-ref/Federation/listUserAccounts#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#responses)
+          results is larger than [pageSize](/docs/organization/api-ref/Federation/listUserAccounts#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Federation/listUserAccounts#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -456,8 +456,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#query_params)
-          to the [nextPageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#responses)
+          Page token. To get the next page of results, set [pageToken](/docs/organization/api-ref/Federation/listUserAccounts#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Federation/listUserAccounts#responses)
           returned by a previous list request.
 
           The maximum string length in characters is 100.
@@ -491,7 +491,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/organization-manager/api-ref/Federation/listOperations#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/Federation/listOperations#responses)
+          results is larger than [pageSize](/docs/organization/api-ref/Federation/listOperations#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Federation/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -502,8 +502,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/organization-manager/api-ref/Federation/listOperations#query_params)
-          to the [nextPageToken](/docs/organization-manager/api-ref/Federation/listOperations#responses)
+          Page token. To get the next page of results, set [pageToken](/docs/organization/api-ref/Federation/listOperations#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Federation/listOperations#responses)
           returned by a previous list request.
 
           The maximum string length in characters is 100.
@@ -541,7 +541,7 @@ components:
       type: object
       properties:
         userAccounts:
-          description: List of users created by [addUserAccounts](/docs/organization-manager/api-ref/Federation/addUserAccounts)
+          description: List of users created by [addUserAccounts](/docs/organization/api-ref/Federation/addUserAccounts)
             request.
           type: array
           items:
@@ -612,7 +612,7 @@ components:
         federationId:
           description: |-
             ID of the federation to add new certificate.
-            To get the federation ID make a [list](/docs/organization-manager/api-ref/Federation/list) request.
+            To get the federation ID make a [list](/docs/organization/api-ref/Federation/list) request.
 
             The maximum string length in characters is 50.
           type: string
@@ -647,7 +647,7 @@ components:
         organizationId:
           description: |-
             ID of the organization to create a federation in.
-            To get the organization ID, make a [list](/docs/organization-manager/api-ref/Organization/list) request.
+            To get the organization ID, make a [list](/docs/organization/api-ref/Organization/list) request.
 
             The maximum string length in characters is 50.
           type: string
@@ -849,9 +849,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/organization-manager/api-ref/Certificate/listOperations#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/Certificate/listOperations#responses) as the value
-            for the [pageToken](/docs/organization-manager/api-ref/Certificate/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Certificate/listOperations#responses) to continue paging through the results.
+            is larger than [pageSize](/docs/organization/api-ref/Certificate/listOperations#query_params), use the [nextPageToken](/docs/organization/api-ref/Certificate/listOperations#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Certificate/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization/api-ref/Certificate/listOperations#responses) to continue paging through the results.
           type: string
     ListCertificatesResponse:
       type: object
@@ -864,11 +864,11 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/organization-manager/api-ref/Certificate/list#query_params), use
-            the [nextPageToken](/docs/organization-manager/api-ref/Certificate/list#responses) as the value
-            for the [pageToken](/docs/organization-manager/api-ref/Certificate/list#query_params) query parameter
+            is larger than [pageSize](/docs/organization/api-ref/Certificate/list#query_params), use
+            the [nextPageToken](/docs/organization/api-ref/Certificate/list#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Certificate/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/organization-manager/api-ref/Certificate/list#responses) to continue paging through the results.
+            [nextPageToken](/docs/organization/api-ref/Certificate/list#responses) to continue paging through the results.
           type: string
     ListFederatedUserAccountsResponse:
       type: object
@@ -881,9 +881,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/organization-manager/api-ref/Federation/listUserAccounts#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#responses) as the value
-            for the [pageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Federation/listUserAccounts#responses) to continue paging through the results.
+            is larger than [pageSize](/docs/organization/api-ref/Federation/listUserAccounts#query_params), use the [nextPageToken](/docs/organization/api-ref/Federation/listUserAccounts#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Federation/listUserAccounts#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization/api-ref/Federation/listUserAccounts#responses) to continue paging through the results.
           type: string
     ListFederationOperationsResponse:
       type: object
@@ -896,9 +896,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/organization-manager/api-ref/Federation/listOperations#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/Federation/listOperations#responses) as the value
-            for the [pageToken](/docs/organization-manager/api-ref/Federation/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Federation/listOperations#responses) to continue paging through the results.
+            is larger than [pageSize](/docs/organization/api-ref/Federation/listOperations#query_params), use the [nextPageToken](/docs/organization/api-ref/Federation/listOperations#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Federation/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization/api-ref/Federation/listOperations#responses) to continue paging through the results.
           type: string
     ListFederationsResponse:
       type: object
@@ -911,11 +911,11 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/organization-manager/api-ref/Federation/list#query_params), use
-            the [nextPageToken](/docs/organization-manager/api-ref/Federation/list#responses) as the value
-            for the [pageToken](/docs/organization-manager/api-ref/Federation/list#query_params) query parameter
+            is larger than [pageSize](/docs/organization/api-ref/Federation/list#query_params), use
+            the [nextPageToken](/docs/organization/api-ref/Federation/list#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Federation/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/organization-manager/api-ref/Federation/list#responses) to continue paging through the results.
+            [nextPageToken](/docs/organization/api-ref/Federation/list#responses) to continue paging through the results.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).

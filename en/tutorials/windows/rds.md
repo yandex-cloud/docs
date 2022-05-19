@@ -1,1 +1,1 @@
-{% include [rds](../../_includes/tutorials/windows/rds.md) %}
+{% include [rds](../../_tutorials/windows/rds.md) %}

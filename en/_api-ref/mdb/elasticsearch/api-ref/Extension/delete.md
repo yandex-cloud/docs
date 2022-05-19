@@ -9,15 +9,15 @@ Deletes the specified extension.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
+DELETE https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the cluster.  The maximum string length in characters is 50.
-extensionId | Required. Required. ID of the extension to delete.
+clusterId | Required. ID of the cluster.  The maximum string length in characters is 50.
+extensionId | Required. ID of the extension to delete.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -10,7 +10,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
  
 ## HTTP request {#https-request}
 ```
-PATCH https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}
+PATCH https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Retrieves the list of proxies in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies
+GET https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies
 ```
  
 ## Query parameters {#query_params}

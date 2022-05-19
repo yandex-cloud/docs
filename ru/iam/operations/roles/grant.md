@@ -1,6 +1,6 @@
 # Назначение роли
 
-Чтобы предоставить доступ к ресурсу, назначьте субъекту [роль](../../../iam/concepts/access-control/roles.md) на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако. Подробнее читайте в разделе [{#T}](../../concepts/access-control/index.md).
+Чтобы предоставить доступ к ресурсу, назначьте субъекту [роль](../../concepts/access-control/roles.md) на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако. Подробнее читайте в разделе [{#T}](../../concepts/access-control/index.md).
 
 ## Назначить роль пользователю {#access-to-user}
 
@@ -14,8 +14,8 @@
 
   1. Добавьте пользователя в облако через [Консоль управления](../users/create.md#console-user) или [{{ org-full-name }}](../users/create.md#organization-user).
   1. Назначьте пользователю роль в облаке:
-      1. [Выберите облако](../../../resource-manager/operations/cloud/switch-cloud.md).
-      1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl) (кнопка **Права доступа** на панели слева).
+      1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
+      1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
       1. Установите переключатель **Наследуемые роли** в активное состояние, чтобы в списке отобразились пользователи, добавленные в организацию.
       1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
       1. Нажмите кнопку **Изменить роли**.
@@ -36,7 +36,7 @@
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
+  1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
   1. [Получите идентификатор пользователя](../users/get.md).
   1. Назначьте роль с помощью команды:
 
@@ -67,7 +67,7 @@
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
 
-  1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
+  1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
   1. [Получите идентификатор пользователя](../users/get.md).
   1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
 
@@ -180,7 +180,7 @@
       ```bash
       yc resource-manager folder list-access-binding my-folder
       ```
-  2. Назначьте роли. Например, назначьте одному пользователю роль `editor`, а другому `viewer`:
+  1. Назначьте роли. Например, назначьте одному пользователю роль `editor`, а другому `viewer`:
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
@@ -215,7 +215,7 @@
           }]
       }
       ```
-  2. Назначьте указанные роли, например на каталог с идентификатором `b1gvmob95yysaplct532`:
+  1. Назначьте указанные роли, например на каталог с идентификатором `b1gvmob95yysaplct532`:
 
       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
@@ -242,7 +242,7 @@
       }
       ```
 
-  2. Назначьте роли:
+  1. Назначьте роли:
 
       ```bash
       export FOLDER_ID=b1gvmob95yysaplct532
@@ -275,8 +275,8 @@
   В консоли управления можно назначить роль только на облако или каталог:
 
   1. Назначьте пользователю роль в облаке:
-      1. [Выберите облако](../../../resource-manager/operations/cloud/switch-cloud.md).
-      1. Перейдите в раздел [Права доступа в облаке](https://console.cloud.yandex.ru/cloud?section=resource-acl) (кнопка **Права доступа** на панели слева).
+      1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
+      1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
       1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
       1. Нажмите кнопку **Изменить роли**.
       1. В окне **Настройка прав доступа** облака нажмите кнопку **Добавить роль**.

@@ -42,7 +42,7 @@ audio_spec | **[AudioSpec](#AudioSpec)**<br>Required. Description of the audio f
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><ul/>
+audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li></ul>
 sample_rate_hertz | **int64**<br>Sampling frequency of the signal. 
 voice | **string**<br>The hint for specifying the voice that need to synthesize in the audio. 
 
@@ -62,7 +62,7 @@ audio_unit_end_ms | **int64**<br>End of the template in audio in milliseconds. T
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li><ul/>
+audio_encoding | enum **AudioEncoding**<br>Encoding type. <ul><li>`LINEAR16_PCM`: 16-bit signed little-endian (Linear PCM)</li></ul>
 sample_rate_hertz | **int64**<br>Sampling frequency of the signal. 
 voice | **string**<br>The hint for specifying the voice that need to synthesize in the audio. 
 

@@ -16,10 +16,9 @@ Local SSD storage doesn't provide fault tolerance for a single-host cluster: if 
 
 {% endif %}
 
-## Minimum storage size {#minimum-disk-size}
+## Minimum storage size {#minimum-storage-size}
 
 There is a limit on the minimum storage size in a cluster, which is the sum of the sizes of all custom topics' log segments. At least two log segments are required for each replica of a topic partition. You can set the maximum size of this segment:
-
 * [At the topic level](../operations/cluster-topics.md#update-topic) by using the [Segment bytes](settings-list.md#settings-topic-segment-bytes) setting.
 * Globally [at the cluster level](../operations/cluster-update.md#change-kafka-settings) by using the [Log segment bytes](settings-list.md#settings-log-segment-bytes) setting.
 

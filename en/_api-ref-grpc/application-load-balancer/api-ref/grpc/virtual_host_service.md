@@ -108,7 +108,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch1). <br>For instance, if [StringMatch.prefix_match](#StringMatch1) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch1), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction}
@@ -169,7 +169,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### RouteOptions {#RouteOptions}
@@ -323,7 +323,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction1}
@@ -384,7 +384,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### RouteOptions {#RouteOptions2}
@@ -525,7 +525,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch5). <br>For instance, if [StringMatch.prefix_match](#StringMatch5) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch5), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction2}
@@ -586,7 +586,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### RouteOptions {#RouteOptions4}
@@ -721,7 +721,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch7). <br>For instance, if [StringMatch.prefix_match](#StringMatch7) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch7), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction3}
@@ -782,7 +782,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### RouteOptions {#RouteOptions5}
@@ -924,7 +924,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch9). <br>For instance, if [StringMatch.prefix_match](#StringMatch9) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch9), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction4}
@@ -985,7 +985,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### RouteOptions {#RouteOptions7}
@@ -1120,7 +1120,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch11). <br>For instance, if [StringMatch.prefix_match](#StringMatch11) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch11), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction5}
@@ -1181,7 +1181,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### RouteOptions {#RouteOptions8}
@@ -1398,7 +1398,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch13). <br>For instance, if [StringMatch.prefix_match](#StringMatch13) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch13), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction6}
@@ -1459,7 +1459,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### RouteOptions {#RouteOptions10}
@@ -1590,7 +1590,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch15). <br>For instance, if [StringMatch.prefix_match](#StringMatch15) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch15), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction7}
@@ -1651,7 +1651,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### Operation {#Operation4}
@@ -1755,7 +1755,7 @@ path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <b
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
 &nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch17). <br>For instance, if [StringMatch.prefix_match](#StringMatch17) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch17), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
-response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
+response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li></ul>
 
 
 ### DirectResponseAction {#DirectResponseAction8}
@@ -1816,7 +1816,7 @@ host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Val
 
 Field | Description
 --- | ---
-status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
+status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li></ul>
 
 
 ### RouteOptions {#RouteOptions12}

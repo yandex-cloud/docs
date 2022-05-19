@@ -10,7 +10,7 @@ use the origin via a [purge](/docs/cdn/api-ref/Cache/purge) request.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://cdn.api.cloud.yandex.net/cdn/v1/origins/{originId}
+PATCH https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
 ```
  
 ## Path parameters {#path_params}

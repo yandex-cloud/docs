@@ -9,7 +9,7 @@ Creates a target group in the specified folder and adds the specified targets to
  
 ## HTTP request {#https-request}
 ```
-POST https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups
+POST https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups
 ```
  
 ## Body parameters {#body_params}

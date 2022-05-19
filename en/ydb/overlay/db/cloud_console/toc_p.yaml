@@ -1,0 +1,9 @@
+items:
+- name: Overview
+  href: index.md
+- name: Creating, updating, and deleting databases
+  href: create_manage_database.md
+- name: Tables and directories
+  href: schema.md
+- name: Access management
+  href: ../../security/start_auth.md

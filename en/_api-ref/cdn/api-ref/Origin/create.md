@@ -9,7 +9,7 @@ Creates origin inside origin group.
  
 ## HTTP request {#https-request}
 ```
-POST https://cdn.api.cloud.yandex.net/cdn/v1/origins
+POST https://cdn.{{ api-host }}/cdn/v1/origins
 ```
  
 ## Body parameters {#body_params}

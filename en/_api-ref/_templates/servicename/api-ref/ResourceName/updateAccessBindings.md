@@ -9,7 +9,7 @@ Updates access bindings for the specified resource name.
  
 ## HTTP request {#https-request}
 ```
-POST https://servicename.api.cloud.yandex.net/servicename/v1/resourceNames/{resourceId}:updateAccessBindings
+POST https://servicename.{{ api-host }}/servicename/v1/resourceNames/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

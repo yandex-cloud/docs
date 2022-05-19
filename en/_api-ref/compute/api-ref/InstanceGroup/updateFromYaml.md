@@ -10,7 +10,7 @@ This method starts an operation that can be cancelled by another operation.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:yaml
+PATCH https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:yaml
 ```
  
 ## Path parameters {#path_params}

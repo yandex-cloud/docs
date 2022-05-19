@@ -9,7 +9,7 @@ Lists users for the specified federation.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/saml/federations/{federationId}:listUserAccounts
+GET https://iam.{{ api-host }}/iam/v1/saml/federations/{federationId}:listUserAccounts
 ```
  
 ## Path parameters {#path_params}

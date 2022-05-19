@@ -67,7 +67,7 @@
      1. Выберите подсети в каждой зоне доступности для этой сети. Чтобы создать новую подсеть, нажмите на кнопку **Создать новую** рядом с нужной зоной доступности.
 
      {% endif %}
-  
+
         {% note info %}
 
         Для кластера из нескольких хостов-брокеров нужно указать подсети в каждой зоне доступности, даже если вы планируете разместить брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех хостов {{ ZK }} — по одному в каждой зоне доступности. Подробнее см. в разделе [Взаимосвязь ресурсов в {{ mkf-name }}](../concepts/index.md).
@@ -196,7 +196,7 @@
 
 - Terraform
 
-    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
     {% if audience != "internal" %}
 
@@ -477,11 +477,11 @@
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
-    
+
     resource "yandex_vpc_security_group" "mykf-sg" {
       name       = "mykf-sg"
       network_id = yandex_vpc_network.mynet.id
-  
+
       ingress {
         description    = "Kafka"
         port           = 9091

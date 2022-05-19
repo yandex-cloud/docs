@@ -9,7 +9,7 @@ Sets access bindings for the specified instance group.
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{resourceId}:setAccessBindings
+POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

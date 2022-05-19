@@ -9,7 +9,7 @@ Lists operations for the specified resource name.
  
 ## HTTP request {#https-request}
 ```
-GET https://servicename.api.cloud.yandex.net/servicename/v1/resourceNames/{resourceNameId}/operations
+GET https://servicename.{{ api-host }}/servicename/v1/resourceNames/{resourceNameId}/operations
 ```
  
 ## Path parameters {#path_params}

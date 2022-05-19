@@ -8,7 +8,6 @@ editable: false
 When using the {{ ml-platform-name}} service, you pay for the actual use of computing resources: the calculation time or the operation of instances is charged per second.
 
 1. When performing calculations and experiments or training models, you pay for the calculation time. If you do not perform computational operations in the project, the service usage time {{ ml-platform-name }} is not charged. However, if you perform calculations using {{ dataproc-name}} clusters, they are charged separately. For more information, see [using clusters {{dataproc-name }}](#data-proc). Also, storage of [datasets](#storage) is charged separately.
-
 1. When deploying models, the cost of using {{ ml-platform-name }} consists of the operating time and capacity of all node instances. The operating time of each instance begins at the time of its launch and ends after the instance is deleted.
 
 ### Pricing unit {#unit}
@@ -16,13 +15,13 @@ When using the {{ ml-platform-name}} service, you pay for the actual use of comp
 A billing measure is a one billing unit. The number of billing units spent on calculation depends on:
 * capacity of computing resources used;
 * time spent on the calculation.
-    
-    The calculation time is rounded up to an integer number of seconds.
+
+  The calculation time is rounded up to an integer number of seconds.
 
 The cost of one billing unit is the cost of using 1 CPU core for 1 second. The number of units depends on [computing resource configuration](concepts/configurations.md).
 
 Configuration | Units per second
------ | ---- 
+--- | ---
 c1.4 | 4
 c1.8 | 8
 c1.32 | 32
@@ -41,20 +40,20 @@ g2.8 | 928
 ### Example of cost calculation {#price-example}
 
 Example of cost calculation:
-- **Computing resource:** configuration c1.8 with 8 CPUs and 1 GPU.
-- **Operation execution time:** 1,400 MS (rounded up to an integer number of seconds).
+* **Computing resource:** configuration c1.8 with 8 CPUs and 1 GPU.
+* **Operation execution time:** 1,400 MS (rounded up to an integer number of seconds).
 
 Cost calculation:
 
 > 72 × 2 = 144 units per calculation
-> 144 × 0.000009 = $0.001296
+> 144 × 0.0000096 = $0.001296
 >
-> Total: $0.001296
+> Total: $0.0013824
 
 Where:
 * 72 — number of units per configuration g1.1.
 * 2 — rounded up 1,400 MS.
-* $0.000009 — cost of 1 unit.
+* $0.0000096 — cost of 1 unit.
 
 {% endif %}
 
@@ -69,7 +68,7 @@ Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
 ### Storing data in the project {#storage}
 
-Each project {{ml-platform-name }} has a storage within which data storage is not charged. If the quota for the project size is increased, the [storage volume](#project-data) over {{ ml-project-size }} is paid separately. For more information about quotas and limits of the service, see [{#T}](concepts/limits.md).
+Each project {{ml-platform-name }} has a storage within which data storage is not charged. If the [quota]({{ link-console-quotas }}) for the project size is increased, the [storage volume](#project-data) over {{ ml-project-size }} is paid separately. For more information about quotas and limits of the service, see [{#T}](concepts/limits.md).
 
 If you need to store large amounts of data that exceed the specified limits, use the {{ objstorage-full-name }} service. In this case, data storage will be charged according to [pricing rules {{ objstorage-name }}](../storage/pricing.md).
 
@@ -185,24 +184,24 @@ This section shows the price of [{#T}](tutorials/markup.md). The price is indica
 
 {% if region == "ru" %}
 
-Service | Rate for the billable unit, with VAT 
----|---
-[Marking up audio files](tutorials/markup.md) | {{ sku|RUB|ai.speech.transcribe.human.v1|string }} 
+Service | Rate for the billable unit, with VAT
+--- |---
+[Marking up audio files](tutorials/markup.md) | {{ sku|RUB|ai.speech.transcribe.human.v1|string }}
 
 {% endif %}
 
 {% if region == "kz" %}
 
-Service | Rate for the billable unit, with VAT 
----|---
-[Marking up audio files](tutorials/markup.md) | {{ sku|KZT|ai.speech.transcribe.human.v1|string }} 
+Service | Rate for the billable unit, with VAT
+--- | ---
+[Marking up audio files](tutorials/markup.md) | {{ sku|KZT|ai.speech.transcribe.human.v1|string }}
 
 {% endif %}
 
 {% if region == "int" %}
 
 Service | Rate for the billable unit, without VAT
----|---
-[Marking up audio files](tutorials/markup.md) | {{ sku|USD|ai.speech.transcribe.human.v1|string }} 
+--- | ---
+[Marking up audio files](tutorials/markup.md) | {{ sku|USD|ai.speech.transcribe.human.v1|string }}
 
 {% endif %}

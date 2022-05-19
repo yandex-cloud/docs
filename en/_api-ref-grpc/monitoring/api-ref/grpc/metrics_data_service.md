@@ -38,8 +38,8 @@ mode | **oneof:** `max_points`, `grid_interval` or `disabled`<br>List of availab
 &nbsp;&nbsp;max_points | **int64**<br>Maximum number of points to be returned. 
 &nbsp;&nbsp;grid_interval | **int64**<br>Time interval (grid) for downsampling in milliseconds. Points in the specified range are aggregated into one time point. 
 &nbsp;&nbsp;disabled | **bool**<br>Disable downsampling. 
-grid_aggregation | enum **GridAggregation**<br>Function that is used for downsampling. <ul><li>`GRID_AGGREGATION_MAX`: Max value.</li><li>`GRID_AGGREGATION_MIN`: Min value.</li><li>`GRID_AGGREGATION_SUM`: Sum of values.</li><li>`GRID_AGGREGATION_AVG`: Average value.</li><li>`GRID_AGGREGATION_LAST`: Last value.</li><li>`GRID_AGGREGATION_COUNT`: Total count of points.</li><ul/>
-gap_filling | enum **GapFilling**<br>Parameters for filling gaps in data. <ul><li>`GAP_FILLING_NULL`: Returns `null` as a metric value and `timestamp` as a time series value.</li><li>`GAP_FILLING_NONE`: Returns no value and no timestamp.</li><li>`GAP_FILLING_PREVIOUS`: Returns the value from the previous time interval.</li><ul/>
+grid_aggregation | enum **GridAggregation**<br>Function that is used for downsampling. <ul><li>`GRID_AGGREGATION_MAX`: Max value.</li><li>`GRID_AGGREGATION_MIN`: Min value.</li><li>`GRID_AGGREGATION_SUM`: Sum of values.</li><li>`GRID_AGGREGATION_AVG`: Average value.</li><li>`GRID_AGGREGATION_LAST`: Last value.</li><li>`GRID_AGGREGATION_COUNT`: Total count of points.</li></ul>
+gap_filling | enum **GapFilling**<br>Parameters for filling gaps in data. <ul><li>`GAP_FILLING_NULL`: Returns `null` as a metric value and `timestamp` as a time series value.</li><li>`GAP_FILLING_NONE`: Returns no value and no timestamp.</li><li>`GAP_FILLING_PREVIOUS`: Returns the value from the previous time interval.</li></ul>
 
 
 ### ReadMetricsDataResponse {#ReadMetricsDataResponse}
@@ -56,7 +56,7 @@ Field | Description
 alias | **string**<br>Alias. 
 name | **string**<br>Name of the metric. 
 labels | **map<string,string>**<br>List of metric labels as `key:value` pairs. 
-type | enum **[MetricType](./#MetricType)**<br>Type of the metric. <ul><li>`DGAUGE`: Gauge with fractional values.</li><li>`IGAUGE`: Gauge with integer values.</li><li>`COUNTER`: Counter.</li><li>`RATE`: Rate.</li><ul/>
+type | enum **[MetricType](./#MetricType)**<br>Type of the metric. <ul><li>`DGAUGE`: Gauge with fractional values.</li><li>`IGAUGE`: Gauge with integer values.</li><li>`COUNTER`: Counter.</li><li>`RATE`: Rate.</li></ul>
 timeseries | **[Timeseries](#Timeseries)**<br>Metric timeseries. 
 
 

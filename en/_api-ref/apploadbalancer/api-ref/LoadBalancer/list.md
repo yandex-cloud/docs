@@ -9,7 +9,7 @@ Lists application load balancers in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers
+GET https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers
 ```
  
 ## Query parameters {#query_params}

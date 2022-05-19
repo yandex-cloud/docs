@@ -3781,7 +3781,7 @@ components:
       - SHA256_PASSWORD
     MysqlConfig5_7TransactionIsolation_in_MysqlConfig5_7_transactionIsolation:
       description: |-
-        Уровень изоляции транзакций по-умолчанию.
+        Уровень изоляции транзакций по умолчанию.
 
         Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_transaction_isolation)
       type: string
@@ -3824,7 +3824,7 @@ components:
       - SHA256_PASSWORD
     MysqlConfig8_0TransactionIsolation_in_MysqlConfig8_0_transactionIsolation:
       description: |-
-        Уровень изоляции транзакций по-умолчанию.
+        Уровень изоляции транзакций по умолчанию.
 
         Подробнее см. в [описании переменной в документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation)
       type: string

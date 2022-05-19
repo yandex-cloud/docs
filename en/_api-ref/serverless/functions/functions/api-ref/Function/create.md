@@ -9,7 +9,7 @@ Creates a function in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-functions.api.cloud.yandex.net/functions/v1/functions
+POST https://serverless-functions.{{ api-host }}/functions/v1/functions
 ```
  
 ## Body parameters {#body_params}

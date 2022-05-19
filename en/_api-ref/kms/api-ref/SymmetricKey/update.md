@@ -9,7 +9,7 @@ Updates the specified symmetric KMS key.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
+PATCH https://kms.{{ api-host }}/kms/v1/keys/{keyId}
 ```
  
 ## Path parameters {#path_params}

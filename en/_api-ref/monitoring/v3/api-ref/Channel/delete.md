@@ -9,7 +9,7 @@ Deletes the specified channel.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://monitoring.api.cloud.yandex.net/monitoring/v3/channels/{channelId}
+DELETE https://monitoring.{{ api-host }}/monitoring/v3/channels/{channelId}
 ```
  
 ## Path parameters {#path_params}

@@ -106,5 +106,5 @@ FROM
     ))))
 ```
 
-В документации языка YQL доступно детальное описание модулей [Yson](../yql-docs-core/udf/list/yson.md), [Json](../yql-docs-core/types/json.md) и [его функций](../yql-docs-core/builtins/json.md), [<|"key": value|>](../yql-docs-core/builtins/struct.md).
+В документации языка YQL доступно детальное описание модулей [Yson]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/udf/list/yson){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/udf/list/yson){% endif %}, [Json]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/types/json){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/types/json){% endif %} и [его функций]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/builtins/json){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/builtins/json){% endif %}, [<|"key": value|>]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/builtins/struct){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/builtins/struct){% endif %}.
 

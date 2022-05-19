@@ -9,7 +9,7 @@ Creates a backend group in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups
+POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups
 ```
  
 ## Body parameters {#body_params}

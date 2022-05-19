@@ -69,7 +69,7 @@ resource_id | **string**<br>ID of resource with activated raw logs.
 
 Field | Description
 --- | ---
-status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.</li><li>`RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.</li><li>`RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but logs CDN provider has been failed to store logs.</li><ul/>
+status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.</li><li>`RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.</li><li>`RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but logs CDN provider has been failed to store logs.</li></ul>
 settings | **[RawLogsSettings](#RawLogsSettings1)**<br>Raw logs settings. 
 
 
@@ -139,7 +139,7 @@ resource_id | **string**<br>Required. ID of CDN resource to request status and s
 
 Field | Description
 --- | ---
-status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.</li><li>`RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.</li><li>`RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but logs CDN provider has been failed to store logs.</li><ul/>
+status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.</li><li>`RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.</li><li>`RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but logs CDN provider has been failed to store logs.</li></ul>
 settings | **[RawLogsSettings](#RawLogsSettings2)**<br>Raw logs settings. 
 
 
@@ -206,7 +206,7 @@ resource_id | **string**<br>ID of CDN resource.
 
 Field | Description
 --- | ---
-status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.</li><li>`RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.</li><li>`RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but logs CDN provider has been failed to store logs.</li><ul/>
+status | enum **RawLogsStatus**<br>Raw logs status. <ul><li>`RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.</li><li>`RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.</li><li>`RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but logs CDN provider has been failed to store logs.</li></ul>
 settings | **[RawLogsSettings](#RawLogsSettings4)**<br>Raw logs settings. 
 
 

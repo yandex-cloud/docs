@@ -9,7 +9,7 @@ Deletes the specified dashboard.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://monitoring.api.cloud.yandex.net/monitoring/v3/dashboards/{dashboardId}
+DELETE https://monitoring.{{ api-host }}/monitoring/v3/dashboards/{dashboardId}
 ```
  
 ## Path parameters {#path_params}

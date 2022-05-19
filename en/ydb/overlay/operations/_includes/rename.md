@@ -202,5 +202,5 @@ Before rotating, prepare an empty `logs/blank_logs` table with a schema identica
 
 {% endlist %}
 
-The data that was available in the `logs/current_logs` table before the operation, are now in `logs/old_logs`. The `logs/current_logs` table is empty because the `logs/blank` table was moved to this path. To repeat the rotation, re-create the `logs/blank` table.
+The data that was available in the `logs/current_logs` table before the operation is now in `logs/old_logs`. The `logs/current_logs` table is empty because the `logs/blank` table was moved to this path. To repeat the rotation, re-create the `logs/blank` table.
 

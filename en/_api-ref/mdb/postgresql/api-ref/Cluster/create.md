@@ -9,7 +9,7 @@ Creates a PostgreSQL cluster in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
+POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters
 ```
  
 ## Body parameters {#body_params}
@@ -1853,7 +1853,10 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -3629,6 +3632,7 @@ hostSpecs[].<br>configSpec.<br>postgresqlConfig_14.<br>effectiveCacheSize | **in
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -9,7 +9,7 @@ Stop the specified PostgreSQL cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}:stop
+POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}:stop
 ```
  
 ## Path parameters {#path_params}

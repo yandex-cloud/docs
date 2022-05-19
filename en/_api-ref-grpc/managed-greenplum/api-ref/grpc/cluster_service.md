@@ -19,6 +19,7 @@ A set of methods for managing Greenplum® clusters.
 | [ListMasterHosts](#ListMasterHosts) | Retrieves a list of master hosts for the specified cluster. |
 | [ListSegmentHosts](#ListSegmentHosts) | Retrieves a list of segment hosts for the specified cluster. |
 | [ListLogs](#ListLogs) | Retrieves logs for the specified Greenplum® cluster. |
+| [StreamLogs](#StreamLogs) | Same as ListLogs but using server-side streaming. |
 | [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified Greenplum cluster. |
 | [Restore](#Restore) | Creates a new Greenplum® cluster using the specified backup. |
 
@@ -48,7 +49,7 @@ name | **string**<br>Required. Name of the Greenplum® cluster. The name is uniq
 config | **[GreenplumConfig](#GreenplumConfig)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
-environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring)**<br>Description of monitoring systems relevant to the Greenplum® cluster. 
 master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig)**<br>Configuration of the Greenplum® segment subcluster. 
@@ -56,8 +57,8 @@ master_host_count | **int64**<br>Number of hosts in the master subcluster.
 segment_host_count | **int64**<br>Number of hosts in the segment subcluster. 
 segment_in_host | **int64**<br>Number of segments per host. 
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
@@ -146,7 +147,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -210,6 +211,8 @@ gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.
 gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
 max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet}
@@ -225,7 +228,7 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig)**<br>Defaul
 
 Field | Description
 --- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li><ul/>
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
 
@@ -243,7 +246,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list Greenplum® clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -265,7 +268,7 @@ name | **string**<br>Required. Name of the Greenplum® cluster. The name is uniq
 config | **[GreenplumConfig](#GreenplumConfig1)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
-environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring1)**<br>Description of monitoring systems relevant to the Greenplum® cluster. 
 master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig1)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig1)**<br>Configuration of the Greenplum® segment subcluster. 
@@ -273,8 +276,8 @@ master_host_count | **int64**<br>Number of hosts in the master subcluster.
 segment_host_count | **int64**<br>Number of hosts in the segment subcluster. 
 segment_in_host | **int64**<br>Number of segments per host. 
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
@@ -363,7 +366,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -427,6 +430,8 @@ gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.
 gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
 max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet1}
@@ -442,7 +447,7 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig1)**<br>Defau
 
 Field | Description
 --- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li><ul/>
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
 
@@ -552,7 +557,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -590,13 +595,15 @@ gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.
 gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
 max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
 
 
 ### ConnectionPoolerConfig {#ConnectionPoolerConfig2}
 
 Field | Description
 --- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li><ul/>
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
 
@@ -635,7 +642,7 @@ name | **string**<br>Required. Name of the Greenplum® cluster. The name is uniq
 config | **[GreenplumConfig](#GreenplumConfig3)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
-environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring2)**<br>Description of monitoring systems relevant to the Greenplum® cluster. 
 master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig2)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig2)**<br>Configuration of the Greenplum® segment subcluster. 
@@ -643,8 +650,8 @@ master_host_count | **int64**<br>Number of hosts in the master subcluster.
 segment_host_count | **int64**<br>Number of hosts in the segment subcluster. 
 segment_in_host | **int64**<br>Number of segments per host. 
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
@@ -733,7 +740,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -797,6 +804,8 @@ gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.
 gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
 max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet2}
@@ -812,7 +821,7 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Defau
 
 Field | Description
 --- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li><ul/>
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
 
@@ -914,7 +923,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -952,7 +961,7 @@ name | **string**<br>Required. Name of the Greenplum® cluster. The name is uniq
 config | **[GreenplumConfig](#GreenplumConfig5)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
-environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring3)**<br>Description of monitoring systems relevant to the Greenplum® cluster. 
 master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig3)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig3)**<br>Configuration of the Greenplum® segment subcluster. 
@@ -960,8 +969,8 @@ master_host_count | **int64**<br>Number of hosts in the master subcluster.
 segment_host_count | **int64**<br>Number of hosts in the segment subcluster. 
 segment_in_host | **int64**<br>Number of segments per host. 
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
@@ -1050,7 +1059,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -1114,6 +1123,8 @@ gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.
 gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
 max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet3}
@@ -1129,7 +1140,7 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Defau
 
 Field | Description
 --- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li><ul/>
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
 
@@ -1225,7 +1236,7 @@ name | **string**<br>Required. Name of the Greenplum® cluster. The name is uniq
 config | **[GreenplumConfig](#GreenplumConfig6)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
-environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring4)**<br>Description of monitoring systems relevant to the Greenplum® cluster. 
 master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig4)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig4)**<br>Configuration of the Greenplum® segment subcluster. 
@@ -1233,8 +1244,8 @@ master_host_count | **int64**<br>Number of hosts in the master subcluster.
 segment_host_count | **int64**<br>Number of hosts in the segment subcluster. 
 segment_in_host | **int64**<br>Number of segments per host. 
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
@@ -1323,7 +1334,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -1387,6 +1398,8 @@ gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.
 gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
 max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet4}
@@ -1402,7 +1415,7 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Defau
 
 Field | Description
 --- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li><ul/>
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
 
@@ -1458,7 +1471,7 @@ name | **string**<br>Required. Name of the Greenplum® cluster. The name is uniq
 config | **[GreenplumConfig](#GreenplumConfig7)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
-environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the Greenplum® cluster. 
 master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig5)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig5)**<br>Configuration of the Greenplum® segment subcluster. 
@@ -1466,8 +1479,8 @@ master_host_count | **int64**<br>Number of hosts in the master subcluster.
 segment_host_count | **int64**<br>Number of hosts in the segment subcluster. 
 segment_in_host | **int64**<br>Number of segments per host. 
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
@@ -1556,7 +1569,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -1620,6 +1633,8 @@ gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.
 gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
 max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet5}
@@ -1635,7 +1650,7 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Defau
 
 Field | Description
 --- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li><ul/>
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
 
@@ -1709,9 +1724,9 @@ Field | Description
 name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. The maximum string length in characters is 63.
 cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by Yandex Cloud at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
-type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li><ul/>
+type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
 resources | **[Resources](#Resources16)**<br>Resources allocated to the Greenplum® host. 
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in preferred role.</li><ul/>
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in preferred role.</li></ul>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Whether or not a public IP is assigned to the host. 
 
@@ -1755,9 +1770,9 @@ Field | Description
 name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. The maximum string length in characters is 63.
 cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by Yandex Cloud at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
-type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li><ul/>
+type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
 resources | **[Resources](#Resources17)**<br>Resources allocated to the Greenplum® host. 
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in preferred role.</li><ul/>
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in preferred role.</li></ul>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Whether or not a public IP is assigned to the host. 
 
@@ -1783,13 +1798,13 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Greenplum® cluster to request logs for. To get the Greenplum® cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 column_filter[] | **string**<br>Columns from logs table to request. If no columns are specified, entire log records are returned. 
-service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`SERVICE_TYPE_UNSPECIFIED`: Type is not specified.</li><li>`GREENPLUM`: Greenplum® activity logs.</li><li>`GREENPLUM_POOLER`: Greenplum® pooler logs.</li><ul/>
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`SERVICE_TYPE_UNSPECIFIED`: Type is not specified.</li><li>`GREENPLUM`: Greenplum® activity logs.</li><li>`GREENPLUM_POOLER`: Greenplum® pooler logs.</li></ul>
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
 always_next_page_token | **bool**<br>Always return `next_page_token`, even if the current page is empty. 
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord), </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li><li>`message.hostname='node1.db.cloud.yandex.net'` </li><li>`message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord), </li></ol>[LogRecord.logs.message.error_severity](#LogRecord)(for `GREENPLUM` service) and [LogRecord.logs.message.level](#LogRecord)(for `GREENPLUM_POOLER` service) fields. <ol><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol>Examples of a filter: <ul><li>`message.hostname='node1.db.cloud.yandex.net'` </li><li>`message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`</li></ul> The maximum string length in characters is 1000.
 
 
 ### ListClusterLogsResponse {#ListClusterLogsResponse}
@@ -1797,10 +1812,45 @@ filter | **string**<br><ol><li>The field name. Currently filtering can be applie
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with the [StreamLogRecord.next_record_token] from StreamLogs method. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with the [StreamLogRecord.next_record_token](#StreamLogRecord) from StreamLogs method. 
 
 
 ### LogRecord {#LogRecord}
+
+Field | Description
+--- | ---
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
+
+
+## StreamLogs {#StreamLogs}
+
+Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+
+**rpc StreamLogs ([StreamClusterLogsRequest](#StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#StreamLogRecord))**
+
+### StreamClusterLogsRequest {#StreamClusterLogsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the Greenplum cluster. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to get in the response. 
+service_type | enum **ServiceType**<br> <ul><li>`SERVICE_TYPE_UNSPECIFIED`: Type is not specified.</li><li>`GREENPLUM`: Greenplum® activity logs.</li><li>`GREENPLUM_POOLER`: Greenplum® pooler logs.</li></ul>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
+record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord), </li></ol>[LogRecord.logs.message.error_severity](#LogRecord)(for GREENPLUM service), [LogRecord.logs.message.level](#LogRecord)(for POOLER service) fields. <ol><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`. </li></ol>Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'` `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"` The maximum string length in characters is 1000.
+
+
+### StreamLogRecord {#StreamLogRecord}
+
+Field | Description
+--- | ---
+record | **[LogRecord](#LogRecord)**<br>One of the requested log records. 
+next_record_token | **string**<br>This token allows you to continue streaming logs starting from the exact same record. To continue streaming, specify value of `next_record_token` as value for `record_token` parameter in the next StreamLogs request. This value is interchangeable with `next_page_token` from ListLogs method. 
+
+
+### LogRecord {#LogRecord1}
 
 Field | Description
 --- | ---
@@ -1882,7 +1932,7 @@ backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/go
 access | **[Access](#Access8)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster6). The maximum string length in characters is 50.
-assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the master hosts. </li><li>true - the master hosts should have a public IP address.</li></ul> 
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. <br>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assign_public_ip` set as needed. <br>Possible values: <ul><li>false - don't assign a public IP to the master hosts. </li><li>true - the master hosts should have a public IP address.</li></ul> 
 
 
 ### Access {#Access8}
@@ -1920,7 +1970,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -1959,7 +2009,7 @@ name | **string**<br>Required. Name of the Greenplum® cluster. The name is uniq
 config | **[GreenplumConfig](#GreenplumConfig8)**<br>Greenplum® cluster configuration. 
 description | **string**<br>Description of the Greenplum® cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. 
-environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+environment | enum **Environment**<br>Deployment environment of the Greenplum® cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li></ul>
 monitoring[] | **[Monitoring](#Monitoring6)**<br>Description of monitoring systems relevant to the Greenplum® cluster. 
 master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig6)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig6)**<br>Configuration of the Greenplum® segment subcluster. 
@@ -1967,8 +2017,8 @@ master_host_count | **int64**<br>Number of hosts in the master subcluster.
 segment_host_count | **int64**<br>Number of hosts in the segment subcluster. 
 segment_in_host | **int64**<br>Number of segments per host. 
 network_id | **string**<br>ID of the cloud network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host2) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host2) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host2) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is UNBALANCED).</li><ul/>
-status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: Health of the cluster is unknown ([Host.health](#Host2) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is working normally ([Host.health](#Host2) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host2) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host2) for at least one host in the cluster is UNBALANCED).</li></ul>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster has encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster has stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups. 
@@ -2057,7 +2107,7 @@ policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
 
 Field | Description
 --- | ---
-day | enum **WeekDay**<br>Day of the week. <ul><ul/>
+day | enum **WeekDay**<br>Day of the week. 
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
@@ -2121,6 +2171,8 @@ gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.
 gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
 max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
 gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
 
 
 ### ConnectionPoolerConfigSet {#ConnectionPoolerConfigSet6}
@@ -2136,7 +2188,7 @@ default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Defau
 
 Field | Description
 --- | ---
-mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li><ul/>
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
 size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
 client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
 

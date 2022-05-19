@@ -12,11 +12,11 @@
 
 - Консоль управления
 
-    1. Войдите в [консоль управления]({{ link-console-main }}).
-    1. [Выберите облако](../../../resource-manager/operations/cloud/switch-cloud.md).
-    1. Перейдите в раздел [Права доступа в облаке]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud?section=resource-acl){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud?section=resource-acl){% endif %} (кнопка **Права доступа** на панели слева).
-    1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
-    1. Нажмите кнопку **Отозвать роли**.
-    1. Подтвердите отзыв всех ролей у пользователя.
+  1. Войдите в [консоль управления]({{ link-console-main }}).
+  1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
+  1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
+  1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
+  1. Нажмите кнопку **Отозвать роли**.
+  1. Подтвердите отзыв всех ролей у пользователя.
 
 {% endlist %}

@@ -9,7 +9,7 @@ Returns the specified backup of Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/backups/{backupId}
+GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

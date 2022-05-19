@@ -9,7 +9,7 @@ Returns chain and private key of the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-GET https://data.certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}:getContent
+GET https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certificates/{certificateId}:getContent
 ```
  
 ## Path parameters {#path_params}
@@ -17,6 +17,12 @@ GET https://data.certificate-manager.api.cloud.yandex.net/certificate-manager/v1
 Parameter | Description
 --- | ---
 certificateId | ID of the certificate to download content.
+ 
+## Query parameters {#query_params}
+ 
+Parameter | Description
+--- | ---
+versionId | Optional ID of the version.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

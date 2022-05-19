@@ -21,6 +21,11 @@ paths:
         required: true
         schema:
           type: string
+      - name: versionId
+        in: query
+        description: Optional ID of the version.
+        schema:
+          type: string
       responses:
         "200":
           description: OK
@@ -196,6 +201,49 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateCertificateMetadata'
       x-y-operation-response: '[Certificate](/docs/certificate-manager/api-ref/Certificate#representation)'
+  /certificate-manager/v1/certificates/{certificateId}/versions:
+    get:
+      tags:
+      - Certificate
+      operationId: CertificateListVersions
+      parameters:
+      - name: certificateId
+        in: path
+        description: |-
+          Required.
+          ID of the certificate to list versions for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) returned by a previous list request.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVersionsResponse'
+      x-y-navtitle: listVersions
   /certificate-manager/v1/certificates/requestNew:
     post:
       tags:
@@ -291,7 +339,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than pageSize,
+          results is larger than [page_size],
           the service returns a nextPageToken
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
@@ -303,7 +351,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set pageToken
+          Page token. Set [page_token]
           to the nextPageToken
           returned by a previous list request to get the next page of results.
 
@@ -731,9 +779,9 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than pageSize, use
+            is larger than [ListAccessBindingsRequest.page_size], use
             the nextPageToken as the value
-            for the pageToken query parameter
+            for the [ListAccessBindingsRequest.page_token] query parameter
             in the next list request. Each subsequent list request will have its own
             nextPageToken to continue paging through the results.
           type: string
@@ -767,6 +815,22 @@ components:
             the `next_page_token` as the value for the [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) to continue paging through the results.
+          type: string
+    ListVersionsResponse:
+      type: object
+      properties:
+        versions:
+          description: List of versions for the specified certificate.
+          type: array
+          items:
+            $ref: '#/components/schemas/Version'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number
+            of results is greater than the specified [pageSize](/docs/certificate-manager/api-ref/Certificate/list#query_params), use
+            the `next_page_token` as the value for the [pageToken](/docs/certificate-manager/api-ref/Certificate/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/certificate-manager/api-ref/Certificate/listVersions#responses) to continue paging through the results.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -992,6 +1056,23 @@ components:
 
             The maximum string length in characters is 524288.
           type: string
+    Version:
+      description: A certificate version
+      type: object
+      properties:
+        id:
+          description: ID of the version.
+          type: string
+        certificateId:
+          description: ID of the certificate that the version belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Time when the version was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object

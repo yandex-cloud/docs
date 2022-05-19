@@ -9,7 +9,7 @@ To get the list of all available proxies, make a [list](/docs/functions/mdbproxy
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies/{proxyId}
+GET https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{proxyId}
 ```
  
 ## Path parameters {#path_params}

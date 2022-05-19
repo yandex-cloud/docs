@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}
+GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
 ```
  
 ## Path parameters {#path_params}

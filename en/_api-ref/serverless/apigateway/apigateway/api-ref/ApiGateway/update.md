@@ -9,7 +9,7 @@ Updates the specified API gateway.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}
+PATCH https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}
 ```
  
 ## Path parameters {#path_params}

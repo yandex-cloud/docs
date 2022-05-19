@@ -31,7 +31,7 @@ Field | Description
 --- | ---
 ImageSource | **oneof:** `content`<br>type of image
 &nbsp;&nbsp;content | **bytes**<br>bytes with data 
-image_type | enum **ImageType**<br>type of data <ul><ul/>
+image_type | enum **ImageType**<br>type of data 
 
 
 ### AnnotationResponse {#AnnotationResponse}
@@ -48,7 +48,7 @@ annotations[] | **[ClassAnnotation](#ClassAnnotation)**<br>annotations for each 
 Field | Description
 --- | ---
 labels[] | **[Label](#Label)**<br>List of labels, annotated by service 
-classification_type | enum **ClassificationType**<br>type of annotation: exclusive (multi-class) or non-exclusive (multi-label) <ul><ul/>
+classification_type | enum **ClassificationType**<br>type of annotation: exclusive (multi-class) or non-exclusive (multi-label) 
 
 
 ### Label {#Label}

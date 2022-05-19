@@ -9,7 +9,7 @@ Restores the specified backup
  
 ## HTTP request {#https-request}
 ```
-POST https://ydb.api.cloud.yandex.net/ydb/v1/databases:restore
+POST https://ydb.{{ api-host }}/ydb/v1/databases:restore
 ```
  
 ## Body parameters {#body_params}

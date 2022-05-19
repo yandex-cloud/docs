@@ -9,7 +9,7 @@ Updates the specified Redis cluster.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}
+PATCH https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}
 ```
  
 ## Path parameters {#path_params}

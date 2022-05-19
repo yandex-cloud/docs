@@ -24,7 +24,7 @@ Returns the specified SKU.
 Field | Description
 --- | ---
 id | **string**<br>Required. ID of the SKU to return. To get the SKU ID, use [SkuService.List](#List) request. The maximum string length in characters is 50.
-currency | **string**<br>Required. <ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
+currency | **string**<br>Required. Currency of the SKU. Can be one of the following: <ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
 billing_account_id | **string**<br>Optional ID of the billing account. If specified, contract prices for concrete billing account are included in the response. To get the billing account ID, use [BillingAccountService.List](./billing_account_service#List) request. 
 
 
@@ -44,7 +44,7 @@ pricing_versions[] | **[PricingVersion](#PricingVersion)**<br>List of pricing ve
 
 Field | Description
 --- | ---
-type | enum **PricingVersionType**<br>Type of the pricing version. <ul><li>`STREET_PRICE`: Regular price.</li><li>`CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account.</li><ul/>
+type | enum **PricingVersionType**<br>Type of the pricing version. <ul><li>`STREET_PRICE`: Regular price.</li><li>`CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account.</li></ul>
 effective_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp pricing version is active since inclusive. The pricing version is active until next pricing version effective time exclusive. 
 pricing_expressions[] | **[PricingExpression](#PricingExpression)**<br>List of pricing expressions. 
 
@@ -62,7 +62,7 @@ Field | Description
 --- | ---
 start_pricing_quantity | **string**<br>Start of the pricing quantity interval. The end of the interval is the start pricing quantity of the next rate. 
 unit_price | **string**<br>Unit price for the pricing quantity interval. 
-currency | **string**<br><ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
+currency | **string**<br>Currency of the unit price. Can be one of the following: <ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
 
 
 ## List {#List}
@@ -75,9 +75,9 @@ Retrieves the list of SKUs.
 
 Field | Description
 --- | ---
-currency | **string**<br>Required. <ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
+currency | **string**<br>Required. Currency of the prices. Can be one of the following: <ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
 billing_account_id | **string**<br>Optional ID of the billing account. If specified, contract prices for concrete billing account are included in the response. To get the billing account ID, use [BillingAccountService.List](./billing_account_service#List) request. 
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [yandex.cloud.billing.v1.Sku.id](#Sku) and [yandex.cloud.billing.v1.Sku.service_id](#Sku) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [yandex.cloud.billing.v1.Sku.id](#Sku) and [yandex.cloud.billing.v1.Sku.service_id](#Sku) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSkusResponse.next_page_token](#ListSkusResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSkusResponse.next_page_token](#ListSkusResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -106,7 +106,7 @@ pricing_versions[] | **[PricingVersion](#PricingVersion1)**<br>List of pricing v
 
 Field | Description
 --- | ---
-type | enum **PricingVersionType**<br>Type of the pricing version. <ul><li>`STREET_PRICE`: Regular price.</li><li>`CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account.</li><ul/>
+type | enum **PricingVersionType**<br>Type of the pricing version. <ul><li>`STREET_PRICE`: Regular price.</li><li>`CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account.</li></ul>
 effective_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp pricing version is active since inclusive. The pricing version is active until next pricing version effective time exclusive. 
 pricing_expressions[] | **[PricingExpression](#PricingExpression1)**<br>List of pricing expressions. 
 
@@ -124,6 +124,6 @@ Field | Description
 --- | ---
 start_pricing_quantity | **string**<br>Start of the pricing quantity interval. The end of the interval is the start pricing quantity of the next rate. 
 unit_price | **string**<br>Unit price for the pricing quantity interval. 
-currency | **string**<br><ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
+currency | **string**<br>Currency of the unit price. Can be one of the following: <ul><li>`RUB` </li><li>`USD` </li><li>`KZT`</li></ul> 
 
 

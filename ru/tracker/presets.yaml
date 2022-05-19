@@ -34,6 +34,7 @@ default:
   link-tracker-support: https://support.cloud.yandex.ru/?referral=tracker
   link-migration-form: https://cloud.yandex.ru/services/tracker#tracker-form
   link-billing: https://billing.cloud.yandex.ru/
+  link-bind-ba: https://tracker.yandex.ru/admin/licenses/users?billing-account=1
   link-tracker-example-1: https://tracker.yandex.ru/TEST-1234
   link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
@@ -81,6 +82,7 @@ default:
   #Другое
   release-date: 1 марта
   example-account: login@yandex.ru
+  yfm: Yandex Flavored Markdown
 
 #external:
 

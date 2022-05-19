@@ -10,7 +10,7 @@
 
 * установку Python 3.7 или Python 3.8;
 * установку pip;
-* пользователя Jupiter.
+* пользователя Jupyter.
 
 {% note info %}
 
@@ -47,7 +47,7 @@
          apt-get update &&\
          apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
          exit
-        RUN pip install tensorflow-gpu==2.4.1
+        RUN pip install tensorflow-gpu==2.6
         ```
 
     1. Нажмите кнопку **Build**.

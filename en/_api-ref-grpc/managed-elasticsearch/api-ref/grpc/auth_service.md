@@ -42,7 +42,7 @@ providers[] | **[AuthProvider](#AuthProvider)**<br>List of auth providers of the
 
 Field | Description
 --- | ---
-type | enum **Type**<br> <ul><ul/>
+type | enum **Type**<br> 
 name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
 order | **int64**<br> 
 enabled | **bool**<br> 
@@ -87,7 +87,7 @@ name | **string**<br>Required. Required. Name of the provider to delete. The max
 
 Field | Description
 --- | ---
-type | enum **Type**<br> <ul><ul/>
+type | enum **Type**<br> 
 name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
 order | **int64**<br> 
 enabled | **bool**<br> 
@@ -136,7 +136,7 @@ providers[] | **[AuthProvider](#AuthProvider2)**<br>Required. List of providers 
 
 Field | Description
 --- | ---
-type | enum **Type**<br> <ul><ul/>
+type | enum **Type**<br> 
 name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
 order | **int64**<br> 
 enabled | **bool**<br> 
@@ -198,7 +198,7 @@ providers[] | **[AuthProvider](#AuthProvider3)**<br>
 
 Field | Description
 --- | ---
-type | enum **Type**<br> <ul><ul/>
+type | enum **Type**<br> 
 name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
 order | **int64**<br> 
 enabled | **bool**<br> 
@@ -247,7 +247,7 @@ providers[] | **[AuthProvider](#AuthProvider4)**<br>Required. List of providers 
 
 Field | Description
 --- | ---
-type | enum **Type**<br> <ul><ul/>
+type | enum **Type**<br> 
 name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
 order | **int64**<br> 
 enabled | **bool**<br> 
@@ -309,7 +309,7 @@ providers[] | **[AuthProvider](#AuthProvider5)**<br>
 
 Field | Description
 --- | ---
-type | enum **Type**<br> <ul><ul/>
+type | enum **Type**<br> 
 name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
 order | **int64**<br> 
 enabled | **bool**<br> 
@@ -401,7 +401,7 @@ provider | **[AuthProvider](#AuthProvider6)**<br>Required. Required. New provide
 
 Field | Description
 --- | ---
-type | enum **Type**<br> <ul><ul/>
+type | enum **Type**<br> 
 name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
 order | **int64**<br> 
 enabled | **bool**<br> 
@@ -463,7 +463,7 @@ providers[] | **[AuthProvider](#AuthProvider7)**<br>
 
 Field | Description
 --- | ---
-type | enum **Type**<br> <ul><ul/>
+type | enum **Type**<br> 
 name | **string**<br> The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9_-]* `.
 order | **int64**<br> 
 enabled | **bool**<br> 

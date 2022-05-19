@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST https://ydb.api.cloud.yandex.net/ydb/v1/databases:backup
+POST https://ydb.{{ api-host }}/ydb/v1/databases:backup
 ```
  
 ## Body parameters {#body_params}

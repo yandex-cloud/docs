@@ -23,7 +23,7 @@ items:
           href: operations/projects/storage-resize.md
         - name: Changing a name or description
           href: operations/projects/update.md
-        - name: Deleting a project
+        - name: Deleting a notebook or project
           href: operations/projects/delete.md
       - name: Sharing a notebook
         items:

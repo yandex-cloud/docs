@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
 ```
  
 ## Path parameters {#path_params}

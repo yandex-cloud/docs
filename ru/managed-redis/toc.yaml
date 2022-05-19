@@ -23,6 +23,7 @@ items:
           - name: Подключение к шардированному кластеру
             href: operations/connect/sharded.md
       - name: Остановка и запуск кластера
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: Обновление версии Redis
         href: operations/cluster-version-update.md
@@ -68,11 +69,14 @@ items:
         href: concepts/limits.md
       - name: Типы хранилища
         href: concepts/storage.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Настройки Redis
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: audience != "internal"
     items:
       - name: Действующие правила
         href: pricing.md

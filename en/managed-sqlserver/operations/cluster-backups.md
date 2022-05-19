@@ -139,7 +139,7 @@ For a new cluster, you need to set up all its [parameters required at creation](
 
 - API
 
-  Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+  Use the [restore](../api-ref/Cluster/backup.md) API method and pass the following in the request:
   - ID of the desired backup, in the `backupId` parameter. To find out the ID, [get a list of backups](#list-backups).
   - Timestamp of the moment to which the cluster should be restored, in the `time` parameter.
   - The name of the new cluster that will contain the data recovered from the backup. The cluster name must be unique within the folder.

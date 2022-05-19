@@ -9,7 +9,7 @@ Creates a project in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v1/projects
+POST https://datasphere.{{ api-host }}/datasphere/v1/projects
 ```
  
 ## Body parameters {#body_params}

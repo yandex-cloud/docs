@@ -24,7 +24,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 Before deploying virtual hosting, sign up for {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../../_includes/tutorials/_common/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
 
 If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex Cloud page]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}. Make sure that you do all the actions under the use case in this folder.
 
@@ -212,7 +212,7 @@ To test the web servers, upload the `index.html` files to the virtual machines.
 
 To upload a file to a VM:
 
-{% include [upload-files](../../_includes/tutorials/_tutorials_includes/upload-web-site-files.md) %}
+{% include [upload-files](../../_tutorials/_tutorials_includes/upload-web-site-files.md) %}
 
 ## Create a backend group {#create-backend-group}
 

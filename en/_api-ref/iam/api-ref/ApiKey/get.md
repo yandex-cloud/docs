@@ -9,7 +9,7 @@ To get the list of available API keys, make a [list](/docs/iam/api-ref/ApiKey/li
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/apiKeys/{apiKeyId}
+GET https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
 ```
  
 ## Path parameters {#path_params}

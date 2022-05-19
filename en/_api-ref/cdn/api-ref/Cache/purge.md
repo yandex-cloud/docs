@@ -9,7 +9,7 @@ Purging may take up to 15 minutes.
  
 ## HTTP request {#https-request}
 ```
-POST https://cdn.api.cloud.yandex.net/cdn/v1/cache/{resourceId}:purge
+POST https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:purge
 ```
  
 ## Path parameters {#path_params}

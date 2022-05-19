@@ -9,7 +9,7 @@ Retrieves the list of metric names.
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/metrics/names
+GET https://monitoring.{{ api-host }}/monitoring/v3/metrics/names
 ```
  
 ## Query parameters {#query_params}

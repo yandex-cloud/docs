@@ -9,7 +9,7 @@ Reset password
  
 ## HTTP request {#https-request}
 ```
-POST https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}:resetPassword
+POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:resetPassword
 ```
  
 ## Path parameters {#path_params}

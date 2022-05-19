@@ -72,8 +72,8 @@ To get your logs, download the object with the `logs/` prefix from the `bucket-l
 
 - Management console
 
-  1. In the management console, select the folder where the `bucket-logs` bucket is located.
-  1. Select **Object Storage**.
+  1. In the [management console]({{ link-console-main }}), select the folder where the `bucket-logs` bucket is located.
+  1. Select **{{ objstorage-name }}**.
   1. Click on the `bucket-logs` bucket name.
   1. Click on the object name with the `logs/` prefix.
   1. Click **Download**.

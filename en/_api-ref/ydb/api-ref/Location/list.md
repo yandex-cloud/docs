@@ -9,7 +9,7 @@ Returns the list of available locations.
  
 ## HTTP request {#https-request}
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/locations
+GET https://ydb.{{ api-host }}/ydb/v1/locations
 ```
  
 ## Query parameters {#query_params}

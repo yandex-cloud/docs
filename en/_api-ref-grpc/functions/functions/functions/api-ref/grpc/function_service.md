@@ -61,7 +61,7 @@ description | **string**<br>Description of the function. The string length in ch
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. No more than 64 per resource.
 log_group_id | **string**<br>ID of the log group for the function. 
 http_invoke_url | **string**<br>URL that needs to be requested to invoke the function. 
-status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li><ul/>
+status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li></ul>
 
 
 ## List {#List}
@@ -77,7 +77,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list functions in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) returned by a previous list request. 
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> 
+filter | **string**<br>A filter expression that filters functions listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `name="my-function"`. 
 
 
 ### ListFunctionsResponse {#ListFunctionsResponse}
@@ -100,7 +100,7 @@ description | **string**<br>Description of the function. The string length in ch
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. No more than 64 per resource.
 log_group_id | **string**<br>ID of the log group for the function. 
 http_invoke_url | **string**<br>URL that needs to be requested to invoke the function. 
-status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li><ul/>
+status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li></ul>
 
 
 ## Create {#Create}
@@ -118,7 +118,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a function in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
-name | **string**<br>Name of the function. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the function. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the function. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -158,7 +158,7 @@ description | **string**<br>Description of the function. The string length in ch
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. No more than 64 per resource.
 log_group_id | **string**<br>ID of the log group for the function. 
 http_invoke_url | **string**<br>URL that needs to be requested to invoke the function. 
-status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li><ul/>
+status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li></ul>
 
 
 ## Update {#Update}
@@ -177,7 +177,7 @@ Field | Description
 --- | ---
 function_id | **string**<br>Required. ID of the function to update. <br>To get a function ID make a [FunctionService.List](#List) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the function should be updated. 
-name | **string**<br>New name for the function. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>New name for the function. The name must be unique within the folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>New description for the function. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label, request the current set of labels with a [FunctionService.Get](#Get) request. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
@@ -217,7 +217,7 @@ description | **string**<br>Description of the function. The string length in ch
 labels | **map<string,string>**<br>Function labels as `key:value` pairs. No more than 64 per resource.
 log_group_id | **string**<br>ID of the log group for the function. 
 http_invoke_url | **string**<br>URL that needs to be requested to invoke the function. 
-status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li><ul/>
+status | enum **Status**<br>Status of the function. <ul><li>`CREATING`: Function is being created.</li><li>`ACTIVE`: Function is ready to be invoked.</li><li>`DELETING`: Function is being deleted.</li><li>`ERROR`: Function failed.</li></ul>
 
 
 ## Delete {#Delete}
@@ -287,7 +287,7 @@ resources | **[Resources](#Resources)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -349,7 +349,7 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -395,7 +395,7 @@ Returns all versions with the specified tag. <br>To get the list of all availabl
 Field | Description
 --- | ---
 function_id | **string**<br>Required. ID of the function whose versions should be listed. <br>To get a function ID use a [FunctionService.List](#List) request. 
-tag | **string**<br>Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+tag | **string**<br>Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `.
 
 
 ### Version {#Version2}
@@ -412,7 +412,7 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -458,7 +458,7 @@ Deprecated. Use [GetVersionByTag](#GetVersionByTag).
 Field | Description
 --- | ---
 function_id | **string**<br>Required. ID of the function whose versions should be listed. <br>To get a function ID use a [FunctionService.List](#List) request. 
-tag | **string**<br>Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+tag | **string**<br>Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `.
 
 
 ### Version {#Version3}
@@ -475,7 +475,7 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -525,7 +525,7 @@ id | **oneof:** `folder_id` or `function_id`<br>
 &nbsp;&nbsp;function_id | **string**<br>ID of the function to list versions for. To get a function ID use a [FunctionService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [Version.status](#Version4) and [Version.runtime](#Version4) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `status="ACTIVE"`. The maximum string length in characters is 1000.
 
 
 ### ListFunctionsVersionsResponse {#ListFunctionsVersionsResponse}
@@ -550,7 +550,7 @@ resources | **[Resources](#Resources4)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -600,7 +600,7 @@ id | **oneof:** `folder_id` or `function_id`<br>
 &nbsp;&nbsp;function_id | **string**<br>ID of the function to list versions for. To get a function ID use a [FunctionService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [Version.status](#Version5) and [Version.runtime](#Version5) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Example of a filter: `status="ACTIVE"`. The maximum string length in characters is 1000.
 
 
 ### ListFunctionsVersionsResponse {#ListFunctionsVersionsResponse1}
@@ -625,7 +625,7 @@ resources | **[Resources](#Resources5)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -715,7 +715,7 @@ resources | **[Resources](#Resources6)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -805,7 +805,7 @@ resources | **[Resources](#Resources7)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -851,10 +851,10 @@ Returns the log of tags assigned to versions of the specified function.
 Field | Description
 --- | ---
 function_id | **string**<br>Required. ID of the function to retrieve tag history for. <br>To get a function ID, make a [FunctionService.List](#List) request. 
-tag | **string**<br>Specific tag that history should be limited to. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+tag | **string**<br>Specific tag that history should be limited to. Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from] and [FunctionTagHistoryRecord.effective_to] fields. </li><li>An `=` or `>` or `<` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>For example, `effective_to>2021-01-01T12:00:00Z`. The maximum string length in characters is 1000.
 
 
 ### ListFunctionTagHistoryResponse {#ListFunctionTagHistoryResponse}
@@ -887,10 +887,10 @@ Deprecated. Use [ListTagHistory](#ListTagHistory).
 Field | Description
 --- | ---
 function_id | **string**<br>Required. ID of the function to retrieve tag history for. <br>To get a function ID, make a [FunctionService.List](#List) request. 
-tag | **string**<br>Specific tag that history should be limited to. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+tag | **string**<br>Specific tag that history should be limited to. Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from] and [FunctionTagHistoryRecord.effective_to] fields. </li><li>An `=` or `>` or `<` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>For example, `effective_to>2021-01-01T12:00:00Z`. The maximum string length in characters is 1000.
 
 
 ### ListFunctionTagHistoryResponse {#ListFunctionTagHistoryResponse1}
@@ -1016,7 +1016,7 @@ resources | **[Resources](#Resources9)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -1155,7 +1155,7 @@ resources | **[Resources](#Resources11)**<br>Resources allocated to the version.
 execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Timeout for the execution of the version. <br>If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. 
 service_account_id | **string**<br>ID of the service account associated with the version. 
 image_size | **int64**<br>Final size of the deployment package after unpacking. 
-status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li><ul/>
+status | enum **Status**<br>Status of the version. <ul><li>`CREATING`: Version is being created.</li><li>`ACTIVE`: Version is ready to use.</li></ul>
 tags[] | **string**<br>Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 log_group_id | **string**<br>ID of the log group for the version. 
 environment | **map<string,string>**<br>Environment settings for the version. 
@@ -1220,7 +1220,7 @@ Field | Description
 function_id | **string**<br>Required. ID of the function to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation7), [operation.Operation.created_by](#Operation7) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. <br>The expression must specify: <ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation7), [operation.Operation.created_by](#Operation7) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol>Examples of a filter: `done=false`, `created_by='John.Doe'`. The maximum string length in characters is 1000.
 
 
 ### ListFunctionOperationsResponse {#ListFunctionOperationsResponse}
@@ -1282,8 +1282,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -1316,8 +1316,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation8}
@@ -1365,7 +1365,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -1381,8 +1381,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation9}
@@ -1459,7 +1459,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 function_id | **string**<br>Required. ID of the function to retrieve scaling policies for. <br>To get a function ID, make a [FunctionService.List](#List) request. 
-tag | **string**<br>Required. Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+tag | **string**<br>Required. Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `.
 provisioned_instances_count | **int64**<br>Minimum guaranteed provisioned instances count for all zones in total. Billed separately. Acceptable values are 0 to 1000, inclusive.
 zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. Acceptable values are 0 to 1000, inclusive.
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. Acceptable values are 0 to 1000, inclusive.
@@ -1516,7 +1516,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 function_id | **string**<br>Required. ID of the function to remove scaling policies for. <br>To get a function ID, make a [FunctionService.List](#List) request. 
-tag | **string**<br>Required. Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+tag | **string**<br>Required. Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `.
 
 
 ### Operation {#Operation11}

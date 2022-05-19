@@ -9,7 +9,7 @@ To get the list of available resource presets, make a [list](/docs/managed-green
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/resourcePresets/{resourcePresetId}
+GET https://mdb.{{ api-host }}/managed-greenplum/v1/resourcePresets/{resourcePresetId}
 ```
  
 ## Path parameters {#path_params}

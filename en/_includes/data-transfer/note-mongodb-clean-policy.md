@@ -1,0 +1,1 @@
+Selecting the `DROP` policy will result in the service deleting all the data from the target database, including sharded collections, and replacing them with new unsharded ones when a transfer is activated.

@@ -10,6 +10,7 @@ A set of methods for managing certificates.
 | --- | --- |
 | [Get](#Get) | Returns the specified certificate. |
 | [List](#List) | Returns the list of certificates in the specified folder. |
+| [ListVersions](#ListVersions) |  |
 | [Create](#Create) | Creates a certificate in the specified folder. |
 | [Update](#Update) | Updates the specified certificate. |
 | [Delete](#Delete) | Deletes the specified certificate. |
@@ -32,7 +33,7 @@ Returns the specified certificate. <br>To get the list of available certificates
 Field | Description
 --- | ---
 certificate_id | **string**<br>Required. ID of the certificate to return. <br>To get the ID of a certificate use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
-view | enum **CertificateView**<br>The output type of the certificate. <ul><li>`BASIC`: Output basic information about the certificate.</li><li>`FULL`: Output full information about the certificate including domain challenges.</li><ul/>
+view | enum **CertificateView**<br>The output type of the certificate. <ul><li>`BASIC`: Output basic information about the certificate.</li><li>`FULL`: Output full information about the certificate including domain challenges.</li></ul>
 
 
 ### Certificate {#Certificate}
@@ -45,9 +46,9 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
 labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li></ul>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li></ul>
 issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
 subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
 serial | **string**<br>Serial number of the certificate. 
@@ -63,10 +64,10 @@ challenges[] | **[Challenge](#Challenge)**<br>Domains validation challenges of t
 Field | Description
 --- | ---
 domain | **string**<br>Domain of the challenge. 
-type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
-status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li></ul>
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
@@ -104,7 +105,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list certificate in. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum string length in characters is 100.
-view | enum **CertificateView**<br>The output type of the certificate. <ul><li>`BASIC`: Output basic information about the certificate.</li><li>`FULL`: Output full information about the certificate including domain challenges.</li><ul/>
+view | enum **CertificateView**<br>The output type of the certificate. <ul><li>`BASIC`: Output basic information about the certificate.</li><li>`FULL`: Output full information about the certificate including domain challenges.</li></ul>
 
 
 ### ListCertificatesResponse {#ListCertificatesResponse}
@@ -125,9 +126,9 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
 labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li></ul>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li></ul>
 issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
 subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
 serial | **string**<br>Serial number of the certificate. 
@@ -143,10 +144,10 @@ challenges[] | **[Challenge](#Challenge1)**<br>Domains validation challenges of 
 Field | Description
 --- | ---
 domain | **string**<br>Domain of the challenge. 
-type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
-status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li></ul>
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
@@ -171,6 +172,38 @@ url | **string**<br>Location of the HTTP file.
 content | **string**<br>Content of the HTTP file. 
 
 
+## ListVersions {#ListVersions}
+
+
+
+**rpc ListVersions ([ListVersionsRequest](#ListVersionsRequest)) returns ([ListVersionsResponse](#ListVersionsResponse))**
+
+### ListVersionsRequest {#ListVersionsRequest}
+
+Field | Description
+--- | ---
+certificate_id | **string**<br>Required. ID of the certificate to list versions for. The maximum string length in characters is 50.
+page_size | **int64**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListCertificatesResponse.next_page_token](#ListCertificatesResponse) returned by a previous list request. The maximum string length in characters is 100.
+
+
+### ListVersionsResponse {#ListVersionsResponse}
+
+Field | Description
+--- | ---
+versions[] | **[Version](#Version)**<br>List of versions for the specified certificate. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified [ListCertificatesRequest.page_size](#ListCertificatesRequest), use the `next_page_token` as the value for the [ListCertificatesRequest.page_token](#ListCertificatesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+
+
+### Version {#Version}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the version. 
+certificate_id | **string**<br>ID of the certificate that the version belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
+
+
 ## Create {#Create}
 
 Creates a certificate in the specified folder.
@@ -186,7 +219,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a certificate in. The maximum string length in characters is 50.
-name | **string**<br>Name of the certificate. The name must be unique within the folder. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the certificate. The name must be unique within the folder. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 certificate | **string**<br>PEM-encoded certificate content of the certificate. The maximum string length in characters is 32768.
@@ -227,9 +260,9 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
 labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li></ul>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li></ul>
 issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
 subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
 serial | **string**<br>Serial number of the certificate. 
@@ -245,10 +278,10 @@ challenges[] | **[Challenge](#Challenge2)**<br>Domains validation challenges of 
 Field | Description
 --- | ---
 domain | **string**<br>Domain of the challenge. 
-type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
-status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li></ul>
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
@@ -289,7 +322,7 @@ Field | Description
 --- | ---
 certificate_id | **string**<br>Required. ID of the certificate to update. To get the ID of a certificate use a [CertificateService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the certificate are going to be updated. 
-name | **string**<br>New name for the certificate. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>New name for the certificate. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>New description for the certificate. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>New labels for the certificate as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 certificate | **string**<br>New PEM-encoded certificate content for the certificate. Used only for imported certificates. The maximum string length in characters is 32768.
@@ -330,9 +363,9 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
 labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li></ul>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li></ul>
 issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
 subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
 serial | **string**<br>Serial number of the certificate. 
@@ -348,10 +381,10 @@ challenges[] | **[Challenge](#Challenge3)**<br>Domains validation challenges of 
 Field | Description
 --- | ---
 domain | **string**<br>Domain of the challenge. 
-type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
-status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li></ul>
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
@@ -426,9 +459,9 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
 labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li></ul>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li></ul>
 issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
 subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
 serial | **string**<br>Serial number of the certificate. 
@@ -444,10 +477,10 @@ challenges[] | **[Challenge](#Challenge4)**<br>Domains validation challenges of 
 Field | Description
 --- | ---
 domain | **string**<br>Domain of the challenge. 
-type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
-status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li></ul>
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
@@ -487,11 +520,11 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a certificate in. The maximum string length in characters is 50.
-name | **string**<br>Name of the certificate. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the certificate. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the certificate. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-challenge_type | enum **ChallengeType**<br>Type of the domain validation challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+challenge_type | enum **ChallengeType**<br>Type of the domain validation challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li></ul>
 
 
 ### Operation {#Operation3}
@@ -527,9 +560,9 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the certificate. The name is unique within the folder. 
 description | **string**<br>Description of the certificate. 
 labels | **map<string,string>**<br>Certificate labels as `key:value` pairs. 
-type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li><ul/>
+type | enum **CertificateType**<br>Type of the certificate. <ul><li>`IMPORTED`: The certificate is imported by user.</li><li>`MANAGED`: The certificate is created by service.</li></ul>
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
-status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li><ul/>
+status | enum **Status**<br>Status of the certificate. <ul><li>`VALIDATING`: The certificate domains validation are required. Used only for managed certificates.</li><li>`INVALID`: The certificate issuance is failed. Used only for managed certificates.</li><li>`ISSUED`: The certificate is issued.</li><li>`REVOKED`: The certificate is revoked.</li><li>`RENEWING`: The certificate renewal is started. Used only for managed certificates.</li><li>`RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates.</li></ul>
 issuer | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. 
 subject | **string**<br>[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. 
 serial | **string**<br>Serial number of the certificate. 
@@ -545,10 +578,10 @@ challenges[] | **[Challenge](#Challenge5)**<br>Domains validation challenges of 
 Field | Description
 --- | ---
 domain | **string**<br>Domain of the challenge. 
-type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li><ul/>
+type | enum **ChallengeType**<br>Type of the challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is created. 
 updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the challenge is updated. 
-status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li><ul/>
+status | enum **Status**<br>Status of the challenge. <ul><li>`PENDING`: The challenge is waiting to be completed.</li><li>`PROCESSING`: The challenge is awaiting approval from Let's Encrypt.</li><li>`VALID`: The challenge is complete.</li><li>`INVALID`: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li></ul>
 message | **string**<br>Description of the challenge. 
 error | **string**<br>Error of the challenge. 
 challenge | **oneof:** `dns_challenge` or `http_challenge`<br>Data of the challenge.
@@ -647,8 +680,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -681,8 +714,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation5}
@@ -730,7 +763,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -746,8 +779,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation6}

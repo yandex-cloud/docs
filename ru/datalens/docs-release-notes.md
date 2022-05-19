@@ -1,5 +1,14 @@
 # Релизы документации
 
+## Май 2022 {#may2022}
+
+### Решение проблем {#troubleshooting052022}
+
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-INVALID_SPECIFICATION.md) и рекомендации по исправлению.
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md) и рекомендации по исправлению.
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md) и рекомендации по исправлению.
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-AUTH_FAILED.md) и рекомендации по исправлению.
+
 ## Март 2022 {#march2022}
 
 ### Концепции {#concepts032022}
@@ -61,4 +70,4 @@
 
 ### Решение проблем {#troubleshooting012022}
 
-* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE_ACCESS_DENIED.md) и рекомендации по исправлению.
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-ACCESS_DENIED.md) и рекомендации по исправлению.

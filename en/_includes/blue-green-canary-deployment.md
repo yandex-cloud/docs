@@ -45,7 +45,7 @@ Some steps don't support certain tools:
 
 ## Before you start {#before-you-begin}
 
-{% include [before-you-begin](./tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 This use case uses a folder named `example-folder` as an example.
 

@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts/{alertId}:explainEvaluation
+POST https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}:explainEvaluation
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Updates the specified alert.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://monitoring.api.cloud.yandex.net/monitoring/v3/alerts/{alertId}
+PATCH https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}
 ```
  
 ## Path parameters {#path_params}

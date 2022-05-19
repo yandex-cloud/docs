@@ -9,3 +9,5 @@ items:
     href: quotas.md
   - name: Внешний CLI
     href: cli.md
+  - name: Управление квотами
+    href: quotas-control.md

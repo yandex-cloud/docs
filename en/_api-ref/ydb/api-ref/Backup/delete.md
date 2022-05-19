@@ -9,7 +9,7 @@ Deletes the specified backup.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://ydb.api.cloud.yandex.net/ydb/v1/backups/{backupId}
+DELETE https://ydb.{{ api-host }}/ydb/v1/backups/{backupId}
 ```
  
 ## Path parameters {#path_params}

@@ -26,7 +26,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. Before creating a Telegram bot, sign up for {{ yandex-cloud }} and create a billing account:
 
-    {% include [prepare-register-billing](tutorials/_common/prepare-register-billing.md) %}
+    {% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
 1. [Download](https://storage.yandexcloud.net/doc-files/telegrambot.zip) the file archive needed to create the bot.
 1. If you don't have a folder, [create](../resource-manager/operations/folder/create.md) one.
 1. [Create](../iam/operations/sa/create.md) a service account and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.

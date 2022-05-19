@@ -65,7 +65,7 @@ Authorization: OAuth <OAuth-токен>
           "display": "<Имя Фамилия>",
           "email": "<login@yandex-team.ru>",
           "office": {
-             "self": "https://st-api.test.yandex-team.ru/v2/offices/1",
+             "self": "https://st-api.yandex-team.ru/v2/offices/1",
              "id": "1",
              "display": "Москва, БЦ Морозов"
           },

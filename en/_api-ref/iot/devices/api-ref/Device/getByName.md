@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices:getByName
+GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices:getByName
 ```
  
 ## Query parameters {#query_params}

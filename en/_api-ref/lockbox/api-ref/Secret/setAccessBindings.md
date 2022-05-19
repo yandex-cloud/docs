@@ -9,7 +9,7 @@ Sets access bindings for the secret.
  
 ## HTTP request {#https-request}
 ```
-POST https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{resourceId}:setAccessBindings
+POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

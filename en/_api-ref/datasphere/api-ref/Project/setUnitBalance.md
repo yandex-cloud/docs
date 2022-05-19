@@ -9,7 +9,7 @@ Sets the unit balance of the specified project.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v1/projects/{projectId}:unitBalance
+POST https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:unitBalance
 ```
  
 ## Path parameters {#path_params}

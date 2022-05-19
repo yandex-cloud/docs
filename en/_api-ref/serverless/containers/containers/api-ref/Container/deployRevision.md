@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions:deploy
+POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
 ```
  
 ## Body parameters {#body_params}
@@ -48,7 +48,16 @@ POST https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions:
       "key": "string",
       "environmentVariable": "string"
     }
-  ]
+  ],
+  "connectivity": {
+    "networkId": "string",
+    "subnetIds": [
+      "string"
+    ]
+  },
+  "provisionPolicy": {
+    "minInstances": "string"
+  }
 }
 ```
 
@@ -77,6 +86,11 @@ secrets[].<br>id | **string**<br>
 secrets[].<br>versionId | **string**<br>
 secrets[].<br>key | **string**<br>
 secrets[].<br>environmentVariable | **string**<br>
+connectivity | **object**<br>
+connectivity.<br>networkId | **string**<br>
+connectivity.<br>subnetIds[] | **string**<br>
+provisionPolicy | **object**<br>
+provisionPolicy.<br>minInstances | **string** (int64)<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

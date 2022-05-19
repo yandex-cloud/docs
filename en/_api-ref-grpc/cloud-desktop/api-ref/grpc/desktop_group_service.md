@@ -40,7 +40,7 @@ Field | Description
 id | **string**<br>Desktop group ID. 
 folder_id | **string**<br>ID of the folder that the desktop group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-status | enum **Status**<br>Status of the desktop group. <ul><li>`CREATING`: Desktop group is being created.</li><li>`ACTIVE`: Desktop group is ready to use.</li><li>`DELETING`: Desktop group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the desktop group. <ul><li>`CREATING`: Desktop group is being created.</li><li>`ACTIVE`: Desktop group is ready to use.</li><li>`DELETING`: Desktop group is being deleted.</li></ul>
 name | **string**<br>Name of the desktop group. 
 description | **string**<br>Description of the desktop group. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Resource specification of the desktop group. 
@@ -77,7 +77,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list desktop groups in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDesktopGroupsResponse.next_page_token](#ListDesktopGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDesktopGroupsResponse.next_page_token](#ListDesktopGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [DesktopGroup.name](#DesktopGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [DesktopGroup.name](#DesktopGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br>Sorting the list by [DesktopGroup.name](#DesktopGroup1), [DesktopGroup.created_at](#DesktopGroup1) and [DesktopGroup.status](#DesktopGroup1) fields. The default sorting order is ascending. The maximum string length in characters is 100.
 
 
@@ -96,7 +96,7 @@ Field | Description
 id | **string**<br>Desktop group ID. 
 folder_id | **string**<br>ID of the folder that the desktop group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-status | enum **Status**<br>Status of the desktop group. <ul><li>`CREATING`: Desktop group is being created.</li><li>`ACTIVE`: Desktop group is ready to use.</li><li>`DELETING`: Desktop group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the desktop group. <ul><li>`CREATING`: Desktop group is being created.</li><li>`ACTIVE`: Desktop group is ready to use.</li><li>`DELETING`: Desktop group is being deleted.</li></ul>
 name | **string**<br>Name of the desktop group. 
 description | **string**<br>Description of the desktop group. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec1)**<br>Resource specification of the desktop group. 
@@ -133,7 +133,7 @@ Field | Description
 desktop_group_id | **string**<br>Required. ID of the desktop group. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDesktopGroupDesktopsResponse.next_page_token](#ListDesktopGroupDesktopsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDesktopGroupDesktopsResponse.next_page_token](#ListDesktopGroupDesktopsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Desktop.name](#Desktop) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Desktop.name](#Desktop) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br>Sorting the list by [Desktop.name](#Desktop), [Desktop.created_at](#Desktop) and [Desktop.status](#Desktop) fields. The default sorting order is ascending. The maximum string length in characters is 100.
 
 
@@ -141,7 +141,7 @@ order_by | **string**<br>Sorting the list by [Desktop.name](#Desktop), [Desktop.
 
 Field | Description
 --- | ---
-desktop[] | **[Desktop](#Desktop)**<br>List of desktops. 
+desktops[] | **[Desktop](#Desktop)**<br>List of desktops. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListDesktopGroupDesktopsRequest.page_size](#ListDesktopGroupDesktopsRequest), use the `next_page_token` as the value for the [ListDesktopsDGS Request.page_token] query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
@@ -153,7 +153,7 @@ id | **string**<br>Desktop ID.
 folder_id | **string**<br>ID of the folder that the desktop belongs to. 
 desktop_group_id | **string**<br>ID of the desktop group that the desktop belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li></ul>
 name | **string**<br>Name of the desktop. 
 resources | **[Resources](#Resources)**<br>Resources of the desktop. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br> 
@@ -292,7 +292,7 @@ Field | Description
 id | **string**<br>Desktop group ID. 
 folder_id | **string**<br>ID of the folder that the desktop group belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
-status | enum **Status**<br>Status of the desktop group. <ul><li>`CREATING`: Desktop group is being created.</li><li>`ACTIVE`: Desktop group is ready to use.</li><li>`DELETING`: Desktop group is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the desktop group. <ul><li>`CREATING`: Desktop group is being created.</li><li>`ACTIVE`: Desktop group is ready to use.</li><li>`DELETING`: Desktop group is being deleted.</li></ul>
 name | **string**<br>Name of the desktop group. 
 description | **string**<br>Description of the desktop group. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec3)**<br>Resource specification of the desktop group. 
@@ -391,8 +391,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -425,8 +425,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation3}
@@ -474,7 +474,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -490,8 +490,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation4}

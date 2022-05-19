@@ -1,1 +1,1 @@
-{% include [cisco](../../_includes/tutorials/routing/cisco.md) %}
+{% include [cisco](../../_tutorials/routing/cisco.md) %}

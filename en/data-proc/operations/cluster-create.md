@@ -29,7 +29,7 @@ Security groups must be created and configured before creating a cluster. If the
         * Source type: `CIDR`.
         * Destination: `0.0.0.0/0`.
 
-        This will allow you to use [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/ui-proxy.md), and [automatic scaling](../concepts/autoscaling.md) of clusters.
+        This will enable you to use [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/ui-proxy.md), and cluster [autoscaling](../concepts/autoscaling.md).
 
 If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
 
@@ -64,22 +64,22 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
      {% endnote %}
 
   1. Enter the public part of your SSH key in the **Public key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
-  1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) that you want to grant access to the cluster.
+  1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access.
   1. Select the availability zone for the cluster.
-  1. If necessary, configure the [properties of cluster components, jobs, and the environment](../concepts/settings-list.md).
+  1. If necessary, configure the [properties of cluster components](../concepts/settings-list.md), jobs, and the environment.
   1. Select or create a network for the cluster.
   1. Select security groups that have the required permissions.
 
-      {% note warning %}
+     {% note warning %}
 
-      When creating a cluster, security group settings are verified. If a cluster cannot function with these settings, a warning is issued. See [above](#change-security-groups) for an example of working settings.
+     When creating a cluster, security group settings are verified. If a cluster cannot function with these settings, a warning is issued. A sample functional configuration is provided [above](#change-security-groups).
 
-      {% endnote %}
+     {% endnote %}
 
   1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/ui-proxy.md).
   1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
-      To enable this feature, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+      To enable this functionality, assign the [cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
   1. Configure subclusters: no more than one main subcluster with a **Master** host and subclusters for data storage or computing.
 
@@ -89,10 +89,10 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
      * The number of hosts.
      * [The host class](../concepts/instance-types.md), which dictates the platform and computing resources available to the host.
-     * Storage size and type.
-     * A subnet.
+     * Size and type of [storage](../../compute/concepts/filesystem.md).
+     * The subnet of the network where the cluster is located.
 
-       NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. To learn more, see [{#T}](#setup-network).
+       NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. For more information, see [{#T}](#setup-network).
 
   1. To access a cluster from the internet, select the **Public access** option in the primary subcluster settings. This way, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
 
@@ -101,6 +101,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
      You can't request public access after creating a cluster.
 
      {% endnote %}
+
 
   1. For `Compute` subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
 
@@ -120,6 +121,84 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
       Enabled protection will not prevent a manual connection to a cluster to delete data.
 
   1. Click **Create cluster**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To create a cluster:
+
+    1. View a description of the CLI's create cluster command:
+
+        ```bash
+        yc dataproc cluster create --help
+        ```
+
+    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
+
+        ```bash
+        yc dataproc cluster create <cluster name> \
+            --zone <cluster availability zone> \
+            --service-account-name <cluster service account name> \
+            --version <image version> \
+            --services <component list> \
+            --subcluster name=<name of MASTERNODE subcluster>,`
+                        `role=masternode,`
+                        `resource-preset=<host class>,`
+                        `disk-type=<storage type>,`
+                        `disk-size=<storage size, GB>,`
+                        `subnet-name=<subnet name>,`
+                        `hosts-count=1 \
+            --subcluster name=<name of DATANODE subcluster>,`
+                        `role=datanode,`
+                        `resource-preset=<host class>,`
+                        `disk-type=<storage type>,`
+                        `disk-size=<storage size, GB>,`
+                        `subnet-name=<subnet name>,`
+                        `hosts-count=<host count> \
+            --bucket <bucket name> \
+            --ssh-public-keys-file <path to public portion of SSH key> \
+            --security-group-ids <security group ID list> \
+            --deletion-protection=<cluster deletion protection: true or false> \
+            --log-group-id <log group ID>
+        ```
+
+        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
+
+        ```bash
+        yc dataproc cluster create <cluster name> \
+            ...
+            --host-group-ids <IDs of dedicated host groups>
+        ```
+
+        {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+
+- API
+
+    To create a cluster, use the API [create](../api-ref/Cluster/create.md) method and pass the following in the request:
+
+    * ID of the folder to host the cluster, in the `folderId` parameter.
+    * The cluster name in the `name` parameter.
+    * Cluster configuration in the `configSpec` parameter, including:
+        * [Image](../concepts/environment.md) version, in the `configSpec.versionId` parameter.
+        * Component list, in the `configSpec.hadoop.services` parameter.
+        * Public portion of the SSH key, in the `configSpec.hadoop.sshPublicKeys` parameter.
+        * Subcluster settings, in the `confibSpec.subclustersSpec` parameter.
+    * Cluster availability zone, in the `zoneId` parameter.
+    * Service account ID, in the `serviceAccountId` parameter.
+    * Bucket name, in the `bucket` parameter.
+    * Cluster security group IDs, in the `hostGroupIds` parameter.
+    * Cluster deletion protection settings in the `deletionProtection` parameter.
+
+        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
+
+    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 
 {% endlist %}
 

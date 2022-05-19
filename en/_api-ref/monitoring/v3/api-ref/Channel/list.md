@@ -9,7 +9,7 @@ Retrieves the list of Channel resources.
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/channels
+GET https://monitoring.{{ api-host }}/monitoring/v3/channels
 ```
  
 ## Query parameters {#query_params}

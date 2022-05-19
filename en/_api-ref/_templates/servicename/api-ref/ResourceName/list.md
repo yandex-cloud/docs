@@ -9,7 +9,7 @@ Retrieves the list of resource names in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://servicename.api.cloud.yandex.net/servicename/v1/resourceNames
+GET https://servicename.{{ api-host }}/servicename/v1/resourceNames
 ```
  
 ## Query parameters {#query_params}

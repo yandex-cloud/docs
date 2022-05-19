@@ -199,7 +199,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
   Terraform creates a new cluster. The databases and users are deployed from the backup.
 
-  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
 
 {% endlist %}
 

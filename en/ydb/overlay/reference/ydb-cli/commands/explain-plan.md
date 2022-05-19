@@ -11,7 +11,7 @@ Query plan:
     },
     tables : [
         {
-            name : "{{ cloud-bases-path }}/episodes",
+            name : "/ru-central1/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e/episodes",
             reads : [
                 {
                     type : Lookup,

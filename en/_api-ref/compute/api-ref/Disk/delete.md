@@ -12,7 +12,7 @@ It is not possible to delete a disk that is attached to an instance.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://compute.api.cloud.yandex.net/compute/v1/disks/{diskId}
+DELETE https://compute.{{ api-host }}/compute/v1/disks/{diskId}
 ```
  
 ## Path parameters {#path_params}

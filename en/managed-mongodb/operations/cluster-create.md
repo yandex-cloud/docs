@@ -32,39 +32,28 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
   To create a cluster:
 
   1. In the management console, select the folder where you want to create a DB cluster.
-
   1. Select **{{ mmg-name }}**.
-
   1. Click **Create cluster**.
-
   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
-  1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
      * `PRODUCTION`: For stable versions of your apps.
      * `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
   1. Select the DBMS version.
-
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
-
   1. Under **Storage size**:
 
-      * Select one of the following [storage types](../concepts/storage.md):
-        * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
-        * Or faster local SSD storage (`local-ssd`).
+      * Select the [type of storage](../concepts/storage.md).
 
-        {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
+          {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
+
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
       * DB name.
       * Username.
       * User password. At least 8 characters.
-
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
-
-  1. Under **Hosts**, select the parameters for the DB hosts created with the cluster. If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
-
+  1. Under **Hosts**, select parameters for the database hosts created with the cluster. If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
   1. If necessary, configure additional cluster settings:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
@@ -143,9 +132,8 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
-
-  {% if audience != "internal" %}
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+{% if audience != "internal" %}
 
   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -154,12 +142,15 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
   If you don't have Terraform, install it and configure the provider.
 
   {% endif %}
-
   To create a cluster:
 
   1. In the configuration file, describe the parameters of resources that you want to create:
 
-     {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+     * Database cluster: Description of the cluster and its hosts.
+
+     * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+     * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
      Example configuration file structure:
 
@@ -171,29 +162,29 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
          }
        }
      }
-     
+
      provider "yandex" {
        token     = "<OAuth or static key of service account>"
        cloud_id  = "<cloud ID>"
        folder_id = "<folder ID>"
        zone      = "<availability zone>"
      }
-     
+
      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
        name                = "<cluster name>"
        environment         = "<environment: PRESTABLE or PRODUCTION>"
        network_id          = "<network ID>"
        security_group_ids  = [ "<list of security groups>" ]
        deletion_protection = <protect cluster from deletion: true or false>
-     
+
        cluster_config {
          version = "<MongoDB version: 4.0, 4.2, 4.4, or 5.0>"
        }
-     
+
        database {
          name = "<DB name>"
        }
-     
+
        user {
          name     = "<username>"
          password = "<user password>"
@@ -202,21 +193,21 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
            roles         = [ "<list of user roles>" ]
          }
        }
-     
+
        resources {
          resource_preset_id = "<host class>"
          disk_type_id       = "<storage type>"
          disk_size          = <storage size in GB>
        }
-     
+
        host {
-         zone_id   = "<availability zone>"
+         zone_id           = "<availability zone>"
          subnet_id = "<subnet ID>"
        }
      }
-     
+
      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-     
+
      resource "yandex_vpc_subnet" "<subnet name>" {
        name           = "<subnet name>"
        zone           = "<availability zone>"
@@ -334,7 +325,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
     * With one user, `user1`, with the password `user1user1`.
     * With one database, `db1`.
-    * With accidental cluster deletion protection.
+    * With protection against accidental cluster deletion.
 
   The configuration file for the cluster looks like this:
 
@@ -346,29 +337,29 @@ If you specified security group IDs when creating a cluster, you may also need t
       }
     }
   }
-  
+
   provider "yandex" {
     token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
-  
+
   resource "yandex_mdb_mongodb_cluster" "mymg" {
     name                = "mymg"
     environment         = "PRODUCTION"
     network_id          = yandex_vpc_network.mynet.id
     security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
     deletion_protection = true
-  
+
     cluster_config {
       version = "4.4"
     }
-  
+
     database {
       name = "db1"
     }
-  
+
     user {
       name     = "user1"
       password = "user1user1"
@@ -376,27 +367,27 @@ If you specified security group IDs when creating a cluster, you may also need t
         database_name = "db1"
       }
     }
-  
+
     resources {
       resource_preset_id = "{{ host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 20
     }
-  
+
     host {
       zone_id   = "{{ zone-id }}"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
-  
+
   resource "yandex_vpc_network" "mynet" {
     name = "mynet"
   }
-  
+
   resource "yandex_vpc_security_group" "mymg-sg" {
     name       = "mymg-sg"
     network_id = yandex_vpc_network.mynet.id
-  
+
     ingress {
       description    = "MongoDB"
       port           = {{ port-mmg }}
@@ -404,7 +395,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       v4_cidr_blocks = [ "0.0.0.0/0" ]
     }
   }
-  
+
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
@@ -414,4 +405,3 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
-

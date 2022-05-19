@@ -1,3 +1,3 @@
 # Синхронизация с секретами {{ lockbox-name }}
 
-{% include [Сценарий синхронизации k8s и Lockbox](../../_includes/tutorials/kubernetes-lockbox-secrets.md) %}
+{% include [Сценарий синхронизации k8s и Lockbox](../../_tutorials/kubernetes-lockbox-secrets.md) %}

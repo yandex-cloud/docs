@@ -9,7 +9,7 @@ Updates the specified registry.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://container-registry.api.cloud.yandex.net/container-registry/v1/registries/{registryId}
+PATCH https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}
 ```
  
 ## Path parameters {#path_params}

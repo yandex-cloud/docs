@@ -1,1 +1,1 @@
-{% include [static](../../_includes/tutorials/web/static.md) %}
+{% include [static](../../_tutorials/web/static.md) %}

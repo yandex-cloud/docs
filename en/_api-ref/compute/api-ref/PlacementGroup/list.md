@@ -9,7 +9,7 @@ Retrieves the list of placement groups in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/placementGroups
+GET https://compute.{{ api-host }}/compute/v1/placementGroups
 ```
  
 ## Query parameters {#query_params}

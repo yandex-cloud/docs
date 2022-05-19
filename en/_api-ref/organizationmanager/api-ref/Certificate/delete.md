@@ -9,14 +9,14 @@ Deletes the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates/{certificateId}
+DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-certificateId | ID of the certificate to delete. To get the certificate ID, make a [list](/docs/organization-manager/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
+certificateId | ID of the certificate to delete. To get the certificate ID, make a [list](/docs/organization/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

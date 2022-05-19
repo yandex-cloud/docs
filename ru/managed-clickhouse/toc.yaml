@@ -9,11 +9,15 @@ items:
         href: operations/index.md
       - name: Информация об имеющихся кластерах
         href: operations/cluster-list.md
+      - name: Управление квотами
+        href: operations/quotas-control.md
+        when: audience == "internal"
       - name: Создание кластера
         href: operations/cluster-create.md
       - name: Подключение к базе данных
         href: operations/connect.md
       - name: Остановка и запуск кластера
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: SQL-запросы в консоли управления
         href: operations/web-sql-query.md
@@ -104,6 +108,8 @@ items:
         href: concepts/dictionaries.md
       - name: Шардирование
         href: concepts/sharding.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Политика работы с версиями ClickHouse
@@ -112,7 +118,11 @@ items:
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
+  - name: Ресурсы и квоты
+    href: quotas.md
+    when: audience == "internal"
   - name: Правила тарификации
+    when: audience != "internal"
     items:
       - name: Действующие правила
         href: pricing.md
@@ -146,5 +156,15 @@ items:
         href: qa/general.md
       - name: Вопросы о ClickHouse
         href: qa/clickhouse.md
+      - name: Подключение
+        href: qa/connection.md
+      - name: Изменение кластера
+        href: qa/cluster-update.md
+      - name: Настройки параметров кластера
+        href: qa/cluster-settings.md
+      - name: Перемещение и восстановление кластера
+        href: qa/cluster-backups.md
+      - name: Мониторинг и логи
+        href: qa/monitoring.md
       - name: Все вопросы на одной странице
         href: qa/all.md

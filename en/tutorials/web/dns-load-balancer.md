@@ -1,1 +1,1 @@
-{% include [dns-load-balancer](../../_includes/tutorials/web/dns-load-balancer.md) %}
+{% include [dns-load-balancer](../../_tutorials/web/dns-load-balancer.md) %}

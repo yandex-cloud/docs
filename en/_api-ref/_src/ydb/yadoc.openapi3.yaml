@@ -553,6 +553,33 @@ paths:
       x-y-navtitle: list
 components:
   schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     Alert:
       type: object
       properties:
@@ -1041,6 +1068,23 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [ListAccessBindingsRequest.page_size], use
+            the nextPageToken as the value
+            for the [ListAccessBindingsRequest.page_token] query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
     ListBackupsResponse:
       type: object
       properties:
@@ -1324,6 +1368,12 @@ components:
             You will be charged for the on-demand consumption only if provisioned capacity is consumed.
           type: string
           format: int64
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
     StartDatabaseMetadata:
       type: object
       properties:
@@ -1369,6 +1419,39 @@ components:
           type: string
         redundancyType:
           type: string
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
     TimeOfDay:
       description: |-
         Represents a time of day. The date and time zone are either not significant
@@ -1396,6 +1479,12 @@ components:
           description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
     UpdateDatabaseMetadata:
       type: object
       properties:
@@ -1485,6 +1574,69 @@ components:
           type: array
           items:
             type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     BackupStatus_in_Backup_status:
       description: id of backup
       type: string

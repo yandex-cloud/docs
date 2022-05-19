@@ -52,10 +52,26 @@ items:
         href: tutorials/debezium.md                
       - name: Просмотр отчетов DataLens на данных из Object Storage
         href: tutorials/datalens.md                
-  - name: YQL
-    include:
-      mode: link
-      path: yql-docs-core/toc_product.yaml
+  - name: Работа с YQL
+    items:        
+      - name: Обзор
+        href: yql-tutorials/index.md
+      - name: Подготовка окружения
+        href: yql-tutorials/create_demo_files.md
+      - name: Выборка данных из всех колонок
+        href: yql-tutorials/select_all_columns.md
+      - name: Выборка данных из определенных колонок
+        href: yql-tutorials/select_specific_columns.md
+      - name: Сортировка и фильтрация
+        href: yql-tutorials/basic_filter_and_sort.md
+      - name: Агрегирование данных
+        href: yql-tutorials/basic_aggregation.md
+      - name: Дополнительные условия выборки
+        href: yql-tutorials/conditional_values.md
+      - name: Объединение таблиц с помощью JOIN
+        href: yql-tutorials/join_tables.md
+      - name: Работа с JSON
+        href: yql-tutorials/json.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

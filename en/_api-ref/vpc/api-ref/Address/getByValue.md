@@ -9,7 +9,7 @@ To get the list of all available Address resources, make a [list](/docs/vpc/api-
  
 ## HTTP request {#https-request}
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/addresses:byValue
+GET https://vpc.{{ api-host }}/vpc/v1/addresses:byValue
 ```
  
 ## Query parameters {#query_params}

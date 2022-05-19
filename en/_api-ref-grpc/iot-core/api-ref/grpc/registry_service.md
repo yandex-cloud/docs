@@ -48,7 +48,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the registry. The name is unique within the folder. 
 description | **string**<br>Description of the registry. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
@@ -76,7 +76,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the registry. The name is unique within the folder. 
 description | **string**<br>Description of the registry. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
@@ -113,7 +113,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the registry. The name is unique within the folder. 
 description | **string**<br>Description of the registry. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
@@ -179,7 +179,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the registry. The name is unique within the folder. 
 description | **string**<br>Description of the registry. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 
@@ -237,7 +237,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the registry. The name is unique within the folder. 
 description | **string**<br>Description of the registry. 0-256 characters long. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 log_group_id | **string**<br>ID of the logs group for the specified registry. 
 
 

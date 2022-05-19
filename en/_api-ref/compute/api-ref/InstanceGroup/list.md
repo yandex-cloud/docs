@@ -9,7 +9,7 @@ Retrieves the list of InstanceGroup resources in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups
+GET https://compute.{{ api-host }}/compute/v1/instanceGroups
 ```
  
 ## Query parameters {#query_params}

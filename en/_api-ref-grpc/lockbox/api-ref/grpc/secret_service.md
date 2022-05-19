@@ -50,7 +50,7 @@ name | **string**<br>Name of the secret.
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
@@ -64,7 +64,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -102,7 +102,7 @@ name | **string**<br>Name of the secret.
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version1)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
@@ -116,7 +116,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -189,7 +189,7 @@ name | **string**<br>Name of the secret.
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version2)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
@@ -203,7 +203,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -263,7 +263,7 @@ name | **string**<br>Name of the secret.
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version3)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
@@ -277,7 +277,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -332,7 +332,7 @@ name | **string**<br>Name of the secret.
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version4)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
@@ -346,7 +346,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -401,7 +401,7 @@ name | **string**<br>Name of the secret.
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version5)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
@@ -415,7 +415,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version5) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version5) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -470,7 +470,7 @@ name | **string**<br>Name of the secret.
 description | **string**<br>Description of the secret. 
 labels | **map<string,string>**<br>Custom labels for the secret as `key:value` pairs. Maximum 64 per key. 
 kms_key_id | **string**<br>Optional ID of the KMS key will be used to encrypt and decrypt the secret. 
-status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`CREATING`: The secret is being created.</li><li>`ACTIVE`: The secret is active and the secret payload can be accessed. <br>Can be set to INACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li><li>`INACTIVE`: The secret is inactive and unusable. <br>Can be set to ACTIVE using the [SecretService.Deactivate](#Deactivate) method.</li></ul>
 current_version | **[Version](#Version6)**<br>Current (i.e. the `latest`) version of the secret. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the secret. 
 
@@ -484,7 +484,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version6) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version6) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -520,7 +520,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version7) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version7) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -587,7 +587,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version8) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version8) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -644,7 +644,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version9) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version9) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -699,7 +699,7 @@ secret_id | **string**<br>ID of the secret that the version belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version was created. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
 description | **string**<br>Description of the version. 
-status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version10) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
+status | enum **Status**<br>Status of the secret. <ul><li>`ACTIVE`: The version is active and the secret payload can be accessed.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [Version.destroy_at](#Version10) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li></ul>
 payload_entry_keys[] | **string**<br>Keys of the entries contained in the version payload. 
 
 
@@ -777,8 +777,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -811,8 +811,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation9}
@@ -860,7 +860,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -876,8 +876,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation10}

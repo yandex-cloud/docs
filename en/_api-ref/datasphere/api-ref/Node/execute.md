@@ -9,7 +9,7 @@ Executes deployed Node.
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/{nodeId}:execute
+POST https://datasphere.{{ api-host }}/datasphere/v1/nodes/{nodeId}:execute
 ```
  
 ## Path parameters {#path_params}

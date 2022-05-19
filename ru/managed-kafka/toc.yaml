@@ -27,7 +27,7 @@ items:
       - name: Управление учетными записями Kafka
         href: operations/cluster-accounts.md
       - name: Управление коннекторами
-        href: operations/cluster-connector.md 
+        href: operations/cluster-connector.md
       - name: Просмотр логов кластера
         href: operations/cluster-logs.md
       - name: Удаление кластера
@@ -52,8 +52,8 @@ items:
           href: tutorials/managed-schema-registry.md
         - name: Работа с реестром схем формата данных Confluent
           href: tutorials/confluent-schema-registry.md
-      - name: Миграция с помощью MirrorMaker 2.0
-        href: tutorials/mirrormaker-unmanaged-topics.md  
+      - name: Миграция данных в Managed Service for Apache Kafka®
+        href: tutorials/kafka-connectors.md
       - name: Поставка данных с помощью Debezium
         href: tutorials/kafka-cdc.md
   - name: Концепции
@@ -78,6 +78,8 @@ items:
         href: concepts/storage.md
       - name: Коннекторы
         href: concepts/connectors.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Настройки Apache Kafka®
         href: concepts/settings-list.md
   - name: Управление доступом

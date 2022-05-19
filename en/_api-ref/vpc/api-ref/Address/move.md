@@ -9,7 +9,7 @@ Move an address to another folder
  
 ## HTTP request {#https-request}
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/addresses/{addressId}:move
+POST https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}:move
 ```
  
 ## Path parameters {#path_params}

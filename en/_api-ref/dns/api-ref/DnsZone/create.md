@@ -9,7 +9,7 @@ Creates a DNS zone in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://dns.api.cloud.yandex.net/dns/v1/zones
+POST https://dns.{{ api-host }}/dns/v1/zones
 ```
  
 ## Body parameters {#body_params}

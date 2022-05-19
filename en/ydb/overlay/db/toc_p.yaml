@@ -1,0 +1,10 @@
+items:
+- name: Overview
+  href: index.md
+- name: Cloud management console
+  include: { mode: link, path: cloud_console/toc_p.yaml }
+- name: Yandex.Cloud CLI
+  href: yc_cli.md
+- include: { mode: link, path: toc_i.yaml }
+- name: Metric reference
+  href: ../maintenance/yc_metrics.md

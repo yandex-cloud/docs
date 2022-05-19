@@ -9,7 +9,7 @@ Updates access bindings for the specified service account.
  
 ## HTTP request {#https-request}
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/{resourceId}:updateAccessBindings
+POST https://iam.{{ api-host }}/iam/v1/serviceAccounts/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

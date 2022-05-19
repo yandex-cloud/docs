@@ -10,7 +10,7 @@ to the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
+GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters
 ```
  
 ## Query parameters {#query_params}
@@ -3507,7 +3507,10 @@ filter | A filter expression that filters resources listed in the response. The 
       "securityGroupIds": [
         "string"
       ],
-      "deletionProtection": true
+      "deletionProtection": true,
+      "hostGroupIds": [
+        "string"
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -6891,4 +6894,5 @@ clusters[].<br>plannedOperation.<br>info | **string**<br><p>Information about th
 clusters[].<br>plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>Time until which this maintenance operation is delayed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 clusters[].<br>securityGroupIds[] | **string**<br><p>User security groups</p> 
 clusters[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+clusters[].<br>hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/Cluster/list#query_params">pageSize</a>, use the <a href="/docs/managed-postgresql/api-ref/Cluster/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-postgresql/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-postgresql/api-ref/Cluster/list#responses">nextPageToken</a> to continue paging through the results.</p> 

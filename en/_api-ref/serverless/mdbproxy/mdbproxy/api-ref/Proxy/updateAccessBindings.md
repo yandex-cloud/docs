@@ -9,7 +9,7 @@ Updates access bindings for the specified proxy.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://serverless-mdbproxy.api.cloud.yandex.net/mdbproxy/v1/proxies/{resourceId}:updateAccessBindings
+PATCH https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}

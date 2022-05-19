@@ -14,6 +14,7 @@ items:
       - name: Подключение к базе данных
         href: operations/connect.md
       - name: Остановка и запуск кластера
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: SQL-запросы в консоли управления
         href: operations/web-sql-query.md
@@ -61,6 +62,7 @@ items:
         - name: >-
             Создание логической реплики Amazon RDS для PostgreSQL в Managed
             Service for PostgreSQL
+          when: audience != "internal"
           href: operations/logical-replica-from-rds.md
       - name: Поставка данных с помощью Debezium
         href: tutorials/kafka-cdc.md
@@ -92,6 +94,8 @@ items:
         href: concepts/pooling.md
       - name: Репликация
         href: concepts/replication.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Настройки PostgreSQL
@@ -102,6 +106,7 @@ items:
     href: quotas.md
     when: audience == "internal"
   - name: Правила тарификации
+    when: audience != "internal"
     items:
       - name: Действующие правила
         href: pricing.md

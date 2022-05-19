@@ -9,7 +9,7 @@ Deletes the specified subnet.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}
+DELETE https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
 ```
  
 ## Path parameters {#path_params}

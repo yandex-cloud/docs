@@ -9,7 +9,7 @@ Retrieves the list of DNS zones in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://dns.api.cloud.yandex.net/dns/v1/zones
+GET https://dns.{{ api-host }}/dns/v1/zones
 ```
  
 ## Query parameters {#query_params}

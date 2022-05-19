@@ -151,7 +151,7 @@ default:
   dsvm-short-name: DSVM
   speechkit-short-name: SpeechKit
   translate-short-name: Translate
-  marketplace-short-name:  Marketplace
+  marketplace-short-name: Marketplace
   network-load-balancer-short-name: Network Load Balancer
   message-queue-short-name: Message Queue
   cloud-logs-short-name: Cloud Logs
@@ -247,6 +247,7 @@ default:
   disk-type-example: network-ssd
   mch-hs-version: 21.7
   mch-ck-version: 22.3 # Minimal version ClickHouse for ClickHouse Keeper
+  mch-hs-move-factor: 20%
   mmg-backup-retention: 7
   mpg-backup-retention: 7
   mmg-backup-retention-min: 7
@@ -449,6 +450,7 @@ default:
   link-console-main: https://console.cloud.yandex.com
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.com/iam
+  link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-support: https://console.cloud.yandex.com/support
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-cloud-services: https://cloud.yandex.com/services
@@ -511,6 +513,7 @@ default:
   dt-type-copy-repl: Copy and replicate
   dt-type-copy: Copy
   dt-type-repl: Replicate
+  dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
   # Up-to-date Kubernetes API documentation
   k8s-api-link: https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/

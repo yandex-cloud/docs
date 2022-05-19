@@ -3,7 +3,9 @@
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](connect.md)
+{% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
+{% endif %}
 - [{#T}](update.md)
 - [{#T}](stepdown.md)
 - [{#T}](cluster-version-update.md)

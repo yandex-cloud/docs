@@ -25,6 +25,10 @@ Aliases:
 - [yc ydb database delete](delete.md) — Delete the specified YDB database.
 - [yc ydb database add-labels](add-labels.md) — Add labels to specified YDB database.
 - [yc ydb database remove-labels](remove-labels.md) — Remove labels from specified YDB database.
+- [yc ydb database list-access-bindings](list-access-bindings.md) — List access bindings for the specified YDB database.
+- [yc ydb database set-access-bindings](set-access-bindings.md) — Set access bindings for the specified YDB database and delete all existing access bindings if there were any.
+- [yc ydb database add-access-binding](add-access-binding.md) — Add access binding for the specified YDB database.
+- [yc ydb database remove-access-binding](remove-access-binding.md) — Remove access binding for the specified YDB database.
 
 #### Global Flags
 

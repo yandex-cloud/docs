@@ -9,7 +9,7 @@ Returns the specified location.
  
 ## HTTP request {#https-request}
 ```
-GET https://ydb.api.cloud.yandex.net/ydb/v1/locations/{locationId}
+GET https://ydb.{{ api-host }}/ydb/v1/locations/{locationId}
 ```
  
 ## Path parameters {#path_params}

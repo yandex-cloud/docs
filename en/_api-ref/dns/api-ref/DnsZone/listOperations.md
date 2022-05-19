@@ -9,7 +9,7 @@ Lists operations for the specified DNS zone.
  
 ## HTTP request {#https-request}
 ```
-GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}/operations
+GET https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}/operations
 ```
  
 ## Path parameters {#path_params}

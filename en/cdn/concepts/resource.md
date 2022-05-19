@@ -47,6 +47,7 @@ For the resource to run properly, you must have:
 * **Responses hit**: The number of client requests that were responded by CDN servers with [cached](caching.md) copies of files without requesting them from origins (if caching is enabled for CDN servers).
 * **Response miss**: The number of client requests that were not responded by CDN servers with cached copies of files (for example, because caching was disabled, the file hasn't been cached by the server yet, or the [cache lifetime](caching.md#server-side-cache-age) expired) and CDN servers had to access origins to load files.
 * **Cache hit ratio**: The ratio of traffic sent from CDN servers to clients without accessing origins. It's calculated using the formula `(1 − (Upstream from origins / Sent)) × 100%`.
+* **Uploaded by shielding server**: Amount of traffic uploaded by shielding server from origins (if [shielding](origins-shielding.md) is enabled).
 * **Responses with 2xx codes**, **3xx codes**, **4xx codes**, **5xx codes**: The number of responses with those HTTP status codes sent by CDN servers to clients.
 
 You can view statistics on the resource page in the [management console]({{ link-console-main }}).

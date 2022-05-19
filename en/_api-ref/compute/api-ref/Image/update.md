@@ -9,7 +9,7 @@ Updates the specified image.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}
+PATCH https://compute.{{ api-host }}/compute/v1/images/{imageId}
 ```
  
 ## Path parameters {#path_params}

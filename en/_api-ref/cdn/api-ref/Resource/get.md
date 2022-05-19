@@ -9,7 +9,7 @@ Get client's CDN resource by resource id.
  
 ## HTTP request {#https-request}
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/resources/{resourceId}
+GET https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
 ```
  
 ## Path parameters {#path_params}

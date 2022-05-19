@@ -9,7 +9,7 @@ Retrieves the list of API keys for the specified service account.
  
 ## HTTP request {#https-request}
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/apiKeys
+GET https://iam.{{ api-host }}/iam/v1/apiKeys
 ```
  
 ## Query parameters {#query_params}

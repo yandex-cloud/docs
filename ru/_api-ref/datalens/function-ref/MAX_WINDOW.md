@@ -18,6 +18,9 @@ _Функция `MAX` также доступна в следующих кате
      )
   ```
 
+  Подробнее:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+
 - Расширенный
 
   ```
@@ -26,6 +29,10 @@ _Функция `MAX` также доступна в следующих кате
        [ BEFORE FILTER BY ... ]
      )
   ```
+
+  Подробнее:
+  - [TOTAL, WITHIN, AMONG](window-functions.md#syntax-grouping)
+  - [BEFORE FILTER BY](window-functions.md#syntax-before-filter-by)
 
 {% endlist %}
 

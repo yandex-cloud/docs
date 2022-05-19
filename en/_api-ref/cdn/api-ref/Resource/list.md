@@ -9,7 +9,7 @@ Lists CDN resources.
  
 ## HTTP request {#https-request}
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/resources
+GET https://cdn.{{ api-host }}/cdn/v1/resources
 ```
  
 ## Query parameters {#query_params}

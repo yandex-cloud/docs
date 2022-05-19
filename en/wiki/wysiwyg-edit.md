@@ -31,7 +31,7 @@ To format text, use the toolbar buttons or keyboard shortcuts:
 | Formatting | Toolbar button | Keyboard shortcut |
 | --- | --- | --- |
 | Header | ![](../_assets/wiki/tool-headrs.png) | — |
-| Bold | ![](/../_assets/wiki/bold.png) | **Ctrl** + **B** |
+| Bold | ![](../_assets/wiki/bold.png) | **Ctrl** + **B** |
 | Italics | ![](../_assets/wiki/tool-curve.png) | **Ctrl** + **I** |
 | Strikethrough | ![](../_assets/wiki/tool-line.png) | **Ctrl** + **Shift** + **S** |
 | Underline | ![](../_assets/wiki/tool-underline.png) | **Ctrl** + **U** |

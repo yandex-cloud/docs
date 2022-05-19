@@ -9,7 +9,7 @@ List organization active members.
  
 ## HTTP request {#https-request}
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{organizationId}/users
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/users
 ```
  
 ## Path parameters {#path_params}
@@ -22,8 +22,8 @@ organizationId | Required. ID of the Organization resource to list members for. 
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/organization-manager/api-ref/User/listMembers#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. Set [pageToken](/docs/organization-manager/api-ref/User/listMembers#query_params) to the [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) returned by a previous list request to get the next page of results.  The maximum string length in characters is 100.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/organization/api-ref/User/listMembers#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/User/listMembers#responses) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. Set [pageToken](/docs/organization/api-ref/User/listMembers#query_params) to the [nextPageToken](/docs/organization/api-ref/User/listMembers#responses) returned by a previous list request to get the next page of results.  The maximum string length in characters is 100.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -72,4 +72,4 @@ users[].<br>subjectClaims.<br>phoneNumber | **string**<br><p>End-User's preferre
 users[].<br>subjectClaims.<br>federation | **object**<br><p>User federation, non-empty only for federated users.</p> <p>Minimalistic analog of yandex.cloud.organizationmanager.v1.saml.Federation</p> 
 users[].<br>subjectClaims.<br>federation.<br>id | **string**<br><p>Required. ID of the federation.</p> <p>The maximum string length in characters is 50.</p> 
 users[].<br>subjectClaims.<br>federation.<br>name | **string**<br><p>Name of the federation. The name is unique within the cloud or organization</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/organization-manager/api-ref/User/listMembers#query_params">pageSize</a>, use the <a href="/docs/organization-manager/api-ref/User/listMembers#responses">nextPageToken</a> as the value for the <a href="/docs/organization-manager/api-ref/User/listMembers#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/organization-manager/api-ref/User/listMembers#responses">nextPageToken</a> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/organization/api-ref/User/listMembers#query_params">pageSize</a>, use the <a href="/docs/organization/api-ref/User/listMembers#responses">nextPageToken</a> as the value for the <a href="/docs/organization/api-ref/User/listMembers#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/organization/api-ref/User/listMembers#responses">nextPageToken</a> to continue paging through the results.</p> 

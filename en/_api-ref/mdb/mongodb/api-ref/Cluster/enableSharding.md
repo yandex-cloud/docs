@@ -10,7 +10,7 @@ that would support adding and using shards in the cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:enableSharding
+POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:enableSharding
 ```
  
 ## Path parameters {#path_params}

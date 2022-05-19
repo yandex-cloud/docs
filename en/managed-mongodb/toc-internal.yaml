@@ -47,8 +47,6 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Disk space in Managed Service for MongoDB
-        href: concepts/disk-space.md
       - name: Backups
         href: concepts/backup.md
       - name: Replication

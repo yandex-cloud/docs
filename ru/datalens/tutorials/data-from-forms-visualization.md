@@ -1,1 +1,1 @@
-{% include [data-from-forms-visualization](../../_includes/tutorials/datalens/data-from-forms-visualization.md) %}
+{% include [data-from-forms-visualization](../../_tutorials/datalens/data-from-forms-visualization.md) %}

@@ -9,7 +9,7 @@ Creates a snapshot of the specified disk.
  
 ## HTTP request {#https-request}
 ```
-POST https://compute.api.cloud.yandex.net/compute/v1/snapshots
+POST https://compute.{{ api-host }}/compute/v1/snapshots
 ```
  
 ## Body parameters {#body_params}

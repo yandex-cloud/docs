@@ -42,7 +42,7 @@ Field | Description
 id | **string**<br>Output only. ID of the registry. 
 folder_id | **string**<br>ID of the folder that the registry belongs to. 
 name | **string**<br>Name of the registry. 
-status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 
@@ -60,7 +60,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list registries in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRegistriesResponse.next_page_token](#ListRegistriesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Registry.name](#Registry1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on [Registry.name](#Registry1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListRegistriesResponse {#ListRegistriesResponse}
@@ -78,7 +78,7 @@ Field | Description
 id | **string**<br>Output only. ID of the registry. 
 folder_id | **string**<br>ID of the folder that the registry belongs to. 
 name | **string**<br>Name of the registry. 
-status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 
@@ -98,7 +98,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a registry in. <br>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the registry. <br>There may be only one registry per folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the registry. <br>There may be only one registry per folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
@@ -132,7 +132,7 @@ Field | Description
 id | **string**<br>Output only. ID of the registry. 
 folder_id | **string**<br>ID of the folder that the registry belongs to. 
 name | **string**<br>Name of the registry. 
-status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 
@@ -153,7 +153,7 @@ Field | Description
 --- | ---
 registry_id | **string**<br>Required. ID of the Registry resource to update. <br>To get the registry ID use a [RegistryService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Registry resource are going to be updated. 
-name | **string**<br>Name of the registry. <br>There may be only one registry per folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the registry. <br>There may be only one registry per folder. Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
@@ -187,7 +187,7 @@ Field | Description
 id | **string**<br>Output only. ID of the registry. 
 folder_id | **string**<br>ID of the folder that the registry belongs to. 
 name | **string**<br>Name of the registry. 
-status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li><ul/>
+status | enum **Status**<br>Output only. Status of the registry. <ul><li>`CREATING`: Registry is being created.</li><li>`ACTIVE`: Registry is ready to use.</li><li>`DELETING`: Registry is being deleted.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
 
@@ -267,8 +267,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ## SetAccessBindings {#SetAccessBindings}
@@ -301,8 +301,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation3}
@@ -350,7 +350,7 @@ access_binding_deltas[] | **[AccessBindingDelta](#AccessBindingDelta)**<br>Requi
 
 Field | Description
 --- | ---
-action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li><ul/>
+action | enum **AccessBindingAction**<br>Required. The action that is being performed on an access binding. <ul><li>`ADD`: Addition of an access binding.</li><li>`REMOVE`: Removal of an access binding.</li></ul>
 access_binding | **[AccessBinding](#AccessBinding)**<br>Required. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). 
 
 
@@ -366,8 +366,8 @@ subject | **[Subject](#Subject)**<br>Required. Identity for which access binding
 
 Field | Description
 --- | ---
-id | **string**<br>Required. <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul> The maximum string length in characters is 50.
-type | **string**<br>Required. <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul> The maximum string length in characters is 100.
+id | **string**<br>Required. ID of the subject. <br>It can contain one of the following values: <ul><li>`allAuthenticatedUsers`: A special system identifier that represents anyone </li></ul>who is authenticated. It can be used only if the `type` is `system`. <ul><li>`allUsers`: A special system identifier that represents anyone. No authentication is required. </li></ul>For example, you don't need to specify the IAM token in an API query. <ul><li>`<cloud generated id>`: An identifier that represents a user account. </li></ul>It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. The maximum string length in characters is 50.
+type | **string**<br>Required. Type of the subject. <br>It can contain one of the following values: <ul><li>`userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud. </li><li>`serviceAccount`: A service account. This type represents the `yandex.cloud.iam.v1.ServiceAccount` resource. </li><li>`federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. </li><li>`system`: System group. This type represents several accounts with a common system identifier. </li></ul><br>For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). The maximum string length in characters is 100.
 
 
 ### Operation {#Operation4}
@@ -417,7 +417,7 @@ permissions[] | **[IpPermission](#IpPermission)**<br>List of ip permissions for 
 
 Field | Description
 --- | ---
-action | enum **Action**<br> <ul><ul/>
+action | enum **Action**<br> 
 ip | **string**<br> 
 
 
@@ -443,7 +443,7 @@ ip_permission[] | **[IpPermission](#IpPermission1)**<br>IP permission to be set.
 
 Field | Description
 --- | ---
-action | enum **Action**<br> <ul><ul/>
+action | enum **Action**<br> 
 ip | **string**<br> 
 
 
@@ -492,7 +492,7 @@ ip_permission_deltas[] | **[IpPermissionDelta](#IpPermissionDelta)**<br>Updates 
 
 Field | Description
 --- | ---
-action | enum **IpPermissionAction**<br>Required. The action that is being performed on an ip permission. <ul><li>`ADD`: Addition of an ip permission.</li><li>`REMOVE`: Removal of an ip permission.</li><ul/>
+action | enum **IpPermissionAction**<br>Required. The action that is being performed on an ip permission. <ul><li>`ADD`: Addition of an ip permission.</li><li>`REMOVE`: Removal of an ip permission.</li></ul>
 ip_permission | **[IpPermission](#IpPermission2)**<br>Required. Ip permission. 
 
 
@@ -500,7 +500,7 @@ ip_permission | **[IpPermission](#IpPermission2)**<br>Required. Ip permission.
 
 Field | Description
 --- | ---
-action | enum **Action**<br> <ul><ul/>
+action | enum **Action**<br> 
 ip | **string**<br> 
 
 

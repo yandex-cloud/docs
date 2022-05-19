@@ -9,7 +9,7 @@ Set ip permissions for the specified registry.
  
 ## HTTP request {#https-request}
 ```
-POST https://container-registry.api.cloud.yandex.net/container-registry/v1/registries/{registryId}:setIpPermission
+POST https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}:setIpPermission
 ```
  
 ## Path parameters {#path_params}

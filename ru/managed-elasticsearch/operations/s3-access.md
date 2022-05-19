@@ -1,13 +1,18 @@
 # Настройка доступа к {{ objstorage-name }}
 
-{{ mes-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) {{ ES }}. Это позволяет использовать {{ objstorage-name }} для хранения [резервных копий](./cluster-backups.md).
+{{ mes-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) {{ ES }}. Это позволяет использовать {{ objstorage-name }}:
+
+* для [переноса данных из стороннего кластера {{ ES }} в {{ mes-name }}](../tutorials/migration-via-snapshots.md);
+
+* для добавления [пользовательских расширений](cluster-extensions.md#add);
+
+* для [хранения резервных копий](./cluster-backups.md).
 
 Для доступа к данным в бакете {{ objstorage-name }} из кластера:
 
 1. [Подключите сервисный аккаунт к кластеру](#connect-service-account).
 1. [Настройте права доступа](#configure-acl).
 1. [Подключите репозиторий снапшотов](#register-snapshot-repository).
-
 
 ## Подключить сервисный аккаунт к кластеру {#connect-service-account}
 
@@ -24,9 +29,6 @@
 1. Убедитесь, что этому аккаунту назначена роль `storage.editor`.
 
 {% endif %}
-
-
-
 
 ## Настроить права доступа {#configure-acl}
 
@@ -59,7 +61,7 @@
 {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
 1. [Подключитесь](./cluster-connect.md) к кластеру.
-1. Установите расширение [repository-s3](cluster-extensions.md#elasticsearch):
+1. Установите плагин [repository-s3](cluster-plugins.md#elasticsearch):
 
     ```bash
     sudo bin/elasticsearch-plugin install repository-s3

@@ -35,10 +35,6 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-     1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
-
-         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-
   1. Under **Host class**, select the platform, host type, and host class.
 
      The host class defines the technical specifications of the VMs where the [{{ KF }} brokers](../concepts/brokers.md) will be deployed. All available options are listed in [Host classes](../concepts/instance-types.md).
@@ -47,9 +43,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
   1. Under **Storage**:
 
-     * Select one of the following [storage types](../concepts/storage.md):
-       * Either more flexible storage on network HDDs (`network-hdd`), network SSDs (`network-ssd`), or non-replicated SSDs (`network-ssd-nonreplicated`).
-       * Or faster local SSD storage (`local-ssd`).
+     * Select the [type of storage](../concepts/storage.md).
 
         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
@@ -86,13 +80,11 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
         {% endnote %}
 
-     1. Select security groups to control the cluster's network traffic.
-
   1. Under **Hosts**:
-
      1. Specify the number of {{ KF }} [broker hosts](../concepts/brokers.md) to be located in each of the selected availability zones.
 
          When choosing the number of hosts, keep in mind that:
+
          * The {{ KF }} cluster hosts will be evenly deployed in the selected availability zones. Decide on the number of zones and hosts per zone based on the required fault tolerance model and cluster load.
          * Replication is possible if there are at least two hosts in the cluster.
          * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
@@ -102,8 +94,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
      {% endif %}
-
-  1. If you specify two or more broker hosts, under **Host class {{ ZK }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to be located in each of the selected availability zones.
+  1. If you specify two or more broker hosts, under **Host class {{ ZK }}**, specify the characteristics of the [hosts{{ ZK }}](../concepts/index.md) to be located in each of the selected availability zones.
 
   1. If necessary, configure additional cluster settings:
 
@@ -174,11 +165,11 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
-{% endif %}
+  {% endif %}
 
 - Terraform
 
-    {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
     {% if audience != "internal" %}
 
@@ -194,9 +185,11 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
     1. In the configuration file, describe the parameters of resources that you want to create:
 
-        {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+        * {{ KF }} cluster: Description of a cluster and its hosts. If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
-        If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
+        * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+        * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
         Example configuration file structure:
 
@@ -208,25 +201,25 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
             }
           }
         }
-        
+
         provider "yandex" {
           token     = "<OAuth or static key of service account>"
           cloud_id  = "<cloud ID>"
           folder_id = "<folder ID>"
           zone      = "<availability zone>"
         }
-        
+
         resource "yandex_mdb_kafka_cluster" "<cluster name>" {
           environment         = "<environment: PRESTABLE or PRODUCTION>"
           name                = "<cluster name>"
           network_id          = "<network ID>"
           security_group_ids  = ["<list of cluster security group IDs>"]
           deletion_protection = <protect cluster from deletion: true or false>
-        
+
           config {
             assign_public_ip = "<public access to the cluster: true or false>"
             brokers_count    = <number of brokers>
-            version          = "<Apache Kafka version: 2.1, 2.6 or 2.8>"
+            version          = "<Apache Kafka version: 2.1, 2.6, or 2.8>"
             schema_registry  = "<data schema management: true or false>"
             kafka {
               resources {
@@ -235,17 +228,17 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
                 resource_preset_id = "<host class>"
               }
             }
-        
+
             zones = [
               "<availability zones>"
             ]
           }
         }
-        
+
         resource "yandex_vpc_network" "<network name>" {
           name = "<network name>"
         }
-        
+
         resource "yandex_vpc_subnet" "<subnet name>" {
           name           = "<subnet name>"
           zone           = "<availability zone>"
@@ -291,17 +284,12 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
     {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
     {% if audience != "internal" %}
-    
+
     To create a cluster hosted using groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass their IDs in the `hostGroupIds` parameter.
-    
+
     {% endif %}
 
     {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter.
-  
-    {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-
 
 {% endlist %}
 
@@ -355,18 +343,18 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   ```bash
   {{ yc-mdb-kf }} cluster create \
-  --name mykf \
-  --environment production \
-  --version 2.6 \
-  --network-name {{ network-name }} \
-  --zone-ids {{ zone-id }} \
-  --brokers-count 1 \
-  --resource-preset {{ host-class }} \
-  --disk-size 10 \
-  --disk-type {{ disk-type-example }} \
-  --assign-public-ip \
-  --security-group-ids {{ security-group }} \
-  --deletion-protection=true
+     --name mykf \
+     --environment production \
+     --version 2.6 \
+     --network-name {{ network-name }} \
+     --zone-ids {{ zone-id }} \
+     --brokers-count 1 \
+     --resource-preset {{ host-class }} \
+     --disk-size 10 \
+     --disk-type {{ disk-type-example }} \
+     --assign-public-ip \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
   ```
 
   {% else %}
@@ -416,21 +404,21 @@ If you specified security group IDs when creating a cluster, you may also need t
         }
       }
     }
-    
+
     provider "yandex" {
       token     = "<OAuth or static key of service account>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
       zone      = "{{ zone-id }}"
     }
-    
+
     resource "yandex_mdb_kafka_cluster" "mykf" {
       environment         = "PRODUCTION"
       name                = "mykf"
       network_id          = yandex_vpc_network.mynet.id
       security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
       deletion_protection = true
-    
+
       config {
         assign_public_ip = true
         brokers_count    = 1
@@ -442,28 +430,28 @@ If you specified security group IDs when creating a cluster, you may also need t
             resource_preset_id = "{{ host-class }}"
           }
         }
-    
+
         zones = [
           "{{ zone-id }}"
         ]
       }
     }
-    
+
     resource "yandex_vpc_network" "mynet" {
       name = "mynet"
     }
-    
+
     resource "yandex_vpc_subnet" "mysubnet" {
       name           = "mysubnet"
       zone           = "{{ zone-id }}"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
-    
+
     resource "yandex_vpc_security_group" "mykf-sg" {
       name       = "mykf-sg"
       network_id = yandex_vpc_network.mynet.id
-    
+
       ingress {
         description    = "Kafka"
         port           = 9091

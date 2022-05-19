@@ -9,7 +9,7 @@ Returns the specified billing account.
  
 ## HTTP request {#https-request}
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/billingAccounts/{id}
+GET https://billing.{{ api-host }}/billing/v1/billingAccounts/{id}
 ```
  
 ## Path parameters {#path_params}

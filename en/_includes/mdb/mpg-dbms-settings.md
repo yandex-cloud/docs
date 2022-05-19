@@ -950,10 +950,10 @@
 
   Acceptable values:
   - `off` (`SYNCHRONOUS_COMMIT_OFF` for Terraform, CLI, and API): A transaction is committed even if the data hasn't yet been written to the [WAL](https://www.postgresql.org/dodcs/current/wal-intro.html) (Write Ahead Log). There is no synchronous write operation, and the transaction data might be lost as a result of a disk subsystem failure.
-  - `on` (`SYNCHRONOUS_COMMIT_ON` for Terraform, CLI, and API) (default): A transaction is committed if the WAL has been written to the master disk and synchronous replica disk.
+  - `on` (`SYNCHRONOUS_COMMIT_ON` for Terraform, CLI, and API) (default): A transaction is committed if the WAL has been written to the master disk and replica disk.
   - `local` (`SYNCHRONOUS_COMMIT_LOCAL` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk.
-  - `remote_apply` (`SYNCHRONOUS_COMMIT_REMOTE_APPLY` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk, the synchronous replica has accepted the WAL and applied the changes from it.
-  - `remote_write` (`SYNCHRONOUS_COMMIT_REMOTE_WRITE` for Terraform, CLI, and API): A transaction is committed if the WAL is written to the master disk, the synchronous replica has accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the replica fails, transaction data with this level of synchronization may be lost.
+  - `remote_apply` (`SYNCHRONOUS_COMMIT_REMOTE_APPLY` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk, the replica has accepted the WAL and applied the changes from it.
+  - `remote_write` (`SYNCHRONOUS_COMMIT_REMOTE_WRITE` for Terraform, CLI, and API): A transaction is committed if the WAL is written to the master disk, the replica has accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the replica fails, transaction data with this level of synchronization may be lost.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 

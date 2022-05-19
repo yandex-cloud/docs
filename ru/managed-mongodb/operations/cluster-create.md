@@ -174,7 +174,7 @@
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   {% if audience != "internal" %}
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -271,7 +271,7 @@
   1. Создайте кластер.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-       
+
       После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}

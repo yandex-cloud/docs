@@ -9,7 +9,7 @@ Creates a certificate in the specified federation.
  
 ## HTTP request {#https-request}
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/saml/certificates
+POST https://iam.{{ api-host }}/iam/v1/saml/certificates
 ```
  
 ## Body parameters {#body_params}

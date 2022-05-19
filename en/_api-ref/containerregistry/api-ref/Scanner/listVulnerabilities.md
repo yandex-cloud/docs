@@ -9,7 +9,7 @@ Retrieves the list of vulnerabilities found in particular scan.
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scans/{scanResultId}:listVulnerabilities
+GET https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}:listVulnerabilities
 ```
  
 ## Path parameters {#path_params}

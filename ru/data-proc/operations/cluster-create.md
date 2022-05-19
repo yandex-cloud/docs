@@ -184,7 +184,7 @@
 - Terraform
 
   {% if audience != "internal" %}
-  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   {% endif %}
 
   Чтобы создать кластер:

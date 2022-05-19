@@ -9,7 +9,7 @@ Deletes the specified backend group.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}
+DELETE https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}
 ```
  
 ## Path parameters {#path_params}

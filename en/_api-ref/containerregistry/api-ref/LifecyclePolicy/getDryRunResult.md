@@ -9,7 +9,7 @@ Returns the dry run result of the specified lifecycle policy.
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}
+GET https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}
 ```
  
 ## Path parameters {#path_params}

@@ -9,7 +9,7 @@ Set a tag for the specified version of a function.
  
 ## HTTP request {#https-request}
 ```
-POST https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{functionVersionId}:setTag
+POST https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}:setTag
 ```
  
 ## Path parameters {#path_params}

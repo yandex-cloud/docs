@@ -9,7 +9,7 @@ Get the list of available NetworkLoadBalancer resources by making a [list](/docs
  
 ## HTTP request {#https-request}
 ```
-GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
+GET https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
 ```
  
 ## Path parameters {#path_params}

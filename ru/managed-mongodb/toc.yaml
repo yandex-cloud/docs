@@ -14,6 +14,7 @@ items:
       - name: Подключение к базе данных
         href: operations/connect.md
       - name: Остановка и запуск кластера
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: Изменение настроек кластера и базы данных
         href: operations/update.md
@@ -77,6 +78,8 @@ items:
         href: concepts/sharding.md
       - name: Пользователи и роли
         href: concepts/users-and-roles.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Настройки MongoDB
@@ -84,6 +87,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: audience != "internal"
     items:
       - name: Действующие правила
         href: pricing.md

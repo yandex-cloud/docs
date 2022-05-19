@@ -16,6 +16,7 @@ The {{ ydb-name }} HTTP API provides the following methods:
 | [DescribeTable](actions/describeTable.md) | Returns information about a table. |
 | [DescribeTimeToLive](actions/describeTimeToLive.md) | Returns information about the time-to-live (TTL) status in the specified table. |
 | [ListTables](actions/listTables.md) | Returns a list of tables. |
+ |
 | [UpdateTimeToLive](actions/updateTimeToLive.md) | Enables or disables TTL for the specified table. |
 
 ## Working with items
@@ -32,3 +33,4 @@ The {{ ydb-name }} HTTP API provides the following methods:
 | [TransactGetItems](actions/transactGetItems.md) | Retrieves multiple items from tables. |
 | [TransactWriteItems](actions/transactWriteItems.md) | Performs a synchronous write operation. |
 | [UpdateItem](actions/updateItem.md) | Updates table items. |
+

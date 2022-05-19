@@ -9,7 +9,7 @@ Lists available runtime environments for the specified function.
  
 ## HTTP request {#https-request}
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/runtimes
+GET https://serverless-functions.{{ api-host }}/functions/v1/runtimes
 ```
  
 ## Response {#responses}

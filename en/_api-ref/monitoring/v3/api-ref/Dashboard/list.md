@@ -9,7 +9,7 @@ Retrieves the list of dashboards in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v3/dashboards
+GET https://monitoring.{{ api-host }}/monitoring/v3/dashboards
 ```
  
 ## Query parameters {#query_params}

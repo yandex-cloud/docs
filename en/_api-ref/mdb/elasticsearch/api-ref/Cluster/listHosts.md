@@ -9,7 +9,7 @@ Retrieves a list of hosts for the specified Elasticsearch cluster.
  
 ## HTTP request {#https-request}
 ```
-GET https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters/{clusterId}/hosts
+GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/hosts
 ```
  
 ## Path parameters {#path_params}

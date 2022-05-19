@@ -9,7 +9,7 @@ Creates a PostgreSQL user in the specified cluster.
  
 ## HTTP request {#https-request}
 ```
-POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users
+POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/users
 ```
  
 ## Path parameters {#path_params}

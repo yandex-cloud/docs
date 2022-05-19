@@ -9,7 +9,7 @@ Sets access bindings for the specified log group.
  
 ## HTTP request {#https-request}
 ```
-POST https://logging.api.cloud.yandex.net/logging/v1/logGroups/{resourceId}:setAccessBindings
+POST https://logging.{{ api-host }}/logging/v1/logGroups/{resourceId}:setAccessBindings
 ```
  
 ## Path parameters {#path_params}

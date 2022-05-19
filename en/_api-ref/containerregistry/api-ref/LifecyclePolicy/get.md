@@ -9,7 +9,7 @@ To get the list of all available lifecycle policies, make a [list](/docs/contain
  
 ## HTTP request {#https-request}
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
+GET https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
 ```
  
 ## Path parameters {#path_params}

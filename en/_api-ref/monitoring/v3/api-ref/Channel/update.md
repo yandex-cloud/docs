@@ -9,7 +9,7 @@ Updates the specified channel.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://monitoring.api.cloud.yandex.net/monitoring/v3/channels/{channelId}
+PATCH https://monitoring.{{ api-host }}/monitoring/v3/channels/{channelId}
 ```
  
 ## Path parameters {#path_params}

@@ -41,7 +41,7 @@ Returns the specified Instance resource. <br>To get the list of available Instan
 Field | Description
 --- | ---
 instance_id | **string**<br>Required. ID of the Instance resource to return. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
-view | enum **InstanceView**<br>Defines which information about the Instance resource should be returned in the server response. <ul><li>`BASIC`: Doesn't include the metadata of the instance in the server response.</li><li>`FULL`: Returns the metadata of the instance in the server response.</li><ul/>
+view | enum **InstanceView**<br>Defines which information about the Instance resource should be returned in the server response. <ul><li>`BASIC`: Doesn't include the metadata of the instance in the server response.</li><li>`FULL`: Returns the metadata of the instance in the server response.</li></ul>
 
 
 ### Instance {#Instance}
@@ -57,7 +57,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disks that are attached to the instance. 
@@ -85,7 +85,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -103,7 +103,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -134,7 +134,7 @@ dns_records[] | **[DnsRecord](#DnsRecord)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord)**<br>External DNS configuration 
 
 
@@ -169,7 +169,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy}
@@ -185,7 +185,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of aff
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -202,7 +202,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the Folder to list instances in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstancesResponse.next_page_token](#ListInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstancesResponse.next_page_token](#ListInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Instance.name](#Instance1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [Instance.name](#Instance1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListInstancesResponse {#ListInstancesResponse}
@@ -226,7 +226,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources1)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk1)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk1)**<br>Array of secondary disks that are attached to the instance. 
@@ -254,7 +254,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -272,7 +272,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -303,7 +303,7 @@ dns_records[] | **[DnsRecord](#DnsRecord2)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord2)**<br>External DNS configuration 
 
 
@@ -338,7 +338,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy1}
@@ -354,7 +354,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule1)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -373,7 +373,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create an instance in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
-name | **string**<br>Name of the instance. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the instance. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the instance. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 zone_id | **string**<br>Required. ID of the availability zone where the instance resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request The maximum string length in characters is 50.
@@ -385,7 +385,7 @@ secondary_disk_specs[] | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Array of s
 local_disk_specs[] | **[AttachedLocalDiskSpec](#AttachedLocalDiskSpec)**<br>Array of local disks to attach to the instance. 
 filesystem_specs[] | **[AttachedFilesystemSpec](#AttachedFilesystemSpec)**<br>Array of filesystems to attach to the instance. <br>The filesystems must reside in the same availability zone as the instance. <br>To use the instance with an attached filesystem, the latter must be mounted. For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). 
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>Network configuration for the instance. Specifies how the network interface is configured to interact with other services on the internal network and on the internet. Currently only one network interface is supported per instance. The number of elemets must be exactly 1.
-hostname | **string**<br>Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](#Instance) value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](#Instance) of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+hostname | **string**<br>Host name for the instance. This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](#Instance) value. The host name must be unique within the network and region. If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](#Instance) of the instance and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy2)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
 network_settings | **[NetworkSettings](#NetworkSettings2)**<br>Network settings. 
@@ -398,7 +398,7 @@ Field | Description
 --- | ---
 memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. The maximum value is 274877906944.
 cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
-core_fraction | **int64**<br><ol><li></li></ol> Value must be equal to 0,5,20,50,100.
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. <br>For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels). Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
 
@@ -406,7 +406,7 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>The mode in which to attach this disk. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li><ul/>
+mode | enum **Mode**<br>The mode in which to attach this disk. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated. Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `.
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk | **oneof:** `disk_spec` or `disk_id`<br>
@@ -418,7 +418,7 @@ disk | **oneof:** `disk_spec` or `disk_id`<br>
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the disk. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the disk. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
 size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
@@ -440,7 +440,7 @@ size | **int64**<br>Required. Size of the disk, specified in bytes.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li><ul/>
+mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 50.
 
@@ -468,7 +468,7 @@ dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Internal DNS configu
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 address | **string**<br> 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
 
@@ -504,7 +504,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy2}
@@ -520,7 +520,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule2)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -560,7 +560,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources2)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk2)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk2)**<br>Array of secondary disks that are attached to the instance. 
@@ -588,7 +588,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -606,7 +606,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -637,7 +637,7 @@ dns_records[] | **[DnsRecord](#DnsRecord4)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord4)**<br>External DNS configuration 
 
 
@@ -672,7 +672,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy3}
@@ -688,7 +688,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule3)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -708,7 +708,7 @@ Field | Description
 --- | ---
 instance_id | **string**<br>Required. ID of the Instance resource to update. To get the instance ID, use a [InstanceService.List](#List) request. The maximum string length in characters is 50.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Instance resource are going to be updated. 
-name | **string**<br>Name of the instance. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the instance. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the instance. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. <br>Existing set of `labels` is completely replaced by the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. This field affects the available values in `resources_spec` field. <br>Platforms allows you to create various types of instances: with a large amount of memory, with a large number of cores, with a burstable performance. For more information, see [Platforms](/docs/compute/concepts/vm-platforms). 
@@ -726,7 +726,7 @@ Field | Description
 --- | ---
 memory | **int64**<br>Required. The amount of memory available to the instance, specified in bytes. The maximum value is 274877906944.
 cores | **int64**<br>Required. The number of cores available to the instance. Value must be equal to 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
-core_fraction | **int64**<br><ol><li></li></ol> Value must be equal to 0,5,20,50,100.
+core_fraction | **int64**<br>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core. <br>For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels). Value must be equal to 0,5,20,50,100.
 gpus | **int64**<br>The number of GPUs available to the instance. Value must be equal to 0,1,2,4.
 
 
@@ -734,7 +734,7 @@ gpus | **int64**<br>The number of GPUs available to the instance. Value must be 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy4}
@@ -750,7 +750,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule4)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -797,7 +797,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources3)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk3)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk3)**<br>Array of secondary disks that are attached to the instance. 
@@ -825,7 +825,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -843,7 +843,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -874,7 +874,7 @@ dns_records[] | **[DnsRecord](#DnsRecord6)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord6)**<br>External DNS configuration 
 
 
@@ -909,7 +909,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy5}
@@ -925,7 +925,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule5)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -1024,7 +1024,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources4)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk4)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk4)**<br>Array of secondary disks that are attached to the instance. 
@@ -1052,7 +1052,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -1070,7 +1070,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -1101,7 +1101,7 @@ dns_records[] | **[DnsRecord](#DnsRecord8)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord8)**<br>External DNS configuration 
 
 
@@ -1136,7 +1136,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy6}
@@ -1152,7 +1152,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule6)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -1270,7 +1270,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources5)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk5)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk5)**<br>Array of secondary disks that are attached to the instance. 
@@ -1298,7 +1298,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -1316,7 +1316,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -1347,7 +1347,7 @@ dns_records[] | **[DnsRecord](#DnsRecord10)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord10)**<br>External DNS configuration 
 
 
@@ -1382,7 +1382,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy7}
@@ -1398,7 +1398,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule7)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -1464,7 +1464,7 @@ attached_disk_spec | **[AttachedDiskSpec](#AttachedDiskSpec)**<br>Required. Disk
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>The mode in which to attach this disk. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li><ul/>
+mode | enum **Mode**<br>The mode in which to attach this disk. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. If not specified, a random value will be generated. Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `.
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk | **oneof:** `disk_spec` or `disk_id`<br>
@@ -1476,7 +1476,7 @@ disk | **oneof:** `disk_spec` or `disk_id`<br>
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the disk. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+name | **string**<br>Name of the disk. Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the disk. The maximum string length in characters is 256.
 type_id | **string**<br>ID of the disk type. To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/disk_type_service#List) request. The maximum string length in characters is 50.
 size | **int64**<br>Required. Size of the disk, specified in bytes. Acceptable values are 4194304 to 4398046511104, inclusive.
@@ -1524,7 +1524,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources6)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk6)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk6)**<br>Array of secondary disks that are attached to the instance. 
@@ -1552,7 +1552,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -1570,7 +1570,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -1601,7 +1601,7 @@ dns_records[] | **[DnsRecord](#DnsRecord12)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord12)**<br>External DNS configuration 
 
 
@@ -1636,7 +1636,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy8}
@@ -1652,7 +1652,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule8)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -1713,7 +1713,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources7)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk7)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk7)**<br>Array of secondary disks that are attached to the instance. 
@@ -1741,7 +1741,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -1759,7 +1759,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -1790,7 +1790,7 @@ dns_records[] | **[DnsRecord](#DnsRecord14)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord14)**<br>External DNS configuration 
 
 
@@ -1825,7 +1825,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy9}
@@ -1841,7 +1841,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule9)**<br>List of af
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -1867,7 +1867,7 @@ attached_filesystem_spec | **[AttachedFilesystemSpec](#AttachedFilesystemSpec)**
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li><ul/>
+mode | enum **Mode**<br>Mode of access to the filesystem that should be attached. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access. Default value.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. <br>If not specified, a random value will be generated. Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `.
 filesystem_id | **string**<br>ID of the filesystem that should be attached. The maximum string length in characters is 50.
 
@@ -1909,7 +1909,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources8)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk8)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk8)**<br>Array of secondary disks that are attached to the instance. 
@@ -1937,7 +1937,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -1955,7 +1955,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -1986,7 +1986,7 @@ dns_records[] | **[DnsRecord](#DnsRecord16)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord16)**<br>External DNS configuration 
 
 
@@ -2021,7 +2021,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy10}
@@ -2037,7 +2037,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule10)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -2098,7 +2098,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources9)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk9)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk9)**<br>Array of secondary disks that are attached to the instance. 
@@ -2126,7 +2126,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -2144,7 +2144,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -2175,7 +2175,7 @@ dns_records[] | **[DnsRecord](#DnsRecord18)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord18)**<br>External DNS configuration 
 
 
@@ -2210,7 +2210,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy11}
@@ -2226,7 +2226,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule11)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -2254,7 +2254,7 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>An external IP 
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 address | **string**<br> 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
 
@@ -2305,7 +2305,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources10)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk10)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk10)**<br>Array of secondary disks that are attached to the instance. 
@@ -2333,7 +2333,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -2351,7 +2351,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -2382,7 +2382,7 @@ dns_records[] | **[DnsRecord](#DnsRecord20)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord20)**<br>External DNS configuration 
 
 
@@ -2417,7 +2417,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy12}
@@ -2433,7 +2433,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule12)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -2492,7 +2492,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources11)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk11)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk11)**<br>Array of secondary disks that are attached to the instance. 
@@ -2520,7 +2520,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -2538,7 +2538,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -2569,7 +2569,7 @@ dns_records[] | **[DnsRecord](#DnsRecord22)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord22)**<br>External DNS configuration 
 
 
@@ -2604,7 +2604,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy13}
@@ -2620,7 +2620,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule13)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -2660,7 +2660,7 @@ dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Internal DNS configu
 
 Field | Description
 --- | ---
-ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>External IP address version. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 address | **string**<br> 
 dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>External DNS configuration 
 
@@ -2722,7 +2722,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources12)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk12)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk12)**<br>Array of secondary disks that are attached to the instance. 
@@ -2750,7 +2750,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -2768,7 +2768,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -2799,7 +2799,7 @@ dns_records[] | **[DnsRecord](#DnsRecord24)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord24)**<br>External DNS configuration 
 
 
@@ -2834,7 +2834,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy14}
@@ -2850,7 +2850,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule14)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
@@ -2949,7 +2949,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum
 zone_id | **string**<br>ID of the availability zone where the instance resides. 
 platform_id | **string**<br>ID of the hardware platform configuration for the instance. 
 resources | **[Resources](#Resources13)**<br>Computing resources of the instance such as the amount of memory and number of cores. 
-status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li><ul/>
+status | enum **Status**<br>Status of the instance. <ul><li>`PROVISIONING`: Instance is waiting for resources to be allocated.</li><li>`RUNNING`: Instance is running normally.</li><li>`STOPPING`: Instance is being stopped.</li><li>`STOPPED`: Instance stopped.</li><li>`STARTING`: Instance is being started.</li><li>`RESTARTING`: Instance is being restarted.</li><li>`UPDATING`: Instance is being updated.</li><li>`ERROR`: Instance encountered a problem and cannot operate.</li><li>`CRASHED`: Instance crashed and will be restarted automatically.</li><li>`DELETING`: Instance is being deleted.</li></ul>
 metadata | **map<string,string>**<br>The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys. <br>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see [Metadata](/docs/compute/concepts/vm-metadata). 
 boot_disk | **[AttachedDisk](#AttachedDisk13)**<br>Boot disk that is attached to the instance. 
 secondary_disks[] | **[AttachedDisk](#AttachedDisk13)**<br>Array of secondary disks that are attached to the instance. 
@@ -2977,7 +2977,7 @@ gpus | **int64**<br>The number of GPUs available to the instance.
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the Disk resource. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance. <br>This value can be used to reference the device for mounting, resizing, and so on, from within the instance. 
 auto_delete | **bool**<br>Specifies whether the disk will be auto-deleted when the instance is deleted. 
 disk_id | **string**<br>ID of the disk that is attached to the instance. 
@@ -2995,7 +2995,7 @@ device_name | **string**<br>Serial number that is reflected into the /dev/disk/b
 
 Field | Description
 --- | ---
-mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li><ul/>
+mode | enum **Mode**<br>Access mode to the filesystem. <ul><li>`READ_ONLY`: Read-only access.</li><li>`READ_WRITE`: Read/Write access.</li></ul>
 device_name | **string**<br>Name of the device representing the filesystem on the instance. <br>The name should be used for referencing the filesystem from within the instance when it's being mounted, resized etc. 
 filesystem_id | **string**<br>ID of the filesystem that is attached to the instance. 
 
@@ -3026,7 +3026,7 @@ dns_records[] | **[DnsRecord](#DnsRecord26)**<br>Internal DNS configuration
 Field | Description
 --- | ---
 address | **string**<br>An external IP address associated with this instance. 
-ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li><ul/>
+ip_version | enum **IpVersion**<br>IP version for the external IP address. <ul><li>`IPV4`: IPv4 address, for example 192.0.2.235.</li><li>`IPV6`: IPv6 address. Not available yet.</li></ul>
 dns_records[] | **[DnsRecord](#DnsRecord26)**<br>External DNS configuration 
 
 
@@ -3061,7 +3061,7 @@ preemptible | **bool**<br>True for short-lived compute instances. For more infor
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li><ul/>
+type | enum **[Type](./disk_type#undefined)**<br>Network Type <ul><li>`STANDARD`: Standard network.</li><li>`SOFTWARE_ACCELERATED`: Software accelerated network.</li><li>`HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).</li></ul>
 
 
 ### PlacementPolicy {#PlacementPolicy15}
@@ -3077,7 +3077,7 @@ host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule15)**<br>List of a
 Field | Description
 --- | ---
 key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
-op | enum **Operator**<br>Include or exclude action <ul><ul/>
+op | enum **Operator**<br>Include or exclude action 
 values[] | **string**<br>Affinity value or host ID or host group ID 
 
 

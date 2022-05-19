@@ -41,6 +41,7 @@ Method | Description
 [listAccessBindings](listAccessBindings.md) | 
 [listOperations](listOperations.md) | 
 [listRevisions](listRevisions.md) | 
+[rollback](rollback.md) | 
 [setAccessBindings](setAccessBindings.md) | 
 [update](update.md) | 
 [updateAccessBindings](updateAccessBindings.md) | 
