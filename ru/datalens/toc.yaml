@@ -69,6 +69,8 @@ items:
             href: concepts/calculations/index.md
           - name: Синтаксис формул
             href: concepts/calculations/formula-syntax.md
+      - name: Параметризация
+        href: concepts/parameters.md
       - name: Marketplace
         href: concepts/marketplace.md
       - name: Резервное копирование
@@ -135,6 +137,8 @@ items:
             href: operations/dataset/manage-access.md
           - name: Управление доступом к строкам данных
             href: operations/dataset/manage-row-level-security.md
+          - name: Добавление параметра в датасет
+            href: operations/dataset/add-parameter-dataset.md
       - name: Работа с чартами
         items:
           - name: Создание линейной диаграммы
@@ -175,6 +179,8 @@ items:
             href: operations/chart/manage-access.md
           - name: Добавление guid в качестве параметра
             href: operations/chart/add-guid.md
+          - name: Добавление параметра в чарт
+            href: operations/chart/add-parameter-chart.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда

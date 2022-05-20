@@ -8,17 +8,15 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 For more information, please see the [service documentation](../operations/connect.md).
 
-#### How do I get an SSL certificate for a {{ PG }} connection on Windows? {#get-ssl}
+#### How do I get an SSL certificate for a {{ mpg-name }} connection on Windows? {#get-ssl}
 
-You can get an SSL certificate using `cmd` or PowerShell:
+You can get an SSL certificate using PowerShell:
 
-```
-cd c: `
-mkdir postgresql `
-cd postgresql `
-curl -o root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
+```powershell
+mkdir $HOME\AppData\Roaming\postgresql; `
+curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
 ```
 
-The certificate will be available at `C:\postgresql\root.crt`.
+The certificate will be available at `$HOME\AppData\Roaming\postgresql\root.crt`.
 
 For more information about getting a certificate and connecting to the database, see the [service documentation](../operations/connect.md).
