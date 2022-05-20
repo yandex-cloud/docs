@@ -33,5 +33,4 @@ npx tsc
 
 The `build` directory will appear in the project folder. Zip its contents into an archive.
 
-## [Uploading function to {{ sf-full-name }}](../operations/function/version-manage.md)
-
+## [Upload function to {{ sf-full-name }}](../operations/function/version-manage.md)
