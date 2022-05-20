@@ -102,7 +102,8 @@ To avoid listing all the cluster hosts in a connection string, use a [special ma
 
   
   ```powershell
-  mkdir $HOME\AppData\Roaming\postgresql; curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  mkdir $HOME\AppData\Roaming\postgresql; `
+  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
   ```
 
 {% endlist %}

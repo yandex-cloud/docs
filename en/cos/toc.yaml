@@ -33,6 +33,8 @@ items:
           Creating a VM and an instance group from a Container Optimized Image
           using Terraform
         href: tutorials/coi-with-terraform.md
+      - name: Transferring logs from COI to Cloud Logging
+        href: tutorials/coi-fluent-bit-logging.md
   - name: Concepts
     items:
       - name: Container Optimized Image

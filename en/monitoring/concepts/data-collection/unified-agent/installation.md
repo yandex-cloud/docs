@@ -40,7 +40,15 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
   To start a container with the agent, run the following command, indicating `FOLDER_ID` as the ID of the folder the metrics are going to be written to:
 
-  {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
+  ```bash
+    docker run \
+      -p 16241:16241 -it --detach --uts=host \
+      --name=ua \
+      -v /proc:/ua_proc \
+      -e PROC_DIRECTORY=/ua_proc \
+      -e FOLDER_ID=a1bs... \
+      cr.yandex/yc/unified-agent
+  ```
 
   To launch a container with its own configuration file, add  `-v` to the container start command and specify the path to the configuration file. For example:
 
@@ -49,7 +57,8 @@ Install {{unified-agent-short-name}} using one of the following methods:
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v /proc:/ua_proc \
-      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
+      -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
+      --entrypoint="" \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
       cr.yandex/yc/unified-agent
