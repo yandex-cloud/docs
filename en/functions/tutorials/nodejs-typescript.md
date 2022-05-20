@@ -18,7 +18,7 @@ npm install typescript --save-dev
 npx ts --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build
 ```
 
-You can add a `target` argument, if you want to use newer JavaScript version. Max value depends on Node.js version:
+You can change the value of `target` argument, if you want to use newer JavaScript version. Max value depends on Node.js version:
 | Node.js version | Max ECMAScript version |
 |----|----|
 | 12 | ES2019 |
