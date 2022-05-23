@@ -40,7 +40,7 @@
 
     ![image](../_assets/datalens/solution-06/03-choose-appmetrica.png)
 
-1. Введите имя подключения `My AppMetriсa` и нажмите кнопку **Получить токен**.
+1. Введите имя подключения `My AppMetrica` и нажмите кнопку **Получить токен**.
 
     ![image](../_assets/datalens/solution-06/get-token.png)
 

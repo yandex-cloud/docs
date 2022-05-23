@@ -2,15 +2,15 @@
 
 ### Общая информация {#info}
 
-В результате выполнения вкладки JavaScript должны быть экcпортированы данные для отрисовки (набора) геобъектов.
+В результате выполнения вкладки JavaScript должны быть экспортированы данные для отрисовки (набора) геобъектов.
 
 ### Доступные методы {#methods}
 
-* **`ChartEditor.getParams()`** - возвращает объект с нормализованными параметрами.
+* **`ChartEditor.getParams()`** — возвращает объект с нормализованными параметрами.
 
-* **`ChartEditor.getLoadedData()`** - возвращает объект с данными, запрошенными на вкладке Urls.
+* **`ChartEditor.getLoadedData()`** — возвращает объект с данными, запрошенными на вкладке Urls.
 
-* **`ChartEditor.updateHighchartsConfig(config)`** - доопределяет результат вкладки [Yandex.Maps](ymap.md) объектом `config`.
+* **`ChartEditor.updateHighchartsConfig(config)`** — доопределяет результат вкладки [Yandex.Maps](ymap.md) объектом `config`.
 
 ### Простые геобъекты {#simple-objects}
 

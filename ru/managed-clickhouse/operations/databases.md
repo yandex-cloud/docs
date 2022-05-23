@@ -35,8 +35,8 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-ch }} database list
-    --cluster-name=<имя кластера>
+  {{ yc-mdb-ch }} database list \
+     --cluster-name=<имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -83,7 +83,7 @@
 
   ```
   {{ yc-mdb-ch }} database create <имя базы данных> \
-    --cluster-name <имя кластера>
+     --cluster-name=<имя кластера>
   ```
 
   {{ mch-short-name }} запустит операцию создания базы данных.
@@ -159,8 +159,8 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```
-  {{ yc-mdb-ch }} database delete <имя базы данных>
-    --cluster-name=<имя кластера>
+  {{ yc-mdb-ch }} database delete <имя базы данных> \
+     --cluster-name=<имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

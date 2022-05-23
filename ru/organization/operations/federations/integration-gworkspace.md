@@ -6,7 +6,7 @@
 
 1. [Создание и настройка SAML-приложения в Google Workspace](#gworkspace-settings).
 
-1. [Создание и настройкa федерации в {{org-full-name}}](#yc-settings).
+1. [Создание и настройка федерации в {{org-full-name}}](#yc-settings).
 
 1. [Настройка системы единого входа (SSO)](#sso-settings).
 

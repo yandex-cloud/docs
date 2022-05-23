@@ -1,5 +1,5 @@
 ---
-title: "Cайт на WordPress. Как создать? Инструкция"
+title: "Сайт на WordPress. Как создать? Инструкция"
 description: "Пошаговая инструкция, с помощью которой вы научитесь быстро создавать сайт на Wordpress в облаке. 3 простых шага, чтобы развернуть Wordpress сайт: создайте виртуальную машин, задайте настройки CMS Wordpress и настройте DNS."
 
 author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/content-program/icons/aplana-logo.png", "name": "Аплана Диджитал", "url": "https://aplanadigital.ru" }
@@ -50,7 +50,7 @@ author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructo
   
        | Направление<br/>трафика | Описание  | Диапазон<br/>портов | Протокол | Тип источника /<br/>назначения | Источник /<br/>назначение |
        |-------------------------|-----------|---------------------|----------|--------------------------------|---------------------------|
-       | Исходящий               | any       | Весь                | Любой    | СIDR                           | 0.0.0.0/0                 |
+       | Исходящий               | any       | Весь                | Любой    | CIDR                           | 0.0.0.0/0                 |
        | Входящий                | ext-http  | 80                  | TCP      | CIDR                           | 0.0.0.0/0                 |
        | Входящий                | ext-https | 443                 | TCP      | CIDR                           | 0.0.0.0/0                 |
 

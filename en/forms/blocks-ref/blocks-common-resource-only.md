@@ -97,7 +97,7 @@ Select a validation method:
 ```
 ^[^0-9@#$%^&*]+$
 ```
-ПIf you select this validation method, the prompt type changes to <q>Short text</q>.
+If you select this validation method, the prompt type changes to <q>Short text</q>.
 
 Validation
 : Use an external validator if you need to see if responses match the specified format. When selecting this option in the form settings, specify the [validation server address](../validation.md).

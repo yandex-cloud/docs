@@ -98,7 +98,7 @@ Metrics Provider — связующий элемент между объекто
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %} и [настройте](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с вашим кластером.
-1. Установите менеджер пакетов {{ k8s }} [Нelm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
+1. Установите менеджер пакетов {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
 1. Добавьте репозиторий `metric-provider`:
 
    ```bash

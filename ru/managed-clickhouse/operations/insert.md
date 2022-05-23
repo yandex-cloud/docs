@@ -41,7 +41,7 @@
    
    Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/data-types/).
 
-1. [Подключитесь к кластеру](connect.md) и cоздайте таблицу `db1.users` нужного вида, если ее еще не существует:
+1. [Подключитесь к кластеру](connect.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
@@ -119,7 +119,7 @@ pip3 install protobuf varint pycapnp
 {% endnote %}
 
 Чтобы подготовить скрипты:
-1. Cкомпилируйте файл схемы Protobuf `user.proto` для Python:
+1. Скомпилируйте файл схемы Protobuf `user.proto` для Python:
    
    ```bash
    protoc user.proto --python_out .

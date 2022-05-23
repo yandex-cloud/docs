@@ -36,7 +36,7 @@
 
     ![image](../_assets/datalens/solution-03/03-choose-metrica.png)
 
-1. Введите имя подключения `My Metriсa` и нажмите кнопку **Получить токен**.
+1. Введите имя подключения `My Metrica` и нажмите кнопку **Получить токен**.
 
     ![image](../_assets/datalens/solution-03/04-metrica-creation1.png)
 
