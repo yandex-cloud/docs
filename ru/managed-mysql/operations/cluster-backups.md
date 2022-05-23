@@ -50,13 +50,13 @@ description: "Вы можете создавать резервные копии
   1. Посмотрите описание команды CLI для восстановления кластера {{ MY }}:
   
       ```
-      {{ yc-mdb-my }} cluster restore --help
+      $ {{ yc-mdb-my }} cluster restore --help
       ```
   
   1. Получите список доступных резервных копий {{ MY }}-кластеров:
   
      ```
-     {{ yc-mdb-my }} backup list
+     $ {{ yc-mdb-my }} backup list
      
      +--------------------------+----------------------+----------------------+----------------------+
      |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -72,16 +72,16 @@ description: "Вы можете создавать резервные копии
   
         
       ```
-      {{ yc-mdb-my }} cluster restore \
-        --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
-        --time 2020-08-10T12:00:10Z \
-        --name=mynewmy \
-        --environment=PRODUCTION \
-        --network-name {{ network-name }} \
-        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
-        --disk-size 20 \
-        --disk-type {{ disk-type-example }} \
-        --resource-preset {{ host-class }}
+      $ {{ yc-mdb-my }} cluster restore \
+             --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
+             --time 2020-08-10T12:00:10Z \
+             --name=mynewmy \
+             --environment=PRODUCTION \
+             --network-name {{ network-name }} \
+             --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+             --disk-size 20 \
+             --disk-type {{ disk-type-example }} \
+             --resource-preset {{ host-class }}
       ```
      
       В параметре `--time` укажите момент времени, на который нужно восстановить состояние {{ MY }}-кластера, в формате `yyyy-mm-ddThh:mm:ssZ`.
@@ -247,13 +247,13 @@ description: "Вы можете создавать резервные копии
   1. Посмотрите описание команды CLI для создания резервной копии кластера {{ MY }}:
   
       ```
-      {{ yc-mdb-my }} cluster backup --help
+      $ {{ yc-mdb-my }} cluster backup --help
       ```
   
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
   
       ```
-      {{ yc-mdb-my }} cluster backup <имя кластера>
+      $ {{ yc-mdb-my }} cluster backup <имя кластера>
       ```
   
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -291,7 +291,7 @@ description: "Вы можете создавать резервные копии
   Чтобы получить список резервных копий кластеров {{ MY }}, доступных в каталоге по умолчанию, выполните команду:
   
   ```
-  {{ yc-mdb-my }} backup list
+  $ {{ yc-mdb-my }} backup list
   
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |

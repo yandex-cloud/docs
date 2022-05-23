@@ -107,7 +107,7 @@
   Если кластер и {{ datalens-name }} находятся в разных каталогах:
 
   1. Перейдите на вкладку **Указать вручную**.
-  2. Используйте настройки из [инструкции](../../datalens/operations/connection/create-mysql.md) в документации {{ datalens-name }}.
+  1. Используйте настройки из [инструкции](../../datalens/operations/connection/create-mysql.md) в документации {{ datalens-name }}.
 
 {% endlist %}
 

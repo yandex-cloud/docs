@@ -373,7 +373,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
 
     {% endlist %}
 
-1. Cконвертируйте полученный файл в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
+1. Сконвертируйте полученный файл в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
 
     ```bash
     sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav

@@ -251,7 +251,7 @@
       -ldflags "-X main.PluginVersion=${plugin_version}" \
       -ldflags "-X main.FluentBitVersion=${fluent_bit_version}"
     ```
-1. Cкопируйте библиотеку `yc-logging.so`:
+1. Скопируйте библиотеку `yc-logging.so`:
     ```bash
     sudo cp yc-logging.so /usr/lib/td-agent-bit/yc-logging.so
     ```

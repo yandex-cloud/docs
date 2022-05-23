@@ -86,8 +86,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
      ```
-     {{ yc-mdb-ch }} cluster update <имя кластера>
-       --clickhouse-resource-preset <ID класса>
+     {{ yc-mdb-ch }} cluster update <имя кластера> \
+        --clickhouse-resource-preset=<ID класса>
      ```
 
      {{ mch-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -607,8 +607,8 @@
   1. Укажите нужные группы безопасности в команде изменения кластера:
 
       ```
-      {{ yc-mdb-ch }} cluster update <имя кластера>
-        --security-group-ids <список идентификаторов групп безопасности>
+      {{ yc-mdb-ch }} cluster update <имя кластера> \
+         --security-group-ids <список идентификаторов групп безопасности>
       ```
 
 - Terraform

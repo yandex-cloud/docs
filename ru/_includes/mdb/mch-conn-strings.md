@@ -5,7 +5,7 @@
 1. Подключите [DEB-репозиторий](https://{{ ch-domain }}/docs/ru/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
     ```bash
-    sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
+    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
     echo "deb https://repo.{{ ch-domain }}/deb/stable/ main/" | sudo tee \
     /etc/apt/sources.list.d/clickhouse.list
@@ -14,13 +14,15 @@
 1. Установите зависимости:
 
     ```bash
-    sudo apt update && sudo apt install -y clickhouse-client
+    sudo apt update && sudo apt install --yes clickhouse-client
     ```
 
 1. Загрузите файл конфигурации для `clickhouse-client`:
 
     ```bash
-    mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+    mkdir --parents ~/.clickhouse-client && \
+    wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" \
+    --output-document ~/.clickhouse-client/config.xml
     ```
 
 {% list tabs %}
@@ -59,8 +61,8 @@
 * Подключение без SSL
 
     ```bash
-    curl -H "X-ClickHouse-User: <имя пользователя БД>" \
-         -H "X-ClickHouse-Key: <пароль пользователя БД>" \
+    curl --header "X-ClickHouse-User: <имя пользователя БД>" \
+         --header "X-ClickHouse-Key: <пароль пользователя БД>" \
          'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT%20version()'
     ```
 
@@ -68,8 +70,8 @@
 
     ```bash
     curl --cacert /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
-         -H "X-ClickHouse-User: <имя пользователя БД>" \
-         -H "X-ClickHouse-Key: <пароль пользователя БД>" \
+         --header "X-ClickHouse-User: <имя пользователя БД>" \
+         --header "X-ClickHouse-Key: <пароль пользователя БД>" \
          'https://<FQDN любого хоста {{ CH }}>:8443/?database=<имя БД>&query=SELECT%20version()'
     ```
 
@@ -80,7 +82,7 @@
 **Перед подключением установите зависимости:**
 
 ```bash
-sudo apt update && sudo apt install -y golang git
+sudo apt update && sudo apt install --yes golang git
 ```
 
 {% list tabs %}
@@ -206,13 +208,13 @@ go run connect.go
 1. Установите зависимости:
 
     ```bash
-    sudo apt update && sudo apt install -y default-jdk maven
+    sudo apt update && sudo apt install --yes default-jdk maven
     ```
 
 1. Создайте директорию для проекта Maven:
 
     ```bash
-    cd ~/ && mkdir -p project/src/java/com/example && cd project/
+    cd ~/ && mkdir --parents project/src/java/com/example && cd project/
     ```
 
 1. Создайте конфигурационный файл для Maven:
@@ -313,7 +315,7 @@ go run connect.go
     import java.sql.*;
 
     public class App {
-        public static void main(String[] args) {
+      public static void main(String[] args) {
         String DB_HOST    = "<FQDN любого хоста {{ CH }}>";
         String DB_NAME    = "<имя БД>";
         String DB_USER    = "<имя пользователя БД>";
@@ -322,17 +324,17 @@ go run connect.go
         String DB_URL = String.format("jdbc:clickhouse://%s:8123/%s", DB_HOST, DB_NAME);
 
         try {
-            Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+          Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
 
-            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-            ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
-            if(rs.next()) {System.out.println(rs.getString(1));}
+          Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+          ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
+          if(rs.next()) {System.out.println(rs.getString(1));}
 
-            conn.close();
+          conn.close();
         }
         catch(Exception ex) {ex.printStackTrace();}
-        }
-    }  
+      }
+    }
     ```
 
 * Подключение с SSL
@@ -345,7 +347,7 @@ go run connect.go
     import java.sql.*;
 
     public class App {
-        public static void main(String[] args) {
+      public static void main(String[] args) {
         String DB_HOST    = "<FQDN любого хоста {{ CH }}>";
         String DB_NAME    = "<имя БД>";
         String DB_USER    = "<имя пользователя БД>";
@@ -356,16 +358,15 @@ go run connect.go
         String DB_URL = String.format("jdbc:clickhouse://%s:8443/%s?ssl=1&sslmode=strict&sslrootcert=%s", DB_HOST, DB_NAME, CACERT);
 
         try {
-            Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+          Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+          Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+          ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
+          if(rs.next()) {System.out.println(rs.getString(1));}
 
-            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-            ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
-            if(rs.next()) {System.out.println(rs.getString(1));}
-
-            conn.close();
+          conn.close();
         }
         catch(Exception ex) {ex.printStackTrace();}
-        }
+      }
     }
     ```
 
@@ -383,7 +384,7 @@ java -jar target/app-0.1.0-jar-with-dependencies.jar
 **Перед подключением установите зависимости:**
 
 ```bash
-sudo apt update && sudo apt install -y nodejs npm && \
+sudo apt update && sudo apt install --yes nodejs npm && \
 npm install querystring
 ```
 
@@ -485,7 +486,7 @@ node app.js
 1. Установите зависимости:
 
     ```bash
-    sudo apt update && sudo apt install -y git unixodbc build-essential cmake \
+    sudo apt update && sudo apt install --yes git unixodbc build-essential cmake \
     libpoco-dev libssl-dev libicu-dev unixodbc-dev && \
     cd ~/ && git clone https://github.com/ClickHouse/clickhouse-odbc.git && \
     cd clickhouse-odbc/ && git submodule update --init
@@ -502,7 +503,7 @@ node app.js
 1. После завершения процесса сборки скопируйте файлы драйвера в директорию `/usr/local/lib64/`:
 
     ```bash
-    sudo mkdir -p /usr/local/lib64 && sudo cp driver/*.so /usr/local/lib64/
+    sudo mkdir --parents /usr/local/lib64 && sudo cp driver/*.so /usr/local/lib64/
     ```
 
 1. Зарегистрируйте драйвер {{ CH }} ODBC, добавив следующие строки в файл `odbcinst.ini` ([файл-пример](https://github.com/ClickHouse/clickhouse-odbc/blob/master/packaging/odbcinst.ini.sample)):
@@ -580,7 +581,7 @@ isql -v ClickHouse
 1. Установите зависимости:
 
     ```bash
-    sudo apt update && sudo apt install -y php
+    sudo apt update && sudo apt install --yes php
     ```
 
 1. Убедитесь, что для параметра `allow_url_fopen` задано значение `On` в настройках PHP:
@@ -701,7 +702,7 @@ php connect.php
 **Перед подключением установите зависимости:**
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-pip && \
+sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install clickhouse-driver
 ```
 
@@ -753,7 +754,7 @@ python3 connect.py
 **Перед подключением установите зависимости:**
 
 ```bash
-sudo apt update && sudo apt install -y python3 python3-pip && \
+sudo apt update && sudo apt install --yes python3 python3-pip && \
 pip3 install requests
 ```
 
@@ -815,7 +816,7 @@ python3 connect.py
 **Перед подключением установите зависимости:**
 
 ```bash
-sudo apt update && sudo apt install -y ruby
+sudo apt update && sudo apt install --yes ruby
 ```
 
 {% list tabs %}

@@ -33,4 +33,4 @@
 | [Выгрузка логов](logs.md) | Выгрузка логов запросов к CDN-серверам и экранирующим серверам в объектное хранилище. |
 | [Квоты и лимиты](limits.md) | Ограничения на использование сервиса. |
 
-Oзнакомьтесь также с [общей иерархией ресурсов](../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}.
+Ознакомьтесь также с [общей иерархией ресурсов](../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}.

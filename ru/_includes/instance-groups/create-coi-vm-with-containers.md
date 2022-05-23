@@ -54,7 +54,7 @@
 
    - API
 
-     Воспользуйтесь методом [Сreate](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`.
+     Воспользуйтесь методом [Create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`.
 
    {% endlist %}
 
@@ -109,7 +109,7 @@
    - API
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
-     1. Создать подсеть в зоне доступности `ru-central1-a`с помощью метода [Сreate](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
+     1. Создать подсеть в зоне доступности `ru-central1-a`с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
 
    {% endlist %}
 

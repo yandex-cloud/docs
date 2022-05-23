@@ -1913,7 +1913,7 @@
 
 * Команды `{{ yc-mdb-mg }} cluster update` и `{{ yc-mdb-mg }} cluster update-config`.
 
-  Для [шардированных](../managed-mongodb/concepts/sharding.md) клаcтеров появилась возможность изменять параметры компонентов `mongos` и `mongocfg`.
+  Для [шардированных](../managed-mongodb/concepts/sharding.md) кластеров появилась возможность изменять параметры компонентов `mongos` и `mongocfg`.
 
 ### Версия 0.31.0 (01.07.19) {#version0.31.0}
 

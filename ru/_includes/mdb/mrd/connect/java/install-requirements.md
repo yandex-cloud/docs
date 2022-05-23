@@ -9,7 +9,7 @@
 1. Создайте директорию для проекта Maven:
 
     ```bash
-    cd ~/ && mkdir -p project/src/java/com/example && cd project/
+    cd ~/ && mkdir --parents project/src/java/com/example && cd project/
     ```
 
 1. Создайте конфигурационный файл для Maven:
@@ -105,11 +105,10 @@
     1. Создайте защищенное хранилище сертификатов:
 
         ```bash
-        keytool \
-            -importcert \
-            -alias YARootCrt \
-            -file ~/.redis/YandexInternalRootCA.crt \
-            -keystore ~/.redis/YATrustStore \
-            -storepass <пароль защищенного хранилища> \
-            --noprompt && chmod 0655 ~/.redis/YATrustStore
+        keytool -importcert \
+                -alias YARootCrt \
+                -file ~/.redis/YandexInternalRootCA.crt \
+                -keystore ~/.redis/YATrustStore \
+                -storepass <пароль защищенного хранилища> \
+                --noprompt && chmod 0655 ~/.redis/YATrustStore
         ```

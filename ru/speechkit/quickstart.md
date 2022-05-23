@@ -1,4 +1,4 @@
-# Как начать работать cо {{ speechkit-short-name }}
+# Как начать работать со {{ speechkit-short-name }}
 
 Если вы хотите попробовать, как сервис синтезирует или распознает речь, воспользуйтесь демо на [странице сервиса](https://cloud.yandex.ru/services/speechkit#demo).
 

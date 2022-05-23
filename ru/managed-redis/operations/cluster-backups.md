@@ -71,13 +71,13 @@ description: "Вы можете создавать резервные копии
 
       ```
       {{ yc-mdb-rd }} cluster restore \
-        --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-        --cluster-name mynewrd \
-        --environment=PRODUCTION \
-        --network-name default \
-        --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
-        --password P@ssWord \
-        --disk-size 20
+         --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
+         --cluster-name mynewrd \
+         --environment=PRODUCTION \
+         --network-name default \
+         --host zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch63 \
+         --password P@ssWord \
+         --disk-size 20
       ```
 
       В результате будет создан {{ RD }}-кластер со следующими характеристиками:
@@ -152,9 +152,8 @@ description: "Вы можете создавать резервные копии
   ```
   {{ yc-mdb-rd }} backup list
   ```
-	  
   Результат:
-	  
+
   ```
   +----------+----------------------+----------------------+----------------------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |

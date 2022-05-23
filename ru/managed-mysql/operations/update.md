@@ -44,14 +44,14 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```
-      {{ yc-mdb-my }} cluster update --help
+      $ {{ yc-mdb-my }} cluster update --help
       ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
      
      ```
-     {{ yc-mdb-my }} resource-preset list
+     $ {{ yc-mdb-my }} resource-preset list
 
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
@@ -65,8 +65,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
       ```
-      {{ yc-mdb-my }} cluster update <имя кластера>
-        --resource-preset <ID класса>
+      $ {{ yc-mdb-my }} cluster update <имя кластера>
+           --resource-preset <ID класса>
       ```
 
       {{ mmy-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -215,7 +215,7 @@
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
       ```
-      {{ yc-mdb-my }} cluster update-config --help
+      $ {{ yc-mdb-my }} cluster update-config --help
       ```
 
   1. Установите нужные значения параметров.
@@ -223,8 +223,8 @@
      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `mysql_config_5_7`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
 
      ```
-     {{ yc-mdb-my }} cluster update-config <имя кластера>
-       --set log_min_duration_statement=100,<имя параметра>=<значение>,...
+     $ {{ yc-mdb-my }} cluster update-config <имя кластера>
+          --set log_min_duration_statement=100,<имя параметра>=<значение>,...
      ```
 
      {{ mmy-short-name }} запустит операцию по изменению настроек кластера.

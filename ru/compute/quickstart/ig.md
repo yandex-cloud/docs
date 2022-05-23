@@ -1,6 +1,6 @@
 # Создание группы виртуальных машин
 
-Cоздайте группу виртуальных машин с помощью компонента [Instance Groups](../concepts/instance-groups/index.md) в консоли управления {{ yandex-cloud }}.
+Создайте группу виртуальных машин с помощью компонента [Instance Groups](../concepts/instance-groups/index.md) в консоли управления {{ yandex-cloud }}.
 
 ## Перед началом работы {#before-you-begin}
 

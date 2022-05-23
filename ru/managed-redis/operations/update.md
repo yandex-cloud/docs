@@ -424,7 +424,7 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
 
-    1. Измените в описании кластера {{ mrd-name }} значение параметрa `security_group_ids`:
+    1. Измените в описании кластера {{ mrd-name }} значение параметра `security_group_ids`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster" "<имя кластера>" {

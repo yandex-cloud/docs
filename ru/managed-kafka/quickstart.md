@@ -81,8 +81,9 @@
 
    
    ```bash
-   sudo mkdir -p /usr/local/share/ca-certificates/Yandex
-   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   sudo mkdir --parents /usr/local/share/ca-certificates/Yandex && \
+   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
+             --output-document /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
    sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
    ```
 
@@ -107,13 +108,13 @@
 
    ```bash
    kafkacat -C \
-     -b <FQDN брокера>:9091 \
-     -t <имя топика> \
-     -X security.protocol=SASL_SSL \
-     -X sasl.mechanisms=SCRAM-SHA-512 \
-     -X sasl.username="<логин потребителя>" \
-     -X sasl.password="<пароль потребителя>" \
-     -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
+            -b <FQDN брокера>:9091 \
+            -t <имя топика> \
+            -X security.protocol=SASL_SSL \
+            -X sasl.mechanisms=SCRAM-SHA-512 \
+            -X sasl.username="<логин потребителя>" \
+            -X sasl.password="<пароль потребителя>" \
+            -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
    ```
 
    В команде укажите FQDN брокера, имя топика, логин и пароль учетной записи {{ KF }}, которую вы создали на предыдущем шаге.

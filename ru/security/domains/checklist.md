@@ -32,7 +32,7 @@
 - **Шифрование в Object Storage**: включите шифрование бакетов (server-side encryption), см. [инструкцию](../../storage/operations/buckets/encrypt.md). Такое шифрование защищает данные бакета от опубликования в интернете.
 - **Шифрование дисков ВМ (если требуется)**.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью KMS](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
-- **Сlient-side encryption (если требуется)**: используйте шифрование данных с помощью ключей KMS, см. [обзор способов шифрования](../../kms/tutorials/encrypt/index.md).
+- **Client-side encryption (если требуется)**: используйте шифрование данных с помощью ключей KMS, см. [обзор способов шифрования](../../kms/tutorials/encrypt/index.md).
 - **Защита ключей KMS**: выдавайте только гранулярные доступы к отдельным ключам KMS — роль `kms.keys.encrypterDecrypter`; используйте [ротацию ключей](../../kms/concepts/version.md).
 - **Управление секретами**: используйте сервисы управления секретами, такие как [Yandex Lockbox](../../lockbox/index.yaml) или [HashiCorp Vault c поддержкой KMS](https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2) из {{ yandex-cloud }} Marketplace. <!-- или контейнер cr.yandex/yc/vault -->
 

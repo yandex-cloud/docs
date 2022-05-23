@@ -683,9 +683,9 @@ sudo apt update && sudo apt install -y php php-pgsql
 
      ```powershell
      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-           -h c-<идентификатор кластера>.rw.{{ dns-zone }} `
-           -p {{ port-mpg }} `
-           -U <имя пользователя> `
+           --host=c-<идентификатор кластера>.rw.{{ dns-zone }} `
+           --port={{ port-mpg }} `
+           --username=<имя пользователя> `
            <имя БД>
      ```
 
@@ -709,9 +709,9 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-        -h c-<идентификатор кластера>.rw.{{ dns-zone }} `
-        -p {{ port-mpg }} `
-        -U <имя пользователя> `
+        --host=c-<идентификатор кластера>.rw.{{ dns-zone }} `
+        --port={{ port-mpg }} `
+        --username<имя пользователя> `
         <имя БД>
       ```
 

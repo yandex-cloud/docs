@@ -66,7 +66,8 @@
     1. Получите список ваших кластеров {{ CH }}:
 
         ```bash
-        yc managed-clickhouse cluster list
+        {{ yc-mdb-ch }} cluster list
+
         +----------------------+---------------+---------------------+--------+---------+
         |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
         +----------------------+---------------+---------------------+--------+---------+
@@ -77,8 +78,7 @@
     1. Получите информацию о нужном кластере и проверьте версию {{ CH }} в вашем кластере, указанную в свойстве `config.version`:
 
         ```bash
-        yc managed-clickhouse cluster get c9q8p8j2gaih8iti42mh
-        
+        {{ yc-mdb-ch }} cluster get c9q8p8j2gaih8iti42mh
         id: c9q8p8j2gaih8iti42mh
         folder_id: b1gqs1teo2q2a4vnmi2t
         created_at: "2019-04-23T12:44:17.929853Z"
@@ -96,9 +96,7 @@
     1. Запустите изменение версии {{ CH }}:
 
         ```bash
-        yc managed-clickhouse cluster update 
-          --id c9q8p8j2gaih8iti42mh
-          --version 19.4
+        {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih8iti42mh --version 19.4
         ```
 
     После того, как изменение версии запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.

@@ -1,6 +1,6 @@
 # Управление потоками данных
 
-Вы можете [посмотреть](#list-data-streams) список потоков, [изменить](#edit-data-stream) их настройки, [создать](#create-data-stream) новый поток или [удалить](#delete-data-stream) cуществующий.
+Вы можете [посмотреть](#list-data-streams) список потоков, [изменить](#edit-data-stream) их настройки, [создать](#create-data-stream) новый поток или [удалить](#delete-data-stream) существующий.
 
 ## Создать поток данных {#create-data-stream}
 

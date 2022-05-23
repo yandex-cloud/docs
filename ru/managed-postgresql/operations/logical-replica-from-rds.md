@@ -1,10 +1,10 @@
-# Создание логической реплики Аmazon RDS для PostgreSQL в {{ mpg-name }}
+# Создание логической реплики Amazon RDS для PostgreSQL в {{ mpg-name }}
 
-Если вы используете сервис Аmazon RDS для PostgreSQL, вы можете создать копию ваших данных в {{ mpg-name }}.
+Если вы используете сервис Amazon RDS для PostgreSQL, вы можете создать копию ваших данных в {{ mpg-name }}.
 
-## Настройка на стороне Аmazon RDS для PostgreSQL {#amazon-set}
+## Настройка на стороне Amazon RDS для PostgreSQL {#amazon-set}
 
-Доступно для Аmazon RDS для PostgreSQL версии 10.4 и выше.
+Доступно для Amazon RDS для PostgreSQL версии 10.4 и выше.
 
 {% note warning %}
 
@@ -71,10 +71,10 @@
    yc managed-postgresql user update {user_name} --grants mdb_admin --cluster-id {cluster_id}
    ```
 
-1. На хосте кластера {{ mpg-name }} создайте подписку со строкой подключения к Аmazon RDS:
+1. На хосте кластера {{ mpg-name }} создайте подписку со строкой подключения к Amazon RDS:
 
    ```
-   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<адрес сервера Аmazon RDS> port=<порт> user=<имя пользователя> sslmode=prefer dbname=<имя базы данных>' PUBLICATION pub;
+   CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<адрес сервера Amazon RDS> port=<порт> user=<имя пользователя> sslmode=prefer dbname=<имя базы данных>' PUBLICATION pub;
    ```
 
 Подробнее о создании подписок смотрите [в документации {{ PG }}](https://www.postgresql.org/docs/10/sql-createsubscription.html).

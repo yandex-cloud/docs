@@ -8,7 +8,7 @@
 
 1. [Настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) конфигурацию kubectl.
 
-1. Установите менеджер пакетов {{ k8s }} [Нelm 3](https://helm.sh/ru/docs/intro/install).
+1. Установите менеджер пакетов {{ k8s }} [Helm 3](https://helm.sh/ru/docs/intro/install).
 
 1. Добавьте в Helm репозиторий для NGINX:
 
