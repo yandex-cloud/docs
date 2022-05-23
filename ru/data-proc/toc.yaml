@@ -94,6 +94,8 @@ items:
         href: concepts/settings-list.md
       - name: Логи в Data Proc
         href: concepts/logs.md
+      - name: Скрипты инициализации
+        href: concepts/init-action.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
