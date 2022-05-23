@@ -315,7 +315,7 @@ items:
         href: tutorials/connect-to-ydb-nodejs.md
       - name: Конвертация видео в GIF на Python
         href: tutorials/video-converting-queue.md
-      - name: Создание функции Yandex Cloud Functions с помощью TypeScript
+      - name: Создание функции Node.js с помощью TypeScript
         href: tutorials/nodejs-typescript.md
   - name: Правила тарификации
     href: pricing.md
