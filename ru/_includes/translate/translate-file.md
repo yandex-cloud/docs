@@ -1,8 +1,8 @@
 ```bash
 export IAM_TOKEN=<IAM-токен>
-curl -X POST \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer ${IAM_TOKEN}" \
-  -d '<путь_до_файла_json>' \
+curl --request POST \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer ${IAM_TOKEN}" \
+  --data '<путь_до_файла_json>' \
   "https://translate.api.cloud.yandex.net/translate/v2/translate"
 ```

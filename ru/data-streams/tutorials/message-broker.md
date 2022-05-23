@@ -14,19 +14,19 @@
 
 ### Разное время жизни  {#ttl}
 
-В монолитной архитектуре все компоненты постоянно доступны для обмена данными. Компоненты микросервисной архитектуры компоненты имеют разное время жизни ине могут полагаться на прямой обмен данными между ними. Данные нужно или буферизировать, или пересылать через  шину потоков данных.
+В монолитной архитектуре все компоненты постоянно доступны для обмена данными. Компоненты микросервисной архитектуры компоненты имеют разное время жизни ине могут полагаться на прямой обмен данными между ними. Данные нужно или буферизировать, или пересылать через шину потоков данных.
 
 ### Масштабирование {#scaling}
 
 Приложения растут и по мере роста они должны продолжать оставаться такими же эффективными. Шины потоков данных предлагают такой сценарий взаимодействия, что просто следуя ему, приложения становятся масштабируемыми.
 
-## Сравнение с Apache Kafka^®^ {#comparison}
+## Сравнение с {{ KF }} {#comparison}
 
-В таблице ниже приведено сравнение {{ yds-short-name }} с популярной шиной потоков данных Apache Kafka^®^.
+В таблице ниже приведено сравнение {{ yds-short-name }} с популярной шиной потоков данных {{ KF }}.
 
-Параметр | {{ yds-full-name }} | Apache Kafka^®^
+Параметр | {{ yds-full-name }} | {{ KF }}
 ----|-----|-----
-Поддерживаемый протокол | Amazon Kinesis Data Streams API | Apache Kafka^®^
+Поддерживаемый протокол | Amazon Kinesis Data Streams API | {{ KF }}
 Поддерживаемые SDK | HTTP, Java,  C++, Go и другие | HTTP, Java, C++, Go и другие
 Стоимость | Оплата за использование ресурсов: скорость, время хранения | Оплата за резервирование ресурсов: виртуальные машины
 Сложность эксплуатации | Администрирование пользователем не требуется | Система администрируется пользователем, Облако отвечает только за инфраструктуру
@@ -42,12 +42,12 @@
 
 Чтобы настроить передачу данных между компонентами:
 
-1. [Создайте поток данных](../quickstart/create-stream) {{ yds-short-name }}.
+1. [Создайте поток данных](../quickstart/create-stream.md) {{ yds-short-name }}.
 1. [Настройте](../quickstart/index.md) AWS SDK.
 1. Используйте SDK:
-    * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/)
-    * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html)
-    * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html)
-    * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html)
-    * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html)
-    * [HTTP Kinesis Data Streams API](../kinesisapi/api-ref).
+    * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
+    * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).
+    * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html).
+    * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html).
+    * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html).
+    * [HTTP Kinesis Data Streams API](../kinesisapi/api-ref.md).

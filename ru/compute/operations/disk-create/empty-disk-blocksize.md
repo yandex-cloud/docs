@@ -1,4 +1,4 @@
-# Создать пустой диcк с блоком большого размера
+# Создать пустой диск с блоком большого размера
 
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 

@@ -45,10 +45,10 @@
   1. Запустите операцию с характеристиками хостов по умолчанию:
 
      ```bash
-     yc managed-clickhouse cluster add-zookeeper <имя кластера> \
-       --host zone-id=ru-central1-c,subnet-name=default-c \
-       --host zone-id=ru-central1-a,subnet-name=default-a \
-       --host zone-id=ru-central1-b,subnet-name=default-b
+     {{ yc-mdb-ch }} cluster add-zookeeper <имя кластера> \
+        --host zone-id=ru-central1-c,subnet-name=default-c \
+        --host zone-id=ru-central1-a,subnet-name=default-a \
+        --host zone-id=ru-central1-b,subnet-name=default-b
      ```
 
      Если в сети, в которой расположен кластер, ровно 3 подсети, по одной в каждой зоне доступности, то явно указывать подсети для хостов необязательно: {{ mch-name }} автоматически распределит хосты по этим подсетям. 
@@ -223,8 +223,8 @@
   
      ```
      {{ yc-mdb-ch }} hosts add \
-       --cluster-name <имя кластера> \
-       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,type=zookeeper
+        --cluster-name <имя кластера> \
+        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,type=zookeeper
      ```
 
 - Terraform
@@ -286,7 +286,7 @@
   
   ```
   {{ yc-mdb-ch }} hosts delete <имя хоста> \
-    --cluster-name=<имя кластера>
+     --cluster-name=<имя кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).

@@ -50,7 +50,7 @@
 
    - API
 
-     Воспользуйтесь методом [Сreate](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`.
+     Воспользуйтесь методом [Create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount`.
 
    {% endlist %}
 
@@ -123,7 +123,7 @@
    - API
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Network`.
-     1. Создать подсети в зонах `ru-central1-b` и `ru-central1-c` с помощью метода [Сreate](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
+     1. Создать подсети в зонах `ru-central1-b` и `ru-central1-c` с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
 
    {% endlist %}
 
@@ -212,7 +212,7 @@
 
    - API
 
-     Воспользуйтесь методом [СreateFromYaml](../api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
+     Воспользуйтесь методом [CreateFromYaml](../api-ref/InstanceGroup/createFromYaml.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
 

@@ -94,7 +94,7 @@
 
 {% endcut %}
 
-## Создайте пространство имен {{ k8s }} {#сonfigure-namespace}
+## Создайте пространство имен {{ k8s }} {#configure-namespace}
 
 Создайте пространство имен с помощью объект API {{ k8s }} [Namespace](https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/namespaces/):
 
@@ -341,7 +341,7 @@ networkpolicy.networking.k8s.io/default-deny created
    pod "access" deleted
    ```
 
-### Проверьте, что сетевая изоляция для других подов работает {#сheck-isolation}
+### Проверьте, что сетевая изоляция для других подов работает {#check-isolation}
 
 В созданных сетевых политиках `access-nginx` разрешено подключаться подам с меткой `run: access`.
 

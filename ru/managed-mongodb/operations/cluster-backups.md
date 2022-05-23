@@ -74,13 +74,13 @@ description: "Вы можете создавать резервные копии
   1. Посмотрите описание команды CLI для восстановления кластера {{ MG }}:
 
       ```
-      {{ yc-mdb-mg }} cluster restore --help
+      $ {{ yc-mdb-mg }} cluster restore --help
       ```
 
   1. Получите список доступных резервных копий {{ MG }}-кластеров:
 
      ```
-     {{ yc-mdb-mg }} backup list
+     $ {{ yc-mdb-mg }} backup list
 
      +--------------------------+----------------------+----------------------+----------------------+--------+-----------+
      |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |  SIZE  |   TYPE    |
@@ -96,17 +96,17 @@ description: "Вы можете создавать резервные копии
      
      
      ```
-     {{ yc-mdb-mg }} cluster restore \
-       --backup-id <идентификатор резервной копии> \
-       --recovery-target-timestamp <момент времени> \
-       --mongodb-version "<версия {{ MG }}>" \
-       --cluster-name <имя нового кластера> \
-       --environment <окружение, PRESTABLE или PRODUCTION> \
-       --network-name <имя сети> \
-       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-       --mongod-resource-preset <класс хоста> \
-       --mongod-disk-size <размер хранилища в гигабайтах> \
-       --mongod-disk-type <тип хранилища: network-hdd, network-ssd или local-ssd>
+      {{ yc-mdb-mg }} cluster restore \
+         --backup-id <идентификатор резервной копии> \
+         --recovery-target-timestamp <момент времени> \
+         --mongodb-version "<версия {{ MG }}>" \
+         --cluster-name <имя нового кластера> \
+         --environment <окружение, PRESTABLE или PRODUCTION> \
+         --network-name <имя сети> \
+         --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+         --mongod-resource-preset <класс хоста> \
+         --mongod-disk-size <размер хранилища в гигабайтах> \
+         --mongod-disk-type <тип хранилища: network-hdd, network-ssd или local-ssd>
       ```
 
       В параметре `--recovery-target-timestamp` укажите момент времени, на который нужно восстановить состояние {{ MG }}-кластера, в формате [UNIX time](https://ru.wikipedia.org/wiki/Unix-время). Если требуется восстановить состояние кластера на момент завершения создания резервной копии, то этот параметр можно опустить.
@@ -135,13 +135,13 @@ description: "Вы можете создавать резервные копии
   1. Посмотрите описание команды CLI для создания резервной копии {{ MG }}:
 
       ```
-      {{ yc-mdb-mg }} cluster backup --help
+      $ {{ yc-mdb-mg }} cluster backup --help
       ```
 
   1. Запросите создание резервной копии, указав имя или идентификатор кластера:
 
       ```
-      {{ yc-mdb-mg }} cluster backup my-mg-cluster
+      $ {{ yc-mdb-mg }} cluster backup my-mg-cluster
       ```
 
       Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters).
@@ -183,7 +183,7 @@ description: "Вы можете создавать резервные копии
   Чтобы получить список резервных копий кластеров {{ MG }}, доступных в каталоге по умолчанию, выполните команду:
 
   ```
-  {{ yc-mdb-mg }} backup list
+  $ {{ yc-mdb-mg }} backup list
 
   +----------+----------------------+----------------------+----------------------+--------+-----------+
   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |  SIZE  |   TYPE    |
@@ -259,16 +259,16 @@ description: "Вы можете создавать резервные копии
   
   ```
   {{ yc-mdb-mg }} cluster restore \
-    --backup-id c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z \
-    --recovery-target-timestamp 1597035610 \
-    --mongodb-version "4.2" \
-    --cluster-name mynewmg \
-    --environment PRODUCTION \
-    --network-name {{ network-name }} \
-    --host {{ host-net-example }} \
-    --mongod-resource-preset {{ host-class }} \
-    --mongod-disk-size 20 \
-    --mongod-disk-type {{ disk-type-example }}
+     --backup-id c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z \
+     --recovery-target-timestamp 1597035610 \
+     --mongodb-version "4.2" \
+     --cluster-name mynewmg \
+     --environment PRODUCTION \
+     --network-name {{ network-name }} \
+     --host {{ host-net-example }} \
+     --mongod-resource-preset {{ host-class }} \
+     --mongod-disk-size 20 \
+     --mongod-disk-type {{ disk-type-example }}
   ```
 
 {% endlist %}

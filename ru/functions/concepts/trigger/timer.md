@@ -1,6 +1,6 @@
 # Таймер
 
-_Таймер_ — это [триггер](../trigger/), который запускает [функцию](../function.md) {{ sf-name }} или [контейнер](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} по расписанию. Расписание задается в виде [сron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+_Таймер_ — это [триггер](../trigger/), который запускает [функцию](../function.md) {{ sf-name }} или [контейнер](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} по расписанию. Расписание задается в виде [cron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
 
 ## Формат cron-выражения {#cron-expression}
 
