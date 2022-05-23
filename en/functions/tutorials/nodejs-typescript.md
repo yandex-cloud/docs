@@ -15,7 +15,7 @@ npm install typescript --save-dev
 
 - Initialize a TypeScript project, run:
 ```
-npx ts --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2019
+npx ts --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2021
 ```
 
 You can change the value of `target` argument, if you want to use newer JavaScript version. Max value depends on Node.js version:
