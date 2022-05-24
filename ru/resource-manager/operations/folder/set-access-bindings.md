@@ -164,7 +164,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -344,7 +344,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -447,7 +447,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
   
   1. Проверьте конфигурацию командой:
      ```

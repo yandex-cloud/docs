@@ -166,7 +166,7 @@ To create a [resource](../../concepts/resource.md):
       }
       ```
 
-      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.
 

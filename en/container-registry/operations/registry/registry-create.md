@@ -102,7 +102,7 @@ The created [registry](../../concepts/registry.md) can be used by any users and 
      * `folder_id`: ID of the folder.
      * `labels`: Set of [labels](../../../overview/concepts/services.md#labels).
 
-     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+     For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Check that the configuration file is correct.
 

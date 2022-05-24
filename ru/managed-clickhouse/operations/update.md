@@ -39,6 +39,8 @@
 
 {% endnote %}
 
+Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее см. в разделе [{#T}](../concepts/memory-management.md).
+
 {% list tabs %}
 
 - Консоль управления
@@ -128,7 +130,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -218,7 +220,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -314,6 +316,14 @@
 {% endlist %}
 
 ## Изменить настройки {{ CH }} {#change-clickhouse-config}
+
+{% note info %}
+
+Изменить значение настройки [Max server memory usage](https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#max_server_memory_usage) можно только [изменив класс хостов {{ CH }}](#change-resource-preset).
+
+Подробнее см. в разделе [{#T}](../concepts/memory-management.md).
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -421,7 +431,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -549,7 +559,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -634,7 +644,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 

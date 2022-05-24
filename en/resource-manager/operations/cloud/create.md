@@ -43,7 +43,7 @@ To create an additional cloud:
       }
       ```
 
-      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud).
+      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using the command:
 

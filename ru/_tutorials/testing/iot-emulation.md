@@ -43,7 +43,7 @@
 
 ## Установите Terraform {#install-terraform}
 
-С помощью Terraform в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: виртуальные машины, диски, образы и т.д. Подробную информацию о ресурсах, создающихся с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+С помощью Terraform в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: виртуальные машины, диски, образы и т.д. Подробную информацию о ресурсах, создающихся с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
 {% include [terraform_install](../../_tutorials/terraform-install.md) %}
 

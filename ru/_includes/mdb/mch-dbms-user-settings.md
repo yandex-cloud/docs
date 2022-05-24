@@ -423,13 +423,17 @@
   По умолчанию выбрано значение `1048576`.
 
   Подробнее см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-max_insert_block_size).
+
 * **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Максимальный объем оперативной памяти (в байтах) для выполнения запроса на одном сервере. Настройка не учитывает объем свободной памяти или общий объем памяти на машине. Ограничение действует на один запрос в пределах одного сервера.
 
-  Минимальное значение — `0` (нет ограничения), по умолчанию — `10737418240` (10 ГБ).
+  Минимальное значение — `0` (нет ограничения), по умолчанию — `10737418240` (10 ГБ). Максимальное значение ограничено настройкой Max server memory usage, значение которой нельзя изменить напрямую. Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/memory-management.md).
 
   Если вы используете настройки [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) или [Max bytes before external sort](#setting-max-bytes-before-external-sort), рекомендуется задать им значения в два раза меньше значения Max memory usage.
+
+  Подробнее см. [в документации {{ CH }}](https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity#settings_max_memory_usage).
+
 * **Max memory usage for user**{#setting-max-memory-usage-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Максимальный объем оперативной памяти (в байтах) для выполнения запросов пользователя на одном сервере. Настройка не учитывает объем свободной памяти или общий объем памяти на машине.

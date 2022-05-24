@@ -73,7 +73,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
+     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/alb_http_router).
 
   1. Чтобы добавить, изменить или удалить виртуальные хосты HTTP-роутера, используйте ресурс `yandex_alb_virtual_host` с указанием на роутер в поле `http_router_id`:
 
@@ -93,7 +93,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/alb_virtual_host).
 
   1. Проверьте конфигурацию командой:
 
@@ -344,7 +344,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/alb_virtual_host).
 
      Порядок маршрутов важен в описании виртуального хоста. Более подробную информацию см. в [концепции](../../application-load-balancer/concepts/http-router.md#virtual-host).
 

@@ -90,7 +90,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       }
       ```
 
-      For more detailed information about the parameters of the `yandex_logging_group` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/logging_group).
+      For more detailed information about the parameters of the `yandex_logging_group` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 
    1. Make sure that the configuration files are correct.
 

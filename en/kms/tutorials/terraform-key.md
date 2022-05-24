@@ -1,10 +1,10 @@
 # Managing {{ kms-short-name }} keys with Hashicorp Terraform
 
-[The Terraform provider for {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html) supports the use of {{ kms-short-name }} keys.
+[The Terraform provider for {{ yandex-cloud }}]({{ tf-provider-link }}) supports the use of {{ kms-short-name }} keys.
 
 ## Adding keys {#add}
 
-You can add a {{ kms-short-name }} key using the [yandex_kms_symmetric_key](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kms_secret_ciphertext) block:
+You can add a {{ kms-short-name }} key using the [yandex_kms_symmetric_key]({{ tf-provider-link }}/kms_secret_ciphertext) block:
 
 ```
 resource "yandex_kms_symmetric_key" "kms-key" {
@@ -44,5 +44,5 @@ resource "yandex_resourcemanager_folder_iam_member" "admin" {
 
 * [Getting started with Terraform in {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{#T}](../security/index.md).
-* [{{ yandex-cloud }} provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+* [{{ yandex-cloud }} provider documentation]({{ tf-provider-link }}).
 

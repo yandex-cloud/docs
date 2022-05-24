@@ -116,7 +116,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_lb_target_group` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/lb_target_group).
+     Более подробную информацию о параметрах ресурса `yandex_lb_target_group` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/lb_target_group).
 
   1. Проверьте корректность конфигурационных файлов.
 

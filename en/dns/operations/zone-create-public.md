@@ -94,7 +94,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       }
       ```
 
-      For more information about resources you can create with Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      For more information about resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
 
    1. Run the check using the command:

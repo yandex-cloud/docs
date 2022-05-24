@@ -206,7 +206,7 @@ To create a VM from a set of disks:
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
    2. Make sure that the configuration files are correct.
 

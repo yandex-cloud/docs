@@ -167,7 +167,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_binding).
+      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
       

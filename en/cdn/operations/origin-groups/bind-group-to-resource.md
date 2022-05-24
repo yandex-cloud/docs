@@ -159,7 +159,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group).
+      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 

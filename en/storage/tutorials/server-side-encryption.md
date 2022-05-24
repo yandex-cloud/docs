@@ -107,7 +107,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       }
       ```
 
-      For more information about the resources you can create using [Terraform](https://www.terraform.io/docs/language/index.html), see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      For more information about the resources you can create using [Terraform]({{ tf-provider-link }}), see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure that the configuration files are correct.
 

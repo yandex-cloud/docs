@@ -74,7 +74,7 @@
       * `folder_id`: ID of the folder. Optional. By default, the value specified in the provider settings is used.
       * `retention_period`: Record retention period in the log group. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
 
-      For more detailed information about the parameters of the `yandex_logging_group` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/logging_group).
+      For more detailed information about the parameters of the `yandex_logging_group` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 
    1. Check the configuration using the command:
 

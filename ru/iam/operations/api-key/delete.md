@@ -47,7 +47,7 @@
 
     1. Удалите запись с информацией о ресурсе.
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_api_key).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_api_key).
 
     1. Проверьте корректность конфигурационных файлов.
 

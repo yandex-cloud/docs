@@ -95,7 +95,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{tf-provider-dp}}).
+    Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -138,6 +138,6 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{tf-provider-dp}}).
+    Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/dataproc_cluster).
 
 {% endlist %}

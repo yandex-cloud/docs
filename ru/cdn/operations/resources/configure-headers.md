@@ -157,7 +157,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/cdn_resource).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
 

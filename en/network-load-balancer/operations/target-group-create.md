@@ -116,7 +116,7 @@
       }
       ```
 
-      For more information about the `yandex_lb_target_group` parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/lb_target_group).
+      For more information about the `yandex_lb_target_group` parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/lb_target_group).
 
    1. Make sure that the configuration files are correct.
 

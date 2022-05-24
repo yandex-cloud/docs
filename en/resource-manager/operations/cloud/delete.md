@@ -32,7 +32,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
 
       {% endcut %}
 
-      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud).
+      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, change to the folder where you edited the configuration file.
    1. Make sure the configuration file is correct using the command:
 

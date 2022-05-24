@@ -18,26 +18,13 @@
 
 {{ CH }} supports only adding and reading data because it is designed primarily for analytics (OLAP). In other cases, it's probably more convenient to use {{ PG }}.
 
-#### Is it possible to connect to individual {{ CH }} hosts? {#connect-node}
-
-Yes. You can connect to {{ CH }} cluster hosts:
-
-* Using the [HTTPS interface](https://{{ ch-domain }}/docs/en/interfaces/http_interface/):
-    * Via an encrypted SSL connection on port 8443.
-    * Without encryption through port 8123.
-* Using the [command-line client](https://{{ ch-domain }}/docs/en/interfaces/cli/):
-    * Via an encrypted SSL connection on port 9440.
-    * Without encryption through port 9000.
-
-SSH connections are not supported.
-
 #### How do I upload data to {{ CH }}? {#load-data}
 
-Use the INSERT query described in the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/insert-into/).
+Use the `INSERT` query described in the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/insert-into/).
 
 #### How do I upload very large data to {{ CH }}? {#loadalot}
 
-Use the [CLI](https://{{ ch-domain }}/docs/en/interfaces/cli/) for efficient data compression during transmission (the recommended frequency is no more than one INSERT command per second).
+Use the [CLI](https://{{ ch-domain }}/docs/en/interfaces/cli/) for efficient data compression during transmission (the recommended frequency is no more than one `INSERT` command per second).
 
 Data transfer from physical media is not yet supported.
 
@@ -50,10 +37,6 @@ Data may be lost only if a node with a [non-replicated table](https://{{ ch-doma
 #### Is it possible to deploy a {{ CH }} database cluster in multiple availability zones? {#multiple-az}
 
 Yes. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
-
-#### How do I back up a {{ CH }} database? {#backup}
-
-Backups are created every 24 hours and stored for seven days after being created. You can restore data only as of backup creation time.
 
 #### How does replication work for {{ CH }}? {#zookeeper-access}
 

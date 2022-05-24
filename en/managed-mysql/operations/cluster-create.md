@@ -187,7 +187,7 @@ For more information about a {{ mmy-name }} cluster structure, see [{#T}](../con
 
      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_mysql_cluster.html).
+     For more information about resources that you can create using Terraform, see the [provider's documentation]({{ tf-provider-link }}/mdb_mysql_cluster).
 
   1. Make sure that the configuration files are correct.
 
