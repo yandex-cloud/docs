@@ -307,6 +307,16 @@ items:
         href: qa/general.md
       - name: Questions about ClickHouse
         href: qa/clickhouse.md
+      - name: Connection
+        href: qa/connection.md
+      - name: Editing clusters
+        href: qa/cluster-update.md
+      - name: Cluster parameter settings
+        href: qa/cluster-settings.md
+      - name: Moving and restoring a cluster
+        href: qa/cluster-backups.md
+      - name: Monitoring and logs
+        href: qa/monitoring.md
       - name: All questions on the same page
         href: qa/all.md
 base: en/managed-clickhouse

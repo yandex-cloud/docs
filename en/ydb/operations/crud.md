@@ -19,12 +19,13 @@ To run queries, you'll need to create a [database](../db/cloud_console/create_ma
 
 To send an SQL query to a database from the management console:
 
-1. In the [management console]({{ link-console-main }}), select the folder where the desired database is located.
+1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
 1. In the list of services, select **{{ ydb-name }}**.
 1. Select the database from the list.
+1. Go to the **Navigation** tab.
 1. Click **SQL query** and enter the query text. When making queries, you can use the following templates:
    * To use one of the standard templates, select it from the drop-down list to the right of the **SQL query** button.
-   * To insert data from a specific table into the template, click ![image](../../_assets/horizontal-ellipsis.svg) in the line with the desired table and select the template.
+   * To populate a template with data from a specific table, click ![image](../../_assets/horizontal-ellipsis.svg) in the row next to the table and select a template.
 1. Click **Run**.
 
 ## Insert and update data {#change-data}
@@ -50,13 +51,13 @@ REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2,
 
 ### REPLACE {#replace}
 
-Once the ```series```, ```seasons```, and ```episodes``` tables are created, you can insert data into them using [REPLACE](../yql/reference/syntax/replace_into.md). Basic syntax:
+Once the ```series```, ```season```, and ```episodes``` tables are created, you can insert data into a table using the [REPLACE](../yql/reference/syntax/replace_into.md) statement. Basic syntax:
 
 ```sql
 REPLACE INTO table_name (column_list) VALUES (list_of_added_values);
 ```
 
-Use [REPLACE](../yql/reference/syntax/replace_into.md) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row already exists, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is what makes it different from the UPSERT statement.
+Use [REPLACE](../yql/reference/syntax/replace_into.md) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the UPSERT statement is different.
 
 {% note info %}
 
@@ -70,7 +71,7 @@ Data added using the following code sample will be used later in this section.
 
 ### UPSERT {#upsert}
 
-Use [UPSERT](../yql/reference/syntax/upsert_into.md) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row already exists, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are not changed. This is what differentiates it from the REPLACE statement.*
+Use [UPSERT](../yql/reference/syntax/upsert_into.md) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
 
 {% note info %}
 
@@ -88,7 +89,7 @@ Use [INSERT](../yql/reference/syntax/insert_into.md) statements to insert one or
 
 {% note info %}
 
-When an INSERT operation is executed, the data is read before it is written. This makes it less efficient than the REPLACE and UPSERT operations. For writing data, we recommend using REPLACE and UPSERT operations.
+When an INSERT operation is executed, the data is read before it is written. This makes it less efficient than REPLACE and UPSERT operations. For writing data, we recommend using REPLACE and UPSERT operations.
 
 {% endnote %}
 
@@ -98,10 +99,10 @@ The code below inserts one row of data into the ```episodes``` table.
 
 ### UPDATE {#update}
 
-[UPDATE](../yql/reference/syntax/update.md) statements change the column value for table rows filtered by a WHERE predicate. Basic syntax:
+The [UPDATE](../yql/reference/syntax/update.md) statement changes column values for table row filtered by the WHERE predicate. Basic syntax:
 
 ```sql
-UPDATE table_name SET column1_name=new_column1_value, ...,column_nameN=new_columnN_value WHERE row_filtering_criteria;
+UPDATE table_name SET column1_name=new_column1_value, ... ,columnN_name=new_columnN_value WHERE conditions_for_row_filter;
 ```
 
 UPDATE statements can't change primary key values. Enter and execute the following UPDATE statement to change the value of the ```title``` column from "Test Episode" to "Test Episode Updated" for the episode with ```series_id = 2```, ```season_id = 1```, and ```episode_id = 3```.
@@ -110,25 +111,26 @@ UPDATE statements can't change primary key values. Enter and execute the followi
 
 ### DELETE {#delete}
 
-The [DELETE](../yql/reference/syntax/delete.md) statement deletes table rows filtered by the WHERE clause. The code below removes an episode with ```series_id = 2```, ```season_id = 5```, and ```episode_id = 21``` from the ```episodes``` table.
+The [DELETE](../yql/reference/syntax/delete.md) statement deletes table rows filtered by a WHERE predicate. The code below removes an ```episode``` with ```series_id = 2```, ```season_id = 5```, and ```episode_id = 21``` from the episodes table.
 
 {% include notitle [delete-from-3-columns](../_includes/queries/delete-from-3-columns.md) %}
 
 ## Query data using SELECT {#select}
 
-Use [SELECT](../yql/reference/syntax/select.md) statements to read data from a table.
+Use the [SELECT](../yql/reference/syntax/select.md) statement to read data from a table.
 
 To query data from the ```series``` table, execute the code shown below.
 
 {% include notitle [select-from-3-columns](../_includes/queries/select-from-3-columns.md) %}
 
-You can use an asterisk to select all the columns in a table. To obtain the values of all columns from the ```series``` table, execute the code shown below.
+You can use an asterisk to select all the columns in a table. To obtain the values of all columns from the ```series``` table,
+execute the code shown below.
 
 {% include notitle [select-all](../_includes/queries/select-all.md) %}
 
 {% note info %}
 
-For more information about how to query data by a secondary index, see the [YQL documentation](../yql/reference/syntax/select.md#secondary_index).
+For more information about querying data by secondary index, [see the YQL documentation](../yql/reference/syntax/select.md#secondary_index).
 
 {% endnote %}
 
@@ -151,4 +153,3 @@ INNER JOIN series AS sr
 ON sa.series_id = sr.series_id
 WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;
 ```
-

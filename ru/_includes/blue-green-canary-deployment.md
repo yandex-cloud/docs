@@ -201,7 +201,7 @@
      }
      ```
      
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/vpc_network) и [yandex_vpc_subnet](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/vpc_subnet) в документации провайдера Terraform.
+     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) в документации провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -294,7 +294,7 @@
      }
      ```
      
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_bucket) провайдера Terraform.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-link }}/storage_bucket) провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -419,7 +419,7 @@
         }
         ```
         
-        Подробнее о ресурсе `yandex_storage_object` см. в [документации](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_object) провайдера Terraform.
+        Подробнее о ресурсе `yandex_storage_object` см. в [документации]({{ tf-provider-link }}/storage_object) провайдера Terraform.
         
      1. Проверьте корректность конфигурационных файлов.
 
@@ -587,7 +587,7 @@
      }
      ```
      
-     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/vpc_security_group) провайдера Terraform.
+     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации]({{ tf-provider-link }}/vpc_security_group) провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -831,7 +831,7 @@
      }
      ```
      
-     Подробнее см. в описаниях ресурсов [yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) и [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host) в документации провайдера Terraform.
+     Подробнее см. в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) в документации провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1054,7 +1054,7 @@
      }
      ```
      
-     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer) провайдера Terraform.
+     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации]({{ tf-provider-link }}/alb_load_balancer) провайдера Terraform.
      
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1215,7 +1215,7 @@
       }
       ```
 
-      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group) и [yandex_cdn_resource](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource) в документации провайдера Terraform.
+      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) в документации провайдера Terraform.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1364,7 +1364,7 @@
         }
         ```
         
-        Подробнее см. в описаниях ресурсов [yandex_dns_zone](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/dns_zone) и [yandex_dns_recordset](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/dns_recordset) в документации провайдера Terraform.
+        Подробнее см. в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) в документации провайдера Terraform.
         
      1. Проверьте корректность конфигурационных файлов.
 

@@ -89,7 +89,7 @@
        >}
        >```
 
-       Более подробную информацию о ресурсе `yandex_container_registry_iam_binding`, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/container_registry_iam_binding).
+       Более подробную информацию о ресурсе `yandex_container_registry_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/container_registry_iam_binding).
      * Параметры ресурса `yandex_container_repository_iam_binding`, чтобы назначить роль на репозиторий:
        * `repository_id` — идентификатор репозитория, на который назначается роль.
        * `role` — идентификатор роли.
@@ -108,7 +108,7 @@
        >}
        >```
 
-       Более подробную информацию о ресурсе `yandex_container_repository_iam_binding`, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/container_repository_iam_binding).
+       Более подробную информацию о ресурсе `yandex_container_repository_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/container_repository_iam_binding).
 
   1. Выполните проверку с помощью команды:
 

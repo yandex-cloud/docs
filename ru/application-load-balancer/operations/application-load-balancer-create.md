@@ -214,7 +214,7 @@
         * `endpoint` — описание адресов и портов обработчика. Укажите внешний IPv4-адрес и порт для приема трафика. Если параметр `external_ipv4_address` не задан, то публичный адрес будет выделен автоматически.
         * `http` — описание HTTP-приемника для обработчика. Укажите идентификатор HTTP-роутера.
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/alb_load_balancer).
 
   1. Проверьте корректность конфигурационных файлов.
 

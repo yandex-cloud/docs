@@ -90,7 +90,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_logging_group` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/logging_group).
+     Более подробную информацию о параметрах ресурса `yandex_logging_group` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/logging_group).
 
   1. Проверьте корректность конфигурационных файлов.
 
