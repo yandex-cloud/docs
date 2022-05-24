@@ -243,16 +243,17 @@ Let's say we need to create a new {{ MG }} cluster from a backup with the follow
   
   ```
   $ {{ yc-mdb-mg }} cluster restore \
-           --backup-id c9qlk4v13uq79r9cgcku:...:stream_20200810T120000Z \
+           --backup-id c9qlk4v13uq79r9cgcku:... \
            --recovery-target-timestamp 1597035610 \
            --mongodb-version "4.2" \
-           --cluster-name mynewmg \
+           --name mynewmg \
            --environment PRODUCTION \
+           --folder-id bc1...kh \
            --network-name {{ network-name }} \
            --host {{ host-net-example }} \
-           --mongod-resource-preset {{ host-class }} \ 
+           --mongod-resource-preset {{ host-class }} \
            --mongod-disk-size 20 \
-           --mongod-disk-type {{ disk-type-example }}
+           --mongod-disk-type {{ disk-type-example }}  
   ```
 
 {% endlist %}
