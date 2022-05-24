@@ -135,6 +135,16 @@ Usage prices are shown on an hourly basis (monthly for local disks). Billing occ
 
 ## Pricing {#prices}
 
+{% if region != "int" %}
+
+All prices are shown with VAT.
+
+{% else %}
+
+All prices are shown without VAT.
+
+{% endif %}
+
 ### VM computing resources {#prices-instance-resources}
 
 {% if region == "ru" %}
