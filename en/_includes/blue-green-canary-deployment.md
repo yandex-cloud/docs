@@ -202,7 +202,7 @@ To create a network and subnets:
      }
      ```
 
-     For more information, see the [yandex_vpc_network](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/vpc_network) and [yandex_vpc_subnet](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/vpc_subnet) resource descriptions in the Terraform provider documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resource descriptions in the Terraform provider documentation.
 
   1. Make sure that the configuration files are correct.
 
@@ -295,7 +295,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
      }
      ```
 
-     For more information about the `yandex_storage_bucket` resource, see the Terraform provider [documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_bucket).
+     For more information about the `yandex_storage_bucket` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/storage_bucket).
 
   1. Make sure that the configuration files are correct.
 
@@ -420,7 +420,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
         }
         ```
 
-        For more information about the `yandex_storage_object` resource, see the Terraform provider [documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_object).
+        For more information about the `yandex_storage_object` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/storage_object).
 
      1. Make sure that the configuration files are correct.
 
@@ -588,7 +588,7 @@ To create security groups:
      }
      ```
 
-     For more information about the `yandex_vpc_security_group` resource, see the Terraform provider [documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/vpc_security_group).
+     For more information about the `yandex_vpc_security_group` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/vpc_security_group).
 
   1. Make sure that the configuration files are correct.
 
@@ -832,7 +832,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
      }
      ```
 
-     For more information, see the [yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) and [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host) resource descriptions in the Terraform provider documentation.
+     For more information, see the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resource descriptions in the Terraform provider documentation.
 
   1. Make sure that the configuration files are correct.
 
@@ -1055,7 +1055,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
      }
      ```
 
-     For more information about the `yandex_alb_load_balancer` resource, see the Terraform provider [documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+     For more information about the `yandex_alb_load_balancer` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/alb_load_balancer).
 
   1. Make sure that the configuration files are correct.
 
@@ -1251,7 +1251,7 @@ To configure DNS:
         }
         ```
 
-        For more information, see the descriptions of the [yandex_dns_zone](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/dns_zone) and [yandex_dns_recordset](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/dns_recordset) resources in the Terraform provider documentation.
+        For more information, see the descriptions of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the Terraform provider documentation.
 
      1. Make sure that the configuration files are correct.
 

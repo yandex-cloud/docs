@@ -43,7 +43,7 @@ If you have an active billing account, you can go to the [cloud page]({{ link-co
 
 ## Install Terraform {#install-terraform}
 
-By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud resources, such as VMs, disks, and images. For more information about resources that can be created with Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud resources, such as VMs, disks, and images. For more information about resources that can be created with Terraform, see the [provider's documentation]({{ tf-provider-link }}).
 
 {% include [terraform_install](../terraform-install.md) %}
 
