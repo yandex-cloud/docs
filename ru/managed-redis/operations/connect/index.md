@@ -98,7 +98,8 @@
 
 ```bash
 mkdir ~/.redis && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt && \
+wget "https://{{ s3-storage-host }}{{ pem-path }}" \
+     --output-document ~/.redis/YandexInternalRootCA.crt && \
 chmod 0655 ~/.redis/YandexInternalRootCA.crt
 ```
 
@@ -107,7 +108,8 @@ chmod 0655 ~/.redis/YandexInternalRootCA.crt
 {% else %}
 
 ```bash
-wget "{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt && \
+wget "{{ pem-path }}" \
+     --output-document ~/.redis/YandexInternalRootCA.crt && \
 chmod 0655 ~/.redis/YandexInternalRootCA.crt
 ```
 

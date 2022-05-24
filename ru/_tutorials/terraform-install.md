@@ -15,7 +15,7 @@ export PATH=$PATH:/path/to/terraform
   Используйте один из способов:
 
   * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите Terraform с помощью пакетного менеджера [Сhocolatey](https://chocolatey.org/install), используя команду:
+  * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
      ```
      choco install terraform

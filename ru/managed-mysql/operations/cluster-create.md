@@ -73,7 +73,7 @@
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
-     yc vpc subnet list
+     $ yc vpc subnet list
      ```
      {% if audience != "internal" %}
 
@@ -89,7 +89,7 @@
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      {{ yc-mdb-my }} cluster create --help
+      $ {{ yc-mdb-my }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания:

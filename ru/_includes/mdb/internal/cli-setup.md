@@ -12,9 +12,7 @@
 
 1. [Установите CLI](https://cloud.yandex.ru/docs/cli/quickstart#install).
 
-1. Убедитесь что у вас установлен [YandexInternalRootCA.crt](https://crls.yandex.net/YandexInternalRootCA.crt). Для платформ
-   Windows и Mac OS сертификат должен быть предустановлен при выдаче оборудования. Для Linux можно воспользоваться
-   следующей [инструкцией](https://wiki.yandex-team.ru/security/ssl/sslclientfix/#vcli-utilitax).
+1. Убедитесь что у вас установлен [YandexInternalRootCA.crt](https://crls.yandex.net/YandexInternalRootCA.crt). Для платформ Windows и Mac OS сертификат должен быть предустановлен при выдаче оборудования. Для Linux можно воспользоваться следующей [инструкцией](https://wiki.yandex-team.ru/security/ssl/sslclientfix/#vcli-utilitax).
 
 1. [Получите OAuth-токен](https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d) для доступа CLI ко внутреннему MDB.
 

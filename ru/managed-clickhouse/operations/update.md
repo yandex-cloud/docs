@@ -46,6 +46,8 @@
 
 {% endnote %}
 
+Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее см. в разделе [{#T}](../concepts/memory-management.md).
+
 {% list tabs %}
 
 - Консоль управления
@@ -113,8 +115,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
      ```
-     {{ yc-mdb-ch }} cluster update <имя кластера>
-       --clickhouse-resource-preset <ID класса>
+     {{ yc-mdb-ch }} cluster update <имя кластера> \
+        --clickhouse-resource-preset=<ID класса>
      ```
 
      {{ mch-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -341,6 +343,14 @@
 {% endlist %}
 
 ## Изменить настройки {{ CH }} {#change-clickhouse-config}
+
+{% note info %}
+
+Изменить значение настройки [Max server memory usage]({% if lang=="ru" %}https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#max_server_memory_usage{% else %}https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#max_server_memory_usage{% endif %}) можно только [изменив класс хостов {{ CH }}](#change-resource-preset).
+
+Подробнее см. в разделе [{#T}](../concepts/memory-management.md).
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -648,8 +658,8 @@
   1. Укажите нужные группы безопасности в команде изменения кластера:
 
       ```
-      {{ yc-mdb-ch }} cluster update <имя кластера>
-        --security-group-ids <список идентификаторов групп безопасности>
+      {{ yc-mdb-ch }} cluster update <имя кластера> \
+         --security-group-ids <список идентификаторов групп безопасности>
       ```
 
 - Terraform

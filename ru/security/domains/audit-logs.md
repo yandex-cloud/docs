@@ -18,7 +18,7 @@
 
 ### Сбор событий {#collect}
 
-Основным инструментом сбора логов уровня {{ yandex-cloud }} является сервис [Yandex Audit Trails](../../audit-trails/concepts/index.md). Сервис позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и загружать эти логи в бакет Object Storage или лог-группу {{ cloud-logging-name }} для дальнейшего анализа или экспорта. Cм. [инструкцию](../../audit-trails/quickstart.md), как запустить сбор логов, а также [формат](../../audit-trails/concepts/format.md) и [справочник](../../audit-trails/concepts/events.md) событий.
+Основным инструментом сбора логов уровня {{ yandex-cloud }} является сервис [Yandex Audit Trails](../../audit-trails/concepts/index.md). Сервис позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и загружать эти логи в бакет Object Storage или лог-группу {{ cloud-logging-name }} для дальнейшего анализа или экспорта. См. [инструкцию](../../audit-trails/quickstart.md), как запустить сбор логов, а также [формат](../../audit-trails/concepts/format.md) и [справочник](../../audit-trails/concepts/events.md) событий.
 
 {% note info %}
 

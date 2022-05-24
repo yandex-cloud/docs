@@ -20,9 +20,9 @@
 1. [Подключите {{ datalens-short-name }} и создайте чарты](#datalens-connection-chart-creation)
     1. [Подключитесь к {{ datalens-short-name }}](#datalens-connection)
     1. [Создайте подключение к {{ CH }} в {{ datalens-short-name }}](#creation-datalens-connection-to-ch)
-    1. [Cоздайте датасет на базе подключения](#creating-dataset-based-on-connection)
+    1. [Создайте датасет на базе подключения](#creating-dataset-based-on-connection)
     1. [Создайте чарт — диаграмма с областями](#creating-area-chart)
-    1. [Создайте чарт — cводная таблица](#creating-pivot-table)
+    1. [Создайте чарт — сводная таблица](#creating-pivot-table)
 1. [Создайте и настройте дашборд в {{ datalens-short-name }}](#creating-configuring-dashboard)
     1. [Создайте дашборд](#creating-dashboard)
     1. [Настройте дашборд](#configuring-dashboard)
@@ -177,7 +177,7 @@
     
    1. После проверки подключения в правом верхнем углу нажмите кнопку **Создать**.
 
-### 3.3 Cоздайте датасет на базе подключения {#creating-dataset-based-on-connection}
+### 3.3 Создайте датасет на базе подключения {#creating-dataset-based-on-connection}
 
 1. В правом верхнем углу нажмите **Создать датасет**.
 1. Выберите таблицу `metrica_data.hits` в качестве источника. Для этого перетащите таблицу из списка слева в область редактирования.
@@ -211,7 +211,7 @@
    
 1. В появившемся окне укажите имя чарта `ch_metrica_data_hits_area` и нажмите кнопку **Сохранить**.
 
-### 3.5 Создайте чарт — cводная таблица {#creating-pivot-table}
+### 3.5 Создайте чарт — сводная таблица {#creating-pivot-table}
 
 Создайте на основе готового чарта еще один чарт – сводную таблицу.
 

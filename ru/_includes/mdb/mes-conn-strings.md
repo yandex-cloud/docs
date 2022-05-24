@@ -95,7 +95,7 @@
    curl \
      --user <имя пользователя>:<пароль> \
      --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
+     --request GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
    ```
    
    {% else %}
@@ -104,7 +104,7 @@
    curl \
      --user <имя пользователя>:<пароль> \
      --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
+     --request GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
    ```
 
   {% endif %}
@@ -140,7 +140,7 @@
   **Перед подключением установите зависимости:**
   
   ```bash
-  sudo apt update && sudo apt install -y python3 python3-pip && \
+  sudo apt update && sudo apt install --yes python3 python3-pip && \
   pip3 install elasticsearch==7.17.2
   ```
 

@@ -543,8 +543,8 @@
   1. Укажите нужные группы безопасности в команде изменения кластера:
 
       ```
-      {{ yc-mdb-kf }} cluster update <имя кластера>
-        --security-group-ids <список групп безопасности>
+      {{ yc-mdb-kf }} cluster update <имя кластера> \
+         --security-group-ids <список групп безопасности>
       ```
 
 - Terraform

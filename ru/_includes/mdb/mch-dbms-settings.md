@@ -279,6 +279,7 @@
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-        Глобальные настройки аутентификации для [интеграции с {{ RMQ }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/){% endif %}:
-        * **Password** — пароль учетной записи {{ RMQ }}.
-        * **Username** — имя учетной записи {{ RMQ }}.
+    Глобальные настройки аутентификации для [интеграции с {{ RMQ }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/){% endif %}:
+
+    * **Password** — пароль учетной записи {{ RMQ }}.
+    * **Username** — имя учетной записи {{ RMQ }}.

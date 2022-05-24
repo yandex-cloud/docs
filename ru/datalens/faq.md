@@ -232,7 +232,7 @@
 
 {% include [copy-folder](../_includes/datalens/qa/copy-folder.md) %}
 
-### В чарте ошибка — клика CHYT недоступна. Как восстановить клику? {#сlique-is-not-running}
+### В чарте ошибка — клика CHYT недоступна. Как восстановить клику? {#clique-is-not-running}
 
 Если вы видите ошибку типа Clique `*chyt_analytics is not running; actual state = failed`, попросите ответственного поднять клику.
 Чтобы найти ответственного:

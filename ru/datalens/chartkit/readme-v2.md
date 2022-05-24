@@ -241,7 +241,7 @@ ChartKit.setSettings({
     lang: 'ru',
     // конфиг источников (для ошибки об источниках и пункта меню "Посмотреть источники")
     // будет скачиваться (/api/private/fetch) при загрузке страницы с ChartKit,
-    // не будет скачиватьcя - если равен false или равен непустому object
+    // не будет скачиваться - если равен false или равен непустому object
     config: {
         charts: {
             dataEndpoint: 'https://charts.yandex-team.ru',

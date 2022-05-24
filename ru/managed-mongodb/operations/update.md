@@ -39,7 +39,7 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```
-      {{ yc-mdb-mg }} cluster update --help
+      $ {{ yc-mdb-mg }} cluster update --help
       ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
@@ -47,7 +47,7 @@
      {% if audience != "internal" %}
 
      ```bash
-     {{ yc-mdb-mg }} resource-preset list
+     $ {{ yc-mdb-mg }} resource-preset list
 
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
@@ -79,8 +79,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
       ```
-      {{ yc-mdb-mg }} cluster update <имя кластера>
-        --mongod-resource-preset <ID класса>
+      $ {{ yc-mdb-mg }} cluster update <имя кластера>
+           --mongod-resource-preset <ID класса>
       ```
 
       {{ mmg-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -219,14 +219,14 @@
   Чтобы изменить [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings) для кластера, используйте команду:
 
   ```
-  {{ yc-mdb-mg }} cluster update-config
+  $ {{ yc-mdb-mg }} cluster update-config
   ```
 
   Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) в `4096`, выполните следующую команду:
 
   ```
-  {{ yc-mdb-mg }} cluster update-config <имя кластера>
-    --set net.max_incoming_connections=4096
+  {{ yc-mdb-mg }} cluster update-config <имя кластера> \
+     --set net.max_incoming_connections=4096
   ```
 
   {{ mmg-short-name }} запустит операцию изменения настроек СУБД для кластера. Если изменяемая настройка применяется только с перезапуском СУБД, то {{ mmg-short-name }} последовательно перезапустит СУБД на всех хостах кластера.

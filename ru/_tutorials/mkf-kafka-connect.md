@@ -96,7 +96,7 @@
 1. Создайте каталог с настройками процесса-исполнителя и скопируйте туда хранилище:
 
     ```bash
-    sudo mkdir -p /etc/kafka-connect-worker && \
+    sudo mkdir --parents /etc/kafka-connect-worker && \
     sudo cp ssl /etc/kafka-connect-worker/client.truststore.jks
     ```
 

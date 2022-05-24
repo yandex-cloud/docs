@@ -1,4 +1,4 @@
-The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the cluster logs from [VM instances](../../compute/concepts/vm.md) to [{{ cloud-logging-full-name }}](../../logging/). The [Fluent Bit plugin for Yandex Cloud Logging](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
+The [Fluent Bit](https://fluentbit.io/) log processor lets you transfer the cluster logs from [VM instances](../compute/concepts/vm.md) to [{{ cloud-logging-full-name }}](../logging/). The [Fluent Bit plugin for Yandex Cloud Logging](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
 
 To configure log transfer from a VM instance created from the {{ coi }} image:
 
@@ -9,9 +9,9 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 
 ## Before you start
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `logging.writer` and `container-registry.images.puller` roles for the folder.
-1. [Create a registry](../../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
-1. [Create a cloud network](../../vpc/operations/network-create.md). When creating, select the **Create subnets** option.
+1. [Create a service account](../iam/operations/sa/create.md) with the `logging.writer` and `container-registry.images.puller` roles for the folder.
+1. [Create a registry](../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
+1. [Create a cloud network](../vpc/operations/network-create.md). When creating, select the **Create subnets** option.
 
 ## Create application that generates logs {#generate-logs}
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
    CMD [ "python", "./logs.py" ]
    ```
 
-   Dockerfile describes a [Docker image](../../container-registry/concepts/docker-image.md) that contains an application generating logs.
+   Dockerfile describes a [Docker image](../container-registry/concepts/docker-image.md) that contains an application generating logs.
 
 1. Build a Docker image:
 
@@ -116,7 +116,7 @@ if __name__ == '__main__':
      -t cr.yandex/<registry_ID>/coi:logs
    ```
 
-1. [Log in](../../container-registry/operations/authentication.md) to the registry and upload a Docker image:
+1. [Log in](../container-registry/operations/authentication.md) to the registry and upload a Docker image:
 
    ```bash
    docker push cr.yandex/<registry_ID>/coi:logs
@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
    Specify the following in the field:
    * `image`: URL of a Docker image. To find it out, in the [management console]({{ link-console-main }}), go to the **Overview of Docker image** page and copy the value of the **Tags** field.
-   * `YC_GROUP_ID`: ID of the [default log group](../../logging/concepts/log-group.md): `default`.
+   * `YC_GROUP_ID`: ID of the [default log group](../logging/concepts/log-group.md): `default`.
 
    In the `fluentbit` section, the `image` field shows the image of a container with the Fluent Bit agent, current at the time of this documentation. For a list of all available images, follow the [link](https://github.com/yandex-cloud/fluent-bit-plugin-yandex/releases).
 
@@ -164,7 +164,7 @@ if __name__ == '__main__':
          - /etc/fluentbit/parsers.conf:/fluent-bit/etc/parsers.conf
    ```
 
-1. Create a `user-data.yaml` file. It describes rules to read container logs. If necessary, in the `users` section, update the username and SSH key. Learn more about how to [generate SSH keys](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+1. Create a `user-data.yaml` file. It describes rules to read container logs. If necessary, in the `users` section, update the username and SSH key. Learn more about how to [generate SSH keys](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    ```yaml
    #cloud-config
    write_files:
@@ -231,8 +231,8 @@ if __name__ == '__main__':
 ## Create a VM from a {{ coi }} image {#create-vm}
 
 Specify the following in the field:
-* `zone`: [Availability zone](../../overview/concepts/geo-scope.md), for example `ru-central1-a`.
-* `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) in the indicated zone.
+* `zone`: [Availability zone](../overview/concepts/geo-scope.md), for example `ru-central1-a`.
+* `subnet-name`: Name of the [subnet](../vpc/concepts/network.md#subnet) in the indicated zone.
 * `service-account-name`: Service account name.
 
 ```bash
@@ -259,9 +259,9 @@ yc compute instance create \
 
 - CLI
 
-   {% include [cli-install](../cli-install.md) %}
+   {% include [cli-install](../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../default-catalogue.md) %}
+   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
    To view records in the log group, run the command:
    ```
@@ -272,7 +272,7 @@ yc compute instance create \
 
 - API
 
-   You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md).
+   You can view the entries in a log group using the API [read](../logging/api-ref/grpc/log_reading_service.md).
 
 {% endlist %}
 
@@ -281,8 +281,8 @@ yc compute instance create \
 
 If you no longer need these resources, delete them:
 
-1. [Delete a cloud network](../../vpc/operations/network-delete.md).
-1. [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
-1. [Delete the registry](../../container-registry/operations/registry/registry-delete.md).
-1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
-1. [Delete the log group](../../logging/operations/delete-group.md).
+1. [Delete a cloud network](../vpc/operations/network-delete.md).
+1. [Delete the Docker image](../container-registry/operations/docker-image/docker-image-delete.md).
+1. [Delete the registry](../container-registry/operations/registry/registry-delete.md).
+1. [Delete the VM](../compute/operations/vm-control/vm-delete.md).
+1. [Delete the log group](../logging/operations/delete-group.md).
