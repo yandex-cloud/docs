@@ -1,8 +1,8 @@
 # Шифрование секретов в Hashicorp Terraform
 
-[Terraform-провайдер для {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html) позволяет зашифровать секреты ключом {{ kms-short-name }} для последующего их использования в Terraform-конфигурации.
+[Terraform-провайдер для {{ yandex-cloud }}]({{ tf-provider-link }}/) позволяет зашифровать секреты ключом {{ kms-short-name }} для последующего их использования в Terraform-конфигурации.
 
-Открытый текст и ключ {{ kms-short-name }}, который следует использовать для шифрования, необходимо указать в блоке [yandex_kms_secret_ciphertext](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kms_secret_ciphertext):
+Открытый текст и ключ {{ kms-short-name }}, который следует использовать для шифрования, необходимо указать в блоке [yandex_kms_secret_ciphertext]({{ tf-provider-link }}/kms_secret_ciphertext):
 
 ```
 resource "yandex_kms_secret_ciphertext" "encrypted_strong_password" {
@@ -28,5 +28,5 @@ resource "yandex_kms_secret_ciphertext" "encrypted_strong_password" {
 ## См. также {#see-also}
 
 * [Начало работы с Terraform в {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
-* [Документация провайдера {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html).
+* [Документация провайдера {{ yandex-cloud }}]({{ tf-provider-link }}/).
 * [Sensitive Data in State](https://www.terraform.io/docs/state/sensitive-data.html).

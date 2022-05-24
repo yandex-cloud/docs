@@ -79,7 +79,7 @@
      }
      ```
      
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_bucket) провайдера Terraform.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-link }}/storage_bucket) провайдера Terraform.
      
   1. Проверьте корректность настроек.
 
