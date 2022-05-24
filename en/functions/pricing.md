@@ -1,20 +1,20 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ sf-name }}
 
 ## What goes into the cost of using {{ sf-name }} {#rules}
 
-In {{ sf-name }}, you're billed for the number of functions invoked, computing resources allocated for the function, and outgoing traffic.
+In {{ sf-name }}, you're billed for the number of function calls, computing resources allocated for the function, and outgoing traffic.
 
-When billing computing resources (GB×hour), the memory allocated for the function and function execution time are taken into account:
-
+When billing computing resources (GB × hour), the memory allocated for the function and function execution time are taken into account:
 * The amount of memory specified when [creating a version](operations/function/version-manage.md#func-version-create), in GB.
-* The execution time for each function invocation in hours, rounded up to the nearest multiple of 100 ms.
+* The execution time for each function call in hours, rounded up to the nearest multiple of 100 ms.
 
 {% note warning %}
 
-You're charged for all the [functions invoked](concepts/function-invoke.md) that trigger your code to run.
+You're charged for all the [function calls](concepts/function-invoke.md) that trigger your code to run.
 
 {% endnote %}
 
@@ -30,26 +30,27 @@ Monthly cost = ₽5.47 × Memory (GB) × Call processing time (Hours) + ₽16 ×
 
 ### Example of cost calculation {#price-example}
 
-Example of calculating the cost of a function:
+Example of calculating the cost of a function that has:
 * **Memory specified when creating the version:** 512 MB.
-* **Number of functions invoked:** 10000000.
+* **Number of function calls:** 10000000.
 * **Execution time of each call:** 800 ms.
 
 Function cost calculation:
 
-> 5.47 × ((512 / 1024) × (800 / 3600 / 1000) × 10000000 – 10) + 16 × (10000000 / 1000000 – 1)
-
-Total: ₽6167.08
+> 5.47 × ((512 / 1024) × (800 / 3600 / 1000) × 10000000 – 10) + 16 × ((10000000 – 1000000) / 1000000)
+>
+> Total: ₽6167.08
 
 Where:
-* 5.47 is the price for 1 GB × hour.
+* 5.47 is the price for 1 GB×hour.
 * 512 / 1024 converts MB to GB, since execution time is calculated in GB×hour.
 * 800 / 3600 / 1000 converts milliseconds to hours, since execution time is calculated in GB×hour.
 * 10000000 is the number of function calls.
-* 10 is subtracted because the first 10 GB x hour are free.
-* 16: Cost per 1 million functions invoked.
-* 10000000/1000000: Number of millions of functions invoked.
-* 1 is subtracted because the first million calls are free.
+* 10 is subtracted because the first 10 GB×hour are free.
+* 16: Cost per 1 million function calls.
+* 10000000 is the number of function calls.
+* 1000000 is subtracted because the first million calls are free.
+* 1000000 is the divisor used to calculate the number of millions of function calls.
 
 {% endif %}
 
@@ -57,7 +58,42 @@ Where:
 
 ### Pricing formula
 
-Monthly cost = ₸20.52 × Memory (GB) × Call processing time (Hours) + ₸60 × Million calls
+Monthly cost = ₸27.35 × Memory (GB) × Call processing time (Hours) + ₸80 × Million calls
+
+{% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
+
+{% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
+
+### Example of cost calculation {#price-example}
+
+Example of calculating the cost of a function that has:
+* **Memory specified when creating the version:** 512 MB.
+* **Number of function calls:** 10000000.
+* **Execution time of each call:** 800 ms.
+
+Function cost calculation:
+
+> 27.35 × ((512 / 1024) × (800 / 3600 / 1000) × 10000000 – 10) + 80 × ((10000000 – 1000000) / 1000000)
+>
+> Total: ₸30835.39
+
+Where:
+* 27.35 is the price for 1 GB×hour.
+* 512 / 1024 converts MB to GB, since execution time is calculated in GB×hour.
+* 800 / 3600 / 1000 converts milliseconds to hours, since execution time is calculated in GB×hour.
+* 10000000 is the number of function calls.
+* 10 is subtracted because the first 10 GB×hour are free.
+* 80: Cost per 1 million function calls.
+* 10000000 / 1000000: Number of millions of functions invoked.
+* 1 is subtracted because the first million calls are free.
+
+{% endif %}
+
+{% if region == "int"%}
+
+### Pricing formula
+
+Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.128000 × Million calls
 
 {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
 
@@ -72,54 +108,20 @@ Example of calculating the cost of a function:
 
 Function cost calculation:
 
-> 27.35 × ((512 / 1024) × (800 / 3600 / 1000) × 10000000 – 10) + 80 × (10000000 / 1000000 – 1)
-
-Total: ₸30835.39
-
-Where:
-* 27.35 is the price for 1 GB × hour.
-* 512 / 1024 converts MB to GB, since execution time is calculated in GB×hour.
-* 800 / 3600 / 1000 converts milliseconds to hours, since execution time is calculated in GB×hour.
-* 10000000 is the number of function calls.
-* 10 is subtracted because the first 10 GB x hour are free.
-* 80 is the price of 1 million function calls.
-* 10000000/1000000: Number of millions of functions invoked.
-* 1 is subtracted because the first million calls are free.
-
-{% endif %}
-
-{% if region == "int"%}
-
-### Pricing formula
-
-Monthly cost = $0.043846 × Memory (GB) × Call processing time (Hours) + $0.128205 × Million calls
-
-At the same time, there is no charge for the first:
-* 10 GB × hour.
-* Million calls.
-
-### Example of cost calculation {#price-example}
-
-Example of calculating the cost of a function:
-* **Memory specified when creating the version:** 512 MB.
-* **Number of functions invoked:** 10000000.
-* **Execution time of each call:** 800 ms.
-
-Function cost calculation:
-
-> 0.043846 × ((512 / 1024) × (800 / 3600 / 1000) × 10000000 -10) + 0.128205 × (10000000 / 1000000 - 1)
+> 0.043760 × ((512 / 1024) × (800 / 3600 / 1000) × 10000000 -10) + 0.128000 × ((10000000 – 1000000) / 1000000)
 > 
-> Total: $49.433163
+> Total: $49.336622
 
 Where:
-* 0.043846 is the price for 1 GB × hour.
+* 0.043760 is the price for 1 GB × hour.
 * 512 / 1024 converts MB to GB, since execution time is calculated in GB×hour.
 * 800 / 3600 / 1000 converts milliseconds to hours, since execution time is calculated in GB×hour.
 * 10000000 is the number of function calls.
 * 10 is subtracted because the first 10 GB x hour are free.
-* 0.128205 is the price of 1 million function calls.
-* 10000000/1000000: Number of millions of functions invoked.
-* 1 is subtracted because the first million calls are free.
+* 0.128000 is the price of 1 million function calls.
+* 10000000 is the number of function calls.
+* 1000000 is subtracted because the first million calls are free.
+* 1000000 is the divisor used to calculate the number of millions of function calls.
 
 {% endif %}
 
@@ -149,7 +151,11 @@ Where:
 
 {% endif %}
 
-{% if region == "int" %}You are charged for an actual number of invokes. E.g., the cost of 1000 invokes will be `$0.000128` at the price of `$0.128205` for 1 million invokes.{% endif %}
+{% if region == "int" %}
+
+You pay for the actual number of invocations. The cost of a thousand calls, for instance, will be `$0.000128` at `$0.128000` for 1 million calls.
+
+{% endif %}
 
 ### Function execution time {#execution}
 
