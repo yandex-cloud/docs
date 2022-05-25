@@ -357,7 +357,7 @@ In other words, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, or {
 If you only need to restore a single schema, add the `-n <schema name>` flag (without it, the command only runs on behalf of the database owner). Best practice is to restore data with the `--single-transaction` flag to avoid an inconsistent state of the database if an error occurs:
 
 ```bash
-pg_dump -h <IP address or FQDN of the master host of the target cluster> \
+pg_restore -h <IP address or FQDN of the master host of the target cluster> \
            -U <username>
            -d <database name> \
            -p {{ port-mpg }} \
