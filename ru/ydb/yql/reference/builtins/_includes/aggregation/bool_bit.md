@@ -4,6 +4,13 @@ sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/aggregation/bool_bi
 ---
 ## BOOL_AND, BOOL_OR и BOOL_XOR {#bool-and-or-xor}
 
+**Сигнатура**
+```
+BOOL_AND(Bool?)->Bool?
+BOOL_OR(Bool?)->Bool?
+BOOL_XOR(Bool?)->Bool?
+```
+
 Применение соответствующей логической операции (`AND`/`OR`/`XOR`) ко всем значениям булевой колонки или выражения.
 
 Эти функции **не пропускают** `NULL` значение при агрегации, единственное `NULL` значение превратит результат в `NULL`. Для агрегации с пропуском `NULL`-ов можно использовать функции `MIN`/`MAX` или `BIT_AND`/`BIT_OR`/`BIT_XOR`.

@@ -4,6 +4,12 @@ sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/aggregation/topfreq
 ---
 ## TOPFREQ и MODE {#topfreq-mode}
 
+**Сигнатура**
+```
+TOPFREQ(T [, num:Uint32 [, bufSize:Uint32]])->List<Struct<Frequency:Uint64, Value:T>>
+MODE(T [, num:Uint32 [, bufSize:Uint32]])->List<Struct<Frequency:Uint64, Value:T>>
+```
+
 Получение приближенного списка самых часто встречающихся значений колонки с оценкой их числа. Возвращают список структур с двумя полями:
 
 * `Value`— найденное часто встречающееся значение;

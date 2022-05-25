@@ -43,3 +43,4 @@ SELECT 1 AS x, 2 as y
 UNION ALL
 SELECT * FROM AS_TABLE([<|x:3, y:4|>]); -- ошибка: порядок колонок в AS_TABLE не определен
 ```
+

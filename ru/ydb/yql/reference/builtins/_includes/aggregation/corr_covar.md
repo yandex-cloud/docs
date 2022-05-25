@@ -4,6 +4,14 @@ sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/aggregation/corr_co
 ---
 ## CORRELATION и COVARIANCE {#correlation-covariance}
 
+**Сигнатура**
+```
+CORRELATION(Double?, Double?)->Double?
+COVARIANCE(Double?, Double?)->Double?
+COVARIANCE_SAMPLE(Double?, Double?)->Double?
+COVARIANCE_POPULATION(Double?, Double?)->Double?
+```
+
 Корреляция и ковариация двух колонок.
 
 Также доступны сокращенные версии `CORR` или `COVAR`, а для ковариации - версии с суффиксом `SAMPLE` / `POPULATION` по аналогии с описанной выше [VARIANCE](#variance).

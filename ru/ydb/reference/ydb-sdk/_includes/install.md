@@ -20,7 +20,7 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/_includes/install.md
 - Go
 
   Выполните команду из командной строки:
-  
+
   {% include [install/cmd_go.md](install/cmd_go.md) %}
 
   Для успешной установки в вашем окружении должен быть установлен [Go](https://go.dev/doc/install) версии не ниже 1.13.
@@ -40,5 +40,9 @@ sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/_includes/install.md
 - Node.JS
 
   {% include [install/cmd_nodejs.md](install/cmd_nodejs.md) %}
+
+- Rust
+
+  {% include [install/cmd_rust.md](install/cmd_rust.md) %}
 
 {% endlist %}

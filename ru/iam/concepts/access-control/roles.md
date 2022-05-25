@@ -138,6 +138,16 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
 
+## {{ mes-name }} {#mes-roles}
+
+{% include [elasticsearch-viewer](../../../_includes/iam/roles/elasticsearch-viewer.md) %}
+
+{% include [elasticsearch-editor](../../../_includes/iam/roles/elasticsearch-editor.md) %}
+
+{% include [elasticsearch-admin](../../../_includes/iam/roles/elasticsearch-admin.md) %}
+
+{% include [elasticsearch-auditor](../../../_includes/iam/roles/elasticsearch-auditor.md) %}
+
 ## {{ monitoring-name }} {#monitoring-roles}
 
 {% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-viewer.md) %}
