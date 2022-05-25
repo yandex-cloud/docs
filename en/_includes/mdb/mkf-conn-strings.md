@@ -213,7 +213,7 @@ Before connecting:
                         while (true)
                         {
                             var cr = consumer.Consume();
-                            Console.WriteLine(cr.Message.Value);
+                            Console.WriteLine($"{cr.Message.Key}:{cr.Message.Value}");
                         }
                     }
                     catch (OperationCanceledException)
@@ -340,7 +340,7 @@ Before connecting:
                         while (true)
                         {
                             var cr = consumer.Consume();
-                            Console.WriteLine(cr.Message.Value);
+                            Console.WriteLine($"{cr.Message.Key}:{cr.Message.Value}");
                         }
                     }
                     catch (OperationCanceledException)
@@ -1251,7 +1251,7 @@ npm install node-rdkafka
           consumer.consume();
         })
         .on('data', function(data) {
-          console.log(data.value.toString());
+          console.log(data.key + ":" + data.value.toString());
         });
       
       process.on('SIGINT', () => {
@@ -1350,7 +1350,7 @@ npm install node-rdkafka
           consumer.consume();
         })
         .on('data', function(data) {
-          console.log(data.value.toString());
+          console.log(data.key + ":" + data.value.toString());
         });
       
       process.on('SIGINT', () => {
