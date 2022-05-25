@@ -8,15 +8,15 @@
 {% set admin_role = 'mdb_admin' %}
 {% set schema = 'mdb_toolkit' %}
 
-CREATE OR REPLACE FUNCTION {{ schema }}.pg_stat_activity() RETURNS SETOF pg_stat_activity AS
+CREATE OR REPLACE FUNCTION not_var{{ schema }}.pg_stat_activity() RETURNS SETOF pg_stat_activity AS
 $$ SELECT * FROM pg_catalog.pg_stat_activity; $$
 LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
 
-CREATE OR REPLACE FUNCTION {{ schema }}.pg_locks() RETURNS SETOF pg_locks AS
+CREATE OR REPLACE FUNCTION not_var{{ schema }}.pg_locks() RETURNS SETOF pg_locks AS
 $$ SELECT * FROM pg_catalog.pg_locks; $$
 LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
 
-CREATE OR REPLACE FUNCTION {{ schema }}.session_level_memory_consumption() RETURNS SETOF session_state.session_level_memory_consumption AS
+CREATE OR REPLACE FUNCTION not_var{{ schema }}.session_level_memory_consumption() RETURNS SETOF session_state.session_level_memory_consumption AS
 $$ SELECT * FROM session_state.session_level_memory_consumption; $$
 LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
 ```
