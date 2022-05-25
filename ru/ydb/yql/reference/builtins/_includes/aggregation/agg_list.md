@@ -4,6 +4,14 @@ sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/aggregation/agg_lis
 ---
 ## AGGREGATE_LIST {#agg-list}
 
+**Сигнатура**
+```
+AGGREGATE_LIST(T? [, limit:Uint64])->List<T>
+AGGREGATE_LIST(T [, limit:Uint64])->List<T>
+AGGREGATE_LIST_DISTINCT(T? [, limit:Uint64])->List<T>
+AGGREGATE_LIST_DISTINCT(T [, limit:Uint64])->List<T>
+```
+
 Получить все значения столбца в виде списка. В сочетании с `DISTINCT` возвращает только уникальные значения. Опциональный второй параметр задает максимальное количество получаемых значений.  
 
 Если заранее известно, что уникальных значений не много, то лучше воспользоваться агрегатной функцией `AGGREGATE_LIST_DISTINCT`, которая строит тот же результат в памяти (которой при большом числе уникальных значений может не хватить).

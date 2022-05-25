@@ -4,6 +4,14 @@ sourcePath: ru/ydb/yql/reference/yql-core/builtins/_includes/aggregation/top_bot
 ---
 ## TOP и BOTTOM {#top-bottom}
 
+**Сигнатура**
+```
+TOP(T?, limit:Uint32)->List<T>
+TOP(T, limit:Uint32)->List<T>
+BOTTOM(T?, limit:Uint32)->List<T>
+BOTTOM(T, limit:Uint32)->List<T>
+```
+
 Вернуть список максимальных/минимальных значений выражения. Первый аргумент - выражение, второй - ограничение на количество элементов.
 
 **Примеры**
@@ -25,6 +33,14 @@ FROM my_table;
 ```
 
 ## TOP_BY и BOTTOM_BY {#top-bottom-by}
+
+**Сигнатура**
+```
+TOP_BY(T1?, T2, limit:Uint32)->List<T1>
+TOP_BY(T1, T2, limit:Uint32)->List<T1>
+BOTTOM_BY(T1?, T2, limit:Uint32)->List<T1>
+BOTTOM_BY(T1, T2, limit:Uint32)->List<T1>
+```
 
 Вернуть список значений первого аргумента для строк с максимальными/минимальными значениями второго аргумента. Третий аргумент - ограничение на количество элементов в списке.
 
