@@ -8,6 +8,12 @@
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли необходимы](#required-roles) для того или иного действия.
 
+{% if audience != "internal" %}
+
+Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/index.md#passport) или с [федеративным аккаунтом](../../iam/concepts/index.md#saml-federation).
+
+{% endif %}
+
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 ## На какие ресурсы можно назначить роль {#resources}
@@ -18,9 +24,37 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-{% include [roles-mdb](../../_includes/roles-mdb.md) %}
+{% include [elasticsearch-viewer](../../_includes/iam/roles/elasticsearch-viewer.md) %}
 
-## Какие роли мне необходимы {#required-roles}
+{% include [elasticsearch-editor](../../_includes/iam/roles/elasticsearch-editor.md) %}
+
+{% include [elasticsearch-admin](../../_includes/iam/roles/elasticsearch-admin.md) %}
+
+{% include [elasticsearch-auditor](../../_includes/iam/roles/elasticsearch-auditor.md) %}
+
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
+
+## Какие роли необходимы {#required-roles}
 
 В таблице ниже перечислены возможные действия с ресурсами кластера и роли, которые нужны для их выполнения.
 

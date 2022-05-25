@@ -213,6 +213,12 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
+  roles:
+    mes:
+      admin: managed-elasticsearch.admin
+      auditor: managed-elasticsearch.auditor
+      editor: managed-elasticsearch.editor
+      viewer: managed-elasticsearch.viewer
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
