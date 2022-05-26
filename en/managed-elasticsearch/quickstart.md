@@ -78,11 +78,23 @@ It is assumed that all the steps below are performed on Linux.
 To connect to a cluster:
 1. Install an SSL certificate:
 
+   {% if audience != "internal" %}
+
    ```bash
-   mkdir -p ~/.elasticsearch
-   wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
+   mkdir -p ~/.elasticsearch && \
+   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
    chmod 0600 ~/.elasticsearch/root.crt
    ```
+
+   {% else %}
+
+   ```bash
+   mkdir -p ~/.elasticsearch && \
+   wget "https://{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
+   chmod 0600 ~/.elasticsearch/root.crt
+   ```
+
+   {% endif %}
 
 1. Connect to the cluster using [cURL](https://curl.haxx.se/):
 

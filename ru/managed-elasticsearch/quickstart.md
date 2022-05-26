@@ -77,13 +77,25 @@
 Чтобы подключиться к кластеру:
 1. Установите SSL-сертификат:
 
+   {% if audience != "internal" %}
+
    ```bash
-   mkdir -p ~/.elasticsearch
-   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
+   mkdir -p ~/.elasticsearch && \
+   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
    chmod 0600 ~/.elasticsearch/root.crt
    ```
 
-1. Подключитесь к кластеру с помошью утилиты [cURL](https://curl.haxx.se/):
+   {% else %}
+
+   ```bash
+   mkdir -p ~/.elasticsearch && \
+   wget "https://{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
+   chmod 0600 ~/.elasticsearch/root.crt
+   ```
+
+   {% endif %}
+
+1. Подключитесь к кластеру с помощью утилиты [cURL](https://curl.haxx.se/):
 
    ```bash
    curl \
