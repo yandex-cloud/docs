@@ -60,11 +60,14 @@
 Подготовьте сервис-источник к отправке данных:
 
 * [{{ KF }}](operations/prepare.md#source-kf);
+* [AWS CloudTrail](operations/prepare.md#source-aws);
+* [BigQuery](operations/prepare.md#source-bigquery);
 * [{{ CH }}](operations/prepare.md#source-ch);
 * [{{ GP }}](operations/prepare.md#source-gp);
 * [{{ MG }}](operations/prepare.md#source-mg);
 * [{{ MY }}](operations/prepare.md#source-my);
 * [{{ PG }}](operations/prepare.md#source-pg);
+* [S3](operations/prepare.md#source-s3);
 * [{{ yds-full-name }}](operations/prepare.md#source-yds).
 
 Подготовьте сервис-приемник к получению данных:

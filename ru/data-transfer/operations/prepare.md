@@ -22,6 +22,20 @@
 
 {% endlist %}
 
+### Источник AWS CloudTrail {#source-aws}
+
+Получите идентификатор ключа и секретный ключ доступа AWS, следуя [инструкции AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
+
+Подробнее см. в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/aws-cloudtrail/).
+
+### Источник BigQuery {#source-bigquery}
+
+1. [Создайте учетную запись](https://cloud.google.com/iam/docs/creating-managing-service-accounts) Google Cloud.
+1. [Добавьте учетную запись](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) в качестве участника в проект Google Cloud с ролью `BigQuery User`.
+1. [Создайте ключ учетной записи](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) Google Cloud.
+
+Подробнее см. в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/bigquery).
+
 ### Источник {{ CH }} {#source-ch}
 
 {% list tabs %}
@@ -394,6 +408,12 @@
 Об особенностях переноса данных из {{ PG }} в {{ CH }} трансферами типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ см. в разделе [Перенос данных из {{ PG }} в {{ CH }}](../tutorials/rdbms-to-clickhouse.md).
 
 {% endnote %}
+
+### Источник S3 {#source-s3}
+
+Если вы используете частный бакет в качестве источника, предоставьте разрешения `read` и `list` учетной записи, которую будете использовать для подключения.
+
+Подробнее см. в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/s3/).
 
 ### Источник {{ yds-full-name }} {#source-yds}
 
@@ -827,5 +847,7 @@
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
 Чтобы принимать данные в сервисе {{ ydb-full-name }}, подготовка не требуется.
+
+{% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
