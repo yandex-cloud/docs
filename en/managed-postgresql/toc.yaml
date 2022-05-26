@@ -52,7 +52,7 @@ items:
           - name: Logical PostgreSQL replication
             href: tutorials/replication-overview.md
           - name: Migrating databases to Managed Service for PostgreSQL
-            href: operations/data-migration.md
+            href: tutorials/data-migration.md
           - name: Migrating databases from Managed Service for PostgreSQL
             href: tutorials/outbound-replication.md
           - name: >-

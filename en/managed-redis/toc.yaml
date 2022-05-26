@@ -23,7 +23,7 @@ items:
             href: operations/connect/sharded.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
-      - name: Updating a Redis version
+      - name: Redis version update
         href: operations/cluster-version-update.md
       - name: Managing hosts in a cluster
         href: operations/hosts.md

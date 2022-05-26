@@ -18,15 +18,7 @@
   
   **Подключение с использованием SSL-соединения для более старых версий `mongo`:**
   
-  ```bash
-  mongosh --norc \
-          --ssl \
-          --sslCAFile /home/<домашняя директория>/.mongodb/root.crt \
-          --host '<FQDN хоста 1 {{ MG }}>:{{ port-mmg }},...,<FQDN хоста N {{ MG }}>:{{ port-mmg }}' \
-          --username <имя пользователя БД> \
-          --password <пароль пользователя БД> \
-          <имя БД>
-  ```
+  {% include [default-connstring-old](./mmg/default-connstring-old.md) %}
   
   **Подключение без использования SSL-соединения:**
 

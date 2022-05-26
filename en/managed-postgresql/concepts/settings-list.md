@@ -23,29 +23,26 @@ Values of some {{ PG }} settings can be automatically adjusted when you change t
 
 List of settings that depend on the host class:
 
-- [Autovacuum max workers](#setting-autovacuum-max-workers).
-- [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay).
-- [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit).
-- [Conn limit](#setting-conn-limit).
-- [Max connections](#setting-max-connections).
-- [Shared buffers](#setting-shared-buffers).
+- [Autovacuum max workers](#setting-autovacuum-max-workers)
+- [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay)
+- [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit)
+- [Conn limit](#setting-conn-limit)
+- [Max connections](#setting-max-connections)
+- [Shared buffers](#setting-shared-buffers)
 
 List of settings that depend on the storage size:
 
-- [Max wal size](#setting-max-wal-size).
-- [Min wal size](#setting-min-wal-size).
+- [Max wal size](#setting-max-wal-size)
+- [Min wal size](#setting-min-wal-size)
 
-## Cluster-level DBMS settings {#dbms-cluster-settings}
+## Cluster-level settings {#dbms-cluster-settings}
 
 You can use the following settings:
 
 {% include [mpg-dbms-settings](../../_includes/mdb/mpg-dbms-settings.md) %}
 
-## Custom settings {#dbms-user-settings}
+## User-level settings {#dbms-user-settings}
 
 These settings affect the behavior of {{ PG }} when handling user queries.
 
-You can use the following settings:
-
 {% include [mpg-dbms-user-settings](../../_includes/mdb/mpg-dbms-user-settings.md) %}
-

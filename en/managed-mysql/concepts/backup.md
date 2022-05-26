@@ -6,11 +6,12 @@ keywords:
   - backup MySQL
   - MySQL
 ---
+
 # Backups
 
 {{ mmy-short-name }} provides automatic and manual database backups.
 
-[A physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all cluster data is automatically created once a day and stored for 7 days. You can't disable automatic backups or change the retention period.
+A [physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all cluster data is automatically created every day and stored for 7 days. You can't disable automatic backups or change the retention period.
 
 {{ mmy-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the Binary Logs of later cluster backups.
 
@@ -22,13 +23,14 @@ When creating backups and restoring data from them to a given point in time, kee
 
 * It takes some time to create and upload a binary log archive to object storage. This is why the cluster state stored in object storage may differ from the actual one.
 
-* When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
+* When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
-    When restoring to the current state, the new cluster will reflect the state of:
-    * An existing cluster at the time of recovery.
-    * A deleted cluster at the time of archiving the last binary log.
+   When restoring to the current state, the new cluster will reflect the state of:
 
-To learn more about PITR, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html).
+   * An existing cluster at the time of recovery.
+   * A deleted cluster at the time of archiving the last binary log.
+
+Learn more about PITR in the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html).
 
 To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md).
 
@@ -41,17 +43,24 @@ Backups can be automatic or manual. In both cases, the following scheme is used:
 
 After a backup is created, it's compressed for storage. The exact backup size isn't displayed.
 
-The backup start time is set when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
+In single-host clusters, you create a backup by reading data from the master host while the solution for multi-host clusters is to read one of the replicas, since it is a resource-intensive operation. In this case:
+
+* The replica with the highest backup priority is selected. You can set the priority when [creating](../operations/cluster-create.md) a cluster, [adding](../operations/hosts.md#add) new hosts, or [modifying the settings](../operations/hosts.md#update) of the existing ones. This defines which replica to use for backups. The minimum backup priority value is `0`, the maximum is `100`, and the default is `0`.
+* If there are several replicas with the highest priority, a backup source is selected randomly from among these.
+
+If the service is unable to create a backup using the selected replica, the backup operation will proceed with the master host.
+
+The backup process start time is set when a cluster is [created](../operations/cluster-create.md) or [updated](../operations/update.md#change-additional-settings). By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
 Backups are only created on running clusters. If you don't use a {{ mmy-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
-To learn how to manually create a backup, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 
 Storing backups in {{ mmy-name }}:
 
-* Backups are stored in Yandex internal storage as binary files and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
+* Backups are kept in Yandex internal storage as binaries and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 
 * All backups (automatic or manual) are stored for 7 days.
 
@@ -59,7 +68,7 @@ Storing backups in {{ mmy-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    For more information, see the [Pricing policy for {{ mmy-name }}](../pricing.md#rules-storage).
+   For more information, see the [Pricing policy for {{ mmy-name }}](../pricing.md#rules-storage).
 
 ## Checking backups {#verify}
 
@@ -70,4 +79,3 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
-

@@ -18,7 +18,7 @@ Segment hosts directly store data and process requests to it, so they are more r
     <data volume without compression> × 1.5
     ```
 
-    The resulting size is correct when using standard level 1 compression (zstd) (see [Creating column-oriented tables](../concepts/tables.md#create-columnar-table)). It also takes into account data mirroring, space for temporary files when executing heavy queries, and free space for the DBMS.
+   The resulting size is correct when using standard level 1 compression (zstd) (see [Creating column-oriented tables](../concepts/tables.md#create-columnar-table)). It also takes into account data mirroring, space for temporary files when executing heavy queries, and free space for the DBMS.
 
 * The recommended total size of RAM of the segment hosts is:
 

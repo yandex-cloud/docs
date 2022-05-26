@@ -10,7 +10,7 @@ Set the **Sessions sampling interval** and **Statements sampling interval**. Bot
 
 ## Getting session statistics {#get-sessions}
 
-1. In the management console, go to the folder page and select **{{ mmy-name }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mmy-name }}**.
 
 1. Click on the name of the desired cluster and select **Performance diagnostics** → **Sessions**.
 
@@ -38,7 +38,7 @@ Set the **Sessions sampling interval** and **Statements sampling interval**. Bot
 
 ## Getting query statistics {#get-queries}
 
-1. In the management console, go to the folder page and select **{{ mmy-name }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mmy-name }}**.
 1. Click on the name of the desired cluster and select **Performance diagnostics** → **Queries**.
 
     To view query statistics or compare them in two time intervals, select the appropriate tab.

@@ -20,24 +20,36 @@ You can assign roles for a [cloud](../../resource-manager/concepts/resources-hie
 
 ## What roles exist in the service {#roles-list}
 
-### Service roles {#service-roles}
+{% include [data-transfer-viewer](../../_includes/roles-data-transfer-viewer.md) %}
 
-| Role | Permissions |
-| ----- | ----- |
-| `{{ roles-data-transfer-admin }}` | Enables you to manage (create, modify, and delete) [endpoints](../concepts/index.md#endpoint) and [transfers](../concepts/index.md#transfer) as well as activate and deactivate transfers. |
-| `{{ roles-data-transfer-viewer }}` | Only enables you to view information about the resources of the {{ data-transfer-name }} service. |
+{% include [data-transfer-privateadmin](../../_includes/roles-data-transfer-privateadmin.md) %}
 
-### Roles of other {{ yandex-cloud }} services {#other-roles}
+{% include [data-transfer-admin](../../_includes/roles-data-transfer-admin.md) %}
 
-{% include [roles-resource-manager](../../_includes/roles-resource-manager.md) %}
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
 
-### Primitive roles {#primitive-roles}
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-{% include [roles-primitive](../../_includes/roles-primitive.md) %}
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
 
-## What roles do I need {#required-roles}
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
-To use the service, you need the [role](../../iam/concepts/access-control/roles.md) `editor` or higher to the folder where [transfers](../concepts/index.md#transfer) and [endpoints](../concepts/index.md#endpoint) are created. With the `viewer` role, you can only view the list of existing transfers and endpoints.
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
+
+## Roles required {#required-roles}
+
+
+To use the service, you need the [role](../../iam/concepts/access-control/roles.md) of `editor` or higher to the folder that projects are being created in. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
 
 You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
 

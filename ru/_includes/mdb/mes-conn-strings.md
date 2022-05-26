@@ -80,19 +80,12 @@
 
   **Пример команды для подключения с использованием SSL-соединения :**
 
-     
-  ```bash
-   curl \
-     --user <имя пользователя>:<пароль> \
-     --cacert ~/.elasticsearch/root.crt \
-     --request GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
-   ```
+  {% include [default-connstring](./mes/default-connstring.md) %}
 
 - PowerShell
 
   **Пример команды для подключения с использованием SSL-соединения :**
 
-  
   ```powershell
    curl `
      -Certificate <абсолютный путь к файлу сертификата> `

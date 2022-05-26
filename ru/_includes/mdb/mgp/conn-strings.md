@@ -23,14 +23,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 - Подключение с SSL
 
-  ```bash
-  psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
-        port={{ port-mgp }} \
-        sslmode=verify-full \
-        dbname=postgres \
-        user=<имя пользователя> \
-        target_session_attrs=read-write"
-  ```
+  {% include [default-connstring](default-connstring.md) %}
 
 {% endlist %}
 

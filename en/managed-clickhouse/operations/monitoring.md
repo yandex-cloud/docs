@@ -94,7 +94,7 @@ If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used,
   For more information about Znodes, Ephemeral nodes, and Watches, see the [{{ ZK }} documentation](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
 
   {% endnote %}
-  
+
   * **Memory usage**: The use of RAM in bytes.
   * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed: in bytes and %).
   * **Network data received per host**: Network data receipt rate on each host (bytes per second).
@@ -110,7 +110,7 @@ If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used,
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the status of individual {{ mch-name }} hosts:
+To view detailed information about the state of individual {{ mch-name }} hosts:
 
 1. Go to the folder page and select **{{ mch-name }}**.
 1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
@@ -141,7 +141,9 @@ To set up [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status me
 
 To have other cluster health indicators monitored automatically:
 
+
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
+
 1. Add a status metric.
 1. Using parameters, set the alert threshold values.
 
@@ -155,6 +157,8 @@ Recommended threshold values:
 | Number of healthy hosts | `is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
 
 To determine the threshold values for the `ch_system_events_FailedQuery_rate` metric, use the `Total queries` value [for the cluster](#monitoring-cluster).
+
+For the current storage size, see [detailed information about the cluster](cluster-list.md#get-cluster).
 
 ## Cluster state and status {#cluster-health-and-status}
 

@@ -10,15 +10,15 @@ description: "What is Managed Service for ClickHouse? For what tasks is it worth
 {{ mch-short-name }} is a service that helps you create, operate, and scale {{ CH }} databases in a cloud infrastructure.
 
 With {{ mch-short-name }}, you can:
-* Create a database with the required performance characteristics.
-* Scale processing power and storage dedicated for your databases as needed.
-* Get database logs.
+- Create a database with the required performance characteristics.
+- Scale processing power and storage dedicated for your databases as needed.
+- Get database logs.
 
 {{ mch-short-name }} takes on time-consuming {{ CH }} infrastructure administration tasks:
-* Monitors resource usage.
-* Automatically creates DB backups.
-* Provides fault tolerance through automatic failover to backup replicas.
-* Keeps database software updated.
+- Monitors resource usage.
+- Automatically creates DB backups.
+- Provides fault tolerance through automatic failover to backup replicas.
+- Keeps database software updated.
 
 You interact with database clusters in {{ mch-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
@@ -38,14 +38,14 @@ For the created and running databases, {{ mch-short-name }} automatically create
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
-* {{ mch-short-name }} allows you to operate template databases with no need to worry about administration.
-* {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ mch-short-name }} allows you to operate template databases with no need to worry about administration.
+- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
-_A database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
+A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-_A database cluster_ is one or more database hosts between which replication can be configured.
+A _database cluster_ is one or more database hosts between which replication can be configured.
 
 #### How do I get started with {{ mch-short-name }}? {#quickstart}
 
@@ -53,10 +53,10 @@ _A database cluster_ is one or more database hosts between which replication can
 
 To create a database cluster in {{ mch-short-name }}, you must define its characteristics:
 
-* [Host class](../concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
-* Storage size (reserved in full when you create the cluster).
-* The network your cluster will be connected to.
-* The number of hosts for the cluster and the availability zone for each host.
+- [Host class](../concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
+- Storage size (reserved in full when you create the cluster).
+- The network your cluster will be connected to.
+- The number of hosts for the cluster and the availability zone for each host.
 
 For detailed instructions, see [{#T}](../quickstart.md).
 
@@ -64,9 +64,9 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 The minimum number of hosts depends on the selected type of [storage](../concepts/storage.md):
 
-* If you use non-replicated SSD storage, the minimum number of hosts is 3.
-* If you use local SSD storage, the minimum number of hosts is 2.
-* If you use HDD network or SSD network storage, you can create single-host clusters.
+- If you use non-replicated SSD storage, the minimum number of hosts is 3.
+- If you use local SSD storage, the minimum number of hosts is 2.
+- If you use HDD network or SSD network storage, you can create single-host clusters.
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
@@ -86,9 +86,9 @@ MDB technical and organizational limits are given in [{#T}](../concepts/limits.m
 
 Maintenance in {{ mch-short-name }} implies:
 
-* Automatic installation of DBMS updates and fixes for your database hosts.
-* Changes to the host class and storage size.
-* Other {{ mch-short-name }} maintenance activities.
+- Automatic installation of DBMS updates and revisions for your database hosts (including disabled clusters).
+- Changes to the host class and storage size.
+- Other {{ mch-short-name }} maintenance activities.
 
 #### How do I edit external dictionaries? {#external-dict}
 
@@ -102,7 +102,7 @@ For other updates, use the [update](../api-ref/Cluster/update.md) API method.
 
 #### Which version of {{ CH }} does {{ mch-short-name }} use? {#dbms-version}
 
-{{ mch-short-name }} uses some of the latest stable versions of {{ CH }}. To learn more, see [{#T}](../concepts/update-policy.md).
+{{ mch-short-name }} uses some of the latest stable versions of {{ CH }}. For more information, see [{#T}](../concepts/update-policy.md).
 
 #### Which ClickHouse version should I choose? {#choose-version}
 
@@ -126,10 +126,10 @@ The owners of the affected DB clusters receive advanced notice of expected work 
 
 In {{ mch-short-name }}, the usage cost is calculated based on the following parameters:
 
-* Selected host class.
-* Size of the storage reserved for the database host.
-* Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at special [rates](../pricing.md).
-* Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
+- Selected host class.
+- Size of the storage reserved for the database host.
+- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../pricing.md).
+- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
 
 #### How much does it cost to use my cluster? {#cluster-cost}
 

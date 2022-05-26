@@ -44,37 +44,11 @@
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 1. Получите SSL-сертификат:
 
-   
-   1. Создайте каталог:
-
-      ```bash
-      mkdir ~/.mongodb
-      ```
-
-   1. Получите сертификат:
-
-      ```bash
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt
-      ```
-
-   1. Настройте права доступа к сертификату:
-
-      ```bash
-      chmod 0600 ~/.mongodb/root.crt
-      ```
+    {% include [install-certificate](../_includes/mdb/mmg/install-certificate.md) %}
 
 1. Подключитесь к кластеру с помощью {{ MG }} CLI:
 
-   
-   ```bash
-   mongo --norc \
-     --ssl \
-     --sslCAFile ~/.mongodb/root.crt \
-     --host 'rs01/<адрес хоста 1>:27018,<адрес хоста 2>:27018,<адрес хоста N>:27018' \
-     -u <имя пользователя> \
-     -p <пароль пользователя> \
-     <имя БД>
-   ```
+    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
 ## Что дальше {#whats-next}
 
