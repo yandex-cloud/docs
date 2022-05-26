@@ -320,6 +320,6 @@ To set up transfer of logs:
 
 If you no longer need these resources, delete them:
 
-1. [Delete the VM ](../compute/operations/vm-control/vm-delete.md).
+1. [Delete the VM](../compute/operations/vm-control/vm-delete.md).
 1. [Delete the log group](../logging/operations/delete-group.md).
 

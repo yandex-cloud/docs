@@ -17,7 +17,7 @@ description: "After deleting a MySQL database cluster, its backups are preserved
 {% list tabs %}
 
 - Management console
-  1. Open the folder page in the management console.
+  1. Go to the [folder page]({{ link-console-main }}) in the management console.
   1. Select **{{ mmy-name }}**.
   1. Click ![image](../../_assets/options.svg) for the necessary cluster and select **Delete**.
 
@@ -30,7 +30,7 @@ description: "After deleting a MySQL database cluster, its backups are preserved
   To delete a cluster, run the command:
 
   ```
-  $ {{ yc-mdb-my }} cluster delete <cluster name or ID>
+  {{ yc-mdb-my }} cluster delete <cluster name or ID>
   ```
 
   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).

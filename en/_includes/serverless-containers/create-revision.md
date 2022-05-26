@@ -5,7 +5,7 @@
 
 - Management console
 
-   1. In the [management console] ({{ link-console-main }}), select the folder with your container.
+   1. In the [management console]({{ link-console-main }}), select the folder with your container.
    1. Open **{{ serverless-containers-name }}**.
    1. Select the container to create a revision for.
    1. Go to the **Editor** tab.

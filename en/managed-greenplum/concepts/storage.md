@@ -1,23 +1,27 @@
 # Storage types
 
-In {{ mgp-name }}, network and local storage is used for DB clusters. Network storage uses network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local storage uses physical disks in the database host servers.
+{% if audience != "internal" %}
 
-{% include [storage-type-nrd](../../_includes/mdb/storage-type-nrd.md) %}
+{{ mgp-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
 
 In a {{ mgp-name }} cluster, the type of storage for master hosts and segment hosts may differ.
 
 {% include [ice-lake-local-ssd-note](../../_includes/ice-lake-local-ssd-note.md) %}
 
-## Local storage features {#local-storage-features}
+## Specifics of local SSD storage {#local-storage-features}
 
-* A single master host with local storage is not fault-tolerant: if a local disk fails, data is permanently lost. Therefore, when using local storage for master hosts, you can only select a configuration with two master hosts.
+Local SSDs do not provide fault-tolerant storage and impact the cost of the entire cluster: a cluster with this type of storage is charged even if it is not running. Read more in the [pricing policy](../pricing).
 
-* For the downtime of a {{ mgp-name }} cluster, billing of computing resources (vCPU and RAM):
-    * Continues for hosts using local storage.
-    * Discontinues for hosts without local storage.
+{% else %}
 
-## Non-replicated network storage features {#network-nrd-storage-features}
+{{ mgp-name }} lets you use local storage for database clusters. Local disks are physically located in the database host servers.
 
-A single master host with non-replicated network storage is not fault-tolerant: if a disk fails, data is permanently lost. Therefore, when using non-replicated network storage for master hosts, you can only select a configuration with two master hosts.
+When creating a cluster, you can choose between the following storage types:
+
+* Local SSD storage (`local-ssd`): The fastest disks. This storage capacity is between 10 and 2048 GB.
+* Standard local disk storage (`local-hdd`): Uses slower but larger disks. Available only for hosts powered by Ice Lake or Cascade Lake processors with at least eight vCPUs.
+
+{% endif %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+

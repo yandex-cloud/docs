@@ -42,21 +42,20 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
 1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-pg).
-
 1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-pg).
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-1. [Create a source endpoint](../../data-transfer/operations/source-endpoint.md#create-endpoint) with the following parameters:
     * **Database type**: `POSTGRES`.
     * **Endpoint parameters** → **Connection settings**: `Host/Port`.
-Specify the parameters for connecting to the source cluster.
+        Specify the parameters for connecting to the source cluster.
 
-1. [Create a target endpoint](../../data-transfer/operations/target-endpoint.md#create-endpoint) with the following parameters:
+1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
+
     * **Database type**: `POSTGRES`.
     * **Endpoint parameters** → **Connection settings**: `Cluster ID`.
-Specify the ID of the target cluster.
+        Specify the ID of the target cluster.
 
 1. [Create a transfer](../../data-transfer/operations/transfer.md#create-transfer) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
-
 1. [Activate](../../data-transfer/operations/transfer.md#activate-transfer) it.
 
     {% note warning %}
@@ -66,20 +65,14 @@ Specify the ID of the target cluster.
     {% endnote %}
 
 1. Wait for the transfer to change to the **Replicated** status.
-
 1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
-
 1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
-
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate-transfer) the transfer and wait for it to transition to the **Stopped** status.
 
     For more information about the transfer lifecycle, see the appropriate [section](../../data-transfer/concepts/transfer-lifecycle.md).
 
 1. [Delete](../../data-transfer/operations/transfer.md#delete-transfer) the stopped transfer.
-
-1. [Delete the source endpoint](../../data-transfer/operations/source-endpoint.md#delete).
-
-1. [Delete the target endpoint](../../data-transfer/operations/target-endpoint.md#delete-endpoint).
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
 
 ## Migrating data using logical replication {#logical-replication}
 
@@ -123,8 +116,8 @@ Migration stages:
     * If you use SSL:
 
         ```txt
-        hostssl         all            all             <host address>      md5
-        hostssl         replication    all             <host address>      md5
+        hostssl         all            all             <host address>     md5
+        hostssl         replication    all             <host address>     md5
         ```
 
     * If you don't use SSL:
@@ -191,7 +184,7 @@ For logical replication to work, create a publication (a group of logically repl
 
    {% note info %}
 
-   You need superuser rights to create publications to all tables, but not to transfer the selected tables. For more information about creating publications, see the [documentation{{ PG }}]( https://www.postgresql.org/docs/current/sql-createpublication.html).
+   You need superuser rights to create publications to all tables, but not to transfer the selected tables. For more information about creating publications, see the [documentation{{ PG }}](https://www.postgresql.org/docs/current/sql-createpublication.html).
 
    {% endnote %}
 
@@ -308,9 +301,15 @@ Transfer your data to an intermediate VM in {{ compute-name }} if:
 
 The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
 
-To prepare the virtual machine to restore the dump:
+To prepare the virtual machine to restore the dump: {% if audience != "internal" %}
 
 1. In the management console, [create a new virtual machine](../../compute/operations/vm-create/create-linux-vm.md) from the [Ubuntu 20.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %} image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+
+{% else %}
+
+1. In the management console, create a new virtual machine from [Ubuntu 20.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %} image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+
+{% endif %}
 
     The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned a public IP address so that you can load the dump from outside {{ yandex-cloud }}.
 

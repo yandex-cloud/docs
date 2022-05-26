@@ -8,7 +8,7 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 
 - Management console
 
-    Go to the folder page and select **{{ dataproc-name }}**.
+    Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
 
 - CLI
 
@@ -33,7 +33,7 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 {% list tabs %}
 
 - Management console
-    1. Go to the folder page and select **{{ dataproc-name }}**.
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
     1. Click on the name of the cluster you need.
 
 - CLI
@@ -63,7 +63,7 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 {% list tabs %}
 
 - Management console
-    1. Go to the folder page and select **{{ dataproc-name }}**.
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
     1. Click on the name of the cluster and open the **Operations** tab.
 
 - CLI

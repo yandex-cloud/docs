@@ -19,7 +19,7 @@ To get an idea of how the problem might be solved:
 
 1. [Create](../../iam/operations/sa/create.md) a service account.
 
-1. [Assign the role]( ../../iam/operations/sa/assign-role-for-sa.md) `storage.viewer` for the service account to read the object storage where you created the bucket.
+1. [Assign the role](../../iam/operations/sa/assign-role-for-sa.md) `storage.viewer` for the service account to read the object storage where you created the bucket.
 
 1. [Create](../../iam/operations/sa/create-access-key.md) a static access key.
 

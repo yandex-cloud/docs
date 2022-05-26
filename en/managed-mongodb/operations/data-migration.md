@@ -31,12 +31,12 @@ The database name in the target cluster must be the same as the source database 
 
 1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-mg).
 
-1. [Create a source endpoint](../../data-transfer/operations/source-endpoint.md#create-endpoint) with the following parameters:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
     * **Database type**: `MongoDB`.
     * **Endpoint parameters** → **Connection settings**: `Custom installation`.
         Specify the parameters for connecting to the source cluster.
 
-1. [Create a target endpoint](../../data-transfer/operations/target-endpoint.md#create-endpoint) with the following parameters:
+1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
     * **Database type**: `MongoDB`.
     * **Endpoint parameters** → **Connection settings**: `MDB cluster`.
         Specify the ID of the target cluster.
@@ -63,9 +63,7 @@ The database name in the target cluster must be the same as the source database 
 
 1. [Delete](../../data-transfer/operations/transfer.md#delete-transfer) the stopped transfer.
 
-1. [Delete the source endpoint](../../data-transfer/operations/source-endpoint.md#delete).
-
-1. [Delete the target endpoint](../../data-transfer/operations/target-endpoint.md#delete-endpoint).
+1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
 
 ## Migrating a database using a dump {#dump-and-restore}
 
@@ -90,7 +88,7 @@ You can create a database dump using `mongodump`. For more information about thi
 
     Instructions for other platforms, as well as more information about installing utilities, can be found on the [Install MongoDB](https://docs.mongodb.com/manual/installation/) page.
 
-1. Before creating a dump, we recommend switching the DBMS to &quot;read-only&quot; to avoid losing data that might appear while the dump is created.
+1. Before creating a dump, we recommend switching the DBMS to "read-only" to avoid losing data that might appear while the dump is created.
 
 1. Create a database dump:
 
@@ -128,9 +126,15 @@ You need an intermediate virtual machine in {{ compute-full-name }} if:
 * Your {{ mmg-name }} cluster is not accessible from the internet.
 * Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
 
-To prepare the virtual machine to restore the dump:
+To prepare the virtual machine to restore the dump: {% if audience != "internal" %}
 
 1. In the management console, [create a new virtual machine](../../compute/operations/vm-create/create-linux-vm.md) from the Ubuntu 20.04 LTS image. The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
+
+{% else %}
+
+1. In the management console, create a new virtual machine from the Ubuntu 20.04 LTS image. The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
+
+{% endif %}
 
    The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice the size of the database).
 

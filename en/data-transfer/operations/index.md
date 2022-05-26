@@ -5,10 +5,8 @@ description: "Step-by-step instructions for migrating databases between logical 
 
 # Step-by-step instructions for {{ data-transfer-name }}
 
-* [{#T}](prepare.md)
-* [{#T}](source-endpoint.md)
-* [{#T}](target-endpoint.md)
-* [{#T}](transfer.md)
-* [{#T}](db-actions.md)
-* [{#T}](monitoring.md)
-
+- [{#T}](prepare.md)
+- [{#T}](endpoint/index.md)
+- [{#T}](transfer.md)
+- [{#T}](db-actions.md)
+- [{#T}](monitoring.md)

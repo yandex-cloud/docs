@@ -1,0 +1,1 @@
+`--ca-certificate` — If the transmitted data needs to be encrypted, for example, to meet the requirements of [PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}).

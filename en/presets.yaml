@@ -242,6 +242,7 @@ default:
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
   yc-ydb: yc ydb
+  yc-dt: yc datatransfer
   max-gpus: 4
   iam-token-lifetime: 12 hours
   pem-path: /cloud-certs/CA.pem
@@ -461,6 +462,7 @@ default:
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-cloud-services: https://cloud.yandex.com/services
   link-cloud-marketplace: https://cloud.yandex.com/marketplace
+  link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/

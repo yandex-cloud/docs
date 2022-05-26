@@ -1,5 +1,7 @@
 # Storage types
 
+{% if audience != "internal" %}
+
 {{ mmy-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mmy/storage-type.md) %}
@@ -23,3 +25,16 @@ The number of hosts that can be created with a {{ MY }} cluster depends on the s
 * With `network-hdd` or `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
 
 For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
+
+{% else %}
+
+{{ mmy-name }} lets you use local storage for database clusters. Local disks are physically located in the database host servers.
+
+When creating a cluster, you can choose between the following storage types:
+
+* Local SSD storage (`local-ssd`): The fastest disks. This storage capacity is between 10 and 2048 GB.
+* Standard local disk storage (`local-hdd`): Uses slower but larger disks. Available only for hosts powered by Broadwell or Cascade Lake and with at least eight vCPUs. `local-hdd` storage has a fixed volume: 10240 GB for Broadwell and 12800 GB for Cascade Lake.
+
+You can create a cluster of three or more hosts (a minimum of three hosts is required for fault tolerance).
+
+{% endif %}

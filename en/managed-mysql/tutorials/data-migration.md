@@ -4,14 +4,14 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
 * [{#T}](#data-transfer).
 
-    This method is easy to configure, does not require the creation of an intermediate VM, and lets you transfer the entire database without interrupting user service. To use it, allow connections to the source cluster from the internet.
-For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
+   This method is easy to configure, does not require the creation of an intermediate VM, and lets you transfer the entire database without interrupting user service. To use it, allow connections to the source cluster from the internet.
+   For more information, see [What tasks is {{ data-transfer-full-name }} used for](../../data-transfer/concepts/use-cases.md).
 
 * [{#T}](#logical-dump).
 
-    _A logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. To ensure that a logical dump is complete, before creating it, switch the source cluster to <q>read-only</q> mode.
+   A _logical dump_ is a file with a set of commands running which one by one you can restore the state of a database. To ensure that a logical dump is complete, before creating it, switch the source cluster to <q>read-only</q> mode.
 
-    Use this method only if, for some reason, it's not possible to transfer data using {{ data-transfer-full-name }}.
+   Use this method only if, for some reason, it's not possible to transfer data using {{ data-transfer-full-name }}.
 
 ## Before you start {#before-you-begin}
 
@@ -19,53 +19,22 @@ For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
-    Transferring data with an increase in the {{ MY }} major version is possible, but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+   Transferring data with an increase in the {{ MY }} major version is possible, but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
-    Migration with a downgrade of the {{ MY }} version is [not supported](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
+   Migration with a {{ MY }} version downgrade is [impossible](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 
 * [SQL mode](../concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
-1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
-
-1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-my).
-
-1. [Create a source endpoint](../../data-transfer/operations/source-endpoint.md#create) with the `{{ MY }}` database type.
-
-1. [Create a target endpoint](../../data-transfer/operations/target-endpoint.md#create) with the `{{ mmy-name }}` database type.
-
-1. [Create a transfer](../../data-transfer/operations/transfer.md#create-transfer) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
-
-1. [Activate](../../data-transfer/operations/transfer.md#activate-transfer) it.
-
-    {% note warning %}
-
-    Avoid any changes to the data schema in the source and target clusters during the transfer operation. For more information, see [{#T}](../../data-transfer/operations/db-actions.md).
-
-    {% endnote %}
-
-1. Wait for the transfer to change to the **Replicated** status.
-
-1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
-
-1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
-
-1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate-transfer) the transfer and wait for its status to change to **Stopped**.
-
-    For more information about the transfer lifecycle, see the appropriate [section](../../data-transfer/concepts/transfer-lifecycle.md).
-
-1. [Delete](../../data-transfer/operations/transfer.md#delete-transfer) the stopped transfer.
-
-1. [Delete the source endpoint](../../data-transfer/operations/source-endpoint.md#delete).
-
-1. [Delete the target endpoint](../../data-transfer/operations/target-endpoint.md#delete-endpoint).
-
-For a real example of database migration {{ MY }} using {{ data-transfer-name }}, see [Syncing MySQL data using {{ data-transfer-full-name }}](../../tutorials/dataplatform/sync-mysql.md).
+{% include notitle [Migration with Data Trasnfer](../../_tutorials/datatransfer/managed-mysql.md) %}
 
 ## Transferring data by creating and restoring a logical dump {#logical-dump}
 
-To migrate data to a {{ mmy-name }} cluster, you can use `mysqldump` and `mysql`: create a logical dump of a working database and restore it in the desired cluster.
+To move data to a {{ mmy-name }} cluster, create a logical dump of the desired database and restore it to the target cluster. You can do this using two methods:
+
+* Using the [`mydumper` and `myloader` utilities](https://github.com/mydumper/mydumper). A database dump is created as a collection of files in a separate folder.
+* Using the `mysqldump` and `mysql` utilities. A database dump is created as a single file.
 
 Migration stages:
 
@@ -73,38 +42,111 @@ Migration stages:
 1. If necessary, [create an intermediate VM](#create-vm) in {{ yandex-cloud }} and upload the dump to it.
 1. [Restore data from the dump](#restore).
 
+If you no longer need these resources, [delete them](#clear-out).
+
 ### Creating a dump {#dump}
 
-To create a dump, use [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html).
+{% list tabs %}
 
-1. Before creating a dump, switch the database to <q>read-only</q> mode to avoid losing data that might appear while creating the dump. Create the database dump using the following command:
+* Using the mysqldump utility.
 
-    ```bash
-    mysqldump -h <source server address> \
-              --user=<username> \
-              --password \
-              --port=<port> \
-              --set-gtid-purged=OFF \
-              --quick \
-              --single-transaction <database name> \
-              > ~/db_dump.sql
-    ```
+   1. Switch the database to <q>read-only mode</q> to avoid losing data that might appear while creating the dump.
 
-    If necessary, pass additional parameters in the create dump command:
-    * `--events` — If there are recurring events in your database.
-    * `--routines` — If your database contains functions and stored procedures.
+   1. Install the `mysqldump` utility in the source cluster, such as (for Ubuntu):
 
-    For InnoDB tables, use the `--single-transaction` option to guarantee data integrity. You can't use this option for MyISAM tables, but you can convert them to InnoDB using the command:
+      ```bash
+      sudo apt update && sudo apt install mysql-client --yes
+      ```
 
-    ```bash
-    sed -i 's/ENGINE=MyISAM/ENGINE=InnoDB/' ~/db_dump.sql
-    ```
+   1. Create a database dump:
 
-1. Archive the dump:
+      ```bash
+      mysqldump \
+          --host=<source cluster master host FQDN or IP> \
+          --user=<username> \
+          --password \
+          --port=<port> \
+          --set-gtid-purged=OFF \
+          --quick \
+          --single-transaction \
+          <database name> > ~/db_dump.sql
+      ```
 
-    ```bash
-    tar -cvzf db_dump.tar.gz ~/db_dump.sql
-    ```
+      If necessary, pass additional parameters in the create dump command:
+
+      * `--events` — If there are recurring events in your database.
+      * `--routines`: If your database has stored procedures and functions.
+
+      For InnoDB tables, use the `--single-transaction` option to guarantee data integrity.
+
+   1. In the dump file, change the table engine names to `InnoDB`:
+
+      ```bash
+      sed -i -e 's/MyISAM/InnoDB/g' -e 's/MEMORY/InnoDB/g' db_dump.sql
+      ```
+
+   1. Archive the dump:
+
+      ```bash
+      tar -cvzf db_dump.tar.gz ~/db_dump.sql
+      ```
+
+* Using the mydumper utility
+
+   1. Switch the database to <q>read-only mode</q> to avoid losing data that might appear while creating the dump.
+
+   1. Create a directory for the dump files:
+
+      ```bash
+      mkdir db_dump
+      ```
+
+   1. Install the `mydumper` utility on the source cluster (for Ubuntu):
+
+      ```bash
+      sudo apt update && sudo apt install mydumper --yes
+      ```
+
+   1. Create a database dump:
+
+      ```bash
+      mydumper \
+          --triggers \
+          --events \
+          --routines \
+          --outputdir=db_dump \
+          --rows=10000000 \
+          --threads=8 \
+          --compress \
+          --database=<database name> \
+          --user=<username> \
+          --ask-password \
+          --host=<source cluster master host FDQN or IP>
+      ```
+
+      Where:
+
+      * `--triggers`: Trigger dump.
+      * `--events`: Event dump.
+      * `--routines`: Stored procedure and function dump.
+      * `--outputdir`: Dump file directory.
+      * `--rows`: Number of rows in table fragments. The smaller the value, the more files in a dump.
+      * `--threads`: Number of threads used. The recommended value is equal to half the server's free cores.
+      * `--compress`: Output file compression.
+
+   1. In the dump files, change the table engine names to `InnoDB`:
+
+      ```bash
+      sed -i -e 's/MyISAM/InnoDB/g' -e 's/MEMORY/InnoDB/g' `find /db_dump -name '*-schema.sql'`
+      ```
+
+   1. Archive the dump:
+
+      ```bash
+      tar -cvzf db_dump.tar.gz ~/db_dump
+      ```
+
+{% endlist %}
 
 ### (optional) Creating a VM in {{ yandex-cloud }} and uploading a dump {#create-vm}
 
@@ -116,68 +158,119 @@ Transfer your data to an intermediate VM in {{ compute-full-name }} if:
 The required amount of RAM, processor cores, and disk space depends on the amount of data to migrate and the required migration speed.
 
 To prepare the virtual machine to restore the dump:
+{% if audience != "internal" %}
 
-1. In the management console, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) with a public IP address based on [Ubuntu Linux 18.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) is sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) running [Ubuntu Linux 20.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %} with the following parameters:
 
-    Place the VM in the same network and availability zone as the {{ mmy-name }} cluster master host.
+{% else %}
+
+1. Create a VM running [Ubuntu Linux 20.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %} with the following parameters:
+
+{% endif %}
+
+    * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
+
+        The recommended size is two or three times the total dump and dump archive size.
+
+    * **Network settings**:
+
+        * **Subnet**: Select a subnet on the same cloud network hosting the target cluster.
+        * **Public address**: `Auto` or select one from a list of reserved IPs.
 
 1. [Set up security groups](../operations/connect.md#configure-security-groups) for the intermediate VM and the {{ mmy-name }} cluster.
 
-1. [Connect to the intermediate VM via SSH](../../compute/operations/vm-connect/ssh.md).
+1. {% if audience != "internal" %}[Connect to an intermediate VM over SSH](../../compute/operations/vm-connect/ssh.md).{% else %}Connect to an intermediate VM over SSH.{% endif %}
 
-1. Install the {{ MY }} client. For example (for Ubuntu):
+1. Copy the archive containing the database dump to the intermediate VM using the `scp` utility, for example:
 
-    ```bash
-    sudo apt install mysql-client
-    ```
+   ```bash
+   scp ~/db_dump.tar.gz <VM username>@<VM public IP>:~/db_dump.tar.gz
+   ```
 
-1. Move the DB dump to the intermediate VM. For example, you can use `scp`:
+1. Extract the dump from the archive:
 
-    ```bash
-    scp ~/db_dump.tar.gz <VM user name>@<VM public IP address>:/tmp/db_dump.tar.gz
-    ```
-
-1. Unpack the dump:
-
-    ```bash
-    tar -xzf /tmp/db_dump.tar.gz
-    ```
+   ```bash
+   tar -xzf ~/db_dump.tar.gz
+   ```
 
 ### Restoring data {#restore}
 
-To restore the database from the dump, use [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html). To get more information in the event of an error, run the recovery command with the `--line-numbers` flag.
-
 {% note alert %}
 
-By default, for a {{ mmy-name }} cluster, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) is enabled. **Do not disable** AUTOCOMMIT during the client session when restoring the database from the dump, otherwise the host storage may overflow and the cluster may not function properly.
+For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) is enabled by default. **Do not disable** AUTOCOMMIT during the client session when restoring the database from the dump, otherwise the host storage may overflow and the cluster may not function properly.
 
 {% endnote %}
 
-* If you restore a dump from the VM in {{ yandex-cloud }}:
+{% list tabs %}
 
-    ```bash
-    mysql -h <FQDN of MySQL host> \
+* Using the mysql utility
+
+   This method is suitable if you created your dump with the `mysqldump` utility.
+
+   1. Install the `mysql` utility to the host the dump is being restored from, for example (for Ubuntu):
+
+      ```bash
+      sudo apt update && sudo apt install mysql-client --yes
+      ```
+
+   1. Start the database restore from the dump:
+
+      * If you restore a dump from the VM in {{ yandex-cloud }}:
+
+         ```bash
+         mysql \
+             --host=c-<target cluster ID>.rw.{{ dns-zone }} \
+             --user=<username> \
+             --port={{ port-mmy }} \
+             <database name> < ~/db_dump.sql
+         ```
+
+      * If you're restoring your dump from a host connecting to {{ yandex-cloud }} from the internet, [obtain an SSL certificate](../operations/connect.md#get-ssl-cert) and pass the `--ssl-ca` and `--ssl-mode` parameters in the restore command:
+
+         ```bash
+         mysql \
+             --host=c-<target cluster ID>.rw.{{ dns-zone }} \
+             --user=<username> \
+             --port={{ port-mmy }} \
+             --ssl-ca=~/.mysql/root.crt \
+             --ssl-mode=VERIFY_IDENTITY \
+             <database name> < ~/db_dump.sql
+         ```
+
+* Using the myloader utility
+
+   This method is suitable if you created your dump using the `mydumper` utility and are using an intermediate VM for the restore.
+
+   1. Install the `myloader` utility to the host that you are using to restore the dump, for example (for Ubuntu):
+
+      ```bash
+      sudo apt update && sudo apt install mydumper --yes
+      ```
+
+   1. Start the database restore from the dump:
+
+      ```bash
+      myloader \
+          --host=c-<target cluster ID>.rw.{{ dns-zone }} \
+          --directory=db_dump/ \
+          --overwrite-tables \
+          --threads=8 \
+          --compress-protocol \
           --user=<username> \
-          --password \
-          --port={{ port-mmy }} \
-          --line-numbers <database name> \
-          < /tmp/db_dump.sql
-    ```
+          --ask-password
+      ```
 
-    {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
+{% endlist %}
 
-* If you restore a dump from your own server, [get an SSL certificate](../operations/connect.md#get-ssl-cert) and pass the `--ssl-ca` and `--ssl-mode` parameters in the recovery command:
+You can get the cluster ID with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
-   ```bash
-   mysql -h <FQDN of MySQL host> \
-         --user=<username> \
-         --password \
-         --port={{ port-mmy }} \
-         --ssl-ca=~/.mysql/root.crt \
-         --ssl-mode=VERIFY_IDENTITY \
-         --line-numbers <database name>  \
-         < ~/db_dump.sql
-   ```
+{% if audience != "internal" %}
 
-   {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
+### Deletе created resources {#clear-out}
 
+If you no longer need these resources, delete them:
+
+1. If you created an intermediate VM, [delete it](../../compute/operations/vm-control/vm-delete.md).
+1. If you reserved a public static IP address for your intermediate VM, release and [delete it](../../vpc/operations/address-delete.md).
+
+{% endif %}

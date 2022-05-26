@@ -2,6 +2,7 @@
 title: "Information about clusters in {{ mmy-short-name }}"
 description: "You can request detailed information about each {{ mmy-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mmy-name }} service."
 ---
+
 # Information about existing clusters
 
 You can request detailed information about each {{ mmy-short-name }} cluster you created.
@@ -12,7 +13,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - Management console
 
-  Go to the folder page and select **{{ mmy-name }}**.
+  Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
 
 - CLI
 
@@ -23,8 +24,8 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   To request a list of {{ MY }} clusters in the default folder, run the command:
 
   ```
-  $ {{ yc-mdb-my }} cluster list
-  
+  {{ yc-mdb-my }} cluster list
+
   +----------------------+--------------+---------------------+--------+---------+
   |          ID          |     NAME     |     CREATED AT      | HEALTH | STATUS  |
   +----------------------+--------------+---------------------+--------+---------+
@@ -44,7 +45,8 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the desired cluster.
 
 - CLI
@@ -56,10 +58,10 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   To get information about a {{ MY }} cluster, run the command:
 
   ```
-  $ {{ yc-mdb-my }} cluster get <cluster name or ID>
+  {{ yc-mdb-my }} cluster get <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
+  You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -76,9 +78,10 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the desired cluster.
-  1. Go to the **Operations** tab.
+  1. On the left-hand panel, select ![image](../../_assets/mdb/operations.svg) **Operations**.
 
 - CLI
 
@@ -89,10 +92,10 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   To get a list of operations, run the command:
 
   ```
-  $ {{ yc-mdb-my }} cluster list-operations <cluster name or ID>
+  {{ yc-mdb-my }} cluster list-operations <cluster name and ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
+  You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 

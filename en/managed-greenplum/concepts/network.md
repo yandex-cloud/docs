@@ -1,13 +1,13 @@
 # DB network and clusters
 
-When creating a cluster, you can:
+ When creating a cluster, you can:
 
 * Set the network and subnet for the cluster.
 * Request public IP addresses to access the cluster from outside {{ yandex-cloud }}.
 
 You can connect to a {{ mgp-short-name }} cluster only via the master hosts.
 
-For high-speed communication between cluster hosts, {{ mgp-short-name }} uses a separate _an intra-cluster network_ (interconnect). Access to the intra-cluster network and direct connection to the host segments are not provided.
+For high-speed communication between cluster hosts, {{ mgp-short-name }} uses a separate _intra-cluster network_ (interconnect). Access to the intra-cluster network and direct connection to the host segments are not provided.
 
 By default, master hosts are available for connection from VMs located in the same cloud network. [Learn more about networking](../../vpc/).
 
@@ -25,14 +25,28 @@ After creating a cluster, you cannot request or disable public addresses.
 
 ## Security groups {#security-groups}
 
+{% if audience == "draft" %}
+
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
+
+{% endif %}
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, be sure to [configure security groups](../operations/connect.md#configuring-security-groups) both for the cluster and the connecting host.
+When connecting to a cluster from the same cloud network, [configure security groups](../operations/connect.md#configuring-security-groups) for the cluster and the connecting host.
 
 {% endnote %}
 
-{% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+Specifics of working with security groups:
+
+* To connect to a cluster, you [need rules](../operations/connect.md#configuring-security-groups) that allow traffic between the cluster and the connecting host, even if they are assigned to the same security group.{% if audience == "draft" %} By default, such rules are also included in the security group created along with the cloud network. Those are the `Self` rules that allow unlimited traffic within a security group.{% endif %}
+
+* Security group settings affect the ability to connect to the cluster, its performance, and network connectivity between its hosts.
+
+{% if audience != "internal" %}
+
+For more information, see the [Virtual Private Cloud documentation](../../vpc/concepts/security-groups.md).
+
+{% endif %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
