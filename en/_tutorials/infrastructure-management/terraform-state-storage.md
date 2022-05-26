@@ -228,7 +228,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
 
 Make sure that the state file is uploaded to {{ objstorage-name }}:
 
-1. Open the [management console] ({{ link-console-main }}) and select the folder with the bucket created.
+1. Open the [management console]({{ link-console-main }}) and select the folder with the bucket created.
 1. Select **{{ objstorage-name }}**.
 1. From the bucket list, select the bucket you saved the Terraform state to.
 1. Make sure that the state file is in the bucket.

@@ -1,4 +1,3 @@
-# Migrating databases from {{ mmy-full-name }} to {{ MY }}
+# Migrating databases from {{ mmy-name }} to {{ MY }}
 
-{% include [mmy-to-mysql-datatransfer](../../_tutorials/mmy-to-mysql-datatransfer.md) %}
-
+{% include notitle [mmy-to-mysql-migration](../../_tutorials/dataplatform/mmy-to-mysql-migration.md) %}

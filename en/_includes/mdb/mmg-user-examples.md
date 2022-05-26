@@ -7,7 +7,7 @@ To add a new user `user2` to an existing cluster with read-only access to the `d
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmg-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click **Add**.
   1. Enter the `user2` username and password (from 8 to 128 characters).

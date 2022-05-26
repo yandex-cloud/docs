@@ -15,114 +15,114 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 1. [{#T}](#restore-dump).
 1. [{#T}](#check-data).
 
+
 ## Before you start {#before-you-begin}
 
-1. [Create a {{ mrd-name }} cluster](../operations/cluster-create.md) with any desirable configuration.
-
+1. [Create a {{ mrd-name }} cluster](../operations/cluster-create.md) with any suitable configuration.
 1. [Set up security groups](../operations/connect/index.md#configuring-security-groups) for the cluster and the intermediate VM. {#configure-security-groups}
-
 1. (Optional) Install utilities on the local machine for downloading and uploading files over SSH, such as:
-    * [WinSCP](https://winscp.net/eng/index.php)
-    * [Putty SCP](https://www.putty.org/)
+
+   * [WinSCP](https://winscp.net/eng/index.php)
+   * [Putty SCP](https://www.putty.org/)
 
 1. Make sure that [GNU Screen](https://www.gnu.org/software/screen/) is installed on the source cluster.
 
     It might take a long time to create and restore a dump. To keep these processes alive when your SSH session times out, start them using this utility. If your SSH connection breaks while creating or restoring the dump, reconnect and restore the session state using the command:
 
-    ```bash
-    screen -R
-    ```
+   ```bash
+   screen -R
+   ```
 
 ## Connect to the source cluster and create a logical dump {#create-dump}
 
 1. Connect to the source cluster's master host via SSH.
+1. Download the archive with the `redis-dump-go` utility from the [project page](https://github.com/yannh/redis-dump-go/releases). In the following examples, we'll use version `0.5.1`.
 
-1. Download the archive with the `redis-dump-go`  utility from the [project page](https://github.com/yannh/redis-dump-go/releases). In the following examples, we'll use version `0.5.1`.
-
-    ```bash
-    wget https://github.com/yannh/redis-dump-go/releases/download/v0.5.1/redis-dump-go_0.5.1_linux_amd64.tar.gz
-    ```
+   ```bash
+   wget https://github.com/yannh/redis-dump-go/releases/download/v0.5.1/redis-dump-go_0.5.1_linux_amd64.tar.gz
+   ```
 
 1. Unpack the archive to the current directory:
 
-    ```bash
-    tar xf redis-dump-go_0.5.1_linux_amd64.tar.gz
-    ```
+   ```bash
+   tar xf redis-dump-go_0.5.1_linux_amd64.tar.gz
+   ```
 
 1. Get familiar with the utility launch parameters:
 
-    ```bash
-    ./redis-dump-go -h
-    ```
+   ```bash
+   ./redis-dump-go -h
+   ```
 
 1. If connecting to the {{ RD }} cluster requires a password,  enter it in the `REDISDUMPGO_AUTH` environment variable:
 
-    ```bash
-    export REDISDUMPGO_AUTH="<{{ RD }} password>"
-    ```
+   ```bash
+   export REDISDUMPGO_AUTH="<{{ RD }} password>"
+   ```
 
 1. Start an interactive `screen` session:
 
-    ```bash
-    screen
-    ```
+   ```bash
+   screen
+   ```
 
 1. Launch the creation of a logical dump:
 
-    ```bash
-    ./redis-dump-go \
-        -host <IP address or FQDN of master host in {{ RD }} cluster> \
-        -port <{{ RD }} port> > <dump file>
-    ```
+   ```bash
+   ./redis-dump-go \
+       -host <master host IP or FQDN in a {{ RD }} cluster> \
+       -port <port {{ RD }}> > <dump file>
+   ```
 
-    {% note tip %}
+   {% note tip %}
 
-    As the dump is created, the number of processed keys is shown on the screen. Remember or write down the last output value: you'll need it to check that the dump has been recovered completely in the target cluster.
+   As the dump is created, the number of processed keys is shown on the screen. Remember or write down the last output value: you'll need it to check that the dump has been recovered completely in the target cluster.
 
-    {% endnote %}
+   {% endnote %}
 
 1. When the dump has been created, download it to your computer.
 
 1. End the interactive `screen` session:
 
-    ```bash
-    exit
-    ```
+   ```bash
+   exit
+   ```
 
 ## Create and set up an intermediate VM {#create-vm}
 
 
-1. [Create a VM running Linux](../../compute/operations/vm-create/create-linux-vm.md) with the following parameters:
-    * Under **Image/boot disk selection**: Select **Operating systems** → `Ubuntu 20.04`.
-    * Under **Network settings**:
-        * **Subnet**: Select a subnet that includes at least one of the {{ mrd-name }} cluster's master hosts.
-        * **Public address**: `Auto`.
-        * **Internal address**: `Auto`.
-        * **Security groups**: Select the [previously configured](#configure-security-groups) security groups.
+1. [Create a Linux virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with the following configuration:
+* Under **Image/boot disk selection**: Select **Operating systems** → `Ubuntu 20.04`.
+* Under **Network settings**:
+* **Subnet**: Select a subnet that includes at least one of the {{ mrd-name }} cluster's master hosts.
+* **Public address**: `Auto`.
+* **Internal address**: `Auto`.
+* **Security groups**: Select the [previously configured](#configure-security-groups) security groups.
 
-1. [Connect to the intermediate VM via SSH](../../compute/operations/vm-connect/ssh.md).
+1. [Connect to the intermediate virtual machine via SSH](../../compute/operations/vm-connect/ssh.md).
 
 1. If your {{ mrd-name }} cluster was deployed with {{ RD }} version 6 or higher and TLS support enabled:
 
-    1. [Get an SSL certificate](../operations/connect/index.md#get-ssl-cert).
+   1. [Get an SSL certificate](../operations/connect/index.md#get-ssl-cert).
 
-    1. Add the official {{ RD }} repository to your list of repositories:
+   1. Add the official {{ RD }} repository to your list of repositories:
 
-        ```bash
-        sudo apt-add-repository ppa:redislabs/redis
-        ```
+      ```bash
+      sudo apt-add-repository ppa:redislabs/redis
+      ```
 
-        {% note info %}
+      {% note info %}
 
-        The packages in this repository are built with the `BUILD_TLS=yes` flag, so you don't need to manually rebuild them from the source.
+      The packages in this repository are built with the `BUILD_TLS=yes` flag, so you don't need to manually rebuild them from the source.
 
-        {% endnote %}
+      {% endnote %}
 
 1. Update the list of available packages and install the necessary utilities:
 
-    ```bash
-    sudo apt update && sudo apt install redis-tools screen --yes
-    ```
+   ```bash
+   sudo apt update && sudo apt install redis-tools screen --yes
+   ```
+
 
 ## Restore the dump on the target cluster {#restore-dump}
 
@@ -130,150 +130,151 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
 1. Start an interactive `screen` session:
 
-    ```bash
-    screen
-    ```
+   ```bash
+   screen
+   ```
 
 1. Start the dump recovery process:
 
-    {% list tabs %}
+   {% list tabs %}
 
-    * Connecting without using TLS
+   * Connecting without using TLS
 
-        **Connecting via Sentinel**
+      **Connecting via Sentinel**
 
-        ```bash
-        host=$(redis-cli \
-               -h <FQDN of any {{ RD }} host> \
-               -p {{ port-mrd-sentinel }} \
-               sentinel \
-               get-master-addr-by-name \
-               no-shards-no-tls | head -n 1)
-        redis-cli \
-            -h ${host} \
-            -p {{ port-mrd }} \
-            -a <password for the target cluster> \
-            --pipe < <dump file>
-        ```
+      ```bash
+      host=$(redis-cli \
+        -h <FQDN of any host {{ RD }}> \
+        -p {{ port-mrd-sentinel }} \
+        sentinel \
+        get-master-addr-by-name \
+        no-shards-no-tls | head -n 1)
+      redis-cli \
+        -h ${host} \
+        -p {{ port-mrd }} \
+        -a <target cluster password> \
+        --pipe < <dump file>
+      ```
 
-        **Connecting directly to the master host:**
+      **Connecting directly to the master host**
 
-        ```bash
-        redis-cli \
-            -h <FQDN of the master host> \
-            -p {{ port-mrd }} \
-            -a <password for the target cluster> \
-            --pipe < <dump file>
-        ```
+      ```bash
+      redis-cli \
+        -h <FQDN of any host> \
+        -p {{ port-mrd }} \
+        -a <target cluster password> \
+        --pipe < <dump file>
+      ```
 
-        {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
+      {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
 
-        **Connecting to a sharded cluster**
+      **Connecting to a sharded cluster**
 
-        1. Create a script containing the dump-loading commands:
+      1. Create a script containing the dump-loading commands:
 
-            `load-dump.sh`
+         `load-dump.sh`
 
-            ```bash
-            shards=('<FQDN of the master host in shard 1>' \
-                    ...
-                    '<FQDN of the master host in shard N>')
-            
-            for shard in "${shards[@]}" ; do
-              redis-cli -h "${shard}" \
-                        -p {{ port-mrd }} \
-                        -a "<password for the target cluster>" \
-                        --pipe < <dump file>
-            done
-            ```
+         ```bash
+         shards=('<FQDN of the master host in shard 1>' \
+                 ...
+                 '<FQDN of master host in shard N>')
 
-        1. Run the script:
+         for shard in "${shards[@]}" ; do
+           redis-cli -h "${shard}" \
+                     -p {{ port-mrd }} \
+                     -a "<target cluster password>" \
+                     --pipe < <dump file>
+         done
+         ```
 
-            ```bash
-            bash ./load-dump.sh
-            ```
+      1. Run the script:
 
-            As you run the script, you'll see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../concepts/sharding.md).
+         ```bash
+         bash ./load-dump.sh
+         ```
 
-    * Connecting via TLS
+         As you run the script, you'll see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../concepts/sharding.md).
 
-        **Connecting via Sentinel**
+   * Connecting via TLS
 
-        ```bash
-        host=$(redis-cli \
-               -h <FQDN of any {{ RD }} host> \
-               -p {{ port-mrd-sentinel }} \
-               sentinel \
-               get-master-addr-by-name \
-               no-shards-tls | head -n 1)
-        redis-cli \
-            -h ${host} \
-            -p {{ port-mrd-tls }} \
-            -a <password for the target cluster> \
-            --tls \
-            --cacert ~/.redis/YandexInternalRootCA.crt \
-            --pipe < <dump file>
-        ```
+      **Connecting via Sentinel**
 
-        **Connecting directly to the master host:**
+      ```bash
+      host=$(redis-cli \
+             -h <FQDN of any host {{ RD }}> \
+             -p {{ port-mrd-sentinel }} \
+             sentinel \
+             get-master-addr-by-name \
+             no-shards-tls | head -n 1)
+      redis-cli \
+          -h ${host} \
+          -p {{ port-mrd-tls }} \
+          -a <target cluster password> \
+          --tls \
+          --cacert ~/.redis/YandexInternalRootCA.crt \
+          --pipe < <dump file>
+      ```
 
-        ```bash
-        redis-cli \
-            -h c-<cluster ID>.rw.{{ dns-zone }} \
-            -p {{ port-mrd-tls }} \
-            -a <password for the target cluster> \
-            --tls \
-            --cacert ~/.redis/YandexInternalRootCA.crt \
-            --pipe < <dump file>
-        ```
+      **Connecting directly to the master host**
 
-        {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
+      ```bash
+      redis-cli \
+          -h c-<cluster ID>.rw.{{ dns-zone }} \
+          -p {{ port-mrd-tls }} \
+          -a <target cluster password> \
+          --tls \
+          --cacert ~/.redis/YandexInternalRootCA.crt \
+          --pipe < <dump file>
+      ```
 
-        **Connecting to a sharded cluster**
+      {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
 
-        1. Create a script containing the dump-loading commands:
+      **Connecting to a sharded cluster**
 
-            `load-dump.sh`
+      1. Create a script containing the dump-loading commands:
 
-            ```bash
-            shards=('<FQDN of the master host in shard 1>' \
-                    ...
-                    '<FQDN of the master host in shard N>')
-            
-            for shard in "${shards[@]}" ; do
-              redis-cli -h "${shard}" \
-                        -p {{ port-mrd-tls }} \
-                        -a "<password for the target cluster>" \
-                        --tls \
-                        --cacert ~/.redis/YandexInternalRootCA.crt \
-                        --pipe < <dump file>
-            done
-            ```
+         `load-dump.sh`
 
-        1. Run the script:
+         ```bash
+         shards=('<FQDN of the master host in shard 1>' \
+                 ...
+                 '<FQDN of master host in shard N>')
 
-            ```bash
-            bash ./load-dump.sh
-            ```
+         for shard in "${shards[@]}" ; do
+           redis-cli -h "${shard}" \
+                     -p {{ port-mrd-tls }} \
+                     -a "<target cluster password>" \
+                     --tls \
+                     --cacert ~/.redis/YandexInternalRootCA.crt \
+                     --pipe < <dump file>
+         done
+         ```
 
-            As you run the script, you'll see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../concepts/sharding.md).
+      1. Run the script:
 
-        {% endcut %}
+         ```bash
+         bash ./load-dump.sh
+         ```
 
-    {% endlist %}
+         As you run the script, you'll see messages about data insertion errors. This is normal behavior for the `redis-cli` command, because in a sharded cluster, each shard stores only a certain part of the data. For more information, see [{#T}](../concepts/sharding.md).
+
+      {% endcut %}
+
+   {% endlist %}
 
 1. End the interactive `screen` session:
 
-    ```bash
-    exit
-    ```
+   ```bash
+   exit
+   ```
+
 
 ## Make sure that the dump is restored completely {#check-data}
 
-1. Go to the folder page and select **{{ mrd-name }}**.
+1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
+1. In the list of services, select **{{ mrd-name }}**.
 1. Click on the name of the cluster and open the [Monitoring](../operations/monitoring.md) tab.
 
 Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys in the shards.
 
 The total number of keys in the cluster must be equal to the number of keys processed by the `redis-dump-go` utility when creating the dump.
-

@@ -1,5 +1,6 @@
 # Storage in {{ mpg-name }}
 
+
 {{ mpg-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type-nrd](../../_includes/mdb/mpg/storage-type.md) %}
@@ -28,31 +29,32 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
 
 1. Go to the folder page and select **{{ monitoring-name }}**.
 1. Select **{{ mpg-name }}**.
-1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
-1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following parameters:
+1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md
+   ).
+1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following properties:
 
-    1. **Metric**: Set the metric parameters:
+   1. **Metric**: Set the metric parameters:
 
-        * Cloud
-        * Folder
-        * **{{ mpg-name }}**
-        * {{ mpg-name }} cluster ID
+      * Cloud
+      * Folder
+      * **{{ mpg-name }}** service
+      * {{ mpg-name }} cluster ID
 
-            You can find out the [ cluster ID in the list of clusters in the ](../operations/cluster-list.md#list-clusters) folder.
+         You can get the cluster ID [with a list of clusters in a folder](../operations/cluster-list.md#list-clusters).
 
-        * `disk.free_bytes` label
+      * `disk.free_bytes` label
 
-    1. **Trigger condition**: Set the `Less than or equal to` condition for the size of free disk space to trigger the alert:
+   1. **Trigger condition**: Set the `Less than or equal` to condition for the size of free disk space to trigger the alert:
 
-        * 95% of the storage size for `Alarm`.
-        * 90% of the storage size for `Warning`.
+      * 95% of the storage size for `Alarm`.
+      * 90% of the storage size for `Warning`.
 
-    1. **Additional settings**:
+   1. **Additional settings**:
 
-        * **Aggregation function**: `Minimum` (a metric's minimum value for the period).
-        * **Calculation window**: Desired period to update a metric's value.
+      * **Aggregation function**: `Minimum` (a metric's minimum value for the period).
+      * **Calculation window**: Desired period to update a metric's value.
 
-    1. Add the previously created notification channel.
+   1. Add the previously created notification channel.
 
 ### Disabling a cluster in read-only mode {#read-only-solutions}
 
@@ -62,13 +64,13 @@ If the cluster switched to read-only mode:
 
 * Manually disable read-only mode and free up storage space by deleting some of the data.
 
-    {% note alert %}
+   {% note alert %}
 
-    Make sure the amount of free disk space never reaches zero during this time. Since the fail-safe is disabled, {{ PG }} will crash and the cluster will be disabled.
+   Make sure the amount of free disk space never reaches zero during this time. Since the fail-safe is disabled, {{ PG }} will crash and the cluster will be disabled.
 
-    {% endnote %}
+   {% endnote %}
 
-To manually disable read-only mode, contact [technical support]({{ link-console-support }}) or follow the instructions:
+To disable read-only mode manually, contact [technical support]({{ link-console-support }}) or follow the instructions below:
 
 1. [Connect to the database](../operations/connect.md) however is convenient.
 
@@ -83,7 +85,7 @@ To manually disable read-only mode, contact [technical support]({{ link-console-
 1. Commit the transaction and restart all connections to the database.
 
 > For example, if your database contains the unnecessary table `ExcessDataTable1`, delete it with a transaction:
-> 
+>
 > ```sql
 > BEGIN;
 > SET LOCAL transaction_read_only TO off;

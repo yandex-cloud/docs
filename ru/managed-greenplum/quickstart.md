@@ -42,18 +42,11 @@
 
 1. Для подключения к кластеру БД получите SSL-сертификат:
 
-      ```bash
-      mkdir ~/.postgresql; \
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
-      ```
+    {% include [install-certificate](../_includes/mdb/mgp/install-certificate.md) %}
 
 1. Подключитесь к первичному хосту-мастеру [по особому FQDN](operations/connect.md#fqdn-master), используя `psql`:
 
-    ```bash
-    psql --host c-<идентификатор кластера>.rw.{{ dns-zone }} \
-         --username <имя пользователя> \
-         --dbname postgres
-    ```
+    {% include [default-connstring](../_includes/mdb/mgp/default-connstring.md) %}
 
 1. После успешного подключения выполните запрос:
 

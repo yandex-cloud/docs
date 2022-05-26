@@ -27,7 +27,7 @@ You can use a different markup style for the first and second level headings:
 
 1. Copy the cluster address from the browser's address bar.
 
-Learn more in the [{#T} section ](../actions/anchor.md).
+Learn more in the [{#T} section](../actions/anchor.md).
 
 ## Paragraphs {#section_paragraphs}
 

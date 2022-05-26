@@ -42,35 +42,11 @@
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 1. Для подключения к серверу БД получите SSL-сертификат:
 
-    
-    1. Создайте каталог:
-
-       ```bash
-       mkdir ~/.mysql
-       ```
-
-    1. Получите сертификат:
-
-       ```bash
-       wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
-       ```
-
-    1. Настройте права доступа к сертификату:
-
-       ```bash
-       chmod 0600 ~/.mysql/root.crt
-       ```
+    {% include [install-certificate](../_includes/mdb/mmy/install-certificate.md) %}
 
 1. Используйте для подключения команду `mysql`:
 
-   ```bash
-   mysql --host=<адрес хоста> \
-     --port=3306 \
-     --ssl-ca=~/.mysql/root.crt \
-     --ssl-mode=REQUIRED \
-     --user=<имя пользователя базы данных> \
-     --password <имя базы данных>
-   ```
+   {% include [default-connstring](../_includes/mdb/mmy/default-connstring.md) %}
 
 ## Что дальше {#whats-next}
 

@@ -24,13 +24,13 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
 - Management console
 
-  1. Go to the folder page and select **{{ mms-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
   1. Click **Create cluster**.
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      - `PRODUCTION`: For stable versions of your apps.
-      - `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-  1. Select the DBMS version. Currently, we support `2016 ServicePack 2` of the following editions:
+      * `PRODUCTION`: For stable versions of your apps.
+      * `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+  1. Select the DBMS version. The following editions are available for all supported versions:
      * Standard Edition.
      * Enterprise Edition.
 
@@ -40,7 +40,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   1. Under **Storage size**:
 
       
-      * Choose the [type of storage](../concepts/storage.md).
+      * Select the [storage type](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
       
@@ -52,16 +52,25 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
       * User password (from 8 to 128 characters).
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-  1. Under **Hosts**, select the parameters for the database hosts created with the cluster. You can add either one, three, or more hosts. By default, each host is created in a separate subnet. To select a specific subnet for the host, click ![image](../../_assets/pencil.svg) in the row of the host and select the desired availability zone and subnet.
+  1. Under **Hosts**:
 
-     {% note warning %}
+      1. Select the database host parameters for databases being created alongside the cluster. By default, each host is created in a separate subnet. To select a specific subnet for a host, click ![image](../../_assets/pencil.svg) in the host's row and select the desired availability zone and subnet.
 
-     * If you select **Standard Edition**, you can create a cluster from only one host. This cluster does not provide any fault tolerance. For more information, see [{#T}](../concepts/index.md).
-     * At the moment, you can create an **Enterprise Edition** cluster with either one or three hosts. Please note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+          {% note warning %}
 
-     {% endnote %}
+          The number of hosts available to be added depends on the SQL Server [edition](../concepts/index.md):
+
+          * In the **Standard Edition**, you can only create a single-host cluster. This cluster does not provide any fault tolerance.
+          * In the **Enterprise Edition**, you can create clusters of either one or three or more hosts. If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+
+          {% endnote %}
+
+      
+      1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
+
+          {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
 
   1. If necessary, configure additional cluster settings:
 
@@ -69,6 +78,102 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
   1. If necessary, configure the [DBMS settings](../concepts/settings-list.md).
   1. Click **Create cluster**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To create a cluster:
+
+    
+    1. Check whether the folder has any subnets for the cluster hosts:
+
+        ```bash
+        yc vpc subnet list
+        ```
+
+        If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+
+    1. View a description of the CLI's create cluster command:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster create --help
+        ```
+
+    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
+
+        
+        ```bash
+        {{ yc-mdb-ms }} cluster create <cluster name> \
+           --sqlserver-version=<{{ MS }} version> \
+           --environment=<environment: PRESTABLE or PRODUCTION> \
+           --host zone-id=<availability zone>,`
+                 `subnet-id=<subnet ID>,`
+                 `assign-public-ip=<host access via public IP: true or false> \
+           --network-name=<network name> \
+           --user name=<username>,`
+                 `password=<user password> \
+           --database name=<database name> \
+           --resource-preset=<host class> \
+           --disk-size=<storage capacity, GB> \
+           --disk-type=<storage type> \
+           --security-group-ids=<security group ID list> \
+           --deletion-protection=<cluster deletion protection: true or false>
+        ```
+
+        {% note info %}
+
+        The cluster name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+
+        {% endnote %}
+
+        Where:
+
+        * `--sqlserver-version`: The {{ MS }} version.
+        * `--environment`: Environment:
+           * `PRESTABLE`: For stable versions of your applications.
+           * `PRODUCTION`: For testing, including testing {{ MS }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+        * `--host`: Host parameters:
+           * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+           * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes 2 or more subnets.
+           * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
+        * `--network-name`: The [name of the network](../../vpc/concepts/network.md#network).
+        * `--user`: User parameters:
+           * `name`: First name. It may contain Latin letters, numbers, hyphens, and underscores, but must start with a letter, a number, or an underscore. It can be between 1 and 32 characters long.
+           * `password`: Password. From 8 to 128 characters.
+        * `--database name`: Database name. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+        * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
+        * `--disk-size`: Storage size in GB.
+        * `--disk-type`: [Storage type](../concepts/storage.md):
+           * `network-hdd`
+           * `network-ssd`
+           * `local-ssd`
+           * `network-ssd-nonreplicated`
+        * `--security-group-ids`: list of [security group](../../vpc/concepts/security-groups.md) IDs.
+        * `--deletion-protection`: Cluster deletion protection.
+
+            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    1. To set a backup start time, pass the desired value in `HH:MM:SS` format in `--backup-window-start`:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster create <cluster name> \
+           ...
+           --backup-window-start=<backup start time>
+        ```
+
+    
+    1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify the host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster create <cluster name> \
+           ...
+           --host-group-ids=<IDs of groups of dedicated hosts>
+        ```
+
+        {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
 
 - Terraform
 
@@ -100,7 +205,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
           resources {
             resource_preset_id = "<host class>"
             disk_type_id       = "<storage type>"
-            disk_size          = <storage size in GB>
+            disk_size          = <storage capacity, GB>
           }
 
           host {
@@ -123,8 +228,8 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
           }
 
           backup_window_start {
-            hours   = <backup starting hour>
-            minutes = <backup starting minute>
+            hours   = <backup start hour>
+            minutes = <backup start minute>
           }
         }
 
@@ -138,9 +243,21 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         }
         ```
 
-       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-mms }}).
+        1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), add the `host_group_ids` field to the cluster description and specify the required group IDs as a comma-separated list in it:
+
+            ```hcl
+            resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
+              ...
+              host_group_ids = [ "<ID 1>", "<ID 2>", ... ]
+              ...
+            }
+            ```
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
+        For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mms }}).
 
     1. Make sure the settings are correct.
 
@@ -150,7 +267,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 
 - API
 
@@ -167,11 +284,16 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+  
+  To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
+
+  {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
 {% endlist %}
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may need to additionally [configure security groups](./connect.md#configuring-security-groups) to connect to it.
+If you specified security group IDs when creating a cluster, you may also need to [configure security groups](./connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 

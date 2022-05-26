@@ -13,66 +13,73 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
 ## How to create a {{ mkf-name }} cluster {#create-cluster}
 
+Prior to creating a cluster, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
+
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and select **{{ mkf-name }}**.
-  1. Click **Create cluster**.
-  1. Under **Basic parameters**:
-     1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
-     1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-        * `PRODUCTION`: For stable versions of your apps.
-        * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-     1. Select the {{ KF }} version.
-     1. To manage topics via the {{ KF }} Admin API:
+   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the list of services, select **{{ mkf-name }}**.
+   1. Click **Create cluster**.
+   1. Under **Basic parameters**:
+      1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
+      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+         * `PRODUCTION`: For stable versions of your apps.
+         * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      1. Select the {{ KF }} version.
+      1. To manage topics via the {{ KF }} Admin API:
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
 
          1. Enable **Manage topics via the API**.
          1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
-     1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
+      1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-  1. Under **Host class**, select the platform, host type, and host class.
+   1. Under **Host class**, select the platform, host type, and host class.
 
-     The host class defines the technical specifications of the VMs where the [{{ KF }} brokers](../concepts/brokers.md) will be deployed. All available options are listed in [Host classes](../concepts/instance-types.md).
+      The host class defines technical characteristics of virtual machines that [{{ KF }} brokers](../concepts/brokers.md) are deployed on. All available options are listed in [Host classes](../concepts/instance-types.md).
 
-     By [changing the host class](cluster-update.md#change-resource-preset) for a cluster, you also change the characteristics of all the existing instances.
+      By [changing the host class](cluster-update.md#change-resource-preset) for a cluster, you also change the characteristics of all the existing instances.
 
-  1. Under **Storage**:
+   1. Under **Storage**:
 
-     * Select the [type of storage](../concepts/storage.md).
+      * Select the [storage type](../concepts/storage.md).
 
-        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
-     * Select the size of storage to be used for data.
+         You can't change the storage type of {{ mkf-name }} clusters once they are created.
 
-  1. Under **Network settings**:
-     
-     1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) where the {{ KF }} brokers will reside.
-     1. Select the [network](../../vpc/concepts/network.md).
-     1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new subnet** next to the desired availability zone.
+      * Select the size of storage to be used for data.
 
-        {% note info %}
+   1. Under **Network settings**:
+      
+      
+      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers.
+      1. Select the [network](../../vpc/concepts/network.md).
+      1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** subnet next to the desired availability zone.
 
-        For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
+      {% note info %}
 
-        {% endnote %}
+      For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
 
-     1. Select security groups to control the cluster's network traffic.
+      {% endnote %}
 
-     1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
+      1. Select security groups to control the cluster's network traffic.
 
-        {% note warning %}
+      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
-        You can't request public access after creating a cluster.
+         {% note warning %}
 
-        {% endnote %}
+         You can't request public access after creating a cluster.
 
-  1. Under **Hosts**:
-     1. Specify the number of {{ KF }} [broker hosts](../concepts/brokers.md) to be located in each of the selected availability zones.
+         {% endnote %}
+
+   1. Under **Hosts**:
+
+      1. Specify the number of {{ KF }} [broker hosts](../concepts/brokers.md) to be located in each of the selected availability zones.
 
          When choosing the number of hosts, keep in mind that:
 
@@ -80,198 +87,222 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
          * Replication is possible if there are at least two hosts in the cluster.
          * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
          * Adding more than one host to the cluster automatically adds three {{ ZK }} hosts.
-          1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
+
+      
+      1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-  1. If you specify two or more broker hosts, under **Host class {{ ZK }}**, specify the characteristics of the [hosts{{ ZK }}](../concepts/index.md) to be located in each of the selected availability zones.
 
-  1. If necessary, configure additional cluster settings:
+   1. If you specify two or more broker hosts, under **{{ ZK }} host class**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to be located in each of the selected availability zones.
+
+   1. If necessary, configure additional cluster settings:
 
       {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 
-  1. If necessary, configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings).
+   1. If necessary, configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings).
 
-  1. Click **Create cluster**.
+   1. Click **Create cluster**.
 
-  1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+   1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI create cluster command:
+   1. View a description of the CLI's create cluster command:
 
       ```bash
       {{ yc-mdb-kf }} cluster create --help
       ```
 
-  1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
+   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
-         --name <cluster name> \
-         --environment <prestable or production> \
-         --version <version: 2.1, 2.6, or 2.8> \
-         --network-name <network name> \
-         --brokers-count <number of brokers in the zone> \
-         --resource-preset <host class> \
-         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-         --disk-size <storage size in GB> \
-         --assign-public-ip <public access> \
-         --security-group-ids <list of security group IDs> \
-         --deletion-protection=<protect cluster from deletion: true or false>
+        --name <cluster name> \
+        --environment <environment: prestable or production> \
+        --version <{{ KF }} version> \
+        --network-name <network name> \
+        --brokers-count <number of brokers in zone> \
+        --resource-preset <host class> \
+        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --disk-size <storage size, GB> \
+        --assign-public-ip <public access> \
+        --security-group-ids <security group ID list> \
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
-  1. To manage topics via the {{ KF }} Admin API:
-
-      {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
-      1. When creating a cluster, set the `--unmanaged-topics` parameter to `true`:
-
-          ```bash
-          {{ yc-mdb-kf }} cluster create \
-             ...
-             --unmanaged-topics true
-          ```
-
-      1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
-
-  
-  1. To create a cluster hosted using groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), list their IDs separated by commas in the `--host-group-ids` parameter when creating a cluster:
+   1. To set up the maintenance window (including disabled clusters), pass a value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
-         ...
-         --host-group-ids <IDs of dedicated host groups>
+      ...
+         --maintenance-window type=<maintenance type: anytime or weekly>,`
+                             `day=<day of the week for the weekly type>,`
+                             `hour=<hour of the day for the weekly type>
+      ```
+
+      Where:
+
+      * `type`: Maintenance type:
+         * `anytime`: Anytime.
+         * `weekly`: By schedule.
+      * `day`: Day of the week for the `weekly` type in the `DDD` format. For example, `MON`.
+      * `hour`: Hour of the day for the `weekly` type in the `HH` format. For example, `21`.
+
+   1. To manage topics via the {{ KF }} Admin API:
+
+      {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+
+      1.  When creating a cluster, set the `--unmanaged-topics` parameter to `true`:
+
+         ```bash
+         {{ yc-mdb-kf }} cluster create \
+           ...
+           --unmanaged-topics true
+         ```
+
+      1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
+
+   
+   1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster create \
+        ...
+        --host-group-ids <IDs of dedicated host groups>
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 - Terraform
 
-    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-    
-    If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   
+   If you don't have Terraform, [install it and configure the  provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-    To create a cluster:
+   To create a cluster:
 
-    1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of resources that you want to create:
 
-        * {{ KF }} cluster: Description of a cluster and its hosts. If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
+      * {{ KF }} cluster: Description of a cluster and its hosts. If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
-        * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
-        * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-        Example configuration file structure:
+      Example configuration file structure:
 
-        ```hcl
-        terraform {
-          required_providers {
-            yandex = {
-             source = "yandex-cloud/yandex"
-            }
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+           source = "yandex-cloud/yandex"
           }
         }
+      }
 
-        provider "yandex" {
-          token     = "<OAuth or static key of service account>"
-          cloud_id  = "<cloud ID>"
-          folder_id = "<folder ID>"
-          zone      = "<availability zone>"
-        }
+      provider "yandex" {
+        token     = "<service account OAuth or static key>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+      }
 
-        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-          environment         = "<environment: PRESTABLE or PRODUCTION>"
-          name                = "<cluster name>"
-          network_id          = "<network ID>"
-          security_group_ids  = ["<list of cluster security group IDs>"]
-          deletion_protection = <protect cluster from deletion: true or false>
+      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+        environment         = "<environment: PRESTABLE or PRODUCTION>"
+        name                = "<cluster name>"
+        network_id          = "<network ID>"
+        security_group_ids  = ["<cluster security group ID list>"]
+        deletion_protection = <cluster deletion protection: true or false>
 
-          config {
-            assign_public_ip = "<public access to the cluster: true or false>"
-            brokers_count    = <number of brokers>
-            version          = "<Apache Kafka version: 2.1, 2.6, or 2.8>"
-            schema_registry  = "<data schema management: true or false>"
-            kafka {
-              resources {
-                disk_size          = <storage size in GB>
-                disk_type_id       = "<storage type: network-ssd, network-hdd, network-ssd-nonreplicated, or local-ssd>"
-                resource_preset_id = "<host class>"
-              }
+        config {
+          assign_public_ip = "<cluster public access: true or false>"
+          brokers_count    = <number of brokers>
+          version          = "<{{ KF }} version>"
+          schema_registry  = "<data schema management: true or false>"
+          kafka {
+            resources {
+              disk_size          = <storage size, GB>
+              disk_type_id       = "<storage type: network-ssd, network-hdd, network-ssd-nonreplicated, or local-ssd>"
+              resource_preset_id = "<host class>"
             }
-
-            zones = [
-              "<availability zones>"
-            ]
           }
+
+          zones = [
+            "<availability zones>"
+          ]
         }
+      }
 
-        resource "yandex_vpc_network" "<network name>" {
-          name = "<network name>"
-        }
+      resource "yandex_vpc_network" "<network name>" {
+        name = "<network name>"
+      }
 
-        resource "yandex_vpc_subnet" "<subnet name>" {
-          name           = "<subnet name>"
-          zone           = "<availability zone>"
-          network_id     = "<network ID>"
-          v4_cidr_blocks = ["<range>"]
-        }
-        ```
+      resource "yandex_vpc_subnet" "<subnet name>" {
+        name           = "<subnet name>"
+        zone           = "<availability zone>"
+        network_id     = "<network ID>"
+        v4_cidr_blocks = ["<range>"]
+      }
+      ```
 
-        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    1. Make sure the settings are correct.
+      {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+   1. Make sure the settings are correct.
 
-    1. Create a cluster.
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   1. Create a cluster.
 
-        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
+      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources appear with correct settings, using the [management console]({{ link-console-main }}).
+
+   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 - API
 
-    Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
 
-    * The ID of the folder where the cluster should be placed in the `folderId` parameter.
-    * The cluster name in the `name` parameter.
-    * Security group IDs in the parameter `securityGroupIds`.
-    * Cluster deletion protection settings in the `deletionProtection` parameter.
+   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+   * The cluster name in the `name` parameter.
+   * Security group identifiers, in the `securityGroupIds` parameter.
+   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+   * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    To manage topics via the {{ KF }} Admin API:
+   To manage topics via the {{ KF }} Admin API:
 
-    {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+   {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
 
-    1. Pass `true` for the `unmanagedTopics` parameter.
-    1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
+   1. Pass `true` for the `unmanagedTopics` parameter.
+   1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
-    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter.
+   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter.
 
-    {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+   {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-    
-    To create a cluster hosted using groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass their IDs in the `hostGroupIds` parameter.
+   
+   To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
 
-    {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+   {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 {% endlist %}
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -283,28 +314,28 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-  Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
+   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
 
-  
-  * With the name `mykf`.
-  * In the `production` environment.
-  * With {{ KF }} version `2.6`.
-  * In the `{{ network-name }}` network.
-  * In the security group `{{ security-group }}`.
-  * With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
-  * With one broker.
-  * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
-  * With public access.
-  * With accidental cluster deletion protection.
+   
+   * With the name `mykf`.
+   * In the `production` environment.
+   * With {{ KF }} version `2.8`.
+   * In the `{{ network-name }}` network.
+   * In the security group `{{ security-group }}`.
+   * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+   * With one broker.
+   * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+   * With public access.
+   * With protection against accidental cluster deletion.
 
-  Run the command:
+   Run the command:
 
-  
-  ```bash
-  {{ yc-mdb-kf }} cluster create \
+   
+   ```bash
+   {{ yc-mdb-kf }} cluster create \
      --name mykf \
      --environment production \
-     --version 2.6 \
+     --version 2.8 \
      --network-name {{ network-name }} \
      --zone-ids {{ zone-id }} \
      --brokers-count 1 \
@@ -314,90 +345,90 @@ If you specified security group IDs when creating a cluster, you may also need t
      --assign-public-ip \
      --security-group-ids {{ security-group }} \
      --deletion-protection=true
-  ```
+   ```
 
 - Terraform
 
-  Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
+   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
 
-    * In the cloud with the ID `{{ tf-cloud-id }}`.
-    * In the folder with the ID `{{ tf-folder-id }}`.
-    * With the name `mykf`.
-    * In the `PRODUCTION` environment.
-    * With {{ KF }} version `2.6`.
-    * In the new `mynet` network with the subnet `mysubnet`.
-    * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
-    * With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
-    * With one broker.
-    * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
-    * With public access.
-    * With accidental cluster deletion protection.
+   * In the cloud with the ID `{{ tf-cloud-id }}`.
+   * In the folder with the ID `{{ tf-folder-id }}`.
+   * With the name `mykf`.
+   * In the `PRODUCTION` environment.
+   * With {{ KF }} version `2.8`.
+   * In the new `mynet` network with the subnet `mysubnet`.
+   * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
+   * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+   * With one broker.
+   * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+   * With public access.
+   * With protection against accidental cluster deletion.
 
-  The configuration file for the cluster looks like this:
+   The configuration file for the cluster looks like this:
 
-    ```hcl
-    terraform {
-      required_providers {
-        yandex = {
-          source = "yandex-cloud/yandex"
-        }
-      }
-    }
+   ```hcl
+   terraform {
+     required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+       }
+     }
+   }
 
-    provider "yandex" {
-      token     = "<OAuth or static key of service account>"
-      cloud_id  = "{{ tf-cloud-id }}"
-      folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
-    }
+   provider "yandex" {
+     token     = "<OAuth or static key of service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ zone-id }}"
+   }
 
-    resource "yandex_mdb_kafka_cluster" "mykf" {
-      environment         = "PRODUCTION"
-      name                = "mykf"
-      network_id          = yandex_vpc_network.mynet.id
-      security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
-      deletion_protection = true
+   resource "yandex_mdb_kafka_cluster" "mykf" {
+     environment         = "PRODUCTION"
+     name                = "mykf"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
+     deletion_protection = true
 
-      config {
-        assign_public_ip = true
-        brokers_count    = 1
-        version          = "2.6"
-        kafka {
-          resources {
-            disk_size          = 10
-            disk_type_id       = "{{ disk-type-example }}"
-            resource_preset_id = "{{ host-class }}"
-          }
-        }
+     config {
+       assign_public_ip = true
+       brokers_count    = 1
+       version          = "2.8"
+       kafka {
+         resources {
+           disk_size          = 10
+           disk_type_id       = "{{ disk-type-example }}"
+           resource_preset_id = "{{ host-class }}"
+         }
+       }
 
-        zones = [
-          "{{ zone-id }}"
-        ]
-      }
-    }
+       zones = [
+         "{{ zone-id }}"
+       ]
+     }
+   }
 
-    resource "yandex_vpc_network" "mynet" {
-      name = "mynet"
-    }
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
 
-    resource "yandex_vpc_subnet" "mysubnet" {
-      name           = "mysubnet"
-      zone           = "{{ zone-id }}"
-      network_id     = yandex_vpc_network.mynet.id
-      v4_cidr_blocks = ["10.5.0.0/24"]
-    }
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ zone-id }}"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
 
-    resource "yandex_vpc_security_group" "mykf-sg" {
-      name       = "mykf-sg"
-      network_id = yandex_vpc_network.mynet.id
+   resource "yandex_vpc_security_group" "mykf-sg" {
+     name       = "mykf-sg"
+     network_id = yandex_vpc_network.mynet.id
 
-      ingress {
-        description    = "Kafka"
-        port           = 9091
-        protocol       = "TCP"
-        v4_cidr_blocks = [ "0.0.0.0/0" ]
-      }
-    }
-    ```
+     ingress {
+       description    = "Kafka"
+       port           = 9091
+       protocol       = "TCP"
+       v4_cidr_blocks = [ "0.0.0.0/0" ]
+     }
+   }
+   ```
 
 {% endlist %}

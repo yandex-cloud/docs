@@ -1,0 +1,1 @@
+**PEM certificate**: If transmitted data needs to be encrypted, for example, to meet the requirements of [PCI DSS]({{ link-pci-dss-en }}), upload the [certificate](../../../../../managed-kafka/operations/connect.md#get-ssl-cert) file or add its contents as text.

@@ -94,12 +94,7 @@ keywords:
 
 - Linux (Bash)
 
-  
-  ```bash
-  mkdir ~/.elasticsearch && \
-  wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
-  chmod 0600 ~/.elasticsearch/root.crt
-  ```
+  {% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
 
   Сертификат будет сохранен в каталоге `$HOME/.elasticsearch/root.crt`.
 

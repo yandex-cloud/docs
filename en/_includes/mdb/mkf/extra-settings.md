@@ -1,4 +1,5 @@
-**Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
+* {% include [Maintenance window](../console/maintenance-window.md) %}
 
-{% include [Cluster deletion protection limits](../deletion-protection-limits-data.md) %}
+* {% include [Deletion protection](../console/deletion-protection.md) %}
 
+   {% include [deletion-protection-limits-data](../deletion-protection-limits-data.md) %}

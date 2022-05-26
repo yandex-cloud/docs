@@ -97,7 +97,7 @@ pip3 install protobuf varint pycapnp
 
 1. [Upload the file](../../storage/operations/objects/upload.md) in {{ objstorage-name }} and [get the link](../../storage/operations/objects/link-for-download.md) to this file.
 
-1. [Connect the format schema ](format-schemas.md#add-format-schema) to the `chcluster` cluster:
+1. [Connect the format schema](format-schemas.md#add-format-schema) to the `chcluster` cluster:
    - For the Cap'n Proto format schema (`user.capnp` file), set the name `schema-capnproto`.
    - For the Protobuf format schema, (`user.protobuf` file), set the name `schema-protobuf`.
 

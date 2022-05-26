@@ -19,7 +19,7 @@ For read/write operations and other DB queries (such as `aggregate`), you can vi
 - A chart with metrics for the selected data segment. You can hide or show individual categories in the chart by clicking on the category name in the chart legend.
 - A table with statistics by operation type.
 
-1. Go to the folder page and select **{{ mmg-name }}**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 
 1. Click on the name of the desired cluster and select **Performance diagnostics** → **Profiling**.
 
@@ -50,7 +50,7 @@ For more information about what data is output, see the [{{ MG }} documentation]
 
 You can get collection access statistics for queries and recommendations for creating indexes of certain fields to speed up query processing.
 
-1. Go to the folder page and select **{{ mmg-name }}**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 1. Click on the name of the desired cluster and select **Performance diagnostics** → **Indexes**.
 1. Specify the time interval and, if necessary, set filters.
 

@@ -15,6 +15,8 @@ items:
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
+      - name: Upgrading the Apache Kafka® version
+        href: operations/cluster-version-update.md
       - name: Changing cluster settings
         href: operations/cluster-update.md
       - name: Managing Apache Kafka® hosts
@@ -33,7 +35,7 @@ items:
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Data delivery in Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md
@@ -41,8 +43,14 @@ items:
         href: tutorials/kafka-connect.md
       - name: Data delivery in ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
-      - name: Using Confluent Schema Registry with Managed Service for Apache Kafka®
-        href: tutorials/confluent-schema-registry.md
+      - name: Using schema registries with Managed Service for Apache Kafka®
+        items:
+          - name: Overview
+            href: tutorials/schema-registry-overview.md
+          - name: Working with the managed schema registry
+            href: tutorials/managed-schema-registry.md
+          - name: Working with Confluent Schema Registry
+            href: tutorials/confluent-schema-registry.md
       - name: Migrating with MirrorMaker 2.0
         href: tutorials/mirrormaker-unmanaged-topics.md
       - name: Delivering data using Debezium

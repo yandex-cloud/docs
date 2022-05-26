@@ -1,6 +1,6 @@
 ---
 title: Stopping and starting an Elasticsearch cluster
-description: 'If necessary, you can stop the Elasticsearch cluster and restart it. When you stop the cluster, all data in it will be saved, they will be available again when you start the cluster. '
+description: 'If necessary, you can stop the Elasticsearch cluster and restart it. When you stop the cluster, all data in it will be saved, they will be available again when you start the cluster.'
 keywords:
   - stopping Elasticsearch
   - starting Elasticsearch
@@ -21,30 +21,29 @@ You are not charged for the time when your cluster is stopped, but you still pay
 
 - Management console
 
-  To stop all hosts in the cluster:
-  1. Go to the folder page and select **{{ mes-name }}**.
-  1. Find the cluster in the list and click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop**.
-  1. In the dialog box that opens, confirm that you want to stop the cluster and click **Stop**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. Find the cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop cluster**.
+   1. In the dialog box that opens, confirm that you want to stop the cluster and click **Stop**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To stop a cluster, run the command:
+   To stop a cluster, run the command:
 
-    ```bash
-    {{ yc-mdb-es }} cluster stop <cluster name or ID>
-    ```
+   ```bash
+   {{ yc-mdb-es }} cluster stop <cluster name or ID>
+   ```
 
-    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  Use the `stop` API method to stop all the cluster hosts: pass the ID of the required cluster in the `clusterId` request parameter.
+   Use the `stop` API method to stop all the cluster hosts: pass the ID of the required cluster in the `clusterId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -56,29 +55,28 @@ You can restart **STOPPED** clusters.
 
 - Management console
 
-  To start a cluster:
-  1. Go to the folder page and select **{{ mes-name }}**.
-  1. Find the stopped cluster you need in the list and click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start**.
-  1. In the dialog box that opens, confirm that you want to start the cluster and click **Start**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. Find the stopped cluster you need in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start cluster**.
+   1. In the dialog box that opens, confirm that you want to start the cluster and click **Start.**
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To start a stopped cluster, run the command:
+   To start a stopped cluster, run the command:
 
-    ```bash
-    {{ yc-mdb-es }} cluster start <cluster name or ID>
-    ```
+   ```bash
+   {{ yc-mdb-es }} cluster start <cluster name or ID>
+   ```
 
-    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  To start the cluster, use the `start` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+   Use the `start` API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}

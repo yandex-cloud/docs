@@ -9,7 +9,7 @@ With {{ datalens-full-name }}, you can track your product and business metrics d
 
 {% note warning %}
 
-The number of {{ datalens-short-name }} instances in one [{{ yandex-cloud }} cloud ](../../resource-manager/concepts/resources-hierarchy.md#cloud) is 1.
+The number of {{ datalens-short-name }} instances in one [{{ yandex-cloud }} cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) is 1.
 
 {% endnote %}
 

@@ -81,12 +81,7 @@
 
 - Linux (Bash)
 
-  
-  ```bash
-  mkdir ~/.mysql && \
-  wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
-  chmod 0600 ~/.mysql/root.crt
-  ```
+  {% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
 
   Сертификат будет сохранен в каталоге `$HOME/.mysql/root.crt`.
 

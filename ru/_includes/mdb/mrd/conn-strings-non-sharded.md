@@ -36,14 +36,7 @@
 
 * Подключение с SSL
 
-    ```bash
-    redis-cli \
-        -h c-<идентификатор кластера>.rw.{{ dns-zone }} \
-        -a <пароль> \
-        -p {{ port-mrd-tls }} \
-        --tls \
-        --cacert ~/.redis/YandexInternalRootCA.crt
-    ```
+    {% include [default-connstring](default-connstring.md) %}
 
 {% endlist %}
 

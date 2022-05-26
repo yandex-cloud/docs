@@ -45,7 +45,7 @@ items:
         href: tutorials/data-migration.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md

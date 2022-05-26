@@ -43,32 +43,13 @@ sudo apt update && sudo apt install -y kafkacat
 
     1. Запустите команду получения сообщений из топика:
 
-        ```bash
-        kafkacat -C \
-                 -b <FQDN брокера>:9091 \
-                 -t <имя топика> \
-                 -X security.protocol=SASL_SSL \
-                 -X sasl.mechanisms=SCRAM-SHA-512 \
-                 -X sasl.username="<логин потребителя>" \
-                 -X sasl.password="<пароль потребителя>" \
-                 -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
-        ```
+        {% include [default-get-string](./mkf/default-get-string.md) %}
 
        Команда будет непрерывно считывать новые сообщения из топика.
 
     1. В отдельном терминале запустите команду отправки сообщения в топик:
 
-        ```bash
-          echo "test message" | kafkacat -P \
-              -b <FQDN брокера>:9091 \
-              -t <имя топика> \
-              -k key \
-              -X security.protocol=SASL_SSL \
-              -X sasl.mechanisms=SCRAM-SHA-512 \
-              -X sasl.username="<логин производителя>" \
-              -X sasl.password="<пароль производителя>" \
-              -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
-        ```
+        {% include [default-get-string](./mkf/default-send-string.md) %}
 
 {% endlist %}
 

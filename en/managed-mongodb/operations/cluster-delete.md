@@ -17,7 +17,7 @@ description: "After deleting a MongoDB database cluster, its backups are preserv
 {% list tabs %}
 
 - Management console
-  1. Open the folder page in the management console.
+  1. Open the [folder page]({{ link-console-main }}) in the management console.
   1. Select **{{ mmg-name }}**.
   1. Click ![image](../../_assets/options.svg) for the necessary cluster and select **Delete**.
 

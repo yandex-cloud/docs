@@ -17,6 +17,10 @@ items:
             items:
               - name: Apache Kafka®
                 href: operations/endpoint/source/kafka.md
+              - name: AWS CloudTrail
+                href: operations/endpoint/source/aws-cloudtrail.md
+              - name: BigQuery
+                href: operations/endpoint/source/bigquery.md
               - name: ClickHouse
                 href: operations/endpoint/source/clickhouse.md
               - name: Greenplum®
@@ -29,6 +33,8 @@ items:
                 href: operations/endpoint/source/oracle.md
               - name: PostgreSQL
                 href: operations/endpoint/source/postgresql.md
+              - name: S3
+                href: operations/endpoint/source/s3.md
               - name: Yandex Data Streams
                 href: operations/endpoint/source/data-streams.md
           - name: Параметры эндпоинтов для приемников

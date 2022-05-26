@@ -57,7 +57,7 @@
 
 - **Character set server**{#setting-character-set-server} {{ tag-all }}
 
-  [The character set](https://dev.mysql.com/doc/refman/8.0/en/charset.html) used by the {{ MY }} cluster when working with data and exchanging information with {{ MY }} clients. This choice affects the performance of SQL functions for manipulating strings and other features.
+  The [character set](https://dev.mysql.com/doc/refman/8.0/en/charset.html) used by the {{ MY }} cluster when working with data and exchanging information with {{ MY }} clients. This choice affects the performance of SQL functions for manipulating strings and other features.
 
   By default: `utf8mb4`.
 
@@ -65,7 +65,7 @@
 
 - **Collation server**{#setting-collation-server} {{ tag-all }}
 
-  [The algorithm for collating characters](https://dev.mysql.com/doc/refman/8.0/en/charset.html) used by the {{ MY }} cluster when working with data and exchanging information with {{ MY }} clients. This choice affects the performance of SQL functions for sorting data, manipulating strings, and other features.
+  The [algorithm for collating characters](https://dev.mysql.com/doc/refman/8.0/en/charset.html) used by the {{ MY }} cluster when working with data and exchanging information with {{ MY }} clients. This choice affects the performance of SQL functions for sorting data, manipulating strings, and other features.
 
   By default: `utf8mb4_0900_ai_ci`.
 
@@ -110,7 +110,7 @@
 
   The minimum value is `4` and the maximum value is `33554432` (32 MB). Defaults to `1024` (1 KB).
 
-  For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_group_concat_max_len)
+  For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_group_concat_max_len).
 
 - **Innodb adaptive hash index**{#setting-adaptive-hash-index} {{ tag-all }}
 
@@ -127,10 +127,10 @@
   The minimum value is `134217728` (128 MB). The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are set according to the table:
 
   | Amount of GB RAM on the host | Default value | Maximum value |
-  | ---------------------------- | :---------------------: | :---------------------: |
-  | 2 | `268435456` (0.25 GB) | `536870912` (0.5 GB) |
-  | 4 | `1610612736` (1.5 GB) | `2684354560` (2.5 GB) |
-  | ≥ 8 | `0.5 × RAM` | `0.8 × RAM` |
+  |------------------------------|:-------------:|:-------------:|
+  | 2                            | `268435456` (0.25 GB) | `536870912` (0.5 GB) |
+  | 4                            | `1610612736` (1.5 GB) | `2684354560` (2.5 GB)|
+  | ≥ 8                          | `0.5 × RAM`   | `0.8 × RAM`   |
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
@@ -179,7 +179,7 @@
 
 - **Innodb log file size**{#setting-log-file-size} {{ tag-all }}
 
-  The size of a single InnoDB redo log file (in bytes). The larger the value, the less [checkpoint](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_checkpoint) flush activity is required in the buffer pool, saving disk I/O. At the same time, larger log files make crash recovery slower.
+  The size of a single InnoDB redo log file (in bytes). The larger the value, the less [checkpoint](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_checkpoint) activity is required in the buffer pool, saving disk I/O. At the same time, larger log files make crash recovery slower.
 
   The minimum value is `268435456` (256 MB) and the maximum value is `4294967296` (4 GB). Defaults to `268435456` (256 MB).
 
@@ -187,7 +187,7 @@
 
 - **Innodb numa interleave**{#setting-innodb-numa-interleave} {{ tag-all }}
 
-  Controls the [NUMA Interleave](https://www.kernel.org/doc/html/latest/admin-guide/mm/numa_memory_policy.html#components-of-memory-policies) memory policy for allocation of the InnoDB buffer pool.
+  Controls the [NUMA Interleave](https://www.kernel.org/doc/html/latest/admin-guide/mm/numa_memory_policy.html#components-of-memory-policies) policy for allocation of the InnoDB buffer pool.
 
   This policy is disabled by default.
 
@@ -219,7 +219,7 @@
 
 - **Innodb temp data file max size**{#setting-temp-data-max-size} {{ tag-all }}
 
-  The maximum size of an InnoDB [temporary tablespace](https://dev.mysql.com/doc/refman/8.0/en/innodb-temporary-tablespace.html#innodb-global-temporary-tablespace) (in bytes).
+  The maximum size of InnoDB [temporary tablespace](https://dev.mysql.com/doc/refman/8.0/en/innodb-temporary-tablespace.html#innodb-global-temporary-tablespace) (in bytes)
 
   The minimum value is `0` (no temporary tablespace is used). The maximum value is `107374182400` (100 GB). Defaults to `0`.
 
@@ -244,7 +244,7 @@
 - **Join buffer size**{#setting-join-buffer-size} {{ tag-all }}
 
   The minimum size of the buffer (in bytes) that is used for:
-  - Plain index scans.
+  -  Plain index scans.
   - Range index scans.
   - Full table scans (for `JOIN` operations where no index is used).
 
@@ -254,17 +254,65 @@
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size).
 
-- **Long query time**{#setting-long-query-time} {{ tag-con }} {{ tag-sql }} {{ tag-api }} {{ tag-tf }}
+- **Log slow filter**{#setting-log-slow-filter} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-  If a query takes longer than this number of seconds, it's considered slow. It's not recommended to set small values because this may result in incorrectly regarding most queries as long-running.
+  Filter for a slow query log by query type. It's a string with any combination of the following comma-separated values:
 
-  The minimum value is `0` and the maximum value is `3600` (1 hour). Defaults to `0`.
+  * `full_scan`: Queries that perform a full table scan will be included in the log.
+  * `full_join`: Queries that perform full combination (FULL JOIN, without indexes) will be included in the log.
+  * `tmp_table`: Queries that create an implicit internal temporary table will be included in the table.
+  * `tmp_table_on_disk`: Queries that save a temporary table on a disk will be included in the log.
+  * `filesort`: Queries that perform file sorting will be included in the log.
+  * `filesort_on_disk`: Queries that perform file sorting on the disk will be included in the log.
+
+  If the filter value is set, only query types included in the filter will appear in the slow query log.
+
+  The default value is `""` (empty string, query filter is disabled).
+
+  For more information, see the [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+
+- **Log slow rate type**{#setting-log-slow-rate-type} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Sets the entry type for the slow query log to configure [Log slow rate limit](#setting-log-slow-rate-limit):
+
+  * `query`: At the query level.
+  * `session`: At the session level.
+
+  The default value is `query`.
+
+  For more information, see the [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type).
+
+- **Log slow rate limit**{#setting-log-slow-rate-limit} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  The setting shows which part of queries will be included in the slow query log. Depending on the [Log slow rate type](#setting-log-slow-rate-type) setting value, the setting is applied to individual queries (`QUERY`) or sessions (`SESSION`).
+
+  If the value is `1`, the log will include every query or session that is considered slow. With other values, every Nth query or cluster will be logged, which will reduce cluster load.
+
+  If query processing time exceeds the value of [Slow query log always write time](#setting-slow-query-log-always-write-time), the query is written to the [slow query log](#setting-slow-query-log) regardless of the value of [Log slow rate limit](#setting-log-slow-rate-limit).
+
+  The minimum value is `1` and the maximum value is `1000`. Defaults to `1`.
+
+  For more information, see the [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+- **Log slow sp statements**{#setting-log-slow-sp-statements} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Controls writing of expressions run by stored procedures to the slow query log.
+
+  By default, the writing of expressions is enabled.
+
+  For more information, see the [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+
+- **Long query time**{#setting-long-query-time} {{ tag-all }}
+
+  If a query takes longer than this number of seconds, it's considered slow. The lower the value, the more queries will be considered slow.
+
+  The minimum value is `0` and the maximum value is `3600` (1 hour). Defaults to `10`.
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
 
 - **Max allowed packet**{#setting-max-allowed-packet} {{ tag-all }}
 
-  The maximum size (in bytes) of one packet, string, or parameter sent by the [mysql_stmt_send_long_data()](https://dev.mysql.com/doc/c-api/8.0/en/mysql-stmt-send-long-data.html) function.
+  The maximum size (in bytes) of a package, string, or parameters sent by the [mysql_stmt_send_long_data()](https://dev.mysql.com/doc/c-api/8.0/en/mysql-stmt-send-long-data.html) function.
 
   The default value is small in order to discard incorrect packages, which are usually larger. Increase this value if you're using large BLOB columns or long strings.
 
@@ -278,8 +326,8 @@
 
   The minimum value is `10`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by the formula:
 
-  - The maximum value is `<amount of RAM per host, MB> / 8`.
-  - The default value is `<amount of RAM per host, MB> / 32`, with a minimum of  `100`.
+  - The maximum value is `<amount of RAM in MB on one host> / 8`.
+  - The default value is `<amount of RAM in MB on one host> / 32`. The minimum value is `100`.
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
@@ -345,6 +393,27 @@
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers).
 
+- **Slow query log**{#setting-slow-query-log} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Permits logging slow queries. A query is considered slow if its execution time exceeds the [Long query time](#setting-long-query-time) setting value.
+
+  Acceptable values:
+
+  * `0` or `OFF`.
+  * `1` or `ON`.
+
+  The default value is `OFF`.
+
+  For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+
+- **Slow query log always write time**{#setting-slow-query-log-always-write-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+  Query execution time (in seconds) after which a query is unconditionally written to the [slow query log](#setting-slow-query-log) ignoring the [Log slow rate limit](#setting-log-slow-rate-limit) setting.
+
+  The minimum value is `0` and the maximum value is `3600` (1 hour). Defaults to `10`.
+
+  For more information, see the [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+
 - **Sort buffer size**{#setting-sort-buffer-size} {{ tag-all }}
 
   The size of the buffer (in bytes) used for performing in-memory sorts.
@@ -356,27 +425,16 @@
 - **Sql mode**{#setting-sql-mode} {{ tag-all }}
 
   {{ MY }} cluster SQL modes:
-
   - [ALLOW_INVALID_DATES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates): Do not perform full checking of dates. In this mode, the server checks that the month is in the range from 1 to 12 and the day is in the range from 1 to 31. Invalid dates like `2004-04-31` are converted to `0000-00-00` and a warning is returned.
-
-  - [ANSI_QUOTES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes): Treat `"` as an identifier quote character and not as a string quote character. With this mode enabled, use single quotes `'` instead of doubles `"` for strings.
-
+  - [ANSI_QUOTES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes): Treat `"` quotes as an identifier quote and not a string quote. With this mode enabled, use single quotes `'` instead of doubles `"` for strings.
   - [ERROR_FOR_DIVISION_BY_ZERO](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_error_for_division_by_zero): Division by zero returns `NULL` and a warning. This SQL mode is deprecated.
-
   - [HIGH_NOT_PRECEDENCE](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_high_not_precedence): The precedence of the `NOT` operator is higher when parsing Boolean expressions. With this mode enabled, an expression like `NOT a BETWEEN b AND c` is parsed as `(NOT a) BETWEEN b AND c` instead of `NOT (a BETWEEN b AND c)`.
-
   - [IGNORE_SPACE](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ignore_space): Permits spaces between a function name and the opening bracket `(`. As a result, built-in function names are treated as keywords. Identifiers that are the same as function names must be quoted.
-
   - [NO_AUTO_VALUE_ON_ZERO](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero): Only `NULL` inserted into `AUTO_INCREMENT` columns generates the next sequence number for the column. Normally, new sequence numbers are generated when inserting either `0` or `NULL` into it. So this mode can be useful if you need to explicitly store `0` in this column.
-
-  - [NO_BACKSLASH_ESCAPES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes): Disables the use of the backslash character (`\`) as an escape character. With this mode enabled, backslash is treated as an ordinary character.
-
+  - [NO_BACKSLASH_ESCAPES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes): Disables the use of the backslash character `\` as an escape character. With this mode enabled, backslash is treated as an ordinary character.
   - [NO_DIR_IN_CREATE](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_dir_in_create): When creating a table, ignore all `INDEX DIRECTORY` and `DATA DIRECTORY` directives.
-
   - [NO_ENGINE_SUBSTITUTION](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_engine_substitution): Do not use the default storage engine automatically and return an error if the `CREATE TABLE` or `ALTER TABLE` statement specifies an engine that is unavailable.
-
   - [NO_UNSIGNED_SUBTRACTION](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction): A negative result is allowed when using subtraction between integer values, one of which is unsigned.
-
   - [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_date): Affects whether the server permits `0000-00-00` as a valid date: {#setting-no-zero-date}
     - If [strict SQL mode](#setting-strict-mode) is disabled, `0000-00-00` is permitted and inserting it produces a warning.
     - If strict SQL mode is enabled, `0000-00-00` is not permitted. If you try to insert it, an error occurs.
@@ -389,29 +447,21 @@
 
     This SQL mode is deprecated.
 
-    See also: [NO_ZERO_DATE](#setting-no-zero-date).
+    For details, see also: [NO_ZERO_DATE](#setting-no-zero-date).
 
-  - [ONLY_FULL_GROUP_BY](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_only_full_group_by): Reject queries in which `SELECT`, `HAVING`, or `ORDER BY` refer to nonaggregated columns that are not named in the `GROUP BY` clause (standard [SQL-92](https://dev.mysql.com/doc/refman/8.0/en/group-by-handling.html)).
-
+  - [ONLY_FULL_GROUP_BY](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_only_full_group_by): Reject queries in which `SELECT`, `HAVING`, or `ORDER BY` refer to non-aggregated columns that are not named in `GROUP BY` (standard [SQL-92](https://dev.mysql.com/doc/refman/8.0/en/group-by-handling.html)).
   - [PAD_CHAR_TO_FULL_LENGTH](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pad_char_to_full_length): `CHAR` column values are padded with spaces to their full length. This does not apply to `VARCHAR` columns.
-
-  - [PIPES_AS_CONCAT](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pipes_as_concat): Treat `||` as a string concatenation operator (same as [CONCAT()](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_concat)) rather than a synonym for [OR](https://dev.mysql.com/doc/refman/8.0/en/logical-operators.html#operator_or).
-
+  - [PIPES_AS_CONCAT](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pipes_as_concat): Treat `||` as a concatenation operator (same as [CONCAT()](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html#function_concat)) rather than a synonym for [OR](https://dev.mysql.com/doc/refman/8.0/en/logical-operators.html#operator_or).
   - [REAL_AS_FLOAT](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_real_as_float): Treat `REAL` as a synonym for `FLOAT` (by default, {{ MY }} treats `REAL` as a synonym for `DOUBLE`).
-
-  - [STRICT_ALL_TABLES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_all_tables): Enable [strict SQL mode](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-strict) for all storage engines.
-
-  - [STRICT_TRANS_TABLES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_trans_tables): Enable [strict SQL mode](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-strict) for all transactional storage engines and, when possible, for nontransactional storage engines. {#setting-strict-mode}
-
-  - [TIME_TRUNCATE_FRACTIONAL](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_time_truncate_fractional): Enables truncation of a fractional part when inserting a `TIME`, `DATE`, or `TIMESTAMP` value into a column that has fewer fractional digits (by default, {{ MY }} uses rounding instead of truncation).
-
+  - [STRICT_ALL_TABLES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_all_tables): Enable [strict SQL mode](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-strict) for all engines.
+  - [STRICT_TRANS_TABLES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_trans_tables): Enable [strict SQL mode](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-strict) for all transactional engines and, when possible, for non-transactional engines. {#setting-strict-mode}
+  - [TIME_TRUNCATE_FRACTIONAL](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_time_truncate_fractional): Enables truncation of a fractional part when inserting a `TIME`, `DATE`, or `TIMESTAMP `value into a column that has fewer fractional digits (by default, {{ MY }} uses rounding instead of truncation).
   - [ANSI](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi): A combination of the following modes:
     - `REAL_AS_FLOAT`.
     - `PIPES_AS_CONCAT`.
     - `ANSI_QUOTES`.
     - `IGNORE_SPACE`.
     - `ONLY_FULL_GROUP_BY`.
-
   - [TRADITIONAL](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_traditional): A combination of the following modes:
     - `STRICT_ALL_TABLES`.
     - `STRICT_TRANS_TABLES`.
@@ -427,7 +477,7 @@
   - `NO_ENGINE_SUBSTITUTION`.
   - `NO_ZERO_DATE`.
   - `NO_ZERO_IN_DATE`.
-  - `ONLY_FULL_GROUP_BY`.
+  - `ONLY_FULL_GROUP_BY`;
   - `STRICT_TRANS_TABLES`.
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
@@ -493,7 +543,7 @@
 
 - **Tmp table size**{#setting-tmp-table-size} {{ tag-all }}
 
-  The maximum size of in-memory temporary tables (in bytes). If a table exceeds this limit, it's converted to an on-disk temporary table. This setting doesn't affect user-created MEMORY tables. Increase this value if you run many advanced `GROUP BY` queries and your cluster hosts have enough memory.
+  The maximum size of in-memory temporary tables (in bytes). If a table exceeds this limit, it's converted to an on-disk temporary table. This setting doesn't affect user-created MEMORY tables. Increase this value if you run many advanced `GROUP BY` queries and your cluster hosts have enough RAM.
 
   The minimum value is `1024` (1 KB) and the maximum value is `134217728` (128 MB). Defaults to `16777216` (16 MB).
 
@@ -504,7 +554,6 @@
   The default transaction isolation level:
   - `READ-COMMITTED`: A query only sees the strings that were committed before it is run.
   - `REPEATABLE-READ`: All queries in the current transaction only see the strings that were committed before the first query to select and update data that was executed in this transaction.
-  - `SERIALIZABLE`: Same as `REPEATABLE-READ`, except that InnoDB implicitly converts `SELECT` statements to `SELECT ... FOR SHARE` if the [autocommit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) mode is disabled. If autocommit is on, a `SELECT` is executed in its own transaction in `read only` mode and can be serialized.
+  - `SERIALIZABLE`: Same as `REPEATABLE-READ`, except that InnoDB implicitly converts `SELECT` statements to `SELECT ... FOR SHARE` if [autocommit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) is disabled. If autocommit is on, a `SELECT` is executed in its own transaction in `read only` mode and can be serialized.
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation).
-

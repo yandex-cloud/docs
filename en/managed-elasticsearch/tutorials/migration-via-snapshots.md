@@ -26,7 +26,7 @@ To migrate data from the *source cluster* in {{ ES }} to the {{ mes-name }} *tar
 
 ## Create a snapshot on the source cluster {#create-snapshot}
 
-1. [Assign the role]( ../../iam/operations/sa/assign-role-for-sa) `storage.editor` to the [previously created](#before-you-begin) service account.
+1. [Assign the role](../../iam/operations/sa/assign-role-for-sa) `storage.editor` to the [previously created](#before-you-begin) service account.
 1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
 
    {% note warning %}

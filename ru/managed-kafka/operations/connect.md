@@ -92,16 +92,12 @@
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-
 {% list tabs %}
 
 - Linux (Bash)
 
-  ```bash
-  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-  ``` 
+  {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
+
 
 - Windows (PowerShell)
 

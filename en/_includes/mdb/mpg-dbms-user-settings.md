@@ -8,15 +8,14 @@
 
   The following principles apply to session pooling:
 
-  * When adding a user, {{ mpg-name }} reserves 50 connections per host in a {{ PG }} cluster by default. The minimum number of connections per user is 10.
+  - When adding a user, {{ mpg-name }} reserves 50 connections per host in a {{ PG }} cluster by default. The minimum number of connections per user is 10.
+  - The total number of connections reserved for users must not exceed the value of the parameter [Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). {{ mpg-name }} reserves 15 service connections per host.
 
-  * The total number of connections reserved for users must not exceed the value of the parameter [Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). {{ mpg-name }} reserves 15 service connections per host.
+    For example, if the cluster has the setting "`max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
 
-      For example, if the cluster has the setting `"max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
+  - We recommend that you distribute different services that use {{ PG }} among different users and set the desired value for each user. If issues in one service lead to the creation of a large number of connections, other services aren't affected and can connect to {{ PG }}.
 
-  * We recommend that you distribute different services that use {{ PG }} among different users and set the desired value for each user. If issues in one service lead to the creation of a large number of connections, other services aren't affected and can connect to {{ PG }}.
-
-  This setting [depends on the selected host class](#settings-instance-dependent).
+  The setting [depends on the selected host class](#settings-instance-dependent).
 
 - **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -40,9 +39,9 @@
 
 - **Login**{#setting-user-login} {{ tag-api }} {{ tag-cli }}
 
-   Controls whether the user can log in to the {{ PG }} cluster.
+  Determines if the user can connect to a {{ PG }} cluster.
 
-  Default: `true` (the user is allowed to log in to the cluster).
+  Defaults to `true` (the user can connect to the cluster).
 
 - **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 

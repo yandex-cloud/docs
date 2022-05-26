@@ -9,13 +9,16 @@
 
 ## Limits {#limits}
 
-| Type of limit                                                                                 | Minimum value                                    | Maximum value                                    |
-|-----------------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
-| Host class                                                                                    | s2.medium (8 vCPU Intel Cascade Lake, 32 GB RAM) | i3-c40-m320 (40 vCPU Intel Ice Lake, 320 GB RAM) |
-| Number of master hosts per cluster                                                            | 2                                                | 2                                                |
-| Number of segment hosts per cluster                                                           | 2                                                | 32                                               |
-| Number of segments per host                                                                   | 1                                                | 16                                               |
-| Amount of data on the host when using standard network storage                                | 10 GB                                            | 2048 GB                                          |
-| Amount of data on the host when using fast network storage                                    | 10 GB                                            | 8192 GB                                          |
-| Amount of data on the host when using non-replicated network storage (for segment hosts only) | 93 GB                                            | 8184 GB                                          |
-| Amount of data on the host when using local storage                                           | 100 GB                                           | 1500 GB                                          |
+
+| Type of limit | Minimum value | Maximum value |
+|:--------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-------------------------------------------------------------|
+| Host class | s2.micro (2 vCPU Intel Cascade Lake, 8 GB RAM) | m2.9xlarge (80 vCPU Intel Cascade Lake, 640 GB RAM) |
+| Number of master hosts per cluster | 1 | 2 |
+| Number of segment hosts per cluster | 2 | 32 |
+| Number of segments per host | 1 | Is equal to the number of vCPUs for the selected class of host segments |
+| Amount of data on the host when using HDD network storage | 10 GB | 2048 GB |
+| Amount of data on the host when using SSD network storage | 10 GB | 4096 GB |
+| Amount of host data when using non-replicated SSD storage (for segment hosts only) | 93 GB | 8184 GB |
+| Amount of data on the host when using local SSD storage (for the Intel Cascade Lake) | 100 GB | 1500 GB |
+| Amount of data on the host when using local SSD storage (for Intel Ice Lake) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |
+

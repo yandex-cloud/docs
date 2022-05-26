@@ -173,7 +173,7 @@ Just like usual FQDNs, which can be requested with a [list of cluster hosts](./h
 
 ### Current master {#fqdn-master}
 
-An FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current master host in the cluster. You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
+An FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current master host in the cluster. You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 

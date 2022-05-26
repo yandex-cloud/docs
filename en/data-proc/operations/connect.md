@@ -108,24 +108,24 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To connect to a {{ dataproc-name }} host, make sure the SSH key that you specified when creating the {{ dataproc-name }} cluster is accessible on the local machine or the VM. You can copy the key to the machine from which the connection is performed to the cluster, or connect to it with an SSH agent.
 
-1. (Optional) [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. (optional) [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 1. Launch the SSH agent:
 
     ```bash
-    $ eval `ssh-agent -s`
+    eval `ssh-agent -s`
     ```
 
 1. Add the required key to the list of those available to the agent:
 
    ```bash
-   $ ssh-add ~/.ssh/example-key
+   ssh-add ~/.ssh/example-key
    ```
 
 1. Open an SSH connection to the {{ dataproc-name }} host by specifying its FQDN or IP address if public access is enabled for the host. For image 2.0, specify the `ubuntu` user, for image 1.4 — `root`. For example:
 
    ```bash
-   $ ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
+   ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
    
    ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
    ```
@@ -175,7 +175,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
         1. Enable the **Use SSL** setting and specify the SSL connection parameters:
            * **CA file**: Downloaded SSL certificate for the connection.
            * **Client key file**, **Client key password**: File with the private key required to connect to the {{ dataproc-name }} cluster and its password.
-        1. (Optional) To connect via an intermediate VM, configure the parameters of the SSH tunnel:
+        1. (optional) To connect via an intermediate VM, configure the parameters of the SSH tunnel:
            1. Select **Use SSH tunnel**, create an SSH configuration, and specify the parameters:
               * **Host**: IP address of the VM.
               * **User name**: VM user's name.
@@ -205,7 +205,7 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
         * **Authentication method**: `Public key`.
         * **Secret key**: Path to the private key file.
         * **Passphrase**: Password of the private key.
-        * (Optional) To connect via an intermediate VM, enable the **Use SSH tunnel** setting and specify the following parameters to configure it:
+        * (optional) To connect via an intermediate VM, enable the **Use SSH tunnel** setting and specify the following parameters to configure it:
             * **Host/IP**: Public IP address of the VM to connect to.
             * **Username**: Username for connecting to the VM.
   1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.

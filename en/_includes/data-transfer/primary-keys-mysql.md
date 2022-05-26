@@ -1,6 +1,6 @@
 For _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers, tables without primary keys are not transferred. To make sure the transfer is running properly when migrating a database with such tables:
 
-* Do not transfer tables without primary keys. For this purpose, add them to the list of excluded tables in [source endpoint settings](../../data-transfer/operations/source-endpoint.md#settings-mysql).
+* Do not transfer tables without primary keys. For this purpose, add them to the list of excluded tables in [source endpoint settings](../../data-transfer/operations/endpoint/source/mysql.md#additional-settings).
 
 * Create `PRIMARY KEYS` in those tables to be migrated where there are no keys.
 

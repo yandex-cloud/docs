@@ -17,12 +17,15 @@
     1. Задайте параметры эндпоинта:
         * Источники:
             * [{{ KF }}](source/kafka.md).
+            * [AWS CloudTrail](source/aws-cloudtrail.md).
+            * [BigQuery](source/bigquery.md).
             * [{{ CH }}](source/clickhouse.md).
             * [{{ GP }}](source/greenplum.md).
             * [{{ MG }}](source/mongodb.md).
             * [{{ MY }}](source/mysql.md).
             * [Oracle](source/oracle.md).
             * [{{ PG }}](source/postgresql.md).
+            * [S3](source/s3.md).
             * [{{ yds-full-name }}](source/data-streams.md).
         * Приемники:
             * [{{ CH }}](target/clickhouse.md).
@@ -55,7 +58,7 @@
         {{ yc-dt }} endpoint create --help
         ```
 
-    2. Укажите параметры эндпоинта в команде создания (в примере приведены не все параметры):
+    1. Укажите параметры эндпоинта в команде создания (в примере приведены не все параметры):
 
         ```bash
         {{ yc-dt }} endpoint create <тип эндпоинта> \
@@ -168,12 +171,16 @@
     1. Отредактируйте параметры эндпоинта:
         * Источники:
             * [{{ KF }}](source/kafka.md).
+            * [AWS CloudTrail](source/aws-cloudtrail.md).
+            * [BigQuery](source/bigquery.md).
             * [{{ CH }}](source/clickhouse.md).
             * [{{ GP }}](source/greenplum.md).
             * [{{ MG }}](source/mongodb.md).
             * [{{ MY }}](source/mysql.md).
+            * [Oracle](source/oracle.md).
             * [{{ PG }}](source/postgresql.md).
-            * [{{ yds-name }}](source/data-streams.md).
+            * [S3](source/s3.md).
+            * [{{ yds-full-name }}](source/data-streams.md).
         * Приемники:
             * [{{ CH }}](target/clickhouse.md).
             * [{{ GP }}](target/greenplum.md).
@@ -181,7 +188,7 @@
             * [{{ MY }}](target/mysql.md).
             * [{{ objstorage-name }}](target/object-storage.md).
             * [{{ PG }}](target/postgresql.md).
-            * [{{ ydb-name }}](target/yandex-database.md).
+            * [{{ ydb-name }}](target/yandex-database.md)
 
     1. Нажмите кнопку **Применить**.
 

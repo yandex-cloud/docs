@@ -16,7 +16,7 @@ You cannot use the service to make a local backup from {{ yandex-cloud }} but yo
 
 #### How do I move a local {{ PG }} database dump to {{ yandex-cloud }}? {#dump-to-yc}
 
-Follow the instructions provided in [Migrating databases](../operations/data-migration.md).
+Follow the instructions provided in [Migrating databases](../tutorials/data-migration.md).
 
 #### How do I import data to a {{ PG }} database cluster in {{ mpg-short-name }}? {#migrate}
 

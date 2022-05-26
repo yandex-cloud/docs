@@ -1,5 +1,6 @@
 # Storage in {{ mmg-name }}
 
+
 {{ mmg-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mmg/storage-type.md) %}
@@ -54,3 +55,28 @@ To make sure a cluster is operational when the host switches to read-only:
 
 * [Force the synchronization](../operations/hosts.md#resetup) of data between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).
 
+## Managing disk space {#manage-storage-space}
+
+{% include [mmg-readonly-safeguard.md](../../_includes/mdb/mmg-readonly-safeguard.md) %}
+
+After switching to read-only mode:
+
+* Write operations will not be allowed on the host and only read operations will be possible.
+* If the host was a [primary replica](replication.md) before switching to read-only mode, this role will be automatically assigned to another cluster host, because the primary replica role requires permission to write to the disk.
+
+If the amount of data in the cluster keeps growing, all the hosts will switch to read-only mode, one by one, and the cluster will stop accepting data to write.
+
+### Maintaining the health of a cluster {#read-only-solutions}
+
+To make sure a cluster is operational when the host switches to read-only:
+* [Increase the disk space on the host](../operations/update.md#change-disk-size). Once there is enough space on the host, {{ yandex-cloud }} disables read-only mode automatically.
+* [Add additional shards to the cluster](../operations/shards.md#add-shard). Read-only mode won't be lifted on this host, but the cluster will be able to continue working normally provided there is free disk space on the other shards.
+* Contact [technical support]({{ link-console-support }}) and ask them to temporarily disable this host's read-only mode to manually delete a part of the data.
+
+   {% note alert %}
+
+   If you run out of free disk space completely, {{ MG }} will crash and the cluster will be disabled.
+
+   {% endnote %}
+
+* [Force the synchronization](../operations/hosts.md#resetup) of data between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).
