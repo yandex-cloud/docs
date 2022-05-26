@@ -94,25 +94,4 @@
 
 Чтобы использовать шифрованное SSL-соединение, получите SSL-сертификат:
 
-{% if audience != "internal" %}
-
-```bash
-mkdir ~/.redis && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-     --output-document ~/.redis/YandexInternalRootCA.crt && \
-chmod 0655 ~/.redis/YandexInternalRootCA.crt
-```
-
-Для использования графических IDE [скачайте сертификат](https://{{ s3-storage-host }}{{ pem-path }}) и укажите путь к нему в настройках подключения.
-
-{% else %}
-
-```bash
-wget "{{ pem-path }}" \
-     --output-document ~/.redis/YandexInternalRootCA.crt && \
-chmod 0655 ~/.redis/YandexInternalRootCA.crt
-```
-
-Для использования графических IDE [скачайте сертификат]({{ pem-path }}) и укажите путь к нему в настройках подключения.
-
-{% endif %}
+{% include [install-certificate](../../../_includes/mdb/mrd/install-certificate.md) %}

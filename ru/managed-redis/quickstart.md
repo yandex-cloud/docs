@@ -55,23 +55,7 @@
 
 1. Если ваш кластер развернут с версией 6 или выше и включена поддержка TLS, то настройте SSL-сертификат:
 
-   1. Создайте каталог:
-
-      ```bash
-      mkdir ~/.redis
-      ```
-
-   1. Получите сертификат:
-
-      ```bash
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt
-      ```
-
-   1. Настройте права доступа к сертификату:
-
-      ```bash
-      chmod 0600 ~/.redis/YandexInternalRootCA.crt
-      ```
+    {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
 1. [Настройте группы безопасности](operations/connect/index.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 1. Подключитесь к кластеру, используя `redis-cli`.
@@ -100,9 +84,7 @@
 
      1. Подключитесь к хосту с этим адресом:
 
-        ```bash
-        redis-cli -h <адрес хоста-мастера {{ RD }}> -a <пароль {{ RD }}>
-        ```
+        {% include [default-connstring](../_includes/mdb/mrd/default-connstring.md) %}
 
      **Чтобы подключиться напрямую к мастеру (без SSL):**
 

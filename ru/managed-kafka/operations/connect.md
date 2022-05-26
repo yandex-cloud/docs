@@ -128,17 +128,13 @@
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% if audience != "internal" %}
-
 {% list tabs %}
 
 - Linux (Bash)
 
-  ```bash
-  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-  ``` 
+  {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
+
+{% if audience != "internal" %}
 
 - Windows (PowerShell)
 
@@ -146,16 +142,9 @@
   mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexCA.crt https://{{ s3-storage-host }}{{ pem-path }}
   ```
 
-{% endlist %}
-
-{% else %}
-
-```bash
-sudo wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-```
-
 {% endif %}
+
+{% endlist %}
 
 Полученный SSL-сертификат также используется при работе с [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 

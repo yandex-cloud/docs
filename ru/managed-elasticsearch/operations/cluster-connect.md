@@ -132,23 +132,7 @@ keywords:
 
 - Linux (Bash)
 
-  {% if audience == "internal" %}
-
-  ```bash
-  mkdir ~/.elasticsearch && \
-  wget "https://crls.yandex.net/allCAs.pem" -O ~/.elasticsearch/root.crt && \
-  chmod 0600 ~/.elasticsearch/root.crt
-  ```
-
-  {% else %}
-
-  ```bash
-  mkdir ~/.elasticsearch && \
-  wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
-  chmod 0600 ~/.elasticsearch/root.crt
-  ```
-
-  {% endif %}
+  {% include [install-certificate](../../_includes/mdb/mes/install-certificate.md) %}
 
   Сертификат будет сохранен в каталоге `$HOME/.elasticsearch/root.crt`.
 

@@ -89,49 +89,18 @@
 
   **Пример команды для подключения с использованием SSL-соединения :**
 
-  {% if audience == "internal" %}
-
-  ```bash
-   curl \
-     --user <имя пользователя>:<пароль> \
-     --cacert ~/.elasticsearch/root.crt \
-     --request GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
-   ```
-   
-   {% else %}
-   
-  ```bash
-   curl \
-     --user <имя пользователя>:<пароль> \
-     --cacert ~/.elasticsearch/root.crt \
-     --request GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
-   ```
-
-  {% endif %}
+  {% include [default-connstring](./mes/default-connstring.md) %}
 
 - PowerShell
 
   **Пример команды для подключения с использованием SSL-соединения :**
 
-  {% if audience == "internal" %}
-
   ```powershell
    curl `
      -Certificate <абсолютный путь к файлу сертификата> `
      -Uri https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200 `
      -Credential <имя пользователя>
    ```
-
-   {% else %}
-
-  ```powershell
-   curl `
-     -Certificate <абсолютный путь к файлу сертификата> `
-     -Uri https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200 `
-     -Credential <имя пользователя>
-   ```
-
-  {% endif %}
 
    В открывшемся окне введите пароль пользователя.
 
