@@ -121,6 +121,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 {% if api != "noshow" %}
 
 - API
@@ -206,7 +208,9 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-{% if api != "noshow" %}  
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+{% if api != "noshow" %}
 
 - API
 
@@ -259,6 +263,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 
@@ -386,6 +392,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 {% if api != "noshow" %}
 
 - API
@@ -454,6 +462,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 {% if api != "noshow" %}
 
 - API
@@ -463,7 +473,7 @@
   * Имя учетной записи в параметре `userName`. Чтобы узнать имя, [получите список учетных записей в кластере](#list-accounts).
   * Право на доступ к топику, которое требуется отозвать, в параметре `permission`.
 
-{% endif %}  
+{% endif %}
 
 {% endlist %}
 
@@ -513,6 +523,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 

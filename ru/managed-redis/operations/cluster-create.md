@@ -224,7 +224,7 @@
 
        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-       1. {% include [maintenance-window](../../_includes/mdb/mrd/terraform-maintenance-window.md) %}
+       1. {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }})
 
@@ -237,6 +237,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
        После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+       {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - API
 

@@ -115,6 +115,8 @@
  
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.resources.resourcePresetId`.
@@ -190,6 +192,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
    
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
@@ -343,7 +347,7 @@
         }
         ```
 
-    1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform-maintenance-window.md) %}
+    1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -365,6 +369,8 @@
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
@@ -491,6 +497,8 @@
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 

@@ -199,7 +199,7 @@ description: "Вы можете создавать резервные копии
 
   Terraform создаст копию существующего кластера. Базы данных и пользователи будут развернуты из выбранной резервной копии.
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
   **Чтобы восстановить из резервной копии удаленный ранее кластер:**
 
@@ -244,7 +244,7 @@ description: "Вы можете создавать резервные копии
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -424,7 +424,7 @@ description: "Вы можете создавать резервные копии
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
