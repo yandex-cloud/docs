@@ -15,7 +15,7 @@ Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 
 {
-    "name: "Название проекта",
+    "name": "Название проекта",
     "queues": "<ключ очереди>"
 }
 ```
