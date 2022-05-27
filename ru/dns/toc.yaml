@@ -66,3 +66,5 @@ items:
         include:
           repo: docs
           path: en/_api-ref/dns/toc.yaml
+  - name: Вопросы и ответы
+    href: qa/index.md
