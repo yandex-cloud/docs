@@ -919,7 +919,7 @@ output:
 ```yaml
 - channel:
     output:
-        plugin: yc_metrics
+        plugin: yc_logs
         config:
         # URL, на который будут отправляться метрики.
         url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write  # необязательный, по умолчанию https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
