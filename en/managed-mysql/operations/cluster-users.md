@@ -9,7 +9,7 @@ You can add and remove users, as well as manage their settings.
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and then select the **Users** tab.
 
 - CLI
@@ -40,7 +40,7 @@ You can add and remove users, as well as manage their settings.
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click **Add**.
   1. Enter a database username and password (from 8 to 128 characters).

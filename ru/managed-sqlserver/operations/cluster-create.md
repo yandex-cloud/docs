@@ -242,7 +242,7 @@
         }
         ```
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
         1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), добавьте к описанию кластера поле `host_group_ids` и укажите в нем через запятую идентификаторы нужных групп:
 
@@ -281,7 +281,7 @@
   * Имя параметров сортировки баз данных кластера в параметре `sqlcollation`.
   * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
   
   Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.

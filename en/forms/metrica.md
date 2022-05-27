@@ -28,7 +28,7 @@ You can use the Yandex.Metrica tag to track the actions of users who opened the 
 
 To track user actions:
 
-1. Add a [ Yandex.Metrica tag]( metrica.md#section-add-counter) to your form.
+1. Add a [ Yandex.Metrica tag](metrica.md#section-add-counter) to your form.
 
 1. In Yandex.Metrica, go to the added tag's settings and [add a goal]({{ support-metrica-java }}).
 

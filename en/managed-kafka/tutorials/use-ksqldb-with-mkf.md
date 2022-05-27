@@ -222,6 +222,6 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
 If you no longer need these resources, delete them:
 
-* [Delete the VM ](../../compute/operations/vm-control/vm-delete.md).
+* [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).
 * [Delete the cluster {{ mkf-name }}](../operations/cluster-delete.md).

@@ -139,7 +139,7 @@
 
     This is a global cluster-level setting. It can be overridden at the [topic level](#settings-topic-segment-bytes).
 
-    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.segment.bytes).
+    For more information, see [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.segment.bytes).
 
 * **Num partitions** {{ tag-all }} {#settings-num-partitions}
 

@@ -86,12 +86,8 @@
 {% list tabs %}
 
 - Ubuntu 20.04
-  
-  ```bash
-  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-  sudo update-ca-certificates
-  ```
+
+  {% include [install-certificate](../../_includes/mdb/mms/install-certificate.md) %}
 
 {% endlist %}
 

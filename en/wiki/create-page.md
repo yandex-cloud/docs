@@ -37,7 +37,7 @@ You can set a page address for a page that doesn't exist. For example, you set t
 
 1. Click **Create**.
 
-1. [Add text to the ](basic-markup.md) page and save your changes.
+1. [Add text to the](basic-markup.md) page and save your changes.
 
 ## Create cluster subpages {#create-subpage}
 

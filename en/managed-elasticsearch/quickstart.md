@@ -20,23 +20,24 @@ To get started with the service:
 
 {% note info %}
 
-This instruction assumes that you're connecting to the cluster from the internet.
+These instructions assume that you're connecting to the cluster from the internet.
 
 {% endnote %}
 
 ## Create a cluster {#cluster-create}
 
-1. In the management console, select the folder where you want to create a cluster.
-1. Select **{{ mes-name }}**.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+1. Select the service **{{ mes-name }}**.
 1. Click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
 1. Set the cluster parameters.
 
    To access the Kibana web interface, request public access:
-   1. Change the settings of the host with the _Data node_ role by clicking ![image](../_assets/pencil.svg) for the host.
+
+   1. Under **Hosts**, change the settings of the host with the _Data node_ role by clicking ![image](../_assets/pencil.svg) for the host.
    1. Select **Public access**.
    1. Click **Save**.
 
-   Public access can be requested for one or more hosts with the _Data node_ role. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may need to additionally [set up security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.
+   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may need to additionally [set up the security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
@@ -54,10 +55,11 @@ It is assumed that all the steps below are performed on Linux.
 To connect to a cluster:
 1. Install an SSL certificate:
 
+   
    ```bash
-   $ mkdir -p ~/.elasticsearch
-   $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
-   $ chmod 0600 ~/.elasticsearch/root.crt
+   mkdir -p ~/.elasticsearch && \
+   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
+   chmod 0600 ~/.elasticsearch/root.crt
    ```
 
 1. Connect to the cluster using [cURL](https://curl.haxx.se/):
@@ -69,13 +71,13 @@ To connect to a cluster:
      -X GET 'https://<FQDN of the publicly available {{ ES }} host with the Data node role>:9200'
    ```
 
-   To connect, you need to enter the username and password used for [creating a cluster](#cluster-create).
+   To connect, enter the username and password used when [creating a cluster](#cluster-create).
 
    A message like this is displayed if the connection is successful:
 
-   ```
+   ```bash
    {
-     "name" : "....{{ dns-zone }}",
+     "name" : "....mdb.yandexcloud.net",
      "cluster_name" : "...",
      "cluster_uuid" : "...",
      ...
@@ -96,7 +98,7 @@ To connect to a cluster:
    1. Add data from one or more datasets by clicking **Add data** for the selected dataset.
 1. Explore the data with Kibana and {{ ES }} by clicking **View data** for a dataset.
 
-To learn more about Kibana, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/kibana/current/connect-to-elasticsearch.html).
+Learn more about working with Kibana, in the [{{ ES }} documentation](https://www.elastic.co/guide/en/kibana/current/connect-to-elasticsearch.html).
 
 ## What's next {#whats-next}
 

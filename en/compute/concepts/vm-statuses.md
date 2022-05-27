@@ -20,7 +20,7 @@ A VM can have one of the following statuses:
 The diagram below shows only transitions between statuses under normal operation during the following actions:
 
 - [VM creation](#create)
-- [VM stop and start ](#stop-and-start)
+- [VM stop and start](#stop-and-start)
 - [VM restart](#restart)
 
 The diagram does not show the following intermediate statuses:

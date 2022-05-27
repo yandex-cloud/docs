@@ -9,7 +9,7 @@ The developers of the producer and consumer must:
 * Update data format schemas regularly and on time.
 * Enable the producer and consumer to support several data format schema versions, if necessary.
 
-To automate the handling of data format schemas, _a data format schema registry_ is used. It greatly simplifies working with data, especially when a schema changes over time. The registry automatically checks data version compatibility and ensures the backward compatibility of schema versions.
+To automate the handling of data format schemas, a _data format schema registry_ is used. It greatly simplifies working with data, especially when a schema changes over time. The registry automatically checks data version compatibility and ensures the backward compatibility of schema versions.
 
 ## Registry of data format schemas {#how-sr-works}
 
@@ -37,8 +37,8 @@ The JSON REST API is available for registry operations and is fully compatible w
 
 The following data schema formats are supported:
 
-* Avro
-* JSON Schema
+* [Avro](https://avro.apache.org/),
+* [JSON Schema](https://json-schema.org/),
 
 Schema information is posted to a [service topic](./topics.md#service-topics) called `_schemas`. You cannot use standard tools to write data to this topic.
 
@@ -71,5 +71,5 @@ For more information about roles, see [{#T}](../operations/cluster-accounts.md).
 
 ## See also {#see-also}
 
-* [Using Confluent Schema Registry with Managed Service for Apache Kafka®](../tutorials/confluent-schema-registry.md).
-
+* [Working with the managed schema registry](../tutorials/managed-schema-registry.md).
+* [Working with Confluent Schema Registry](../tutorials/confluent-schema-registry.md).

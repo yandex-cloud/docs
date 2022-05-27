@@ -5,7 +5,7 @@ description: "You can monitor the health of a Managed Service for PostgreSQL clu
 
 # Monitoring the state of a cluster and hosts
 
-Using monitoring tools in the [management console]({{ link-console-main }}), you can track the status of a{{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+Using monitoring tools in the [management console]({{ link-console-main }}), you can track the status of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
 
 {% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
 
@@ -49,10 +49,9 @@ The following charts open on the page:
 * **Transaction quantiles**: Transaction processing time by percentile.
 * **Transactions/statements per second**: Number of transactions and operators per second.
 
-
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the status of individual {{ mpg-name }} hosts:
+To view detailed information about the state of individual {{ mpg-name }} hosts:
 
 1. Go to the folder page and select **{{ mpg-name }}**.
 1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
@@ -87,6 +86,7 @@ To set up [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status me
 
 To have other cluster health indicators monitored automatically:
 
+
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
 1. Add a status metric.
 1. Set the alert threshold values in the alert settings.
@@ -95,10 +95,12 @@ Recommended threshold values:
 
 | Metric | Parameter | `Alarm` | `Warning` |
 | --------------------------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
-| Replication delay | `postgres-replication_lag` | `60` | `5` |
+| Replication delay | `postgres-replication_lag` | `60` | `5`   |
 | Number of healthy hosts | `postgres-is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
 | Average query execution time | `pooler-avg_query_time` | — | `2000` |
 | Storage space used | `disk.used_bytes` | 90% of storage size | 80% of storage size |
+
+For the current storage size, see [detailed information about the cluster](cluster-list.md#get-cluster).
 
 ## Cluster state and status {#cluster-health-and-status}
 
@@ -116,3 +118,4 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+

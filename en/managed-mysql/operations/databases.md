@@ -9,7 +9,7 @@ You can add and remove databases, view information about them, and manage some d
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Databases** tab.
 
 - CLI
@@ -21,8 +21,8 @@ You can add and remove databases, view information about them, and manage some d
   To get a list of databases in a cluster, run the command:
 
   ```
-  $ {{ yc-mdb-my }} database list
-       --cluster-name=<cluster name>
+  {{ yc-mdb-my }} database list
+     --cluster-name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -48,7 +48,7 @@ Created databases are not available to cluster users by default. To connect to a
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the desired cluster.
   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
   1. Select the **Databases** tab.
@@ -68,13 +68,13 @@ Created databases are not available to cluster users by default. To connect to a
   1. View a description of the CLI create database command:
 
      ```
-     $ {{ yc-mdb-my }} database create --help
+     {{ yc-mdb-my }} database create --help
      ```
 
   1. Run the create database command:
 
      ```
-     $ {{ yc-mdb-my }} database create <database name> --cluster-name=<cluster name>
+     {{ yc-mdb-my }} database create <database name> --cluster-name=<cluster name>
      ```
 
      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -129,7 +129,7 @@ Created databases are not available to cluster users by default. To connect to a
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Databases** tab.
   1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary DB and select **Delete**.
 
@@ -142,7 +142,7 @@ Created databases are not available to cluster users by default. To connect to a
   To delete a database, run the command:
 
   ```
-  $ {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
+  {{ yc-mdb-my }} database delete <database name> --cluster-name=<cluster name>
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -188,7 +188,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **DBMS settings**, click **Settings**.
   1. In the list of the settings, locate the **Sql mode** parameter.
@@ -205,9 +205,9 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
   Set the SQL modes in the `--set` parameter, for example:
 
   ```bash
-  $ {{ yc-mdb-my }} cluster update-config
-       --name <cluster name>
-       --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
+  {{ yc-mdb-my }} cluster update-config
+    --name <cluster name>
+    --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```
 
   Pay close attention to quotation marks: the entire string must constitute the parameter value, including `sql_mode=`.

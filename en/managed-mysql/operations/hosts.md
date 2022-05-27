@@ -7,24 +7,25 @@ You can add and remove cluster hosts and manage their settings.
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of databases in a cluster, run the command:
+   To get a list of databases in a cluster, run the command:
 
   ```
-  $ {{ yc-mdb-my }} host list
-       --cluster-name=<cluster name>
+  {{ yc-mdb-my }} host list
+  --cluster-name <cluster name>
   ```
 
   
-  ```
+  ```text
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
@@ -33,50 +34,49 @@ You can add and remove cluster hosts and manage their settings.
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  Use the [listHosts](../api-ref/Cluster/listHosts.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [listHosts](../api-ref/Cluster/listHosts.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
+
 ## Adding a host {#add}
 
-The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **Managed Databases** section.
+The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **Managed Databases**.
 
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and select **{{ mmy-name }}**.
-
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
-
   1. Click **Add host**.
-
   1. Specify the host parameters:
+
+     
      * Availability zone.
-     * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-     * Priority of the host as a {{ MY }} replica.
-     * Replication source (if you use cascading replication).
+     * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md));
      * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
+     * Host priority as a {{ MY }} replica for creating backups.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To add a host to the cluster:
+  To add a host to a cluster:
 
-  1. Request a list of cluster subnets to select one for the new host:
+   1. Request a list of cluster subnets to select one for the new host:
 
       ```
-      $ yc vpc subnet list
-      
+      yc vpc subnet list
+
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -86,34 +86,36 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
       | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
-
+      
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  1. View a description of the CLI command for adding a host:
+   1. See the description of the CLI command for adding a host:
 
-     ```
-     $ {{ yc-mdb-my }} host add --help
-     ```
+      ```
+      $ {{ yc-mdb-my }} host add --help
+      ```
 
-  1. Run the add host command:
+   1. Execute the add host command (the example does not provide an exhaustive parameter list):
 
-     ```
-     $ {{ yc-mdb-my }} host add
-          --cluster-name=<cluster name>
-          --host zone-id=<availability zone>,subnet-id=<subnet ID>
-     ```
+      ```bash
+      {{ yc-mdb-my }} host add \
+         --cluster-name=<cluster name> \
+         --host zone-id=<availability zone ID>,`
+               `subnet-id=<subnet ID>,`
+               `backup-priority=<host priority for backups>
+      ```
 
-     {{ mmy-short-name }} will run the add host operation.
+      {{ mmy-short-name }} will run the add host operation.
 
-     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmy-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmy-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-  1. Add the `host` block to the {{ mmy-name }} cluster description.
+   1. Add a `host` block to the {{ mmy-name }} cluster description.
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
@@ -121,27 +123,28 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
         host {
           zone             = "<availability zone>"
           subnet_id        = <subnet ID>
-          assign_public_ip = <public access to the host: true or false>
+          assign_public_ip = <host public access: true or false>
           ...
         }
       }
       ```
 
-  1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
 - API
 
-    Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
-    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    * New host settings in one or more `hostSpecs` parameters.
+  Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
+
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+  * New host settings in one or more `hostSpecs` parameters.
 
 {% endlist %}
 
@@ -153,80 +156,86 @@ If you can't [connect](connect.md) to the added host, check that the cluster's [
 
 ## Changing a host {#update}
 
-For each host in a {{ mmy-short-name }} cluster, specify the [replication](../concepts/replication.md) source and manage host [public access](../concepts/network.md#public-access-to-a-host).
+For each host in a {{ mmy-short-name }} cluster, you can specify a [replication source](../concepts/replication.md#manual-source), manage [public access](../concepts/network.md#public-access-to-host), and specify a [priority](../concepts/backup.md#size) for backups.
 
 {% list tabs %}
 
 - Management console
 
-  To change the parameters of the cluster host:
+   To change the parameters of the cluster host:
 
-    1. Go to the folder page and select **{{ mmy-name }}**.
-    1. Click on the name of the cluster you want and select the **Hosts** tab.
-    1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the row next to the desired host and select **Edit**.
-    1. Set new settings for the host:
-        1. Select a replication source for the host to manually control replication threads.
-        1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
-    1. Click **Save**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
+  1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Edit**.
+  1. Set new settings for the host:
+     1. Select a replication source for the host to control replication threads manually.
+     1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
+     1. Enter a value in the **Backup priority** field.
+  1. Click **Save**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the parameters of a host in a cluster, run the command below:
+  To modify host parameters, execute the command below (the parameter list in the example is not exhaustive):
+
+  ```bash
+  {{ yc-mdb-my }} host update <host name> \
+     --cluster-name=<cluster name> \
+     --replication-source=<source host name> \
+     --assign-public-ip=<host public access: true or false> \
+     --backup-priority=<host priority for backup purposes: 0 to 100>
 
   ```
-  $ {{ yc-mdb-my }} host update <host name>
-       --cluster-name <cluster name>
-       --replication-source <source host's name>
-       --assign-public-ip=<public access to the host: true or false>
-  ```
 
-  You can request a host name with a [list of cluster hosts](#list), and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
+  Where:
 
-  To manage replication in the cluster, change in the `--host` parameter:
-    - Replication source for the host in the `replication-source` option to manually control replication threads.
-    - External host visibility {{ yandex-cloud }} in the `assign-public-ip` option.
+  * `--cluster-name` is the name of a {{ mmy-name }} cluster.
+  * `--replication-source` is the [replication](../concepts/replication.md) source for the host.
+  * `--assign-public-ip` indicates whether the host is reachable from the internet over a public IP address.
+  * `--backup-priority` is host priority for [backups](../concepts/backup.md#size).
+
+   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
-  To change the parameters of the cluster host:
+   To change the parameters of the cluster host:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-       For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-    1. In the {{ mmy-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+   1. In the {{ mmy-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
 
-        ```hcl
-        resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-          ...
-          host {
-            replication_source_name = "<replication source>"
-            assign_public_ip        = <host public access: true or false>
-          }
-        }
-        ```
+       ```hcl
+       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+         ...
+         host {
+           replication_source_name = "<replication source>"
+           assign_public_ip        = <host public access: true or false>
+         }
+       }
+       ```
 
-    1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
-       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
-       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mmy }}).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
 - API
 
-  To modify host parameters, use the API [updateHosts](../api-ref/Cluster/updateHosts.md) method and pass the following in the call:
-    1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
-    1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
+   To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
+   1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
+   1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
 
-  You can request a host name with a [list of cluster hosts](#list), and a cluster ID with a [list of clusters in a folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of hosts in the cluster](#list), and the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -245,46 +254,48 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmy-name }}**.
+
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you want and select the **Hosts** tab.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
+  1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To remove a host from the cluster, run:
+   To remove a host from the cluster, run:
 
   ```
-  $ {{ yc-mdb-my }} host delete <host name>
-       --cluster-name=<cluster name>
+  {{ yc-mdb-my }} host delete <hostname>
+     --cluster-name=<cluster name>
   ```
 
-  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-  1. Delete the `host` block from the {{ mmy-name }} cluster description.
+   1. Delete the `host` block from the {{ mmy-name }} cluster description.
 
-  1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the deletion of resources.
+   1. Confirm the deletion of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
 - API
 
     Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
+
     * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
     * The name(s) of the host(s) to delete, in the `hostNames` parameter.
 

@@ -89,6 +89,8 @@ items:
         href: concepts/maintenance.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Хранилище в {{ dataproc-name }}
+        href: concepts/storage.md
       - name: Свойства компонентов
         href: concepts/settings-list.md
       - name: Логи в Data Proc

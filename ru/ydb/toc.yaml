@@ -35,7 +35,7 @@ items:
         href: getting_started/yql.md
       - name: YDB SDK
         href: getting_started/sdk.md
-      - name: Самостоятельное развертывание
+      - name: Развертывание одноузлового кластера
         items:
           - name: Обзор
             href: getting_started/self_hosted/index.md
@@ -591,48 +591,50 @@ items:
     items:
       - name: Обзор
         href: cluster/index.md
-      - name: Kubernetes
+      - name: Развертывание
         items:
           - name: Обзор
-            href: deploy/orchestrated/concepts.md
-          - name: Развертывание в Yandex Managed Service for Kubernetes
-            href: deploy/orchestrated/yc_managed_kubernetes.md
-          - name: Развертывание в AWS Elastic Kubernetes Service
-            href: deploy/orchestrated/aws_eks.md
-          - name: Эксплуатация
-            href: deploy/orchestrated/operate.md
-      - name: Вручную
-        items:
-          - name: Локальная установка
-            href: deploy/manual/deploy-ydb-on-premises.md
-          - name: Конфигурация кластера
-            href: deploy/configuration/config.md
-          - name: Обслуживание дисковой подсистемы кластера
+            href: deploy/index.md
+          - name: Kubernetes
             items:
               - name: Обзор
-                href: maintenance/manual/index.md
-              - name: Способы предотвращения выхода за модель отказа
-                href: maintenance/manual/failure_model.md
-              - name: Балансировка нагрузки на диски
-                href: maintenance/manual/balancing_load.md
-              - name: Способы освобождения места на физических устройствах
-                href: maintenance/manual/disk_end_space.md
-              - name: Расширение кластера
-                href: maintenance/manual/cluster_expansion.md
-              - name: Добавление групп хранения
-                href: maintenance/manual/adding_storage_groups.md
-              - name: Безопасные рестарт и выключение узлов
-                href: maintenance/manual/node_restarting.md
-              - name: Включение/выключение SelfHeal
-                href: maintenance/manual/selfheal.md
-              - name: Включение/выключение Scrubbing
-                href: maintenance/manual/scrubbing.md
-              - name: Перевоз VDisk'ов
-                href: maintenance/manual/moving_vdisks.md
-              - name: Изменение конфигураций через CMS
-                href: maintenance/manual/cms.md
-              - name: Изменение конфигурации акторсистемы
-                href: maintenance/manual/change_actorsystem_configs.md
+                href: deploy/orchestrated/concepts.md
+              - name: Развертывание в Yandex Managed Service for Kubernetes
+                href: deploy/orchestrated/yc_managed_kubernetes.md
+              - name: Развертывание в AWS Elastic Kubernetes Service
+                href: deploy/orchestrated/aws_eks.md
+              - name: Эксплуатация
+                href: deploy/orchestrated/operate.md
+          - name: VM / Baremetal
+            href: deploy/manual/deploy-ydb-on-premises.md
+          - name: Конфигурация
+            href: deploy/configuration/config.md
+      - name: Обслуживание дисковой подсистемы кластера
+        items:
+          - name: Обзор
+            href: maintenance/manual/index.md
+          - name: Способы предотвращения выхода за модель отказа
+            href: maintenance/manual/failure_model.md
+          - name: Балансировка нагрузки на диски
+            href: maintenance/manual/balancing_load.md
+          - name: Способы освобождения места на физических устройствах
+            href: maintenance/manual/disk_end_space.md
+          - name: Расширение кластера
+            href: maintenance/manual/cluster_expansion.md
+          - name: Добавление групп хранения
+            href: maintenance/manual/adding_storage_groups.md
+          - name: Безопасные рестарт и выключение узлов
+            href: maintenance/manual/node_restarting.md
+          - name: Включение/выключение SelfHeal
+            href: maintenance/manual/selfheal.md
+          - name: Включение/выключение Scrubbing
+            href: maintenance/manual/scrubbing.md
+          - name: Перевоз VDisk'ов
+            href: maintenance/manual/moving_vdisks.md
+          - name: Изменение конфигураций через CMS
+            href: maintenance/manual/cms.md
+          - name: Изменение конфигурации акторсистемы
+            href: maintenance/manual/change_actorsystem_configs.md
       - name: Встроенный UI
         items:
           - name: Обзор

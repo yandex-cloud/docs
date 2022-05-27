@@ -39,7 +39,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
     1. [{{ CH }}. Get the cluster address](#getting-ch-cluster-host)
     1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch)
 
-1. [{{ ml-platform-short-name }}. Compare products by breadth and frequency of coverage ](#compare-by-coverage-frequency)
+1. [{{ ml-platform-short-name }}. Compare products by breadth and frequency of coverage](#compare-by-coverage-frequency)
 1. [Connect {{ datalens-short-name }} and create charts](#datalens-connection-chart-creation)
 
     1. [Connect to {{ datalens-short-name }}](#datalens-connection)
@@ -76,7 +76,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 
       ![image](../../_assets/datalens/solution-13/02-ch-settings-storage.png)
 
-   1. **Hosts**: Click the ![pencil]( ../../_assets/pencil.svg). Enable **Public access** and click **Save**.
+   1. **Hosts**: Click the ![pencil](../../_assets/pencil.svg). Enable **Public access** and click **Save**.
    1. **Advanced settings**: Enable 4 options:
 
       * {{ datalens-short-name }} access

@@ -9,6 +9,7 @@ keywords:
 
 # Storage types
 
+
 {{ mes-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
 
 {% include [storage-type-nrd](../../_includes/mdb/mes/storage-type.md) %}

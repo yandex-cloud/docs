@@ -57,24 +57,7 @@
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 1. Для подключения к серверу БД получите SSL-сертификат:
 
-   
-   1. Создайте каталог:
-
-      ```bash
-      mkdir ~/.clickhouse
-      ```
-
-   1. Получите сертификат:
-
-      ```bash
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse/root.crt
-      ```
-
-   1. Настройте права доступа к сертификату:
-
-      ```bash
-      chmod 0600 ~/.clickhouse/root.crt
-      ```
+    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Используйте для подключения ClickHouse CLI:
    1. Укажите путь к SSL-сертификату в [конфигурационном файле](https://{{ ch-domain }}/docs/ru/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
@@ -84,7 +67,7 @@
         <openSSL>
           <client>
             <loadDefaultCAFile>true</loadDefaultCAFile>
-            <caConfig>~/.clickhouse/root.crt</caConfig>
+            <caConfig>/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt</caConfig>
             <cacheSessions>true</cacheSessions>
             <disableProtocols>sslv2,sslv3</disableProtocols>
             <preferServerCiphers>true</preferServerCiphers>
@@ -96,16 +79,9 @@
       </config>
       ```
 
-   1.  Запустите {{ CH }} CLI со следующими параметрами:
+   1. Запустите {{ CH }} CLI со следующими параметрами:
 
-       ```bash
-       clickhouse-client --host <FQDN хоста> \
-         -s \
-         --user <имя пользователя БД> \
-         --password <пароль пользователя БД> \
-         -q "<запрос к БД>" \
-         --port 9440
-       ```
+      {% include [default-connstring](../_includes/mdb/mch/default-connstring.md) %}
 
 ## Что дальше {#whats-next}
 

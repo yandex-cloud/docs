@@ -1,6 +1,8 @@
-# All use cases
+# All tutorials
 
 * [{#T}](send-data-to-mch.md)
 * [{#T}](use-ksqldb-with-mkf.md)
-* [Using the Confluent Schema Registry with {{ mkf-short-name }}](confluent-schema-registry.md)
-
+* Using the registry of data format schemas with Managed Service for Apache Kafka®:
+   * [Overview](./schema-registry-overview.md)
+   * [Working with the managed registry of data format schemas](./managed-schema-registry.md)
+   * [Working with Confluent Schema Registry](./confluent-schema-registry.md)

@@ -79,26 +79,11 @@
 1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 1. Установите на ВМ SSL-сертификат:
 
-   
-   ```bash
-   sudo mkdir --parents /usr/local/share/ca-certificates/Yandex && \
-   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-             --output-document /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-   sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-   ```
+   {% include [install-certificate](../_includes/mdb/mkf/install-certificate.md) %}
 
 1. Чтобы отправить сообщение в топик, выполните команду:
 
-   ```bash
-   echo "test message" | kafkacat -P \
-     -b <FQDN брокера>:9091 \
-     -t <имя топика> \
-     -X security.protocol=SASL_SSL \
-     -X sasl.mechanisms=SCRAM-SHA-512 \
-     -X sasl.username="<логин производителя>" \
-     -X sasl.password="<пароль производителя>" \
-     -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
-   ```
+   {% include [default-get-string](../_includes/mdb/mkf/default-send-string.md) %}
 
    В команде укажите FQDN брокера, имя топика, логин и пароль учетной записи {{ KF }}, которую вы создали на предыдущем шаге.
 
@@ -106,16 +91,7 @@
 
 1. Чтобы получить сообщения из топика, выполните команду:
 
-   ```bash
-   kafkacat -C \
-            -b <FQDN брокера>:9091 \
-            -t <имя топика> \
-            -X security.protocol=SASL_SSL \
-            -X sasl.mechanisms=SCRAM-SHA-512 \
-            -X sasl.username="<логин потребителя>" \
-            -X sasl.password="<пароль потребителя>" \
-            -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
-   ```
+   {% include [default-get-string](../_includes/mdb/mkf/default-get-string.md) %}
 
    В команде укажите FQDN брокера, имя топика, логин и пароль учетной записи {{ KF }}, которую вы создали на предыдущем шаге.
 
