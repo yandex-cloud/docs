@@ -58,7 +58,92 @@
 - API
   
   Добавить обработчик можно с помощью метода API [addListener](../api-ref/NetworkLoadBalancer/addListener.md).
+
+- Terraform
+
+  {% include [terraform-definition](../../_includes/tutorials/terraform-definition.md) %}
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Откройте файл конфигурации Terraform и добавьте блок `listener` в описании сетевого балансировщика:
+
+     ```hcl
+     ...
+     resource "yandex_lb_network_load_balancer" "foo" {
+       name = "my-network-load-balancer"
+       listener {
+         name = "my-listener"
+		 port = 9000
+         external_address_spec {
+           ip_version = "ipv4"
+         }
+       }
+	   attached_target_group {
+         target_group_id = "${yandex_lb_target_group.my-target-group.id}"
+         healthcheck {
+           name = "http"
+             http_options {
+               port = 9000
+               path = "/ping"
+             }
+         }
+       }
+     }
+     ...
+     ```
+
+     Где:
+     * `name` — имя сетевого балансировщика. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+     * `listener` — описание параметров [обработчика](../concepts/listener.md) для сетевого балансировщика:
+        * `name` — имя обработчика. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+        * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от 1 до 32767.
+        * `external_address_spec` — описание внешнего IP-адреса. Укажите версию IP-адреса (ipv4 или ipv6). По умолчанию ipv4.
+     * `attached_target_group` — описание параметров целевой группы для сетевого балансировщика:
+        * `target_group_id` — идентификатор целевой группы.
+        * `healthcheck` — описание параметров проверки состояния. Укажите имя, порт из диапазона от 1 до 32767 и путь, по которому будут выполняться проверки.
+
+     Более подробную информацию о параметрах ресурса `yandex_lb_network_load_balancer` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
   
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение сетевого балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc load-balancer network-load-balancer get <имя сетевого балансировщика>
+     ```
+
 {% endlist %}
 
 ## Примеры
@@ -75,6 +160,57 @@
   yc load-balancer network-load-balancer add-listener b7rc2h753djb3a5dej1i \
     --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14
   ```
-  
-{% endlist %}
 
+- Terraform
+
+    1. Откройте файл конфигурации Terraform и добавьте блок `listener` в описании внутреннего сетевого балансировщика:
+
+       {% cut "Пример добавление обработчика внутреннему сетевому балансировщику с помощью Terraform" %}
+
+         ```
+         resource "yandex_lb_network_load_balancer" "internal-lb-test" {
+           name = "internal-lb-test"
+           type = "internal"
+           listener {
+             name = "my-listener"
+		     port = 9000
+             internal_address_spec {
+               subnet_id  = "b0cp4drld130kuprafls"
+               ip_version = "ipv4"
+             }
+           }
+         }
+         ```
+
+       {% endcut %}
+
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/lb_network_load_balancer).
+
+    1. Проверьте корректность конфигурационных файлов.
+
+       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+       1. Выполните проверку с помощью команды:
+
+          ```
+          terraform plan
+          ```
+
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+    1. Разверните облачные ресурсы.
+
+       1. Если в конфигурации нет ошибок, выполните команду:
+
+          ```
+          terraform apply
+          ```
+
+       1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+
+          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+          ```
+          yc load-balancer network-load-balancer get <имя внутреннего сетевого балансировщика>
+          ```
+
+{% endlist %}
