@@ -99,6 +99,8 @@ You can manage user permissions at the level of an individual database by updati
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:

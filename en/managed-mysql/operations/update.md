@@ -114,6 +114,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
    To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
@@ -188,6 +190,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
 
 - API
 
@@ -267,6 +271,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster#mysql-config).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
 
 - API
 
@@ -386,6 +392,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
@@ -460,6 +468,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
 
 - API
 

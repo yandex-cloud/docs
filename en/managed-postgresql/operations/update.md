@@ -101,6 +101,8 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
    1. In the {{ mpg-name }} cluster description, change the `resource_preset_id` attribute value under `config.resources`:
 
       ```hcl
@@ -123,7 +125,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
@@ -183,6 +185,8 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
    1. In the {{ mpg-name }} cluster description, change the `disk_size` attribute value under `config.resources`:
 
       ```hcl
@@ -190,7 +194,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
         ...
         config {
           resources {
-            disk_size = <storage size, GB>
+            disk_size = <storage size in GB>
             ...
           }
         }
@@ -205,11 +209,11 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
-   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
+   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
    * New storage size in the `configSpec.postgresqlConfig_<version {{ PG }}>.resources.diskSize` parameter.
@@ -262,14 +266,14 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Set the required parameter values:
 
+      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version {{ PG }}>` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` parameter from an API request should be converted to `max_prepared_transactions` for the CLI command:
+
       ```bash
       {{ yc-mdb-pg }} cluster update-config <cluster ID or name> \
-           --set <parameter1 name>=<value1>,...
+         --set <parameter1 name>=<value1>,<parameter2 name>=<value2>,...
       ```
 
       {{ mpg-short-name }} runs the update cluster settings operation.
-
-      All the supported parameters are listed in the [description of settings for{{ PG }}](../concepts/settings-list.md).
 
 - Terraform
 
@@ -277,7 +281,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. In the {{ mpg-short-name }} cluster description,  change the values of the parameters under `config.postgresql_config`. If there is no such block, create one:
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
+   1. In the {{ mpg-short-name }} cluster description, change the values of the parameters under `config.postgresql_config`. If there is no such block, create one:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
@@ -302,7 +308,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
@@ -346,18 +352,18 @@ You can change the DBMS settings of the hosts in your cluster.
                               `day=<day of week for weekly>,`
                               `hour=<hour for weekly> \
           --websql-access=<true or false> \
-          --deletion-protection=<cluster deletion protection: true or false> \
+          --deletion-protection=<protect cluster from deletion: true or false> \
           --connection-pooling-mode=<connection manager mode> \
           --serverless-access=<true or false>
       ```
 
    You can change the following settings:
 
-   {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+   {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
    * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
-   * {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
       {% if audience != "internal" %}
@@ -372,7 +378,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
-   {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+   * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+      {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -381,6 +389,8 @@ You can change the DBMS settings of the hosts in your cluster.
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
    1. To change the backup start time, add a block named `config.backup_window_start` to the {{ mpg-name }} cluster description.
 
@@ -427,6 +437,8 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
+   1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
@@ -446,7 +458,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
@@ -456,6 +468,7 @@ You can change the DBMS settings of the hosts in your cluster.
    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access parameter`.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
+   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -486,7 +499,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 In a failover {{ PG }} cluster with multiple hosts, you can switch the master role from the current master host to the cluster's replica host. After this operation, the current master host becomes the replica host of the new master.
 
-Specifics of switching master hosts in {{ mpg-name }}:
+Specifics of switching master hosts in {{ mpg-name }}
 
 1. You can't switch the master host to a replica that the source of the replication thread is explicitly given for.
 1. If you don't specify the replica host name explicitly, the master host will switch to one of the quorum replicas.
@@ -527,6 +540,8 @@ To switch the master:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
    1. In the `host_master_name` parameter, specify the name of the replica host to switch to.
 
       ```hcl
@@ -545,7 +560,7 @@ To switch the master:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
@@ -593,6 +608,8 @@ To switch the master:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
    1. Change the value of the `security_group_ids` parameter in the cluster description:
 
       ```hcl
@@ -610,7 +627,7 @@ To switch the master:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 

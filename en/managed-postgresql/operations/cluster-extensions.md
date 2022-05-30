@@ -19,7 +19,7 @@ You can install the following libraries in {{ mpg-short-name }}:
 * `pg_qualstats`: Required for the [pg_qualstats extension](https://github.com/powa-team/pg_qualstats) to function.
 * `timescaledb`: Required to be able to use the [TimescaleDB extension](https://github.com/timescale/timescaledb).
 
-## Getting a list of installed extensions {#list-extensions}
+## Retrieving a list of installed extensions {#list-extensions}
 
 {% list tabs %}
 
@@ -39,7 +39,7 @@ You can install the following libraries in {{ mpg-short-name }}:
 
    ```bash
    {{ yc-mdb-pg }} database get <database name> \
-     --cluster-name <cluster name>
+      --cluster-name <cluster name>
    ```
 
    The enabled extensions will be listed in the `extensions` list.
@@ -50,7 +50,7 @@ You can install the following libraries in {{ mpg-short-name }}:
 
 {% endlist %}
 
-## Editing the list of installed extensions {#update-extensions}
+## Editing a list of installed extensions {#update-extensions}
 
 {% list tabs %}
 
@@ -67,13 +67,13 @@ You can install the following libraries in {{ mpg-short-name }}:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change extensions for a database, pass their list in the `--extensions` argument of a CLI command. In this case, extensions that are not included in the list will be disabled.
+   To change extensions for a database, pass their list in the `--extensions` argument of a CLI command. In this case, plugins that are not included in the list will be disabled.
 
-  ```bash
-  {{ yc-mdb-pg }} database update <database name> \
-    --cluster-name <cluster name>
-    --extensions <extension name>=<version>,<extension name>=<version>...
-  ```
+   ```bash
+   {{ yc-mdb-pg }} database update <database name> \
+      --cluster-name <cluster name>
+      --extensions <extension name>=<version>,<extension name>=<version>...
+   ```
 
    {% note info %}
 
@@ -87,7 +87,7 @@ You can install the following libraries in {{ mpg-short-name }}:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, please see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
    1. Add one or more `extension` blocks (one for each extension) to the relevant `database` section of the {{ mpg-name }} cluster description:
 
@@ -113,7 +113,7 @@ You can install the following libraries in {{ mpg-short-name }}:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
@@ -141,13 +141,14 @@ All supported extensions are listed here:
 
 * [autoinc]({{ pg-docs }}/contrib-spi.html#id-1.11.7.47.6) {#ext-autoinc}
 
-    Provides the `autoinc()` function. It stores the next value of a sequence into an integer field. Unlike built-in types that control sequences, `autoinc()`:
-    * Overrides attempts to insert a different field value from a query.
-    * Allows modifying field values during updates.
+   Provides the `autoinc()` function. It stores the next value of a sequence into an integer field. Unlike built-in types that control sequences, `autoinc()`:
+
+   * Overrides attempts to insert a different field value from a query.
+   * Allows modifying field values during updates.
 
 * [bloom]({{ pg-docs }}/static/bloom.html) {#ext-bloom}
 
-    Enables access to DB indexes based on [Bloom filters]({% if lang == "ru" %}https://ru.wikipedia.org/wiki/Фильтр_Блума{% endif %}{% if lang == "en" %}https://en.wikipedia.org/wiki/Bloom_filter{% endif %}). These probabilistic data structures require significantly less storage space than hash tables. However, false positives are possible.
+   Enables access to database indexes based on [Bloom filters]({% if lang == "ru" %}https://ru.wikipedia.org/wiki/Фильтр_Блума{% endif %}{% if lang == "en" %}https://en.wikipedia.org/wiki/Bloom_filter{% endif %}). These probabilistic data structures require significantly less storage space than hash tables. However, false positives are possible.
 
 * [btree_gin]({{ pg-docs }}/static/btree-gin.html) {#ext-btree-gin}
 
@@ -160,10 +161,6 @@ All supported extensions are listed here:
 * [citext]({{ pg-docs }}/static/citext.html) {#ext-citext}
 
    Provides the `citext` data type that allows using case-insensitive strings.
-
-* [clickhouse_fdw](https://github.com/adjust/clickhouse_fdw) {#ext-ch-fdw}
-
-   Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing {{ CH }} database, supports `SELECT FROM` and `INSERT INTO` transactions.
 
 * [cube]({{ pg-docs }}/static/cube.html) {#ext-cube}
 
@@ -185,9 +182,10 @@ All supported extensions are listed here:
 
 * [earthdistance]({{ pg-docs }}/static/earthdistance.html) {#ext-earthdistance}
 
-    Provides a module for calculating distances between two points on the surface of the Earth. There are two ways to calculate them:
-    * Via the `cube` data type (requires that the [cube](#ext-cube) extension be enabled).
-    * Via the built-in `point` data type.
+   Provides a module for calculating distances between two points on the surface of the Earth. There are two ways to calculate them:
+
+   * Via the `cube` data type (requires the [cube](#ext-cube) extension to be enabled).
+   * Via the built-in `point` data type.
 
 * [fuzzystrmatch]({{ pg-docs }}/fuzzystrmatch.html) {#ext-fuzzystrmatch}
 
@@ -211,7 +209,7 @@ All supported extensions are listed here:
 
 * [jsquery](https://github.com/postgrespro/jsquery) {#ext-jsquery}
 
-    Adds support for the JsQuery language that is used to query the `JSONB` data type. JsQuery provides a simple and effective way to search in nested objects and more comparison operators with index support.
+   Adds support for the JsQuery language that is used to query the `JSONB` data type. JsQuery provides a simple and effective way to search in nested objects and more comparison operators with index support.
 
 * [lo]({{ pg-docs }}/static/lo.html) {#ext-lo}
 
@@ -223,17 +221,13 @@ All supported extensions are listed here:
 
 * [moddatetime]({{ pg-docs }}/static/contrib-spi.html#id-1.11.7.47.8) {#ext-moddatetime}
 
-   Provides the `moddatetime()` function that allows tracking  the last modification time of a particular row within a table.
+   Provides the `moddatetime()` function that allows tracking the last modification time of a particular row within a table.
 
 * [oracle_fdw](https://github.com/laurenz/oracle_fdw) {#ext-oracle_fdw}
 
    Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for Oracle database access.
 
    To use the extension, you need the [`mdb_admin` role](../concepts/roles.md#mdb-admin).
-
-* [orafce](https://github.com/orafce/orafce) {#ext-orafce}
-
-   Adds functions and operators that emulate Oracle functionality and packages.
 
 * [pg_buffercache]({{ pg-docs }}/pgbuffercache.html) {#ext-pg_buffercahce}
 
@@ -292,34 +286,6 @@ All supported extensions are listed here:
    Requires the [pgstattuple](#ext-pgstattuple) extension to be enabled.
 
    To use the extension, you need the [`mdb_admin` role](../concepts/roles.md#mdb-admin).
-
-* [pgcompacttable](https://github.com/dataegret/pgcompacttable) {#ext-pgcompacttable}
-
-    Helps restructure table data to reduce the space used without impacting cluster performance.
-
-    Command syntax:
-
-    ```bash
-    ./bin/pgcompacttable -h c-<cluster ID>.rw.{{ dns-zone }} -p 6432 -U <username> -W <password> -d <DB name> -n <schema name> -t <table name>
-    ```
-
-    Requires the [pgstattuple](#ext-pgstattuple) extension to be enabled.
-
-    To use the extension, you need the [`mdb_admin` role](../concepts/roles.md#mdb-admin).
-
-* [pgcompacttable](https://github.com/dataegret/pgcompacttable) {#ext-pgcompacttable}
-
-    Lets you reorganize data in tables to shrink their amount without affecting the cluster performance.
-
-    Usage syntax:
-
-    ```bash
-    ./bin/pgcompacttable -h c-<cluster ID>.rw.{{ dns-zone }} -p 6432 -U <username> -W <password> -d <DB name> -n <schema name> -t <table name>
-    ```
-
-    Requires that the [pgstattuple](#ext-pgstattuple) extension is enabled.
-
-    To use the extension, you need the [`mdb_admin` role](../concepts/roles.md#mdb-admin).
 
 * [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) {#ext-pgcrypto}
 

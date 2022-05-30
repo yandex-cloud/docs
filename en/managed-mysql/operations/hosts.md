@@ -164,6 +164,8 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
   Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
@@ -254,6 +256,8 @@ For each host in a {{ mmy-short-name }} cluster, you can specify a [replication 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
    To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
@@ -316,6 +320,8 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
 
 - API
 
