@@ -43,13 +43,13 @@ Additionally, to migrate data using external {{ MY }} replication:
 
 1. [Prepare the target cluster database](../data-transfer/operations/prepare.md#target-my).
 
-1. [Create a source endpoint](../data-transfer/operations/source-endpoint.md#create-endpoint):
+1. [Create a source endpoint](../data-transfer/operations/endpoint/index.md#create):
 
     * **Database type**: `{{ MY }}`.
     * **Connection settings**: `MDB cluster`.
         Specify the source cluster ID.
 
-1. [Create a target endpoint](../data-transfer/operations/target-endpoint.md#create-endpoint):
+1. [Create a target endpoint](../data-transfer/operations/endpoint/index.md#create):
 
     * **Database type**: `{{ MY }}`.
     * **Connection settings**: `Custom installation`.
@@ -77,9 +77,7 @@ Additionally, to migrate data using external {{ MY }} replication:
 
 1. [Delete](../data-transfer/operations/transfer.md#delete) the stopped transfer.
 
-1. [Delete the endpoint for the source](../data-transfer/operations/source-endpoint.md#delete-endpoint).
-
-1. [Delete the endpoint for the target](../data-transfer/operations/target-endpoint.md#delete-endpoint).
+1. [Delete the endpoint for the source and target](../data-transfer/operations/endpoint/index.md#delete).
 
 ## Transferring data using external replication {#binlog-replication}
 
@@ -167,7 +165,7 @@ _A logical dump_ is a file with a set of commands running which one by one you c
 To get binary log changes and manage the replication flow in the source cluster:
 
 1. [Create a user](../managed-mysql/operations/cluster-users.md#adduser).
-1. [Assign the role]( ../managed-mysql/operations/grant.md) `ALL_PRIVILEGES` to this user for the source cluster database.
+1. [Assign the role](../managed-mysql/operations/grant.md) `ALL_PRIVILEGES` to this user for the source cluster database.
 1. [Assign the global privileges](../managed-mysql/operations/cluster-users.md#update-settings) `REPLICATION CLIENT` and `REPLICATION SLAVE` to this user.
 
 The target cluster will connect to the source cluster on behalf of this user.

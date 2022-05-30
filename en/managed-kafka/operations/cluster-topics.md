@@ -17,6 +17,8 @@ Read more about working with the Admin API and the existing limitations in [{#T}
 
 ## Creating a topic {#create-topic}
 
+Prior to creating a topic, calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size).
+
 {% list tabs %}
 
 - Management console
@@ -128,7 +130,9 @@ While running, {{ mkf-name }} is able to create [service topics](../concepts/top
 
 {% note warning %}
 
-The number of {{ KF }} topic partitions can only be increased.
+You cannot reduce the number of partitions in {{ mkf-name }} topics. If there isn't enough storage space, you cannot create new partitions.
+
+For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 {% endnote %}
 
@@ -305,7 +309,7 @@ The number of {{ KF }} topic partitions can only be increased.
 
 - API
 
-  Use the [list](../api-ref/Topic/list.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
+  Use the API [list](../api-ref/Topic/list.md) method and pass the ID of the desired cluster in the `clusterId` request parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

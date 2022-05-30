@@ -88,12 +88,15 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
 {% note info %}
 
-По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для него протокол HTTPS, [загрузите собственный сертификат безопасности](../operations/hosting/certificate.md) в {{ objstorage-name }}.
+По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../operations/hosting/certificate.md) в {{ objstorage-name }}.
 
 {% endnote %}
 
 При обращении к сайту вы будете получать ответы с кодами, описанными в разделе [{#T}](../s3/api-ref/hosting/answer-codes.md).
 
 При хостинге сайта вы можете:
-* [Использовать собственный домен](../operations/hosting/own-domain.md).
+
 * [Поддержать несколько доменных имен](../operations/hosting/multiple-domains.md).
+* [Использовать собственный домен](../operations/hosting/own-domain.md).
+
+  Чтобы использовать протокол HTTPS с собственным доменом, укажите [FQDN]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FQDN){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Fully_qualified_domain_name){% endif %} нужного домена в имени бакета.

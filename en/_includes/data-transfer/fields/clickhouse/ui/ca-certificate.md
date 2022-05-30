@@ -1,0 +1,1 @@
+**PEM certificate**: If transmitted data needs to be encrypted, for example, to meet the requirements of [PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}), upload the [certificate](../../../../../managed-clickhouse/operations/connect#get-ssl-cert) file or add its contents as text.

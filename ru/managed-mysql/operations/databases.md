@@ -114,7 +114,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -171,7 +171,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -248,9 +248,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster#mysql-config).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_cluster#mysql-config).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

@@ -23,7 +23,7 @@ To use the instructions in this section, you need:​
 
 Before you can create an identity federation in the cloud, you need to get information about the IdP (your SAML app in G Suite):
 
-1. Log in to the [G Suite admin console ](https://admin.google.com/).
+1. Log in to the [G Suite admin console](https://admin.google.com/).
 1. Click the **Apps** icon.
 1. Click on the **SAML apps** card.
 1. Click the add app button (the **+** icon in the lower-right corner of the page).

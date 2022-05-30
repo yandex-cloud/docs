@@ -45,7 +45,7 @@ The cost of Terraform-created resources includes:
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-Using Terraform in {{ yandex-cloud }}, you can create all types of cloud resources, including virtual machines, disks, and images. For more information about resources you can create using Terraform, please see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+Using Terraform in {{ yandex-cloud }}, you can create all types of cloud resources, including virtual machines, disks, and images. For more information about resources you can create using Terraform, please see the [provider documentation]({{ tf-provider-link }}).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up an infrastructure plan.
 

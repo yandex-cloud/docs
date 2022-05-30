@@ -69,6 +69,8 @@ items:
             href: concepts/calculations/index.md
           - name: Formula syntax
             href: concepts/calculations/formula-syntax.md
+      - name: Parameterization
+        href: concepts/parameters.md
       - name: Marketplace
         href: concepts/marketplace.md
       - name: Backups
@@ -135,6 +137,8 @@ items:
             href: operations/dataset/manage-access.md
           - name: Managing access to data rows
             href: operations/dataset/manage-row-level-security.md
+          - name: Adding parameters to a dataset
+            href: operations/dataset/add-parameter-dataset.md
       - name: Working with charts
         items:
           - name: Creating a line chart
@@ -175,6 +179,8 @@ items:
             href: operations/chart/manage-access.md
           - name: Adding guid as a parameter
             href: operations/chart/add-guid.md
+          - name: Adding parameters to a chart
+            href: operations/chart/add-parameter-chart.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards

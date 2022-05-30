@@ -107,15 +107,20 @@ items:
         href: dataplatform/index.md
       - name: Syncing MySQL data using Yandex DataTransfer
         href: dataplatform/sync-mysql.md
-      - name: >-
-          Using Confluent Schema Registry with Yandex Managed Service for Apache Kafka®
-        href: dataplatform/confluent-schema-registry.md
+      - name: Using schema registries with Managed Service for Apache Kafka®
+        items:
+        - name: Overview
+          href: dataplatform/schema-registry-overview.md
+        - name: Using {{ mkf-msr }} with Yandex Managed Service for Apache Kafka®
+          href: dataplatform/managed-schema-registry.md
+        - name: Using Confluent Schema Registry with Yandex Managed Service for Apache Kafka®
+          href: dataplatform/confluent-schema-registry.md
       - name: Delivering data using Debezium
         href: dataplatform/kafka-cdc.md
-      - name: Migrating databases to Managed Service for Microsoft SQL Server
-        href: dataplatform/mssql-data-migration.md
       - name: Migrating databases from Yandex Managed Service for MySQL to MySQL
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: Migrating databases to Managed Service for Microsoft SQL Server
+        href: dataplatform/mssql-data-migration.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
@@ -193,3 +198,6 @@ items:
     items:
       - name: URL shortener
         href: serverless/serverless-url-shortener.md
+      - name: Storing application runtime logs
+        href: serverless/log-ingestion.md
+        when: audience == "external"

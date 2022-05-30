@@ -105,7 +105,7 @@
         }
         ```
         
-        For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+        For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
     2. Make sure that the configuration files are correct.
         1. In the command line, go to the directory where you created the configuration file.

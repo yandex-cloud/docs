@@ -69,7 +69,7 @@ description: "Атомарные полномочия в PostgreSQL называ
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

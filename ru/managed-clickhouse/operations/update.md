@@ -14,6 +14,8 @@
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
+* [Переместить кластер](#move-cluster) в другой каталог.
+
 * [Изменить группы безопасности кластера](#change-sg-set).
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
@@ -157,7 +159,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -247,7 +251,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -332,6 +338,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера Terraform]({{ tf-provider-mch }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -458,7 +466,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -572,7 +582,7 @@
         }
         ```
 
-    1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
+    1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -593,7 +603,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -628,6 +640,50 @@
   {% endif %}
 
   Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
+
+{% endlist %}
+
+## Переместить кластер {#move-cluster}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке кластера, который вы хотите переместить.
+    1. Выберите пункт **Переместить**.
+    1. Выберите каталог, в который вы хотите переместить кластер.
+    1. Нажмите кнопку **Переместить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы переместить кластер:
+
+    1. Посмотрите описание команды CLI для перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster move --help
+        ```
+
+    1. Укажите каталог назначения в команде перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster move <идентификатор кластера> \
+           --destination-folder-name=<имя каталога назначения>
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- API
+
+    Воспользуйтесь методом API [move](../api-ref/Cluster/move.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор каталога назначения в параметре `destinationFolderId`.
 
 {% endlist %}
 
@@ -685,7 +741,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

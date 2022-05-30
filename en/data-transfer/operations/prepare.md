@@ -6,11 +6,11 @@
 
 {% list tabs %}
 
-- Managed Service for Apache Kafka®
+- {{ mkf-name }}
 
     [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
 
-- Apache Kafka®
+- {{ KF }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -22,23 +22,66 @@
 
 {% endlist %}
 
+### {{ GP }} source {#source-gp}
+
+{% list tabs %}
+
+- {{ GP }}
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+    1. Create the user that the transfer will connect to the source as, by running the command:
+
+        ```pgsql
+        CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
+        ```
+
+    1. Configure the source cluster so that the created user can connect to all master hosts and all segment hosts of the cluster.
+
+        Segment hosts are accessed in the utility mode without the need to interact with the master hosts.
+
+    1. Grant the created user the privilege to perform a `SELECT` on all the database tables to be transferred and the `USAGE` privilege for the schemas of these tables.
+
+        Privileges must be granted for entire tables, accessing only certain columns is not supported.
+
+        You can grant privileges only for a limited set of tables. For this, list all tables to be transferred in the [additional settings](./endpoint/source/greenplum.md#additional-settings) of the source endpoint {{ GP }}.
+
+        In this example, the privilege commands are issued for all database tables:
+
+        ```pgsql
+        GRANT SELECT ON ALL TABLES IN SCHEMA <schema name> TO <username>;
+       GRANT USAGE ON SCHEMA <schema name> TO <username>;
+        ```
+
+    1. Grant the created user the privileges to access the schema that will host the [transfer's service objects](./endpoint/source/greenplum.md#additional-settings). These include privileges to create and use functions in the schema.
+
+        To do this, run the command:
+
+        ```pgsql
+        GRANT USAGE ON SCHEMA <service schema name> TO <username>;
+        GRANT CREATE ON SCHEMA <service schema name> TO <username>;
+        GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA <service schema name> TO <username>;
+        GRANT SELECT ON ALL TABLES IN SCHEMA <service schema name> TO <username>;
+        ```
+
+{% endlist %}
+
 ### {{ CH }} source {#source-ch}
 
 {% list tabs %}
 
-* {{ mch-name }}
-
-    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
+- {{ mch-name }}
+    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
     1. [Create a user](../../managed-clickhouse/operations/cluster-users.md) with access to the source database.
 
-* {{ CH }}
+- {{ CH }}
 
-    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} will be transferred.
-	
-	1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/){% endif %} (MaterializedView) will be transferred.
 
-    1. Set up the source cluster so that you can connect to it from the internet.    
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
+    1. Set up the source cluster so that you can connect to it from the internet.
+    1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [MaterializedViews](https://clickhouse.tech/docs/en/engines/table-engines/special/materializedview/) will be transferred.
     1. Create a user with access to the source database.
 
 {% endlist %}
@@ -48,19 +91,16 @@
 {% list tabs %}
 
 - {{ mmg-name }}
-
-    1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If the workload on the database exceeds 10000 writes per second, create several endpoints and transfers. For more information, see [Preparing a {{ MG }} source](../../data-transfer/operations/source-endpoint.md#settings-mongodb).
+    1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If the workload on the database exceeds 10000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
     1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the `readWrite` role for the source database.
 
 - {{ MG }}
 
-    1. Estimate the total number of databases for transfer and the total {{ MG }} workload. If the workload on the database exceeds 10000 writes per second, create several endpoints and transfers. For more information, see [Preparing a {{ MG }} source](../../data-transfer/operations/source-endpoint.md#settings-mongodb).
-	
-	1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}    
+    1. Estimate the total number of databases for transfer and the total {{ MG }} workload. If the workload on the database exceeds 10000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-    1. Make sure that the major version of {{ MG }} on the target is `4.0` or higher.
+    1. Make sure that the version of {{ MG }} on the target is `4.0` or higher.
 
     1. [Configure the source cluster](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) so that you can connect to it from the internet:
 
@@ -127,10 +167,10 @@
 
     1. When using {{ MG }} 3.4 and 3.6, to run transfer, the user must have rights to read the `local.oplog.rs` collection. To assign a user the `clusterManager` role, which grants these rights, connect to {{ MG }} and run the following commands:
 
-      ```js
-      use admin;
-      db.grantRolesToUser("<username>", ["clusterManager"]);
-      ```
+        ```js
+        use admin;
+        db.grantRolesToUser("<username>", ["clusterManager"]);
+        ```
 
 {% endlist %}
 
@@ -158,12 +198,11 @@
 
         {% endnote %}
 
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see [{{ MY }} source endpoint parameters](source-endpoint.md#settings-mysql).
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ MY }} source](./endpoint/source/mysql.md#additional-settings).
 
 - {{ MY }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
-
     1. Make sure the source uses the MyISAM or InnoDB low-level storage subsystem. If you use other subsystems, the transfer may fail.
 
     1. [Enable full binary logging](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) on the source using the `binlog_row_image` parameter.
@@ -179,7 +218,7 @@
     1. Create a user to connect to the source and grant them the necessary privileges:
 
         ```sql
-        CREATE USER '<username>'@'%' IDENTIFIED BY '<password>';
+       CREATE USER '<username>'@'%' IDENTIFIED BY '<password>';
         GRANT ALL PRIVILEGES ON <database name>.* TO '<username>'@'%';
         GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<username>'@'%';
         ```
@@ -192,7 +231,7 @@
 
         {% endnote %}
 
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types). For more information, see [{{ MY }} source endpoint parameters](source-endpoint.md#settings-mysql).
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ MY }} source](./endpoint/source/mysql.md#additional-settings).
 
 {% endlist %}
 
@@ -208,8 +247,6 @@
 
         1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types, [assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
 
-        1. [Connect to the database](../../managed-postgresql/operations/connect.md) that you want to migrate as the database owner and set up the [privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
-
         1. [Connect to the database](../../managed-postgresql/operations/connect.md) to migrate on behalf of the database owner and [set up the privileges](../../managed-postgresql/operations/grant.md#grant-privilege):
             * `SELECT` for all the database tables to be transferred.
             * `SELECT` for all the database sequences to be transferred.
@@ -219,13 +256,12 @@
 
     1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see [{{ PG }} source endpoint parameters](source-endpoint.md#settings-postgresql).
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
 - {{ PG }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
-
-    1. Configure the user the transfer will connect to the source under:
+    1. Configure the user that the transfer will connect to the source as:
 
         * For the _{{ dt-type-copy }}_ transfer type, create a user with the following command:
 
@@ -324,7 +360,7 @@
 
     1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see [{{ PG }} source endpoint parameters](source-endpoint.md#settings-postgresql).
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
     1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots block](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) to the source configuration:
 
@@ -336,7 +372,7 @@
            type: logical
        ```
 
-       The database and the replication slot names must match the values specified in the [source endpoint settings](../../data-transfer/operations/source-endpoint.md#settings-postgresql). By default, the `replication slot name` is the same as the `transfer ID`.
+       The database and the replication slot names must match the values specified in the [source endpoint settings](../../data-transfer/operations/endpoint/source/postgresql.md). By default, the `replication slot name` is the same as the `transfer ID`.
 
        Otherwise, the start of the replication phase will fail:
 
@@ -353,11 +389,12 @@
 
 1. (Optional) [Create a data processing function](../../functions/operations/function/function-create.md).
 {% else %}
+
 1. Create a data stream.
 
 1. (Optional) Create a processing function. {% endif %}
 
-    {% cut "Example of a data processing function" %}
+    {% cut "Processing function example" %}
 
     ```javascript
     const yc = require("yandex-cloud");
@@ -485,20 +522,23 @@
 
 - {{ mmg-name }}
 
-    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) a with the same name as the source database.
+    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) with the same name as the source database name.
+
     1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the role [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) for the created database.
-    1. To shard collections being migrated in the {{ mmg-full-name }} target cluster:
-        1. Following the [instructions](../../managed-mongodb/tutorials/sharding.md), create and configure in the target database blank sharded collections with the same names as in the source one.
 
-            {{ data-transfer-name }} doesn't automatically shard collections being migrated. Sharding large collections may take a long time and slow down the transfer.
+    1. To shard collections being transferred in a target {{ mmg-full-name }} cluster:
 
-        1. If sharding is performed by any key other than default `_id`, [assign the user](../../managed-mongodb/operations/cluster-users.md#updateuser) the `mdbShardingManager` role.
+        1. Following the [instructions](../../managed-mongodb/tutorials/sharding.md), create and configure empty sharded target database collections with the same names as those in the source.
 
-        1. When [creating a target endpoint](./target-endpoint.md#settings-mongodb), select the `DISABLED` or `TRUNCATE` clean policy.
+            {{ data-transfer-name }} does not automatically shard collections being transferred. Sharding large collections can take a long time and reduce transfer performance.
+
+        1. If sharding occurs based on any key other than `_id` (default), [assign your user](../../managed-mongodb/operations/cluster-users.md#updateuser) the `mdbShardingManager` role.
+
+        1. When [creating an endpoint for the receiver](./endpoint/target/mongodb.md), select the cleanup policy `DISABLED` or `TRUNCATE`.
 
             {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
-        Learn more about sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/).
+        For more on sharding, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/).
 
 - {{ MG }}
 
@@ -575,52 +615,52 @@
 
         Once started, the transfer will connect to the target on behalf of this user.
 
-    1. To shard collections being migrated in the target cluster:
+    1. To shard collections being transferred in a target cluster:
 
-        1. Prepare the database and create blank collections with the same names as in the source database.
+        1. Set up a database and populate it with empty collections with the same names as those in the source.
 
-            {{ data-transfer-name }} doesn't automatically shard collections being migrated. Sharding large collections may take a long time and slow down the transfer.
+            {{ data-transfer-name }} does not automatically shard collections being transferred. Sharding large collections can take a long time and reduce transfer performance.
 
-        1. Enable target database sharding:
+        1. Enable sharding for the target database:
 
             ```javascript
             sh.enableSharding("<target database name>")
             ```
 
-        1. Create an index for every collection being sharded:
+        1. Create an index for each sharded collection:
 
             ```javascript
             db.<collection name>.createIndex(<index properties>)
             ```
 
-            For more information about the `createIndex()` function, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex).
+            For a description of the `createIndex()` function, review the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#mongodb-method-db.collection.createIndex).
 
-        1. Shard every collection based on its namespace:
+        1. Configure sharding for each collection based on its namespace:
 
             ```javascript
-            sh.shardCollection("<target database name>.<collection name>", {"<index>": "<type of index>"});
+            sh.shardCollection("<DB target name>.<collection name>", {"<index>": "<index type>"});
             ```
 
-            For more information about the `shardCollection()` function, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
+            For a description of the `shardCollection()` function, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
 
-        1. To verify sharding is set up and enabled, get a list of available shards:
+        1. To make sure that sharding is configured and enabled, retrieve a list of available shards:
 
             ```javascript
             sh.status()
             ```
 
-        1. If sharding is performed by any key other than default `_id`, assign the `clusterManager` system role to the user in whose behalf {{ data-transfer-name }} will connect to the target cluster.
+        1. If you use a key other than `_id` (default) for sharding, assign the `clusterManager` system role to the user that the {{ data-transfer-name }} service will utilize to connect to the target cluster:
 
             ```javascript
             use admin;
             db.grantRolesToUser("<username>", ["clusterManager"]);
             ```
 
-        1. When [creating a target endpoint](./target-endpoint.md#settings-mongodb), select the `DISABLED` or `TRUNCATE` clean policy.
+        1. When [creating an endpoint for the receiver](./endpoint/target/mongodb.md) select the cleanup policy `DISABLED` or `TRUNCATE`.
 
             {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
-        Learn more about sharding in the [{{ MG }} documentation](https://docs.mongodb.com/basics/sharding/).
+        To learn more about sharding, see the [{{ MG }} documentation](https://docs.mongodb.com/basics/sharding/).
 
 {% endlist %}
 
@@ -636,7 +676,7 @@
 
     1. [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) for connecting to the source.
 
-        1. [Assign the user ](../../managed-mysql/operations/grant.md#grant-role) the `ALL_PRIVILEGES` role for the source database.
+        1. [Assign the user](../../managed-mysql/operations/grant.md#grant-role) the `ALL_PRIVILEGES` role for the source database.
 
 - {{ MY }}
 
@@ -659,7 +699,7 @@
 
 {% endlist %}
 
-### {{ objstorage-name }} target {#target-storage}
+### {{ objstorage-full-name }} target {#target-storage}
 
 {% if audience != "internal" %}
 
@@ -730,19 +770,24 @@
     1. Run the following command to grant the user all privileges for the database, schemas, and tables to be transferred:
 
         ```sql
-        GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
+        GRANT ALL PRIVILEGES ON DATABASE <basa name> TO <username>;
         ```
 
         If the database is not empty, the user must be its owner:
 
         ```sql
-        ALTER DATABASE <database name> OWNER TO <username>;
+        ALTER DATABASE <basa name> OWNER TO <username>;
         ```
 
         Once started, the transfer will connect to the target on behalf of this user.
 
 {% endlist %}
 
+The service does not transfer any materialized views (`MATERIALIZED VIEW`). For more information, see [Service specifics for sources and targets](../concepts/index.md#postgresql).
+
 ### {{ ydb-full-name }} {#prepare-source-ydb}
 
-To receive data in {{ ydb-name }}, no setup is necessary.
+To receive data in {{ ydb-full-name }}, no setup is necessary.
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+

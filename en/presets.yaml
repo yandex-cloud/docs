@@ -214,6 +214,12 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
+  roles:
+    mes:
+      admin: managed-elasticsearch.admin
+      auditor: managed-elasticsearch.auditor
+      editor: managed-elasticsearch.editor
+      viewer: managed-elasticsearch.viewer
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
@@ -236,6 +242,7 @@ default:
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
   yc-ydb: yc ydb
+  yc-dt: yc datatransfer
   max-gpus: 4
   iam-token-lifetime: 12 hours
   pem-path: /cloud-certs/CA.pem
@@ -455,6 +462,7 @@ default:
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-cloud-services: https://cloud.yandex.com/services
   link-cloud-marketplace: https://cloud.yandex.com/marketplace
+  link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
@@ -519,18 +527,19 @@ default:
   k8s-api-link: https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
 
   # Terraform providers
-  tf-provider-dt-endpoint: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_endpoint
-  tf-provider-dt-transfer: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_transfer
-  tf-provider-k8s-cluster: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster
-  tf-provider-k8s-nodegroup: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group
-  tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
-  tf-provider-mes: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
-  tf-provider-mkf: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
-  tf-provider-mmg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster
-  tf-provider-mms: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_sqlserver_cluster
-  tf-provider-mmy: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
-  tf-provider-mpg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
+  tf-provider-link: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources
+  tf-provider-dt-endpoint: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_endpoint
+  tf-provider-dt-transfer: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_transfer
+  tf-provider-k8s-cluster: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster
+  tf-provider-k8s-nodegroup: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group
+  tf-provider-mch: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
+  tf-provider-mes: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
+  tf-provider-mkf: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
+  tf-provider-mmg: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster
+  tf-provider-mms: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_sqlserver_cluster
+  tf-provider-mmy: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
+  tf-provider-mpg: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
+  tf-provider-mrd: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
   
   # API
   # Domain names are substituted in the TeamCity build of API reference. See step 20 of the build: https://nda.ya.ru/t/JggZA6M-4zCi6E

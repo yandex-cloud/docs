@@ -300,7 +300,7 @@
         }
         ```
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
         1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), добавьте к описанию кластера поле `host_group_ids` и укажите в нем через запятую идентификаторы нужных групп:
 
@@ -326,6 +326,8 @@
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
+        {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
@@ -339,7 +341,7 @@
   * Имя параметров сортировки баз данных кластера в параметре `sqlcollation`.
   * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
   {% if audience != "internal" %}
 

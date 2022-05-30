@@ -34,7 +34,7 @@ To configure {{ KFC }} to work with a {{ mkf-name }} cluster:
 
 1. [Configure the VM](#prepare-vm).
 1. [Prepare the test data](#prepare-test-data).
-1. [Configure {{ KFC }} ](#configure-kafka-connect).
+1. [Configure {{ KFC }}](#configure-kafka-connect).
 1. [Run {{ KFC }} and test it](#test-kafka-connect).
 
 If you no longer need these resources, [delete them](#clear-out).

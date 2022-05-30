@@ -1,20 +1,30 @@
-- **Backup start (UTC)**: The time in UTC when you want to start creating a [backup](../../managed-postgresql/operations/cluster-backups.md) of a cluster (in 24-hour format). If the time is not set, the backup will start at 22:00 UTC.
+- **Backup start time (UTC)**: UTC time when you want to start creating a cluster [backup](../../managed-postgresql/operations/cluster-backups.md) (in 24-hour format). If the time is not set, the backup will start at 22:00 UTC.
 
-- **Maintenance window**: Settings of the technical support window. You can use the settings to specify the preferred start time for cluster host maintenance (for example, you can select the time when the cluster is least loaded with requests):
-  - To specify the preferred start time for the maintenance window, select **by schedule** and set the desired day of the week and hour of day in UTC (Coordinated Universal Time) using the drop-down lists.
-  - To allow maintenance at any time, select **arbitrary**.
+- **Retention period for automatic backups, days**: The period to store the automatically created backups. If an automatic backup expires, it is deleted. The default is {{ mmg-backup-retention }} days. This feature is in the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../../managed-mongodb/concepts/backup.md).
 
-  Maintenance may include updating the DBMS version, applying patches, and so on.
+   Changing the retention period affects both new automatic backups and existing backups. For example, the initial retention period was 7 days. The remaining lifetime for a backup with this period is 1 day. When the retention period increases to 9 days, the remaining lifetime for this backup is 3 days.
 
-- **Access from {{ datalens-name }}**: Enable this option to be able to analyze data from the cluster in [{{ datalens-full-name }}](../../datalens/concepts/index.md). For more information about setting up a connection, see [Connecting to {{ datalens-name }}](../../managed-postgresql/operations/datalens-connect.md).
+- {% include [Maintenance window](console/maintenance-window.md) %}
 
-- **Access from the management console**: Select this option to be able to [execute SQL queries](../../managed-postgresql/operations/web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console.
+- **Access from {{ datalens-name }}** : Enable this option to be able to analyze data from the cluster in [{{ datalens-full-name }}](../../datalens/concepts/index.md). For more information about setting up a connection, see [Connecting to {{ datalens-name }}](../../managed-postgresql/operations/datalens-connect.md).
 
-- **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+- **Access from management console**: Enable this option to be able to [run SQL queries](../../managed-postgresql/operations/web-sql-query.md) against a cluster's databases from the {{ yandex-cloud }} management console.
+   {% if audience != "internal" %}
 
-- **Collect statistics**: Enable this option to use [{#T}](../../managed-postgresql/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+- **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-- **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
+{% else %}
 
-    {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+- **Access from Serverless**: Enable this option to allow cluster access from {{ sf-full-name }}.
 
+{% endif %}
+
+- **Statistics sampling**: Enable this option to use the [{#T}](../../managed-postgresql/operations/performance-diagnostics.md) tool in the cluster. {% if audience != "internal" %}This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.{% else %}This feature is in the Preview stage.{% endif %}
+
+- **Autofailover**: Enable this option so that when the master host changes, the replication source for every replica host is automatically switched over to the new master host. To learn more, see [Replication](../../managed-postgresql/concepts/replication.md).
+
+- **Connection pooler mode**: Choose one of [connection pooler modes](../../managed-postgresql/concepts/pooling.md).
+
+- {% include [Deletion protection](console/deletion-protection.md) %}
+
+   {% include [deletion-protection-limits-db](deletion-protection-limits-db.md) %}

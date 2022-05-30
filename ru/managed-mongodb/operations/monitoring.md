@@ -1,18 +1,12 @@
 # Мониторинг состояния кластера и хостов
 
-Вы можете отслеживать состояние кластера {{ mmg-name }} и отдельных его хостов с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков.
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
-{% if audience == "external" %} Собирает значения метрик кластера и отображает графики сервис [{{ monitoring-name }}](../../monitoring/concepts/index.md). {% endif %} Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-name }}, нажмите кнопку **Открыть в Мониторинге** на панели сверху.
+{% include [monitoring-period](../../_includes/mdb/monitoring-freq.md) %}
 
-Чтобы изменить временной интервал, за который выводятся графики, укажите границы интервала или выберите один из предустановленных вариантов (час, день, неделя, месяц).
+{% include [monitoring-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
-{% include [monitoring-freq](../../_includes/mdb/monitoring-freq.md) %}
-
-{% note info %}
-
-На графиках автоматически применяются наиболее подходящие кратные единицы измерения (мегабайты, гигабайты и т. д.).
-
-{% endnote %}
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Мониторинг состояния кластера {#cluster}
 
@@ -20,6 +14,8 @@
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+
+1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 На странице появятся следующие графики:
 

@@ -9,7 +9,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {% note warning %}
 
-You can't use SQL commands to change the [recovery model]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %} for backup and recovery operations.
+You cannot use SQL commands to modify the [recovery model]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %} for backup and restore operations.
 
 {% endnote %}
 
@@ -25,15 +25,14 @@ You can't use SQL commands to change the [recovery model]{% if lang == "ru" %}(h
 
 {% endif %}
 
-  1. Go to the folder page and select **{{ mms-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
   {% if audience != "external" %}
 
   To get a list of backups for all the **{{ mms-name }}** clusters in a folder:
-
-  1. Go to the folder page and select **{{ mms-name }}**.
-  1. Click the **Backups** tab.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+  1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
 {% endif %}
 
@@ -58,21 +57,21 @@ You can't use SQL commands to change the [recovery model]{% if lang == "ru" %}(h
   To get information about the backup of an existing cluster:
 
   {% endif %}
-  1. Go to the folder page and select **{{ mms-name }}**.
+
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 {% if audience != "external" %}
 
   To get information about the backup of a previously deleted cluster:
-
-  1. Go to the folder page and select **{{ mms-name }}**.
-  1. Click the **Backups** tab.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+  1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
 {% endif %}
 
 - API
 
-  Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter. To find out the ID, [get a list of backups](#list-backups).
+  Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
 
 {% endlist %}
 
@@ -81,9 +80,10 @@ You can't use SQL commands to change the [recovery model]{% if lang == "ru" %}(h
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mms-name }}**.
+
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click **Create backup**.
+  1. Click **Create a backup**.
 
   **{{ mms-name }}** launches the operation to create a backup.
 
@@ -97,7 +97,7 @@ You can't use SQL commands to change the [recovery model]{% if lang == "ru" %}(h
 
 ## Restoring from backups {#restore}
 
-Point-in-Time Recovery (PITR) technology lets you restore the state of a cluster or an individual database to any point in time between the oldest full backup and archiving the most recent transaction log. For more information, see [{#T}](../concepts/backup.md).
+Point-in-Time Recovery (PITR) technology lets you restore the state of a cluster or an individual database to any point in time between the oldest backup and archiving the most recent transaction log. For more information, see [{#T}](../concepts/backup.md).
 
 For example, if a backup operation completed at 12:00:00 UTC on August 10, 2020, the current date is August 15, 2020 at 19:00:00 UTC, and the latest transaction log was saved at 18:50:00 UTC on August 15, 2020, you can restore the cluster to any of its states from 12:00:01 UTC on August 10, 2020  through 18:50:00 UTC on August 15, 2020.
 
@@ -117,32 +117,32 @@ For a new cluster, you need to set up all its [parameters required at creation](
 - Management console
 
   To restore an existing cluster from a backup:
-  1. Go to the folder page and select **{{ mms-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
+  1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the required backup and click **Restore cluster**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
   1. Click **Restore cluster**.
 
   {% if audience != "external" %}
 
   To restore a previously deleted cluster from a backup:
-  1. Go to the folder page and select **{{ mms-name }}**.
-  1. Click the **Backups** tab.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+  1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
+  1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the required backup and click **Restore cluster**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
   1. Click **Restore cluster**.
 
   {% endif %}
 
-  **{{ mms-name }}** launches the operation to create a cluster from a backup.
+  **{{ mms-name }}** launches the operation to create a cluster from the backup.
 
 - API
 
-  Use the [restore](../api-ref/Cluster/backup.md) API method and pass the following in the request:
-  - ID of the desired backup, in the `backupId` parameter. To find out the ID, [get a list of backups](#list-backups).
-  - Timestamp of the moment to which the cluster should be restored, in the `time` parameter.
-  - The name of the new cluster that will contain the data recovered from the backup. The cluster name must be unique within the folder.
+  Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+  * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+  * The timestamp of the point to which you want to recover the cluster, in the `time` parameter.
+  * The name of the new cluster that will contain the data recovered from the backup. The cluster name must be unique within the folder.
 
 {% endlist %}
 
@@ -155,14 +155,14 @@ When restoring a database from a backup, you create a new database in the curren
 - Management console
 
   To restore an existing database from a backup:
-  1. Go to the folder page and select **{{ mms-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need and select the **Databases** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired database, then click **Restore**.
   1. Specify a name for the new database and select the desired backup and time the database should be restored to.
   1. Click **Restore**.
 
   To restore a previously deleted database from a backup:
-  1. Go to the folder page and select **{{ mms-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
   1. Find the correct backup by its time of creation and the required database. In the **Databases** column, there is a listing of the databases contained in each backup.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired backup, then click **Restore**.
@@ -172,10 +172,10 @@ When restoring a database from a backup, you create a new database in the curren
 - API
 
   Use the [restore](../api-ref/Database/restore.md) API method and pass the following in the request:
-  - ID of the desired backup, in the `backupId` parameter. To find out the ID, [get a list of backups](#list-backups).
-  - The time the database should be restored to, in the `time` parameter.
-  - The name of the source database that the new database will be restored from, in the `fromDatabase` parameter.
-  - The name of the new database that will contain the data restored from the backup, in the `databaseName` parameter. A database name must be unique within the cluster.
+  * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+  * The time the database should be restored to, in the `time` parameter.
+  * The name of the source database that the new database will be restored from, in the `fromDatabase` parameter.
+  * The name of the new database that will contain the data restored from the backup, in the `databaseName` parameter. A database name must be unique within the cluster.
 
 {% endlist %}
 
@@ -190,13 +190,13 @@ When restoring a database from a backup, you create a new database in the curren
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - The new backup start time, in the `configSpec.backupWindowStart` parameter.
-  - List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * The new backup start time, in the `configSpec.backupWindowStart` parameter.
+  * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
 
   {% note warning %}
 
-  This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, in the `updateMask` parameter, list the settings you want to change (in a single line, separated by commas).
+  This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
 
   {% endnote %}
 
@@ -204,7 +204,7 @@ When restoring a database from a backup, you create a new database in the curren
 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-     For information about how to create this file, see [{#T}](cluster-create.md).
+     For more information about creating this file, see [{#T}](cluster-create.md).
 
   1. Add a block named `backup_window_start` to the {{ mms-name }} cluster description under `config`:
 
@@ -213,8 +213,8 @@ When restoring a database from a backup, you create a new database in the curren
         ...
         config {
           backup_window_start {
-            hours   = <backup starting hour (UTC)>
-            minutes = <backup starting minute (UTC)>
+            hours   = <backup start hour (UTC)>
+            minutes = <backup start minute (UTC)>
           }
           ...
         }
@@ -232,4 +232,3 @@ When restoring a database from a backup, you create a new database in the curren
   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
 {% endlist %}
-

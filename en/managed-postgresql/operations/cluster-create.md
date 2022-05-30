@@ -12,8 +12,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
 The number of hosts that can be created together with a {{ PG }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
-* With **local SSD** or **non-replicated SSD** storage, you can create a cluster with three or more hosts (a minimum of three hosts is required for fault tolerance).
-* With **HDD network** or **SSD network** storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
+* With **local SSD** or **non-replicated SSD storage**, you can create a cluster with three or more hosts (a minimum of three hosts is required for fault tolerance).
+* With **HDD network** or **SSD network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
 
 After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
@@ -23,21 +23,20 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
-
 ## How to create a {{ PG }} cluster {#create-cluster}
 
 {% list tabs %}
 
 - Management console
 
-  1. In the management console, select the folder where you want to create a database cluster.
-  1. Select **{{ mpg-name }}**.
-  1. Click **Create cluster**.
-  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-  1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-  1. Select the DBMS version.
+   1. In the management console, select the folder where you want to create a database cluster.
+   1. Select **{{ mpg-name }}**.
+   1. Click **Create cluster**.
+   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+      - `PRODUCTION`: For stable versions of your apps.
+      - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+   1. Select the DBMS version.
 
       {% note info %}
 
@@ -47,20 +46,19 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% endnote %}
 
-  1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
-  1. Under **Storage size**:
+   1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+   1. Under **Storage size**:
 
 {% if audience != "internal" %}
 
-      * Select the [type of storage](../concepts/storage.md). 
-    
+      * Select a [storage type](../concepts/storage.md).
+
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 {% endif %}
-
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
-  1. Under **Database**, specify the database attributes:
+   1. Under **Database**, specify the database attributes:
 
       * Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
       * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
@@ -69,92 +67,92 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
            {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need additionally to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-  1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+   1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
-      When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+         When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
-  1. If necessary, configure additional cluster settings:
+   1. If necessary, configure additional cluster settings:
 
-     {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+        {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
 
-  1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
+   1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
-     {% note info %}
+        {% note info %}
 
-     Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
+        Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
 
-     {% endnote %}
+        {% endnote %}
 
-  1. Click **Create cluster**.
+   1. Click **Create cluster**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a cluster:
+   To create a cluster:
 
-  {% if audience != "internal" %}
+   {% if audience != "internal" %}
 
-  1. Check whether the folder has any subnets for the cluster hosts:
+   1. Check whether the folder has any subnets for the cluster hosts:
 
-     ```
-     yc vpc subnet list
-     ```
+      ```
+      yc vpc subnet list
+      ```
 
-     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  {% endif %}
+   {% endif %}
 
-  1. View a description of the CLI's create cluster command:
+   1. View a description of the CLI's create cluster command:
 
       ```
       {{ yc-mdb-pg }} cluster create --help
       ```
 
-  1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
+   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
-  {% if audience != "internal" %}
+   {% if audience != "internal" %}
 
-      ```bash
-      {{ yc-mdb-pg }} cluster create \
-         --name <cluster name> \
-         --environment <prestable or production> \
-         --network-name <network name> \
-         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-         --resource-preset <host class> \
-         --user name=<user name>,password=<user password> \
-         --database name=<database name>,owner=<database owner name> \
-         --disk-size <storage size, GB> \
-         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-         --security-group-ids <list of security group IDs> \
-         --connection-pooling-mode=<connection manager mode> \
-         --deletion-protection=<protect cluster from deletion: true or false> \
-         --serverless-access
-      ```
+       ```bash
+       {{ yc-mdb-pg }} cluster create \
+          --name <cluster name> \
+          --environment <environment, prestable or production> \
+          --network-name <network name> \
+          --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+          --resource-preset <host class> \
+          --user name=<username>,password=<user password> \
+          --database name=<database name>,owner=<database owner name> \
+          --disk-size <storage size, GB> \
+          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+          --security-group-ids <list of IDs for security groups> \
+          --connection-pooling-mode=<connection manager operating mode> \
+          --deletion-protection=<cluster deletion protection: true or false> \
+          --serverless-access
+       ```
 
-      The `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+       Specify the `subnet-id` if there are 2 or more subnets in the selected availability zone.
 
-  {% else %}
+   {% else %}
 
-      ```bash
-      {{ yc-mdb-pg }} cluster create \
-         --name <cluster name> \
-         --environment <prestable or production> \
-         --network-id {{ network-name }} \
-         --host zone-id=<availability zone> \
-         --resource-preset <host class> \
-         --user name=<user name>,password=<user password> \
-         --database name=<database name>,owner=<database owner name> \
-         --disk-size <storage size, GB> \
-         --security-group-ids <list of security group IDs> \
-         --serverless-access=<true or false>
-      ```
+       ```bash
+       {{ yc-mdb-pg }} cluster create \
+          --name <cluster name> \
+          --environment <environment, prestable or production> \
+          --network-id {{ network-name }} \
+          --host zone-id=<availability zone> \
+          --resource-preset <host class> \
+          --user name=<username>,password=<user password> \
+          --database name=<database name>,owner=<database owner name> \
+          --disk-size <storage size, GB> \
+          --security-group-ids <list of IDs for security groups> \
+          --serverless-access=<true or false>
+       ```
 
-  {% endif %}
+   {% endif %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
       
@@ -177,129 +175,136 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 - Terraform
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
-{% if audience != "internal" %}
+  {% if audience != "internal" %}
 
-  If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  {% else %}
+   {% else %}
 
-  If you don't have Terraform, install it and configure the provider.
+   If you don't have Terraform, install it and configure the provider.
 
-  {% endif %}
+   {% endif %}
 
-  To create a cluster:
+   To create a cluster:
 
-  1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of resources that you want to create:
 
-     * Database cluster: Description of the cluster and its hosts.
+      * Database cluster: Description of the cluster and its hosts.
 
-     * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
-     * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Example configuration file structure:
+      Example configuration file structure:
 
-     ```hcl
-     terraform {
-       required_providers {
-         yandex = {
-           source = "yandex-cloud/yandex"
-         }
-       }
-     }
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source = "yandex-cloud/yandex"
+          }
+        }
+      }
 
-     provider "yandex" {
-       token     = "<OAuth or static key of service account>"
-       cloud_id  = "<cloud ID>"
-       folder_id = "<folder ID>"
-       zone      = "<availability zone>"
-     }
+      provider "yandex" {
+        token     = "<An OAuth or static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+      }
 
-     resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-       name                = "<cluster name>"
-       environment         = "<environment, PRESTABLE or PRODUCTION>"
-       network_id          = "<network ID>"
-       security_group_ids  = [ "<list of security groups>" ]
-       deletion_protection = <protect cluster from deletion: true or false>
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        name                = "<cluster name>"
+        environment         = "<environment, PRESTABLE or PRODUCTION>"
+        network_id          = "<network ID>"
+        security_group_ids  = [ "<list of security groups>" ]
+        deletion_protection = <protection from cluster deletion: true or false>
 
-       config {
-         version = "<PostgreSQL version: 10, 10-1c, 11, 11-1c, 12, 12-1c, or 13>"
-         resources {
-           resource_preset_id = "<host class>"
-           disk_type_id       = "<storage type>"
-           disk_size          = <storage size in GB>
-         }
-       }
+        config {
+          version = "<version of PostgreSQL: 10, 10-1c, 11, 11-1c, 12, 12-1c, or 13>"
+          resources {
+            resource_preset_id = "<host class>"
+            disk_type_id       = "<storage type>"
+            disk_size          = <storage type, GB>
+          }
+          pooler_config {
+            pool_discard = <the Odyssey pool_discard parameter: true or false>
+            pooling_mode = "<operating mode: SESSION, TRANSACTION, or STATEMENT>"
+          }
+          ...
+        }
 
-       database {
-         name = "<database name>"
-         owner = "<name of the database owner>"
-       }
+        database {
+          name  = "<database name>"
+          owner = "<database username>"
+        }
 
-       user {
-         name     = "<username>"
-         password = "<user password>"
-         permission {
-           database_name = "<database name>"
-         }
-       }
+        user {
+          name     = "<username>"
+          password = "<user password>"
+          permission {
+            database_name = "<database name>"
+          }
+        }
 
-       host {
-         zone      = "<availability zone>"
-         subnet_id = "<subnet ID>"
-       }
-     }
+        host {
+          zone      = "<availability zone>"
+          subnet_id = "<subnet ID>"
+        }
+      }
 
-     resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
 
-     resource "yandex_vpc_subnet" "<subnet name>" {
-       name           = "<subnet name>"
-       zone           = "<availability zone>"
-       network_id     = "<network ID>"
-       v4_cidr_blocks = ["<range>"]
-     }
-     ```
+      resource "yandex_vpc_subnet" "<subnet name>" {
+        name           = "<subnet name>"
+        zone           = "<availability zone>"
+        network_id     = "<network ID>"
+        v4_cidr_blocks = ["<range>"]
+      }
+      ```
 
-     {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     For more information about the resources you can create using Terraform, see the [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+      1. {% include [maintenance-window](../../_includes/mdb/mpg/terraform-maintenance-window.md) %}
 
-  1. Make sure the settings are correct.
+      For more information about the resources you can create using Terraform, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+   1. Make sure the settings are correct.
 
-  1. Create a cluster.
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   1. Create a cluster.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-  Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
 
-    * The ID of the folder where the cluster should be placed in the `folderId` parameter.
-    * The cluster name in the `name` parameter.
-    * The environment of the cluster, in the `environment` parameter.
-    * Network ID, in the `networkId` parameter.
-    * Cluster configuration, in the `configSpec` parameter.
-    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-    * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
-    * Database configuration, in one or more `databaseSpecs` parameters.
-    * User settings, in one or more `userSpecs` parameters.
-  {% if audience != "internal" %}
+   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+   * The cluster name in the `name` parameter.
+   * The environment of the cluster, in the `environment` parameter.
+   * Network ID, in the `networkId` parameter.
+   * Cluster configuration, in the `configSpec` parameter.
+   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+   * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+   * Database configuration, in one or more `databaseSpecs` parameters.
+   * User settings, in one or more `userSpecs` parameters.
+      {% if audience != "internal" %}
 
-  To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+   To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-  {% else %}
+   {% else %}
 
-  To allow cluster access from {{ sf-full-name }}, pass `true` for the `configSpec.access.serverless` parameter.
+   To allow cluster access from {{ sf-full-name }}, pass `true` for the `configSpec.access.serverless` parameter.
 
-  {% endif %}
+   {% endif %}
 
 {% endlist %}
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+If you specified a security group ID when you created the cluster, some additional [security group configuration](connect.md#configuring-security-groups) may be required before you can connect to it.
 
 {% endnote %}
 
@@ -311,161 +316,163 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-  To create a cluster with a single host, pass a single `--host` parameter.
+   To create a cluster with a single host, pass a single `--host` parameter.
 
-  Let's say we need to create a {{ PG }} cluster with the following characteristics:
+   Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
-  {% if audience != "internal" %}
-  * Named `mypg`.
-  * In the `production` environment.
-  * In the `default` network.
-  * In the security group `{{ security-group }}`.
-  * With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
-  * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
-  * With one user (`user1`) with the password `user1user1`.
-  * With one `db1` database owned by the user `user1`.
-  * With protection against accidental cluster deletion.
+   {% if audience != "internal" %}
 
-  {% else %}
-  * Named `mypg`.
-  * In the `production` environment.
-  * In the security group `{{ security-group }}`.
-  * With a single `db1.micro` class host in the `man` availability zone.
-  * With 20 GB of local SSD storage (`local-ssd`).
-  * With one user (`user1`) with the password `user1user1`.
-  * With one `db1` database owned by the user `user1`.
-  * With protection against accidental cluster deletion.
+   - Named `mypg`.
+   - In the `production` environment.
+   - In the `default` network.
+   - In the security group `{{ security-group }}`.
+   - With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
+   - With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+   - With one user, `user1`, with the password `user1user1`.
+   - With one `db1` database owned by the user `user1`.
+   - With protection against accidental cluster deletion.
 
-  {% endif %}
+   {% else %}
 
-  Run the command:
+   - Named `mypg`.
+   - In the `production` environment.
+   - In the security group `{{ security-group }}`.
+   - With a single `db1.micro` class host in the `man` availability zone.
+   - With 20 GB of local SSD storage (`local-ssd`).
+   - With one user, `user1`, with the password `user1user1`.
+   - With one `db1` database owned by the user `user1`.
+   - With protection against accidental cluster deletion.
 
-  {% if audience != "internal" %}
+   {% endif %}
 
-  ```bash
-  {{ yc-mdb-pg }} cluster create \
-     --name mypg \
-     --environment production \
-     --network-name default \
-     --resource-preset {{ host-class }} \
-     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
-     --disk-type {{ disk-type-example }} \
-     --disk-size 20 \
-     --user name=user1,password=user1user1 \
-     --database name=db1,owner=user1 \
-     --security-group-ids {{ security-group }} \
-     --deletion-protection=true
-  ```
+   Run the command:
 
-  {% else %}
+   {% if audience != "internal" %}
 
-  ```bash
-  {{ yc-mdb-pg }} cluster create \
-     --name mypg \
-     --environment production \
-     --network-id ' ' \
-     --host zone-id=man \
-     --resource-preset db1.micro \
-     --disk-type local-ssd \
-     --disk-size 20 \
-     --user name=user1,password=user1user1 \
-     --database name=db1,owner=user1 \
-     --security-group-ids {{ security-group }}
-  ```
+   ```bash
+   {{ yc-mdb-pg }} cluster create \
+      --name mypg \
+      --environment production \
+      --network-name default \
+      --resource-preset {{ host-class }} \
+      --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+      --disk-type {{ disk-type-example }} \
+      --disk-size 20 \
+      --user name=user1,password=user1user1 \
+      --database name=db1,owner=user1 \
+      --security-group-ids {{ security-group }} \
+      --deletion-protection=true
+   ```
 
-  {% endif %}
+   {% else %}
+
+   ```bash
+   {{ yc-mdb-pg }} cluster create \
+      --name mypg \
+      --environment production \
+      --network-id ' ' \
+      --host zone-id=man \
+      --resource-preset db1.micro \
+      --disk-type local-ssd \
+      --disk-size 20 \
+      --user name=user1,password=user1user1 \
+      --database name=db1,owner=user1 \
+      --security-group-ids {{ security-group }}
+   ```
+
+   {% endif %}
 
 - Terraform
 
-  Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
-  - Named `mypg`.
-  - Version `14`.
-  - In the `PRESTABLE` environment.
-  - In the cloud with the ID `{{ tf-cloud-id }}`.
-  - In the folder with the ID `{{ tf-folder-id }}`.
-  - Network: `mynet`.
-  - In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
-  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-  - With 20 GB of fast network storage (`{{ disk-type-example }}`).
-  - With one user (`user1`) with the password `user1user1`.
-  - With one `db1` database owned by the user `user1`.
-  - With protection against accidental cluster deletion.
+   Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
+   - Named `mypg`.
+   - Version `14`.
+   - In the `PRESTABLE` environment.
+   - In the cloud with the ID `{{ tf-cloud-id }}`.
+   - In the folder with the ID `{{ tf-folder-id }}`.
+   - In the new `mynet` network.
+   - In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
+   - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   - With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+   - With one user, `user1`, with the password `user1user1`.
+   - With one `db1` database owned by the user `user1`.
+   - With protection against accidental cluster deletion.
 
-  The configuration file for the cluster looks like this:
+   The configuration file for the cluster looks like this:
 
-  ```hcl
-  terraform {
-    required_providers {
-      yandex = {
-        source = "yandex-cloud/yandex"
-      }
-    }
-  }
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
 
-  provider "yandex" {
-    token     = "<OAuth or static key of service account>"
-    cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "{{ tf-folder-id }}"
-    zone      = "{{ zone-id }}"
-  }
+   provider "yandex" {
+     token     = "<An OAuth or static key of the service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ zone-id }}"
+   }
 
-  resource "yandex_mdb_postgresql_cluster" "mypg" {
-    name                = "mypg"
-    environment         = "PRESTABLE"
-    network_id          = yandex_vpc_network.mynet.id
-    security_group_ids  = [ yandex_vpc_security_group.pgsql-sg.id ]
-    deletion_protection = true
+   resource "yandex_mdb_postgresql_cluster" "mypg" {
+     name                = "mypg"
+     environment         = "PRESTABLE"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [ yandex_vpc_security_group.pgsql-sg.id ]
+     deletion_protection = true
 
-    config {
-      version = 14
-      resources {
-        resource_preset_id = "{{ host-class }}"
-        disk_type_id       = "{{ disk-type-example }}"
-        disk_size          = "20"
-      }
-    }
+     config {
+       version = 14
+       resources {
+         resource_preset_id = "{{ host-class }}"
+         disk_type_id       = "{{ disk-type-example }}"
+         disk_size          = "20"
+       }
+     }
 
-    database {
-      name  = "db1"
-      owner = "user1"
-    }
+     database {
+       name  = "db1"
+       owner = "user1"
+     }
 
-    user {
-      name     = "user1"
-      password = "user1user1"
-      permission {
-        database_name = "db1"
-      }
-    }
+     user {
+       name     = "user1"
+       password = "user1user1"
+       permission {
+         database_name = "db1"
+       }
+     }
 
-    host {
-      zone      = "{{ zone-id }}"
-      subnet_id = yandex_vpc_subnet.mysubnet.id
-    }
-  }
+     host {
+       zone      = "{{ zone-id }}"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+     }
+   }
 
-  resource "yandex_vpc_network" "mynet" {
-    name = "mynet"
-  }
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
 
-  resource "yandex_vpc_subnet" "mysubnet" {
-    name           = "mysubnet"
-    zone           = "{{ zone-id }}"
-    network_id     = yandex_vpc_network.mynet.id
-    v4_cidr_blocks = ["10.5.0.0/24"]
-  }
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ zone-id }}"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
 
-  resource "yandex_vpc_security_group" "pgsql-sg" {
-    name       = "pgsql-sg"
-    network_id = yandex_vpc_network.mynet.id
+   resource "yandex_vpc_security_group" "pgsql-sg" {
+     name       = "pgsql-sg"
+     network_id = yandex_vpc_network.mynet.id
 
-    ingress {
-      description    = "PostgreSQL"
-      port           = 6432
-      protocol       = "TCP"
-      v4_cidr_blocks = [ "0.0.0.0/0" ]
-    }
-  }
-  ```
+     ingress {
+       description    = "PostgreSQL"
+       port           = 6432
+       protocol       = "TCP"
+       v4_cidr_blocks = [ "0.0.0.0/0" ]
+     }
+   }
+   ```
 
 {% endlist %}

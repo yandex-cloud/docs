@@ -2,6 +2,8 @@
 
 Copy or replicate data from a source to a target by creating [endpoints](concepts/index.md#endpoint) and configuring [transfers](concepts/index.md#transfer) between them.
 
+{% if audience != "internal" %}
+
 ## Before you start {#before-you-begin}
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder doesn't exist, create it:
@@ -51,12 +53,15 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
 
 1. On the [access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher to the desired folder or the cloud that the folder belongs to.
 
+{% endif %}
+
 ## Configure the source and the target {#db-settings}
 
 Prepare the source service for sending data:
 
 * [{{ KF }}](operations/prepare.md#source-kf)
 * [{{ CH }}](operations/prepare.md#source-ch)
+* [{{ GP }}](operations/prepare.md#source-gp)
 * [{{ MG }}](operations/prepare.md#source-mg)
 * [{{ MY }}](operations/prepare.md#source-my)
 * [{{ PG }}](operations/prepare.md#source-pg)
@@ -82,7 +87,7 @@ To receive data in {{ ydb-name }}, no setup is necessary.
 1. Specify endpoint parameters in the corresponding settings section.
 1. Click **Create**.
 
-For more information, see [{#T}](operations/source-endpoint.md).
+For more information, see [{#T}](operations/endpoint/index.md).
 
 ## Creating an endpoint for the target {#target}
 
@@ -94,7 +99,7 @@ For more information, see [{#T}](operations/source-endpoint.md).
 1. Specify endpoint parameters in the corresponding settings section.
 1. Click **Create**.
 
-For more information, see [{#T}](./operations/target-endpoint.md).
+For more information, see [{#T}](./operations/endpoint/index.md).
 
 ## Create a transfer {#create-transfer}
 
@@ -126,3 +131,4 @@ For more information, see [{#T}](operations/transfer.md).
 * Learn more about [preparing databases for the service](operations/prepare.md) and [setting up transfers](operations/transfer.md).
 * Read [questions and answers](qa/index.md).
 
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

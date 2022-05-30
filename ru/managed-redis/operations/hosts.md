@@ -175,6 +175,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [addHosts](../api-ref/Cluster/addHosts.md) и передайте в запросе:
@@ -332,6 +334,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - API
 

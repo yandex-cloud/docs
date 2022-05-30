@@ -121,7 +121,9 @@ description: "Из статьи вы узнаете, как добавлять �
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
   
@@ -246,7 +248,9 @@ description: "Из статьи вы узнаете, как добавлять �
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
   
@@ -302,7 +306,9 @@ description: "Из статьи вы узнаете, как добавлять �
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
   

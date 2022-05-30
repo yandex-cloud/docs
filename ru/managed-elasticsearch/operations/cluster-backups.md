@@ -183,6 +183,8 @@ keywords:
   
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 {% endif %}
 
 {% endlist %}
@@ -363,6 +365,8 @@ keywords:
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 {% endlist %}
 

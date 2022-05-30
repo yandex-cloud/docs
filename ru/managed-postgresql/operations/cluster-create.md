@@ -268,7 +268,7 @@
 
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     {% include [maintenance-window](../../_includes/mdb/mpg/terraform-maintenance-window.md) %}
+     {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
@@ -280,7 +280,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

@@ -25,6 +25,7 @@
         * [{#T}](#settings-clickhouse).
         * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
+        * [{#T}](#settings-oracle);
         * [{#T}](#settings-postgresql).
         * [{#T}](#settings-yds).
 
@@ -47,6 +48,7 @@
         * [{#T}](#settings-clickhouse).
         * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
+        * [{#T}](#settings-oracle);
         * [{#T}](#settings-postgresql).
         * [{#T}](#settings-yds).
 
@@ -132,7 +134,11 @@
 
         This step is performed at the end of the transfer operation when it is deactivated. If the transfer keeps running in replication mode, the final stage of the transfer will be performed only when replication stops. At this stage, you can enable the migration of views and stored procedures, stored functions, and triggers.
 
-        At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to <q>read-only</q> mode. At this stage, the database schema on the target is aligned with the schema on the source.
+        At the final stage, it is assumed that when the transfer is deactivated, there is no writing load on the source. You can ensure this by switching to the <q>read-only</q> mode. At this stage, the database schema on the target is aligned with the schema on the source.
+
+### Oracle {#settings-oracle}
+
+{% include [Oracle required settings](../../_includes/data-transfer/necessary-settings/oracle.md) %}
 
 ### {{ PG }} {#settings-postgresql}
 

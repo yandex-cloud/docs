@@ -79,7 +79,7 @@ To create a bucket:
      }
      ```
 
-     For more information about the `yandex_storage_bucket` resource, see the Terraform provider [documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_bucket).
+     For more information about the `yandex_storage_bucket` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/storage_bucket).
 
   1. Make sure the settings are correct.
 
@@ -236,7 +236,7 @@ To enable the export of logs to the `bucket-logs` bucket:
      }
      ```
 
-     For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
+     For more information about resources that you can create using Terraform, see the [provider's documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
   1. Make sure the settings are correct.
 

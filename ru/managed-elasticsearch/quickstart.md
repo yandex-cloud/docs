@@ -75,22 +75,14 @@
 Предполагается, что все перечисленные ниже шаги выполняются на Linux.
 
 Чтобы подключиться к кластеру:
+
 1. Установите SSL-сертификат:
 
-   ```bash
-   mkdir -p ~/.elasticsearch
-   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt
-   chmod 0600 ~/.elasticsearch/root.crt
-   ```
+   {% include [install-certificate](../_includes/mdb/mes/install-certificate.md) %}
 
-1. Подключитесь к кластеру с помошью утилиты [cURL](https://curl.haxx.se/):
+1. Подключитесь к кластеру с помощью утилиты [cURL](https://curl.haxx.se/):
 
-   ```bash
-   curl \
-     --user <имя пользователя>:<пароль> \
-     --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://<FQDN публично доступного хоста {{ ES }} с ролью Data node>:9200'
-   ```
+   {% include [default-connstring](../_includes/mdb/mes/default-connstring.md) %}
 
    Для подключения нужно использовать имя пользователя и пароль, которые были заданы при [создании кластера](#cluster-create).
 

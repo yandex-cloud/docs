@@ -27,6 +27,8 @@ items:
     items:
       - name: Microsoft licenses in Yandex Cloud
         href: licensing.md
+      - name: Requirements for Yandex Cloud account
+        href: check-user-data.md
       - name: Questions and answers about Windows licensing
         href: qa.md
   - name: Pricing policy

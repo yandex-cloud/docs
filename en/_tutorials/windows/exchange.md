@@ -1,41 +1,35 @@
 # Deploying Microsoft Exchange
 
-This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. The following Microsoft Exchange servers will be installed in `ru-central1-a` and `ru-central1-b` availability zones: two mail servers, two Active Directory servers, and two Edge Transport servers. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `ru-central1-c` availability zone will manage all the servers.
+This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `ru-central1-a` and `ru-central1-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `ru-central1`-c availability zone will manage all the servers.
 
-1. Prepare for deployment:
-   1. [Before you start](#before-you-begin).
-   1. [Create a cloud network and subnets](#create-network).
-   1. [Create a script to manage a local administrator account](#admin-script).
-1. Install and configure Active Directory on a VM:
-   1. [Create a VM for Active Directory](#ad-vm).
-   1. [Create a VM for File Share Witness](#ad-fsw-vm).
-   1. [Install and configure Active Directory](#install-ad).
-   1. [Configure the second domain controller](#install-ad-2).
-1. Install and configure Microsoft Exchange:
-   1. [Install Microsoft Exchange](#install-exchange).
-   1. [Create Microsoft Exchange servers](#create-ms-exchange-servers).
-   1. [Create a Database Availability Group](#create-dag).
-   1. [Create disks for VM databases](#create-db-disks).
-   1. [Configure the Database Availability Group](#dag-configuration).
-   1. [Configure Client Access](#configure-access).
+1. [Before you start](#before-you-begin).
+1. [Create a cloud network and subnets](#create-network).
+1. [Create a script to manage a local administrator account](#admin-script).
+1. [Create a VM for Active Directory](#ad-vm).
+1. [Create a VM for File Share Witness](#ad-fsw-vm).
+1. [Install and configure Active Directory](#install-ad).
+1. [Configure the second domain controller](#install-ad-2).
+1. [Install Microsoft Exchange](#install-exchange).
+1. [Create Microsoft Exchange servers](#create-ms-exchange-servers).
+1. [Create a Database Availability Group](#create-dag).
+1. [Configure Client Access](#configure-access).
 1. [Configure the network load balancer](#set-up-load-balancer).
-1. [Configure Accepted Domains and Email Address Policy](#set-up-AC-domains).
-1. [Create and configure a VM for Edge Transport servers](#create-edge-vm):
-   1. [Configure Edge Transport servers](#set-up-edge-transport).
-   1. [Configure the Edge Transport server in the ru-central1-a zone](#edge-a).
-   1. [Configure the Edge Transport server in the ru-central1-b zone](#edge-b).
-   1. [Add Edge Transport servers to Exchange](#add-edges-to-exchange).
-   1. [Set up a subscription on the vm-edge-a server](#subscribe-vm-edge-a).
-   1. [Set up a subscription on the vm-edge-b server](#subscribe-vm-edge-b).
-1. [Delete created cloud resources if you no longer need them](#clear-out).
+1. [Configure Accepted Domains and Email Address Policy](#set-up-accepted-domains).
+1. [Create and configure a VM for Edge Transport servers](#create-edge-vm)
+1. [Configure Edge Transport servers](#set-up-edge-transport).
+1. [Add Edge Transport servers to Exchange](#add-edges-to-exchange).
+
+If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
 Before deploying servers, you need to sign up for {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
+{% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
+
+If you have an active billing account, you can create or select a folder to run your VM in on the [cloud page]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -43,9 +37,9 @@ If you have an active billing account, you can create or select a folder to run 
 
 The cost of a Microsoft Exchange installation includes:
 
-* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for load balancing (see [pricing{{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
-* A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
+* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for load balancing (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+* A fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
@@ -58,19 +52,20 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
    - Management console
 
-     To create a [cloud network](../../vpc/concepts/network.md):
-     1. Open the **Virtual Private Cloud** section in the folder where you want to create the cloud network.
-     1. Click **Create network.**
-     1. Enter the network name: `exchange-network`.
-     1. Click **Create network**.
+      To create a [cloud network](../../vpc/concepts/network.md):
+
+      1. Open the **Virtual Private Cloud** section in the folder where you want to create the cloud network.
+      1. Click **Create network**.
+      1. Enter the network name: `exchange-network`.
+      1. Click **Create network**.
 
    - CLI
 
-     To create a cloud network, run the command:
+      To create a cloud network, run the command:
 
-     ```
-     $ yc vpc network create --name exchange-network
-     ```
+      ```
+      yc vpc network create --name exchange-network
+      ```
 
    {% endlist %}
 
@@ -78,56 +73,58 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
    {% list tabs %}
 
-     - Management console
+   - Management console
 
-       To create a subnet:
-       1. Open the **Virtual Private Cloud** section in the folder where you want to create the subnet.
-       1. Click on the name of the cloud network.
-       1. Click **Add subnet**.
-       1. Fill out the form: set the subnet name to `exchange-subnet-a` and select the `ru-central1-a` availability zone from the drop-down list.
-       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
-       1. Click **Create subnet**.
+      To create a subnet:
 
-       Repeat these steps for two more subnets, `exchange-subnet-b` and `exchange-subnet-c`, in the `ru-central1-b` and `ru-central1-c` availability zones with the `10.2.0.0/16` and `10.3.0.0/16` CIDR, respectively.
+      1. Open the **Virtual Private Cloud** section in the folder where you want to create the subnet.
+      1. Click on the name of the cloud network.
+      1. Click **Add subnet**.
+      1. Fill out the form: set the subnet name to `exchange-subnet-a` and select the `ru-central1-a` availability zone from the drop-down list.
+      1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+      1. Click **Create subnet**.
 
-     - CLI
+      Repeat these steps for two more subnets, `exchange-subnet-b` and `exchange-subnet-c`, in the `ru-central1-b` and `ru-central1-c` availability zones with the `10.2.0.0/16` and `10.3.0.0/16` CIDR, respectively.
 
-       To create subnets, run the following commands:
+   - CLI
 
-       ```
-       yc vpc subnet create \
-         --name exchange-subnet-a \
-         --zone ru-central1-a \
-         --network-name exchange-network \
-         --range 10.1.0.0/16
-       
-       yc vpc subnet create \
-         --name exchange-subnet-b \
-         --zone ru-central1-b \
-         --network-name exchange-network \
-         --range 10.2.0.0/16
-       
-       yc vpc subnet create \
-         --name exchange-subnet-c \
-         --zone ru-central1-c \
-         --network-name exchange-network \
-         --range 10.3.0.0/16
-       ```
+      To create subnets, run the following commands:
+
+      ```
+      yc vpc subnet create \
+        --name exchange-subnet-a \
+        --zone ru-central1-a \
+        --network-name exchange-network \
+        --range 10.1.0.0/16
+
+      yc vpc subnet create \
+        --name exchange-subnet-b \
+        --zone ru-central1-b \
+        --network-name exchange-network \
+        --range 10.2.0.0/16
+
+      yc vpc subnet create \
+        --name exchange-subnet-c \
+        --zone ru-central1-c \
+        --network-name exchange-network \
+        --range 10.3.0.0/16
+      ```
 
    {% endlist %}
 
+
 ## Create a script to manage a local administrator account {#admin-script}
 
-Create a file named `setpass` with a script that sets a password for the local administrator account when creating VMs via the CLI:
+Create a file named `setpass` with a script that will set a password for the local administrator account when creating VMs via the CLI:
 
 ```
 #ps1
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
 
-The password must meet the [complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
+The password must meet the [complexity requirements]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}.
 
-Read more about the best practices for securing Active Directory on the [official website](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Read more about the best practices for securing Active Directory on the [official website]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
 
 ## Create a VM for Active Directory {#ad-vm}
 
@@ -137,55 +134,48 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
 
 - Management console
 
-  1. On the folder page in the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
-
-  1. In the **Name** field, enter the VM name `ad-vm-a`.
-
-  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
-
-  1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
-
-  1. Under **Disks**, enter 35 GB for the size of the boot disk.
-
-  1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-      - Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 4.
-         * **Guaranteed vCPU share**: 100%.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+   1. In the **Name** field, enter the VM name `ad-vm-a`.
+   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-a`.
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Computing resources**:
+      * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
+      * Specify the number of vCPUs and amount of RAM:
+         * **vCPU** — 4.
+         * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
-  1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **No address**.
+   1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address**field, select **No address**.
+   1. Under **Access**, specify the data required to access the VM:
+      * In the **Password** field, enter your password.
+   1. Click **Create VM**.
 
-  1. Under **Access**, specify the data required to access the VM:
-      - In the **Password** field, enter your password.
-
-  1. Click **Create VM**.
-
-  Repeat this operation for the VM `ad-vm-b` in the `ru-central1-a` availability zone and connect it to the subnet `exchange-subnet-b`
+   Repeat this operation for the VM `ad-vm-b` in the `ru-central1-b` availability zone and connect it to the subnet `exchange-subnet-b`.
 
 - CLI
 
-  ```
-  $ yc compute instance create \
-      --name ad-vm-a \
-      --hostname ad-vm-a \
-      --memory 8 \
-      --cores 4 \
-      --zone ru-central1-a \
-      --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
-      --metadata-from-file user-data=setpass
-  
-  $ yc compute instance create \
-      --name ad-vm-b \
-      --hostname ad-vm-b \
-      --memory 8 \
-      --cores 4 \
-      --zone ru-central1-b \
-      --network-interface subnet-name=exchange-subnet-b,ipv4-address=10.2.0.3 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
-      --metadata-from-file user-data=setpass
-  ```
+   ```
+   yc compute instance create \
+     --name ad-vm-a \
+     --hostname ad-vm-a \
+     --memory 8 \
+     --cores 4 \
+     --zone ru-central1-a \
+     --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
+     --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
+     --metadata-from-file user-data=setpass
+
+   yc compute instance create \
+     --name ad-vm-b \
+     --hostname ad-vm-b \
+     --memory 8 \
+     --cores 4 \
+     --zone ru-central1-b \
+     --network-interface subnet-name=exchange-subnet-b,ipv4-address=10.2.0.3 \
+     --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
+     --metadata-from-file user-data=setpass
+   ```
 
 {% endlist %}
 
@@ -197,43 +187,36 @@ A file server with internet access is used to configure VMs with Active Director
 
 - Management console
 
-  1. On the folder page in the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
-
-  1. In the **Name** field, enter the VM name: `fsw-vm`.
-
-  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-c`.
-
-  1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
-
-  1. Under **Disks**, enter 35 GB for the size of the boot disk.
-
-  1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-      - Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 2.
-         * **Guaranteed vCPU share**: 100%.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+   1. In the **Name** field, enter the VM name: `fsw-vm`.
+   1. Select the `ru-central1-c` [availability zone](../../overview/concepts/geo-scope.md)
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Computing resources**:
+      * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
+      * Specify the number of vCPUs and amount of RAM:
+         * **vCPU** — 2.
+         * **Guaranteed vCPU share**: 100%
          * **RAM**: 4 GB.
 
-  1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-c`. Under **Public address**, select **No address**.
-
-  1. Under **Access**, specify the data required to access the VM:
-      - In the **Password** field, enter your password.
-
-  1. Click **Create VM**.
+   1. Under **Network settings**, select the `exchange-subnet-c` subnet. In the **Public address** field, select **Auto**.
+   1. Under **Access**, specify the data required to access the VM:
+      * In the **Password** field, enter your password.
+   1. Click **Create VM**.
 
 - CLI
 
-  ```
-  $ yc compute instance create \
-      --name fsw-vm \
-      --hostname fsw-vm \
-      --memory 4 \
-      --cores 2 \
-      --zone ru-central1-c \
-      --network-interface subnet-name=exchange-subnet-c,nat-ip-version=ipv4 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
-      --metadata-from-file user-data=setpass
-  ```
+   ```
+   yc compute instance create \
+     --name fsw-vm \
+     --hostname fsw-vm \
+     --memory 4 \
+     --cores 2 \
+     --zone ru-central1-c \
+     --network-interface subnet-name=exchange-subnet-c,nat-ip-version=ipv4 \
+     --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
+     --metadata-from-file user-data=setpass
+   ```
 
 {% endlist %}
 
@@ -242,13 +225,11 @@ A file server with internet access is used to configure VMs with Active Director
 VMs with Active Directory don't have internet access, so they should be configured from the `fsw-vm` VM using RDP.
 
 1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
-
-1. On `fsw-vm`, start the RDP client and connect to `ad-vm-a`. Enter `Administrator` as the username and then your password.
-
-1. On `ad-vm-a`, launch PowerShell and set a static address:
+1. Start the RDP client on the `fsw-vm` VM instance and connect to `ad-vm-a`. Enter `Administrator` as the username and then your password.
+1. On the `ad-vm-a` VM, run PowerShell and set a static address:
 
    ```powershell
-   netsh interface ip set address "Ethernet 2" static 10.1.0.3 255.255.255.0 10.1.0.1
+   netsh interface ip set address "eth0" static 10.1.0.3 255.255.255.0 10.1.0.1
    ```
 
 1. Create a temporary folder:
@@ -261,7 +242,11 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-   
+   ```
+
+   Output:
+
+   ```powershell
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -273,9 +258,9 @@ VMs with Active Directory don't have internet access, so they should be configur
    Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
    ```
 
-   Windows restarts automatically. Reconnect to `ad-vm-a`. Enter `yantoso\Administrator` as the username and then your password. Relaunch PowerShell.
+   Windows restarts automatically. After it restarts, log in to `ad-vm-a` with the `yantoso\Administrator` account login and your password. Relaunch PowerShell.
 
-1. Rename the default site to `ru-central1-a`:
+1. Rename the default site `ru-central1-a`:
 
    ```powershell
    Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
@@ -320,9 +305,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 ## Configure the second domain controller {#install-ad-2}
 
 1. Connect to `fsw-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
-
-1. On `fsw-vm`, start the RDP client and connect to `ad-vm-b`. Enter `Administrator` as the username and then your password.
-
+1. Start the RDP client on the `fsw-vm` VM instance and connect to `ad-vm-b`. Enter `Administrator` as the username and then your password.
 1. Create a temporary folder:
 
    ```
@@ -333,7 +316,11 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-   
+   ```
+
+   Output:
+
+   ```powershell
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -348,7 +335,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 1. Configure a static IP address:
 
    ```powershell
-   netsh interface ip set address "Ethernet 2" static 10.2.0.3 255.255.255.0 10.2.0.1
+   netsh interface ip set address "eth0" static 10.2.0.3 255.255.255.0 10.2.0.1
    ```
 
 1. Add the controller to the domain:
@@ -360,7 +347,7 @@ VMs with Active Directory don't have internet access, so they should be configur
        -Force:$true
    ```
 
-   Windows restarts automatically. Reconnect to `ad-vm-b`. Enter `yantoso\Administrator` as the username and then your password. Relaunch PowerShell.
+   Windows restarts automatically. After it restarts, log in to `ad-vm-b` with the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
 1. Set the DNS redirect server:
 
@@ -371,7 +358,6 @@ VMs with Active Directory don't have internet access, so they should be configur
 ## Install Microsoft Exchange {#install-exchange}
 
 1. Connect to `fsw-vm` using RDP and launch PowerShell.
-
 1. Configure the DNS client:
 
    ```powershell
@@ -385,7 +371,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   Windows restarts automatically. Reconnect to `fsw-vm`. Enter `yantoso\Administrator` as the username and then your password. Relaunch PowerShell.
+   Windows restarts automatically. After it restarts, log in to `fsw-vm` with the `yantoso\Administrator` account login and your password. Relaunch PowerShell.
 
 1. Create a folder named `distrib`:
 
@@ -393,8 +379,8 @@ VMs with Active Directory don't have internet access, so they should be configur
    mkdir c:\distrib
    ```
 
-1. Download the [Exchange Server distribution](https://docs.microsoft.com/en-us/exchange/new-features/updates?view=exchserver-2016) and necessary dependencies:
-   1. [.NET Framework 4.7.1](https://go.microsoft.com/fwlink/p/?linkid=863265).
+1. Download the [Exchange Server distribution]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/download/confirmation.aspx?id=58395){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/download/confirmation.aspx?id=58395){% endif %} and required dependencies:
+   1. [.NET Framework 4.7.2](https://go.microsoft.com/fwlink/p/?linkid=863265).
    1. [Visual C++ Redistributable Package for Visual Studio 2012](https://go.microsoft.com/fwlink/?linkid=327788). Rename the downloaded file to `vcredist_x64_2012.exe`.
    1. [Visual C++ Redistributable Package for Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=2002913). Rename the downloaded file to `vcredist_x64_2013.exe`.
    1. [Microsoft Unified Communications Managed API 4.0, Core Runtime 64-bit](https://go.microsoft.com/fwlink/p/?linkId=258269).
@@ -417,53 +403,43 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    - Management console
 
-     1. On the folder page in the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
-
-     1. In the **Name** field, enter the VM name `vm-exchange-a`.
-
-     1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
-
-     1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
-
-     1. Under **Disks**, enter 100 GB for the size of the boot disk.
-
-     1. Add another 250 GB SSD named `db`.
-
-     1. Under **Computing resources**:
-         - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-         - Specify the number of vCPUs and amount of RAM:
-            * **vCPU**: 8.
-            * **Guaranteed vCPU share**: 100%.
+      1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+      1. In the **Name** field, enter the VM name `vm-exchange-a`.
+      1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-a`.
+      1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+      1. Under **Disks**, enter 100 GB for the size of the boot disk:
+      1. Add another 250 GB SSD named `db-a`.
+      1. Under **Computing resources**:
+         * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
+         * Specify the number of vCPUs and amount of RAM:
+            * **vCPU** — 8.
+            * **Guaranteed vCPU share**: 100%
             * **RAM**: 32 GB.
 
-     1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **No address**.
-
-     1. Under **Access**, specify the data required to access the VM:
-         - In the **Password** field, enter your password.
-
-     1. Click **Create VM**.
+      1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address**field, select **No address**.
+      1. Under **Access**, specify the data required to access the VM:
+         * In the **Password** field, enter your password.
+      1. Click **Create VM**.
 
    - CLI
 
-     ```
-     yc compute instance create \
-       --name vm-exchange-a \
-       --hostname vm-exchange-a \
-       --memory 32 \
-       --cores 8 \
-       --zone ru-central1-a \
-       --network-interface subnet-name=exchange-subnet-a \
-       --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
-       --create-disk type=network-ssd,size=250,auto-delete=false \
-       --metadata-from-file user-data=setpass
-     ```
+      ```
+      yc compute instance create \
+        --name vm-exchange-a \
+        --hostname vm-exchange-a \
+        --memory 32 \
+        --cores 8 \
+        --zone ru-central1-a \
+        --network-interface subnet-name=exchange-subnet-a \
+        --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
+        --create-disk type=network-ssd,size=250,auto-delete=false \
+        --metadata-from-file user-data=setpass
+      ```
 
    {% endlist %}
 
 1. Connect to `fsw-vm` using RDP.
-
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `Administrator` as the username and then your password. Launch PowerShell.
-
+1. On `fsw-vm`, start the RDP client and connect to `vm-exchange-a`. Enter `Administrator` as the username and then your password. Launch PowerShell.
 1. Configure the DNS client:
 
    ```powershell
@@ -477,25 +453,24 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   After restarting, log in to the VM as `yantoso\Administrator` and enter your password. Relaunch PowerShell.
+   After it restarts, log in to the VM with the `yantoso\Administrator` account login and your password. Relaunch PowerShell.
 
 1. Install the downloaded dependencies in the following order:
    1. `& \\fsw-vm\distrib\vcredist_x64_2012.exe /install /passive /norestart`
    1. `& \\fsw-vm\distrib\vcredist_x64_2013.exe /install /passive /norestart`
    1. `& \\fsw-vm\distrib\UcmaRuntimeSetup.exe /install /passive /norestart`
    1. `& \\fsw-vm\distrib\NDP472-KB4054530-x86-x64-AllOS-ENU.exe /install /passive /norestart`
-
 1. Restart the VM: `Restart-Computer -Force`.
 
-   After restarting, log in to the VM as `yantoso\Administrator` and enter your password. Relaunch PowerShell.
+   After it restarts, log in to the VM with the `yantoso\Administrator` account login and your password. Relaunch PowerShell.
 
-1. Install Exchange Mailbox Server on `vm-exchange-a`. Mount the distribution image from the shared directory with distributions:
+1. Install Exchange Mailbox Server on `vm-exchange-a`. Mount the distribution image from the shared folder with distributions:
 
    ```powershell
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
    ```
 
-1. Install the Exchange Mailbox Server installer:
+1. Install Exchange Mailbox Server:
 
    ```powershell
    & D:\Setup.exe /Mode:Install /InstallWindowsComponents /Role:Mailbox /IAcceptExchangeServerLicenseTerms /OrganizationName:MyOrg
@@ -512,53 +487,43 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    - Management console
 
-     1. On the folder page in the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
-
-     1. In the **Name** field, enter the VM name `vm-exchange-b`.
-
-     1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-b`.
-
-     1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
-
-     1. Under **Disks**, enter 100 GB for the size of the boot disk.
-
-     1. Add another 250 GB SSD named `db`.
-
-     1. Under **Computing resources**:
-         - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-         - Specify the number of vCPUs and amount of RAM:
-            * **vCPU**: 8.
-            * **Guaranteed vCPU share**: 100%.
+      1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+      1. In the **Name** field, enter the VM name `vm-exchange-b`.
+      1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-b`.
+      1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+      1. Under **Disks**, enter 100 GB for the size of the boot disk:
+      1. Add another 250 GB SSD named `db-b`.
+      1. Under **Computing resources**:
+         * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
+         * Specify the number of vCPUs and amount of RAM:
+            * **vCPU** — 8.
+            * **Guaranteed vCPU share**: 100%
             * **RAM**: 32 GB.
 
-     1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-b`. Under **Public address**, select **No address**.
-
-     1. Under **Access**, specify the data required to access the VM:
-         - In the **Password** field, enter your password.
-
-     1. Click **Create VM**.
+      1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address**field, select **No address**.
+      1. Under **Access**, specify the data required to access the VM:
+         * In the **Password** field, enter your password.
+      1. Click **Create VM**.
 
    - CLI
 
-     ```
-     yc compute instance create \
-       --name vm-exchange-b \
-       --hostname vm-exchange-b \
-       --memory 32 \
-       --cores 8 \
-       --zone ru-central1-b \
-       --network-interface subnet-name=exchange-subnet-b \
-       --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
-       --create-disk type=network-ssd,size=250,auto-delete=false \
-       --metadata-from-file user-data=setpass
-     ```
+      ```
+      yc compute instance create \
+        --name vm-exchange-b \
+        --hostname vm-exchange-b \
+        --memory 32 \
+        --cores 8 \
+        --zone ru-central1-b \
+        --network-interface subnet-name=exchange-subnet-b \
+        --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
+        --create-disk type=network-ssd,size=250,auto-delete=false \
+        --metadata-from-file user-data=setpass
+      ```
 
    {% endlist %}
 
 1. Connect to `fsw-vm` using RDP.
-
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-b`. Enter `Administrator` as the username and then your password. Launch PowerShell.
-
+1. On `fsw-vm`, start the RDP client and connect to `vm-exchange-b`. Enter `Administrator` as the username and then your password. Launch PowerShell.
 1. Configure the DNS client:
 
    ```powershell
@@ -572,7 +537,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   After restarting, log in to the VM as `yantoso\Administrator` and enter your password. Relaunch PowerShell.
+   After it restarts, log in to the VM with the `yantoso\Administrator` account login and your password. Relaunch PowerShell.
 
 1. Install the downloaded dependencies in the following order:
    1. `& \\fsw-vm\distrib\vcredist_x64_2012.exe /install /passive /norestart`
@@ -582,15 +547,15 @@ VMs with Active Directory don't have internet access, so they should be configur
 
 1. Restart the VM: `Restart-Computer -Force`.
 
-   After restarting, log in to the VM as `yantoso\Administrator` and enter your password. Relaunch PowerShell.
+   After it restarts, log in to the VM with the `yantoso\Administrator` account login and your password. Relaunch PowerShell.
 
-1. Install Exchange Mailbox Server on `vm-exchange-b`. Mount the distribution image from the shared directory with distributions:
+1. Install Exchange Mailbox Server on `vm-exchange-b`. Mount the distribution image from the shared folder with distributions:
 
    ```powershell
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
    ```
 
-1. Install the Exchange Mailbox Server installer:
+1. Install Exchange Mailbox Server:
 
    ```powershell
    & D:\Setup.exe /Mode:Install /InstallWindowsComponents /Role:Mailbox /IAcceptExchangeServerLicenseTerms /OrganizationName:MyOrg
@@ -604,7 +569,6 @@ VMs with Active Directory don't have internet access, so they should be configur
 A Database Availability Group ensures fault tolerance for mail servers via DB replication and automatic DB failover in the event of a crash.
 
 1. Connect to `fsw-vm` using RDP.
-
 1. Grant the `yantoso\Exchange Trusted Subsystem` group administrator privileges to the `fsw-vm` VM:
 
    ```powershell
@@ -613,8 +577,7 @@ A Database Availability Group ensures fault tolerance for mail servers via DB re
 
 ### Create disks for VM databases {#create-db-disks}
 
-1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and then your password.
-
+1. On `fsw-vm`, start the RDP client and connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and then your password.
 1. Create an additional disk and format it:
 
    ```powershell
@@ -636,9 +599,7 @@ Repeat these commands for the `vm-exchange-b` VM.
 ### Configure the Database Availability Group {#dag-configuration}
 
 1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `yantoso\Administrator` as the username and then your password.
-
 1. Run the Exchange Management Shell.
-
 1. Create a Database Availability Group:
 
    ```powershell
@@ -651,15 +612,19 @@ Repeat these commands for the `vm-exchange-b` VM.
 1. Add the `vm-exchange-a` and `vm-exchange-b` servers to the Database Availability Group (DAG):
 
    ```powershell
-   Add-DatabaseAvailabilityGroupServer -Identity yadag -MailboxServer vm-exchange-a
-   Add-DatabaseAvailabilityGroupServer -Identity yadag -MailboxServer vm-exchange-b
+   Add-DatabaseAvailabilityGroupServer -Identity ycdag -MailboxServer vm-exchange-a
+   Add-DatabaseAvailabilityGroupServer -Identity ycdag -MailboxServer vm-exchange-b
    ```
 
 1. Check the status of the servers. Both should be in the Operational Servers column:
 
    ```powershell
    Get-DatabaseAvailabilityGroup -Status
-   
+   ```
+
+   Output:
+
+   ```powershell
    Name             Member Servers                                      Operational Servers
    ----             --------------                                      -------------------
    ycdag            {VM-EXCHANGE-A, VM-EXCHANGE-B}                    {VM-EXCHANGE-A, VM-EXCHANGE-B}
@@ -751,74 +716,78 @@ It distributes the load across Exchange servers in different availability zones.
 
 - Management console
 
-  To create a [network load balancer](../../network-load-balancer/concepts/index.md):
-  1. Open the **Load Balancer** section in the folder where you want to create a load balancer.
-  1. Click **Create load balancer**.
-  1. Enter a name for the network load balancer: `exchange-lb`.
-  1. Under **Listeners**, select an automatic public address and click **Add listener**.
-  1. Enter a name for the listener: `yassl`
-  1. Set the listener port to `443` and click **Add**.
-  1. Turn on **Target groups**.
-  1. Enter a name for the target group: `exchange-tg`.
-  1. Select the `vm-exchange-a` and `vm-exchange-b` VMs.
-  1. Under **Health check**, enter a name for the health check: `exchange-hc`.
-  1. Select the **TCP** check.
-  1. Set the port to `443`.
-  1. Keep the other parameters as default.
-  1. Click **Create load balancer**.
+   To create a [network load balancer](../../network-load-balancer/concepts/index.md).
 
-- UI
+   1. Open the **Load Balancer** section in the folder where you want to create a load balancer.
+   1. Click **Create a network load balancer**.
+   1. Enter a name for the network load balancer: `exchange-lb`.
+   1. In the **Public address** field, select **Auto**.
+   1. Click **Add listener** under **Listeners**.
+   1. Enter a name for the listener: `yassl`
+   1. Set the listener port and target port to `443` and click **Add**.
+   1. Under **Target groups**, click **Add target group**.
+   1. In the **Target group** field, open the drop-down list and select **Create target group**.
+   1. Enter a name for the target group: `exchange-tg`.
+   1. Select the `vm-exchange-a` and `vm-exchange-b` VMs and click **Create**.
+   1. Click **Configure**.
+   1. Enter the `exchange-hc` health check name.
+   1. Select the **TCP** check.
+   1. Set the port to `443`.
+   1. Keep the other parameters as default and click **Apply**.
+   1. Click **Create**.
 
-  1. Create a network load balancer:
+- CLI
 
-     ```
-     $ yc lb nlb create --name exchange-lb
-     ```
+   1. Create a network load balancer:
 
-  1. Create a target group:
+      ```
+      yc lb nlb create --name exchange-lb
+      ```
 
-     ```
-     $ yc lb tg create --name exchange-tg
-     ```
+   1. Create a target group:
 
-  1. Get information about the mail servers:
+      ```
+      yc lb tg create --name exchange-tg
+      ```
 
-     ```
-     $ yc compute instance get vm-exchange-a
-     $ yc compute instance get vm-exchange-b
-     ```
+   1. Get information about the mail servers:
 
-     Copy the VM subnet IP addresses and IDs.
+      ```
+      yc compute instance get vm-exchange-a
+      yc compute instance get vm-exchange-b
+      ```
 
-  1. Add the servers to the target group:
+      Copy the VM subnet IP addresses and IDs.
 
-     ```
-     $ yc lb tg update --name exchange-tg \
-         --target address=10.2.0.4,subnet-id=e2lkh054nic9h3nckbrs \
-         --target address=10.1.0.24,subnet-id=e9bkdrnv156ctcp14p5q
-     ```
+   1. Add the servers to the target group:
 
-  1. Add a listener to the network load balancer:
+      ```
+      yc lb tg update --name exchange-tg \
+        --target address=<IP address of vm-exchange-a>,subnet-id=<subnet ID for vm-exchange-a> \
+        --target address=<IP address of vm-exchange-b>,subnet-id=<subnet ID for vm-exchange-b>
+      ```
 
-     ```
-     $ yc lb nlb add-listener --name exchange-lb --listener name=yassl,port=443,target-port=443,external-ip-version=ipv4
-     ```
+   1. Add the listener to the network load balancer:
 
-  1. Get information about the target groups:
+      ```
+      yc lb nlb add-listener --name exchange-lb --listener name=yassl,port=443,target-port=443,external-ip-version=ipv4
+      ```
 
-     ```
-     $ yc lb tg list
-     ```
+   1. Get information about the target groups:
 
-     Copy the target group ID.
+      ```
+      yc lb tg list
+      ```
 
-  1. Connect the target group to the network load balancer using the target group ID:
+      Copy the ID of the target group.
 
-     ```
-     $ yc lb nlb attach-target-group \
-         --name exchange-lb \
-         --target-group target-group-id=b7ruh2aqg7pr6ahus4an,healthcheck-name=exchange-hc,healthcheck-tcp-port=443
-     ```
+   1. Connect the target group to the network load balancer using the target group ID:
+
+      ```
+      yc lb nlb attach-target-group \
+        --name exchange-lb \
+        --target-group target-group-id=<target group ID>,healthcheck-name=exchange-hc,healthcheck-tcp-port=443
+      ```
 
 {% endlist %}
 
@@ -850,43 +819,36 @@ Create a VM named `vm-edge-a`:
 
 - Management console
 
-  1. On the folder page in the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
-
-  1. In the **Name** field, enter the VM name: `vm-edge-a`.
-
-  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
-
-  1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
-
-  1. Under **Disks**, enter 50 GB for the size of the boot disk.
-
-  1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-      - Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 4.
-         * **Guaranteed vCPU share**: 100%.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+   1. In the **Name** field, enter the VM name: `vm-edge-a`.
+   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-a`.
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Computing resources**:
+      * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
+      * Specify the number of vCPUs and amount of RAM:
+         * **vCPU** — 4.
+         * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
-  1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-a`. Under **Public address**, select **Automatically** or choose an address from the list of reserved ones.
-
-  1. Under **Access**, specify the data required to access the VM:
-      - In the **Password** field, enter your password.
-
-  1. Click **Create VM**.
+   1. Under **Network settings**, select the `exchange-subnet-a` subnet. In the **Public address** field, select **Auto** or select an address from the list of the reserved addresses.
+   1. Under **Access**, specify the data required to access the VM:
+      * In the **Password** field, enter your password.
+   1. Click **Create VM**.
 
 - CLI
 
-  ```
-  $ yc compute instance create \
-      --name vm-edge-a \
-      --hostname vm-edge-a \
-      --memory 8 \
-      --cores 4 \
-      --zone ru-central1-a \
-      --network-interface subnet-name=exchange-subnet-a,nat-ip-version=ipv4 \
-      --create-boot-disk size=50,image-folder-id=standard-images,image-family=windows-2016-gvlk \
-      --metadata-from-file user-data=setpass
-  ```
+   ```
+   yc compute instance create \
+     --name vm-edge-a \
+     --hostname vm-edge-a \
+     --memory 8 \
+     --cores 4 \
+     --zone ru-central1-a \
+     --network-interface subnet-name=exchange-subnet-a,nat-ip-version=ipv4 \
+     --create-boot-disk size=50,image-folder-id=standard-images,image-family=windows-2016-gvlk \
+     --metadata-from-file user-data=setpass
+   ```
 
 {% endlist %}
 
@@ -898,43 +860,36 @@ Create a VM named `vm-edge-b`:
 
 - Management console
 
-  1. On the folder page in the [management console](https://console.cloud.yandex.com), click **Create resource** and select **Virtual machine**.
-
-  1. In the **Name** field, enter the VM name: `vm-edge-b`.
-
-  1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-b`.
-
-  1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
-
-  1. Under **Disks**, enter 50 GB for the size of the boot disk.
-
-  1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
-      - Specify the number of vCPUs and amount of RAM:
-         * **vCPU**: 4.
-         * **Guaranteed vCPU share**: 100%.
+   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+   1. In the **Name** field, enter the VM name: `vm-edge-b`.
+   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-b`.
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+   1. Under **Disks**, enter 50 GB for the size of the boot disk:
+   1. Under **Computing resources**:
+      * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
+      * Specify the number of vCPUs and amount of RAM:
+         * **vCPU** — 4.
+         * **Guaranteed vCPU share**: 100%
          * **RAM**: 8 GB.
 
-  1. Under **Network settings**, click **Add network** and select `exchange-network`. Select `exchange-subnet-b`. Under **Public address**, select **Automatically** or choose an address from the list of reserved ones.
-
-  1. Under **Access**, specify the data required to access the VM:
-      - In the **Password** field, enter your password.
-
-  1. Click **Create VM**.
+   1. Under **Network settings**, select the `exchange-subnet-b` subnet. In the **Public address** field, select **Auto** or select an address from the list of the reserved addresses.
+   1. Under **Access**, specify the data required to access the VM:
+      * In the **Password** field, enter your password.
+   1. Click **Create VM**.
 
 - CLI
 
-  ```
-  $ yc compute instance create \
-      --name vm-edge-b \
-      --hostname vm-edge-b \
-      --memory 8 \
-      --cores 4 \
-      --zone ru-central1-b \
-      --network-interface subnet-name=yasn-b,nat-ip-version=ipv4 \
-      --create-boot-disk size=50,image-folder-id=standard-images,image-family=windows-2016-gvlk \
-      --metadata-from-file user-data=setpass
-  ```
+   ```
+   yc compute instance create \
+     --name vm-edge-b \
+     --hostname vm-edge-b \
+     --memory 8 \
+     --cores 4 \
+     --zone ru-central1-b \
+     --network-interface subnet-name=exchange-subnet-b,nat-ip-version=ipv4 \
+     --create-boot-disk size=50,image-folder-id=standard-images,image-family=windows-2016-gvlk \
+     --metadata-from-file user-data=setpass
+   ```
 
 {% endlist %}
 
@@ -943,16 +898,14 @@ Create a VM named `vm-edge-b`:
 ### Configure the Edge Transport server in the ru-central1-a zone {#edge-a}
 
 1. Connect to `fsw-vm` using RDP.
-
 1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
-
 1. Create a temporary folder:
 
    ```
    mkdir C:\Windows\temp
    ```
 
-1. Install AD LDS roles on the server:
+1. Install ADLDS roles on the server:
 
    ```powershell
    Install-WindowsFeature ADLDS
@@ -969,7 +922,7 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-   
+
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
    ```
 
@@ -992,9 +945,9 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Suffix = 'ru-central1.internal'
-   
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
-   
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name 'NV Domain' -Value $Suffix
    ```
 
@@ -1021,16 +974,14 @@ Create a VM named `vm-edge-b`:
 ### Configure the Edge Transport server in the ru-central1-b zone {#edge-b}
 
 1. Connect to `fsw-vm` using RDP.
-
 1. Connect to `vm-edge-b` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
-
 1. Create a temporary folder:
 
    ```powershell
    mkdir C:\Windows\temp
    ```
 
-1. Install AD LDS roles on the server:
+1. Install ADLDS roles on the server:
 
    ```powershell
    Install-WindowsFeature ADLDS
@@ -1047,7 +998,7 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-   
+
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
    ```
 
@@ -1070,9 +1021,9 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Suffix = 'ru-central1.internal'
-   
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
-   
+
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name 'NV Domain' -Value $Suffix
    ```
 
@@ -1100,7 +1051,7 @@ Create a VM named `vm-edge-b`:
 
 Each Edge Transport server must subscribe to a website in its own availability zone.
 
-### Set up a subscription on vm-edge-a {#subscribe-vm-edge-a}
+### Set up a subscription on the vm-edge-a server {#subscribe-vm-edge-a}
 
 1. Create a folder named `subscribe`:
 
@@ -1128,7 +1079,11 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
    ```powershell
    Get-EdgeSubscription
-   
+   ```
+
+   Output:
+
+   ```powershell
    Name            Site                 Domain
    ----            ----                 ------
    vm-edge-a       yantoso.net/Confi... ru-central1.internal
@@ -1141,6 +1096,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
    ```
 
    The `SyncStatus` value must be `Normal`.
+
 
 ### Set up a subscription on the vm-edge-b server {#subscribe-vm-edge-b}
 
@@ -1170,7 +1126,11 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
    ```powershell
    Get-EdgeSubscription
-   
+   ```
+
+   Output:
+
+   ```powershell
    Name            Site                 Domain
    ----            ----                 ------
    vm-edge-a       yantoso.net/Confi... ru-central1.internal
@@ -1185,9 +1145,9 @@ Each Edge Transport server must subscribe to a website in its own availability z
 
    The `SyncStatus` value must be `Normal`.
 
-## Delete the created resources {#clear-out}
+## How to delete created resources {#clear-out}
 
-To stop paying for deployed servers, delete all the [VMs you created](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../network-load-balancer/operations/load-balancer-delete.md) you created:
+To stop paying for deployed servers, delete all the [VMs](../../compute/operations/vm-control/vm-delete.md) and [load balancer](../../network-load-balancer/operations/load-balancer-delete.md):
 
 * `fsw-vm`
 * `ad-vm-a`
@@ -1197,4 +1157,3 @@ To stop paying for deployed servers, delete all the [VMs you created](../../comp
 * `vm-edge-a`
 * `vm-edge-b`
 * load balancer `exchange-lb`
-

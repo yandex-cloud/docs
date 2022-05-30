@@ -167,7 +167,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -268,7 +268,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -314,7 +314,7 @@
      --cluster-name=<имя кластера>
   ```
 
-  Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - Terraform
 
@@ -334,7 +334,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

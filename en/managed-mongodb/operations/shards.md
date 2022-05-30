@@ -1,6 +1,6 @@
 # Managing shards
 
-You can enable [sharding](../concepts/sharding.md) for clusters as well as add and configure individual shards.
+You can enable [sharding](../concepts/sharding.md) for a cluster as well as add and configure individual shards.
 
 {% note alert %}
 
@@ -29,45 +29,41 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 - Management console
 
-    1. Go to the folder page and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 
-    1. Click the name of a cluster and open the **Shards** tab.
+   1. Click the name of a cluster and open the **Shards** tab.
 
-        {% note info %}
+   1. Click **Enable**.
 
-         Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts with the classes **b1.nano**, **b1.micro**, **b1.medium**, **b2.nano**, **b2.micro**, or **b2.medium**. If you don't see the **Shards** tab, [increase the cluster host class](update.md#change-resource-preset) to the supported value.
+   1. Select a sharding type:
+      - **Standard**: Using a `MONGOINFRA` host.
 
-        {% endnote %}
+         To ensure continuous access to data, {{ mmg-name }} requires at least three `MONGOINFRA` hosts.
 
-    1. Click **Enable**.
+      - **Advanced**: Using `MONGOS` and `MONGOCFG` hosts.
 
-    1. Select a sharding type:
+         To ensure continuous access to data, {{ mmg-name }} requires at least two `MONGOS` hosts and at least three `MONGOCFG` hosts.
 
-       - **Standard**: Using a `MONGOINFRA` host.
-          To ensure continuous access to data, {{ mmg-name }} requires at least three `MONGOINFRA` hosts.
+         For more information, see [{#T}](../concepts/sharding.md).
 
-       - **Advanced**: Using `MONGOS` and `MONGOCFG` hosts.
-          To ensure continuous access to data, {{ mmg-name }} requires at least two `MONGOS` hosts and at least three `MONGOCFG` hosts.
+      {% note warning %}
 
-          For more information, see [{#T}](../concepts/sharding.md).
+      After you enable sharding, you can't change its type.
 
-       {% note warning %}
+      {% endnote %}
 
-       After you enable sharding, you can't change its type.
+   1. Set the parameters of the hosts that will provide access to the sharded data.
 
-       {% endnote %}
+   1. Click **Enable sharding**.
 
-    1. Set the parameters of the hosts that will provide access to the sharded data.
-
-    1. Click **Enable sharding**.
-
-    The cluster will start updating, with the requested hosts and first shard of the cluster created.
+   The cluster will start updating, with the requested hosts and first shard of the cluster created.
 
 - API
 
-    You can enable sharding for the cluster using the [enableSharding](../api-ref/Cluster/enableSharding.md) method.
+   You can enable sharding for the cluster using the [enableSharding](../api-ref/Cluster/enableSharding.md) method.
 
 {% endlist %}
+
 
 ## Listing shards in a cluster {#list-shards}
 
@@ -75,52 +71,58 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 - Management console
 
-  1. Go to the folder page and select **{{ mmg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 
-  1. Click the name of a cluster and open the **Shards** tab.
+   1. Click the name of a cluster and open the **Shards** tab.
 
 - API
 
-  To list the shards in a cluster, use the [listShards](../api-ref/Cluster/listShards.md) method.
+   To list the shards in a cluster, use the [listShards](../api-ref/Cluster/listShards.md) method.
 
 {% endlist %}
 
 ## Adding a shard {#add-shard}
 
-The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mmg-full-name }}** block.
+The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mmg-full-name }}**.
 
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mmg-name }}**.
-  1. Click on the name of the cluster you need and go to the **Hosts** tab.
-  1. Click **Add shard**.
-  1. Enter a name for the shard and add the desired number of hosts.
-  1. Click **Create shard**.
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Click on the name of the cluster you need and go to the **Hosts** tab.
+   1. Click **Add shard**.
+   1. Enter a name for the shard and add the number of hosts you need.
+   1. Click **Create shard**.
 
 - API
 
-  To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
+   To add a host to the cluster, use the [addShard](../api-ref/Cluster/addHosts.md) method.
 
 {% endlist %}
+
 
 ## Deleting a shard {#delete-shard}
 
 You can delete a shard from a {{ MG }} cluster provided that it's not the only shard in it. To replace the only shard in a cluster, first create a new shard and then remove the old one.
 
+{% note info %}
+
+The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/) operation will be called for the shard being deleted and will safely transfer data to the remaining shards.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
 
-  1. Go to the folder page and select **{{ mmg-name }}**.
-
-  1. Click on the name of a cluster and open the **Shards** tab.
-
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Click on the name of a cluster and open the **Shards** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
+   1. In the window that opens, click **Delete**.
 
 - API
 
-  Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method to delete a host.
+   Use the [deleteShard](../api-ref/Cluster/deleteShard.md) method to delete a host.
 
 {% endlist %}
-

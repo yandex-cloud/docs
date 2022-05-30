@@ -46,55 +46,11 @@
 
 1.  Для подключения к серверу БД получите SSL-сертификат:
 
-      {% if audience != "internal" %}
-
-      1. Создайте каталог:
-
-         ```bash
-         $ mkdir ~/.mysql
-         ```
-
-      1. Получите сертификат:
-
-         ```bash
-         $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
-         ```
-
-      1. Настройте права доступа к сертификату:
-
-         ```
-         $ chmod 0600 ~/.mysql/root.crt
-         ```
-
-      {% else %}
-
-      1. Создайте каталог:
-
-         ```bash
-         $ mkdir ~/.mysql
-         ```
-
-      1. Получите сертификат:
-
-         ```bash
-         $ wget "{{ pem-path }}" -O ~/.mysql/root.crt
-         ```
-
-      1. Настройте права доступа к сертификату:
-
-         ```bash
-         $ chmod 0600 ~/.mysql/root.crt
-         ```
-
-      {% endif %}
+      {% include [install-certificate](../_includes/mdb/mms/install-certificate.md) %}
 
 1. Используйте для подключения команду `mssql-cli`:
 
-   ```bash
-   $ mssql-cli -U <имя пользователя> \
-             -d <имя базы данных> \
-             -S <FQDN хоста>,1433
-   ```
+   {% include [default-connstring](../_includes/mdb/mms/default-connstring.md) %}
 
 1. После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 

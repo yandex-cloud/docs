@@ -276,7 +276,7 @@
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+        {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -288,7 +288,9 @@
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - API
 

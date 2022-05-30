@@ -68,3 +68,4 @@ If you want to ensure ongoing consistency of data reads between the master and q
 
 The downside of this solution is that write operations to the cluster take more time: if the master and the quorum replica are located in different availability zones, the latency of transaction confirmation can't be less than the round-trip time (RTT) between data centers that are located in these availability zones. As a result, when writing to a single thread with `AUTOCOMMIT` mode enabled, the performance of this kind of cluster can significantly drop. To achieve maximum performance/, we recommended writing to multiple threads where possible, [disable AUTOCOMMIT](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html), and group requests into transactions.
 
+To enhance the performance, write data to multiple threads whenever possible, [disable `AUTOCOMMIT`](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html), and group queries within a transaction.

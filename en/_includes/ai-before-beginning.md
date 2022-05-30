@@ -19,7 +19,7 @@ To use the examples, install [cURL](https://curl.haxx.se) and get the authorizat
           Authorization: Api-Key <API key>
           ```
 
-  1. [Assign the ](../iam/operations/sa/assign-role-for-sa.md) `editor` role or a higher role to the service account for the folder where it was created.
+  1. [Assign the](../iam/operations/sa/assign-role-for-sa.md) `editor` role or a higher role to the service account for the folder where it was created.
 
       Don't specify the folder ID in your requests: the service uses the folder where the service account was created.
 

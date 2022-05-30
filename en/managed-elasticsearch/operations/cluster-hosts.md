@@ -23,28 +23,28 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 
 - Management console
 
-  1. Go to the folder page and select **{{ mes-name }}**.
-  1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of cluster hosts, run the command:
+   To get a list of cluster hosts, run the command:
 
-    ```bash
-    {{ yc-mdb-es }} host list --cluster-name <cluster name>
-    ```
+   ```bash
+   {{ yc-mdb-es }} host list --cluster-name <cluster name>
+   ```
 
-    You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  Use the `listHosts` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+   Use the `listHosts` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -60,40 +60,38 @@ You can't assign a public IP address to it after it's been created.
 
 - Management console
 
-    1. Go to the folder page and select **{{ mes-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click **Add host**.
+   1. Specify the host parameters:
 
-    1. Click on the name of the cluster you need and select the **Hosts** tab.
-
-    1. Click **Add host**.
-
-    1. Specify the host parameters:
-        * Availability zone.
-        * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-        * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
+      * Availability zone.
+      * {% if audience != "internal" %}Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).{% else %}Subnet (if the necessary subnet is not in the list, create it).{% endif %}
+      * Select **Public access** if the host must be accessible from outside {{ yandex-cloud }}.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To add hosts to a cluster, run the command:
+   To add hosts to a cluster, run the command:
 
-    ```bash
-    {{ yc-mdb-es }} host add \
-       --cluster-name <cluster name> \
-       --host zone-id=<availability zone>,subnet-name=<subnet name>,assign-public-ip=<true or false>,type=<host role: datanode or masternode>
-    ```
+   ```bash
+   {{ yc-mdb-es }} host add \
+      --cluster-name <cluster name> \
+      --host zone-id=<availability zone>,subnet-name=<subnet name>,assign-public-ip=<true or false>,type=<host role: datanode or masternode>
+   ```
 
-    You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  Use the `addHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   Use the `addHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
-  Add the required number of `hostSpecs` parameters with the host's settings (one parameter for each new host).
+   Add the required number of `hostSpecs` parameters with the host's settings (one parameter for each new host).
 
 {% endlist %}
 
@@ -114,30 +112,30 @@ The following restrictions apply when deleting hosts:
 
 - Management console
 
-    1. Go to the folder page and select **{{ mes-name }}**.
-    1. Click on the name of the cluster you need and select the **Hosts** tab.
-    1. Click the ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
+   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Delete**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To remove a host from the cluster, run:
+   To remove a host from the cluster, run:
 
-    ```bash
-    {{ yc-mdb-es }} host delete <host name> --cluster-name <cluster name>
-    ```
+   ```bash
+   {{ yc-mdb-es }} host delete <hostname> --cluster-name <cluster name>
+   ```
 
-    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  Use the `deleteHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+   Use the `deleteHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
-  In one or more `hostNames[]` parameters, specify the names of the hosts you wish to delete from the cluster.
+   In one or more `hostNames[]` parameters, specify the names of the hosts you wish to delete from the cluster.
 
 {% endlist %}

@@ -57,21 +57,21 @@ To get started with the service:
 
    1. Create a folder:
 
-      ```bash
-      mkdir ~/.redis
-      ```
+        ```bash
+        mkdir ~/.redis
+        ```
 
    1. Get a certificate:
 
-      ```bash
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt
-      ```
+        ```bash
+        wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt
+        ```
 
    1. Configure permissions to the certificate:
 
-      ```bash
-      chmod 0600 ~/.redis/YandexInternalRootCA.crt
-      ```
+        ```bash
+        chmod 0600 ~/.redis/YandexInternalRootCA.crt
+        ```
 
 1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 1. Connect to the cluster using `redis-cli`.
@@ -100,7 +100,11 @@ To get started with the service:
      1. Connect to the host with this address:
 
         ```bash
-        redis-cli -h <{{ RD }} master host address> -a <{{ RD }} password>
+        redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
+          -p {{ port-mrd-tls }} \
+          -a <{{ RD }} password> \
+          --tls \
+          --cacert ~/.redis/YandexInternalRootCA.crt
         ```
 
      **To connect directly to the master (without SSL):**
@@ -147,6 +151,7 @@ To get started with the service:
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
-* Learn more about [creating clusters](operations/cluster-create.md) and [connecting to clusters](operations/connect/index.md).
-* Read [questions and answers](qa/general.md).
+* Read about [service concepts](./concepts/index.md).
+* Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect/index.md).
+* Read [questions and answers](./qa/general.md).
+

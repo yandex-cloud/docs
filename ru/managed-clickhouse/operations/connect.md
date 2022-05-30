@@ -124,19 +124,15 @@
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат.
 
-{% if audience != "internal" %}
-
 {% list tabs %}
 
 - Linux (Bash)
 
   Выполните команды:
 
-  ```bash
-  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
-  ```
+  {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
+
+{% if audience != "internal" %}
 
 - Windows (PowerShell)
 
@@ -152,16 +148,9 @@
 
   1. Подтвердите согласие с установкой сертификата в хранилище «Доверенные корневые центры сертификации».
 
-{% endlist %}
-
-{% else %}
-
-```bash
-wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
-```
-
 {% endif %}
+
+{% endlist %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 

@@ -1,4 +1,4 @@
-# Хранение журналов работы приложения
+# Умная обработка логов
 
 Для диагностики приложения пишут журналы работы. Но для анализа недостаточно просто иметь такие журналы, их нужно хранить и удобно обрабатывать. Для этого журналы отправляют в системы хранения: [Hadoop]{% if lang == "ru" %}(https://cloud.yandex.ru/services/data-proc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/data-proc){% endif %}, [{{ CH }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-clickhouse){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-clickhouse){% endif %}, [{{ ES }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-elasticsearch){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-elasticsearch){% endif %} или в специализированные облачные системы типа [{{ cloud-logging-name }}](../../logging/).
 
@@ -11,6 +11,8 @@
 Типовыми системами поставки журналов являются: [fluentd](https://www.fluentd.org), [fluentbit](https://fluentbit.io), [logstash](https://www.elastic.co/logstash/), а также множество других.  
 
 Хотя приложения-агрегаторы могут записывать данные в системы хранения напрямик, для увеличения надежности данные отправляют сначала в промежуточный буфер (шину потоков данных, message broker) — {{ yds-full-name }}, а уже оттуда в системы хранения.
+
+Часто логи содержат слишком много данных, либо данные, доступ к которым должен быть ограничен. Лишнюю или конфиденциальную информацию можно маскировать с помощью дополнительной обработки, например в {{ sf-name }}.
 
 ## Преимущества {#advantages}
 
@@ -36,11 +38,11 @@
 
 ## Настройка {#setup}
 
-Чтобы настроить хранение журналов:
+Чтобы настроить умную обработку логов:
 
 1. [Создайте поток данных](../quickstart/create-stream.md) {{ yds-short-name }}.
 1. Настройте агрегатор логов: [fluentd](../quickstart/fluentd.md) или [logstash](../quickstart/logstash.md) или другой агрегатор с поддержкой [Kinesis Data Streams API](../kinesisapi/api-ref.md).
-1. Настройте {{ data-transfer-full-name }} для передачи данных в избранную систему хранения.
+1. Настройте {{ data-transfer-full-name }} для передачи данных в выбранную систему хранения.
 
     Пример настройки поставки данных из {{ yds-short-name }} приведен в [инструкции по сохранению данных в {{ CH }}](../quickstart/send-to-clickhouse.md).
 1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs).
