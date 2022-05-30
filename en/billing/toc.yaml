@@ -69,7 +69,6 @@ items:
         href: concepts/trial-period.md
       - name: Committed volume of services (CVoS)
         href: concepts/cvos.md
-        when: audience == "cvos"
       - name: Free tier of serverless ecosystem
         href: concepts/serverless-free-tier.md
       - name: Budget
