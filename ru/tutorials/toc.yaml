@@ -140,6 +140,10 @@ items:
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
+      - name: >-
+          Использование скриптов инициализации для настройки GeeseFS в
+          {{ dataproc-full-name }}
+        href: dataplatform/data-proc-init-actions-geesefs.md
   - name: Windows в Yandex Cloud
     items:
       - name: Все руководства
