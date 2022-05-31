@@ -107,6 +107,6 @@ Businesses may conclude an agreement that is signed by both parties. To do this,
 
 For more information, see [Pricing](../pricing.md).
 
-#### Can I enable  an alert to be notified when my account balance is approaching zero? {#notification}
+#### If I pay an invoice by bank transfer after the end of the reporting period, will my resources be blocked? {#payment-delay}
 
-Since {{ yandex-cloud }} uses a postpaid billing system, we don't plan to introduce a service for notifying users about their account balance  approach to zero. We recommend that you track your spending and account balance on your own.
+According to the [offer]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/){% endif %}{% if lang =="en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}, you can pay within 14 calendar days (not including public holidays) after the reporting period ends. If you pay within this time period, your resources will not be blocked. Please note that it takes up to three business days for funds to arrive. Do not delay the payment.
