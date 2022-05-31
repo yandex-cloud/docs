@@ -197,6 +197,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
+      {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:

@@ -82,6 +82,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 {% endlist %}
 
 ## Изменить схему формата данных {#update-format-schema}
@@ -148,6 +150,8 @@
 
         Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+        {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 {% endlist %}
 
 ## Отключить схему формата данных {#disable-format-schema}
@@ -199,6 +203,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 {% endlist %}
 

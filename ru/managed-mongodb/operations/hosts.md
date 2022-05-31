@@ -176,6 +176,8 @@
   
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
 
   Добавить хост в кластер можно с помощью метода [addHosts](../api-ref/Cluster/addHosts.md).
@@ -241,6 +243,8 @@
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 

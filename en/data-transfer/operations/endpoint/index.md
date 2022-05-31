@@ -13,7 +13,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. In the **Direction **field, select **Source** or **Target**.
    1. Enter a name for the endpoint. Use lowercase Latin letters and numbers.
    1. (Optional) Enter a description of the endpoint.
-   1. In the **Database **type field, select the appropriate value. An endpoint of the corresponding type will be created.
+   1. In the **Database** type field, select the appropriate value. An endpoint of the corresponding type will be created.
    1. Set the endpoint parameters:
       * Sources:
          * [{{ KF }}](source/kafka.md).

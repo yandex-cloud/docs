@@ -146,6 +146,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_elasticsearch_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:

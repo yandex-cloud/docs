@@ -65,7 +65,7 @@ items:
     items:
       - name: Ввод данных в системы хранения
         href: tutorials/data-ingestion.md
-      - name: Хранение журналов работы приложения
+      - name: Умная обработка логов
         href: tutorials/log-ingestion.md
       - name: Передача данных в микросервисных архитектурах
         href: tutorials/message-broker.md

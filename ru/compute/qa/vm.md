@@ -20,6 +20,10 @@ keywords:
 
 Подробнее читайте в разделе [{#T}](../operations/vm-control/vm-update-resources.md).
 
+#### Как создать мультиинтерфейсную ВМ? {#multi-interface}
+
+Добавить сетевой интерфейс можно только при [создании ВМ](../operations/index.md#vm-create). На текущий момент создание нескольких интерфейсов доступно только на сетевых образах из [Marketplace](https://cloud.yandex.ru/marketplace?categories=network).
+
 ### Параметры виртуальной машины {#parameters-vm}
 
 #### Как повысить квоты {#increase-quotas}

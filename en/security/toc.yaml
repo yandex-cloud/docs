@@ -29,6 +29,8 @@ items:
         href: domains/vulnerability-management.md
       - name: Physical security
         href: domains/physical-security.md
+      - name: Kubernetes security
+        href: domains/kubernetes.md
   - name: Instructions
     items:
       - name: Deleting a passport account from an organization

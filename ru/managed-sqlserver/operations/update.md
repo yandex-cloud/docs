@@ -98,6 +98,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -119,8 +121,6 @@
 
 * Что нужный кластер использует хранилище на сетевых HDD-дисках или на сетевых SSD-дисках. Увеличить размер хранилища на локальных SSD-дисках или на нереплицируемых SSD-дисках невозможно.
 * Что в облаке хватает квоты на увеличение хранилища. Откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции **Managed Databases** не исчерпано место в строке **Объем HDD-хранилищ** или **Объем SSD-хранилищ**.
-
-Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{link-console-quotas}}) для вашего облака и проверьте, что в секции **Managed Databases** не исчерпано место в строке **Объем HDD-хранилищ** или **Объем SSD-хранилищ**.
 
 {% list tabs %}
 
@@ -187,6 +187,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 
@@ -270,6 +272,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 
@@ -372,6 +376,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -445,6 +451,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 

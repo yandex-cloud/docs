@@ -110,6 +110,8 @@ You can add and remove users, as well as manage their settings.
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
   Use the [create](../api-ref/User/create.md) API method and pass the following in the request:
@@ -190,6 +192,8 @@ You can add and remove users, as well as manage their settings.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
 
 - API
 
@@ -295,6 +299,8 @@ To change the user's permissions to access certain databases, follow the [instru
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
@@ -348,6 +354,8 @@ To change the user's permissions to access certain databases, follow the [instru
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
 
 - API
 

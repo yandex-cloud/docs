@@ -23,7 +23,7 @@ To create a VM:
 
       {% note info %}
 
-      To create a virtual machine from a [GitLab](https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537) image, you require at least 4 virtual cores and 8 GB of RAM.
+      Each public image has its own minimum requirements for a virtual machine. A [GitLab](https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537) image, for instance, requires at least 4 virtual cores and 8 GB of RAM.
 
       {% endnote %}
 

@@ -142,7 +142,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -243,7 +243,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -309,7 +309,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

@@ -5,22 +5,23 @@ description: "Вы можете отслеживать состояние кла
 
 # Мониторинг состояния кластера и хостов
 
-Вы можете отслеживать состояние кластера {{ mpg-name }} и отдельных его хостов с помощью инструментов мониторинга в [консоли управления]({{ link-console-main }}). Эти инструменты предоставляют диагностическую информацию в виде графиков.
-
-{% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
-
-Также вы можете настроить [алерты в сервисе {{ monitoring-full-name }}](#monitoring-integration) для автоматического мониторинга состояния кластера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещение.
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 {% include [monitoring-freq](../../_includes/mdb/monitoring-freq.md) %}
 
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
+
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Мониторинг состояния кластера {#monitoring-cluster}
 
 Для просмотра детальной информации о состоянии кластера {{ mpg-name }}:
 
 1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
+
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+
+1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 На странице появятся следующие графики:
 
@@ -48,7 +49,6 @@ description: "Вы можете отслеживать состояние кла
 * **Total size of WAL files** — суммарный размер [файлов WAL](../concepts/backup.md) (в байтах).
 * **Transaction quantiles** — время обработки транзакций по процентилям.
 * **Transactions/statements per second** — количество транзакций и операторов в секунду.
-
 
 ## Мониторинг состояния хостов {#monitoring-hosts}
 

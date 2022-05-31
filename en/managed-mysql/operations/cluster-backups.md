@@ -15,24 +15,24 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
-  To restore an existing cluster from a backup:
+   To restore an existing cluster from a backup:
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
-  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-  1. To restore the cluster state [at the required point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), set the desired setting value **Recovery date and time (UTC)**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. To restore the cluster state [at the required point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), set the desired setting value **Recovery date and time (UTC)**.
 
       If you don't change the setting, the cluster is restored to the state when the backup was completed.
    1. Click **Restore cluster**.
 
-  To restore a previously deleted cluster from a backup:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-  1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
-  1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-  1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
-  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-  1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC) setting**. You can enter the value manually or select it from the drop-down calendar.
+   To restore a previously deleted cluster from a backup:
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC) setting**. You can enter the value manually or select it from the drop-down calendar.
 
       If you don't change the setting, the cluster is restored to the state when the backup was completed.
    1. Click **Restore cluster**.
@@ -56,7 +56,7 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Getting a list of available {{ MY }} cluster backups:
 
       ```
-      $ {{ yc-mdb-my }} backup list
+      {{ yc-mdb-my }} backup list
 
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -68,7 +68,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       The time when the backup was completed is shown in the `CREATED AT` column of a list of available backups, in `yyyy-mm-ddThh:mm:ssZ` format (`2020-08-10T12:00:00Z` in the example above). You can restore a cluster to any state from the specified point in time to the current time.
 
-   1. Request creation of a cluster from a backup:
+   1. Request the creation of a cluster from a backup:
 
       
       ```
@@ -123,11 +123,21 @@ For a new cluster, you should set all the parameters that are required at creati
 
    1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
 
-      {% note info %}
+      Leave the settings under `database `and `user` empty, they will be restored from the backup:
 
-      Do not specify DB and user settings under `database` and `user`, they will be restored from the backup.
-
-      {% endnote %}
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        database {
+          name  = ""
+          owner = ""
+        }
+        user {
+          name     = ""
+          password = ""
+        }
+      }
+      ```
 
    1. Add a block named `restore` to this configuration file:
 
@@ -136,7 +146,7 @@ For a new cluster, you should set all the parameters that are required at creati
         ...
         restore {
           backup_id = "<desired backup name>"
-          time      = "<restore time stamp in yyyy-mm-ddThh:mm:ssZ format>"
+          time      = "<restore time stamp in yyyy-mm-ddThh:mm:ss format>"
         }
       }
       ```
@@ -159,15 +169,27 @@ For a new cluster, you should set all the parameters that are required at creati
 
    Terraform creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
    **To restore a previously deleted cluster from a backup:**
 
    1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
 
-      {% note info %}
+      Leave the settings under `database` and `user` empty, they will be restored from the backup:
 
-      Do not specify DB and user settings under `database` and `user`, they will be restored from the backup.
-
-      {% endnote %}
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        database {
+          name  = ""
+          owner = ""
+        }
+        user {
+          name     = ""
+          password = ""
+        }
+      }
+      ```
 
    1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
 
@@ -192,6 +214,8 @@ For a new cluster, you should set all the parameters that are required at creati
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
    Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
@@ -208,9 +232,9 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click **Create a backup**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click **Create backup**.
 
 - CLI
 
@@ -226,7 +250,7 @@ For a new cluster, you should set all the parameters that are required at creati
       {{ yc-mdb-my }} cluster backup --help
       ```
 
-   1. Request creation of a backup specifying the cluster name or ID:
+   1. Request the creation of a backup specifying the cluster name or ID:
 
       ```
       {{ yc-mdb-my }} cluster backup <cluster name>
@@ -251,12 +275,12 @@ In single-host clusters, you create a backup by reading data from the master hos
 - Management console
 
    To get a list of cluster backups:
-   1. Go to the folder page and select **{{ mmy-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
    1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  To get a list of all backups in a folder:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-  1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   To get a list of all backups in a folder:
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
 - CLI
 
@@ -267,7 +291,7 @@ In single-host clusters, you create a backup by reading data from the master hos
    To get a list of {{ MY }} cluster backups available in the default folder, run the command:
 
    ```
-   $ {{ yc-mdb-my }} backup list
+   {{ yc-mdb-my }} backup list
 
    +----------+----------------------+----------------------+----------------------+
    |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
@@ -293,13 +317,13 @@ In single-host clusters, you create a backup by reading data from the master hos
 
 - Management console
 
-  To get information about the backup of an existing cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   To get information about the backup of an existing cluster:
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  To get information about the backup of a previously deleted cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-  1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   To get information about the backup of a previously deleted cluster:
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
 - CLI
 
@@ -330,7 +354,7 @@ In single-host clusters, you create a backup by reading data from the master hos
 
 - Management console
 
-  In the [management console]({{ link-console-main }}), you can only set the backup start time when [updating a cluster](update.md).
+   In the [management console]({{ link-console-main }}), you can only set the backup start time when you [edit the cluster](update.md).
 
 - CLI
 
@@ -338,8 +362,8 @@ In single-host clusters, you create a backup by reading data from the master hos
 
    ```bash
    {{ yc-mdb-my }} cluster update \
-      --name=<cluster name> \
-      --backup-window-start 11:25:00
+     --name=<cluster name> \
+     --backup-window-start 11:25:00
    ```
 
 - Terraform
@@ -368,11 +392,13 @@ In single-host clusters, you create a backup by reading data from the master hos
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
 
 - API
 
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
@@ -390,7 +416,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
 - Management console
 
-   In the management console, a host's priority is set during cluster [creation](cluster-create.md), when new hosts are [added](../operations/hosts.md#add) to a cluster, or when you [edit the settings](../operations/hosts.md#update) of the existing hosts.
+   In the [management console]({{ link-console-main }}), a host's priority is set during cluster [creation](cluster-create.md), when new hosts are [added](../operations/hosts.md#add) to a cluster, or when you [edit the settings](../operations/hosts.md#update) of the existing hosts.
 
 - CLI
 
@@ -402,8 +428,8 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
    ```bash
    {{ yc-mdb-my }} host update <host name> \
-      --cluster-name=<cluster name> \
-      --backup-priority=<host priority for backups: 0 to 100>
+     --cluster-name=<cluster name> \
+     --backup-priority=<host priority for backups: 0 to 100>
    ```
 
    The host name can be requested with a [list of cluster hosts](hosts.md#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -418,44 +444,5 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
    * List of cluster configuration fields to update (here, `updateHostSpecs.hostName` and `updateHostSpecs.backupPriority`) in the `updateMask` parameter.
 
    {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
-
-{% endlist %}
-
-## Setting host priorities when creating backup {#set-backup-priority}
-
-The minimum host priority when creating backups is `0`, the maximum is `100`, and the default is `0`. A replicated host with the highest priority serves as the backup source. For more information, see [Creating backups](../concepts/backup.md#size).
-
-{% list tabs %}
-
-- Management console
-
-  In the [management console]({{ link-console-main }}), a host's priority is set when [creating](cluster-create.md) a cluster, [adding](../operations/hosts.md#add) new cluster hosts, or [updating the settings](../operations/hosts.md#update) of the existing hosts.
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  To modify the backup priority of a selected host, run the command below:
-
-  ```bash
-  {{ yc-mdb-my }} host update <host name> \
-     --cluster-name=<cluster name> \
-     --backup-priority=<host priority for backups: 0 to 100>
-  ```
-
-  The host name can be requested with a [list of cluster hosts](hosts.md#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
-- API
-
-  To modify a host's priority, use the [updateHosts](../api-ref/Cluster/updateHosts.md) method and pass the following in in the request:
-
-  * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](cluster-list.md#list-clusters).
-  * Host name in the `updateHostSpecs.hostName` parameter. It may be retrieved with a [list of hosts in the cluster](hosts.md#list).
-  * New host priority value in the `updateHostSpecs.backupPriority` parameter.
-  * List of cluster configuration fields to update (here, `updateHostSpecs.hostName` and `updateHostSpecs.backupPriority`) in the `updateMask` parameter.
-
-  {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}

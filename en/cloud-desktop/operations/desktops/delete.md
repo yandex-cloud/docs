@@ -4,13 +4,10 @@
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the desktop.
-
-  1. In the list of services, select **Cloud Desktop**.
-
-  1. In the menu on the left, select **Desktops**.
-
-  1. Select the desktop → click ![image](../../../_assets/options.svg) → select **Delete**.
+   1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
+   1. In the list of services, select **Cloud Desktop**.
+   1. On the left-hand panel, select ![image](../../../_assets/cloud-desktop/desktops.svg) **Desktops**.
+   1. Select desktop → click ![image](../../../_assets/options.svg) → select **Delete**.
 
       {% note tip %}
 
@@ -18,6 +15,6 @@
 
       {% endnote %}
 
-  1. Confirm the deletion.
+   1. Confirm the deletion.
 
 {% endlist %}

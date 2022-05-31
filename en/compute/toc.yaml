@@ -141,6 +141,8 @@ items:
             href: operations/image-create/create-from-image.md
       - name: Managing images
         items:
+          - name: Getting a list of images
+            href: operations/image-control/get-list.md
           - name: Deleting a disk image
             href: operations/image-control/delete.md
       - name: File storage

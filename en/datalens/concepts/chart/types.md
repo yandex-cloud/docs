@@ -51,6 +51,8 @@ Displays changes to measures by dimension as a single or multiple horizontal lin
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
+See the instructions [{#T}](../../operations/chart/create-line-chart.md).
+
 ### Area chart {#area-chart}
 
 Displays changes to measures by dimensions as areas, showing the contribution of each line to the total amount.
@@ -63,6 +65,8 @@ Displays changes to measures by dimensions as areas, showing the contribution of
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis. |
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
+
+See the instructions [{#T}](../../operations/chart/create-area-chart.md).
 
 ### Stacked area chart {#normalized-area-chart}
 
@@ -77,6 +81,8 @@ Stacked area chart that shows the ratio of measures as a percentage.
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
+See the instructions [{#T}](../../operations/chart/create-area-chart.md).
+
 ### Column chart {#bar-chart}
 
 Displays data as flat vertical bars.
@@ -89,6 +95,8 @@ Displays data as flat vertical bars.
 | Sorting | Dimension or measure. Affects the sorting of columns. |
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
+
+See the instructions [{#T}](../../operations/chart/create-column-chart.md).
 
 ### Normalized column chart {#normalized-bar-chart}
 
@@ -103,6 +111,8 @@ Normalized column chart that shows the ratio of measures as a percentage.
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
+See the instructions [{#T}](../../operations/chart/create-column-chart.md).
+
 ### Bar chart {#horizontal-bar-chart}
 
 Displays data as flat horizontal bars.
@@ -116,6 +126,8 @@ Displays data as flat horizontal bars.
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
+See the instructions [{#T}](../../operations/chart/create-bar-chart.md).
+
 ### Normalized bar chart {#normalized-horizontal-bar-chart}
 
 Normalized bar chart that shows the ratio of measures.
@@ -128,6 +140,8 @@ Normalized bar chart that shows the ratio of measures.
 | Sorting | Dimension or measure. Affects the sorting of columns. |
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
+
+See the instructions [{#T}](../../operations/chart/create-bar-chart.md).
 
 ### Scatter chart {#scatter-chart}
 
@@ -143,6 +157,8 @@ Displays data points for comparing pairs of values. Not supported in [QL charts]
 | Sorting | Dimension. Can only use a dimension from the X-axis. Affects the sorting of the X-axis. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
+See the instructions [{#T}](../../operations/chart/create-scatter-chart.md).
+
 ### Pie chart {#pie-chart}
 
 Displays the size of elements in a single data series relative to the sum of elements as a circle.
@@ -155,6 +171,8 @@ Displays the size of elements in a single data series relative to the sum of ele
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
+See the instructions [{#T}](../../operations/chart/create-pie-chart.md).
+
 ### Donut chart {#ring-chart}
 
 Displays the size of elements in a single data series relative to the sum of elements as a ring. The number in the center of the ring depends on the type of indicator aggregation. Not supported in [QL charts](./index.md#sql-charts).
@@ -166,6 +184,8 @@ Displays the size of elements in a single data series relative to the sum of ele
 | Sorting | Dimension or measure from the **Colors** section. Affects sorting. |
 | Signatures | Measure. Displays measure values on the chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
+
+See the instructions [{#T}](../../operations/chart/create-ring-chart.md).
 
 ### Tree chart {#tree-chart}
 
@@ -180,6 +200,8 @@ Use this chart to compare proportions in a hierarchy.
 | Colors | Dimension or measure. Affects the shading of rectangles in a chart. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
+See the instructions [{#T}](../../operations/chart/create-tree-chart.md).
+
 ## Tables {#tables}
 
 ### Table {#flat-table}
@@ -193,6 +215,8 @@ Displays data in table format, where the first row defines the names of fields a
 | Sorting | Dimensions and measures specified in the **Columns** section.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
+See the instructions [{#T}](../../operations/chart/create-table.md).
+
 ### Pivot table {#pivot-table}
 
 Displays data in table format, where rows and columns may contain dimension values and cells at their intersection may contain measures. Not supported in [QL charts](./index.md#sql-charts).
@@ -205,6 +229,8 @@ Displays data in table format, where rows and columns may contain dimension valu
 | Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure. |
 | Sorting | Dimensions and measures specified in the **Columns** and **Rows** sections.<br/>You can use multiple dimensions and measures.<br/>The order of section fields affects the sorting order of table fields. |
 | Chart filters | Dimension or measure. Used as a filter. |
+
+See the instructions [{#T}](../../operations/chart/create-pivot-table.md).
 
 ## Map {#map-chart}
 
@@ -243,6 +269,8 @@ Displays geographical points on the map.
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Chart filters | Dimension or measure. Used as a filter for the entire chart. |
 
+See the instructions [{#T}](../../operations/chart/create-map-chart.md).
+
 ### Polyline map {#polyline-map-chart}
 
 Displays lines consisting of sequentially connected points on a map.
@@ -257,6 +285,8 @@ Displays lines consisting of sequentially connected points on a map.
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Chart filters | Dimension or measure. Used as a filter for the entire chart. |
 
+See the instructions [{#T}](../../operations/chart/create-map-chart.md).
+
 ### Choropleth map {#choropleth-map-chart}
 
 Displays shaded areas on the map.
@@ -269,6 +299,8 @@ Displays shaded areas on the map.
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Chart filters | Dimension or measure. Used as a filter for the entire chart. |
 
+See the instructions [{#T}](../../operations/chart/create-map-chart.md).
+
 ### Heat map {#heat-map-chart}
 
 Displays geographical points on the map with different shading intensity.
@@ -280,6 +312,8 @@ Displays geographical points on the map with different shading intensity.
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Chart filters | Dimension or measure. Used as a filter for the entire chart. |
 
+See the instructions [{#T}](../../operations/chart/create-map-chart.md).
+
 ## Other {#other}
 
 ### Indicator {#indicator}
@@ -290,6 +324,8 @@ Displays the data as one number.
 | ----- | ---- |
 | Measure | Measure. One measure that determines the indicator value. |
 | Chart filters | Dimension or measure. Used as a filter. |
+
+See the instructions [{#T}](../../operations/chart/create-indicator-chart.md).
 
 #### See also {#see-also}
 

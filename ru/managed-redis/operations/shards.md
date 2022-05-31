@@ -121,6 +121,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
 {% endlist %}
 
 Чтобы получить возможность размещать данные в новом шарде, запустите [ребалансировку кластера](#rebalance-cluster) {{ mrd-name }}.
@@ -175,6 +177,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 {% endlist %}
 

@@ -366,6 +366,8 @@ description: "Вы можете создавать резервные копии
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:

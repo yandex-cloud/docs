@@ -101,7 +101,7 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -178,7 +178,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -259,7 +259,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_cluster#mysql-config).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -360,7 +360,7 @@
       }
       ```
 
-  1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+  1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -383,7 +383,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -505,7 +505,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

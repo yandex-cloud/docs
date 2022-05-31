@@ -1,18 +1,17 @@
 # Getting a list of public images
 
-When creating a VM, you need to select its image with the software that you want to use.
+When creating a VM, you need to select its [image](../../concepts/image.md) with the software that you want to use.
 
 {% list tabs %}
 
 - Management console
 
-  To get a list of available images:
+  You can view a list of public images when creating a virtual machine:
 
   1. In the [management console]({{ link-console-main }}), open the folder where the VM will be created.
   1. Click **Create resource**.
   1. Select **Virtual machine**.
-  1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab.
-  1. Click **Show more**. A list of all public images will be shown.
+  1. Under **Image/boot disk selection**, click **Show all products**. A list of all available public images will appear.
 
 - CLI
 
@@ -35,3 +34,5 @@ When creating a VM, you need to select its image with the software that you want
     ```
 
 {% endlist %}
+
+You can also view information about all available public images in [{{ marketplace-name }}]({{ link-cloud-marketplace }}).

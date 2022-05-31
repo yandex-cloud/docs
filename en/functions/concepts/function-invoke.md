@@ -2,23 +2,23 @@
 
 You can invoke a function:
 
-* [Using an HTTP request](#http).
+* [Using an HTTPS request](#http).
 * [Using the CLI](#cli).
 
 Each method has a specific data structure for function requests and responses. Learn more about how to [invoke a function](../operations/function/function-invoke.md).
 
-## Invoking a function using HTTP {#http}
+## Invoking a function using HTTPS {#http}
 
-If a function is invoked for processing an HTTP request, it gets the request data in JSON format in the first argument: the HTTP method name, headers, arguments, and other request parameters.
+If a function is invoked for processing an HTTPS request, it gets the request data in JSON format in the first argument: the HTTP method name, headers, arguments, and other request parameters.
 
-The result returned by the function should also be a JSON document. It should contain the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user.
+The result returned by the function should also be a JSON document. It should contain the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTPS response to the user.
 
 {% note info %}
 
 You can run functions by specifying the `integration=raw` request string parameter. When invoked this way, a function can't parse or set HTTP headers:
 
-* The contents of the HTTP request body are passed as the first argument (without converting to a JSON structure).
-* The contents of the HTTP response body is identical to the function response (without converting or checking the structure) and the HTTP response status is 200.
+* The contents of the HTTPS request body are passed as the first argument (without converting to a JSON structure).
+* The contents of the HTTPS response body is identical to the function response (without converting or checking the structure) and the HTTP response status is 200.
 
 {% endnote %}
 
@@ -191,7 +191,7 @@ module.exports.handler = async (event, context) => {
 
 ### Response structure {#response}
 
-{{ sf-name }} interprets the function execution result to fill in the HTTP response contents, headers, and status code. For this to work, the function must return a response in the following structure:
+{{ sf-name }} interprets the function execution result to fill in the HTTPS response contents, headers, and status code. For this to work, the function must return a response in the following structure:
 
 ```
 {
@@ -250,7 +250,7 @@ If the error occurs in a user-defined function, the `X-Function-Error: true` hea
 {{ sf-name }} can return results with the following HTTP codes:
 
 * `200 OK`: Successful function execution.
-* `400 BadRequest`: Error in HTTP request parameters.
+* `400 BadRequest`: Error in HTTPS request parameters.
 * `403 Forbidden`: Can't execute the request due to restrictions on client access to the function.
 * `404 Not Found`: The function is not found at the specified URL.
 * `413 Payload Too Large`: The [limit](../concepts/limits.md#limits) for the request JSON structure is exceeded by more than 3.5 MB.
@@ -310,7 +310,7 @@ Your function receives and passes the contents of HTTP headers as JSON fields (s
 
 ## Invoking a function using the YC CLI {#cli}
 
-Function calls from the CLI are HTTP requests using the POST method and the `integration=raw` parameter (without converting the request to a JSON structure or checking the response).
+Function calls from the CLI are HTTPS requests using the POST method and the `integration=raw` parameter (without converting the request to a JSON structure or checking the response).
 
 View the help for the function call command:
 

@@ -10,6 +10,8 @@ To create a column chart:
 
 A stacked column chart is displayed by default.
 
+Learn more about the chart sections in [{#T}](../../concepts/chart/types.md#bar-chart) and [{#T}](../../concepts/chart/types.md#normalized-bar-chart).
+
 ## Creating a grouped column chart {#grouped-column-chart}
 
 To display an X-axis grouped column chart:
