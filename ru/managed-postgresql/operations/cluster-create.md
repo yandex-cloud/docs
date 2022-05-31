@@ -49,13 +49,13 @@
   1. Выберите класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты баз данных. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных хостов.
   1. В блоке **Размер хранилища**:
 
-{% if audience != "internal" %}
+      {% if audience != "internal" %}
 
       * Выберите [тип хранилища](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-{% endif %}
+      {% endif %}
 
       * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
 
@@ -76,7 +76,7 @@
 
   1. При необходимости задайте дополнительные настройки кластера:
 
-     {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+     {% include [Additional cluster settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
   1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
   
