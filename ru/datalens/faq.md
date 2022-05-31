@@ -184,6 +184,8 @@
 
 {% include [how-to-calculate-cumulative-sum](../_includes/datalens/qa/calculating-cumulative-sum.md) %}
 
+{% include [calculate-ifnull-zn-nan](../_includes/datalens/qa/calculating-ifnull-zn-nan.md) %}
+
 ## Дашборды {#dashboards}
 
 ### Можно ли сделать селектор на основе двух полей датасета (start_date и end_date), работающий следующим образом: если хотя бы один день из селектора принадлежит интервалу (start_date;end_date), то оставлять данную строку? {#selector-based-on-range}
