@@ -24,7 +24,7 @@
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Измените имя устройтва:
+  Измените имя устройства:
 
   ```
   yc iot device update my-device --new-name test-device
@@ -37,6 +37,62 @@
   created_at: "2019-05-28T16:08:30.938Z"
   name: test-device
   ```
+
+- Terraform
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы изменить имя устройства, созданного с помощью Terraform:
+  
+  1. Откройте файл конфигурации Terraform и измените значение параметра `name` во фрагменте с описанием устройства:
+
+      Пример описания устройства в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<идентификатор реестра>"
+        name        = "test-device"
+        description = "test device for terraform provider documentation"
+      ...  
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить измененное имя устройства можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```bash
+      yc iot device list --registry-id <идентификатор реестра>
+      ```
 
 {% endlist %}
 
@@ -60,7 +116,7 @@
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  Измените описание устройтва:
+  Измените описание устройства:
 
   ```
   yc iot device update my-device --description "My first device."
@@ -75,5 +131,61 @@
   name: my-device
   description: My first device.
   ```
+
+- Terraform
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы изменить описание устройства, созданного с помощью Terraform:
+  
+  1. Откройте файл конфигурации Terraform и измените значение параметра `description` во фрагменте с описанием устройства.
+
+      Пример описания устройства в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<идентификатор реестра>"
+        name        = "test-device"
+        description = "test device for terraform provider documentation"
+      ...  
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить измененное описание устройства можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```bash
+      yc iot device get <имя устройства>
+      ```
 
 {% endlist %}
