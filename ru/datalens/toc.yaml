@@ -231,7 +231,7 @@ items:
           - name: Добавление параметров в настройках чарта на дашборде
             when: audience == "internal"
             href: operations/chart/add-parameters.md
-          - name: Добавление guid в качестве параметра
+          - name: Добавление ID в качестве параметра
             href: operations/chart/add-guid.md
           - name: Экспорт чарта из Monitoring в DataLens
             when: audience == "internal"
