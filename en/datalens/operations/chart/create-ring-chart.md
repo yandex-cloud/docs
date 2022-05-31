@@ -14,3 +14,4 @@ To disable displaying a number in the center:
 1. In the **Chart settings** window, disable **Results**.
 1. Click **Apply**.
 
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#ring-chart).
