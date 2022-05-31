@@ -107,6 +107,8 @@
   
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
 
   Создать новую базу данных в кластере можно с помощью метода [create](../api-ref/Database/create.md). Разрешить доступ к созданной базе — с помощью метода [update](../api-ref/User/update.md).
@@ -156,6 +158,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 

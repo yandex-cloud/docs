@@ -8,3 +8,4 @@ To create a pie chart:
 1. Drag a dimension from the dataset to the **Dimensions** section.
 1. Drag a measure from the dataset to the **Measures** section. The values are displayed as pie chart areas.
 
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#pie-chart).

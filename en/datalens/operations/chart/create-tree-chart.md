@@ -16,3 +16,5 @@ To create a tree chart:
    {% endnote %}
 
 1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
+
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#tree-chart).

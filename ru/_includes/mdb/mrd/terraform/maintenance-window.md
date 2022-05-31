@@ -1,7 +1,7 @@
 Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
 
 ```hcl
-resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+resource "yandex_mdb_redis_cluster" "<имя кластера>" {
   ...
   maintenance_window {
     type = <тип технического обслуживания: ANYTIME или WEEKLY>
@@ -12,4 +12,4 @@ resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
 }
 ```
 
-{% include [maintenance-window-description](../terraform/maintenance-window-description.md) %}
+{% include [Maintenance window description](../../terraform/maintenance-window-description.md) %}

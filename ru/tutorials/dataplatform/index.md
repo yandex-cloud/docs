@@ -13,3 +13,4 @@
 * [Миграция базы данных в {{ mms-name }}](mssql-data-migration.md)
 * [Перенос данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}](rdbms-to-clickhouse.md)
 * [Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей](mdb-dns-peering.md)
+* [Настройка GeeseFS в {{ dataproc-full-name }} с помощью скриптов инициализации](./data-proc-init-actions-geesefs.md).

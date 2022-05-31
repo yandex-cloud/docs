@@ -84,7 +84,7 @@
 
 Вы можете изменить:
 * класс и количество хостов-брокеров {{ KF }};
-* класс хостов {{ ZK }}. 
+* класс хостов {{ ZK }}.
 
 {% note warning %}
 
@@ -192,6 +192,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 
 - API
 
@@ -293,6 +295,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 
 - API
 
@@ -357,7 +361,7 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-    1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+    1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -379,6 +383,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - API
 
@@ -474,6 +480,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
@@ -579,6 +587,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - API
 

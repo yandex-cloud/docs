@@ -123,6 +123,8 @@ description: "Из статьи вы узнаете, как добавлять �
   
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
   
   Добавить пользователей можно с помощью метода [create](../api-ref/User/create.md).
@@ -248,6 +250,8 @@ description: "Из статьи вы узнаете, как добавлять �
   
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
   
   Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:
@@ -303,6 +307,8 @@ description: "Из статьи вы узнаете, как добавлять �
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
   

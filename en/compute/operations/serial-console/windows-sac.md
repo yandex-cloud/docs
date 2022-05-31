@@ -82,5 +82,14 @@ To connect to the serial console and start the terminal:
     PS C:\Windows\system32>
     ```
 
-1. To return to the management console, press `ESC+TAB+0`.
+    {% note warning %}
 
+    To enter text in English when using PowerShell in the serial console, configure the Windows language settings:
+
+    Go to **Control Panel** → **Region** → **Administrative** → **Welcome screen and new user accounts settings**. Under **Welcome Screen**, specify:
+    * `Display Language` — `English (United States)`.
+    * `Input Language` — `English (United States) — US`.
+
+    {% endnote %}
+
+1. To return to the management console, press `ESC+TAB+0`.

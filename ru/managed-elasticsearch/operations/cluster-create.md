@@ -242,7 +242,7 @@ keywords:
         }
         ```
 
-        1. {% include [maintenance-window](../../_includes/mdb/mes/terraform-maintenance-window.md) %}
+        1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
         Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
@@ -253,6 +253,8 @@ keywords:
     1. Создайте кластер.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 

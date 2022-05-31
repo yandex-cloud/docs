@@ -10,3 +10,4 @@ To create a line chart:
 1. Drag a dimension to the **Colors** section. The measure value is divided by color depending on the selected dimension.
 1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
 
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#line-chart).

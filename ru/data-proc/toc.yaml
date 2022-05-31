@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Работа с заданиями
         items:
           - name: Обзор
@@ -29,6 +31,10 @@ items:
         href: tutorials/exchange-data-with-mch.md
       - name: Импорт базы данных с использованием Sqoop
         href: tutorials/sqoop.md
+      - name: >-
+          Использование скриптов инициализации для настройки GeeseFS в {{
+          dataproc-name }}
+        href: tutorials/geesefs-init-actions.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

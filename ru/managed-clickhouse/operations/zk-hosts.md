@@ -168,6 +168,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом [addZookeeper](../api-ref/Cluster/addZookeeper.md). При добавлении укажите настройки для трех хостов {{ ZK }}, перечислив их в параметре `hostSpecs`.
@@ -257,6 +259,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом [addHosts](../api-ref/Cluster/addHosts.md) и передайте в запросе:
@@ -308,6 +312,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

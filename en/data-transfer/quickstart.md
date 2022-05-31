@@ -7,77 +7,77 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder doesn't exist, create it:
 
-    {% list tabs %}
+   {% list tabs %}
 
-    - Management console
+   - Management console
 
-         {% include [create-folder](../_includes/create-folder.md) %}
+      {% include [create-folder](../_includes/create-folder.md) %}
 
-    - CLI
+   - CLI
 
-         {% include [cli-install](../_includes/cli-install.md) %}
+      {% include [cli-install](../_includes/cli-install.md) %}
 
-        1. See a description of the create folder command:
+      1. See a description of the create folder command:
+
+         ```bash
+         yc resource-manager folder create --help
+         ```
+
+      1. Create a new folder:
+
+         * with a name and without a description:
 
             ```bash
-            yc resource-manager folder create --help
+            yc resource-manager folder create \
+              --name new-folder
             ```
 
-        1. Create a new folder:
+            {% include [name-format](../_includes/name-format.md) %}
 
-            * with a name and without a description:
+         * with a name and description:
 
-                 ```bash
-                 yc resource-manager folder create \
-                    --name new-folder
-                 ```
+            ```bash
+            yc resource-manager folder create \
+              --name new-folder \
+              --description "my first folder with description"
+            ```
 
-                 {% include [name-format](../_includes/name-format.md) %}
+   - API
 
-            * with a name and description:
+      Use the [create](../resource-manager/api-ref/Folder/create.md) method for the [Folder](../resource-manager/api-ref/Folder/index.md) resource of the {{ resmgr-full-name }} service.
 
-                ```bash
-                yc resource-manager folder create \
-                   --name new-folder \
-                   --description "my first folder with description"
-                ```
+   {% endlist %}
 
-    - API
 
-        Use the [create](../resource-manager/api-ref/Folder/create.md) method for the [Folder](../resource-manager/api-ref/Folder/index.md) resource of the {{ resmgr-full-name }} service.
-
-    {% endlist %}
-
-1. [On the billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-
-1. On the [access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher to the desired folder or the cloud that the folder belongs to.
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher to the desired folder or the cloud that the folder belongs to.
 
 ## Configure the source and the target {#db-settings}
 
 Prepare the source service for sending data:
 
-* [{{ KF }}](operations/prepare.md#source-kf)
-* [{{ CH }}](operations/prepare.md#source-ch)
-* [{{ GP }}](operations/prepare.md#source-gp)
-* [{{ MG }}](operations/prepare.md#source-mg)
-* [{{ MY }}](operations/prepare.md#source-my)
-* [{{ PG }}](operations/prepare.md#source-pg)
-* [{{ yds-full-name }}](operations/prepare.md#source-yds)
+* [{{ KF }}](operations/prepare.md#source-kf);
+* [{{ CH }}](operations/prepare.md#source-ch);
+* [{{ GP }}](operations/prepare.md#source-gp);
+* [{{ MG }}](operations/prepare.md#source-mg);
+* [{{ MY }}](operations/prepare.md#source-my);
+* [{{ PG }}](operations/prepare.md#source-pg);
+* [{{ yds-full-name }}](operations/prepare.md#source-yds).
 
 Prepare the target service for receiving the data:
 
-* [{{ CH }}](operations/prepare.md#target-ch)
-* [{{ MG }}](operations/prepare.md#target-mg)
-* [{{ MY }}](operations/prepare.md#target-my)
-* [{{ objstorage-name }}](operations/prepare.md#target-storage)
-* [{{ PG }}](operations/prepare.md#target-pg)
+* [{{ CH }}](operations/prepare.md#target-ch);
+* [{{ MG }}](operations/prepare.md#target-mg);
+* [{{ MY }}](operations/prepare.md#target-my);
+* [{{ objstorage-name }}](operations/prepare.md#target-storage);
+* [{{ PG }}](operations/prepare.md#target-pg).
 
 To receive data in {{ ydb-name }}, no setup is necessary.
 
 ## Creating an endpoint for the source {#source}
 
-1. Go to the folder page and select **{{ data-transfer-name }}**.
-1. On the **Endpoints** tab, click **Create endpoint**.
+1. Go to the folder page and select **{{ data-transfer-full-name }}**.
+1. Click **Create endpoint**.
 1. Make sure that the **Direction** field is set to `Source`.
 1. Enter a name for the endpoint.
 1. In the **Database type** field, select the type of the DBMS to transfer data from.
@@ -88,8 +88,8 @@ For more information, see [{#T}](operations/endpoint/index.md).
 
 ## Creating an endpoint for the target {#target}
 
-1. Go to the folder page and select **{{ data-transfer-name }}**.
-1. On the **Endpoints** tab, click **Create endpoint**.
+1. Go to the folder page and select **{{ data-transfer-full-name }}**.
+1. Click **Create endpoint**.
 1. Make sure that the **Direction** field is set to `Target`.
 1. Enter a name for the endpoint.
 1. In the **Database type** field, select the type of DBMS that you want to transfer data to.
@@ -100,23 +100,25 @@ For more information, see [{#T}](./operations/endpoint/index.md).
 
 ## Create a transfer {#create-transfer}
 
-1. Go to the folder page and select **{{ data-transfer-name }}**.
-1. On the **Transfers** tab, click **Create transfer**.
+1. Go to the folder page and select **{{ data-transfer-full-name }}**.
+1. On the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **Transfers**.
+1. Click **Create transfer**.
 1. Select the endpoint for the source and the endpoint for the target.
 1. Enter a name for the transfer.
 1. Select the [type of transfer](./concepts/index.md#transfer-type.md):
-    * `{{ dt-type-copy-repl }}`: To create a full copy of the source data and keep it up-to-date.
-    * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source.
-    * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
-1. (Optional) add a transfer description.
+   * `{{ dt-type-copy-repl }}`: To create a full copy of the source data and keep it up-to-date.
+   * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source.
+   * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+1. (optional) Add a transfer description.
 1. Click **Create**.
 
 For more information, see [Types of transfers](./concepts/transfer-lifecycle.md#transfer-types).
 
 ## Activate the transfer {#activate}
 
-1. Go to the folder page and select **{{ data-transfer-name }}**.
-1. On the **Transfers** tab, click ![ellipsis](../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Activate**.
+1. Go to the folder page and select **{{ data-transfer-full-name }}**.
+1. On the left-hand panel, select ![image](../_assets/data-transfer/transfer.svg) **Transfers**.
+1. Click ![ellipsis](../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Activate**.
 
 The data transfer process will begin.
 

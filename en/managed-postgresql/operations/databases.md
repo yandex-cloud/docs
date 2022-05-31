@@ -1,4 +1,4 @@
-# Database management
+# Managing databases
 
 You can add and remove databases, as well as view information about them.
 
@@ -9,27 +9,30 @@ You can add and remove databases, as well as view information about them.
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster you need and select the **Databases** tab.
+
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you need and select the **Databases** tab.
+
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of databases in a cluster, run the command:
+   To get a list of databases in a cluster, run the command:
 
-  ```
-  $ {{ yc-mdb-pg }} database list
-       --cluster-name <cluster name>
-  ```
+   ```
+   $ {{ yc-mdb-pg }} database list
+        --cluster-name <cluster name>
+   ```
 
-  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
 
 - API
 
-  To get a list of cluster databases, use the [list](../api-ref/Database/list.md) method.
+   To get a [list](../api-ref/Database/list.md) of cluster databases, use the list method.
 
 {% endlist %}
 
@@ -41,19 +44,12 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
 - Management console
 
-  1. Go to the folder page and select **{{ mpg-name }}**.
-
-  1. Click on the name of the cluster you need.
-
-  1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
-
-  1. Select the **Databases** tab.
-
-  1. Click **Add**.
-
-  1. Name the database, select its owner, and specify the required collation locale and character set.
-
-      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the desired cluster.
+   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
+   1. Select the **Databases** tab.
+   1. Click **Add**.
+   1. Name the database, select its owner, and specify the required collation locale and character set.
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
@@ -61,79 +57,81 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a database in a cluster:
+   To create a database in a cluster:
 
-  1. View a description of the CLI create database command:
+   1. View a description of the CLI create database command:
 
-     ```
-     $ {{ yc-mdb-pg }} database create --help
-     ```
+      ```
+      $ {{ yc-mdb-pg }} database create --help
+      ```
 
-  1. Request a list of cluster users to select the owner of the new database:
+   1. Request a list of cluster users to select the owner of the new database:
 
-     ```
-     $ {{ yc-mdb-pg }} user list
-          --cluster-name <cluster name>
-     ```
+      ```
+      $ {{ yc-mdb-pg }} user list
+           --cluster-name <cluster name>
+      ```
 
-     If the required user is not in the list, [create it](cluster-users.md#adduser).
+      If the required user is not in the list, [create it](cluster-users.md#adduser).
 
-  1. Run the create database command. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+   1. Run the create database command. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
 
-     ```
-     $ {{ yc-mdb-pg }} database create <database name>
-          --cluster-name <cluster name>
-          --owner <username of the DB owner>
-          --lc-collate <locale for sorting>
-          --lc-type <character set locale>
-     ```
+      ```
+      $ {{ yc-mdb-pg }} database create <database name>
+           --cluster-name <cluster name>
+           --owner <owner username>
+           --lc-collate <sorting locale>
+           --lc-type <character set locale>
+      ```
 
-     {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     {{ mpg-short-name }} runs the create database operation.
+      {{ mpg-short-name }} runs the create database operation.
 
-  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 - Terraform
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-    1. Add a `database` block to the {{ mpg-name }} cluster description. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-        ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+   1. Add a `database` block to the {{ mpg-name }} cluster description. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        database {
+          name       = "<database name>"
+          owner      = "<owner username: must be specified in the user section>"
+          lc_collate = "<sorting locale>"
+          lc_type    = "<character set locale>"
           ...
-          database {
-            name       = "<DB name>"
-            owner      = "<DB owner username: must be specified under user>"
-            lc_collate = "<locale for sorting>"
-            lc_type    = "<character set locale>"
-            ...
-          }
         }
-        ```
+      }
+      ```
 
-        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-    1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [{{ TF }} documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
-  You can create a new database in a cluster using the [create](../api-ref/Database/create.md) method.
+   You can create a new database in a cluster using the [create](../api-ref/Database/create.md) method.
 
 {% endlist %}
 
@@ -142,46 +140,49 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster you need and select the **Databases** tab.
-  1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary DB and select **Delete**.
+
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you need and select the **Databases** tab.
+   1. Click the ![image](../../_assets/vertical-ellipsis.svg) icon in the same row as the desired DB and select **Delete**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete a database, run the command:
+   To delete a database, run the command:
 
-  ```
-  $ {{ yc-mdb-pg }} database delete <database name>
-       --cluster-name <cluster name>
-  ```
+   ```
+   $ {{ yc-mdb-pg }} database delete <database name>
+        --cluster-name <cluster name>
+   ```
 
-  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
 - Terraform
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-     For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-  1. Delete the `database` block with the DB name from the {{ mpg-name }} cluster description.
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-  1. Make sure the settings are correct.
+   1. Delete the `database` block with the DB name from the {{ mpg-name }} cluster description.
+
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
-  You can delete a database using the [delete](../api-ref/Database/delete.md) method.
+   You can delete a database using the [delete](../api-ref/Database/delete.md) method.
 
 {% endlist %}
 
@@ -190,4 +191,3 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
-

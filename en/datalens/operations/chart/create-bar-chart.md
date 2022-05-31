@@ -10,6 +10,8 @@ To create a bar chart:
 
 A stacked column chart is displayed by default.
 
+Learn more about the chart sections in [{#T}](../../concepts/chart/types.md#horizontal-bar-chart) and [{#T}](../../concepts/chart/types.md#normalized-horizontal-bar-chart).
+
 ## Creating a grouped bar chart {#grouped-bar-chart}
 
 To display an Y-axis grouped bar chart:

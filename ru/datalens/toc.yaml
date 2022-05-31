@@ -177,7 +177,7 @@ items:
             href: operations/chart/publish.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
-          - name: Добавление guid в качестве параметра
+          - name: Добавление ID в качестве параметра
             href: operations/chart/add-guid.md
           - name: Добавление параметра в чарт
             href: operations/chart/add-parameter-chart.md

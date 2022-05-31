@@ -124,6 +124,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [create](../api-ref/User/create.md) и передайте в запросе:
@@ -200,6 +202,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 
@@ -294,6 +298,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:
@@ -356,6 +362,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 

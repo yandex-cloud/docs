@@ -133,6 +133,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [createShardGroup](../api-ref/Cluster/createShardGroup.md) и передайте в запросе:
@@ -211,6 +213,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) и передайте в запросе:
@@ -271,6 +275,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

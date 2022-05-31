@@ -861,7 +861,7 @@ Parameter descriptions:
 ```yaml
 - channel:
     output:
-        plugin: yc_metrics
+        plugin: yc_logs
         config:
         # The URL to send metrics to.
         url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write # optional, the default value is https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write

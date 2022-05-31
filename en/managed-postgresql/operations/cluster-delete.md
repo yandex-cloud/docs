@@ -40,5 +40,7 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 {% endlist %}
 

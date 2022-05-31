@@ -12,4 +12,4 @@ resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
 }
 ```
 
-{% include [maintenance-window-description](../terraform/maintenance-window-description.md) %}
+{% include [Maintenance window description](../../terraform/maintenance-window-description.md) %}

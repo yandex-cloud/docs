@@ -36,5 +36,65 @@
     name: second
     ``` 
 
-{% endlist %}
+- Terraform
 
+  {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить алиас, созданный с помощью Terraform:
+  
+  1. Откройте файл конфигурации Terraform и удалите значение нужного алиаса в блоке `aliases`, во фрагменте с описанием устройства. Чтобы удалить все алиасы, удалите блок `aliases` целиком.
+
+      Пример описания устройства в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<идентификатор_реестра>"
+        name        = "<имя_устройства>"
+        description = "test device for terraform provider documentation"
+      
+        aliases = {
+          "some-alias1/subtopic" = "$devices/{id}/events/somesubtopic",
+          "some-alias2/subtopic" = "$devices/{id}/events/aaa/bbb",
+        }
+      ...  
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить алиасы устройства можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../../cli/quickstart.md):
+
+      ```bash
+      yc iot device get <имя_устройства>
+      ```
+
+{% endlist %}

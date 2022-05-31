@@ -143,6 +143,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}
 
+{% include [calculate-ifnull-zn-nan](../../_includes/datalens/qa/calculating-ifnull-zn-nan.md) %}
+
 ## Дашборды {#dashboards}
 
 {% include [configure-link-between-selectors](../../_includes/datalens/qa/configure-link-between-selectors.md) %}

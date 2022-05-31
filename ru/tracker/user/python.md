@@ -19,7 +19,7 @@
 1. Инициализируйте клиент в коде вашей программы:
     ```
     from yandex_tracker_client import TrackerClient
-    client = TrackerClient(token=<token>, org_id=<org_id>)
+    client = TrackerClient(token='<token>', org_id='<org_id>')
     ```
     Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации.
 

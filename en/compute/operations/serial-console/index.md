@@ -230,3 +230,5 @@ If you created the VM before February 22, 2019, you need to update the Windows r
 1. Restart the VM.
 
 {% endlist %}
+
+Learn more about the [terminal in the Windows serial console (SAC)](windows-sac.md).

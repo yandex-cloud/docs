@@ -35,6 +35,8 @@ items:
     items:
       - name: Удаление паспортного аккаунта из организации
         href: operations/account-deletion.md
+      - name: Если вас атакуют с адресов {{ yandex-cloud }}
+        href: operations/outgoing-ddos.md
   - name: Правила проведения внешних сканирований безопасности
     href: compliance/pentest.md
   - name: Бюллетени безопасности

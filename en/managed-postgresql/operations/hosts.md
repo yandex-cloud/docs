@@ -8,87 +8,85 @@ You can add and remove cluster hosts and manage their settings.
 
 - Management console
 
-  1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Go to the folder page and select **{{ mpg-name }}**.
 
-  1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of databases in a cluster, run the command:
+   To get a list of databases in a cluster, run the command:
 
-  ```
-  $ {{ yc-mdb-pg }} host list
-       --cluster-name <cluster name>
-  ```
+   ```
+   $ {{ yc-mdb-pg }} host list
+        --cluster-name <cluster name>
+   ```
 
-  
-  ```text
-  +----------------------------+--------------+---------+--------+---------------+
-  |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
-  +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
-  +----------------------------+--------------+---------+--------+---------------+
-  ```
+   
+   ```text
+   +----------------------------+--------------+---------+--------+---------------+
+   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
+   +----------------------------+--------------+---------+--------+---------------+
+   | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
+   | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
+   +----------------------------+--------------+---------+--------+---------------+
+   ```
 
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
 
 {% endlist %}
 
+
 ## Adding a host {#add}
 
-The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mpg-full-name }}** block.
+The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mpg-full-name }}**.
 
 {% list tabs %}
 
 - Management console
 
-  To add a host to the cluster:
+   To add a host to the cluster:
 
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster you need and go to the **Hosts** tab.
-  1. Click **Add host**.
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you need and go to the **Hosts** tab.
+   1. Click **Add host**.
 
-  
-  1. Specify the host parameters:
-     - Availability zone.
+   
+   1. Specify the host parameters:
+      - Availability zone.
+      - Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
+      - Priority of the host as a {{ PG }} replica.
 
-     - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+         Change the priority to modify the [selection of the master in the cluster](../concepts/replication.md#selecting-the-master):
+         - The host with the highest priority in the cluster becomes the master.
+         - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
+         - The lowest priority is `0` (default), the highest is `100`.
 
-     - Priority of the host as a {{ PG }} replica.
-
-       Change the priority to modify the [selection of the master in the cluster](../concepts/replication.md#selecting-the-master):
-       - The host with the highest priority in the cluster becomes the master.
-       - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
-       - The lowest priority is `0` (default), the highest is `100`.
-
-     - Replication source (if you use [cascading replication](../concepts/replication.md#replication-manual)).
-
-     - Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
+      - Replication source (if you use [cascading replication](../concepts/replication.md#replication-manual)).
+      - Select **Public access** if the host must be accessible from outside {{ yandex-cloud }}.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To add a host to the cluster:
+   To add a host to the cluster:
 
-  
-  1. Request a list of cluster subnets to select one for the new host:
+   
+   1. Request a list of cluster subnets to select one for the new host:
 
       ```
       $ yc vpc subnet list
-      
+
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -99,75 +97,77 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       +-----------+-----------+------------+---------------+------------------+
       ```
 
-     If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  1. View a description of the CLI command for adding a host:
+   1. View a description of the CLI command for adding a host:
 
-     ```
-     $ {{ yc-mdb-pg }} host add --help
-     ```
+      ```
+      $ {{ yc-mdb-pg }} host add --help
+      ```
 
-  1. Run the add host command:
+   1. Run the add host command:
 
-     
-     ```
-     $ {{ yc-mdb-pg }} host add
-          --cluster-name <cluster name>
-          --host zone-id=<availability zone>,subnet-id=<subnet ID>
-     ```
+      
+      ```
+      $ {{ yc-mdb-pg }} host add
+           --cluster-name <cluster name>
+           --host zone-id=<availability zone>,subnet-id=<subnet ID>
+      ```
 
-     
-     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      
+      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-     You can also specify several additional options in the `--host` parameter to manage public access to a host and replication in a cluster:
+      You can also specify several additional options in the `--host` parameter to manage public access to a host and replication in a cluster:
       - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
       - Host priority in the `priority` option in order to [modify the selection of master](../concepts/replication.md#selecting-the-master):
-        - The host with the highest priority value in the cluster becomes the master.
-        - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
-        - The lowest priority is `0` (default), the highest is `100`.
+         - The host with the highest priority value in the cluster becomes the master.
+         - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
+         - The lowest priority is `0` (default), the highest is `100`.
       - External host visibility {{ yandex-cloud }} in the `assign-public-ip` option:
-        - `true`: public access enabled.
-        - `false`: public access disabled.
+         - `true`: public access enabled.
+         - `false`: public access disabled.
 
    {{ mpg-short-name }} will run the add host operation.
 
 - Terraform
 
-    To add a host to the cluster:
+   To add a host to the cluster:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-    1. Add a `host` block to the {{ mpg-name }} cluster description.
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-        ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-          ...
-          host {
-            name                    = "<host name>"
-            zone                    = "<availability zone>"
-            subnet_id               = "<subnet ID>"
-            priority                = <priority for selecting a master>
-            replication_source_name = "<replication source: the name attribute of the appropriate host block>"
-            assign_public_ip        = <host public access: true or false>
-          }
+   1. Add a `host` block to the {{ mpg-name }} cluster description.
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        host {
+          name                    = "<hostname>"
+          zone                    = "<availability zone>"
+          subnet_id               = "<subnet ID>"
+          priority                = <priority for selecting master>
+          replication_source_name = "<replication source: name attribute of appropriate host block>"
+          assign_public_ip        = <public access to host: true or false>
         }
-        ```
+      }
+      ```
 
-    1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
-  To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
+   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
 
 {% endlist %}
 
@@ -185,113 +185,86 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
 
 - Management console
 
-  To change the parameters of the {{ PG }} host:
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster you want and select the **Hosts** tab.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the row next to the desired host and select **Edit**.
-  1. Set new settings for the host:
-     1. Set the priority to modify the [selection of the master in the cluster](../concepts/replication.md#selecting-the-master):
-        - The host with the highest priority in the cluster becomes the master.
-        - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
-        - The lowest priority is `0` (default), the highest is `100`.
-     1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
-     1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
-  1. Click **Save**.
+   To change the parameters of the cluster host:
+
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Edit**.
+   1. Set new settings for the host:
+      1. Set the priority to modify the [selection of the master in the cluster](../concepts/replication.md#selecting-the-master):
+         - The host with the highest priority in the cluster becomes the master.
+         - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
+         - The lowest priority is `0` (default), the highest is `100`.
+      1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
+      1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
+   1. Click **Save**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the parameters of the {{ PG }} host, run the command:
+   To change the parameters of a host in a cluster, run the command below:
 
-  ```
-  $ {{ yc-mdb-pg }} host update <host name>
-       --cluster-name <cluster name>
-       --replication-source <source host's name>
-       --priority <replica's priority>
-       --assign-public-ip=<public access to the host: true or false>
-  ```
+   ```
+   $ {{ yc-mdb-pg }} host update <hostname>
+        --cluster-name <cluster name>
+        --replication-source <source hostname>
+        --priority <replica priority>
+        --assign-public-ip=<public access to host: true or false>
+   ```
 
-  The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  To manage replication in the cluster, change in the `--host` parameter:
-  - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
-  - Host priority in the `priority` option in order to [modify the selection of master](../concepts/replication.md#selecting-the-master):
-       - The host with the highest priority value in the cluster becomes the master.
-       - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
-       - The lowest priority is `0` (default), the highest is `100`.
-  - External host visibility {{ yandex-cloud }} in the `assign-public-ip` option.
-
-- Terraform
-
-    To change the parameters of the cluster host:
-
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
-
-        For information about how to create this file, see [{#T}](cluster-create.md).
-
-    1. In the {{ mpg-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
-
-        ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-          ...
-          host {
-            priority                = <priority for selecting a master>
-            replication_source_name = "<replication source>"
-            assign_public_ip        = <host public access: true or false>
-          }
-        }
-        ```
-
-    1. Make sure the settings are correct.
-
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-    1. Confirm the update of resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+   To manage replication in the cluster, change in the `--host` parameter:
+   - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
+   - Host priority in the `priority` option in order to [modify the selection of master](../concepts/replication.md#selecting-the-master):
+      - The host with the highest priority value in the cluster becomes the master.
+      - If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
+      - The lowest priority is `0` (default), the highest is `100`.
+   - External host visibility {{ yandex-cloud }} in the `assign-public-ip` option:
 
 - Terraform
 
-    To change the parameters of the cluster host:
+   To change the parameters of the cluster host:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-    1. In the {{ mpg-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-        ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-          ...
-          host {
-            priority                = <priority for selecting a synchronous replica>
-            replication_source_name = "<replication source>"
-          }
+   1. In the {{ mpg-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        host {
+          priority                = <priority for selecting a master>
+          replication_source_name = "<replication source>"
+          assign_public_ip        = <public access to host: true or false>
         }
-        ```
+      }
+      ```
 
-    1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
-  To change the parameters of the {{ PG }} host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
-  1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
-  1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
+   To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
+   1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
+   1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
 
-  The host name can be requested with a [list of cluster hosts](#list), and the cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can request the host name with a [list of hosts in the cluster](#list), and the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -311,50 +284,53 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
 - Management console
 
-  1. Go to the folder page and select **{{ mpg-name }}**.
+   To remove a host from a cluster:
 
-  1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Go to the folder page and select **{{ mpg-name }}**.
 
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the necessary host and select **Delete**.
+   1. Click on the name of the cluster you want and select the **Hosts** tab.
+
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To remove a host from the cluster, run:
+   To remove a host from the cluster, run:
 
-  ```
-  $ {{ yc-mdb-pg }} host delete <host name>
-       --cluster-name <cluster name>
-  ```
+   ```
+   $ {{ yc-mdb-pg }} host delete <hostname>
+        --cluster-name <cluster name>
+   ```
 
-  The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
-  To remove a host from a cluster:
+   To remove a host from a cluster:
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-  1. Delete the corresponding `host` block from the {{ mpg-name }} cluster description.
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-  1. Make sure the settings are correct.
+   1. Delete the corresponding `host` block from the {{ mpg-name }} cluster description.
+
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm the deletion of resources.
+   1. Confirm the deletion of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 
-  To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
+   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
 
 {% endlist %}
-

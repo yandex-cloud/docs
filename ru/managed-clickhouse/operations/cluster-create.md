@@ -251,7 +251,7 @@
 
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-       1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
+       1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
        1. Чтобы разрешить доступ из других сервисов {{ yandex-cloud }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), добавьте блок `access` с нужными вам настройками:
 
@@ -287,6 +287,8 @@
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -331,7 +333,7 @@
 
 Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
 
-{% endnote %}  
+{% endnote %}
 
 ## Примеры {#examples}
 

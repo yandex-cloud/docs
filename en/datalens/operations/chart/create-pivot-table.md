@@ -9,3 +9,4 @@ To create a pivot table:
 1. Drag a dimension from the dataset to the **Rows** section.
 1. Drag a measure from the dataset to the **Measures** section. The values are displayed in the table cells.
 
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#pivot-table).

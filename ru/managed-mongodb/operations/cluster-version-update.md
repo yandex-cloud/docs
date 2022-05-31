@@ -83,6 +83,8 @@
   
    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
 
   Обновить версию {{ MG }} для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в свойстве `configSpec.version`.

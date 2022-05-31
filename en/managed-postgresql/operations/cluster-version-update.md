@@ -1,11 +1,11 @@
-# {{ PG }} version upgrade
+# {{ PG }} version update
 
 You can upgrade a {{ mpg-name }} cluster to any supported version.
 
 {% note info %}
 
 * Upgrades are unavailable for {{ mpg-name }} clusters optimized for <q>1C:Enterprise</q>. The names of these versions end in `-1c`.
-* You can't upgrade a regular cluster version to a version optimized for <q>1C:Enterprise</q> (such as from version 10 to version 10-1c).
+* You can't update a regular cluster version to a version optimized for <q>1C:Enterprise</q> (such as from version 10 to version 10-1c).
 
 {% endnote %}
 
@@ -24,7 +24,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 {% note alert %}
 
 * Once your DBMS is upgraded, you cannot roll a cluster back to the previous version.
-* The success of {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [upgrade a test cluster](#before-update) that uses the same data and settings.
+* The success of {{ PG }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you first [update a test cluster](#before-update) that uses the same data and settings.
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
    1. In the **Version** field, select a new version number.
    1. Click **Save changes**.
 
-   Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   Once the update is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI
 
@@ -57,20 +57,22 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
       {{ yc-mdb-pg }} cluster get <cluster ID or name>
       ```
 
-   1. Start the {{ PG }} upgrade:
+   1. Start the {{ PG }} update:
 
       ```bash
       {{ yc-mdb-pg }} cluster update <cluster ID or name> \
          --postgresql-version <new version number>
       ```
 
-   Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   Once the update is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - Terraform
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
+
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
    1. Under `cluster_config` of the desired {{ mpg-name }} cluster, add the `version` field or edit it if it already exists:
 
@@ -91,7 +93,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 

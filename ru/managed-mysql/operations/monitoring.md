@@ -5,13 +5,13 @@ description: "Вы можете отслеживать состояние кла
 
 # Мониторинг состояния кластера и хостов
 
-Вы можете отслеживать состояние кластера {{ mmy-name }} и отдельных его хостов с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков.
-
-{% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 {% include [monitoring-period](../../_includes/mdb/monitoring-freq.md) %}
 
 {% include [monitoring-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
+
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Мониторинг состояния кластера {#monitoring-cluster}
 
@@ -19,6 +19,8 @@ description: "Вы можете отслеживать состояние кла
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmy-name }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+
+1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 На вкладке отображаются графики:
 

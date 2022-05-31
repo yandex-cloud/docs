@@ -4,25 +4,39 @@
 Пример настройки сбора метрик из {{ monitoring-name }} в {{ prometheus-name }}:
 1. Выберите каталог, с которого вы хотите собирать данные.
 1. Выберите сервис из следующего списка:
-   - `compute` — {{ compute-name }};
-   - `storage` — {{ objstorage-name }};
-   - `managed-postgresql` — {{ mpg-name }};
-   - `managed-clickhouse` — {{ mch-name }};
-   - `managed-mongodb` — {{ mmg-name }};
-   - `managed-mysql` — {{ mmy-name }};
-   - `managed-redis` — {{ mrd-name }};
-   - `managed-kafka` — {{ mkf-name }};
-   - `managed-elasticsearch` — {{ mes-name }};
-   - `managed-sqlserver` — {{ mms-name }}
-   - `managed-kubernetes` — {{ managed-k8s-name }};
-   - `serverless-functions` — {{ sf-name }};
-   - `serverless_triggers_client_metrics` — триггеры {{ sf-name }};
-   - `ydb` — {{ ydb-name }};
-   - `interconnect` — {{ interconnect-name }};
+   - `application-load-balancer` — {{ alb-name }};
+   - `audit-trails` — {{ at-name }};
    - `certificate-manager` — {{ certificate-manager-name }};
+   - `compute` — {{ compute-name }};
+   - `container-registry` — {{ container-registry-name }};
+   - `data-proc` — {{ dataproc-name }}; 
+   - `data-streams` — {{ yds-name }};
    - `data-transfer` — {{ data-transfer-name }};
-   - `data-proc` — {{ dataproc-name }};
-   - `serverless-apigateway` — {{ api-gw-name }}.
+   - `iam` — {{ iam-name }};
+   - `interconnect` — {{ interconnect-name }};
+   - `kms` — {{ kms-name }};
+   - `logging` — {{ cloud-logging-name }};
+   - `managed-clickhouse` — {{ mch-name }};
+   - `managed-elasticsearch` — {{ mes-name }};
+   - `managed-greenplum` — {{ mgp-name }};
+   - `managed-kafka` — {{ mkf-name }};
+   - `managed-kubernetes` — {{ managed-k8s-name }};
+   - `managed-mongodb` — {{ mmg-name }};
+   - `managed-mysql` — {{ mmy-name }};
+   - `managed-postgresql` — {{ mpg-name }};
+   - `managed-redis` — {{ mrd-name }};
+   - `managed-sqlserver` — {{ mms-name }};
+   - `message-queue` — {{ message-queue-name }};
+   - `monitoring` — {{ monitoring-name }};
+   - `network-load-balancer` — {{ network-load-balancer-name }};
+   - `serverless-apigateway` — {{ api-gw-name }};
+   - `serverless-containers` — {{ serverless-containers-name }};
+   - `serverless-functions` — {{ sf-name }};
+   - `speechkit` — {{ speechkit-name }};
+   - `storage` — {{ objstorage-name }};
+   - `translate` — {{ translate-name }};
+   - `vision` — {{ vision-name }};
+   - `ydb` — {{ ydb-name }}.
 1. Создайте статичный [API-ключ](../../../iam/operations/api-key/create.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts).
 1. [Назначьте сервисному аккаунту роль](../../../iam/operations/roles/grant#access-to-sa) `{{ roles-monitoring-viewer }}` на выбранный каталог.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration) в секцию для сбора данных добавьте еще одну задачу (`job`):

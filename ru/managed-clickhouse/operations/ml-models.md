@@ -151,6 +151,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [create](../api-ref/MlModel/create) и передайте в запросе:
@@ -247,6 +249,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [update](../api-ref/MlModel/update.md) и передайте в запросе:
@@ -311,6 +315,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

@@ -63,7 +63,73 @@
         id: areqjd6un3afc3cefuio
         created_at: "2019-12-16T15:11:36.892167Z"
         ```
-       
+
+- Terraform
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы добавить пароль устройству, созданному с помощью Terraform:
+  
+  1. Опишите в конфигурационном файле параметры ресурса, которые необходимо создать:
+
+      * `yandex_iot_core_device` — параметры устройства:
+        * `registry_id` — [идентификатор реестра](../registry/registry-list.md#registry-list), в котором создано устройство.
+        * `name` — [имя устройства](../device/device-list.md#device-list).
+        * `description` — описание устройства.
+        * `passwords` — список паролей для авторизации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
+
+      Пример структуры ресурса в конфигурационном файле:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<идентификатор_реестра>"
+        name        = "<имя_устройства>"
+        description = "test device for terraform provider documentation"
+      ...
+        passwords = [
+          "<пароль>",
+        ]
+      ...
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить пароли устройства можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```bash
+      yc iot device password list --device-name <имя_устройства>
+      ```
+
 {% endlist %}
 
 ### Задать пароль устройству при создании {#create}
@@ -108,7 +174,11 @@
         created_at: "2019-12-16T15:18:39.358922Z"
         name: device-with-pass
         ```
-       
+
+- Terraform
+
+   Как задать пароль устройству при создании, читайте в разделе [{#T}](../device/device-create.md).
+
 {% endlist %}  
 
 ## Получить список паролей устройства {#list}
@@ -222,5 +292,65 @@
         +----+------------+
         +----+------------+
         ```
-       
-{% endlist %}       
+
+- Terraform
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить пароль устройства, созданного с помощью Terraform:
+  
+  1. Откройте файл конфигурации Terraform и удалите значение нужного пароля в блоке `passwords`, во фрагменте с описанием устройства. Чтобы удалить все пароли, удалите блок `passwords` целиком.
+
+      Пример описания устройства в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_iot_core_device" "my_device" {
+        registry_id = "<идентификатор_реестра>"
+        name        = "<имя_устройства>"
+        description = "test device for terraform provider documentation"
+      ...
+        passwords = [
+          "<пароль>",
+        ]
+      ...  
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить пароли устройства можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```bash
+      yc iot device password list --device-name <имя_устройства>
+      ```
+
+{% endlist %}

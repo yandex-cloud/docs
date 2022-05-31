@@ -161,5 +161,5 @@ The **Data sources** section displays information on the sources used in a chart
 * Source name.
 * Link to source.
 * Request body in JSON format.
-* SQL query text sent to source (if information supplied by source).
+* SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
 

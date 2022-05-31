@@ -29,7 +29,7 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
    1. Under **Payload template**, choose one of the options:
 
       * **Without preset**: Custom data format.
-      * **HTTP call**: Data format for a function acting as an HTTP request handler . For more information, see [Concepts](../../concepts/function-invoke.md).
+      * **HTTPS call**: Data format for a function acting as an HTTPS request handler . For more information, see [Concepts](../../concepts/function-invoke.md).
       * **Trigger for {{message-queue-short-name}}**: Data format for the function invoked by a trigger in order to process messages from the queue.
       * **Alice's skill**: Data format for a function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from the Yandex.Dialogs platform.
 
@@ -56,7 +56,7 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
       yc serverless function get <function name>
       ```
 
-   For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invoke link in the browser address bar. Link format:
+   For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTPS request by inserting the function invoke link in the browser address bar. Link format:
 
    ```
    {{ sf-url }}/<function ID>
@@ -124,11 +124,11 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
 
 {% endlist %}
 
-For more information about the structure of functions called in different ways (HTTP or CLI), see [{#T}](../../concepts/function-invoke.md).
+For more information about the structure of functions called in different ways (HTTPS or CLI), see [{#T}](../../concepts/function-invoke.md).
 
-## Authentication when invoking a private function via HTTP {#auth}
+## Authentication when invoking a private function via HTTPS {#auth}
 
-To invoke a private function via HTTP, you must authenticate. To do this, get:
+To invoke a private function via HTTPS, you must authenticate. To do this, get:
 
 * The [IAM token](../../../iam/concepts/authorization/iam-token.md):
    * [Instructions](../../../iam/operations/iam-token/create.md) for a Yandex account.

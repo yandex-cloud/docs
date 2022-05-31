@@ -1,6 +1,6 @@
 # Конвертация видео в GIF на Python
 
-В этом сценарии вы создадите видеоконвертер с использованием утилиты [FFmpeg](https://ffmpeg.org/) и сервиса {{ message-queue-full-name }}.
+Вы создадите видеоконвертер с использованием утилиты [FFmpeg](https://ffmpeg.org/) и сервиса {{ message-queue-full-name }}.
 
 
 @[youtube](uyIMvEtr3cI)
@@ -33,7 +33,7 @@
 ## Подготовьте ресурсы {#create-resources}
 
 1. [Скачайте](https://storage.yandexcloud.net/doc-files/video-converting.zip) архив с файлами, необходимыми для создания видеоконвертера.
-1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт с именем `ffmpeg-sa` и [назначьте](../iam/operations/roles/grant.md) ему следующие роли:
+1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт с именем `ffmpeg-sa` и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему следующие роли:
 	* `ymq.reader`;
 	* `ymq.writer`;
 	* `lockbox.payloadViewer`;

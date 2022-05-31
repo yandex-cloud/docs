@@ -12,3 +12,4 @@ You can also change the size and color of the indicator:
 1. In the **Measure** section, click ![](../../../_assets/datalens/gear.svg).
 1. In the **Indicator settings** window, select the size and color and click **Apply**.
 
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#indicator).

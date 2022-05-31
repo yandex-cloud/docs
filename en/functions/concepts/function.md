@@ -2,7 +2,7 @@
 
 _The function_ lets you put your code in {{ yandex-cloud }} and run it on request or trigger.
 
-Once created, a function only contains its own metadata, including its name, description, and unique ID. To start using the function, you need to [create a function version](../operations/function/version-manage.md#version-create). You can execute functions using the HTTP API or CLI.
+Once created, a function only contains its own metadata, including its name, description, and unique ID. To start using the function, you need to [create a function version](../operations/function/version-manage.md#version-create). You can execute functions using the HTTPS API or CLI.
 
 Before writing your functions, review the [programming model](#programming-model).
 

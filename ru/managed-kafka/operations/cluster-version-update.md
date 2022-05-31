@@ -81,6 +81,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 * API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:

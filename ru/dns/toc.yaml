@@ -99,4 +99,6 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
+  - name: Вопросы и ответы
+    href: qa/index.md
 base: ru/dns

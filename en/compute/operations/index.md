@@ -91,6 +91,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 ## Managing images {#image-control}
 
+* [{#T}](image-control/get-list.md)
 * [{#T}](image-control/delete.md)
 
 ## File storage {#filesystem}

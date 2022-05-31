@@ -189,7 +189,7 @@
 
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+     1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mmy }}).
 
@@ -201,7 +201,7 @@
 
      {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
-     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+     {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

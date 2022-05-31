@@ -1,19 +1,20 @@
 # Мониторинг состояния кластера и хостов
 
-Вы можете отслеживать состояние кластера {{ mgp-name }} и отдельных его хостов с помощью инструментов мониторинга в консоли управления. Эти инструменты предоставляют диагностическую информацию в виде графиков.
-
-{% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 Новые данные для графиков поступают каждые {{ graph-update }}.
 
-{% include [Автоматический выбор размерности величин](../../_includes/mdb/note-monitoring-auto-units.md) %}
+{% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
 ## Мониторинг состояния кластера {#monitoring-cluster}
 
 Для просмотра детальной информации о состоянии кластера {{ mgp-name }}:
 
 1. Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
+
 1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
+
+1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 На странице отображаются следующие графики:
 

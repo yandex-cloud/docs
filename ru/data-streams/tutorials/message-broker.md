@@ -4,7 +4,7 @@
 
 Использование шин потоков данных для обмена информацией между компонентами упрощает разработку микросервисной архитектуры, позволяет увеличить надежность и улучшить масштабирование.
 
-![data-microservices](../../_assets/data-streams/data-microservices.png)
+![data-microservices](../../_assets/data-streams/data-microservices.svg)
 
 ## Преимущества {#advantages}
 

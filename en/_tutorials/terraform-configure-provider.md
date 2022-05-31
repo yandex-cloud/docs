@@ -5,26 +5,6 @@ The settings apply to Terraform `0.13` and higher.
 {% endnote %}
 
 
-1. Specify the provider settings. At the beginning of the configuration file, add the following section:
-
-   ```hcl
-   terraform {
-     required_providers {
-      yandex = {
-        source  = "yandex-cloud/yandex"
-      }
-    }
-    required_version = ">= 0.13"
-   }
-
-   provider "yandex" {
-     token     = "<OAuth>"
-     cloud_id  = "<cloud ID>"
-     folder_id = "<folder ID>"
-     zone      = "<default availability zone>"
-   }
-   ```
-
 1. Specify the source the provider will be installed from.
 
    {% list tabs %}
@@ -39,12 +19,11 @@ The settings apply to Terraform `0.13` and higher.
 
    - Windows
 
-      Open the Terraform CLI `terraform.rc` configuration file located in the `%APPDATA%` folder of your user.
+      Open the Terraform CLI `terraform.rc` configuration file located in your user's `%APPDATA%` folder.
 
    {% endlist %}
 
-   Add the following section to it:
-
+   Add the following section to the file:
 
    ```
    provider_installation {
@@ -60,7 +39,7 @@ The settings apply to Terraform `0.13` and higher.
 
    For more information on setting up mirrors, see the [documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
-   At the beginning of the configuration file, add the following sections:
+1. Add the following sections at the top of the `.tf` configuration file:
 
    ```hcl
    terraform {
@@ -88,13 +67,13 @@ The settings apply to Terraform `0.13` and higher.
    * `folder_id`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where resources will be created by default.
    * `zone`: [The availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 
-   If you previously had a provider from the Hashicorp registry configured, delete its settings:
+1. If you previously had a provider from the Hashicorp registry configured, delete its settings:
 
    ```
    rm -rf .terraform*
    ```
 
-1. Execute the command `terraform init` in the folder with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
+1. Execute the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
 
 If the provider installation failed, create a request to [support](https://console.cloud.yandex.com/support?section=contact) mentioning the name and version of the provider.
 

@@ -41,3 +41,4 @@ You can also:
 * Reorder the layers within a layer type.
 * Apply a filter to the whole chart or one layer.
 
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#map-chart).

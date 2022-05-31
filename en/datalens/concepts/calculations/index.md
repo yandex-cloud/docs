@@ -4,7 +4,7 @@ A calculated field is an additional [data field](../dataset/index.md#field) with
 You can use calculated fields to create new dimensions and measures.
 The data source remains unchanged.
 
-To write formulas, you can use existing dataset fields, constants, and [functions](#functions).
+To write formulas, you can use existing dataset fields, [parameters](../parameters.md), constants, and [functions](#functions).
 
 You can [create](#how-to-create-calculated-field) calculated fields in the dataset or wizard interface:
 
@@ -15,7 +15,7 @@ You can [create](#how-to-create-calculated-field) calculated fields in the datas
 
 You can add new fields to a dataset field list.
 
-When creating a formula, you can use any dataset field, including the calculated fields that you created earlier.
+When creating a formula, you can use any dataset field, including the calculated fields that you created earlier. In a formula, you can also use parameters created at the dataset level.
 
 After creating a calculated field and saving the dataset, the field becomes available to all the charts and [dashboard selectors](../dashboard.md#selector) based on that dataset.
 To hide fields in the wizard, enable the **Don't display** option when creating them.
@@ -29,7 +29,7 @@ You can add new fields when creating and editing charts in the wizard:
 * In the list of fields from a dataset.
 * In the visualization section.
 
-When creating a formula, you can use any dataset field, including the calculated fields that you created earlier.
+When creating a formula, you can use any dataset field, including the calculated fields that you created earlier. In a formula, you can also use the parameters of the chart or dataset based on which the chart is created.
 
 If a field is created in a chart, it isn't available to dashboard selectors and other charts.
 

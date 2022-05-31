@@ -29,6 +29,7 @@
 - [{#T}](dataset/materialize.md)
 - [{#T}](dataset/manage-access.md)
 - [{#T}](dataset/manage-row-level-security.md)
+- [{#T}](dataset/add-parameter-dataset.md)
 
 ## Creating and configuring charts {#creating-and-configuring-charts}
 
@@ -51,6 +52,7 @@
 - [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md)
 - [{#T}](chart/add-guid.md)
+- [{#T}](chart/add-parameter-chart.md)
 
 ## Working with dashboards {#working-with-dashboards}
 

@@ -60,7 +60,72 @@
         id: areuu2hgsv6klgbd4e6d
         created_at: "2019-12-16T15:32:46.655139Z"
         ```
-       
+
+- Terraform
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы добавить пароль реестру, созданному с помощью Terraform:
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      * `yandex_iot_core_registry` — параметры реестра:
+        * `name` — имя реестра.
+        * `description` — описание реестра.
+        * `passwords` — список паролей реестра для авторизации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
+
+      Пример структуры ресурса в конфигурационном файле:
+
+      ```hcl
+      resource "yandex_iot_core_registry" "my_registry" {
+        name        = "test-registry"
+        description = "test registry for terraform provider documentation"
+      ...
+        passwords = [
+          "<пароль_1>",
+          "<пароль_2>"
+        ]
+      ...
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_registry` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_registry).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить пароли реестра можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```bash
+      yc iot registry password list --registry-name <имя_реестра>
+      ```
+
 {% endlist %}
 
 ### Задать пароль реестру при создании {#create}
@@ -93,7 +158,11 @@
     status: ACTIVE
     log_group_id: ckghhil3b5o9t4pf1nvg
     ```
-       
+
+- Terraform
+
+   Как задать пароль реестру при создании, читайте в разделе [{#T}](../registry/registry-create.md).
+
 {% endlist %}  
 
 ## Получить список паролей реестра {#list}
@@ -201,5 +270,65 @@
         +----+------------+
         +----+------------+
         ```
-       
+
+- Terraform
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить пароль реестра, созданного с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и удалите значение пароля в блоке `passwords`, во фрагменте с описанием реестра. Чтобы удалить все пароли, удалите блок `passwords` целиком.
+
+      Пример описания реестра в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_iot_core_registry" "my_registry" {
+        name        = "test-registry"
+        description = "test registry for terraform provider documentation"
+      ...
+        passwords = [
+          "<пароль_1>",
+          "<пароль_2>"
+        ]
+      ...
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_registry` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_registry).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить пароли реестра можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```bash
+      yc iot registry password list --registry-name <имя_реестра>
+      ```
+
 {% endlist %}       

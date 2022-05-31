@@ -121,7 +121,7 @@ description: "Из статьи вы узнаете, как добавлять �
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 {% endlist %}
 
@@ -188,7 +188,7 @@ description: "Из статьи вы узнаете, как добавлять �
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 {% endlist %}
 
@@ -306,7 +306,7 @@ description: "Из статьи вы узнаете, как добавлять �
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 {% endlist %}
 
@@ -353,7 +353,7 @@ description: "Из статьи вы узнаете, как добавлять �
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 {% endlist %}
 

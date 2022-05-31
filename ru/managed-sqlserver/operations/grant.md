@@ -96,6 +96,8 @@ description: "Атомарные полномочия в SQL Server называ
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/User/update.md) и передайте в запросе:

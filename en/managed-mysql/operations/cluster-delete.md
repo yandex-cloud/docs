@@ -39,6 +39,8 @@ description: "After deleting a MySQL database cluster, its backups are preserved
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+
 - API
 
   Use the [delete](../api-ref/Cluster/delete.md) API method and pass the cluster ID in the `clusterId` request parameter.
