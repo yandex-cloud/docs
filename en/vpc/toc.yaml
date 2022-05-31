@@ -86,6 +86,10 @@ items:
         href: concepts/limits.md
   - name: DDoS Protection
     href: ddos-protection/index.md
+  - name: Recommendations
+    items:
+      - name: Using public IP addresses
+        href: best-practices/public-ip-recommendations.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
