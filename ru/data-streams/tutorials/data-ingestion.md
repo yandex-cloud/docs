@@ -10,7 +10,7 @@
 * сохраняет принятые данные у себя;
 * формирует пакеты данных и отправляет их в принимающие системы , снижая нагрузку на них.
 
-![data-ingestion](../../_assets/data-streams/data-ingestion.png)
+![data-ingestion](../../_assets/data-streams/data-ingestion.svg)
 
 ## Преимущества {#advantages}
 
