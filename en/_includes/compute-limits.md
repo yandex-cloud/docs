@@ -75,7 +75,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
 
 Type of limit | Value
 --- | ---
-Total number of non-replicated SSDs per placement group | 5
+Total number of non-replicated SSDs per placement group | 8
 Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 10,000
 Maximum^4^ IOPS per VM | 100,000
 Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s
