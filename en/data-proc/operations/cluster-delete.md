@@ -24,4 +24,8 @@ You can delete a cluster along with all the data stored in it. Note that data ba
 
    {{ dataproc-name }} runs the delete cluster operation.
 
+- Terraform
+
+   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+
 {% endlist %}

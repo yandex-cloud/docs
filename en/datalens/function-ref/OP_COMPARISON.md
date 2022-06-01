@@ -44,6 +44,13 @@ Compares the value `value_1` with the value `value_2`.
 
 **Return type**: `Boolean`
 
+{% note info %}
+
+Due to implementation details of the `Fractional number` type in `ClickHouse` sources it is recommended to use the [COMPARE](COMPARE.md) function instead of comparison operators for this type.
+
+{% endnote %}
+
+
 #### Examples {#examples}
 
 ```

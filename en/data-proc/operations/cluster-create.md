@@ -211,7 +211,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
       }
       ```
 
-   1. Create a configuration file with a description of the [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the cluster as well as a description of the [status key](../../iam/concepts/authorization/access-key.md) and the [{{ objstorage-full-name }}bucket](../../storage/concepts/bucket.md) to store jobs and output.
+   1. Create a configuration file with a description of the [service account](../../iam/concepts/users/service-accounts.md) to be granted access to the cluster as well as a description of the [static key](../../iam/concepts/authorization/access-key.md) and [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) to store jobs and output.
 
       ```hcl
       resource "yandex_iam_service_account" "<name of service account in {{ TF }}>" {

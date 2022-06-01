@@ -423,7 +423,7 @@
 * `http://<публичный IP-адрес виртуальной машины>`.
 * `http://www.example.com`.
 
-## Установите SSL-сертификат c помощью Let’s Encrypt <sup>®</sup> {#setting-ssl}
+## Установите SSL-сертификат c помощью Let’s Encrypt® {#setting-ssl}
 
 Для установки сертификата используйте [Let’s Encrypt](https://letsencrypt.org/). Let’s Encrypt — это центр сертификации, предоставляющий бесплатные [SSL-сертификаты](https://ru.wikipedia.org/wiki/SSL ).
 

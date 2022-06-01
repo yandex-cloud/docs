@@ -71,17 +71,17 @@ description: "Вы можете создавать резервные копии
   1. Запросите создание кластера из резервной копии:
   
         
-      ```
-      $ {{ yc-mdb-my }} cluster restore \
-             --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
-             --time 2020-08-10T12:00:10Z \
-             --name=mynewmy \
-             --environment=PRODUCTION \
-             --network-name {{ network-name }} \
-             --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
-             --disk-size 20 \
-             --disk-type {{ disk-type-example }} \
-             --resource-preset {{ host-class }}
+      ```bash
+      {{ yc-mdb-my }} cluster restore \
+         --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
+         --time 2020-08-10T12:00:10Z \
+         --name=mynewmy \
+         --environment=PRODUCTION \
+         --network-name {{ network-name }} \
+         --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+         --disk-size 20 \
+         --disk-type {{ disk-type-example }} \
+         --resource-preset {{ host-class }}
       ```
      
       В параметре `--time` укажите момент времени, на который нужно восстановить состояние {{ MY }}-кластера, в формате `yyyy-mm-ddThh:mm:ssZ`.

@@ -19,30 +19,30 @@ A random replica host is used to create a backup. If there is no cluster host da
 
 - Management console
 
-  1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
 
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  1. Click **Create backup**.
+   1. Click **Create backup**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a cluster backup:
+   To create a cluster backup:
 
-  1. View a description of the CLI create {{ CH }} backup command:
-
-      ```
-      $ {{ yc-mdb-ch }} cluster backup --help
-      ```
-
-  1. Request the creation of a backup specifying the cluster name or ID:
+   1. View a description of the CLI create {{ CH }} backup command:
 
       ```
-      $ {{ yc-mdb-ch }} cluster backup my-ch-cluster
+      {{ yc-mdb-ch }} cluster backup --help
+      ```
+
+   1. Request the creation of a backup specifying the cluster name or ID:
+
+      ```
+      {{ yc-mdb-ch }} cluster backup my-ch-cluster
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -61,42 +61,42 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
-  To restore an existing cluster from a backup:
-  1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
-  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-  1. Click **Restore cluster**.
+   To restore an existing cluster from a backup:
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Click **Restore cluster**.
 
-  To restore a previously deleted cluster from a backup:
-  1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click the **Backups** tab.
-  1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
-  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-  1. Click **Restore cluster**.
+   To restore a previously deleted cluster from a backup:
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Click **Restore cluster**.
 
-  {{ mch-name }} launches the operation to create a cluster from the backup.
+   {{ mch-name }} launches the operation to create a cluster from the backup.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To restore a cluster from a backup:
+   To restore a cluster from a backup:
 
-  1. View a description of the CLI restore {{ CH }} cluster command:
-
-      ```
-      $ {{ yc-mdb-ch }} cluster restore --help
-      ```
-
-  1. Getting a list of available {{ CH }} cluster backups:
+   1. View a description of the CLI restore {{ CH }} cluster command:
 
       ```
-      $ {{ yc-mdb-ch }} backup list
-      
+      {{ yc-mdb-ch }} cluster restore --help
+      ```
+
+   1. Getting a list of available {{ CH }} cluster backups:
+
+      ```
+      {{ yc-mdb-ch }} backup list
+
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -105,30 +105,30 @@ For a new cluster, you should set all the parameters that are required at creati
       +--------------------------+----------------------+----------------------+----------------------+
       ```
 
-  1. Request the creation of a cluster from a backup:
+   1. Request the creation of a cluster from a backup:
 
       
       ```
-      $ {{ yc-mdb-ch }} cluster restore \
-             --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
-             --name mynewch \
-             --environment=PRODUCTION \
-             --network-name {{ network-name }} \
-             --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
-             --clickhouse-disk-size 20 \
-             --clickhouse-disk-type network-ssd \
-             --clickhouse-resource-preset {{ host-class }}
+      {{ yc-mdb-ch }} cluster restore \
+        --backup-id c9q22suuefrmrp2lrv9f:20181109T101204 \
+        --name mynewch \
+        --environment=PRODUCTION \
+        --network-name {{ network-name }} \
+        --host type=clickhouse,zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+        --clickhouse-disk-size 20 \
+        --clickhouse-disk-type network-ssd \
+        --clickhouse-resource-preset {{ host-class }}
       ```
 
       This results in a new {{ CH }} cluster with the following characteristics:
 
       
-      - Named `mynewch`.
-      - In the `PRODUCTION` environment.
-      - In the `{{ network-name }}` network.
-      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
-      - With the databases and users from the backup.
-      - With 20 GB of SSD network storage (`network-ssd`).
+      * Name `mynewch`.
+      * Environment `PRODUCTION`.
+      * Network `{{ network-name }}`.
+      * With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet and `{{ zone-id }}` availability zone.
+      * With the database and users from the backup.
+      * With 20 GB of SSD network storage (`network-ssd`).
 
 {% endlist %}
 
@@ -138,32 +138,32 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
-  To get a list of cluster backups:
-  1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   To get a list of cluster backups:
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  To get a list of all backups in a folder:
-  1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click the **Backups** tab.
+   To get a list of all backups in a folder:
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ CH }} cluster backups available in the default folder, run the command:
+   To get a list of {{ CH }} cluster backups available in the default folder, run the command:
 
-  ```
-  $ {{ yc-mdb-ch }} backup list
-  
-  +----------+----------------------+----------------------+----------------------+
-  |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
-  +----------+----------------------+----------------------+----------------------+
-  | c9qv4... | 2018-10-31T22:01:07Z | c9qv4ql6bd4hfo1cgc3o | 2018-10-31T22:01:03Z |
-  | c9qpm... | 2018-10-31T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2018-10-31T22:01:04Z |
-  +----------+----------------------+----------------------+----------------------+
-  ```
+   ```
+   {{ yc-mdb-ch }} backup list
+
+   +----------+----------------------+----------------------+----------------------+
+   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+   +----------+----------------------+----------------------+----------------------+
+   | c9qv4... | 2018-10-31T22:01:07Z | c9qv4ql6bd4hfo1cgc3o | 2018-10-31T22:01:03Z |
+   | c9qpm... | 2018-10-31T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2018-10-31T22:01:04Z |
+   +----------+----------------------+----------------------+----------------------+
+   ```
 
 {% endlist %}
 
@@ -174,27 +174,27 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
-  To get information about the backup of an existing cluster:
-  1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   To get information about the backup of an existing cluster:
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  To get information about the backup of a previously deleted cluster:
-  1. Go to the folder page and select **{{ mch-name }}**.
-  1. Click the **Backups** tab.
+   To get information about the backup of a previously deleted cluster:
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ CH }} cluster backup, run the command:
+   To get information about a {{ CH }} cluster backup, run the command:
 
-  ```bash
-  {{ yc-mdb-ch }} backup get <backup ID>
-  ```
+   ```bash
+   {{ yc-mdb-ch }} backup get <backup ID>
+   ```
 
-  The backup ID can be retrieved with the [list of backups](#list-backups).
+   You can retrieve the backup ID with the [backup list](#list-backups).
 
 {% endlist %}
 
@@ -204,32 +204,32 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console
 
-  When [creating](cluster-create.md) or [updating](update.md#change-clickhouse-config) a cluster, you can set the backup start time under **Additional settings**.
+   You can set the backup start time in the [management console]({{ link-console-main }}) under **Additional settings** when [creating](cluster-create.md) or [updating](update.md#change-clickhouse-config) a cluster.
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is set in the format ``HH:MM:SS``.
+   To set the backup start time, use the `-- backup-window-`start flag. Time is given in ``HH:MM:SS`` format.
 
-  ```bash
-  {{ yc-mdb-ch }} cluster create \
-        --name <cluster name> \
-        --environment <prestable or production> \
-        --network-name <network name> \
-        --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
-        --resource-preset <host class> \
-        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
-        --clickhouse-disk-size <storage size in GB> \
-        --user name=<username>,password=<user password> \
-        --database name=<database name> \
-        --backup-window-start 10:00:00
-  ```
-
-  To change the backup start time in an existing cluster, use the `update` command:
-
-  ```bash
-  {{ yc-mdb-ch }} cluster update \
+   ```bash
+   {{ yc-mdb-ch }} cluster create \
      --name <cluster name> \
+     --environment <environment: prestable or production> \
+     --network-name <network name> \
+     --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
+     --resource-preset <host class> \
+     --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
+     --clickhouse-disk-size <storage size in GB> \
+     --user name=<username>,password=<user password> \
+     --database name=<DB name> \
+     --backup-window-start 10:00:00
+   ```
+
+   To change the backup start time in an existing cluster, use the `update` command:
+
+   ```bash
+   {{ yc-mdb-ch }} cluster update \
+    --name=<cluster name> \
      --backup-window-start 11:25:00
-  ```
+   ```
 
 {% endlist %}

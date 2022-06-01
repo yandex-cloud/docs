@@ -425,7 +425,7 @@ To check that the site is up, enter its IP address or domain name in your browse
 * `http://<virtual machine public IP address>`.
 * `http://www.example.com`.
 
-## Install the SSL certificate using Let's Encrypt <sup>®</sup> {#setting-ssl}
+## Install the SSL certificate using Let's Encrypt® {#setting-ssl}
 
 To install the certificate, use [Let’s Encrypt](https://letsencrypt.org/). Let's Encrypt is a certificate authority that offers free [SSL certificates]( https://wikipedia.org/wiki/SSL).
 

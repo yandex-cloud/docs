@@ -376,6 +376,17 @@ END`<br/>или<br/>`IF(
 
 
 
+## [COMPARE](COMPARE.md)
+
+**Синтаксис:**`COMPARE( left, right, epsilon )`
+
+Возвращает:
+* 0, если `left` и `right` отличаются не более чем на `epsilon`.
+* -1, если `left` меньше `right` более чем на `epsilon`.
+* 1, если `left` больше `right` более чем на `epsilon`.
+
+
+
 ## [CONCAT](CONCAT.md)
 
 **Синтаксис:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`

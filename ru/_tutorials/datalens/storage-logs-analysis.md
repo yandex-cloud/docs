@@ -21,6 +21,7 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость входят:
@@ -183,7 +184,7 @@
         --network-name <имя сети> \
         --host type=clickhouse,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
         --clickhouse-resource-preset b2.nano \
-        --clickhouse-disk-type network-hdd \
+        --clickhouse-disk-type {{ disk-type-example }} \
         --clickhouse-disk-size 10 \
         --user name=user,password=<пароль пользователя> \
         --database name=s3_data \
@@ -206,7 +207,7 @@
        clickhouse {
          resources {
            resource_preset_id = "b2.nano"
-           disk_type_id       = "network-hdd"
+           disk_type_id       = "{{ disk-type-example }}"
            disk_size          = 10
          }
        }
