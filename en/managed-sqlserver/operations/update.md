@@ -26,6 +26,68 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
    1. Select a new [host class](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
    1. Click **Save changes**.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change the [host class](../concepts/instance-types.md) for the cluster:
+
+   1. View a description of the CLI's update cluster command:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update --help
+      ```
+
+   1. Request a list of available host classes (the `ZONES IDS` column specifies the availability zones where you can select the appropriate class):
+
+      ```bash
+      {{ yc-mdb-ms }} resource-preset list
+      ```
+
+      {% if audience != "internal" %}
+
+      ```text
+      +---------------+--------------------------------+-------+----------+
+      |      ID       |            ZONE IDS            | CORES |  MEMORY  |
+      +---------------+--------------------------------+-------+----------+
+      | hm2.128xlarge | ru-central1-a, ru-central1-b,  |     8 | 128.0 GB |
+      |               | ru-central1-c                  |       |          |
+      | hm2.160xlarge | ru-central1-a, ru-central1-b,  |    10 | 160.0 GB |
+      |               | ru-central1-c                  |       |          |
+      | ...                                                               |
+      +---------------+--------------------------------+-------+----------+
+      ```
+
+      {% else %}
+
+      ```text
+      +------------+---------------+-------+----------+
+      |     ID     |   ZONE IDS    | CORES |  MEMORY  |
+      +------------+---------------+-------+----------+
+      | db1.nano   | man, sas, vla |     1 | 2.0 GB   |
+      | db1.micro  | man, sas, vla |     1 | 8.0 GB   |
+      | db1.small  | man, sas, vla |     2 | 16.0 GB  |
+      | db1.medium | man, sas, vla |     4 | 32.0 GB  |
+      | db1.large  | man, sas, vla |     8 | 64.0 GB  |
+      | db1.xlarge | man, sas, vla |    16 | 128.0 GB |
+      +------------+---------------+-------+----------+
+      ```
+
+      {% endif %}
+
+   1. Specify the class in the update cluster command:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update <cluster ID or name> \
+         --resource-preset=<host class>
+      ```
+
+      You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      {{ mms-short-name }} will run the update host class command for the cluster.
+
 - Terraform
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -74,9 +136,11 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 {% if audience != "internal" %}
 Check:
 
-* The desired cluster uses HDD network or SSD network storage. It's not possible to increase the size of local SSD storage or non-replicated SSD storage.
-* The cloud's quota is sufficient to increase storage size. Open your cloud's [Quotas]({{ link-console-quotas }}) page and make sure that under **Managed Databases**, there is space available in the **HDD storage capacity** or the **SSD storage capacity** lines.
+* The cluster in question uses HDD network or SSD network storage. It's not possible to increase the size of local SSD storage or non-replicated SSD storage.
+* The cloud has sufficient quota to increase storage size. Open your cloud's [Quotas]({{ link-console-quotas }}) page and make sure that under **Managed Databases**, there is space available in the **HDD storage capacity** or the **SSD storage capacity** lines.
    {% endif %}
+
+Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]({{link-console-quotas}}) page () for your cloud and check that the **Managed Databases** section still has space available in the **HDD storage capacity** or **SSD storage capacity** line.
 
 {% list tabs %}
 
@@ -88,6 +152,31 @@ Check:
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To increase the storage size for a cluster:
+
+   1. View a description of the CLI's update cluster command:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update --help
+      ```
+
+   1. Specify the desired storage size in the update cluster command:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update <cluster ID or name> \
+         --disk-size <storage size, GB>
+      ```
+
+      You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      If all these conditions are met, {{ mms-short-name }} launches the operation to increase storage space.
 
 - Terraform
 
@@ -141,6 +230,39 @@ Check:
    1. Under **DBMS settings**, click **Settings**.
    1. Edit the settings and click **Save**.
    1. Click **Save changes**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change {{ MS }} settings:
+
+   1. View the full list of settings specified for the cluster:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster get <cluster ID or name> --full
+      ```
+
+      You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+   1. View a description of the CLI's update cluster configuration command:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update-config --help
+      ```
+
+   1. Set the required parameter values:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update-config <cluster ID or name> \
+           --set <parameter1 name>=<value1>,...
+      ```
+
+      {{ mms-short-name }} runs the update cluster settings operation.
+
+      All the supported parameters are listed in the [description of settings for{{ MS }}](../concepts/settings-list.md).
 
 - Terraform
 
@@ -197,6 +319,38 @@ Check:
       {% include [extra-settings](../../_includes/mdb/mms/extra-settings.md) %}
 
    1. Click **Save changes**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change additional cluster settings:
+
+   1. View a description of the CLI's update cluster command:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update --help
+      ```
+
+   1. Run the command with a list of settings to update:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update <cluster ID or name> \
+         --backup-window-start=<backup start time> \
+         --deletion-protection=<cluster deletion protection: true or false>
+      ```
+
+      You can change the following settings:
+
+      {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
+
+      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
