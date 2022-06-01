@@ -4,9 +4,10 @@ You can add and remove cluster hosts and manage {{ CH }} settings for individual
 
 {% note warning %}
 
-If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [enable fault tolerance](./zk-hosts.md#add-zk) using {{ ZK }} hosts.
+If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [enable fault tolerance](./zk-hosts.md#add-zk) using hosts {{ ZK }}.
 
 {% endnote %}
+
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -14,79 +15,76 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 - Management console
 
-  1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
 
-  1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. Click on the name of the cluster you need and select the **Hosts** tab.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of hosts in the cluster, run the command:
+   To get a list of cluster hosts, run the command:
 
-  ```bash
-  {{ yc-mdb-ch }} host list \
-     --cluster-name=<cluster name>
-  ```
+   ```bash
+   {{ yc-mdb-ch }} host list\
+      --cluster-name <cluster name>
+   ```
 
-  
-  ```text
-  +----------------------------+--------------+---------+--------+---------------+
-  |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
-  +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
-  +----------------------------+--------------+---------+--------+---------------+
-  ```
+   
+   ```text
+   +----------------------------+--------------+---------+--------+---------------+
+   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
+   +----------------------------+--------------+---------+--------+---------------+
+   | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
+   | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
+   +----------------------------+--------------+---------+--------+---------------+
+   ```
 
-  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
-  To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
+   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
 
 {% endlist %}
 
+
 ## Adding a host {#add-host}
 
-The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mch-full-name }}** block.
-
-{% note info %}
-
-A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication support can consist of one or three hosts only and can't have new hosts added. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. This restriction is removed at the General Availability stage.
-
-{% endnote %}
+The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mch-full-name }}**.
 
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and click **{{ mch-name }}**.
-  1. Click on the name of the cluster you need and go to the **Hosts** tab.
-  1. Click **Add host**.
 
-  
-  1. Specify the host parameters:
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. Click on the name of the cluster you need and go to the **Hosts** tab.
+   1. Click **Add host**.
+
+   
+   1. Specify the host parameters:
+
       * Availability zone.
-      * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
+      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
       * Select the **Copy data schema** option to copy the schema from a random replica to the new host.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To add a host to the cluster:
+   To add a host to the cluster:
 
-  
-  1. Request a list of cluster subnets to select one for the new host:
+   
+   1. Request a list of cluster subnets to select one for the new host:
 
       ```bash
       yc vpc subnet list
-      
+
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -99,62 +97,62 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  1. View a description of the CLI command for adding a host:
+   1. View a description of the CLI command for adding a host:
 
-     ```bash
-     {{ yc-mdb-ch }} host add --help
-     ```
+      ```bash
+      {{ yc-mdb-ch }} host add --help
+      ```
 
-  1. Run the add host command:
+   1. Run the add host command:
 
-     
-     ```bash
-     {{ yc-mdb-ch }} host add \
+      
+      ```bash
+      {{ yc-mdb-ch }} host add \
         --cluster-name <cluster name> \
         --host zone-id=<availability zone>,subnet-id=<subnet ID>,assign-public-ip=<public IP>,shard-name=<shard name>
-     ```
+      ```
 
-     To copy the data schema from a random replica to the new host, set the `--copy-schema` optional parameter.
+      To copy the data schema from a random replica to the new host, set the `--copy-schema` optional parameter.
 
-     {{ mch-short-name }} will run the add host operation.
+      {{ mch-short-name }} will run the add host operation.
 
-     
-     The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      
+      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create such a file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-    1. Add a `host` block to the {{ mch-name }} cluster description.
+   1. Add a `host` block to the {{ mch-name }} cluster description.
 
-        ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+        ...
+        host {
+          type = "CLICKHOUSE"
+          zone = "<availability zone>"
           ...
-          host {
-            type = "CLICKHOUSE"
-            zone = "<availability zone>"
-            ...
-          }
         }
-        ```
+      }
+      ```
 
-    1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
-  To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
+   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
 
-  To copy the data schema from a random replica to the new host, pass the `copySchema` parameter set to `true` in the request.
+   To copy the data schema from a random replica to the new host, pass the `copySchema` parameter set to `true` in the request.
 
 {% endlist %}
 
@@ -180,48 +178,47 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
 - Management console
 
-  1. Go to the folder page and click **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
 
-  1. Click on the name of the cluster you want and select the **Hosts** tab.
+   1. Click on the name of the cluster you want and select the **Hosts** tab.
 
-  1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Delete**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To remove a host from the cluster, run:
+   To remove a host from the cluster, run:
 
-  ```
-  {{ yc-mdb-ch }} host delete <host name>
-       --cluster-name=<cluster name>
-  ```
+   ```
+   {{ yc-mdb-ch }} host delete <hostname>
+     --cluster-name=<cluster name>
+   ```
 
-  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create such a file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-    1. In the {{ mch-name }} cluster description, remove the `CLICKHOUSE` type `host` block.
+   1. In the {{ mch-name }} cluster description, remove the `CLICKHOUSE` type `host` block.
 
-    1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm the deletion of resources.
+   1. Confirm the deletion of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
-  To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
+   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
 
 {% endlist %}
-

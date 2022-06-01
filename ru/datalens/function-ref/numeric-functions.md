@@ -55,6 +55,17 @@ sourcePath: ru/_api-ref/datalens/function-ref/numeric-functions.md
 
 
 
+## [COMPARE](COMPARE.md)
+
+**Синтаксис:**`COMPARE( left, right, epsilon )`
+
+Возвращает:
+* 0, если `left` и `right` отличаются не более чем на `epsilon`.
+* -1, если `left` меньше `right` более чем на `epsilon`.
+* 1, если `left` больше `right` более чем на `epsilon`.
+
+
+
 ## [COS](COS.md)
 
 **Синтаксис:**`COS( number )`

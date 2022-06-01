@@ -8,25 +8,25 @@ You can change the {{ CH }} version used by the cluster to any of the [supported
 
 - Management console
 
-    You can view a list of available versions on the create and edit cluster screen in the management console:
+   You can view a list of available versions on the create and edit cluster screen in the [management console]({{ link-console-main }}):
 
-    ![ch-versions](../../_assets/mdb/clickhouse-version.png)
+   ![ch-versions](../../_assets/mdb/clickhouse-version.png)
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of available versions, run the command:
+   To get a list of available versions, run the command:
 
-    ```bash
-    yc managed-clickhouse version list
-    ```
+   ```bash
+   yc managed-clickhouse version list
+   ```
 
 - API
 
-    You can view a list of available versions using the [list](../api-ref/Versions/list.md) API method.
+   You can view a list of available versions using the [list](../api-ref/Versions/list.md) API method.
 
 {% endlist %}
 
@@ -43,85 +43,88 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 {% list tabs %}
 
 - Management console
-    1. Open the **{{ mch-name }}** page in the folder where you want to change the {{ CH }} version.
-    1. In the list of clusters, select the one to change.
-    1. Click **Edit cluster**.
-    1. In the **Version** field, select the version.
-    1. Click **Save changes**.
 
-    When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   1. In the [management console]({{ link-console-main }}), open the **{{ mch-name }}** page in the folder where you want to change the {{ CH }} version.
+   1. In the list of clusters, select the one to change.
+   1. Click **Edit cluster**.
+   1. In the **Version** field, select the version .
+   1. Click **Save changes**.
+
+   When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. Get a list of your {{ CH }} clusters:
+   1. Get a list of your {{ CH }} clusters:
 
-        ```bash
-        $ yc managed-clickhouse cluster list
-        +----------------------+---------------+---------------------+--------+---------+
-        |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
-        +----------------------+---------------+---------------------+--------+---------+
-        | c9q8p8j2gaih8iti42mh | clickhouse691 | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
-        +----------------------+---------------+---------------------+--------+---------+
-        ```
+      ```bash
+      yc managed-clickhouse cluster list
+      +----------------------+---------------+---------------------+--------+---------+
+      |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
+      +----------------------+---------------+---------------------+--------+---------+
+      | c9q8p8j2gaih8iti42mh | clickhouse691 | 2019-04-23 12:44:17 | ALIVE  | RUNNING |
+      +----------------------+---------------+---------------------+--------+---------+
+      ```
 
-    1. Get information about a cluster and check the {{ CH }} version in your cluster in the `config.version` parameter:
+   1. Get information about a cluster and check the {{ CH }} version in your cluster in the `config.version` parameter:
 
-        ```bash
-        $ yc managed-clickhouse cluster get c9q8p8j2gaih8iti42mh
-        id: c9q8p8j2gaih8iti42mh
-        folder_id: b1gqs1teo2q2a4vnmi2t
-        created_at: "2019-04-23T12:44:17.929853Z"
-        name: clickhouse691
-        environment: PRODUCTION
-        monitoring:
-        - name: Console
-            description: Console charts
-            link: https://console.cloud.yandex.com/folders/b1gqs1teo2q2a4vnmi2t/managed-clickhouse/cluster/c9q8p8j2gaih8iti42mh?section=monitoring
-        config:
-            version: "19.1"
-            ...
-        ```
+      ```bash
+      yc managed-clickhouse cluster get c9q8p8j2gaih8iti42mh
 
-    1. Execute the version change {{ CH }}:
+      id: c9q8p8j2gaih8iti42mh
+      folder_id: b1gqs1teo2q2a4vnmi2t
+      created_at: "2019-04-23T12:44:17.929853Z"
+      name: clickhouse691
+      environment: PRODUCTION
+      monitoring:
+      - name: Console
+          description: Console charts
+          link: https://console.cloud.yandex.ru/folders/b1gqs1teo2q2a4vnmi2t/managed-clickhouse/cluster/c9q8p8j2gaih8iti42mh?section=monitoring
+      config:
+          version: "19.1"
+          ...
+      ```
 
-        ```bash
-        $ yc managed-clickhouse cluster update --id c9q8p8j2gaih8iti42mh --version 19.4
-        ```
+   1. Execute the version change {{ CH }}:
 
-    When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+      ```bash
+      yc managed-clickhouse cluster update
+        --id c9q8p8j2gaih8iti42mh
+        --version 19.4
+      ```
+
+   When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - Terraform
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-        For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-    1. To the {{ mch-name }} cluster description, add the `version` field or change its value if it's already there:
+   1. To the {{ mch-name }} cluster description, add the `version` field or change its value if it's already there:
 
-        ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
-          ...
-          version = "<ClickHouse version>"
-        }
-        ```
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+        ...
+        version = "<ClickHouse version>"
+      }
+      ```
 
-    1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
 - API
 
-    You can change the {{ CH }} version for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate value in the `configSpec.clickhouse.config.version` request parameter.
+   Use the API [update](../api-ref/Cluster/update.md) method and pass the required value in the `configSpec.clickhouse.config.version` request parameter.
 
 {% endlist %}
-

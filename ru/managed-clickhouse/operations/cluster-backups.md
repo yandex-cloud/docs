@@ -149,7 +149,7 @@ description: "Вы можете создавать резервные копии
       * `--disk-size` — объем хранилища в гигабайтах.
       * `--disk-type` — [тип хранилища](../concepts/storage.md):
 
-          * `network-hdd`;
+                    * `network-hdd`;
           * `network-ssd`;
           * `local-ssd`;
           * `network-ssd-nonreplicated`.

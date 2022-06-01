@@ -1,9 +1,9 @@
-# Database management
+# Managing databases
 
 {{ mch-name }} lets you manage cluster databases two ways:
 
-- Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
-- SQL queries to the cluster. Select this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
+* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
+* SQL queries to the cluster. Select this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
 
 ## Managing databases via SQL {#sql-database-management}
 
@@ -11,10 +11,10 @@ To enable management, select **User management via SQL** and **Database manageme
 
 In a cluster with DB management via SQL enabled:
 
-- Database and [user](./cluster-users.md#sql-user-management) management via the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
-- You cannot enable user or database management via the standard {{ yandex-cloud }} interfaces.
-- The existing users as well as user and database settings made with the standard {{ yandex-cloud }} interfaces will be saved.
-- Users are managed under the `admin` account. You set its password when you select the **User management via SQL** and the **Database management via SQL** options.
+* Database and [user](./cluster-users.md#sql-user-management) management via the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
+* You cannot enable user or database management via the standard {{ yandex-cloud }} interfaces.
+* The existing users as well as user and database settings made with the standard {{ yandex-cloud }} interfaces will be saved.
+* Users are managed under the `admin` account. You set its password when you select the **User management via SQL** and the **Database management via SQL** options.
 
 ## Getting a list of cluster databases {#list-db}
 
@@ -22,7 +22,7 @@ In a cluster with DB management via SQL enabled:
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Databases** tab.
 
 
@@ -35,8 +35,8 @@ In a cluster with DB management via SQL enabled:
    To get a list of databases in a cluster, run the command:
 
    ```
-   $ {{ yc-mdb-ch }} database list
-        --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} database list
+     --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -59,14 +59,14 @@ In a cluster with DB management via SQL enabled:
 
 ## Creating a database {#add-db}
 
-The number of databases in a cluster is unlimited.
+There are no limits to the number of databases in a cluster.
 
 {% list tabs %}
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
-   1. Click on the name of the cluster you need.&#x0D;
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. Click on the name of the desired cluster.
    1. Select the **Databases** tab.
    1. Click **Add**.
    1. Enter the database name and click **Add**.
@@ -82,8 +82,8 @@ The number of databases in a cluster is unlimited.
    Run the create database command and set the name of the new database:
 
    ```
-   $ {{ yc-mdb-ch }} database create <database name> \
-       --cluster-name <cluster name>
+   {{ yc-mdb-ch }} database create <database name> \
+     --cluster-name <cluster name>
    ```
 
    {{ mch-short-name }} runs the create database operation.
@@ -146,9 +146,9 @@ The number of databases in a cluster is unlimited.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Databases** tab.
-   1. Click the ![image](../../_assets/vertical-ellipsis.svg) icon in the same row as the desired DB and select **Delete**.
+   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired DB and select **Delete**.
 
 - CLI
 
@@ -159,8 +159,8 @@ The number of databases in a cluster is unlimited.
    To delete a database, run the command:
 
    ```
-   $ {{ yc-mdb-ch }} database delete <database name>
-        --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} database delete <database name>
+     --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -202,6 +202,6 @@ The number of databases in a cluster is unlimited.
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}

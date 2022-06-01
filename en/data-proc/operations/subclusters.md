@@ -58,6 +58,45 @@ To add a subcluster:
 
    {{ dataproc-name }} runs the create subcluster operation.
 
+- Terraform
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. In the {{ dataproc-name }} cluster description, add a `subcluster_spec` section containing the settings for the new subcluster:
+
+      ```hcl
+      resource "yandex_dataproc_cluster" "< cluster name>" {
+        ...
+        cluster_config {
+          ...
+          subcluster_spec {
+            name = "<subcluster name>"
+            role = "<subcluster type: COMPUTENODE or DATANODE>"
+            resources {
+              resource_preset_id = "<host class>"
+              disk_type_id       = "<storage type>"
+              disk_size          = <storage size, GB>
+            }
+            subnet_id   = "<subnet ID in {{ TF }}>"
+            hosts_count = <number of hosts in subcluster>
+            ...
+          }
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+
 {% endlist %}
 
 ## Deleting a subcluster {#remove-host}
@@ -82,5 +121,23 @@ You can't delete `DATANODE` subclusters
    1. Confirm the deletion.
 
    {{ dataproc-name }} runs the delete subcluster operation.
+
+- Terraform
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. In the {{ dataproc-name }} cluster description, delete the `subcluster_spec` section for the desired subcluster.
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the deletion of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/dataproc_cluster).
 
 {% endlist %}

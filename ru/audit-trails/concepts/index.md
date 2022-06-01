@@ -20,15 +20,22 @@ description: 'Yandex Audit Trails позволяет собирать аудит
 Сервисы {{ yandex-cloud }}, аудитные логи которых собирает {{ at-name }}:
 
 * {{ at-full-name }}
+* {{ certificate-manager-full-name }}
 * {{ cloud-logging-full-name }}
 * {{ compute-full-name }}
-* {{ ydb-full-name }}
 * {{ iam-full-name }}
 * {{ kms-full-name }}
-* {{ lockbox-name }}
+* {{ lockbox-full-name }}
+* {{ mch-full-name }}
+* {{ mmg-full-name }}
+* {{ mmy-full-name }}
+* {{ mpg-full-name }}
+* {{ mrd-full-name }}
 * {{ network-load-balancer-full-name }}
 * {{ objstorage-full-name }}
+* {{ resmgr-full-name }}
 * {{ vpc-full-name }}
+* {{ ydb-full-name }}
 
 Логируются следующие события:
 
