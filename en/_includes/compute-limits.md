@@ -61,7 +61,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
   --- | ---
   Maximum number of vCPUs per VM | 96
   Maximum virtual memory per VM | 640 GB
-  Maximum number of disks and file stores attached to a single VM^2^ | Less than 32 vCPUs: 8<br>From 32 vCPUs: 16^3^
+  Maximum number of disks and file stores attached to a single VM^2^ | Less then or equal to 32 vCPUs: 8<br>From 32 vCPUs: 16^3^
   Maximum number of security groups per interface | 5
   Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5
 
