@@ -51,7 +51,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. To change the class of {{ CH }} hosts, under **Host class**, select the required class.
    1. To change the class of {{ ZK }} hosts:
 
@@ -182,7 +182,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size:
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
 
@@ -207,7 +207,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
        --clickhouse-disk-size <storage size in GB>
       ```
 
-   1. To {% if audience != "internal" %}increase{% else %}modify{% endif %} the storage capacity of {{ ZK }} hosts, pass the desired value in the `--zookeeper-disk-size` parameter.
+   1. To {% if audience != "internal" %}increase{% else %}modify{% endif %} the storage capacity of {{ ZK }} hosts, pass the desired value in in the `--zookeeper-disk-size` parameter.
 
 - Terraform
 
@@ -275,7 +275,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 - Management console
 
    1. Go to the folder page and select **{{ mch-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. To [manage users via SQL](./cluster-users.md#sql-user-management), enable the **User management via SQL** setting and specify the password of the `admin` user.
    1. To [manage databases via SQL](./databases.md#sql-database-management), enable the **User management via SQL** and **Database management via SQL** settings and specify the password of the `admin` user.
    1. Click **Save changes**.
@@ -347,7 +347,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change the [{{ CH }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**:
    1. Click **Save changes**.
 
@@ -375,7 +375,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config <cluster ID or name> \
-         --set <parameter1 name>=<value1>,...
+           --set <parameter1 name>=<value1>,...
       ```
 
       {{ mch-short-name }} runs the update cluster settings operation.
@@ -465,7 +465,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change additional cluster settings:
 
       {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
@@ -490,15 +490,15 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster ID or name> \
-        --backup-window-start <backup start time> \
-        --datalens-access=<true or false> \
-        --maintenance-window type=<maintenance type: anytime or weekly>,`
-                            `day=<day of the week for the weekly type>,`
-                            `hour=<hour of the day for the weekly type> \
-        --metrika-access=<true or false> \
-        --websql-access=<true or false> \
-        --deletion-protection=<cluster protection from deletion: true or false> \
-        --serverless-access=<true or false>
+         --backup-window-start <backup start time> \
+         --datalens-access=<true or false> \
+         --maintenance-window type=<maintenance type: anytime or weekly>,`
+                             `day=<day of week for weekly>,`
+                             `hour=<hour for weekly> \
+         --metrika-access=<true or false> \
+         --websql-access=<true or false> \
+         --deletion-protection=<protect cluster from deletion: true or false> \
+         --serverless-access=<true or false>
       ```
 
    You can change the following settings:
@@ -626,7 +626,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Network settings**, select security groups for cluster network traffic.
 
 - CLI

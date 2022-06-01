@@ -2,8 +2,8 @@
 
 {{ mch-name }} lets you manage users and their individual settings in two ways:
 
-- Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
-- SQL queries to the cluster. Select this method if you wish to use your existing solutions to create and manage users or if you are using [RBAC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Управление_доступом_на_основе_ролей){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Role-based_access_control){% endif %}.
+* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+* SQL queries to the cluster. Select this method if you wish to use your existing solutions to create and manage users or if you are using [RBAC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Управление_доступом_на_основе_ролей){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Role-based_access_control){% endif %}.
 
 ## Managing users via SQL {#sql-user-management}
 
@@ -11,14 +11,12 @@ To enable management, activate the **User management via SQL** option when [crea
 
 In a cluster with user management via SQL enabled:
 
-- User management via the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
-- You cannot activate user management via the standard {{ yandex-cloud }} interfaces.
-- The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
-- Users are managed under the `admin` account. You set its password when you select the **User management via SQL** option.
+* User management via the standard {{ yandex-cloud }} interfaces (CLI, API, management console) is unavailable.
+* You cannot activate user management via the standard {{ yandex-cloud }} interfaces.
+* The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
+* Users are managed under the `admin` account. You set its password when you select the **User management via SQL** option.
 
-{% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
-
-For more information about managing users using SQL, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/access-rights).
+For more information about managing users via SQL, see the [{{ CH }} documentation](https://clickhouse.tech/docs/ru/operations/access-rights).
 
 ## Getting a list of users {#list-users}
 
@@ -26,7 +24,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and then select the **Users** tab.
 
 - CLI
@@ -38,8 +36,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    To get a list of cluster users, run the command:
 
    ```
-   $ {{ yc-mdb-ch }} user list
-        --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} user list
+     --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -61,7 +59,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
    1. Click **Add**.
    1. Enter the database username and password.
@@ -69,14 +67,13 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
    1. Select one or more databases that the user should have access to:
-      1. Select the database from the **Database** drop-down list.
-      1. Click **Add** to the right of the drop-down list.
-      1. Repeat the previous two steps until all the required databases are selected.
-      1. To delete a database added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name in the **Rights** list.
+      1. Click ![image](../../_assets/plus-sign.svg) and select a database from the drop-down list.
+      1. Repeat the previous step until all the required databases are selected.
+      1. To delete a database added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name.
    1. Configure [additional settings](../concepts/settings-list.md) for the user:
       1. Set [quotas](../concepts/settings-list.md#quota-settings) in **Additional settings → Quotas**:
          1. To add a quota, click ![image](../../_assets/plus.svg) or the **+ Quotas** button. You can add multiple quotas that will be valid at the same time.
-         1. To delete a quota, click ![image](../../_assets/vertical-ellipsis.svg) to the right of the quota name and select **Delete**.
+         1. To delete a quota, click ![image](../../_assets/options.svg) to the right of the quota name and select **Delete**.
          1. To change a quota, set the required values of its settings.
       1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **Additional settings → Settings**.
    1. Click **Add**.
@@ -92,12 +89,12 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    To create a user in a cluster, run the command:
 
    ```
-   $ {{ yc-mdb-ch }} user create <username>
-        --cluster-name=<cluster name>
-        --password=<user password>
-        --permissions=<list of databases to grant the user access to>
-        --quota=<list if single-quota user settings>
-        --settings=<list of {{ CH }} user settings>
+   {{ yc-mdb-ch }} user create <username>
+      --cluster-name=<cluster name>
+      --password=<user password>
+      --permissions=<list of databases to grant the user access to>
+      --quota=<list if single-quota user settings>
+      --settings=<list of {{ CH }} user settings>
    ```
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
@@ -107,11 +104,11 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    To set multiple quotas, list them using the required number of `--quota` parameters in the command:
 
    ```
-   $ {{ yc-mdb-ch }} user create <username>
-       ...
-       --quota="<quota 0 settings>"
-       --quota="<quota 1 settings>"
-       ...
+   {{ yc-mdb-ch }} user create <username>
+     ...
+     --quota="<quota 0 settings>"
+     --quota="<quota 1 settings>"
+     ...
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -155,7 +152,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    1. Create a user:
 
       ```sql
-      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password>';
+      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password';
       ```
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
@@ -170,9 +167,9 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click the ![image](../../_assets/vertical-ellipsis.svg) icon and select **Change password**.
+   1. Click the ![image](../../_assets/options.svg) icon and select **Change password**.
    1. Set a new password and click **Edit**.
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -186,9 +183,9 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    To change the user's password, run the command:
 
    ```
-   $ {{ yc-mdb-ch }} user update <username>
-        --cluster-name=<cluster name>
-        --password=<new password>
+   {{ yc-mdb-ch }} user update <username>
+     --cluster-name=<cluster name>
+     --password=<new password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -257,7 +254,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    ```bash
    {{ yc-mdb-ch }} cluster update <cluster ID or name> \
-      --admin-password <new admin account password>
+    --admin-password <new admin account password>
    ```
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -328,18 +325,17 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Settings**.
+   1. Click ![image](../../_assets/options.svg) and select **Configure**.
    1. Set up user permissions to access certain databases:
       1. To grant access to the required databases:
-         1. Select the database from the **Database** drop-down list.
-         1. Click **Add** to the right of the drop-down list.
-         1. Repeat the previous two steps until all the required databases are selected.
-      1. To revoke access to a specific database, delete it from the **Rights** list by clicking ![image](../../_assets/cross.svg) to the right of the database name.
+         1. Click ![image](../../_assets/plus-sign.svg) and select a database from the drop-down list.
+         1. Repeat the previous step until all the required databases are selected.
+      1. To delete a database, click ![image](../../_assets/cross.svg) to the right of the database name.
    1. Set [quotas](../concepts/settings-list.md#quota-settings) for the user in **Additional settings → Quotas**:
-      1. To add a quota, click ![image](../../_assets/plus.svg) or the **+ Quotas** button. You can add multiple quotas that will be valid at the same time.
-      1. To delete a quota, click ![image](../../_assets/vertical-ellipsis.svg) to the right of the quota name and select **Delete**.
+      1. To add a quota, click **+ Quotas**. You can add multiple quotas that will be valid at the same time.
+      1. To delete a quota, click ![image](../../_assets/options.svg) to the right of the quota name and select **Delete**.
       1. To change a quota, set the required values of its settings.
    1. Edit the user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) under **Advanced settings → Settings**.
    1. Click **Save**.
@@ -354,9 +350,9 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
 
       ```
-      $ {{ yc-mdb-ch }} user update <username>
-           --cluster-name=<cluster name>
-           --permissions=<list of databases to grant a user access to>
+      {{ yc-mdb-ch }} user update <username>
+         --cluster-name=<cluster name>
+        --permissions=<list of databases to grant a user access to>
       ```
 
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -368,15 +364,15 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    1. To change the user's [quota settings](../concepts/settings-list.md#quota-settings), run the command with a list of all quotas, using `--quota` parameters (one parameter per quota):
 
       ```
-      $ {{ yc-mdb-ch }} user update <username>
-           --cluster-name=<cluster name>
-           --quota=<quota 0 settings (no change)>
-           --quota=<quota 1 settings (no change)>
-           --quota=<quota 2 settings (changes)>
-           --quota=<quota 3 settings (no change)>
-           --quota=<quota 4 settings (changes)>
-           --quota=<quota 5 settings (new quota)>       
-          ...
+      {{ yc-mdb-ch }} user update <username>
+        --cluster-name=<cluster name>
+        --quota=<quota 0 settings (no change)>
+         --quota=<quota 1 settings (no change)>
+        --quota=<quota 2 settings (changes)>
+         --quota=<quota 3 settings (no change)>
+        --quota=<quota 4 settings (changes)>
+        --quota=<quota 5 settings (new quota)>       
+        ...
       ```
 
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -391,9 +387,9 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below listing the changed setting using the `--settings` option:
 
       ```
-      $ {{ yc-mdb-ch }} user update <username>
-           --cluster-name=<cluster name>
-           --settings=<list of {{ CH }} settings>    
+      {{ yc-mdb-ch }} user update <username>
+        --cluster-name=<cluster name>
+         --settings=<list of settings {{ CH }}>
       ```
 
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -476,21 +472,20 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - SQL
 
-  1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
-
-  1. To change a set of user privileges and roles, use the [GRANT](https://{{ ch-domain }}/docs/en/sql-reference/statements/grant/) and [REVOKE](https://{{ ch-domain }}/docs/en/sql-reference/statements/revoke/) queries. For example, grant the user read rights to all objects in a specific database:
+   1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
+   1. To change a set of user privileges and roles, use the [GRANT](https://clickhouse.tech/docs/ru/sql-reference/statements/grant/) and [REVOKE](https://clickhouse.tech/docs/ru/sql-reference/statements/revoke/) queries. For example, grant the user read rights to all objects in a specific database:
 
       ```sql
       GRANT SELECT ON <database name>.* TO <username>;
       ```
 
-  1. To change [quota settings](../concepts/settings-list.md#quota-settings) for the user, use the [CREATE QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/#drop-quota-statement) queries. For example, limit the total number of user requests for a 15-month period:
+   1. To edit a user's [quota settings](../concepts/settings-list.md#quota-settings), use the [CREATE QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/drop/#drop-quota-statement) queries. For example, limit the total number of user requests for a 15-month period:
 
       ```sql
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-  1. To change the user account, use the [ALTER USER](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/user/) query. For example, to change the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the following command listing the settings you want to change:
+   1. To change the user account, use the [ALTER USER](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/) query. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
       ALTER USER <username> SETTINGS <list of {{ CH }} settings>;
@@ -504,9 +499,9 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Delete**.
+   1. Click ![image](../../_assets/options.svg) and select **Delete**.
 
 - CLI
 
@@ -517,8 +512,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
    To remove a user, run:
 
    ```
-   $ {{ yc-mdb-ch }} user delete <username>
-        --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} user delete <username>
+     --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -559,18 +554,18 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 ### Creating a read-only user {#example-create-readonly-user}
 
 Let's say you need to add to the existing `mych` cluster a new user named `ro-user` with the password `Passw0rd`, provided that:
-- The user has access to the `db1` database of the cluster.
-- The access is read-only, so the user isn't allowed to change any settings.
+* The user has access to the `db1` database of the cluster.
+* The access is read-only, so the user isn't allowed to change any settings.
 
 {% list tabs %}
 
 - Management console
 
-   1. Go to the folder page and select **{{ mch-name }}**.
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the cluster named `mych` and select the **Users** tab.
    1. Click **Add**.
    1. Enter `ro-user` as the DB username and `Passw0rd` as the password.
-   1. Select the `db1` database from the **Database** drop-down list and click **Add** to the right of the list.
+   1. Click ![image](../../_assets/plus-sign.svg) and select the `db1` database from the drop-down list.
    1. Choose **Additional settings → Settings → Readonly**.
    1. Set the **Readonly** field value to `1`.
    1. Click **Add**.
@@ -580,11 +575,11 @@ Let's say you need to add to the existing `mych` cluster a new user named `ro-us
    Run the command:
 
    ```
-   $ {{ yc-mdb-ch }} user create "ro-user" \
-        --cluster-name="mych" \
-        --password="Passw0rd" \
-        --permissions="db1" \
-        --settings="readonly=1"
+   {{ yc-mdb-ch }} user create "ro-user" \
+     --cluster-name="mych" \
+      --password="Passw0rd" \
+     --permissions="db1" \
+     --settings="readonly=1"
    ```
 
    After creating the user, check that it is actually in read-only mode:

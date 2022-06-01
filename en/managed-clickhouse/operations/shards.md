@@ -206,11 +206,11 @@ When you delete a shard, all tables and data that are saved on that shard are de
    To delete a shard from the cluster, run:
 
    ```bash
-   {{ yc-mdb-ch }} shards delete <shard name> \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} shards delete <shard name>\
+     --cluster-name=<cluster name>
    ```
 
-   You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
+   You can request the shard name with a [list of cluster shards](#list-shards) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 

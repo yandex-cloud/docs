@@ -33,10 +33,10 @@ items:
         href: operations/datalens-connect.md
       - name: Changing ClickHouse versions
         href: operations/cluster-version-update.md
-      - name: Managing ClickHouse hosts
-        href: operations/hosts.md
       - name: Managing ZooKeeper hosts
         href: operations/zk-hosts.md
+      - name: Managing ClickHouse hosts
+        href: operations/hosts.md
       - name: Database management
         href: operations/databases.md
       - name: Managing database users
