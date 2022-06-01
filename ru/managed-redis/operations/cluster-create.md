@@ -13,9 +13,9 @@
 
 ## Как создать кластер {{ RD }} {#create-cluster}
 
-{% note warning %}
+{% note info %}
 
-С 1 июня 2022 года поддержка {{ RD }} версии 5.0 прекращается. Подробнее см. в разделе [{#T}](cluster-version-update.md#version-supported).
+С 1 июня 2022 года прекращена поддержка {{ RD }} версии 5.0. Подробнее см. в разделе [{#T}](cluster-version-update.md#version-supported).
 
 {% endnote %}
 
