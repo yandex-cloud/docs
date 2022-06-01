@@ -99,7 +99,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         --environment <environment, prestable or production> \
         --network-name <network name> \
         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-        --mysql-version <MySQL version> \
+        --mysql-version <{{ MY }} version: {{ versions.cli.str }}> \
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
@@ -159,7 +159,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
         name                = "<cluster name>"
         environment         = "<environment, PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
-        version             = "<MySQL version: 5.7 or 8.0>"
+        version             = "<{{ MY }} version: {{ versions.tf.str }}>"
         security_group_ids  = [ "<list of security groups>" ]
         deletion_protection = <protection from deletion of the cluster: true or false>
 
@@ -250,7 +250,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   {% if audience != "internal" %}
 
   * Named `my-mysql`.
-  * Version `8.0`.
+  * Version `{{ versions.cli.latest }}`.
   * In the `production` environment.
   * In the `default` network.
   * In the security group with the ID `{{ security-group }}`.
@@ -263,12 +263,12 @@ If you specified security group IDs when creating a cluster, you may also need t
   {% else %}
 
    * Named `my-mysql`.
-   * Version `8.0`.
+   * Version `{{ versions.cli.latest }}`.
    * In the `production` environment.
    * With one `{{ host-class }}` host in the `man` availability zone.
    * With 20 GB of local SSD storage (`local-ssd`).
    * With one user, `user1`, with the password `user1user1`.
-   * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
+   * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
    * With protection against accidental cluster deletion.
 
    {% endif %}
@@ -280,7 +280,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       ```bash
       {{ yc-mdb-my }} cluster create \
         --name="my-mysql" \
-        --mysql-version 8.0 \
+        --mysql-version {{ versions.cli.latest }} \
         --environment=production \
         --network-name=default \
         --security-group-ids {{ security-group }} \
@@ -298,7 +298,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       ```bash
       {{ yc-mdb-my }} cluster create \
         --name="my-mysql" \
-        --mysql-version 8.0 \
+        --mysql-version {{ versions.cli.latest }} \
         --environment=production \
         --network-id=' ' \
         --host zone-id=man \
@@ -326,7 +326,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Let's say we need to create a {{ MY }} cluster and a network for it with the following characteristics:
 
   * Named `my-mysql`.
-  * Version `8.0`.
+  * Version `{{ versions.tf.latest }}`.
   * In the `PRESTABLE` environment.
   * In the cloud with the ID `{{ tf-cloud-id }}`.
   * In the folder with the ID `{{ tf-folder-id }}`.
@@ -360,7 +360,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      name                = "my-mysql"
      environment         = "PRESTABLE"
      network_id          = yandex_vpc_network.mynet.id
-     version             = "8.0"
+     version             = "{{ versions.tf.latest }}"
      security_group_ids  = [ yandex_vpc_security_group.mysql-sg.id ]
      deletion_protection = true
 

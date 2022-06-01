@@ -585,7 +585,6 @@ default:
   # External Links
   link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
 
-
 internal:
   audience: internal
   console-link: https://yc.yandex-team.ru

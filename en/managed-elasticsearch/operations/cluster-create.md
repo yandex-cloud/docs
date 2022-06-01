@@ -162,7 +162,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
           --masternode-disk-size <storage size in gigabytes for Master node hosts> \
           --masternode-disk-type <storage type for Master node hosts> \
           --security-group-ids <list of security group IDs> \
-          --version <version {{ ES }}> \
+          --version <{{ ES }} version: {{ versions.cli.str }}> \
           --edition <{{ ES }} edition: basic, gold, or platinum> \
           --admin-password <admin user password> \
           --plugins=<name of plugin 1>,...,<name of plugin N> \
@@ -217,7 +217,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         network_id  = "<network ID>"
 
         config {
-          version = "<(optional) {{ ES }} version>"
+          version = "<(optional) {{ ES }} version: {{ versions.tf.str }}>"
           edition = "<(optional) {{ ES }} edition : basic, gold, or platinum>"
 
           admin_password = "<user admin password>"
@@ -320,7 +320,7 @@ If you specified a security group ID when you created the cluster, some addition
 
     Let's say we need to create a {{ ES }} cluster with the following characteristics:
     * Name `my-es-clstr`.
-    * Version `7.10`.
+    * Version `{{ versions.cli.latest }}`.
     * Edition `Platinum`.
     * Environment `PRODUCTION`.
     * Network `default`.
@@ -343,7 +343,7 @@ If you specified a security group ID when you created the cluster, some addition
       --datanode-disk-size=20 \
       --admin-password=esadminpwd \
       --security-group-ids enpp2s8l3irhk5eromd7 \
-      --version 7.10 \
+      --version {{ versions.cli.latest }} \
       --edition platinum \
       --deletion-protection=true
     ```
@@ -352,7 +352,7 @@ If you specified a security group ID when you created the cluster, some addition
 
     Let's say we need to create a {{ ES }} cluster with the following characteristics:
     * Name `my-es-clstr`.
-    * Version `7.13`.
+    * Version `{{ versions.tf.latest }}`.
     * Edition `Basic`.
     * Environment `PRODUCTION`.
     * The cloud with the `{{ tf-cloud-id }}` ID.
@@ -388,6 +388,7 @@ If you specified a security group ID when you created the cluster, some addition
 
      config {
        edition = "basic"
+       version = "{{ versions.tf.latest }}"
 
        admin_password = "esadminpwd"
 

@@ -151,7 +151,7 @@ keywords:
           --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node> \
           --masternode-disk-type <тип хранилища для хостов с ролью Master node> \
           --security-group-ids <список идентификаторов групп безопасности> \
-          --version <версия {{ ES }}> \
+          --version <версия {{ ES }}: {{ versions.cli.str }}> \
           --edition <редакция {{ ES }}: basic, gold или platinum> \
           --admin-password <пароль пользователя admin> \
           --plugins=<имя плагина 1>,...,<имя плагина N> \
@@ -206,7 +206,7 @@ keywords:
           network_id  = "<идентификатор сети>"
 
           config {
-            version = "<(необязательно) версия {{ ES }}>"
+            version = "<(необязательно) версия {{ ES }}: {{ versions.tf.str }}>"
             edition = "<(необязательно) редакция {{ ES }}: basic, gold или platinum>"
 
             admin_password = "<пароль пользователя-администратора>"
@@ -304,7 +304,7 @@ keywords:
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 
     * Имя `my-es-clstr`.
-    * Версия `7.10`.
+    * Версия `{{ versions.cli.latest }}`.
     * Редакция `Platinum`.
     * Окружение `PRODUCTION`.
     * Сеть `default`.
@@ -327,7 +327,7 @@ keywords:
       --datanode-disk-size=20 \
       --admin-password=esadminpwd \
       --security-group-ids enpp2s8l3irhk5eromd7 \
-      --version 7.10 \
+      --version {{ versions.cli.latest }} \
       --edition platinum \
       --deletion-protection=true
     ```
@@ -337,7 +337,7 @@ keywords:
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 
     * Имя `my-es-clstr`.
-    * Версия `7.13`.
+    * Версия `{{ versions.tf.latest }}`.
     * Редакция `Basic`.
     * Окружение `PRODUCTION`.
     * Облако с идентификатором `{{ tf-cloud-id }}`.
@@ -373,6 +373,7 @@ keywords:
 
       config {
         edition = "basic"
+        version = "{{ versions.tf.latest }}"
 
         admin_password = "esadminpwd"
 

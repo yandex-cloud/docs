@@ -135,7 +135,7 @@
       {{ yc-mdb-kf }} cluster create \
         --name <имя кластера> \
         --environment <окружение: prestable или production> \
-        --version <версия {{ KF }}> \
+        --version <версия {{ KF }}: {{ versions.cli.str }}> \
         --network-name <имя сети> \
         --brokers-count <количество брокеров в зоне> \
         --resource-preset <класс хоста> \
@@ -267,7 +267,7 @@
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
             brokers_count    = <количество брокеров>
-            version          = "<версия {{ KF }}>"
+            version          = "<версия {{ mkf-name }}: {{ versions.tf.str }}>"
             schema_registry  = "<управление схемами данных: true или false>"
             kafka {
               resources {
@@ -366,7 +366,7 @@
 
   * С именем `mykf`.
   * В окружении `production`.
-  * С {{ KF }} версии `2.8`.
+  * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -379,7 +379,7 @@
 
   * С именем `mykf`.
   * В окружении `production`.
-  * С {{ KF }} версии `2.8`.
+  * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -398,7 +398,7 @@
   {{ yc-mdb-kf }} cluster create \
     --name mykf \
     --environment production \
-    --version 2.8 \
+    --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
     --zone-ids {{ zone-id }} \
     --brokers-count 1 \
@@ -416,7 +416,7 @@
   {{ yc-mdb-kf }} cluster create \
     --name mykf \
     --environment production \
-    --version 2.8 \
+    --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
     --zone-ids {{ zone-id }} \
     --brokers-count 1 \
@@ -438,7 +438,7 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * С именем `mykf`.
     * В окружении `PRODUCTION`.
-    * С {{ KF }} версии `2.8`.
+    * С {{ KF }} версии `{{ versions.tf.latest }}`.
     * В новой сети `mynet` с подсетью `mysubnet`.
     * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
     * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -475,7 +475,7 @@
       config {
         assign_public_ip = true
         brokers_count    = 1
-        version          = "2.8"
+        version          = "{{ versions.tf.latest }}"
         kafka {
           resources {
             disk_size          = 10

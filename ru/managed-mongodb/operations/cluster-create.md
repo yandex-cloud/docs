@@ -220,7 +220,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        cluster_config {
-         version = "<версия MongoDB>"
+         version = "<версия {{ MG }}: {{ versions.tf.str }}>"
        }
 
        database {
@@ -364,7 +364,7 @@
   Допустим, нужно создать {{ MG }}-кластер и сеть для него со следующими характеристиками:
 
     * С именем `mymg`.
-    * Версии `4.4`.
+    * Версии `{{ versions.tf.latest }}`.
     * В окружении `PRODUCTION`.
     * В облаке с идентификатором `{{ tf-cloud-id }}`.
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
@@ -402,7 +402,7 @@
     deletion_protection = true
 
     cluster_config {
-      version = "4.4"
+      version = "{{ versions.tf.latest }}"
     }
 
     database {

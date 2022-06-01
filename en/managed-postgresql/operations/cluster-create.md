@@ -225,7 +225,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
         deletion_protection = <cluster deletion protection: true or false>
 
         config {
-          version = "<version of PostgreSQL>"
+          version = "<{{ PG }} version: {{ versions.tf.str }}>"
           resources {
             resource_preset_id = "<host class>"
             disk_type_id       = "<storage type>"
@@ -392,7 +392,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
    - Named `mypg`.
-   - Version `14`.
+   - Version `{{ versions.tf.latest }}`.
    - In the `PRESTABLE` environment.
    - In the cloud with the ID `{{ tf-cloud-id }}`.
    - In the folder with the ID `{{ tf-folder-id }}`.
@@ -430,7 +430,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      deletion_protection = true
 
      config {
-       version = 14
+       version = {{ versions.tf.latest }}
        resources {
          resource_preset_id = "{{ host-class }}"
          disk_type_id       = "{{ disk-type-example }}"

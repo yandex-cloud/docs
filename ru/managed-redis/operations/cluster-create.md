@@ -197,7 +197,7 @@
 
          config {
            password = "<пароль>"
-           version  = "<версия Redis>"
+           version  = "<версия {{ RD }}: {{ versions.tf.str }}>"
          }
 
          resources {
@@ -269,7 +269,7 @@
   Допустим, нужно создать {{ RD }}-кластер со следующими характеристиками:
   
   * Имя `myredis`.
-  * Версия `6.0`.
+  * Версия `{{ versions.cli.latest }}`.
   * Окружение — `production`.
   * Сеть `default`.
   * Один хост класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}` и группе безопасности с идентификатором `{{ security-group }}`.
@@ -283,7 +283,7 @@
   ```bash
   {{ yc-mdb-rd }} cluster create \
     --name myredis \
-    --redis-version 6.0 \
+    --redis-version {{ versions.cli.latest }} \
     --environment production \
     --network-name default \
     --resource-preset hm1.nano \
@@ -301,7 +301,7 @@
   Допустим, нужно создать {{ RD }}-кластер и сеть для него со следующими характеристиками:
 
     * Имя `myredis`.
-    * Версия `6.0`.
+    * Версия `{{ versions.tf.latest }}`.
     * Окружение — `PRODUCTION`.
     * Облако с идентификатором `{{ tf-cloud-id }}`.
     * Каталог с идентификатором `{{ tf-folder-id }}`.
@@ -341,7 +341,7 @@
 
     config {
       password = "user1user1"
-      version  = "6.0"
+      version  = "{{ versions.tf.latest }}"
     }
 
     resources {

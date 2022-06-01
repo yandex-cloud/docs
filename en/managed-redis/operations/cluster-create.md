@@ -183,7 +183,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
         config {
           password = "<password>"
-          version  = "<Redis version>"
+          version  = "<{{ RD }} version: {{ versions.tf.str }}>"
         }
 
         resources {
@@ -253,7 +253,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    Let's say we need to create a {{ RD }} cluster with the following characteristics:
 
    * Named `myredis`.
-   * Version `6.0`.
+   * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
    * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
@@ -267,7 +267,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    ```bash
    {{ yc-mdb-rd }} cluster create \
      --name myredis \
-     --redis-version 6.0 \
+     --redis-version {{ versions.cli.latest }} \
      --environment production \
      --network-name default \
      --resource-preset hm1.nano \
@@ -285,7 +285,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
 
    * Named `myredis`.
-   * Version `6.0`.
+   * Version `{{ versions.tf.latest }}`.
    * Environment `PRODUCTION`.
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
@@ -325,7 +325,7 @@ If you specified security group IDs when creating a cluster, you may need to add
 
      config {
        password = "user1user1"
-       version  = "6.0"
+       version  = "{{ versions.tf.latest }}"
      }
 
      resources {

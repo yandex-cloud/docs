@@ -203,7 +203,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          ```bash
          {{ yc-mdb-ch }} cluster create \
             ...
-            --version "<{{ CH }} version: {{ mch-ck-version }} or higher>" \
+            --version "<{{ CH }} version: {{ versions.keeper }} or higher>" \
             --embedded-keeper true
          ```
 
@@ -359,7 +359,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      To use {{ CK }}, your {{ CH }} version must be {{ mch-ck-version }} or higher. You can get a list of available {{ CH }} versions using the [list](../api-ref/Versions/list.md) API method.
+      To use {{ CK }}, your {{ CH }} version must be {{ versions.keeper }} or higher. You can get a list of available {{ CH }} versions using the [list](../api-ref/Versions/list.md) API method.
 
    * If `embeddedKeeper` is undefined or `false`, replication and query distribution will be managed using {{ ZK }}.
 
@@ -425,37 +425,37 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    ```bash
    {{ yc-mdb-ch }} cluster create \
-     --name mych \
-     --environment=production \
-     --network-name default \
-     --clickhouse-resource-preset {{ host-class }} \
-     --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
-     --version {{ mch-ck-version }} \
-     --embedded-keeper true \
-     --clickhouse-disk-size 20 \
-     --clickhouse-disk-type {{ disk-type-example }} \
-     --user name=user1,password=user1user1 \
-     --database name=db1 \
-     --security-group-ids {{ security-group }} \
-     --deletion-protection=true
+      --name mych \
+      --environment=production \
+      --network-name default \
+      --clickhouse-resource-preset {{ host-class }} \
+      --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
+      --version {{ versions.keeper }} \
+      --embedded-keeper true \
+      --clickhouse-disk-size 20 \
+      --clickhouse-disk-type {{ disk-type-example }} \
+      --user name=user1,password=user1user1 \
+      --database name=db1 \
+      --security-group-ids {{ security-group }} \
+      --deletion-protection=true
    ```
 
    {% else %}
 
    ```bash
    {{ yc-mdb-ch }} cluster create \
-     --name mych \
-     --environment=production \
-     --clickhouse-resource-preset s2.nano \
-     --host type=clickhouse,zone-id=man \
-     --version {{ mch-ck-version }} \
-     --embedded-keeper true \
-     --clickhouse-disk-size 20 \
-     --clickhouse-disk-type local-ssd \
-     --user name=user1,password=user1user1 \
-     --database name=db1 \
-     --security-group-ids {{ security-group }} \
-     --deletion-protection=true
+      --name mych \
+      --environment=production \
+      --clickhouse-resource-preset s2.nano \
+      --host type=clickhouse,zone-id=man \
+      --version {{ versions.keeper }} \
+      --embedded-keeper true \
+      --clickhouse-disk-size 20 \
+      --clickhouse-disk-type local-ssd \
+      --user name=user1,password=user1user1 \
+      --database name=db1 \
+      --security-group-ids {{ security-group }} \
+      --deletion-protection=true
    ```
 
 {% endif %}

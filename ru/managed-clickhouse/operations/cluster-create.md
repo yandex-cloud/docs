@@ -197,13 +197,13 @@
 
      1. Чтобы включить [{{ CK }}](../concepts/replication.md#ck) в кластере:
 
-        * Задайте версию {{ CH }} (не ниже {{ mch-ck-version }}) в параметре `--version`.
+        * Задайте версию {{ CH }} (не ниже {{ versions.keeper }}) в параметре `--version`.
         * Задайте значение `true` для параметра `--embedded-keeper`.
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
             ...
-            --version "<версия {{ CH }}: не ниже {{ mch-ck-version }}>" \
+            --version "<версия {{ CH }}: не ниже {{ versions.keeper }}>" \
             --embedded-keeper true
          ```
 
@@ -363,7 +363,7 @@
 
       {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      Для использования {{ CK }} необходима версия {{ CH }} не ниже {{ mch-ck-version }}. Список доступных версий {{ CH }} можно получить с помощью метода API [list](../api-ref/Versions/list.md).
+      Для использования {{ CK }} необходима версия {{ CH }} не ниже {{ versions.keeper }}. Список доступных версий {{ CH }} можно получить с помощью метода API [list](../api-ref/Versions/list.md).
 
   * Если значение параметра `embeddedKeeper` не задано или равно `false`, для управления репликацией и распределением запросов будет использоваться {{ ZK }}.
 
@@ -434,7 +434,7 @@
     --network-name default \
     --clickhouse-resource-preset {{ host-class }} \
     --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
-    --version {{ mch-ck-version }} \
+    --version {{ versions.keeper }} \
     --embedded-keeper true \
     --clickhouse-disk-size 20 \
     --clickhouse-disk-type {{ disk-type-example }} \
@@ -452,7 +452,7 @@
     --environment=production \
     --clickhouse-resource-preset s2.nano \
     --host type=clickhouse,zone-id=man \
-    --version {{ mch-ck-version }} \
+    --version {{ versions.keeper }} \
     --embedded-keeper true \
     --clickhouse-disk-size 20 \
     --clickhouse-disk-type local-ssd \

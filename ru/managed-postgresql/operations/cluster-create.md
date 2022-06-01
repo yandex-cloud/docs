@@ -224,7 +224,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        config {
-         version = "<версия PostgreSQL>"
+         version = "<версия {{ PG }}: {{ versions.tf.str }}>"
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип хранилища>"
@@ -390,8 +390,9 @@
 - Terraform
 
   Допустим, нужно создать {{ PG }}-кластер и сеть для него со следующими характеристиками:
+
   * С именем `mypg`.
-  * Версии `14`.
+  * Версии `{{ versions.tf.latest }}`.
   * В окружении `PRESTABLE`.
   * В облаке с идентификатором `{{ tf-cloud-id }}`.
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
@@ -429,7 +430,7 @@
     deletion_protection = true
 
     config {
-      version = 14
+      version = {{ versions.tf.latest }}
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "{{ disk-type-example }}"
