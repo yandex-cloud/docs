@@ -373,6 +373,17 @@ Converts the numeric representation of an ASCII character to a value.
 
 
 
+## [COMPARE](COMPARE.md)
+
+**Syntax:**`COMPARE( left, right, epsilon )`
+
+Returns:
+* 0 if `left` and `right` differs by not more than `epsilon`.
+* -1 if `left` is less than `right` by more than `epsilon`.
+* 1 if `left` is greater than `right` by more than `epsilon`.
+
+
+
 ## [CONCAT](CONCAT.md)
 
 **Syntax:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`

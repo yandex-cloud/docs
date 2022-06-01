@@ -54,6 +54,17 @@ Rounds the value up to the nearest integer.
 
 
 
+## [COMPARE](COMPARE.md)
+
+**Syntax:**`COMPARE( left, right, epsilon )`
+
+Returns:
+* 0 if `left` and `right` differs by not more than `epsilon`.
+* -1 if `left` is less than `right` by more than `epsilon`.
+* 1 if `left` is greater than `right` by more than `epsilon`.
+
+
+
 ## [COS](COS.md)
 
 **Syntax:**`COS( number )`
