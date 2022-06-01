@@ -96,7 +96,7 @@ description: "Вы можете создавать резервные копии
      
      {% if audience != "internal" %}
 
-     ```
+     ```bash
       {{ yc-mdb-mg }} cluster restore \
          --backup-id <идентификатор резервной копии> \
          --recovery-target-timestamp <момент времени> \
@@ -112,7 +112,7 @@ description: "Вы можете создавать резервные копии
       
       {% else %}
 
-      ```
+      ```bash
       {{ yc-mdb-mg }} cluster restore \
          --backup-id <идентификатор резервной копии> \
          --recovery-target-timestamp <момент времени> \
@@ -123,7 +123,7 @@ description: "Вы можете создавать резервные копии
          --host zone-id=<зона доступности> \
          --mongod-resource-preset <класс хоста> \
          --mongod-disk-size <размер хранилища в гигабайтах> \
-         --mongod-disk-type <тип хранилища: network-hdd, network-ssd или local-ssd>
+         --mongod-disk-type <тип хранилища: local-ssd или local-hdd>
       ```
 
       {% endif %}

@@ -48,6 +48,8 @@
 
 В качестве примера будет использоваться каталог с именем `example-folder`.
 
+{% if audience != "internal" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
@@ -56,6 +58,8 @@
 * плата за использование вычислительных ресурсов L7-балансировщика (см. {% if audience != "internal" %}[тарифы {{ alb-name }}](../application-load-balancer/pricing.md){% else %}тарифы {{ alb-name }}{% endif %});
 * плата за исходящий трафик с CDN-серверов (см. {% if audience != "internal" %}[тарифы {{ cdn-name }}](../cdn/pricing.md){% else %}тарифы {{ cdn-name }}{% endif %});
 * плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. {% if audience != "internal" %}[тарифы {{ dns-name }}](../dns/pricing.md){% else %}тарифы {{ dns-name }}{% endif %}).
+
+{% endif %}
 
 ## Создайте облачную сеть и подсети {#create-network}
 

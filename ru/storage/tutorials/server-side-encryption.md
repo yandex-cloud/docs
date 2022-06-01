@@ -19,6 +19,8 @@
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака]({{ link-console-cloud }}) и выберите или создайте каталог, в котором вы хотите создать бакет. {% if audience != "internal" %}[Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md){% else %}Подробнее об иерархии ресурсов {{ yandex-cloud }}{% endif %}.
 
+{% if audience != "internal" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки бакета с шифрованием входит:
@@ -26,6 +28,8 @@
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../pricing.md#prices-storage));
 * плата за операции с данными (см. [тарифы {{ objstorage-name }}](../pricing.md#prices-operations));
 * плата за использование ключей KMS (см. {% if audience != "internal" %}[тарифы {{ kms-name }}](../../kms/pricing.md#prices){% else %}тарифы {{ kms-name }}{% endif %}).
+
+{% endif %}
 
 ## Создайте бакет {#create-bucket}
 

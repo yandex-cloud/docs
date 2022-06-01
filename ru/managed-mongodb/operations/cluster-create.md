@@ -92,7 +92,7 @@
      
      {% endif %}
 
-     Чтобы обеспечить отказоустойчивость, для типов хранилищ `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
+     Чтобы обеспечить отказоустойчивость, для типов хранилищ `local-ssd`{% if audience != "internal" %} и `network-ssd-nonreplicated`{% endif %} необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
 
      По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
 
@@ -163,7 +163,7 @@
         --mongod-resource-preset <класс хоста> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных> \
-        --mongod-disk-type local-ssd \
+        --mongod-disk-type <local-ssd | local-hdd> \
         --mongod-disk-size <размер хранилища в гигабайтах> \
         --deletion-protection=<защита от удаления кластера: true или fasle>
       ```

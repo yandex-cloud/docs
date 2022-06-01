@@ -20,7 +20,11 @@
 - Вручную
 
     1. [Создайте кластер](../operations/cluster-create.md) {{ mch-name }}:
+        {% if audience != "internal" %}
         * **Тип хранилища** — на стандартных (`network-hdd`), быстрых (`network-ssd`) или нереплицируемых (`network-ssd-nonreplicated`) сетевых дисках.
+        {% else %}
+        * **Тип хранилища** — на стандартных (`local-hdd`) или быстрых (`local-ssd`) локальных дисках.
+        {% endif %}
         * **Имя БД** — `tutorial`.
         * **Гибридное хранилище** — `Включено`.
 

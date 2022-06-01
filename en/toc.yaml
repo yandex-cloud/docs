@@ -70,7 +70,7 @@ items:
     when: audience == "external"
   - name: Managed Service for Apache Kafka®
     href: managed-kafka/index.yaml
-  - name: Managed Service for Kubernetes<sup>®</sup>
+  - name: Managed Service for Kubernetes®
     href: managed-kubernetes/index.yaml
     when: audience == "external"
   - name: Managed Service for MongoDB

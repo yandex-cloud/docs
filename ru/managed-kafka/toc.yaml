@@ -15,6 +15,7 @@ items:
       - name: Подключение к кластеру
         href: operations/connect.md
       - name: Остановка и запуск кластера
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: Обновление версии Apache Kafka®
         href: operations/cluster-version-update.md
@@ -85,6 +86,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: audience != "internal"
     href: pricing.md
   - name: Справочник API
     when: api != "noshow"

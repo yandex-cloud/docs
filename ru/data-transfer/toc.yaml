@@ -104,6 +104,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: audience != "internal"
     href: pricing.md
   - name: Справочник API
     items:

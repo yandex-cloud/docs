@@ -72,32 +72,32 @@ description: "Вы можете создавать резервные копии
   
       {% if audience == "internal" %}
   
-      ```
-      $ {{ yc-mdb-my }} cluster restore \
-             --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
-             --time 2020-08-10T12:00:10Z \
-             --name=mynewmy \
-             --environment=PRODUCTION \
-             --network-id {{ network-name }} \
-             --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
-             --disk-size 20 \
-             --disk-type network-ssd \
-             --resource-preset {{ host-class }}
+      ```bash
+      {{ yc-mdb-my }} cluster restore \
+         --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
+         --time 2020-08-10T12:00:10Z \
+         --name=mynewmy \
+         --environment=PRODUCTION \
+         --network-id {{ network-name }} \
+         --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+         --disk-size 20 \
+         --disk-type {{ disk-type-example }} \
+         --resource-preset {{ host-class }}
       ```
   
       {% else %}
   
-      ```
-      $ {{ yc-mdb-my }} cluster restore \
-             --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
-             --time 2020-08-10T12:00:10Z \
-             --name=mynewmy \
-             --environment=PRODUCTION \
-             --network-name {{ network-name }} \
-             --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
-             --disk-size 20 \
-             --disk-type {{ disk-type-example }} \
-             --resource-preset {{ host-class }}
+      ```bash
+      {{ yc-mdb-my }} cluster restore \
+         --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
+         --time 2020-08-10T12:00:10Z \
+         --name=mynewmy \
+         --environment=PRODUCTION \
+         --network-name {{ network-name }} \
+         --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+         --disk-size 20 \
+         --disk-type {{ disk-type-example }} \
+         --resource-preset {{ host-class }}
       ```
       
       {% endif %}
@@ -114,7 +114,7 @@ description: "Вы можете создавать резервные копии
       * В окружении `PRODUCTION`.
       * С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
       * С базами данных и пользователями из резервной копии.
-      * С хранилищем на сетевых SSD-дисках (`network-ssd`) объемом 20 ГБ.
+      * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
       
       {% endif %}
       

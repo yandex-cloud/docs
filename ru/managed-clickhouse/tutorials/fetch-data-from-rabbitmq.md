@@ -27,12 +27,12 @@
 
         {% endnote %}
 
-    1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для {{ RMQ }}. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
+    1. {% if audience != "internal" %}[Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте виртуальную машину{% endif %} для {{ RMQ }}. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
 
 * С помощью Terraform
 
     1. Если у вас еще нет {{ TF }}, {% if audience != "internal" %}[установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его{% endif %}.
-    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и {% if audience != "internal" %}[укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}укажите значения параметров{% endif %}.
     1. Скачайте в ту же рабочую директорию файл конфигурации [clickhouse-cluster-and-vm-for-rabbitmq.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-cluster-and-vm-for-rabbitmq.tf).
 
         В этом файле описаны:
@@ -47,7 +47,7 @@
 
         * Имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
         * Идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без GPU для виртуальной машины. Например, `fd879gb88170to70d38a` для Ubuntu 20.04 LTS.
-        * Логин и путь к файлу [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
+        * Логин и путь к файлу {% if audience != "internal" %}[открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}открытого ключа{% endif %}, которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
     1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
 

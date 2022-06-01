@@ -126,7 +126,7 @@
 
         * в каждой зоне доступности должно быть минимум по одному хосту;
         * минимальный класс хоста — `b1.medium`;
-        * тип хранилища — `network-ssd`;
+        * тип хранилища — `{{ disk-type-example }}`;
         * минимальный размер хранилища — 10 гигабайт.
 
         ```hcl
@@ -135,7 +135,7 @@
           zookeeper {
             resources {
               resource_preset_id = "<класс хоста: b1.medium или выше>"
-              disk_type_id       = "network-ssd"
+              disk_type_id       = "{{ disk-type-example }}"
               disk_size          = <размер хранилища, ГБ>
             }
           }
@@ -180,7 +180,7 @@
 
 По умолчанию для хостов {{ ZK }} задаются следующие характеристики:
 * класс хоста `b2.medium`;
-* [хранилище](../concepts/storage.md) на сетевых SSD-дисках (`network-ssd`) объемом 10 ГБ.
+* [хранилище](../concepts/storage.md) на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
 
 {% endnote %}
 
