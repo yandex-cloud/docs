@@ -91,9 +91,13 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
-* **Preallocate** {{ tag-cli }} {{ tag-tf }} {#settings-topic-preallocate}
+* **Pre-allocation of the segment file** {{ tag-cli }} {{ tag-tf }} {#settings-topic-preallocate}
 
-    См. описание настройки уровня кластера [Log preallocate](#settings-log-preallocate).
+    В консоли управления этой настройке соответствует **Предварительное выделение файла сегмента**.
+
+    См. также описание настройки уровня кластера [Log preallocate](#settings-log-preallocate).
+
+    По умолчанию место под файлы сегментов лога выделяется по мере их заполнения (`false`).
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#topicconfigs_preallocate).
 
