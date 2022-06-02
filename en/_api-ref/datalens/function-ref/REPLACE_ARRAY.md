@@ -24,15 +24,17 @@ Replaces each `array` element equal to `old` with `new`.
 
 **Return type**: Same type as (`array`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-REPLACE(ARRAY(1, 2, 4), 4, 3) = [1, 2, 3]
-```
 
-```
-REPLACE(ARRAY(1, NULL, NULL), NULL, 0) = [1, 0, 0]
-```
+
+| **[array]**               | **REPLACE([array], 300, -1)**   | **REPLACE([array], NULL, 0)**   |
+|:--------------------------|:--------------------------------|:--------------------------------|
+| `'[100,300,200,100,300]'` | `'[100,-1,200,100,-1]'`         | `'[100,300,200,100,300]'`       |
+| `'[100,300,NULL,NULL]'`   | `'[100,-1,NULL,NULL]'`          | `'[100,300,0,0]'`               |
+| `'[150,NULL,130,192]'`    | `'[150,NULL,130,192]'`          | `'[150,0,130,192]'`             |
+
+
 
 
 #### Data source support {#data-source-support}
