@@ -2,7 +2,7 @@
 
 You can configure the navigator if the following conditions are met:
 
-* Chart type: **Line chart**, **Area chart**, or **Stacked area chart**.
+* Chart type: **Line chart**, **Stacked area chart**, or **Normalized stacked area chart**.
 * The **X** section contains a field of the `Date` or `Date and time` type.
 
 To set up the navigator:

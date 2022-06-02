@@ -71,7 +71,7 @@ To open section settings, click ![image](../../../_assets/datalens/gear.svg) in 
 Axis settings are only available for charts that have at least one X or Y axis:
 
 - Line chart
-- Area chart (including a Normalized area chart)
+- Stacked area chart (including a Normalized stacked area chart)
 - Column chart (including a Normalized column chart)
 - Bar chart (including a Normalized bar chart)
 - Scatter chart
@@ -115,7 +115,7 @@ Display a measure value on the chart.
 Labels are available for the following charts types:
 
 - Line chart
-- Area chart (including a Normalized area chart)
+- Stacked area chart (including a Normalized stacked area chart)
 - Column chart (including a Normalized column chart)
 - Bar chart (including a Normalized bar chart)
 - Pie chart
@@ -128,7 +128,7 @@ Allows you to sort chart values by measure or dimension.
 Sorting is available for the following chart types:
 
 - Line chart
-- Area chart (including a Normalized area chart)
+- Stacked area chart (including a Normalized stacked area chart)
 - Column chart (including a Normalized column chart)
 - Bar chart (including a Normalized bar chart)
 - Pie chart

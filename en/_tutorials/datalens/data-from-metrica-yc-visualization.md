@@ -200,7 +200,7 @@ Now create charts.
     * Drag the **EventDate** field to the **X** section.
     * Drag the **Browser** field to the **Colors** section.
     * Drag the **Hits** field to the **Y** section.
-1. Change the chart type to Area chart.
+1. Change the chart type to **Stacked area chart**.
 
     ![image](../../_assets/datalens/solution-11/10-change-diagram.png)
 
