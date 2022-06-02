@@ -26,6 +26,14 @@ keywords:
 
 {% include [create-instance-via-console-windows](../_includes_service/create-instance-via-console-windows.md) %}
 
+## Сбросьте пароль администратора {#reset-admin-password}
+
+Пароль администратора, указываемый при создании ВМ, сохраняется в метаданных в незашифрованном виде, поэтому рекомендуется сгенерировать вместо него новый пароль.
+
+Чтобы сбросить пароль:
+
+{% include [vm-reset-password-windows-console](../../_includes/compute/vm-reset-password-windows-console.md) %}
+
 ## Подключитесь к виртуальной машине {#connect-rdp}
 
 {% include [vm-connect-rdp](../../_includes/vm-connect-rdp.md) %}

@@ -47,3 +47,4 @@ We also recommend providing:
 ### For details, see also {#see-also}
 
 * [Enable protection from DDoS attacks](../operations/enable-ddos-protection.md)
+* [Enable advanced protection from DDoS attacks](https://cloud.yandex.com/services/ddos-protection#contact-form)

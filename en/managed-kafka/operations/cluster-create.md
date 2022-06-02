@@ -123,7 +123,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       {{ yc-mdb-kf }} cluster create \
         --name <cluster name> \
         --environment <environment: prestable or production> \
-        --version <{{ KF }} version> \
+        --version <{{ KF }} version: {{ versions.cli.str }}> \
         --network-name <network name> \
         --brokers-count <number of brokers in zone> \
         --resource-preset <host class> \
@@ -226,7 +226,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         config {
           assign_public_ip = "<cluster public access: true or false>"
           brokers_count    = <number of brokers>
-          version          = "<{{ KF }} version>"
+          version          = "<{{ KF }} version: {{ versions.tf.str }}>"
           schema_registry  = "<data schema management: true or false>"
           kafka {
             resources {
@@ -319,7 +319,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    
    * With the name `mykf`.
    * In the `production` environment.
-   * With {{ KF }} version `2.8`.
+   * With {{ KF }} version `{{ versions.cli.latest }}`.
    * In the `{{ network-name }}` network.
    * In the security group `{{ security-group }}`.
    * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
@@ -335,7 +335,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    {{ yc-mdb-kf }} cluster create \
      --name mykf \
      --environment production \
-     --version 2.8 \
+     --version {{ versions.cli.latest }} \
      --network-name {{ network-name }} \
      --zone-ids {{ zone-id }} \
      --brokers-count 1 \
@@ -355,7 +355,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the folder with the ID `{{ tf-folder-id }}`.
    * With the name `mykf`.
    * In the `PRODUCTION` environment.
-   * With {{ KF }} version `2.8`.
+   * With {{ KF }} version `{{ versions.tf.latest }}`.
    * In the new `mynet` network with the subnet `mysubnet`.
    * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
    * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
@@ -392,7 +392,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      config {
        assign_public_ip = true
        brokers_count    = 1
-       version          = "2.8"
+       version          = "{{ versions.tf.latest }}"
        kafka {
          resources {
            disk_size          = 10

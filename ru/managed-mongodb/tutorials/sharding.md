@@ -23,12 +23,12 @@
 
 {% note warning %}
 
-Все операции по настройке шардирования с помощью CLI `mongo` необходимо выполнять от имени пользователя с ролью [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
+Все операции по настройке шардирования с помощью CLI `mongosh` необходимо выполнять от имени пользователя с ролью [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
 
 {% endnote %}
 
 1. [Включите шардирование](../operations/shards.md#enable) для кластера.
-1. [Подключитесь](../operations/connect.md) к хосту `MONGOS` или `MONGOINFRA` с помощью CLI `mongo` и включите шардирование:
+1. [Подключитесь](../operations/connect/index.md) к хосту `MONGOS` или `MONGOINFRA` с помощью CLI `mongosh` и включите шардирование:
 
    ```
    sh.enableSharding("<имя базы>")
@@ -67,7 +67,7 @@
 
 Последовательность операций:
 
-1. [Подключитесь](../operations/connect.md) к базе `billing`. У пользователя, от имени которого вы подключаетесь к базе, должна быть роль [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
+1. [Подключитесь](../operations/connect/index.md) к базе `billing`. У пользователя, от имени которого вы подключаетесь к базе, должна быть роль [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) в базе данных [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database).
 1. Включите шардирование для базы `billing`:
 
    ```

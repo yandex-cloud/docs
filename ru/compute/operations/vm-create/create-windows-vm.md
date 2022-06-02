@@ -243,6 +243,8 @@
 
 {% include [initialization-windows-vm](../../../_includes/initialization-windows-vm.md) %}
 
+Пароль администратора, указываемый при создании ВМ, сохраняется в метаданных в незашифрованном виде, поэтому рекомендуется [сбросить его](../vm-control/vm-reset-password.md).
+
 Публичный IP-адрес можно сделать статическим. Подробнее читайте в разделе [{#T}](../vm-control/vm-set-static-ip.md).
 
 #### См. также {#see-also}

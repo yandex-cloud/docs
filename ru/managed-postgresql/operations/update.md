@@ -463,6 +463,8 @@
   
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
 {% endlist %}
 
 ## Вручную переключить хост-мастер {#start-manual-failover}

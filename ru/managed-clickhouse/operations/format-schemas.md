@@ -1,18 +1,29 @@
 # Управление схемами формата данных
 
-{% include [mch-format-schemas-intro](../../_includes/mdb/mch-format-schemas-intro.md) %}
+{% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
 Примеры работы с форматами Cap'n Proto и Protobuf при вставке данных в кластер приведены в разделе [{#T}](insert.md).
 
 ## Перед подключением схемы формата данных {#prereq}
 
-{{ mch-name }} работает только со схемами формата данных, которые загружены в {{ objstorage-name }}. Перед подключением схемы к кластеру:
+{{ mch-name }} работает только со схемами формата данных, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение. Перед подключением схемы к кластеру:
 
 1. Подготовьте файл со схемой формата (см. документацию [Cap'n Proto](https://capnproto.org/language.html) и [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru)).
 
 
-1. [Загрузите файл](../../storage/operations/objects/upload.md) со схемой формата в {{ objstorage-name }}.
-1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на этот файл.
+1. [Загрузите](../../storage/operations/objects/upload.md) файл со схемой формата данных в {{ objstorage-full-name }}.
+
+1. Настройте доступ к файлу схемы одним из способов:
+
+    * Используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) (рекомендуется). Данный способ позволяет получить доступ к файлу без ввода учетных данных.
+
+        1\. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account).
+        2\. [Назначьте аккаунту роль](s3-access.md#configure-acl) `storage.viewer`.
+        3\. В ACL бакета [добавьте аккаунту разрешение](../../storage/operations/buckets/edit-acl.md) `READ`.
+
+    * [Включите публичный доступ](../../storage/operations/objects/edit-acl.md) к бакету с файлом.
+
+1. [Получите ссылку](s3-access.md#get-link-to-object) на файл схемы.
 
 ## Подключить схему формата данных {#add-format-schema}
 
@@ -39,7 +50,7 @@
     {{ yc-mdb-ch }} format-schema create "<имя схемы формата>" \
       --cluster-name="<имя кластера>" \
       --type="capnproto" \
-      --uri="<ссылка на файл в {{ objstorage-name }}>"
+      --uri="<ссылка на файл в {{ objstorage-full-name }}>"
     ```
 
   - для формата **Protobuf**:
@@ -48,7 +59,7 @@
     {{ yc-mdb-ch }} format-schema create "<имя схемы формата>" \
       --cluster-name="<имя кластера>" \
       --type="protobuf" \
-      --uri="<ссылка на файл в {{ objstorage-name }}>"
+      --uri="<ссылка на файл в {{ objstorage-full-name }}>"
     ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -67,7 +78,7 @@
           format_schema {
             name = "<имя схемы>"
             type = "<тип схемы: FORMAT_SCHEMA_TYPE_CAPNPROTO или FORMAT_SCHEMA_TYPE_PROTOBUF>"
-            uri  = "<публичная ссылка на файл схемы в {{ objstorage-name }}>"
+            uri  = "<ссылка на файл схемы формата данных в {{ objstorage-full-name }}>"
           }
         }
         ```
@@ -88,13 +99,13 @@
 
 ## Изменить схему формата данных {#update-format-schema}
 
-{{ mch-name }} не отслеживает изменения в файле со схемой формата данных, который находится в бакете {{ objstorage-name }}.
+{{ mch-name }} не отслеживает изменения в файле со схемой формата данных, который находится в бакете {{ objstorage-full-name }}.
 
 Чтобы актуализировать содержимое схемы, которая уже подключена к кластеру:
 
 
-1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной схемой формата данных в {{ objstorage-name }}.
-1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на этот файл.
+1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной схемой формата данных в {{ objstorage-full-name }}.
+1. [Получите ссылку](s3-access.md#get-link-to-object) на этот файл.
 1. Измените параметры схемы формата данных, подключенной к {{ mch-name }}, передав новую ссылку на файл со схемой формата.
 
 {% list tabs %}
@@ -116,7 +127,7 @@
     ```bash
     {{ yc-mdb-ch }} format-schema update "<имя схемы данных>" \
       --cluster-name="<имя кластера>" \
-      --uri="<новая ссылка на файл в {{ objstorage-name }}>"
+      --uri="<новая ссылка на файл в {{ objstorage-full-name }}>"
     ```
 
     Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -135,7 +146,7 @@
           format_schema {
             name = "<имя схемы>"
             type = "<тип схемы>"
-            uri  = "<новая публичная ссылка на файл схемы в {{ objstorage-name }}>"
+            uri  = "<новая публичная ссылка на файл схемы в {{ objstorage-full-name }}>"
           }
         }
         ```
@@ -159,7 +170,7 @@
 {% note info %}
 
 
-После отключения схемы формата данных соответствующий объект остается в бакете {{ objstorage-name }}. Если этот объект со схемой формата больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
+После отключения схемы формата данных соответствующий объект остается в бакете {{ objstorage-full-name }}. Если этот объект со схемой формата больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
 
 {% endnote %}
 

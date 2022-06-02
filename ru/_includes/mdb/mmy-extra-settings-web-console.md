@@ -14,6 +14,8 @@
 
   Разрешает [выполнять SQL-запросы](../../managed-mysql/operations/web-sql-query.md) к базам кластера из консоли управления {{ yandex-cloud }}.
 
+- {% include [datatransfer access](console/datatransfer-access.md) %}
+
 - **Сбор статистики** — включите эту опцию, чтобы воспользоваться инструментом [{#T}](../../managed-mysql/operations/performance-diagnostics.md) в кластере.
 
 - {% include [Deletion protection](console/deletion-protection.md) %}

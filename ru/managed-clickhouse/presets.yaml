@@ -1,2 +1,14 @@
 default:
   content: noshow
+  versions:
+    tf:
+      latest: '22.4'
+      str: 21.8, 22.2, 22.3 или 22.4
+    cli:
+      latest: '22.4'
+      str: 21.8, 22.2, 22.3 или 22.4
+    console:
+      latest: '22.4'
+      str: 21.8, 22.2, 22.3 и 22.4
+    hybrid: '21.7'
+    keeper: '22.3'

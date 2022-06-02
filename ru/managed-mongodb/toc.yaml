@@ -12,7 +12,13 @@ items:
       - name: Создание кластера
         href: operations/cluster-create.md
       - name: Подключение к базе данных
-        href: operations/connect.md
+        items:
+          - name: Обзор способов подключения к базе данных
+            href: operations/connect/index.md
+          - name: Подключение к нешардированному кластеру
+            href: operations/connect/non-sharded.md
+          - name: Подключение к шардированному кластеру
+            href: operations/connect/sharded.md
       - name: Остановка и запуск кластера
         href: operations/cluster-stop.md
       - name: Изменение настроек кластера и базы данных

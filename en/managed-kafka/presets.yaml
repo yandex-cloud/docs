@@ -1,0 +1,11 @@
+default:
+  versions:
+    tf:
+      latest: '3.0'
+      str: 2.8 or 3.0
+    cli:
+      latest: '3.0'
+      str: 2.8 or 3.0
+    console:
+      latest: '3.0'
+      str: 2.8 and 3.0

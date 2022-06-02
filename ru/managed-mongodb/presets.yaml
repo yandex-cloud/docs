@@ -1,2 +1,12 @@
 default:
   policy: keep
+  versions:
+    tf:
+      latest: '5.0'
+      str: 4.2, 4.4, 5.0, 4.4-enterprise или 5.0-enterprise
+    cli:
+      latest: '5.0'
+      str: 4.2, 4.4, 5.0, 4.4-enterprise или 5.0-enterprise
+    console:
+      latest: '5.0'
+      str: 4.2, 4.4, 5.0, 4.4-enterprise и 5.0-enterprise

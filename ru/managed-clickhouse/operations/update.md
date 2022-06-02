@@ -483,15 +483,16 @@
 
         ```bash
         {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
-          --backup-window-start <время начала резервного копирования> \
-          --datalens-access=<true или false> \
-          --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                              `day=<день недели для типа weekly>,`
-                              `hour=<час дня для типа weekly> \
-          --metrika-access=<true или false> \
-          --websql-access=<true или false> \
-          --deletion-protection=<защита от удаления кластера: true или false> \
-          --serverless-access=<true или false>
+           --backup-window-start <время начала резервного копирования> \
+           --datalens-access=<true или false> \
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly> \
+           --metrika-access=<true или false> \
+           --websql-access=<true или false> \
+           --serverless-access=<true или false> \
+           --datatransfer-access=<true или false> \
+           --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
     Вы можете изменить следующие настройки:
@@ -507,6 +508,8 @@
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
     
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
     * {% include [Защита от удаления кластера](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -597,6 +600,8 @@
     
   
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
   Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 
