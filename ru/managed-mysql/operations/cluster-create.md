@@ -6,7 +6,7 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ MY }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ MY }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
