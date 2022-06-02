@@ -174,7 +174,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
         deletion_protection = <deletion protection for the cluster: true or false>
 
         cluster_config {
-          version = "<MongoDB version: 4.0, 4.2, 4.4, or 5.0>"
+          version = "<{{ MG }} version: {{ versions.tf.str }}>"
         }
 
         database {
@@ -282,7 +282,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
 
    * Named `mymg`.
-   * Version `4.4`.
+   * Version `{{ versions.tf.latest }}`.
    * In the `PRODUCTION` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
@@ -320,7 +320,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      deletion_protection = true
 
      cluster_config {
-       version = "4.4"
+       version = "{{ versions.tf.latest }}"
      }
 
      database {

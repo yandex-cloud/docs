@@ -1,17 +1,25 @@
-# Подключение моделей машинного обучения
+# Управление моделями машинного обучения
 
 {{ mch-short-name }} позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов. Чтобы применить модель, подключите ее к кластеру и вызовите в SQL-запросе с помощью встроенной функции [`modelEvaluate()`](https://{{ ch-domain }}/docs/ru/query_language/functions/other_functions/#function-modelevaluate). В результате выполнения такого запроса вы получите предсказания модели для каждой строки входных данных. Подробнее о машинном обучении в {{ CH }} читайте в [документации](https://{{ ch-domain }}/docs/ru/guides/apply_catboost_model/).
 
 ## Перед подключением модели {#prereq}
 
-{{ mch-short-name }} работает только с моделями, которые загружены в {{ objstorage-name }} и к которым предоставлен публичный доступ на чтение:
+{{ mch-short-name }} работает только с моделями, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение:
 
 
-1. [Загрузите](../../storage/operations/objects/upload.md) файл обученной модели в {{ objstorage-name }}.
+1. [Загрузите](../../storage/operations/objects/upload.md) файл обученной модели в {{ objstorage-full-name }}.
 
-1. [Настройте публичный доступ](../../storage/operations/objects/edit-acl.md) на чтение к файлу модели.
+1. Настройте доступ к файлу модели одним из способов:
 
-1. [Получите](../../storage/operations/objects/link-for-download.md) публичную ссылку на модель.
+    * Используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) (рекомендуется). Данный способ позволяет получить доступ к файлу без ввода учетных данных.
+
+        1\. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account).
+        2\. [Назначьте аккаунту роль](s3-access.md#configure-acl) `storage.viewer`.
+        3\. В ACL бакета [добавьте аккаунту разрешение](../../storage/operations/buckets/edit-acl.md) `READ`.
+
+    * [Включите публичный доступ](../../storage/operations/objects/edit-acl.md) к бакету с файлом.
+
+1. [Получите ссылку](s3-access.md#get-link-to-object) на файл модели.
 
 ## Получить список моделей в кластере {#list}
 
@@ -101,7 +109,7 @@
 
         * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
         * **Имя** — имя модели. Имя модели — один из аргументов функции `modelEvaluate()`, которая нужна для вызова модели в {{ CH }}.
-        * **URL** — адрес модели в {{ objstorage-name }}.
+        * **URL** — адрес модели в {{ objstorage-full-name }}.
 
     1. Нажмите **Добавить** и дождитесь окончания добавления модели.
 
@@ -117,7 +125,7 @@
     {{ yc-mdb-ch }} ml-model create <имя модели> \
       --cluster-name=<имя кластера> \
       --type=ML_MODEL_TYPE_CATBOOST \
-      --uri=<публичная ссылка на файл модели в {{ objstorage-name }}>
+      --uri=<ссылка на файл модели в {{ objstorage-full-name }}>
     ```
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -136,7 +144,7 @@
           ml_model {
             name = "<имя модели>"
             type = "ML_MODEL_TYPE_CATBOOST"
-            uri  = "<публичная ссылка на файл модели в {{ objstorage-name }}>"
+            uri  = "<ссылка на файл модели в {{ objstorage-full-name }}>"
           }
         }
         ```
@@ -160,7 +168,7 @@
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.
     * Тип модели `ML_MODEL_TYPE_CATBOOST` в параметре `type`.
-    * Публичную ссылку на файл модели в {{ objstorage-name }} в параметре `uri`.
+    * Cсылку на файл модели в {{ objstorage-full-name }} в параметре `uri`.
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -187,13 +195,13 @@
 
 ## Изменить модель {#update}
 
-{{ mch-name }} не отслеживает изменения в файле с моделью, который находится в бакете {{ objstorage-name }}.
+{{ mch-name }} не отслеживает изменения в файле с моделью, который находится в бакете {{ objstorage-full-name }}.
 
 Чтобы актуализировать содержимое модели, которая уже подключена к кластеру:
 
 
-1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной моделью в {{ objstorage-name }}.
-1. [Получите публичную ссылку](../../storage/operations/objects/link-for-download.md) на этот файл.
+1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной моделью в {{ objstorage-full-name }}.
+1. [Получите ссылку](s3-access.md#get-link-to-object) на этот файл.
 1. Измените параметры модели, подключенной к {{ mch-name }}, передав новую ссылку на файл с моделью.
 
 {% list tabs %}
@@ -210,12 +218,12 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы изменить ссылку на файл с моделью в бакете {{ objstorage-name }}, выполните команду:
+    Чтобы изменить ссылку на файл с моделью в бакете {{ objstorage-full-name }}, выполните команду:
 
     ```bash
     {{ yc-mdb-ch }} ml-model update <имя модели> \
       --cluster-name=<имя кластера> \
-      --uri=<новая публичная ссылка на файл в {{ objstorage-name }}>
+      --uri=<новая ссылка на файл в {{ objstorage-full-name }}>
     ```
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -234,7 +242,7 @@
           ml_model {
             name = "<имя модели>"
             type = "ML_MODEL_TYPE_CATBOOST"
-            uri  = "<новая публичная ссылка на файл модели в {{ objstorage-name }}>"
+            uri  = "<новая ссылка на файл модели в {{ objstorage-full-name }}>"
           }
         }
         ```
@@ -257,7 +265,7 @@
 
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.
-    * Новую публичную ссылку на файл модели в {{ objstorage-name }} в параметре `uri`.
+    * Новую ссылку на файл модели в {{ objstorage-full-name }} в параметре `uri`.
     * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), имя модели — со [списком моделей в кластере](#list).
@@ -271,7 +279,7 @@
 {% note info %}
 
 
-После отключения модели соответствующий объект остается в бакете {{ objstorage-name }}. Если этот объект модели больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
+После отключения модели соответствующий объект остается в бакете {{ objstorage-full-name }}. Если этот объект модели больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
 
 {% endnote %}
 
@@ -343,10 +351,13 @@
 
 1. Установите [{{ CH }} CLI](https://{{ ch-domain }}/docs/ru/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
 1. Скачайте [файл с данными](https://storage.yandexcloud.net/managed-clickhouse/train.csv) для анализа:
+
    ```bash
-   wget https://storage.yandexcloud.net/managed-clickhouse/train.csv  
+   wget https://storage.yandexcloud.net/managed-clickhouse/train.csv
    ```
+
 1. Создайте таблицу для данных:
+
    ```bash
    clickhouse-client --host <FQDN хоста> \
                      --database <имя базы данных>
@@ -356,7 +367,9 @@
                      --port 9440 \
                      -q 'CREATE TABLE ml_test_table (date Date MATERIALIZED today(), ACTION UInt8, RESOURCE UInt32, MGR_ID UInt32, ROLE_ROLLUP_1 UInt32, ROLE_ROLLUP_2 UInt32, ROLE_DEPTNAME UInt32, ROLE_TITLE UInt32, ROLE_FAMILY_DESC UInt32, ROLE_FAMILY UInt32, ROLE_CODE UInt32) ENGINE = MergeTree() PARTITION BY date ORDER BY date'
    ```
+
 1. Загрузите данные в таблицу:
+
    ```bash
    clickhouse-client --host <FQDN хоста> \
                      --database <имя базы данных>
@@ -367,6 +380,7 @@
                      -q 'INSERT INTO ml_test_table FORMAT CSVWithNames' \
                      < train.csv
    ```
+
 1. В [консоли управления]({{ link-console-main }}) подключите тестовую модель:
     * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
     * **Имя** — `ml_test`.
@@ -376,9 +390,10 @@
     1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.
     1. Проверьте работу модели с помощью запросов:
         * Предсказания значения столбца `ACTION` для первых 10 строк таблицы:
-            ```
-            SELECT 
-                modelEvaluate('ml_test', 
+
+            ```sql
+            SELECT
+                modelEvaluate('ml_test',
                               RESOURCE,
                               MGR_ID,
                               ROLE_ROLLUP_1,
@@ -387,15 +402,17 @@
                               ROLE_TITLE,
                               ROLE_FAMILY_DESC,
                               ROLE_FAMILY,
-                              ROLE_CODE) > 0 AS prediction, 
+                              ROLE_CODE) > 0 AS prediction,
                 ACTION AS target
             FROM ml_test_table
             LIMIT 10
             ```
+
         * Предсказанная вероятность для первых 10 строк таблицы:
-            ```
-            SELECT 
-                modelEvaluate('ml_test', 
+
+            ```sql
+            SELECT
+                modelEvaluate('ml_test',
                               RESOURCE,
                               MGR_ID,
                               ROLE_ROLLUP_1,
@@ -405,7 +422,7 @@
                               ROLE_FAMILY_DESC,
                               ROLE_FAMILY,
                               ROLE_CODE) AS prediction,
-                1. / (1 + exp(-prediction)) AS probability, 
+                1. / (1 + exp(-prediction)) AS probability,
                 ACTION AS target
             FROM ml_test_table
             LIMIT 10

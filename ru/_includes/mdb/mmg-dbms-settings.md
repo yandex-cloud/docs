@@ -26,7 +26,7 @@
 
   Минимальное значение — `10`, максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно объему RAM на хосте в МБ, но не более `16384`. Значение по умолчанию: `1024`.
 
-  Подробнее см. в разделе [Ограничения на количество подключений](../../managed-mongodb/operations/connect.md#connection-limits).
+  Подробнее см. в разделе [Ограничения на количество подключений](../../managed-mongodb/operations/connect/index.md#connection-limits).
 
 - **Operation profiling**{#setting-operation-profiling} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 

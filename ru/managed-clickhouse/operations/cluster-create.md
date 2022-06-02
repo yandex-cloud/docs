@@ -2,18 +2,19 @@
 
 {{ CH }}-кластер — это один или несколько хостов базы данных, между которыми можно настроить репликацию.
 
-Количество хостов, которые можно создать вместе с {{ CH }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md):
+{% note info %}
 
-* При использовании хранилища на **локальных SSD-дисках** (`local-ssd`) вы можете создать кластер из двух или более хостов (минимум два хоста необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании сетевого хранилища:
-    * Если выбрано хранилище на **сетевых HDD-дисках** (`network-hdd`) или на **сетевых SSD-дисках** (`network-ssd`), вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
-    * Если выбрано хранилище на **нереплицируемых SSD-дисках** (`network-ssd-nonreplicated`), вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
+* Количество хостов, которые можно создать вместе с {{ CH }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+
+{% endnote %}
 
 Выбранный [механизм обеспечения работы репликации](../concepts/replication.md) также влияет на количество хостов в кластере из нескольких хостов:
 
 * Кластер, использующий для управления репликацией и отказоустойчивостью {{ CK }}, должен состоять из трех или более хостов — отдельные хосты для запуска {{ CK }} не требуются. Создать такой кластер можно только с помощью CLI и API.
 
-    {% include [ClickHouse Keeper preview note](../../_includes/mdb/mch/note-ck-preview.md) %}
+    
+    Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Доступ к {{ CK }} предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 * При использовании {{ ZK }} кластер может состоять из двух и более хостов. Еще 3 хоста {{ ZK }} будут добавлены в кластер автоматически.
 
@@ -156,15 +157,17 @@
      
      1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+     1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
+
      1. Чтобы включить [{{ CK }}](../concepts/replication.md#ck) в кластере:
 
-        * Задайте версию {{ CH }} (не ниже {{ mch-ck-version }}) в параметре `--version`.
+        * Задайте версию {{ CH }} (не ниже {{ versions.keeper }}) в параметре `--version`.
         * Задайте значение `true` для параметра `--embedded-keeper`.
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
             ...
-            --version "<версия {{ CH }}: не ниже {{ mch-ck-version }}>" \
+            --version "<версия {{ CH }}: не ниже {{ versions.keeper }}>" \
             --embedded-keeper true
          ```
 
@@ -310,6 +313,8 @@
 
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
   Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 
   При создании кластера из нескольких хостов:
@@ -318,7 +323,7 @@
 
       {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      Для использования {{ CK }} необходима версия {{ CH }} не ниже {{ mch-ck-version }}. Список доступных версий {{ CH }} можно получить с помощью метода API [list](../api-ref/Versions/list.md).
+      Для использования {{ CK }} необходима версия {{ CH }} не ниже {{ versions.keeper }}. Список доступных версий {{ CH }} можно получить с помощью метода API [list](../api-ref/Versions/list.md).
 
   * Если значение параметра `embeddedKeeper` не задано или равно `false`, для управления репликацией и распределением запросов будет использоваться {{ ZK }}.
 
@@ -369,7 +374,7 @@
     --network-name default \
     --clickhouse-resource-preset {{ host-class }} \
     --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
-    --version {{ mch-ck-version }} \
+    --version {{ versions.keeper }} \
     --embedded-keeper true \
     --clickhouse-disk-size 20 \
     --clickhouse-disk-type {{ disk-type-example }} \

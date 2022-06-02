@@ -30,9 +30,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
    1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-   1. Select the DBMS version. The following editions are available for all supported versions:
-      * Standard Edition.
-      * Enterprise Edition.
+  1. Select the DBMS version. Currently, we support the following versions: {{ versions.console.str }}.
 
       For more information, see [{#T}](../concepts/index.md).
 
@@ -191,15 +189,15 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
       Example configuration file structure:
-
-      ```hcl
-      resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
-        name                = "<cluster name>"
-        environment         = "<environment: PRESTABLE or PRODUCTION>"
-        network_id          = "<network ID>"
-        version             = "<{{ MS }} version>"
-        security_groups_id  = ["<security group ID list>"]
-        deletion_protection = <protect cluster from deletion: true or false>
+   
+        ```hcl
+        resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
+          name                = "<cluster name>"
+          environment         = "<environment: PRESTABLE or PRODUCTION>"
+          network_id          = "<network ID>"
+          version             = "<{{ MS }} version: {{ versions.tf.str }}>"
+          security_groups_id  = ["<security group ID list>"]
+          deletion_protection = <protect cluster from deletion: true or false>
 
         resources {
           resource_preset_id = "<class host>"
@@ -345,18 +343,18 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    Let's say we need to create a {{ MS }} cluster and a network for it with the following characteristics:
 
-   * `mssql-1` as the name.
-   * In the `PRODUCTION` environment.
-   * {{ MS }} `2016 ServicePack 2` version in the `Standard Edition`.
-   * In the cloud with the ID `{{ tf-cloud-id }}`.
-   * In the folder with the ID `{{ tf-folder-id }}`.
-   * In the new `mynet` network.
-   * In a new security group called `ms-sql-sg` allowing cluster connections from the Internet via port `{{ port-mms }}`.
-   * With a single host of the `s2.small` class on a new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-   * With 32 GB of network SSD storage.
-   * With a database called `db1`.
-   * With a user with `user1` as the login and `user1user1` as the password. This user will own the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
-   * With protection against accidental cluster deletion.
+    * `mssql-1` as the name.
+    * In the `PRODUCTION` environment.
+    * Using the {{ MS }} `{{ versions.tf.latest.long-std }}`.
+    * In the cloud with the ID `{{ tf-cloud-id }}`.
+    * In the folder with the ID `{{ tf-folder-id }}`.
+    * In the new `mynet` network.
+    * In a new security group called `ms-sql-sg` allowing cluster connections from the Internet via port `{{ port-mms }}`.
+    * With a single host of the `s2.small` class on a new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+    * With 32 GB of network SSD storage.
+    * With a database called `db1`.
+    * With a user with `user1` as the login and `user1user1` as the password. This user will own the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
+    * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
 
@@ -376,13 +374,13 @@ If you specified security group IDs when creating a cluster, you may also need t
      zone      = "{{ zone-id }}"
    }
 
-   resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
-     name                = "mssql-1"
-     environment         = "PRODUCTION"
-     version             = "2016sp2std"
-     network_id          = yandex_vpc_network.mynet.id
-     security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
-     deletion_protection = true
+    resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
+      name                = "mssql-1"
+      environment         = "PRODUCTION"
+      version             = "{{ versions.tf.latest.std }}"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
+      deletion_protection = true
 
      resources {
        resource_preset_id = "s2.small"

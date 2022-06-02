@@ -5,8 +5,8 @@ The following types of charts are available in {{ datalens-full-name }}:
 * **Diagrams**:
 
   - [Line chart](#line-chart)
-  - [Area chart](#area-chart)
-  - [Stacked area chart](#normalized-area-chart)
+  - [Stacked area chart](#area-chart)
+  - [Normalized stacked area chart](#normalized-area-chart)
   - [Column chart](#bar-chart)
   - [Normalized column chart](#normalized-bar-chart)
   - [Bar chart](#horizontal-bar-chart)
@@ -53,7 +53,7 @@ Displays changes to measures by dimension as a single or multiple horizontal lin
 
 See the instructions [{#T}](../../operations/chart/create-line-chart.md).
 
-### Area chart {#area-chart}
+### Stacked area chart {#area-chart}
 
 Displays changes to measures by dimensions as areas, showing the contribution of each line to the total amount.
 
@@ -68,9 +68,9 @@ Displays changes to measures by dimensions as areas, showing the contribution of
 
 See the instructions [{#T}](../../operations/chart/create-area-chart.md).
 
-### Stacked area chart {#normalized-area-chart}
+### Normalized stacked area chart {#normalized-area-chart}
 
-Stacked area chart that shows the ratio of measures as a percentage.
+Normalized stacked area chart that shows the ratio of measures as a percentage.
 
 | Section<br/> in the wizard | Description |
 | ----- | ---- |

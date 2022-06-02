@@ -4,17 +4,12 @@
 
 {% note info %}
 
-Если хранилище баз данных заполнится на 95%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее.
+* Количество хостов, которые можно создать вместе с кластером {{ MS }}, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
-
-Количество хостов, которые можно создать вместе с кластером {{ MS }}, зависит от выбранного [типа хранилища](../concepts/storage.md):
-
-* При использовании хранилища на **локальных SSD-дисках** или на **нереплицируемых SSD-дисках** вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании хранилища на **сетевых HDD-дисках** или на **сетевых SSD-дисках** вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
-
-После создания кластера в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+Если хранилище баз данных заполнится на 95%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее.
 
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
 
@@ -106,7 +101,7 @@
         
         ```bash
         {{ yc-mdb-ms }} cluster create <имя кластера> \
-           --sqlserver-version=<версия {{ MS }}> \
+           --sqlserver-version=<версия {{ MS }}: {{ versions.cli.str }}> \
            --environment=<окружение: PRESTABLE или PRODUCTION> \
            --host zone-id=<зона доступности>,`
                  `subnet-id=<идентификатор подсети>,`
@@ -197,7 +192,7 @@
           name                = "<имя кластера>"
           environment         = "<окружение: PRESTABLE или PRODUCTION>"
           network_id          = "<идентификатор сети>"
-          version             = "<версия {{ MS }}>"
+          version             = "<версия {{ MS }}: {{ versions.tf.str }}>"
           security_groups_id  = ["<список идентификаторов групп безопасности>"]
           deletion_protection = <защита от удаления кластера: true или false>
 
@@ -312,7 +307,7 @@
 
     
     * С именем `mssql-1`.
-    * Версии `2016 SP2 Standard Edition`.
+    * Версии `{{ versions.cli.latest.long-std }}`.
     * В окружении `PRODUCTION`.
     * В сети `default`.
     * В группе безопасности `{{ security-group }}`.
@@ -328,7 +323,7 @@
     ```bash
     {{ yc-mdb-ms }} cluster create \
        --name=mssql-1 \
-       --sqlserver-version=2016sp2std \
+       --sqlserver-version={{ versions.cli.latest.std }} \
        --environment=PRODUCTION \
        --network-name=default \
        --resource-preset=s2.small \
@@ -349,7 +344,7 @@
 
     * С именем `mssql-1`.
     * В окружении `PRODUCTION`.
-    * С версией {{ MS }} `2016 ServicePack 2` и редакцией `Standard Edition`.
+    * С версией {{ MS }} `{{ versions.tf.latest.long-std }}`.
     * В облаке с идентификатором `{{ tf-cloud-id }}`.
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
@@ -381,7 +376,7 @@
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
       name                = "mssql-1"
       environment         = "PRODUCTION"
-      version             = "2016sp2std"
+      version             = "{{ versions.tf.latest.std }}"
       network_id          = yandex_vpc_network.mynet.id
       security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
       deletion_protection = true

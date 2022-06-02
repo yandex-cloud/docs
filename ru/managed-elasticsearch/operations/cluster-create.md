@@ -11,12 +11,12 @@ keywords:
 
 Кластер {{ mes-name }} — это группа из нескольких связанных друг с другом хостов {{ ES }}. Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью _Data node_. Подробнее о ролях в кластере см. в разделе [{#T}](../concepts/hosts-roles.md).
 
-Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md):
+{% note info %}
 
-* При использовании хранилища на **локальных SSD-дисках** или на **нереплицируемых SSD-дисках** вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании хранилища на **сетевых HDD-дисках** или на **сетевых SSD-дисках** вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
+* Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
-После создания кластера в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+{% endnote %}
 
 ## Создать кластер {#create-cluster}
 
@@ -144,7 +144,7 @@ keywords:
           --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node> \
           --masternode-disk-type <тип хранилища для хостов с ролью Master node> \
           --security-group-ids <список идентификаторов групп безопасности> \
-          --version <версия {{ ES }}> \
+          --version <версия {{ ES }}: {{ versions.cli.str }}> \
           --edition <редакция {{ ES }}: basic, gold или platinum> \
           --admin-password <пароль пользователя admin> \
           --plugins=<имя плагина 1>,...,<имя плагина N> \
@@ -196,7 +196,7 @@ keywords:
           network_id  = "<идентификатор сети>"
 
           config {
-            version = "<(необязательно) версия {{ ES }}>"
+            version = "<(необязательно) версия {{ ES }}: {{ versions.tf.str }}>"
             edition = "<(необязательно) редакция {{ ES }}: basic, gold или platinum>"
 
             admin_password = "<пароль пользователя-администратора>"
@@ -294,7 +294,7 @@ keywords:
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 
     * Имя `my-es-clstr`.
-    * Версия `7.10`.
+    * Версия `{{ versions.cli.latest }}`.
     * Редакция `Platinum`.
     * Окружение `PRODUCTION`.
     * Сеть `default`.
@@ -317,7 +317,7 @@ keywords:
       --datanode-disk-size=20 \
       --admin-password=esadminpwd \
       --security-group-ids enpp2s8l3irhk5eromd7 \
-      --version 7.10 \
+      --version {{ versions.cli.latest }} \
       --edition platinum \
       --deletion-protection=true
     ```
@@ -327,7 +327,7 @@ keywords:
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 
     * Имя `my-es-clstr`.
-    * Версия `7.13`.
+    * Версия `{{ versions.tf.latest }}`.
     * Редакция `Basic`.
     * Окружение `PRODUCTION`.
     * Облако с идентификатором `{{ tf-cloud-id }}`.
@@ -363,6 +363,7 @@ keywords:
 
       config {
         edition = "basic"
+        version = "{{ versions.tf.latest }}"
 
         admin_password = "esadminpwd"
 

@@ -2,12 +2,12 @@
 
 Кластер {{ mkf-name }} — это один или несколько хостов-брокеров, на которых размещены топики и соответствующие топикам разделы. Производители и потребители могут работать с этими топиками, подключившись к хостам кластера.
 
-Количество хостов-брокеров, которые можно создать вместе с кластером {{ KF }}, зависит от выбранного [типа хранилища](../concepts/storage.md):
+{% note info %}
 
-* При использовании хранилища на **локальных SSD-дисках** или на **нереплицируемых SSD-дисках** вы можете создать кластер из трех или более хостов-брокеров (минимум три брокера необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании хранилища на **сетевых HDD-дисках** или **сетевых SSD-дисках** вы можете добавить любое количество хостов-брокеров в пределах [текущей квоты](../concepts/limits.md).
+* Количество хостов-брокеров, которые можно создать вместе с кластером {{ KF }}, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
-После создания кластера в него можно добавить дополнительные брокеры, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+{% endnote %}
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
@@ -122,7 +122,7 @@
       {{ yc-mdb-kf }} cluster create \
         --name <имя кластера> \
         --environment <окружение: prestable или production> \
-        --version <версия {{ KF }}> \
+        --version <версия {{ KF }}: {{ versions.cli.str }}> \
         --network-name <имя сети> \
         --brokers-count <количество брокеров в зоне> \
         --resource-preset <класс хоста> \
@@ -170,6 +170,8 @@
       1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
 
   
+  1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
+
   1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
       ```bash
@@ -225,7 +227,7 @@
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
             brokers_count    = <количество брокеров>
-            version          = "<версия {{ KF }}>"
+            version          = "<версия {{ mkf-name }}: {{ versions.tf.str }}>"
             schema_registry  = "<управление схемами данных: true или false>"
             kafka {
               resources {
@@ -294,6 +296,8 @@
 
     {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
     
     Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
@@ -320,7 +324,7 @@
   
   * С именем `mykf`.
   * В окружении `production`.
-  * С {{ KF }} версии `2.8`.
+  * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -336,7 +340,7 @@
   {{ yc-mdb-kf }} cluster create \
     --name mykf \
     --environment production \
-    --version 2.8 \
+    --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
     --zone-ids {{ zone-id }} \
     --brokers-count 1 \
@@ -356,7 +360,7 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * С именем `mykf`.
     * В окружении `PRODUCTION`.
-    * С {{ KF }} версии `2.8`.
+    * С {{ KF }} версии `{{ versions.tf.latest }}`.
     * В новой сети `mynet` с подсетью `mysubnet`.
     * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
     * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -393,7 +397,7 @@
       config {
         assign_public_ip = true
         brokers_count    = 1
-        version          = "2.8"
+        version          = "{{ versions.tf.latest }}"
         kafka {
           resources {
             disk_size          = 10

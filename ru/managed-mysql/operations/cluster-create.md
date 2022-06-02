@@ -94,7 +94,7 @@
        --environment <окружение, prestable или production> \
        --network-name <имя сети> \
        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-       --mysql-version <версия MySQL> \
+       --mysql-version <версия {{ MY }}: {{ versions.cli.str }}> \
        --resource-preset <класс хоста> \
        --user name=<имя пользователя>,password=<пароль пользователя> \
        --database name=<имя базы данных> \
@@ -149,7 +149,7 @@
        name                = "<имя кластера>"
        environment         = "<окружение, PRESTABLE или PRODUCTION>"
        network_id          = "<идентификатор сети>"
-       version             = "<версия MySQL: 5.7 или 8.0>"
+       version             = "<версия MySQL: {{ versions.tf.str }}>"
        security_group_ids  = [ "<список групп безопасности>" ]
        deletion_protection = <защита от удаления кластера: true или false>
 
@@ -218,6 +218,8 @@
     * Идентификатор сети в параметре `networkId`.
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
 
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
 {% endlist %}
 
 {% note warning %}
@@ -240,7 +242,7 @@
 
     
     * С именем `my-mysql`.
-    * Версии `8.0`.
+    * Версии `{{ versions.cli.latest }}`.
     * В окружении `production`.
     * В сети `default`.
     * В группе безопасности с идентификатором `{{ security-group }}`.
@@ -256,7 +258,7 @@
       ```bash
       {{ yc-mdb-my }} cluster create \
         --name="my-mysql" \
-        --mysql-version 8.0 \
+        --mysql-version {{ versions.cli.latest }} \
         --environment=production \
         --network-name=default \
         --security-group-ids {{ security-group }} \
@@ -283,7 +285,7 @@
   Допустим, нужно создать {{ MY }}-кластер и сеть для него со следующими характеристиками:
 
     * С именем `my-mysql`.
-    * Версии `8.0`.
+    * Версии `{{ versions.tf.latest }}`.
     * В окружении `PRESTABLE`.
     * В облаке с идентификатором `{{ tf-cloud-id }}`.
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
@@ -317,7 +319,7 @@
     name                = "my-mysql"
     environment         = "PRESTABLE"
     network_id          = yandex_vpc_network.mynet.id
-    version             = "8.0"
+    version             = "{{ versions.tf.latest }}"
     security_group_ids  = [ yandex_vpc_security_group.mysql-sg.id ]
     deletion_protection = true
 
