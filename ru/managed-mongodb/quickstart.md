@@ -64,17 +64,18 @@
 
 ## Подключитесь к БД {#connect}
 
-1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+1. [Настройте группы безопасности](operations/connect/index.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
 1. Получите SSL-сертификат:
 
-    {% include [install-certificate](../_includes/mdb/mmg/install-certificate.md) %}
+   {% include [install-certificate](../_includes/mdb/mmg/install-certificate.md) %}
 
 1. Подключитесь к кластеру с помощью {{ MG }} CLI:
 
-    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
+   {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](concepts/index.md).
-* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect.md).
+* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect/index.md).
 * Ознакомьтесь с [вопросами и ответами](qa/general.md).
